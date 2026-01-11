@@ -1,24 +1,24 @@
-# API Compat Contract (Current)
+# API Contract (Owned)
 
-This document defines the **current owned compatibility layer** that mimics the former Base44 client shape.
+This document defines the **owned frontend API surface** used by the UI.
 
-The UI currently imports `{ base44 }` and calls:
+The UI imports `{ api }` and calls:
 
-- `base44.entities.<Entity>.list(sort?, limit?)`
-- `base44.entities.<Entity>.create(payload)`
-- `base44.entities.<Entity>.update(id, patch)`
-- `base44.entities.<Entity>.delete(id)`
-- `base44.entities.<Entity>.bulkCreate(items)` (only for a subset)
-- `base44.auth.me()`
-- `base44.auth.updateMe(data)`
+- `api.entities.<Entity>.list(sort?, limit?)`
+- `api.entities.<Entity>.create(payload)`
+- `api.entities.<Entity>.update(id, patch)`
+- `api.entities.<Entity>.delete(id)`
+- `api.entities.<Entity>.bulkCreate(items)` (only for a subset)
+- `api.auth.me()`
+- `api.auth.updateMe(data)`
 
 Implementation lives in:
-- [src/api/base44Client.js](src/api/base44Client.js)
-- [src/api/stubDb.js](src/api/stubDb.js)
+- [src/api/client.js](src/api/client.js) (fetch adapter)
+- [server/index.mjs](server/index.mjs) (owned backend under `/api/*`)
 
 ## Entities
 
-All entities below exist under `base44.entities` and expose methods:
+All entities below exist under `api.entities` and expose methods:
 - `list(sort?, limit?)`
 - `create(payload)`
 - `update(id, patch)`
@@ -54,16 +54,13 @@ Return value:
 
 ## Auth
 
-`base44.auth` exposes:
+`api.auth` exposes:
 
 - `me()`
-  - Returns a stable demo user.
-  - Ensures the `User` table contains that user.
+  - Returns a stable demo user (`User` record).
 
 - `updateMe(data)`
-  - Merges `data` into the current user (shallow merge).
-  - Persists auth user.
-  - Also updates the `User` entity record.
+  - Shallow-merges `data` into the current user and persists it.
 
 ## Sorting and list behavior
 
@@ -100,12 +97,5 @@ Common sorts used by the UI include:
 
 - `create(payload)`:
   - Uses `payload.id` if provided.
-  - Otherwise assigns a deterministic ID via a per-entity counter in localStorage:
+  - Otherwise assigns a deterministic ID via a per-entity counter:
     - Format: `${entity.toLowerCase()}_${n}`
-
-## Persistence
-
-- Tables and counters are persisted in `localStorage` under prefix `sumowatch_db_v1:`.
-- In-browser stub logs are written to:
-  - `window.__STUB_LOGS__` (in-memory)
-  - `localStorage['sumowatch_db_v1:logs']` (last 500 lines)
