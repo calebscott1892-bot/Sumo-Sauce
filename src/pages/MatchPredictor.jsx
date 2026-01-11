@@ -133,7 +133,7 @@ export default function MatchPredictor() {
       toast.success('Prediction saved!');
     },
     onError: (error) => {
-      console.error('🔴 BASE44 ERROR:', error);
+      console.error('🔴 API ERROR:', error);
       console.error('🔴 ERROR DETAILS:', JSON.stringify(error, null, 2));
       toast.error(`Save failed: ${error.message || 'Unknown error'}`);
     }

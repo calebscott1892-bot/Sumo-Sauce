@@ -1,20 +1,33 @@
-# Base44 App
+# SumoWatch
 
+SumoWatch is a Vite + React app with an owned backend API.
 
-This app was created automatically by Base44.
-It's a Vite+React app that communicates with the Base44 API.
+- Frontend: Vite dev server
+- Backend: Express server under `/api/*`
+- API contract: `api.entities.*` and `api.auth.*` (see `API_COMPAT_CONTRACT.md`)
 
-## Running the app
+## Development
 
 ```bash
 npm install
+```
+
+In one terminal:
+
+```bash
+npm run server:dev
+```
+
+In another terminal:
+
+```bash
 npm run dev
 ```
 
-## Building the app
+The frontend runs at `http://localhost:5173` and talks to the backend at `http://127.0.0.1:8787` by default.
+
+## Build
 
 ```bash
 npm run build
 ```
-
-For more information and support, please contact Base44 support at app@base44.com.

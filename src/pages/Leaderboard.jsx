@@ -317,7 +317,7 @@ export default function Leaderboard() {
           <h2 className="text-white text-2xl font-bold mb-2">Connection Issue</h2>
           <p className="text-zinc-400 mb-2">Unable to load wrestler data in preview mode.</p>
           <p className="text-zinc-500 text-sm mb-6">
-            This is a known Base44 SDK limitation with CORS. The app will work correctly in production.
+            Known preview/network limitation — some requests may fail in local/preview environments.
           </p>
           <Button onClick={() => window.location.reload()} className="bg-red-600 hover:bg-red-700">
             Retry
