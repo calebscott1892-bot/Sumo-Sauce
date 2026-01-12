@@ -1,11 +1,19 @@
 import assert from 'node:assert/strict';
 import { spawn } from 'node:child_process';
 import { stat } from 'node:fs/promises';
+import net from 'node:net';
 import { setTimeout as delay } from 'node:timers/promises';
 
 const SERVER_PORT = 8787;
 const BASE = `http://127.0.0.1:${SERVER_PORT}/api`;
 const BOOTSTRAP_CMD = 'npm run bootstrap';
+
+const TIMEOUTS = {
+  overallMs: 90_000,
+  healthMs: 20_000,
+  fetchMs: 1_000,
+  portProbeMs: 800,
+};
 
 const DEV_DB_PATH = new URL('../server/prisma/dev.db', import.meta.url);
 
@@ -18,10 +26,70 @@ async function hasNonEmptyDevDb() {
   }
 }
 
+async function withTimeout(label, ms, fn) {
+  return await Promise.race([
+    fn(),
+    delay(ms).then(() => {
+      throw new Error(`phase:${label} timed out after ${ms}ms`);
+    }),
+  ]);
+}
+
+async function fetchWithTimeout(url, timeoutMs) {
+  const controller = new AbortController();
+  const t = setTimeout(() => controller.abort(new Error(`fetch timed out after ${timeoutMs}ms`)), timeoutMs);
+  try {
+    return await fetch(url, { signal: controller.signal });
+  } finally {
+    clearTimeout(t);
+  }
+}
+
+async function assertPortFree(host, port) {
+  await withTimeout('portProbe', TIMEOUTS.portProbeMs, async () => {
+    await new Promise((resolve, reject) => {
+      const socket = new net.Socket();
+      const done = (err) => {
+        socket.removeAllListeners();
+        socket.destroy();
+        if (err) reject(err);
+        else resolve();
+      };
+
+      socket.once('connect', () => done(new Error(`port already in use (${host}:${port})`)));
+      socket.once('error', (err) => {
+        if (err && (err.code === 'ECONNREFUSED' || err.code === 'EHOSTUNREACH' || err.code === 'ENETUNREACH')) {
+          done(null);
+          return;
+        }
+        done(err);
+      });
+      socket.setTimeout(TIMEOUTS.portProbeMs, () => done(null));
+      socket.connect(port, host);
+    });
+  });
+}
+
+function killProcessGroupBestEffort(child) {
+  if (!child || child.killed) return;
+  const pid = child.pid;
+  if (!pid) return;
+  try {
+    process.kill(-pid, 'SIGTERM');
+  } catch {
+    try {
+      child.kill('SIGTERM');
+    } catch {
+      // ignore
+    }
+  }
+}
+
 function startServer() {
   const child = spawn('npm', ['--prefix', 'server', 'run', 'dev'], {
     stdio: ['ignore', 'pipe', 'pipe'],
     env: { ...process.env, PORT: String(SERVER_PORT) },
+    detached: true,
   });
 
   const logs = [];
@@ -39,7 +107,7 @@ async function waitForHealth(timeoutMs = 20000) {
   const start = Date.now();
   while (Date.now() - start < timeoutMs) {
     try {
-      const res = await fetch(`${BASE}/health`);
+      const res = await fetchWithTimeout(`${BASE}/health`, TIMEOUTS.fetchMs);
       if (res.ok) return;
     } catch {
       // ignore
@@ -67,10 +135,15 @@ async function main() {
     return;
   }
 
+  await assertPortFree('127.0.0.1', SERVER_PORT);
+
   const { child } = startServer();
 
   try {
-    await waitForHealth();
+    await withTimeout('overall', TIMEOUTS.overallMs, async () => {
+      await withTimeout('health', TIMEOUTS.healthMs, async () => {
+        await waitForHealth(TIMEOUTS.healthMs);
+      });
 
     // 1) auth.me() returns stable demo user
     const me = await json('GET', '/auth/me');
@@ -118,7 +191,8 @@ async function main() {
     const users = await json('GET', '/entities/User?sort=-created_date&limit=500');
     assert.ok(users.some((u) => u.id === 'user_1' && u.full_name === 'Changed Name'));
 
-    process.stdout.write('OK verify-backend-contract\n');
+      process.stdout.write('OK verify-backend-contract\n');
+    });
   } catch (err) {
     if (err && (err.code === 'MISSING_DEV_DATA' || String(err.message || '').startsWith('MISSING_DEV_DATA:'))) {
       process.stdout.write(`${String(err.message || err)}\n`);
@@ -127,14 +201,29 @@ async function main() {
     }
     throw err;
   } finally {
-    child.kill('SIGTERM');
-    await delay(250);
-    child.kill('SIGKILL');
+    killProcessGroupBestEffort(child);
+    await delay(300);
+
+    if (child?.pid) {
+      try {
+        process.kill(-child.pid, 'SIGKILL');
+      } catch {
+        try {
+          child.kill('SIGKILL');
+        } catch {
+          // ignore
+        }
+      }
+    }
   }
 }
 
-main().catch((err) => {
-  // eslint-disable-next-line no-console
-  console.error(String(err?.stack || err));
-  process.exit(1);
-});
+main()
+  .then(() => {
+    process.exit(process.exitCode ?? 0);
+  })
+  .catch((err) => {
+    // eslint-disable-next-line no-console
+    console.error(String(err?.stack || err));
+    process.exit(1);
+  });
