@@ -18,9 +18,6 @@ export default function MatchPredictor() {
   const [prediction, setPrediction] = useState(null);
   const [userPick, setUserPick] = useState(null);
   const [odds, setOdds] = useState(null);
-  const [skipStubs, setSkipStubs] = useState(() => {
-    return localStorage.getItem('skip_stubs') === 'true';
-  });
   const queryClient = useQueryClient();
 
   const { data: user } = useQuery({
@@ -86,23 +83,18 @@ export default function MatchPredictor() {
   const { data: userStats } = useQuery({
     queryKey: ['user-prediction-stats', user?.email],
     queryFn: async () => {
-      try {
-        const allPredictions = await api.entities.MatchPrediction.list('-created_date', 500);
-        const userPreds = allPredictions.filter(p => p.created_by === user.email);
-        const resolved = userPreds.filter(p => p.is_resolved);
-        const correct = resolved.filter(p => p.is_correct).length;
-        const pending = userPreds.filter(p => !p.is_resolved).length;
-        
-        return {
-          total: userPreds.length,
-          correct,
-          pending,
-          accuracy: resolved.length > 0 ? (correct / resolved.length) * 100 : 0
-        };
-      } catch (error) {
-        console.error('Failed to fetch user stats:', error);
-        return { total: 0, correct: 0, pending: 0, accuracy: 0 };
-      }
+      const allPredictions = await api.entities.MatchPrediction.list('-created_date', 500);
+      const userPreds = allPredictions.filter(p => p.created_by === user.email);
+      const resolved = userPreds.filter(p => p.is_resolved);
+      const correct = resolved.filter(p => p.is_correct).length;
+      const pending = userPreds.filter(p => !p.is_resolved).length;
+
+      return {
+        total: userPreds.length,
+        correct,
+        pending,
+        accuracy: resolved.length > 0 ? (correct / resolved.length) * 100 : 0
+      };
     },
     enabled: !!user?.email,
   });
@@ -110,13 +102,8 @@ export default function MatchPredictor() {
   const { data: userPredictions = [], refetch: refetchPredictions } = useQuery({
     queryKey: ['user-predictions', user?.email],
     queryFn: async () => {
-      try {
-        const allPredictions = await api.entities.MatchPrediction.list('-created_date', 50);
-        return allPredictions.filter(p => p.created_by === user.email).slice(0, 20);
-      } catch (error) {
-        console.error('Failed to fetch predictions:', error);
-        return [];
-      }
+      const allPredictions = await api.entities.MatchPrediction.list('-created_date', 50);
+      return allPredictions.filter(p => p.created_by === user.email).slice(0, 20);
     },
     enabled: !!user?.email,
   });
@@ -142,32 +129,13 @@ export default function MatchPredictor() {
   const wrestler1 = wrestlers.find(w => w.id === wrestler1Id);
   const wrestler2 = wrestlers.find(w => w.id === wrestler2Id);
 
-  // Get most recent BashoRecord for each wrestler (prefer non-stub, skip stubs if option enabled)
+  // Get most recent BashoRecord for each wrestler
   const getLatestBashoRecord = (wrestlerRid) => {
     const records = bashoRecords.filter(r => r.rid === wrestlerRid);
     if (records.length === 0) return null;
-    
-    // If skip stubs is enabled, only use real records
-    if (skipStubs) {
-      const realRecords = records.filter(r => !r.is_stub);
-      const sortedReal = realRecords.sort((a, b) => (b.basho || '').localeCompare(a.basho || ''));
-      return sortedReal.length > 0 ? sortedReal[0] : null;
-    }
-    
-    // Prefer non-stub records
-    const realRecords = records.filter(r => !r.is_stub);
-    const sortedReal = realRecords.sort((a, b) => (b.basho || '').localeCompare(a.basho || ''));
-    if (sortedReal.length > 0) return sortedReal[0];
-    
-    // Fall back to stub if no real records
-    const sortedStubs = records.sort((a, b) => (b.basho || '').localeCompare(a.basho || ''));
-    return sortedStubs[0];
-  };
 
-  const toggleSkipStubs = () => {
-    const newValue = !skipStubs;
-    setSkipStubs(newValue);
-    localStorage.setItem('skip_stubs', newValue.toString());
+    const sorted = records.sort((a, b) => (b.basho || '').localeCompare(a.basho || ''));
+    return sorted[0];
   };
 
   const wrestler1Record = wrestler1 ? getLatestBashoRecord(wrestler1.rid) : null;
@@ -192,8 +160,8 @@ export default function MatchPredictor() {
       }
 
       const result = calculateMatchProbability(
-        { ...wrestler1, currentForm: wrestler1Record, formIsStub: wrestler1Record?.is_stub },
-        { ...wrestler2, currentForm: wrestler2Record, formIsStub: wrestler2Record?.is_stub }
+        { ...wrestler1, currentForm: wrestler1Record },
+        { ...wrestler2, currentForm: wrestler2Record }
       );
       
       // Validate result structure
@@ -211,10 +179,7 @@ export default function MatchPredictor() {
       setUserPick(null);
 
       // Fetch odds (simulated for now)
-      const matchOdds = await fetchMatchOdds({ 
-        wrestler1Name: wrestler1.shikona, 
-        wrestler2Name: wrestler2.shikona 
-      });
+      const matchOdds = await fetchMatchOdds({ wrestlerA: { ...wrestler1, currentForm: wrestler1Record }, wrestlerB: { ...wrestler2, currentForm: wrestler2Record } });
       setOdds(matchOdds);
     } catch (error) {
       console.error('Prediction failed:', error);
@@ -336,23 +301,13 @@ export default function MatchPredictor() {
             <div className="bg-zinc-900 border border-zinc-800 rounded-lg p-6">
               <div className="flex items-center justify-between mb-6">
                 <h2 className="text-xl font-black text-white">Select Wrestlers</h2>
-                <button
-                  onClick={toggleSkipStubs}
-                  className={`text-xs px-3 py-1.5 rounded border font-bold transition-colors ${
-                    skipStubs
-                      ? 'bg-green-900/50 text-green-400 border-green-700'
-                      : 'bg-zinc-800 text-zinc-400 border-zinc-700'
-                  }`}
-                >
-                  {skipStubs ? '✓ Skip Stubs' : 'Include Stubs'}
-                </button>
               </div>
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
                   <label className="text-sm text-zinc-400 mb-2 block">Wrestler 1</label>
                   <Select value={wrestler1Id} onValueChange={setWrestler1Id}>
                     <SelectTrigger className="bg-zinc-800 border-zinc-700 text-white">
-                      <SelectValue placeholder="Select wrestler" />
+                      <SelectValue placeholder="Select rikishi" />
                     </SelectTrigger>
                     <SelectContent className="bg-zinc-800 border-zinc-700">
                       {wrestlers.map(w => (
@@ -368,7 +323,7 @@ export default function MatchPredictor() {
                   <label className="text-sm text-zinc-400 mb-2 block">Wrestler 2</label>
                   <Select value={wrestler2Id} onValueChange={setWrestler2Id}>
                     <SelectTrigger className="bg-zinc-800 border-zinc-700 text-white">
-                      <SelectValue placeholder="Select wrestler" />
+                      <SelectValue placeholder="Select rikishi" />
                     </SelectTrigger>
                     <SelectContent className="bg-zinc-800 border-zinc-700">
                       {wrestlers.filter(w => w.id !== wrestler1Id).map(w => (
@@ -445,13 +400,9 @@ export default function MatchPredictor() {
                             )}
                           </div>
                           <div className="flex items-center gap-2">
-                            {wrestler1Record?.is_stub ? (
-                              <span className="text-xs px-2 py-1 bg-yellow-900/50 text-yellow-400 rounded border border-yellow-700">
-                                ⚠ Stub Record
-                              </span>
-                            ) : wrestler1Record ? (
+                            {wrestler1Record ? (
                               <span className="text-xs px-2 py-1 bg-green-900/50 text-green-400 rounded border border-green-700">
-                                ✓ Real Basho Data
+                                ✓ Basho Data
                               </span>
                             ) : (
                               <span className="text-xs px-2 py-1 bg-red-900/50 text-red-400 rounded border border-red-700">
@@ -487,13 +438,9 @@ export default function MatchPredictor() {
                             )}
                           </div>
                           <div className="flex items-center gap-2">
-                            {wrestler2Record?.is_stub ? (
-                              <span className="text-xs px-2 py-1 bg-yellow-900/50 text-yellow-400 rounded border border-yellow-700">
-                                ⚠ Stub Record
-                              </span>
-                            ) : wrestler2Record ? (
+                            {wrestler2Record ? (
                               <span className="text-xs px-2 py-1 bg-green-900/50 text-green-400 rounded border border-green-700">
-                                ✓ Real Basho Data
+                                ✓ Basho Data
                               </span>
                             ) : (
                               <span className="text-xs px-2 py-1 bg-red-900/50 text-red-400 rounded border border-red-700">

@@ -8,7 +8,7 @@
     "db:generate": "prisma generate",
     "db:push": "prisma db push",
     "db:migrate": "prisma migrate dev --name init",
-    "seed": "node prisma/seed.mjs"
+    "bootstrap": "node prisma/bootstrap.mjs"
   },
   "dependencies": {
     "@prisma/client": "^6.3.1",

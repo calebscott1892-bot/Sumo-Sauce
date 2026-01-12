@@ -4,12 +4,10 @@ import { nowIso } from './_ids';
 export default async function resolveJSAProfiles(input = {}) {
   logFn('resolveJSAProfiles', 'default', [input]);
 
-  return {
-    profilesById: {},
-    meta: {
-      source: 'stub',
-      generatedAt: nowIso(),
-      note: 'replace with real backend later',
-    },
-  };
+  const err = new Error(
+    `resolveJSAProfiles is not available in this build (generatedAt=${nowIso()}). ` +
+      'Resolve profiles via the owned backend API instead.'
+  );
+  err.code = 'NOT_IMPLEMENTED';
+  throw err;
 }

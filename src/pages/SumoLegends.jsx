@@ -6,6 +6,8 @@ import { ArrowLeft, Trophy, Crown, Star, Flame, TrendingUp, Medal } from 'lucide
 import { motion } from 'framer-motion';
 import { BarChart, Bar, RadarChart, Radar, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer, XAxis, YAxis, Tooltip, Legend, CartesianGrid } from 'recharts';
 
+const ALLOW_EXTERNAL_IMAGES = import.meta.env.VITE_ENABLE_EXTERNAL_IMAGES === 'true';
+
 const legends = [
   {
     id: 1,
@@ -119,6 +121,7 @@ const legends = [
 
 export default function SumoLegends() {
   const [selectedLegends, setSelectedLegends] = useState([legends[0].id, legends[1].id]);
+  const [imageErrorById, setImageErrorById] = useState({});
 
   const toggleLegend = (id) => {
     if (selectedLegends.includes(id)) {
@@ -206,11 +209,29 @@ export default function SumoLegends() {
                   </div>
                 )}
                 <div className="flex items-center gap-3 mb-3">
-                  <img
-                    src={legend.image}
-                    alt={legend.name}
-                    className="w-16 h-16 object-cover rounded"
-                  />
+                  {ALLOW_EXTERNAL_IMAGES && !imageErrorById[legend.id] ? (
+                    <img
+                      src={legend.image}
+                      alt={legend.name}
+                      referrerPolicy="no-referrer"
+                      onError={() =>
+                        setImageErrorById((prev) => ({
+                          ...prev,
+                          [legend.id]: true,
+                        }))
+                      }
+                      className="w-16 h-16 object-cover rounded"
+                    />
+                  ) : (
+                    <div className="w-16 h-16 bg-zinc-800 rounded flex items-center justify-center text-zinc-500 font-black">
+                      {legend.name
+                        .split(' ')
+                        .filter(Boolean)
+                        .slice(0, 2)
+                        .map((s) => s[0])
+                        .join('')}
+                    </div>
+                  )}
                   <div>
                     <h3 className="text-white font-black">{legend.name}</h3>
                     <div className="text-xs text-zinc-500">{legend.era}</div>

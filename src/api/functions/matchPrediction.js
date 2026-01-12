@@ -1,13 +1,12 @@
 import { logFn } from './_log';
-import { stableHash } from './_ids';
 
-function keyForWrestler(w) {
-  if (!w) return 'unknown';
-  if (typeof w === 'string') return w;
-  if (typeof w === 'object') {
-    return w.id || w.rid || w.shikona || w.name || w.email || 'unknown';
-  }
-  return String(w);
+function readWinRate(w) {
+  const rec = w?.currentForm && typeof w.currentForm === 'object' ? w.currentForm : null;
+  const wins = Number(rec?.wins ?? w?.wins ?? 0);
+  const losses = Number(rec?.losses ?? w?.losses ?? 0);
+  const total = wins + losses;
+  if (!Number.isFinite(total) || total <= 0) return null;
+  return wins / total;
 }
 
 function clamp01(n) {
@@ -19,36 +18,37 @@ function round3(n) {
   return Math.round(n * 1000) / 1000;
 }
 
-export function calculateMatchProbability({ wrestlerA, wrestlerB, context } = {}) {
-  logFn('matchPrediction', 'calculateMatchProbability', [{ wrestlerA, wrestlerB, context }]);
+export function calculateMatchProbability(wrestler1, wrestler2, context = {}) {
+  logFn('matchPrediction', 'calculateMatchProbability', [{ wrestler1, wrestler2, context }]);
 
-  const aKey = keyForWrestler(wrestlerA);
-  const bKey = keyForWrestler(wrestlerB);
-  const h = stableHash(`${aKey}|${bKey}`);
+  const w1 = readWinRate(wrestler1);
+  const w2 = readWinRate(wrestler2);
 
-  // Deterministic pseudo-probability in [0.25, 0.75].
-  const base = 0.25 + ((h % 1000) / 1000) * 0.5;
-  const a = clamp01(base);
-  const b = clamp01(1 - a);
+  // If we don't have record data, be explicit and let UI handle it.
+  if (w1 == null || w2 == null) {
+    const err = new Error('Insufficient record data to calculate match probability');
+    err.code = 'INSUFFICIENT_DATA';
+    throw err;
+  }
 
-  // Confidence in [0.55, 0.9].
-  const confidence = 0.55 + (((h >>> 10) % 1000) / 1000) * 0.35;
+  const denom = w1 + w2;
+  const p1 = denom > 0 ? clamp01(w1 / denom) : 0.5;
+  const p2 = clamp01(1 - p1);
 
-  const explanation = `Stub prediction for ${aKey} vs ${bKey} (deterministic)`;
+  const predictedWinner = p1 >= p2 ? 'wrestler1' : 'wrestler2';
+  const confidence = clamp01(Math.abs(p1 - 0.5) * 2);
 
   return {
-    a: round3(a),
-    b: round3(b),
+    wrestler1Probability: round3(p1),
+    wrestler2Probability: round3(p2),
+    predictedWinner,
     confidence: round3(confidence),
-    explanation,
+    explanation: 'Based on recent win rates from available records.',
   };
 }
 
 export async function fetchMatchOdds({ wrestlerA, wrestlerB } = {}) {
   logFn('matchPrediction', 'fetchMatchOdds', [{ wrestlerA, wrestlerB }]);
-  const prob = calculateMatchProbability({ wrestlerA, wrestlerB });
-  return {
-    implied: { a: prob.a, b: prob.b },
-    source: 'stub',
-  };
+  const prob = calculateMatchProbability(wrestlerA, wrestlerB);
+  return { implied: { wrestler1: prob.wrestler1Probability, wrestler2: prob.wrestler2Probability } };
 }

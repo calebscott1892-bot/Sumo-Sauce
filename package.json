@@ -8,9 +8,10 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
+    "bootstrap": "npm run server:db:push && npm run server:bootstrap",
     "server:dev": "npm --prefix server run dev",
     "server:db:push": "npm --prefix server run db:push",
-    "server:seed": "npm --prefix server run seed",
+    "server:bootstrap": "npm --prefix server run bootstrap",
     "verify:backend-contract": "node scripts/verify-backend-contract.mjs"
   },
   "dependencies": {

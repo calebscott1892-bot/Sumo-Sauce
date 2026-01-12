@@ -98,7 +98,7 @@ export default function MakePredictionDialog({ open, onClose, tournament, league
             </label>
             <Select value={winner} onValueChange={setWinner}>
               <SelectTrigger className="bg-zinc-800 border-zinc-700 text-white">
-                <SelectValue placeholder="Select wrestler" />
+                <SelectValue placeholder="Select rikishi" />
               </SelectTrigger>
               <SelectContent className="bg-zinc-800 border-zinc-700">
                 {activeWrestlers.map(w => (
@@ -114,7 +114,7 @@ export default function MakePredictionDialog({ open, onClose, tournament, league
             <label className="text-sm text-zinc-400 mb-2 block">Predicted Runner-Up</label>
             <Select value={runnerUp} onValueChange={setRunnerUp}>
               <SelectTrigger className="bg-zinc-800 border-zinc-700 text-white">
-                <SelectValue placeholder="Select wrestler (optional)" />
+                <SelectValue placeholder="Select rikishi (optional)" />
               </SelectTrigger>
               <SelectContent className="bg-zinc-800 border-zinc-700">
                 {activeWrestlers.filter(w => w.shikona !== winner).map(w => (
@@ -130,7 +130,7 @@ export default function MakePredictionDialog({ open, onClose, tournament, league
             <label className="text-sm text-zinc-400 mb-2 block">Outstanding Performance Prize</label>
             <Select value={outstanding} onValueChange={setOutstanding}>
               <SelectTrigger className="bg-zinc-800 border-zinc-700 text-white">
-                <SelectValue placeholder="Select wrestler (optional)" />
+                <SelectValue placeholder="Select rikishi (optional)" />
               </SelectTrigger>
               <SelectContent className="bg-zinc-800 border-zinc-700">
                 {activeWrestlers.map(w => (

@@ -75,10 +75,10 @@ export default function AdvancedFilters({ filters, onFiltersChange, onClear }) {
                   </label>
                   <Select value={filters.activeStatus || 'all'} onValueChange={(v) => handleChange('activeStatus', v)}>
                     <SelectTrigger className="bg-zinc-800 border-zinc-700 text-white">
-                      <SelectValue placeholder="All Wrestlers" />
+                      <SelectValue placeholder="All Rikishi" />
                     </SelectTrigger>
                     <SelectContent className="bg-zinc-800 border-zinc-700">
-                      <SelectItem value="all" className="text-white hover:bg-zinc-700 focus:bg-zinc-700">All Wrestlers</SelectItem>
+                      <SelectItem value="all" className="text-white hover:bg-zinc-700 focus:bg-zinc-700">All Rikishi</SelectItem>
                       <SelectItem value="active" className="text-white hover:bg-zinc-700 focus:bg-zinc-700">Active Only</SelectItem>
                       <SelectItem value="inactive" className="text-white hover:bg-zinc-700 focus:bg-zinc-700">Retired Only</SelectItem>
                     </SelectContent>

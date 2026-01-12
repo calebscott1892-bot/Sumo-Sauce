@@ -130,7 +130,8 @@ export default function DataImport() {
   const [suggestedCorrection, setSuggestedCorrection] = useState('');
   const [submitting, setSubmitting] = useState(false);
   const [selectedEntity, setSelectedEntity] = useState(() => {
-    return localStorage.getItem('import_entity') || 'Wrestler';
+    const stored = localStorage.getItem('import_entity');
+    return stored || 'Wrestler';
   });
   const [importMode, setImportMode] = useState('create'); // 'create' or 'upsert'
   const [exporting, setExporting] = useState(false);
@@ -216,35 +217,14 @@ export default function DataImport() {
         return;
       }
 
-      // Create stub records for latest basho
-      const stubRecords = missingWrestlers.map(w => ({
-        record_id: `Kyushu 2025:STUB:${w.rid}`,
-        rid: w.rid,
-        shikona: w.shikona,
-        basho: 'Kyushu 2025',
-        wins: 0,
-        losses: 0,
-        absences: 0,
-        win_pct: 0,
-        is_stub: true
-      }));
-
-      // Check which records already exist (idempotent)
-      const existingStubIds = new Set(allRecords.map(r => r.record_id));
-      const toCreate = stubRecords.filter(r => !existingStubIds.has(r.record_id));
-
-      if (toCreate.length > 0) {
-        await api.entities.BashoRecord.bulkCreate(toCreate);
-      }
-
       const report = {
         missingCount: missingWrestlers.length,
-        createdCount: toCreate.length,
+        createdCount: 0,
         affectedRids: missingWrestlers.map(w => w.rid).slice(0, 50)
       };
 
       setFixRecordsReport(report);
-      toast.success(`Created ${toCreate.length} stub basho records`);
+      toast.error('Missing BashoRecords detected. Import real records instead of auto-generating placeholders.');
     } catch (err) {
       setError(`Fix records failed: ${err.message}`);
       console.error('Fix records error:', err);
@@ -296,48 +276,16 @@ export default function DataImport() {
         return;
       }
 
-      // Build stub wrestlers for missing rids
-      const stubWrestlers = [];
-      const skippedRids = [];
-
-      for (const rid of missingRids) {
-        // Find any basho record with this rid to extract shikona and rank
-        const sampleRecord = records.find(r => r.rid === rid);
-        
-        if (!sampleRecord) continue;
-
-        const shikona = sampleRecord.shikona;
-        const rank = deriveRankFromBashoRecord(sampleRecord);
-
-        if (!shikona || !rank) {
-          skippedRids.push({ rid, reason: !shikona ? 'missing shikona' : 'missing rank' });
-          continue;
-        }
-
-        stubWrestlers.push({
-          rid,
-          shikona,
-          current_rank: rank,
-          status_is_active: true,
-          status_is_retired: false
-        });
-      }
-
-      // Bulk create missing wrestlers
-      if (stubWrestlers.length > 0) {
-        await api.entities.Wrestler.bulkCreate(stubWrestlers);
-      }
-
       const report = {
         missingCount: missingRids.length,
-        createdCount: stubWrestlers.length,
-        skippedCount: skippedRids.length,
+        createdCount: 0,
+        skippedCount: 0,
         affectedRids: missingRids.slice(0, 50),
-        skippedDetails: skippedRids.slice(0, 20)
+        skippedDetails: []
       };
 
       setBackfillReport(report);
-      toast.success(`Backfilled ${stubWrestlers.length} missing wrestlers`);
+      toast.error('Missing Wrestlers detected. Import real Wrestler data instead of auto-creating records.');
     } catch (err) {
       setError(`Backfill failed: ${err.message}`);
       console.error('Backfill error:', err);
@@ -1112,7 +1060,7 @@ export default function DataImport() {
               Fix Missing Basho Records
             </CardTitle>
             <CardDescription>
-              Create stub BashoRecords for wrestlers with zero records (Kyushu 2025)
+              Detect wrestlers with zero basho records and report missing rids
             </CardDescription>
           </CardHeader>
           <CardContent>
@@ -1125,7 +1073,7 @@ export default function DataImport() {
               {fixingRecords ? (
                 <>
                   <Loader2 className="w-5 h-5 mr-2 animate-spin" />
-                  Creating stub records...
+                  Checking missing records...
                 </>
               ) : (
                 <>
@@ -1146,7 +1094,7 @@ export default function DataImport() {
                 Backfill Missing Wrestlers
               </CardTitle>
               <CardDescription>
-                Auto-create stub Wrestler records for any missing rids found in pasted BashoRecord JSON
+                Detect missing rids referenced by pasted BashoRecord JSON
               </CardDescription>
             </CardHeader>
             <CardContent>
@@ -1221,7 +1169,8 @@ export default function DataImport() {
             </div>
 
             <Textarea
-              placeholder={selectedEntity === 'Wrestler' 
+              placeholder={
+                selectedEntity === 'Wrestler'
                 ? '[{"rid": "...", "shikona": "...", "current_rank": "...", ...}, ...]'
                 : '[{"record_id": "...", "rid": "...", "basho": "...", ...}, ...]'
               }
@@ -1377,7 +1326,7 @@ export default function DataImport() {
               <div className="space-y-3 text-sm">
                 <div className="bg-white/50 p-3 rounded border border-teal-200">
                   <div>Wrestlers missing records: <span className="font-mono font-bold text-red-600">{fixRecordsReport.missingCount}</span></div>
-                  <div>Stub records created: <span className="font-mono font-bold text-green-600">{fixRecordsReport.createdCount}</span></div>
+                  <div>Records created: <span className="font-mono font-bold text-green-600">{fixRecordsReport.createdCount}</span></div>
                 </div>
 
                 {fixRecordsReport.affectedRids.length > 0 && (

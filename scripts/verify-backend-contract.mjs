@@ -4,6 +4,7 @@ import { setTimeout as delay } from 'node:timers/promises';
 
 const SERVER_PORT = 8787;
 const BASE = `http://127.0.0.1:${SERVER_PORT}/api`;
+const BOOTSTRAP_CMD = 'npm run bootstrap';
 
 function startServer() {
   const child = spawn('npm', ['--prefix', 'server', 'run', 'dev'], {
@@ -47,11 +48,22 @@ async function json(method, path, body) {
   return text ? JSON.parse(text) : null;
 }
 
+async function requireDevData() {
+  const res = await fetch(`${BASE}/auth/me`);
+  if (res.ok) return;
+  const err = new Error(`MISSING_DEV_DATA: run ${BOOTSTRAP_CMD}`);
+  // @ts-ignore
+  err.code = 'MISSING_DEV_DATA';
+  throw err;
+}
+
 async function main() {
   const { child } = startServer();
 
   try {
     await waitForHealth();
+
+    await requireDevData();
 
     // 1) auth.me() returns stable demo user
     const me = await json('GET', '/auth/me');
@@ -100,6 +112,13 @@ async function main() {
     assert.ok(users.some((u) => u.id === 'user_1' && u.full_name === 'Changed Name'));
 
     process.stdout.write('OK verify-backend-contract\n');
+  } catch (err) {
+    if (err && (err.code === 'MISSING_DEV_DATA' || String(err.message || '').startsWith('MISSING_DEV_DATA:'))) {
+      process.stdout.write(`${String(err.message || err)}\n`);
+      process.exitCode = 2;
+      return;
+    }
+    throw err;
   } finally {
     child.kill('SIGTERM');
     await delay(250);

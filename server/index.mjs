@@ -186,25 +186,13 @@ app.get('/api/auth/me', async (_req, res, next) => {
     const entity = 'User';
     const id = 'user_1';
 
-    let record = await getRecord(entity, id);
+    const record = await getRecord(entity, id);
     if (!record) {
-      // Lazy seed if DB was cleared.
-      const data = {
-        id,
-        email: 'demo@sumowatch.local',
-        username: 'demo',
-        full_name: 'Demo User',
-        role: 'user',
-        created_date: new Date().toISOString(),
-        privacy_settings: {
-          show_email: false,
-          show_predictions: true,
-          show_ratings: true,
-        },
-      };
-      record = await prisma.entityRecord.create({
-        data: { entity, id, data },
+      res.status(404).json({
+        error:
+          'No user profile found. Create one via the UI (Profile save) or initialize local data with `npm --prefix server run bootstrap`.',
       });
+      return;
     }
 
     res.json(record.data);
@@ -246,5 +234,5 @@ app.listen(PORT, async () => {
 
   // Ensure schema exists (no migrations required for dev).
   // eslint-disable-next-line no-console
-  console.log('[server] tip: run `npm --prefix server run db:push && npm --prefix server run seed` if DB is empty');
+  console.log('[server] tip: run `npm --prefix server run db:push` and optionally `npm --prefix server run bootstrap` to initialize local data');
 });

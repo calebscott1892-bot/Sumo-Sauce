@@ -57,10 +57,6 @@ export default function Leaderboard() {
   const [userPreferences, setUserPreferences] = useState(getUserPreferences());
   const [showSettings, setShowSettings] = useState(false);
   const [lastNotifiedMatches, setLastNotifiedMatches] = useState(new Set());
-  const [skipStubs, setSkipStubs] = useState(() => {
-    const saved = localStorage.getItem('skip_stubs_leaderboard');
-    return saved !== null ? saved === 'true' : false; // Default OFF
-  });
 
   // Real-time live updates with auto-refresh
   const [liveTournament, setLiveTournament] = useState(null);
@@ -94,14 +90,7 @@ export default function Leaderboard() {
 
   const { data: allBashoRecords = [], isLoading: loadingRecords, error: recordsError } = useQuery({
     queryKey: ['basho-records-all'],
-    queryFn: async () => {
-      try {
-        return await api.entities.BashoRecord.list('-created_date', 5000);
-      } catch (err) {
-        console.warn('Failed to load BashoRecords:', err);
-        return [];
-      }
-    },
+    queryFn: () => api.entities.BashoRecord.list('-created_date', 5000),
     retry: 0,
     staleTime: 5 * 60 * 1000,
     onError: (err) => {
@@ -147,31 +136,6 @@ export default function Leaderboard() {
     return makuuchiRanks.some(r => rankString.includes(r));
   };
 
-  // Check if wrestler is a stub/placeholder
-  const isStubWrestler = (wrestler) => {
-    if (!wrestler) return true;
-    
-    // Check for missing critical fields
-    const rank = wrestler.current_rank || wrestler.rank || '';
-    const division = wrestler.current_division || wrestler.division || '';
-    const shikona = wrestler.shikona || '';
-    const rid = wrestler.rid || '';
-    
-    // Stub indicators
-    if (!rank || rank === 'Unknown') return true;
-    if (!division || division === 'Unknown') return true;
-    if (shikona.includes('????')) return true;
-    if (rid.includes('_????')) return true;
-    
-    return false;
-  };
-
-  const toggleSkipStubs = () => {
-    const newValue = !skipStubs;
-    setSkipStubs(newValue);
-    localStorage.setItem('skip_stubs_leaderboard', newValue.toString());
-    toast.success(newValue ? 'Stubs hidden' : 'Stubs visible');
-  };
 
   // Compute latest basho and aggregate records
   const { wrestlers, latestBasho, debugInfo } = React.useMemo(() => {
@@ -263,21 +227,12 @@ export default function Leaderboard() {
         };
       });
 
-      // Filter out stubs if enabled
-      const beforeStubFilter = enriched.length;
-      if (skipStubs) {
-        enriched = enriched.filter(w => !isStubWrestler(w));
-      }
-      const afterStubFilter = enriched.length;
-
       // Debug info
       const debug = {
         latestBasho: latest,
         totalWrestlers: enriched.length,
         totalBashoRecords: makuuchiRecords.length,
         makuuchiOnly: true,
-        stubsExcluded: skipStubs ? beforeStubFilter - afterStubFilter : 0,
-        skipStubsEnabled: skipStubs,
         sampleRankings: enriched.slice(0, 5).map(w => ({
           rid: w.rid,
           shikona: w.shikona,
@@ -292,7 +247,7 @@ export default function Leaderboard() {
       console.error('Error processing basho data:', error);
       return { wrestlers: [], latestBasho: null, debugInfo: null };
     }
-  }, [rawWrestlers, allBashoRecords, skipStubs]);
+  }, [rawWrestlers, allBashoRecords]);
 
   const isLoading = loadingWrestlers || loadingRecords;
 
@@ -727,16 +682,6 @@ export default function Leaderboard() {
               </Button>
               <Button
                 size="sm"
-                onClick={toggleSkipStubs}
-                className={cn(
-                  "bg-zinc-900 border border-zinc-800 hover:bg-zinc-800 font-black text-xs tracking-wider uppercase",
-                  skipStubs && "border-green-600 bg-green-900/30 text-green-400"
-                )}
-              >
-                {skipStubs ? '✓ STUBS HIDDEN' : 'SHOW STUBS'}
-              </Button>
-              <Button
-                size="sm"
                 onClick={() => setShowSettings(true)}
                 className="bg-zinc-900 border border-zinc-800 hover:bg-zinc-800 font-black text-xs tracking-wider uppercase"
               >
@@ -789,11 +734,6 @@ export default function Leaderboard() {
                 {latestBasho && (
                   <span className="text-xs text-blue-400 font-bold">
                     Basho: {latestBasho}
-                  </span>
-                )}
-                {debugInfo?.stubsExcluded > 0 && (
-                  <span className="text-xs text-yellow-400 font-bold">
-                    {debugInfo.stubsExcluded} stubs excluded
                   </span>
                 )}
               </div>
@@ -878,8 +818,8 @@ export default function Leaderboard() {
                 <div className="text-white font-mono">{debugInfo.makuuchiOnly ? 'Yes' : 'No'}</div>
               </div>
               <div>
-                <div className="text-zinc-500 font-bold">Stubs Excluded</div>
-                <div className="text-white font-mono">{debugInfo.stubsExcluded}</div>
+                <div className="text-zinc-500 font-bold">Roster Filters</div>
+                <div className="text-white font-mono">Makuuchi only</div>
               </div>
             </div>
             <div>

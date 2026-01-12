@@ -1,4 +1,4 @@
-const KEY_PREFIX = 'sumowatch_stub_v1:';
+const KEY_PREFIX = 'sumowatch_v1:';
 
 let memoryStore = new Map();
 
@@ -47,8 +47,8 @@ export function nextId(namespace = 'id') {
   return `${namespace}_${String(next).padStart(6, '0')}`;
 }
 
-export function stableId(namespace, seed) {
-  const h = stableHash(`${namespace}:${seed}`);
+export function stableId(namespace, value) {
+  const h = stableHash(`${namespace}:${value}`);
   return `${namespace}_${h.toString(16).padStart(8, '0')}`;
 }
 

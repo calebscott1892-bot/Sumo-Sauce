@@ -3,23 +3,8 @@ import { Swords, Trophy, Calendar } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 export default function WrestlerRivalries({ wrestler }) {
-  // Sample rivalries data - in a real app this would come from a database
   const generateRivalries = () => {
-    const commonRivals = [
-      { name: 'Terunofuji', record: '12-8', lastMeet: '2024-11', memorable: 'Aki Basho 2024 Championship decider' },
-      { name: 'Hoshoryu', record: '15-10', lastMeet: '2024-09', memorable: 'Natsu Basho 2024 playoff match' },
-      { name: 'Kirishima', record: '9-11', lastMeet: '2024-07', memorable: 'Haru Basho 2024 Day 13' },
-      { name: 'Takakeisho', record: '7-13', lastMeet: '2024-05', memorable: 'Hatsu Basho 2024 final day' },
-    ];
-
-    // Return a subset based on wrestler rank
-    if (wrestler.rank === 'Yokozuna' || wrestler.rank === 'Ozeki') {
-      return commonRivals;
-    } else if (wrestler.rank === 'Sekiwake' || wrestler.rank === 'Komusubi') {
-      return commonRivals.slice(0, 3);
-    } else {
-      return commonRivals.slice(0, 2);
-    }
+    return [];
   };
 
   const rivalries = generateRivalries();

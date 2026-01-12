@@ -6,18 +6,19 @@ function nowIso() {
   return new Date().toISOString();
 }
 
-async function ensureSeed(entity, seedRows = []) {
-  const existing = await prisma.entityRecord.findFirst({ where: { entity } });
-  if (existing) return;
-  if (!seedRows?.length) return;
+async function ensureBootstrap(entity, rows = []) {
+  if (!rows?.length) return;
 
-  await prisma.entityRecord.createMany({
-    data: seedRows.map((row) => ({
-      entity,
-      id: String(row.id),
-      data: { ...row, id: String(row.id) },
-    })),
-  });
+  for (const row of rows) {
+    const id = String(row.id);
+    const data = { ...row, id };
+    // eslint-disable-next-line no-await-in-loop
+    await prisma.entityRecord.upsert({
+      where: { entity_id: { entity, id } },
+      update: { data },
+      create: { entity, id, data },
+    });
+  }
 }
 
 async function ensureCounterFromExisting(entity) {
@@ -47,7 +48,7 @@ async function ensureCounterFromExisting(entity) {
 }
 
 async function main() {
-  await ensureSeed('Wrestler', [
+  await ensureBootstrap('Wrestler', [
     {
       id: 'wrestler_1',
       rid: 'R001',
@@ -105,7 +106,7 @@ async function main() {
     },
   ]);
 
-  await ensureSeed('BashoRecord', [
+  await ensureBootstrap('BashoRecord', [
     {
       id: 'bashorecord_1',
       basho: '2025-11',
@@ -168,10 +169,10 @@ async function main() {
     },
   ]);
 
-  await ensureSeed('Tournament', [
+  await ensureBootstrap('Tournament', [
     {
       id: 'tournament_1',
-      name: 'Stub Basho 2025-11',
+      name: 'Basho 2025-11',
       start_date: '2025-11-10',
       end_date: '2025-11-24',
       status: 'completed',
@@ -179,7 +180,7 @@ async function main() {
     },
     {
       id: 'tournament_2',
-      name: 'Stub Basho 2026-01',
+      name: 'Basho 2026-01',
       start_date: '2026-01-10',
       end_date: '2026-01-24',
       status: 'in_progress',
@@ -187,11 +188,11 @@ async function main() {
     },
   ]);
 
-  await ensureSeed('ForumTopic', [
+  await ensureBootstrap('ForumTopic', [
     {
       id: 'forumtopic_1',
-      title: 'Welcome to SumoWatch (Stub)',
-      content: 'This is stubbed local data. Replace with real backend later.',
+      title: 'Welcome to SumoWatch',
+      content: 'This is local development data. Replace with imported or live backend data when available.',
       category: 'General',
       author_email: 'demo@sumowatch.local',
       created_date: nowIso(),
@@ -202,19 +203,19 @@ async function main() {
     },
   ]);
 
-  await ensureSeed('ForumReply', [
+  await ensureBootstrap('ForumReply', [
     {
       id: 'forumreply_1',
       topic_id: 'forumtopic_1',
       author_email: 'demo@sumowatch.local',
-      content: 'First reply on the stubbed forum topic.',
+      content: 'First reply on the forum topic.',
       created_date: nowIso(),
       likes: 0,
     },
   ]);
 
-  // Auth/demo user seed (also ensures UI list calls won't crash)
-  await ensureSeed('User', [
+  // Auth/demo user entry (optional convenience for local dev)
+  await ensureBootstrap('User', [
     {
       id: 'user_1',
       email: 'demo@sumowatch.local',
@@ -230,7 +231,7 @@ async function main() {
     },
   ]);
 
-  // Initialize counters so auto-generated ids don't collide with seeds.
+  // Initialize counters so auto-generated ids don't collide with existing rows.
   for (const entity of ['Wrestler', 'BashoRecord', 'Tournament', 'ForumTopic', 'ForumReply', 'User']) {
     // eslint-disable-next-line no-await-in-loop
     await ensureCounterFromExisting(entity);

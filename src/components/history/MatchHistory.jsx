@@ -73,10 +73,10 @@ export default function MatchHistory({ wrestler }) {
       <div className="flex gap-3">
         <Select value={filterBasho} onValueChange={setFilterBasho}>
           <SelectTrigger className="w-40 bg-zinc-800 border-zinc-700">
-            <SelectValue placeholder="All Bashos" />
+            <SelectValue placeholder="All Tournaments" />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="all">All Bashos</SelectItem>
+            <SelectItem value="all">All Tournaments</SelectItem>
             <SelectItem value="Hatsu">Hatsu</SelectItem>
             <SelectItem value="Haru">Haru</SelectItem>
             <SelectItem value="Natsu">Natsu</SelectItem>

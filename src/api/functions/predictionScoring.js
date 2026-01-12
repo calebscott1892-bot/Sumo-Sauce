@@ -42,12 +42,9 @@ export async function scoreAllPredictionsForTournament(arg = {}) {
   // Support UI calling with tournamentId string.
   const params = typeof arg === 'string' ? { tournamentId: arg } : (arg || {});
 
-  return {
-    ok: true,
-    updatedCount: 0,
-    details: [],
-    scored: 0,
-    total: 0,
-    meta: { tournamentId: params.tournamentId, leagueId: params.leagueId, source: 'stub' },
-  };
+  const err = new Error(
+    `scoreAllPredictionsForTournament is not implemented for tournamentId=${params.tournamentId || 'unknown'}.`
+  );
+  err.code = 'NOT_IMPLEMENTED';
+  throw err;
 }

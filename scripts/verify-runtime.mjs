@@ -7,7 +7,9 @@ const HOST = '127.0.0.1';
 const PORT = 5173;
 const BASE = `http://${HOST}:${PORT}`;
 const API_PORT = 8787;
+const API_BASE = `http://127.0.0.1:${API_PORT}/api`;
 const API_HEALTH = `http://127.0.0.1:${API_PORT}/api/health`;
+const BOOTSTRAP_CMD = 'npm run bootstrap';
 
 function startBackend() {
   const child = spawn('npm', ['--prefix', 'server', 'run', 'dev'], {
@@ -40,6 +42,19 @@ async function waitForBackend(timeoutMs = 20000) {
     await delay(150);
   }
   throw new Error('Timed out waiting for backend to become ready');
+}
+
+async function requireDevData() {
+  try {
+    const res = await fetch(`${API_BASE}/auth/me`);
+    if (res.ok) return;
+  } catch {
+    // ignore
+  }
+  const err = new Error(`MISSING_DEV_DATA: run ${BOOTSTRAP_CMD}`);
+  // @ts-ignore
+  err.code = 'MISSING_DEV_DATA';
+  throw err;
 }
 
 function startVite() {
@@ -80,6 +95,7 @@ async function main() {
 
   try {
     await waitForBackend();
+    await requireDevData();
     await waitForServer(viteLogs);
 
     const browser = await chromium.launch();
@@ -90,13 +106,13 @@ async function main() {
 
     page.on('console', (msg) => {
       const text = msg.text();
-      if (text.includes('[stub]')) consoleLines.push(text);
+      if (msg.type() === 'error' || msg.type() === 'warning') consoleLines.push(text);
     });
     page.on('pageerror', (err) => {
       pageErrors.push(String(err));
     });
 
-    // Visit a minimal set of routes that should exercise stub usage.
+    // Visit a minimal set of routes that should exercise core data paths.
     const routes = ['/', '/tournaments', '/forum'];
 
     for (const route of routes) {
@@ -104,27 +120,25 @@ async function main() {
       await delay(1500);
     }
 
-    // Pull in-memory stub logs if present.
-    const windowLogs = await page.evaluate(() => {
-      // eslint-disable-next-line no-undef
-      const arr = (window.__STUB_LOGS__ || []).slice();
-      return arr;
-    });
-
     await browser.close();
 
     const first20 = consoleLines.slice(0, 20);
-    const first20Window = windowLogs.slice(0, 20).map((x) => x?.line).filter(Boolean);
 
     const result = {
       base: BASE,
       routesVisited: routes,
-      stubConsoleLogsFirst20: first20,
-      stubWindowLogsFirst20: first20Window,
+      consoleWarningsOrErrorsFirst20: first20,
       pageErrors,
     };
 
     process.stdout.write(`${JSON.stringify(result, null, 2)}\n`);
+  } catch (err) {
+    if (err && (err.code === 'MISSING_DEV_DATA' || String(err.message || '').startsWith('MISSING_DEV_DATA:'))) {
+      process.stdout.write(`${String(err.message || err)}\n`);
+      process.exitCode = 2;
+      return;
+    }
+    throw err;
   } finally {
     child.kill('SIGTERM');
     await delay(250);

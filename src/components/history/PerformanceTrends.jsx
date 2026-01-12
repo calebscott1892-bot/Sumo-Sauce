@@ -6,31 +6,9 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 export default function PerformanceTrends({ wrestler }) {
   const [activeChart, setActiveChart] = useState('winrate');
 
-  // Generate sample performance data across bashos
   const generatePerformanceData = () => {
     if (!wrestler.career_timeline || wrestler.career_timeline.length === 0) {
-      // Generate sample data if no real data exists
-      const currentYear = new Date().getFullYear();
-      const bashos = ['Hatsu', 'Haru', 'Natsu', 'Nagoya', 'Aki', 'Kyushu'];
-      const data = [];
-      
-      for (let year = Math.max(currentYear - 2, wrestler.debut_year || currentYear - 2); year <= currentYear; year++) {
-        bashos.forEach((basho, idx) => {
-          const totalMatches = 15;
-          const wins = Math.floor(Math.random() * 7) + 7; // 7-14 wins
-          const losses = totalMatches - wins;
-          
-          data.push({
-            basho: `${basho} ${year}`,
-            wins,
-            losses,
-            winRate: ((wins / totalMatches) * 100).toFixed(1),
-            rank: wrestler.rank,
-          });
-        });
-      }
-      
-      return data.slice(-12); // Last 12 bashos (2 years)
+      return [];
     }
     
     return wrestler.career_timeline.slice(-12).map(entry => {
@@ -77,6 +55,11 @@ export default function PerformanceTrends({ wrestler }) {
         </TabsList>
 
         <TabsContent value="winrate" className="mt-4">
+          {performanceData.length === 0 ? (
+            <div className="text-center py-10 bg-zinc-800/30 rounded">
+              <p className="text-zinc-500 text-sm">No performance history available yet</p>
+            </div>
+          ) : (
           <ResponsiveContainer width="100%" height={300}>
             <LineChart data={performanceData}>
               <CartesianGrid strokeDasharray="3 3" stroke="#374151" />
@@ -104,12 +87,18 @@ export default function PerformanceTrends({ wrestler }) {
               />
             </LineChart>
           </ResponsiveContainer>
+          )}
           <div className="text-center text-xs text-zinc-500 mt-2">
             Last 12 tournaments
           </div>
         </TabsContent>
 
         <TabsContent value="record" className="mt-4">
+          {performanceData.length === 0 ? (
+            <div className="text-center py-10 bg-zinc-800/30 rounded">
+              <p className="text-zinc-500 text-sm">No performance history available yet</p>
+            </div>
+          ) : (
           <ResponsiveContainer width="100%" height={300}>
             <BarChart data={performanceData}>
               <CartesianGrid strokeDasharray="3 3" stroke="#374151" />
@@ -131,6 +120,7 @@ export default function PerformanceTrends({ wrestler }) {
               <Bar dataKey="losses" fill="#EF4444" name="Losses" />
             </BarChart>
           </ResponsiveContainer>
+          )}
           <div className="text-center text-xs text-zinc-500 mt-2">
             Last 12 tournaments
           </div>
@@ -138,6 +128,7 @@ export default function PerformanceTrends({ wrestler }) {
       </Tabs>
 
       {/* Summary Stats */}
+      {performanceData.length > 0 && (
       <div className="grid grid-cols-3 gap-4 mt-6">
         <div className="bg-zinc-800/50 p-3 rounded text-center">
           <div className="text-2xl font-black text-blue-400">
@@ -158,6 +149,7 @@ export default function PerformanceTrends({ wrestler }) {
           <div className="text-xs text-zinc-500">Total Losses</div>
         </div>
       </div>
+      )}
     </div>
   );
 }
