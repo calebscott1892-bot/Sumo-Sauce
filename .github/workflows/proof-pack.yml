@@ -136,10 +136,21 @@ jobs:
             echo "$ ${cmd}; echo \"exit=\$?\""
 
             set +e
+            set +e
             local out
-            out=$(eval "$cmd" 2>&1)
+            out=$(timeout 90s bash -lc "$cmd" 2>&1)
             local code=$?
             set -e
+
+            if [[ "$code" -eq 124 ]]; then
+              echo "::error::${name} timed out after 90s (process hung)"
+              echo "pwd=$(pwd)"
+              echo "node=$(node -v || true)"
+              echo "npm=$(npm -v || true)"
+              echo "ls server/prisma:"
+              ls -la server/prisma || true
+              exit 1
+            fi
 
             printf '%s\n' "$out"
             echo "exit=$code"
