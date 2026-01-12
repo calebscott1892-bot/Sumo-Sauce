@@ -22,3 +22,8 @@ Frontend: `http://localhost:5173` • Backend: `http://127.0.0.1:8787`
 ```bash
 npm run build
 ```
+
+## CI / Proof Pack
+Runs Proof Pack A–G (no legacy tokens, no fallback data, no direct fetch, build OK, clean tree gate, verifiers before/after bootstrap).
+
+Run locally: `bash scripts/ci-proof-pack-local.sh`

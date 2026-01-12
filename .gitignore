@@ -24,6 +24,9 @@ server/prisma/prisma/dev.db-journal
 server/prisma/prisma/*.db
 *.log
 .DS_Store
+.DS_Store
+playwright-report/
+test-results/
 .vscode/*
 !.vscode/extensions.json
 .idea

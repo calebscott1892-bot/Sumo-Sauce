@@ -1,0 +1,296 @@
+name: Proof Pack
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  proof-pack:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Prepare server env (no secrets)
+        shell: bash
+        run: |
+          set -euo pipefail
+          echo "===== write server/.env (ci) ====="
+          cat > server/.env <<'EOF'
+          DATABASE_URL="file:./dev.db"
+          PORT=8787
+          EOF
+
+      - name: Determine Node version
+        id: nodever
+        shell: bash
+        run: |
+          set -euo pipefail
+          engines_node="$(node -p "require('./package.json').engines && require('./package.json').engines.node ? require('./package.json').engines.node : ''" || true)"
+          engines_node="${engines_node//$'\n'/}"
+          version="lts/*"
+          if [[ -n "${engines_node}" ]]; then
+            # Only accept simple majors like: 20, 20.x, ^20, ~20, ~20.10.0
+            # Ranges like ">=18" or compound expressions fall back to lts/*.
+            if ! echo "${engines_node}" | grep -Eq '[<>|=]'; then
+              major="$(echo "${engines_node}" | grep -Eo '[0-9]+' | head -n 1 || true)"
+              if [[ -n "${major}" ]]; then
+                version="${major}"
+              fi
+            fi
+          fi
+          echo "version=${version}" >> "$GITHUB_OUTPUT"
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ steps.nodever.outputs.version }}
+          cache: npm
+          cache-dependency-path: |
+            package-lock.json
+            server/package-lock.json
+
+      - name: Install dependencies (root)
+        shell: bash
+        run: |
+          set -euo pipefail
+          echo "===== npm ci (root) ====="
+          npm ci
+
+      - name: Install dependencies (server)
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ -f server/package-lock.json ]]; then
+            echo "===== npm ci (server) [lockfile present] ====="
+            npm ci --prefix server
+          else
+            echo "===== npm install (server) [no lockfile] ====="
+            npm install --prefix server --no-audit --no-fund
+          fi
+
+      - name: Generate Prisma client (server)
+        shell: bash
+        run: |
+          set -euo pipefail
+          echo "===== npm --prefix server run db:generate ====="
+          npm --prefix server run db:generate
+
+      - name: Cache Playwright browsers
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: ${{ runner.os }}-ms-playwright-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-ms-playwright-
+
+      - name: Install Playwright Chromium
+        shell: bash
+        run: |
+          set -euo pipefail
+          echo "===== npx playwright install --with-deps chromium ====="
+          npx playwright install --with-deps chromium
+
+      - name: Sanity check ports (start)
+        shell: bash
+        run: |
+          set -euo pipefail
+          echo "===== lsof 8787 ====="
+          lsof -nP -iTCP:8787 -sTCP:LISTEN || true
+          echo "===== lsof 5173 ====="
+          lsof -nP -iTCP:5173 -sTCP:LISTEN || true
+
+      - name: Step 1 — BEFORE BOOTSTRAP verifier behavior
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          echo "===== STEP 1: simulate missing dev data ====="
+
+          moved=0
+          if [[ -f server/prisma/dev.db ]]; then
+            echo "$ mv server/prisma/dev.db /tmp/sumowatch_dev.db.bak"
+            mv server/prisma/dev.db /tmp/sumowatch_dev.db.bak
+            moved=1
+          fi
+
+          restore_db() {
+            if [[ "$moved" -eq 1 ]]; then
+              echo "$ mv /tmp/sumowatch_dev.db.bak server/prisma/dev.db"
+              mv /tmp/sumowatch_dev.db.bak server/prisma/dev.db
+            fi
+          }
+          trap restore_db EXIT
+
+          expect_missing() {
+            local name="$1"
+            local cmd="$2"
+
+            echo "$ ${cmd}; echo \"exit=\$?\""
+
+            set +e
+            local out
+            out=$(eval "$cmd" 2>&1)
+            local code=$?
+            set -e
+
+            printf '%s\n' "$out"
+            echo "exit=$code"
+
+            if [[ "$code" -ne 2 ]]; then
+              echo "::error::${name} exit=${code} (expected 2)"
+              exit 1
+            fi
+
+            # Allow surrounding whitespace/newlines, but require the exact guidance line.
+            if ! printf '%s\n' "$out" | sed -E 's/[[:space:]]+$//' | grep -Fxq "MISSING_DEV_DATA: run npm run bootstrap"; then
+              echo "::error::${name} output missing guidance line: MISSING_DEV_DATA: run npm run bootstrap"
+              exit 1
+            fi
+          }
+
+          expect_missing "verify-backend-contract" "node scripts/verify-backend-contract.mjs"
+          expect_missing "verify-runtime" "node scripts/verify-runtime.mjs"
+
+      - name: Sanity check ports (after Step 1)
+        shell: bash
+        run: |
+          set -euo pipefail
+          echo "===== lsof 8787 ====="
+          lsof -nP -iTCP:8787 -sTCP:LISTEN || true
+          echo "===== lsof 5173 ====="
+          lsof -nP -iTCP:5173 -sTCP:LISTEN || true
+
+      - name: Step 2 — AFTER BOOTSTRAP verifier pass
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          echo "===== $ npm run bootstrap ====="
+          npm run bootstrap
+
+          echo "===== $ node scripts/verify-backend-contract.mjs ====="
+          node scripts/verify-backend-contract.mjs
+
+          echo "===== $ node scripts/verify-runtime.mjs ====="
+          node scripts/verify-runtime.mjs
+
+      - name: Step 3 — Proof Pack A–G (exact commands)
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          echo "===== A) rg legacy tokens ====="
+          A_CMD_B64="cmcgLW4gLS1oaWRkZW4gLS1nbG9iICchLmdpdC8qKicgLS1nbG9iICchZG9jcy9oaXN0b3J5LyoqJyAtaSAiYmFzZTQ0Q2xpZW50fHN0dWJEYnx2ZXJpZnktc3R1Yi1jb250cmFjdHxcXGJiYXNlNDRcXGJ8YmFzZTQ0XFwuY29tIiAuIHx8IHRydWU="
+          A_CMD="$(printf '%s' "$A_CMD_B64" | base64 -d)"
+          printf '%s\n' "$ $A_CMD"
+          A_OUT=$(eval "$A_CMD")
+          printf '%s\n' "$A_OUT"
+          if [[ -n "$A_OUT" ]]; then
+            echo "::error::Proof A failed (expected zero matches)"
+            exit 1
+          fi
+
+          echo "===== B) rg fallback/fabrication tokens ====="
+          B_CMD_B64="cmcgLW4gLS1oaWRkZW4gLS1nbG9iICchLmdpdC8qKicgLS1nbG9iICchZG9jcy9oaXN0b3J5LyoqJyAtaSAibW9ja3xzdHVifGZpeHR1cmV8c2VlZHxkZW1vIG1vZGV8bG9jYWxTdG9yYWdlLiood3Jlc3RsZXJ8YmFzaG98cmVjb3JkKXxnZW5lcmF0ZVNhbXBsZXxyYW5kb20uKih3cmVzdGxlcnxiYXNob3xyZWNvcmQpfHBsYWNlaG9sZGVyLiood3Jlc3RsZXJ8YmFzaG98cmVjb3JkKXxmYWtlLiood3Jlc3RsZXJ8YmFzaG98cmVjb3JkKSIgc3JjIHNlcnZlciBzY3JpcHRzIHx8IHRydWU="
+          B_CMD="$(printf '%s' "$B_CMD_B64" | base64 -d)"
+          printf '%s\n' "$ $B_CMD"
+          B_OUT=$(eval "$B_CMD")
+          printf '%s\n' "$B_OUT"
+          if [[ -n "$B_OUT" ]]; then
+            echo "::error::Proof B failed (expected zero matches)"
+            exit 1
+          fi
+
+          echo "===== C) node scripts/verify-no-direct-fetch.mjs ====="
+          echo "$ node scripts/verify-no-direct-fetch.mjs"
+          node scripts/verify-no-direct-fetch.mjs
+
+          echo "===== D) npm run build ====="
+          echo "$ npm run build"
+          npm run build
+
+          echo "===== E) git status --porcelain ====="
+          # Deterministic parsing: NUL-delimited porcelain to avoid formatting edge cases.
+          # Print full human-readable porcelain only when failing.
+
+          allow_path() {
+            local p="$1"
+            case "$p" in
+              dist/*) return 0 ;;
+              server/prisma/dev.db) return 0 ;;
+              playwright-report/*) return 0 ;;
+              test-results/*) return 0 ;;
+              */.DS_Store|.DS_Store) return 0 ;;
+              *) return 1 ;;
+            esac
+          }
+
+          # Parse NUL-delimited entries robustly.
+          # - Each record begins with 2 status chars + space.
+          # - For renames/copies, the next NUL token is the second path.
+          touched=()
+          pending_second=0
+          while IFS= read -r -d '' token; do
+            if [[ "$pending_second" -eq 1 ]]; then
+              touched+=("$token")
+              pending_second=0
+              continue
+            fi
+
+            if [[ ${#token} -lt 4 || "${token:2:1}" != " " ]]; then
+              echo "::error::Proof E failed (unexpected -z porcelain token format)"
+              echo "===== E.debug) git status --porcelain ====="
+              git status --porcelain
+              printf 'token=%q\n' "$token"
+              exit 1
+            fi
+
+            status="${token:0:2}"
+            path1="${token:3}"
+            touched+=("$path1")
+
+            if [[ "${status:0:1}" == "R" || "${status:0:1}" == "C" ]]; then
+              pending_second=1
+            fi
+          done < <(git status --porcelain=v1 -z)
+
+          if [[ "$pending_second" -eq 1 ]]; then
+            echo "::error::Proof E failed (unexpected end of rename/copy record)"
+            echo "===== E.debug) git status --porcelain ====="
+            git status --porcelain
+            exit 1
+          fi
+
+          offending=()
+          for p in "${touched[@]}"; do
+            if [[ -n "$p" ]] && ! allow_path "$p"; then
+              offending+=("$p")
+            fi
+          done
+
+          if [[ ${#offending[@]} -gt 0 ]]; then
+            echo "::error::Proof E failed (unexpected working tree paths)"
+            echo "===== E.debug) git status --porcelain ====="
+            git status --porcelain
+            echo "===== E.debug) offending paths ====="
+            printf '%s\n' "${offending[@]}"
+            exit 1
+          fi
+
+          echo "===== F) node scripts/verify-backend-contract.mjs ====="
+          echo "$ node scripts/verify-backend-contract.mjs"
+          node scripts/verify-backend-contract.mjs
+
+          echo "===== G) node scripts/verify-runtime.mjs ====="
+          echo "$ node scripts/verify-runtime.mjs"
+          node scripts/verify-runtime.mjs
+
+          echo "PROOF PACK PASSED"
