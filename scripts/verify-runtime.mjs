@@ -1,5 +1,6 @@
 import { spawn } from 'node:child_process';
 import { stat } from 'node:fs/promises';
+import net from 'node:net';
 import { setTimeout as delay } from 'node:timers/promises';
 import process from 'node:process';
 import { chromium } from 'playwright';
@@ -14,6 +15,15 @@ const BOOTSTRAP_CMD = 'npm run bootstrap';
 
 const DEV_DB_PATH = new URL('../server/prisma/dev.db', import.meta.url);
 
+const TIMEOUTS = {
+  overallMs: 120_000,
+  backendHealthMs: 20_000,
+  viteReadyMs: 30_000,
+  playwrightLaunchMs: 30_000,
+  routeGotoMs: 30_000,
+  portProbeMs: 800,
+};
+
 async function hasNonEmptyDevDb() {
   try {
     const s = await stat(DEV_DB_PATH);
@@ -23,10 +33,77 @@ async function hasNonEmptyDevDb() {
   }
 }
 
+async function withTimeout(label, ms, fn) {
+  return await Promise.race([
+    fn(),
+    delay(ms).then(() => {
+      throw new Error(`phase:${label} timed out after ${ms}ms`);
+    }),
+  ]);
+}
+
+async function fetchWithTimeout(url, timeoutMs) {
+  const controller = new AbortController();
+  const t = setTimeout(() => controller.abort(new Error(`fetch timed out after ${timeoutMs}ms`)), timeoutMs);
+  try {
+    return await fetch(url, { signal: controller.signal });
+  } finally {
+    clearTimeout(t);
+  }
+}
+
+async function assertPortFree(host, port, label) {
+  // If we can connect, something is already listening.
+  // If we get ECONNREFUSED/timeout, we assume it's free.
+  await withTimeout(`port:${label}`, TIMEOUTS.portProbeMs, async () => {
+    await new Promise((resolve, reject) => {
+      const socket = new net.Socket();
+      const done = (err) => {
+        socket.removeAllListeners();
+        socket.destroy();
+        if (err) reject(err);
+        else resolve();
+      };
+
+      socket.once('connect', () => done(new Error(`port:${label} already in use (${host}:${port})`)));
+      socket.once('error', (err) => {
+        if (err && (err.code === 'ECONNREFUSED' || err.code === 'EHOSTUNREACH' || err.code === 'ENETUNREACH')) {
+          done(null);
+          return;
+        }
+        done(err);
+      });
+      socket.setTimeout(TIMEOUTS.portProbeMs, () => done(null));
+      socket.connect(port, host);
+    });
+  });
+}
+
+function killProcessGroupBestEffort(child, name, logs) {
+  if (!child || child.killed) return;
+  const pid = child.pid;
+  if (!pid) return;
+
+  const tryKill = (targetPid, sig) => {
+    try {
+      process.kill(targetPid, sig);
+      return true;
+    } catch (e) {
+      if (logs) logs.push(`${name}: kill ${sig} failed: ${String(e?.message || e)}`);
+      return false;
+    }
+  };
+
+  // Prefer killing the whole process group on unix.
+  const killedGroup = tryKill(-pid, 'SIGTERM');
+  if (!killedGroup) tryKill(pid, 'SIGTERM');
+}
+
 function startBackend() {
   const child = spawn('npm', ['--prefix', 'server', 'run', 'dev'], {
     stdio: ['ignore', 'pipe', 'pipe'],
     env: { ...process.env, PORT: String(API_PORT) },
+    detached: true,
   });
 
   const logs = [];
@@ -46,7 +123,7 @@ async function waitForBackend(timeoutMs = 20000) {
   const start = Date.now();
   while (Date.now() - start < timeoutMs) {
     try {
-      const res = await fetch(API_HEALTH);
+      const res = await fetchWithTimeout(API_HEALTH, 1000);
       if (res.ok) return;
     } catch {
       // ignore
@@ -58,7 +135,7 @@ async function waitForBackend(timeoutMs = 20000) {
 
 async function requireDevData() {
   try {
-    const res = await fetch(`${API_BASE}/auth/me`);
+    const res = await fetchWithTimeout(`${API_BASE}/auth/me`, 2000);
     if (res.ok) return;
   } catch {
     // ignore
@@ -73,6 +150,7 @@ function startVite() {
   const child = spawn('npm', ['run', 'dev', '--', '--host', HOST, '--port', String(PORT), '--strictPort'], {
     stdio: ['ignore', 'pipe', 'pipe'],
     env: process.env,
+    detached: true,
   });
 
   const logs = [];
@@ -108,63 +186,106 @@ async function main() {
     return;
   }
 
-  const { child: backendChild } = startBackend();
+  await assertPortFree('127.0.0.1', API_PORT, 'backend');
+  await assertPortFree(HOST, PORT, 'vite');
+
+  const { child: backendChild, logs: backendLogs } = startBackend();
   const { child, logs: viteLogs } = startVite();
 
   try {
-    await waitForBackend();
-    await requireDevData();
-    await waitForServer(viteLogs);
+    const run = async () => {
+      await withTimeout('backendHealth', TIMEOUTS.backendHealthMs, async () => {
+        await waitForBackend(TIMEOUTS.backendHealthMs);
+      });
 
-    const browser = await chromium.launch();
-    const page = await browser.newPage();
+      await withTimeout('requireDevData', 10_000, async () => {
+        await requireDevData();
+      });
 
-    const consoleLines = [];
-    const pageErrors = [];
+      await withTimeout('viteReady', TIMEOUTS.viteReadyMs, async () => {
+        await waitForServer(viteLogs, TIMEOUTS.viteReadyMs);
+      });
 
-    page.on('console', (msg) => {
-      const text = msg.text();
-      if (msg.type() === 'error' || msg.type() === 'warning') consoleLines.push(text);
-    });
-    page.on('pageerror', (err) => {
-      pageErrors.push(String(err));
-    });
+      const browser = await withTimeout('playwrightLaunch', TIMEOUTS.playwrightLaunchMs, async () => {
+        return await chromium.launch();
+      });
 
-    // Visit a minimal set of routes that should exercise core data paths.
-    const routes = ['/', '/tournaments', '/forum'];
+      const page = await browser.newPage();
 
-    for (const route of routes) {
-      await page.goto(`${BASE}${route}`, { waitUntil: 'domcontentloaded' });
-      await delay(1500);
-    }
+      const consoleLines = [];
+      const pageErrors = [];
 
-    await browser.close();
+      page.on('console', (msg) => {
+        const text = msg.text();
+        if (msg.type() === 'error' || msg.type() === 'warning') consoleLines.push(text);
+      });
+      page.on('pageerror', (err) => {
+        pageErrors.push(String(err));
+      });
 
-    const first20 = consoleLines.slice(0, 20);
+      // Visit a minimal set of routes that should exercise core data paths.
+      const routes = ['/', '/tournaments', '/forum'];
 
-    const result = {
-      base: BASE,
-      routesVisited: routes,
-      consoleWarningsOrErrorsFirst20: first20,
-      pageErrors,
+      for (const route of routes) {
+        await withTimeout(`route:${route}`, TIMEOUTS.routeGotoMs, async () => {
+          await page.goto(`${BASE}${route}`, { waitUntil: 'domcontentloaded', timeout: TIMEOUTS.routeGotoMs });
+        });
+        await delay(1500);
+      }
+
+      await browser.close();
+
+      const first20 = consoleLines.slice(0, 20);
+
+      const result = {
+        base: BASE,
+        routesVisited: routes,
+        consoleWarningsOrErrorsFirst20: first20,
+        pageErrors,
+      };
+
+      process.stdout.write(`${JSON.stringify(result, null, 2)}\n`);
     };
 
-    process.stdout.write(`${JSON.stringify(result, null, 2)}\n`);
+    await withTimeout('overall', TIMEOUTS.overallMs, run);
   } catch (err) {
-    if (err && (err.code === 'MISSING_DEV_DATA' || String(err.message || '').startsWith('MISSING_DEV_DATA:'))) {
-      process.stdout.write(`${String(err.message || err)}\n`);
-      process.exitCode = 2;
-      return;
-    }
+    const msg = String(err?.message || err);
+    const lines = [];
+    lines.push(`ERROR verify-runtime ${msg}`);
+    lines.push('backendLogsFirst50:');
+    lines.push(...backendLogs.slice(0, 50));
+    lines.push('viteLogsFirst50:');
+    lines.push(...viteLogs.slice(0, 50));
+    process.stderr.write(`${lines.join('\n')}\n`);
     throw err;
   } finally {
-    child.kill('SIGTERM');
+    killProcessGroupBestEffort(child, 'vite', viteLogs);
+    killProcessGroupBestEffort(backendChild, 'backend', backendLogs);
     await delay(250);
-    child.kill('SIGKILL');
 
-    backendChild.kill('SIGTERM');
-    await delay(250);
-    backendChild.kill('SIGKILL');
+    // Escalate to SIGKILL best-effort.
+    if (child?.pid) {
+      try {
+        process.kill(-child.pid, 'SIGKILL');
+      } catch {
+        try {
+          child.kill('SIGKILL');
+        } catch {
+          // ignore
+        }
+      }
+    }
+    if (backendChild?.pid) {
+      try {
+        process.kill(-backendChild.pid, 'SIGKILL');
+      } catch {
+        try {
+          backendChild.kill('SIGKILL');
+        } catch {
+          // ignore
+        }
+      }
+    }
   }
 }
 
