@@ -171,10 +171,42 @@ jobs:
           npm run bootstrap
 
           echo "===== $ node scripts/verify-backend-contract.mjs ====="
-          node scripts/verify-backend-contract.mjs
+          timeout 120s bash -lc "node scripts/verify-backend-contract.mjs"
 
           echo "===== $ node scripts/verify-runtime.mjs ====="
-          node scripts/verify-runtime.mjs
+          set +e
+          out=$(timeout 240s bash -lc "node scripts/verify-runtime.mjs" 2>&1)
+          code=$?
+          set -e
+
+          if [[ "$code" -eq 124 ]]; then
+            echo "::error::verify-runtime timed out after 240s"
+            echo "node=$(node -v || true)"
+            echo "npm=$(npm -v || true)"
+
+            if command -v lsof >/dev/null 2>&1; then
+              echo "===== lsof 8787 ====="
+              lsof -nP -iTCP:8787 -sTCP:LISTEN || true
+              echo "===== lsof 5173 ====="
+              lsof -nP -iTCP:5173 -sTCP:LISTEN || true
+            else
+              echo "===== ss -lntp (no lsof) ====="
+              ss -lntp || true
+            fi
+
+            echo "===== ps aux | head -n 50 ====="
+            ps aux | head -n 50 || true
+
+            echo "===== ls -la server/prisma ====="
+            ls -la server/prisma || true
+
+            exit 1
+          fi
+
+          printf '%s\n' "$out"
+          if [[ "$code" -ne 0 ]]; then
+            exit "$code"
+          fi
 
       - name: Step 3 — Proof Pack A–G (exact commands)
         shell: bash
