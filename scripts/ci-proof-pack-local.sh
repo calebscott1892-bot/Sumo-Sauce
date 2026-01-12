@@ -207,6 +207,10 @@ if [[ -f server/prisma/dev.db ]]; then
   MOVED=1
 fi
 
+# Ensure no DB exists at all during Step 1.
+rm -f server/prisma/dev.db
+rm -f server/dev.db
+
 expect_missing "verify-backend-contract" "node scripts/verify-backend-contract.mjs"
 expect_missing "verify-runtime" "node scripts/verify-runtime.mjs"
 

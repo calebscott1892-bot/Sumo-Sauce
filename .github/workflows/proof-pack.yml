@@ -28,30 +28,10 @@ jobs:
           PORT=8787
           EOF
 
-      - name: Determine Node version
-        id: nodever
-        shell: bash
-        run: |
-          set -euo pipefail
-          engines_node="$(node -p "require('./package.json').engines && require('./package.json').engines.node ? require('./package.json').engines.node : ''" || true)"
-          engines_node="${engines_node//$'\n'/}"
-          version="lts/*"
-          if [[ -n "${engines_node}" ]]; then
-            # Only accept simple majors like: 20, 20.x, ^20, ~20, ~20.10.0
-            # Ranges like ">=18" or compound expressions fall back to lts/*.
-            if ! echo "${engines_node}" | grep -Eq '[<>|=]'; then
-              major="$(echo "${engines_node}" | grep -Eo '[0-9]+' | head -n 1 || true)"
-              if [[ -n "${major}" ]]; then
-                version="${major}"
-              fi
-            fi
-          fi
-          echo "version=${version}" >> "$GITHUB_OUTPUT"
-
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: ${{ steps.nodever.outputs.version }}
+          node-version: "20"
           cache: npm
           cache-dependency-path: |
             package-lock.json
@@ -121,6 +101,10 @@ jobs:
             moved=1
           fi
 
+          # Ensure no DB exists at all during Step 1.
+          rm -f server/prisma/dev.db
+          rm -f server/dev.db
+
           restore_db() {
             if [[ "$moved" -eq 1 ]]; then
               echo "$ mv /tmp/sumowatch_dev.db.bak server/prisma/dev.db"
@@ -135,7 +119,6 @@ jobs:
 
             echo "$ ${cmd}; echo \"exit=\$?\""
 
-            set +e
             set +e
             local out
             out=$(timeout 90s bash -lc "$cmd" 2>&1)

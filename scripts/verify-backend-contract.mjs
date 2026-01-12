@@ -1,10 +1,22 @@
 import assert from 'node:assert/strict';
 import { spawn } from 'node:child_process';
+import { stat } from 'node:fs/promises';
 import { setTimeout as delay } from 'node:timers/promises';
 
 const SERVER_PORT = 8787;
 const BASE = `http://127.0.0.1:${SERVER_PORT}/api`;
 const BOOTSTRAP_CMD = 'npm run bootstrap';
+
+const DEV_DB_PATH = new URL('../server/prisma/dev.db', import.meta.url);
+
+async function hasNonEmptyDevDb() {
+  try {
+    const s = await stat(DEV_DB_PATH);
+    return s.isFile() && s.size > 0;
+  } catch {
+    return false;
+  }
+}
 
 function startServer() {
   const child = spawn('npm', ['--prefix', 'server', 'run', 'dev'], {
@@ -48,22 +60,17 @@ async function json(method, path, body) {
   return text ? JSON.parse(text) : null;
 }
 
-async function requireDevData() {
-  const res = await fetch(`${BASE}/auth/me`);
-  if (res.ok) return;
-  const err = new Error(`MISSING_DEV_DATA: run ${BOOTSTRAP_CMD}`);
-  // @ts-ignore
-  err.code = 'MISSING_DEV_DATA';
-  throw err;
-}
-
 async function main() {
+  if (!(await hasNonEmptyDevDb())) {
+    process.stdout.write(`MISSING_DEV_DATA: run ${BOOTSTRAP_CMD}\n`);
+    process.exitCode = 2;
+    return;
+  }
+
   const { child } = startServer();
 
   try {
     await waitForHealth();
-
-    await requireDevData();
 
     // 1) auth.me() returns stable demo user
     const me = await json('GET', '/auth/me');

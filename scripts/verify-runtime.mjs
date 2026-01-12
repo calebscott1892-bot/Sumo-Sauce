@@ -1,4 +1,5 @@
 import { spawn } from 'node:child_process';
+import { stat } from 'node:fs/promises';
 import { setTimeout as delay } from 'node:timers/promises';
 import process from 'node:process';
 import { chromium } from 'playwright';
@@ -10,6 +11,17 @@ const API_PORT = 8787;
 const API_BASE = `http://127.0.0.1:${API_PORT}/api`;
 const API_HEALTH = `http://127.0.0.1:${API_PORT}/api/health`;
 const BOOTSTRAP_CMD = 'npm run bootstrap';
+
+const DEV_DB_PATH = new URL('../server/prisma/dev.db', import.meta.url);
+
+async function hasNonEmptyDevDb() {
+  try {
+    const s = await stat(DEV_DB_PATH);
+    return s.isFile() && s.size > 0;
+  } catch {
+    return false;
+  }
+}
 
 function startBackend() {
   const child = spawn('npm', ['--prefix', 'server', 'run', 'dev'], {
@@ -90,6 +102,12 @@ async function waitForServer(logs, timeoutMs = 20000) {
 }
 
 async function main() {
+  if (!(await hasNonEmptyDevDb())) {
+    process.stdout.write(`MISSING_DEV_DATA: run ${BOOTSTRAP_CMD}\n`);
+    process.exitCode = 2;
+    return;
+  }
+
   const { child: backendChild } = startBackend();
   const { child, logs: viteLogs } = startVite();
 
