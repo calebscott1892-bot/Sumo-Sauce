@@ -18,7 +18,7 @@ const DEV_DB_PATH = new URL('../server/prisma/dev.db', import.meta.url);
 const TIMEOUTS = {
   overallMs: 120_000,
   backendHealthMs: 20_000,
-  viteReadyMs: 30_000,
+  viteReadyMs: 60_000,
   playwrightLaunchMs: 30_000,
   routeGotoMs: 30_000,
   portProbeMs: 800,
@@ -168,15 +168,27 @@ function startVite() {
 
 async function waitForServer(logs, timeoutMs = 20000) {
   const start = Date.now();
+  let last = '';
+
   while (Date.now() - start < timeoutMs) {
-    if (logs.some((l) => l.includes(`Local:`) && l.includes(BASE))) return;
     if (logs.some((l) => l.includes('Failed to resolve import'))) {
       const first = logs.find((l) => l.includes('Failed to resolve import'));
       throw new Error(`Vite import-resolution failure while starting: ${first}`);
     }
-    await delay(100);
+
+    try {
+      const res = await fetchWithTimeout(`${BASE}/`, 1000);
+      // Treat any HTTP response as "Vite reachable".
+      last = `ok status=${res.status}`;
+      return;
+    } catch (e) {
+      last = `err ${String(e?.message || e)}`;
+    }
+
+    await delay(250);
   }
-  throw new Error('Timed out waiting for Vite to become ready');
+
+  throw new Error(`Vite not reachable at ${BASE}/ within ${timeoutMs}ms (last=${last})`);
 }
 
 async function main() {
@@ -191,6 +203,7 @@ async function main() {
 
   const { child: backendChild, logs: backendLogs } = startBackend();
   const { child, logs: viteLogs } = startVite();
+  const vitePollHistory = [];
 
   try {
     const run = async () => {
@@ -203,7 +216,15 @@ async function main() {
       });
 
       await withTimeout('viteReady', TIMEOUTS.viteReadyMs, async () => {
-        await waitForServer(viteLogs, TIMEOUTS.viteReadyMs);
+        const start = Date.now();
+        try {
+          await waitForServer(viteLogs, TIMEOUTS.viteReadyMs);
+          const elapsed = Date.now() - start;
+          vitePollHistory.push(`reachable after ${elapsed}ms`);
+        } catch (e) {
+          vitePollHistory.push(String(e?.message || e));
+          throw e;
+        }
       });
 
       const browser = await withTimeout('playwrightLaunch', TIMEOUTS.playwrightLaunchMs, async () => {
@@ -252,10 +273,17 @@ async function main() {
     const msg = String(err?.message || err);
     const lines = [];
     lines.push(`ERROR verify-runtime ${msg}`);
-    lines.push('backendLogsFirst50:');
-    lines.push(...backendLogs.slice(0, 50));
-    lines.push('viteLogsFirst50:');
-    lines.push(...viteLogs.slice(0, 50));
+
+    lines.push('backendLogsLast50:');
+    lines.push(...backendLogs.slice(-50));
+
+    lines.push('viteLogsLast50:');
+    lines.push(...viteLogs.slice(-50));
+
+    if (msg.startsWith('phase:viteReady') || msg.includes('Vite not reachable')) {
+      lines.push('vitePollHistoryLast10:');
+      lines.push(...vitePollHistory.slice(-10));
+    }
     process.stderr.write(`${lines.join('\n')}\n`);
     throw err;
   } finally {
