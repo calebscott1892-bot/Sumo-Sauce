@@ -7,6 +7,7 @@ export {
   getRankProgression,
   getDivisionStandings,
   getKimariteStats,
+  getRikishiComparison,
 } from './service.ts';
 
 export { closeReadPrisma } from './db.ts';
@@ -19,5 +20,6 @@ export type {
   RankProgressionItem,
   DivisionStandingItem,
   KimariteStatsReadModel,
+  RikishiComparisonReadModel,
   Division,
 } from './types.ts';

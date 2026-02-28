@@ -99,6 +99,13 @@ async function main() {
     assert(unknownRikishi.status === 404, 'Expected unknown rikishi endpoint to return 404');
     assertErrorShape(unknownRikishi.data, 'RIKISHI_NOT_FOUND');
 
+    const compare = await getJsonWithHeaders('/api/v1/compare/rks_0001/rks_0002', baseHeaders);
+    assert(compare.status === 200, 'Expected compare endpoint to return 200');
+    assert(compare.data && typeof compare.data === 'object', 'Expected compare payload object');
+    assert(Object.prototype.hasOwnProperty.call(compare.data, 'rikishiA'), 'Expected compare payload.rikishiA');
+    assert(Object.prototype.hasOwnProperty.call(compare.data, 'rikishiB'), 'Expected compare payload.rikishiB');
+    assert(Object.prototype.hasOwnProperty.call(compare.data, 'headToHead'), 'Expected compare payload.headToHead');
+
     const burstRequests = [];
     for (let i = 0; i < 130; i += 1) {
       burstRequests.push(getJsonWithHeaders('/api/v1/rikishi/rks_0001', rateHeaders));
@@ -118,6 +125,7 @@ async function main() {
             valid200: true,
             invalidDivision400: true,
             unknownRikishi404: true,
+            compare200: true,
             rateLimit429: true,
           },
         },

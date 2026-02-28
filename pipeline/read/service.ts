@@ -9,6 +9,7 @@ import type {
   KimariteCount,
   KimariteStatsReadModel,
   RankProgressionItem,
+  RikishiComparisonReadModel,
   RikishiReadModel,
 } from './types.ts';
 import { DIVISION_ORDER } from './types.ts';
@@ -559,5 +560,80 @@ export async function getKimariteStats(rikishiId: string): Promise<KimariteStats
     winKimarite,
     lossKimarite,
     mostUsedKimarite: winKimarite.length ? winKimarite[0].kimariteId : null,
+  };
+}
+
+export async function getRikishiComparison(
+  rikishiAId: string,
+  rikishiBId: string,
+): Promise<RikishiComparisonReadModel> {
+  const aId = assertRikishiId(rikishiAId);
+  const bId = assertRikishiId(rikishiBId);
+  const prisma = await getPrismaClient();
+
+  // Fetch both rikishi records
+  const [rikishiA, rikishiB] = await Promise.all([
+    prisma.rikishi.findUnique({
+      where: { rikishiId: aId },
+      select: { rikishiId: true, shikona: true, heya: true },
+    }),
+    prisma.rikishi.findUnique({
+      where: { rikishiId: bId },
+      select: { rikishiId: true, shikona: true, heya: true },
+    }),
+  ]);
+
+  if (!rikishiA) throw new Error(`Rikishi not found: ${aId}`);
+  if (!rikishiB) throw new Error(`Rikishi not found: ${bId}`);
+
+  // Reuse existing functions for head-to-head, kimarite stats, and timelines
+  const [headToHead, kimariteA, kimariteB, timelineA, timelineB] = await Promise.all([
+    getHeadToHead(aId, bId),
+    getKimariteStats(aId),
+    getKimariteStats(bId),
+    getCareerTimeline(aId),
+    getCareerTimeline(bId),
+  ]);
+
+  // Common basho count: bashoIds where both have banzuke entries
+  const [entriesA, entriesB] = await Promise.all([
+    prisma.banzukeEntry.findMany({
+      where: { rikishiId: aId },
+      select: { bashoId: true },
+      distinct: ['bashoId'],
+    }),
+    prisma.banzukeEntry.findMany({
+      where: { rikishiId: bId },
+      select: { bashoId: true },
+      distinct: ['bashoId'],
+    }),
+  ]);
+
+  const bashoSetB = new Set(entriesB.map((e) => e.bashoId));
+  let commonBashoCount = 0;
+  for (const e of entriesA) {
+    if (bashoSetB.has(e.bashoId)) commonBashoCount += 1;
+  }
+
+  // Recent form: last 6 basho timeline items, newest-first (timeline is bashoId ASC)
+  const recentA = [...timelineA].sort((a, b) => b.bashoId.localeCompare(a.bashoId)).slice(0, 6);
+  const recentB = [...timelineB].sort((a, b) => b.bashoId.localeCompare(a.bashoId)).slice(0, 6);
+
+  return {
+    rikishiA: {
+      rikishiId: rikishiA.rikishiId,
+      shikona: rikishiA.shikona,
+      heya: rikishiA.heya ?? undefined,
+    },
+    rikishiB: {
+      rikishiId: rikishiB.rikishiId,
+      shikona: rikishiB.shikona,
+      heya: rikishiB.heya ?? undefined,
+    },
+    headToHead,
+    commonBashoCount,
+    kimarite: { a: kimariteA, b: kimariteB },
+    recentForm: { a: recentA, b: recentB },
+    lastMatch: headToHead.lastMatch,
   };
 }

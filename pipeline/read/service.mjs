@@ -549,3 +549,84 @@ export async function getKimariteStats(rikishiId) {
     mostUsedKimarite: winKimarite.length ? winKimarite[0].kimariteId : null,
   };
 }
+
+export async function getRikishiComparison(rikishiAId, rikishiBId) {
+  const aId = assertRikishiId(rikishiAId);
+  const bId = assertRikishiId(rikishiBId);
+  const prisma = await getPrismaClient();
+
+  const [rikishiA, rikishiB] = await Promise.all([
+    prisma.rikishi.findUnique({
+      where: { rikishiId: aId },
+      select: { rikishiId: true, shikona: true, heya: true },
+    }),
+    prisma.rikishi.findUnique({
+      where: { rikishiId: bId },
+      select: { rikishiId: true, shikona: true, heya: true },
+    }),
+  ]);
+
+  if (!rikishiA) throw new Error(`Rikishi not found: ${aId}`);
+  if (!rikishiB) throw new Error(`Rikishi not found: ${bId}`);
+
+  const [headToHead, kimariteA, kimariteB, timelineA, timelineB, entriesA, entriesB] = await Promise.all([
+    getHeadToHead(aId, bId),
+    getKimariteStats(aId),
+    getKimariteStats(bId),
+    getCareerTimeline(aId),
+    getCareerTimeline(bId),
+    prisma.banzukeEntry.findMany({
+      where: { rikishiId: aId },
+      distinct: ['bashoId'],
+      select: { bashoId: true },
+    }),
+    prisma.banzukeEntry.findMany({
+      where: { rikishiId: bId },
+      distinct: ['bashoId'],
+      select: { bashoId: true },
+    }),
+  ]);
+
+  const entriesBSet = new Set(entriesB.map((entry) => entry.bashoId));
+  let commonBashoCount = 0;
+  for (const entry of entriesA) {
+    if (entriesBSet.has(entry.bashoId)) commonBashoCount += 1;
+  }
+
+  const sortRecent = (left, right) => {
+    return (
+      compareBasho(right.bashoId, left.bashoId)
+      || compareDivision(left.division, right.division)
+      || left.rank.localeCompare(right.rank)
+      || right.wins - left.wins
+      || left.losses - right.losses
+    );
+  };
+
+  const recentA = [...timelineA].sort(sortRecent).slice(0, 6);
+  const recentB = [...timelineB].sort(sortRecent).slice(0, 6);
+
+  return {
+    rikishiA: {
+      rikishiId: rikishiA.rikishiId,
+      shikona: rikishiA.shikona,
+      heya: rikishiA.heya ?? null,
+    },
+    rikishiB: {
+      rikishiId: rikishiB.rikishiId,
+      shikona: rikishiB.shikona,
+      heya: rikishiB.heya ?? null,
+    },
+    headToHead,
+    commonBashoCount,
+    kimarite: {
+      a: kimariteA,
+      b: kimariteB,
+    },
+    recentForm: {
+      a: recentA,
+      b: recentB,
+    },
+    lastMatch: headToHead.lastMatch,
+  };
+}

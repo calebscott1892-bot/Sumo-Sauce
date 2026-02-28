@@ -111,6 +111,22 @@ export type GetBoutsByDivisionResponse = Bout[];
 export type GetHeadToHeadResponse = HeadToHead;
 export type GetDivisionStandingsResponse = DivisionStandingRow[];
 
+export type GetRikishiComparisonResponse = {
+  rikishiA: { rikishiId: string; shikona: string; heya: string | null };
+  rikishiB: { rikishiId: string; shikona: string; heya: string | null };
+  headToHead: HeadToHead;
+  commonBashoCount: number;
+  kimarite: {
+    a: KimariteStats;
+    b: KimariteStats;
+  };
+  recentForm: {
+    a: TimelineItem[];
+    b: TimelineItem[];
+  };
+  lastMatch: HeadToHead['lastMatch'];
+};
+
 export type ApiErrorResponse = {
   error: {
     code: string;

@@ -9,6 +9,7 @@ import {
   getDivisionStandings,
   getBoutsByBashoAndDivision,
   getHeadToHead,
+  getRikishiComparison,
 } from '../../../pipeline/read/index.mjs';
 import { createApiError, requestLogger, rateLimiter, sendInvalidParameter } from './middleware.mjs';
 
@@ -97,6 +98,29 @@ const HeadToHeadSchema = z.object({
       winnerRikishiId: z.string().nullable(),
     })
     .nullable(),
+});
+const RikishiComparisonSchema = z.object({
+  rikishiA: z.object({
+    rikishiId: z.string(),
+    shikona: z.string(),
+    heya: z.string().nullable(),
+  }),
+  rikishiB: z.object({
+    rikishiId: z.string(),
+    shikona: z.string(),
+    heya: z.string().nullable(),
+  }),
+  headToHead: HeadToHeadSchema,
+  commonBashoCount: z.number(),
+  kimarite: z.object({
+    a: KimariteStatsSchema,
+    b: KimariteStatsSchema,
+  }),
+  recentForm: z.object({
+    a: z.array(TimelineItemSchema),
+    b: z.array(TimelineItemSchema),
+  }),
+  lastMatch: HeadToHeadSchema.shape.lastMatch,
 });
 const DivisionStandingRowSchema = z.object({
   rikishiId: z.string(),
@@ -263,6 +287,17 @@ router.get('/head-to-head/:a/:b', withApiErrorHandling(async (req, res, next) =>
 
   const out = await getHeadToHead(a, b);
   return sendValidatedJson(res, HeadToHeadSchema, out);
+}));
+
+router.get('/compare/:a/:b', withApiErrorHandling(async (req, res, next) => {
+  const a = validateRikishiId(req.params.a);
+  const b = validateRikishiId(req.params.b);
+  if (!a || !b) {
+    return next(sendInvalidParameter({ a: 'rikishiId must be non-empty', b: 'rikishiId must be non-empty' }));
+  }
+
+  const out = await getRikishiComparison(a, b);
+  return sendValidatedJson(res, RikishiComparisonSchema, out);
 }));
 
 export default router;

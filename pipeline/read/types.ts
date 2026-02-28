@@ -113,3 +113,19 @@ export type KimariteStatsReadModel = {
   lossKimarite: KimaritePercentageItem[];
   mostUsedKimarite: string | null;
 };
+
+export type RikishiComparisonReadModel = {
+  rikishiA: { rikishiId: string; shikona: string; heya?: string };
+  rikishiB: { rikishiId: string; shikona: string; heya?: string };
+  headToHead: HeadToHeadReadModel;
+  commonBashoCount: number;
+  kimarite: {
+    a: KimariteStatsReadModel;
+    b: KimariteStatsReadModel;
+  };
+  recentForm: {
+    a: CareerTimelineItem[];
+    b: CareerTimelineItem[];
+  };
+  lastMatch: HeadToHeadReadModel['lastMatch'];
+};

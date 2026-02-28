@@ -7,6 +7,7 @@ export {
   getRankProgression,
   getDivisionStandings,
   getKimariteStats,
+  getRikishiComparison,
 } from './service.mjs';
 
 export { closeReadPrisma } from './db.mjs';
