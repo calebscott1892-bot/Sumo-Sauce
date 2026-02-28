@@ -106,7 +106,18 @@ export default function ComparePage() {
           <div className="text-zinc-400">Last match</div>
           {model.lastMatch ? (
             <div className="text-zinc-200">
-              {model.lastMatch.bashoId} / {model.lastMatch.division} / day {model.lastMatch.day} / winner {model.lastMatch.winnerRikishiId || 'none'}
+              <Link
+                className="text-red-300 hover:text-red-200"
+                to={`/basho/${encodeURIComponent(model.lastMatch.bashoId)}/${encodeURIComponent(model.lastMatch.division)}`}
+              >
+                {model.lastMatch.bashoId}
+              </Link>
+              {' / '}
+              {model.lastMatch.division}
+              {' / day '}
+              {model.lastMatch.day}
+              {' / winner '}
+              {model.lastMatch.winnerRikishiId || 'none'}
             </div>
           ) : (
             <div className="text-zinc-400">No matches yet.</div>

@@ -208,7 +208,12 @@ export default function RikishiPage() {
                 className={`rounded-lg border p-3 ${positive ? 'border-emerald-700 bg-emerald-950/20' : 'border-zinc-800 bg-zinc-950'}`}
               >
                 <div className="flex items-center justify-between">
-                  <div className="font-semibold text-zinc-100">{row.bashoId}</div>
+                  <Link
+                    className="font-semibold text-red-300 hover:text-red-200"
+                    to={`/basho/${encodeURIComponent(row.bashoId)}/${encodeURIComponent(row.division)}`}
+                  >
+                    {row.bashoId}
+                  </Link>
                   <div className="text-sm text-zinc-300">{row.division}</div>
                 </div>
                 <div className="mt-1 text-sm text-zinc-300">Rank: {row.rank}</div>

@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import type { TimelineItem } from '@/pages/rikishi/types';
 
 type Props = {
@@ -22,7 +23,14 @@ export default function CareerTable({ rows }: Props) {
           <tbody>
             {rows.map((row) => (
               <tr key={`${row.bashoId}-${row.division}-${row.rank}`} className="border-b border-zinc-800/70 text-zinc-200">
-                <td className="px-2 py-2">{row.bashoId}</td>
+                <td className="px-2 py-2">
+                  <Link
+                    className="text-red-300 hover:text-red-200"
+                    to={`/basho/${encodeURIComponent(row.bashoId)}/${encodeURIComponent(row.division)}`}
+                  >
+                    {row.bashoId}
+                  </Link>
+                </td>
                 <td className="px-2 py-2">{row.division}</td>
                 <td className="px-2 py-2">{row.rank}</td>
                 <td className="px-2 py-2">{row.wins}</td>
