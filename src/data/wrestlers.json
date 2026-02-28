@@ -1,0 +1,72 @@
+[
+  {
+    "rid": "R001",
+    "shikona": "Onosato",
+    "current_division": "Makuuchi",
+    "current_rank": "Yokozuna",
+    "current_rank_number": 1,
+    "current_side": "East",
+    "official_image_url": "",
+    "status_is_active": true
+  },
+  {
+    "rid": "R002",
+    "shikona": "Hoshoryu",
+    "current_division": "Makuuchi",
+    "current_rank": "Yokozuna",
+    "current_rank_number": 1,
+    "current_side": "West",
+    "official_image_url": "",
+    "status_is_active": true
+  },
+  {
+    "rid": "R003",
+    "shikona": "Kotozakura",
+    "current_division": "Makuuchi",
+    "current_rank": "Ozeki",
+    "current_rank_number": 1,
+    "current_side": "East",
+    "official_image_url": "",
+    "status_is_active": true
+  },
+  {
+    "rid": "R004",
+    "shikona": "Aonishiki",
+    "current_division": "Makuuchi",
+    "current_rank": "Sekiwake",
+    "current_rank_number": 1,
+    "current_side": "East",
+    "official_image_url": "",
+    "status_is_active": true
+  },
+  {
+    "rid": "R005",
+    "shikona": "Takayasu",
+    "current_division": "Makuuchi",
+    "current_rank": "Komusubi",
+    "current_rank_number": 1,
+    "current_side": "West",
+    "official_image_url": "",
+    "status_is_active": true
+  },
+  {
+    "rid": "R006",
+    "shikona": "Kirishima",
+    "current_division": "Makuuchi",
+    "current_rank": "Maegashira",
+    "current_rank_number": 2,
+    "current_side": "East",
+    "official_image_url": "",
+    "status_is_active": true
+  },
+  {
+    "rid": "R007",
+    "shikona": "Wakamotoharu",
+    "current_division": "Makuuchi",
+    "current_rank": "Maegashira",
+    "current_rank_number": 2,
+    "current_side": "West",
+    "official_image_url": "",
+    "status_is_active": true
+  }
+]

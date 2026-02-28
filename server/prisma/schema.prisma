@@ -7,6 +7,19 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+enum BuildStatus {
+  PENDING
+  SUCCESS
+  FAILED
+}
+
+enum IngestionStatus {
+  PENDING
+  IN_PROGRESS
+  COMPLETE
+  FAILED
+}
+
 model EntityRecord {
   entity    String
   id        String
@@ -21,4 +34,174 @@ model EntityRecord {
 model EntityCounter {
   entity String @id
   value  Int
+}
+
+model Build {
+  buildId         String          @id
+  schemaVersion   String
+  pipelineVersion String
+  createdAt       DateTime        @default(now())
+  manifestSha256  String
+  status          BuildStatus
+
+  snapshots       BuildSnapshot[]
+  rikishi         Rikishi[]
+  basho           Basho[]
+  banzukeEntries  BanzukeEntry[]
+  kimarite        Kimarite[]
+  bouts           Bout[]
+  sourceRefs      SourceRef[]
+  tombstones      Tombstone[]
+
+  @@index([status, createdAt])
+}
+
+model BuildSnapshot {
+  id     Int    @id @default(autoincrement())
+  buildId String
+  source String
+  sha256 String
+  url    String
+  bytes  Int
+
+  build Build @relation(fields: [buildId], references: [buildId], onDelete: Cascade)
+
+  @@unique([buildId, source, sha256, url])
+  @@index([buildId])
+  @@index([source, sha256])
+}
+
+model Rikishi {
+  rikishiId        String  @id
+  shikona          String
+  heya             String?
+  birthDate        String?
+  heightCm         Int?
+  weightKg         Int?
+  nationality      String?
+  officialImageUrl String?
+  imageUrl         String?
+  updatedBuildId   String
+
+  updatedBuild Build @relation(fields: [updatedBuildId], references: [buildId])
+
+  banzukeEntries BanzukeEntry[]
+  eastBouts Bout[] @relation("bout_east_rikishi")
+  westBouts Bout[] @relation("bout_west_rikishi")
+
+  @@index([updatedBuildId])
+}
+
+model Basho {
+  bashoId        String  @id
+  label          String?
+  updatedBuildId String
+
+  updatedBuild Build          @relation(fields: [updatedBuildId], references: [buildId])
+  entries      BanzukeEntry[]
+  bouts        Bout[]
+
+  @@index([updatedBuildId])
+}
+
+model BanzukeEntry {
+  id             String @id
+  bashoId        String
+  division       String
+  rankValue      Int
+  side           String
+  rikishiId      String
+  rankLabel      String?
+  updatedBuildId String
+
+  basho       Basho   @relation(fields: [bashoId], references: [bashoId])
+  rikishi     Rikishi @relation(fields: [rikishiId], references: [rikishiId])
+  updatedBuild Build  @relation(fields: [updatedBuildId], references: [buildId])
+
+  @@unique([bashoId, division, rankValue, side])
+  @@index([bashoId, division])
+  @@index([rikishiId])
+  @@index([updatedBuildId])
+}
+
+model Kimarite {
+  kimariteId     String @id
+  label          String?
+  updatedBuildId String
+
+  updatedBuild Build  @relation(fields: [updatedBuildId], references: [buildId])
+  bouts        Bout[]
+
+  @@index([updatedBuildId])
+}
+
+model Bout {
+  boutId           String  @id
+  bashoId          String
+  division         String
+  day              Int
+  boutNo           Int
+  eastRikishiId    String
+  westRikishiId    String
+  winnerRikishiId  String?
+  kimariteId       String?
+  updatedBuildId   String
+
+  basho       Basho    @relation(fields: [bashoId], references: [bashoId])
+  eastRikishi Rikishi  @relation("bout_east_rikishi", fields: [eastRikishiId], references: [rikishiId])
+  westRikishi Rikishi  @relation("bout_west_rikishi", fields: [westRikishiId], references: [rikishiId])
+  kimarite    Kimarite? @relation(fields: [kimariteId], references: [kimariteId])
+  updatedBuild Build   @relation(fields: [updatedBuildId], references: [buildId])
+
+  @@index([bashoId, division, day])
+  @@index([eastRikishiId])
+  @@index([westRikishiId])
+  @@index([updatedBuildId])
+}
+
+model SourceRef {
+  id             Int     @id @default(autoincrement())
+  entityType     String
+  entityId       String
+  source         String
+  snapshotSha256 String
+  url            String
+  refType        String?
+  note           String?
+  buildId        String
+
+  build Build @relation(fields: [buildId], references: [buildId], onDelete: Cascade)
+
+  @@unique([entityType, entityId, source, snapshotSha256, buildId, refType], name: "source_ref_unique")
+  @@index([buildId])
+  @@index([entityType, entityId])
+}
+
+// Removals are tracked as immutable tombstones instead of hard delete.
+// This preserves history and keeps loader idempotent across repeated runs.
+model Tombstone {
+  id         Int      @id @default(autoincrement())
+  entityType String
+  entityId   String
+  buildId    String
+  removedAt  DateTime @default(now())
+
+  build Build @relation(fields: [buildId], references: [buildId], onDelete: Cascade)
+
+  @@unique([entityType, entityId, buildId])
+  @@index([entityType, entityId])
+  @@index([buildId])
+}
+
+model BashoIngestion {
+  bashoId       String          @id
+  status        IngestionStatus
+  startedAt     DateTime?
+  finishedAt    DateTime?
+  snapshotCount Int             @default(0)
+  errorMessage  String?
+  buildId       String?
+
+  @@index([status])
+  @@index([startedAt])
 }

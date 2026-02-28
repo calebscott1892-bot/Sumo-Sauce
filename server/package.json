@@ -11,6 +11,7 @@
     "bootstrap": "node prisma/bootstrap.mjs"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.50.5",
     "@prisma/client": "^6.3.1",
     "cors": "^2.8.5",
     "express": "^4.19.2"

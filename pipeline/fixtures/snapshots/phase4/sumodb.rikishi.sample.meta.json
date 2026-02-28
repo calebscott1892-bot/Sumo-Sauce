@@ -1,0 +1,10 @@
+{
+  "source": "sumodb",
+  "url": "https://fixtures.local/sumodb/rikishi/phase4",
+  "fetchedAt": "2025-02-01T00:00:00.000Z",
+  "contentSha256": "31caabfe7d7ad886c7bb9de9feffc7b8be6fa35508ac16d847efc7709ec99b4e",
+  "bytes": 1007,
+  "contentType": "application/json",
+  "httpStatus": 200,
+  "etag": "phase4-sumodb-rikishi-v1"
+}

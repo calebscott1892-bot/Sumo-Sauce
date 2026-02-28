@@ -1,0 +1,122 @@
+[
+  {
+    "bashoId": "202501",
+    "day": 1,
+    "division": "makuuchi",
+    "boutNo": 1,
+    "eastRikishiId": "rks_0001",
+    "westRikishiId": "rks_0004",
+    "winnerRikishiId": "rks_0001",
+    "kimariteId": "yorikiri"
+  },
+  {
+    "bashoId": "202501",
+    "day": 1,
+    "division": "makuuchi",
+    "boutNo": 2,
+    "eastRikishiId": "rks_0002",
+    "westRikishiId": "rks_0003",
+    "winnerRikishiId": "rks_0002",
+    "kimariteId": "oshidashi"
+  },
+  {
+    "bashoId": "202501",
+    "day": 1,
+    "division": "juryo",
+    "boutNo": 1,
+    "eastRikishiId": "rks_0005",
+    "westRikishiId": "rks_0008",
+    "winnerRikishiId": "rks_0008",
+    "kimariteId": "hatakikomi"
+  },
+  {
+    "bashoId": "202501",
+    "day": 1,
+    "division": "juryo",
+    "boutNo": 2,
+    "eastRikishiId": "rks_0006",
+    "westRikishiId": "rks_0007",
+    "winnerRikishiId": "rks_0006",
+    "kimariteId": "uwatenage"
+  },
+  {
+    "bashoId": "202501",
+    "day": 2,
+    "division": "makuuchi",
+    "boutNo": 1,
+    "eastRikishiId": "rks_0001",
+    "westRikishiId": "rks_0003",
+    "winnerRikishiId": "rks_0001",
+    "kimariteId": "yorikiri"
+  },
+  {
+    "bashoId": "202501",
+    "day": 2,
+    "division": "makuuchi",
+    "boutNo": 2,
+    "eastRikishiId": "rks_0004",
+    "westRikishiId": "rks_0002",
+    "winnerRikishiId": "rks_0002",
+    "kimariteId": "hatakikomi"
+  },
+  {
+    "bashoId": "202501",
+    "day": 2,
+    "division": "juryo",
+    "boutNo": 1,
+    "eastRikishiId": "rks_0005",
+    "westRikishiId": "rks_0006",
+    "winnerRikishiId": "rks_0005",
+    "kimariteId": "oshidashi"
+  },
+  {
+    "bashoId": "202501",
+    "day": 2,
+    "division": "juryo",
+    "boutNo": 2,
+    "eastRikishiId": "rks_0007",
+    "westRikishiId": "rks_0008",
+    "winnerRikishiId": "rks_0007",
+    "kimariteId": "yorikiri"
+  },
+  {
+    "bashoId": "202501",
+    "day": 3,
+    "division": "makuuchi",
+    "boutNo": 1,
+    "eastRikishiId": "rks_0003",
+    "westRikishiId": "rks_0004",
+    "winnerRikishiId": "rks_0004",
+    "kimariteId": "uwatenage"
+  },
+  {
+    "bashoId": "202501",
+    "day": 3,
+    "division": "makuuchi",
+    "boutNo": 2,
+    "eastRikishiId": "rks_0002",
+    "westRikishiId": "rks_0001",
+    "winnerRikishiId": "rks_0001",
+    "kimariteId": "yorikiri"
+  },
+  {
+    "bashoId": "202501",
+    "day": 3,
+    "division": "juryo",
+    "boutNo": 1,
+    "eastRikishiId": "rks_0006",
+    "westRikishiId": "rks_0008",
+    "winnerRikishiId": "rks_0008",
+    "kimariteId": "hatakikomi"
+  },
+  {
+    "bashoId": "202501",
+    "day": 3,
+    "division": "juryo",
+    "boutNo": 2,
+    "eastRikishiId": "rks_0007",
+    "westRikishiId": "rks_0005",
+    "winnerRikishiId": "rks_0005",
+    "kimariteId": "oshidashi"
+  }
+]

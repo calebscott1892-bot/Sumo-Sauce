@@ -1,0 +1,10 @@
+{
+  "source": "wikimedia",
+  "url": "https://commons.wikimedia.org/wiki/File:Onosato_sample.jpg",
+  "fetchedAt": "2025-01-01T00:00:00.000Z",
+  "contentSha256": "0e1ffc9723d749035c09dd33e8e505b33ab86297987006d9a2c7f98aba654bde",
+  "bytes": 108,
+  "contentType": "application/json",
+  "httpStatus": 200,
+  "etag": "fixture-wikimedia-image-v1"
+}

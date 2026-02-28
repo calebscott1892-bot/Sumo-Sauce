@@ -1,36 +1,19 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { createPageUrl } from '../../utils';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Home, Trophy, Target, MessageSquare, Calendar, BarChart3, BookOpen, User, Crown, Upload } from 'lucide-react';
+import { Menu, X, Home, Upload } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { useQuery } from '@tanstack/react-query';
-import { api } from '@/api/client';
-import NotificationCenter from '../notifications/NotificationCenter';
 
 const navItems = [
-  { name: 'Leaderboard', path: 'Leaderboard', icon: Home },
-  { name: 'Match Predictor', path: 'MatchPredictor', icon: Target },
-  { name: 'Fantasy Dojo', path: 'PredictionGame', icon: Trophy },
-  { name: 'Tournament Hub', path: 'TournamentHub', icon: Calendar },
-  { name: 'Tournaments', path: 'Tournaments', icon: BarChart3 },
-  { name: 'History', path: 'SumoHistory', icon: BookOpen },
-  { name: 'Legends', path: 'SumoLegends', icon: Crown },
-  { name: 'Forum', path: 'Forum', icon: MessageSquare },
-  { name: 'Profile', path: 'Profile', icon: User },
-  { name: 'Import Data', path: 'DataImport', icon: Upload },
+  { name: 'Leaderboard', path: '/leaderboard', icon: Home },
+  { name: 'Admin Import', path: '/admin/import', icon: Upload },
 ];
 
 export default function FloatingNav() {
   const [isOpen, setIsOpen] = useState(false);
 
-  const { data: user } = useQuery({
-    queryKey: ['current-user'],
-    queryFn: () => api.auth.me(),
-  });
-
   return (
-    <div className="fixed top-6 right-6 z-50 flex items-start gap-3">
+    <div className="fixed top-6 right-6 z-50">
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -47,7 +30,7 @@ export default function FloatingNav() {
               {navItems.map((item, index) => (
                 <Link
                   key={item.path}
-                  to={createPageUrl(item.path)}
+                  to={item.path}
                   onClick={() => setIsOpen(false)}
                   className="flex items-center gap-3 px-4 py-3 hover:bg-red-900/20 border-l-4 border-transparent hover:border-red-600 transition-all group"
                 >
@@ -97,13 +80,6 @@ export default function FloatingNav() {
           )}
         </AnimatePresence>
       </motion.button>
-
-      {/* Notification Center */}
-      {user && (
-        <div className="mt-1">
-          <NotificationCenter user={user} />
-        </div>
-      )}
     </div>
   );
 }

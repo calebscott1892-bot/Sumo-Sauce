@@ -6,6 +6,19 @@ SumoWatch is a Vite + React app with an owned backend API.
 - Backend: Express server under `/api/*`
 - API contract: `api.entities.*` and `api.auth.*` (see `API_COMPAT_CONTRACT.md`)
 
+## Architecture Today
+
+- As-is architecture map: [docs/ARCHITECTURE_AS_IS.md](docs/ARCHITECTURE_AS_IS.md)
+- Risk register (determinism, schema drift, scale): [docs/RISKS.md](docs/RISKS.md)
+- Base44/Wix remnant inventory: [docs/BASE44_REMNANTS.md](docs/BASE44_REMNANTS.md)
+- Quick repository audit script: [scripts/audit.mjs](scripts/audit.mjs)
+
+Run the audit script:
+
+```bash
+node scripts/audit.mjs
+```
+
 ## Development
 
 ```bash
