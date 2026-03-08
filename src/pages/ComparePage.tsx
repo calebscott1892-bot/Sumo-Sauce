@@ -1,4 +1,5 @@
 import { Link, useParams } from 'react-router-dom';
+import { useEffect } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { ApiError, getRikishiComparison } from '@/pages/compare/api';
 
@@ -53,9 +54,20 @@ export default function ComparePage() {
   }
 
   if (comparisonQuery.error || !comparisonQuery.data) {
+    const err = comparisonQuery.error;
+    const errCode = err instanceof ApiError ? err.code : 'UNKNOWN';
+    const errMsg = err instanceof ApiError ? err.message : 'An unexpected error occurred.';
     return (
       <div className="mx-auto max-w-6xl p-6 text-zinc-200">
-        <div className="rounded-xl border border-red-800 bg-red-950/20 p-4">Failed to load comparison data.</div>
+        <div className="rounded-xl border border-red-800 bg-red-950/20 p-4">
+          <div className="font-semibold text-red-300">{errCode}</div>
+          <div className="mt-1 text-sm text-zinc-300">{errMsg}</div>
+          <div className="mt-3">
+            <Link className="text-red-400 hover:text-red-300" to="/">
+              ← Home
+            </Link>
+          </div>
+        </div>
       </div>
     );
   }
@@ -64,8 +76,21 @@ export default function ComparePage() {
   const topWinA = model.kimarite.a.winKimarite.slice(0, 5);
   const topWinB = model.kimarite.b.winKimarite.slice(0, 5);
 
+  useEffect(() => {
+    document.title = `SumoWatch \u2014 Compare ${a} vs ${b}`;
+    return () => { document.title = 'SumoWatch'; };
+  }, [a, b]);
+
   return (
     <div className="mx-auto max-w-6xl space-y-6 p-6 text-zinc-200">
+      <nav data-testid="breadcrumbs" className="mb-2 flex items-center gap-1 text-sm text-zinc-400">
+        <Link className="text-red-400 hover:text-red-300" to="/">Home</Link>
+        <span>/</span>
+        <span>Compare</span>
+        <span>/</span>
+        <span className="text-zinc-200">{a} vs {b}</span>
+      </nav>
+
       <section className="rounded-xl border border-zinc-800 bg-zinc-900 p-5">
         <h1 className="text-2xl font-bold text-white">{model.rikishiA.shikona} vs {model.rikishiB.shikona}</h1>
         <div className="mt-2 grid grid-cols-1 gap-3 md:grid-cols-2 text-sm text-zinc-300">

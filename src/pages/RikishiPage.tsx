@@ -1,5 +1,5 @@
 import { Link, useParams } from 'react-router-dom';
-import { useMemo } from 'react';
+import { useEffect, useMemo } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import CareerTable from '@/components/rikishi/CareerTable';
 import KimariteChart from '@/components/rikishi/KimariteChart';
@@ -153,17 +153,40 @@ export default function RikishiPage() {
   }
 
   if (firstError || !summaryQuery.data || !kimariteQuery.data) {
+    const errCode = firstError instanceof ApiError ? firstError.code : 'UNKNOWN';
+    const errMsg = firstError instanceof ApiError ? firstError.message : 'An unexpected error occurred.';
     return (
       <div className="mx-auto max-w-6xl p-6 text-zinc-200">
         <div className="rounded-xl border border-red-800 bg-red-950/20 p-4">
-          Failed to load profile data.
+          <div className="font-semibold text-red-300">{errCode}</div>
+          <div className="mt-1 text-sm text-zinc-300">{errMsg}</div>
+          <div className="mt-3">
+            <Link className="text-red-400 hover:text-red-300" to="/">
+              ← Home
+            </Link>
+          </div>
         </div>
       </div>
     );
   }
 
+  const shikona = summaryQuery.data.shikona ?? rikishiId;
+
+  useEffect(() => {
+    document.title = `SumoWatch \u2014 ${shikona} (${rikishiId})`;
+    return () => { document.title = 'SumoWatch'; };
+  }, [shikona, rikishiId]);
+
   return (
     <div data-testid="rikishi-page" className="mx-auto max-w-6xl space-y-6 p-6 text-zinc-200">
+      <nav data-testid="breadcrumbs" className="mb-2 flex items-center gap-1 text-sm text-zinc-400">
+        <Link className="text-red-400 hover:text-red-300" to="/">Home</Link>
+        <span>/</span>
+        <span>Rikishi</span>
+        <span>/</span>
+        <span className="text-zinc-200">{rikishiId}</span>
+      </nav>
+
       <ProfileHeader summary={summaryQuery.data} />
 
       <RankChart points={progressionQuery.data || []} />
