@@ -82,6 +82,7 @@ support additional divisions or historical batches — just add rows.
 - Historical Yokozuna & Ōzeki, 2000–present (17 wrestlers)
 - Jūryō roster, Haru 2026 (25 wrestlers)
 - Sandanme 1–50 (East + West), Haru 2026 (100 wrestlers)
+- Makushita 1–10 (East + West), Haru 2026 (20 wrestlers)
 
 ## Matching strategy
 
