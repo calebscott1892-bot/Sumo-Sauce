@@ -12,11 +12,11 @@ export type RecentItem = {
   viewedAt: number;
 };
 
-const RIKISHI_KEY = 'sumowatch:recent-rikishi';
-const BASHO_KEY = 'sumowatch:recent-basho';
-const RIVALRY_KEY = 'sumowatch:recent-rivalry';
+const RIKISHI_KEY = 'sumosauce:recent-rikishi';
+const BASHO_KEY = 'sumosauce:recent-basho';
+const RIVALRY_KEY = 'sumosauce:recent-rivalry';
 const MAX_ITEMS = 10;
-const EVENT_NAME = 'sumowatch:recently-viewed';
+const EVENT_NAME = 'sumosauce:recently-viewed';
 
 function readList(key: string): RecentItem[] {
   try {

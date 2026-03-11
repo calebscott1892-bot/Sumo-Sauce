@@ -7,6 +7,7 @@ import { recentBashoIds, bashoDisplayName, bashoTournamentName, parseBashoId } f
 import PageMeta from '@/components/ui/PageMeta';
 import ErrorCard from '@/components/ui/ErrorCard';
 import EmptyState from '@/components/ui/EmptyState';
+import { PremiumPageHeader } from '@/components/ui/premium';
 
 type Tab = 'rikishi' | 'basho';
 
@@ -74,21 +75,20 @@ export default function SearchPage() {
   }
 
   return (
-    <div className="mx-auto max-w-6xl space-y-6 p-6 text-zinc-200">
+    <div className="stagger-children mx-auto max-w-6xl space-y-6 p-6 text-zinc-200">
       <PageMeta
         title="Sumo Sauce — Search"
         description="Search across rikishi, basho, and rivalries in the Sumo Sauce dataset."
       />
-      <nav className="mb-2 flex items-center gap-1 text-sm text-zinc-400">
-        <Link className="text-red-400 hover:text-red-300" to="/">Home</Link>
-        <span>/</span>
-        <span className="text-zinc-200">Search</span>
-      </nav>
 
-      {/* Search input */}
-      <section className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-6">
-        <span className="text-xs font-bold uppercase tracking-[0.25em] text-red-500">SEARCH</span>
-        <h1 className="font-display text-4xl font-bold uppercase tracking-tight text-white sm:text-5xl mb-4">Search</h1>
+      <PremiumPageHeader
+        accentLabel="SEARCH"
+        title="Search"
+        breadcrumbs={[
+          { label: 'Home', to: '/' },
+          { label: 'Search' },
+        ]}
+      >
         <div className="relative max-w-lg">
           <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-zinc-500" />
           <input
@@ -110,7 +110,7 @@ export default function SearchPage() {
             </button>
           )}
         </div>
-      </section>
+      </PremiumPageHeader>
 
       {/* Tabs */}
       <div className="flex gap-1 border-b border-white/[0.04]">

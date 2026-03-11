@@ -96,8 +96,8 @@ jobs:
 
           moved=0
           if [[ -f server/prisma/dev.db ]]; then
-            echo "$ mv server/prisma/dev.db /tmp/sumowatch_dev.db.bak"
-            mv server/prisma/dev.db /tmp/sumowatch_dev.db.bak
+            echo "$ mv server/prisma/dev.db /tmp/sumosauce_dev.db.bak"
+            mv server/prisma/dev.db /tmp/sumosauce_dev.db.bak
             moved=1
           fi
 
@@ -107,8 +107,8 @@ jobs:
 
           restore_db() {
             if [[ "$moved" -eq 1 ]]; then
-              echo "$ mv /tmp/sumowatch_dev.db.bak server/prisma/dev.db"
-              mv /tmp/sumowatch_dev.db.bak server/prisma/dev.db
+              echo "$ mv /tmp/sumosauce_dev.db.bak server/prisma/dev.db"
+              mv /tmp/sumosauce_dev.db.bak server/prisma/dev.db
             fi
           }
           trap restore_db EXIT

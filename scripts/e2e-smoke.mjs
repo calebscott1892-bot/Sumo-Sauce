@@ -82,7 +82,7 @@ async function main() {
     const backendAlreadyUp = await isUp(backendHealthUrl);
     if (!backendAlreadyUp) {
       backendChild = spawnLogged('npm', ['run', 'api:dev'], {
-        cwd: '/Users/belacttocs/Downloads/SumoWatch',
+        cwd: '/Users/belacttocs/Downloads/Sumo Sauce',
         env: {
           ...process.env,
           PORT: String(BACKEND_PORT),
@@ -99,7 +99,7 @@ async function main() {
     const frontendAlreadyUp = await isUp(frontendHealthUrl);
     if (!frontendAlreadyUp) {
       frontendChild = spawnLogged('npm', ['run', 'dev', '--', '--host', '127.0.0.1', '--port', String(FRONTEND_PORT), '--strictPort'], {
-        cwd: '/Users/belacttocs/Downloads/SumoWatch',
+        cwd: '/Users/belacttocs/Downloads/Sumo Sauce',
         env: {
           ...process.env,
         },
@@ -114,7 +114,7 @@ async function main() {
     if (!(await isUp(backendHealthUrl))) {
       if (!backendChild) {
         backendChild = spawnLogged('npm', ['run', 'api:dev'], {
-          cwd: '/Users/belacttocs/Downloads/SumoWatch',
+          cwd: '/Users/belacttocs/Downloads/Sumo Sauce',
           env: {
             ...process.env,
             PORT: String(BACKEND_PORT),
@@ -134,7 +134,7 @@ async function main() {
       if (!(await isUp(backendHealthUrl))) {
         if (!backendChild) {
           backendChild = spawnLogged('npm', ['run', 'api:dev'], {
-            cwd: '/Users/belacttocs/Downloads/SumoWatch',
+            cwd: '/Users/belacttocs/Downloads/Sumo Sauce',
             env: {
               ...process.env,
               PORT: String(BACKEND_PORT),
@@ -173,7 +173,7 @@ async function main() {
       if (!(await isUp(backendHealthUrl))) {
         if (!backendChild) {
           backendChild = spawnLogged('npm', ['run', 'api:dev'], {
-            cwd: '/Users/belacttocs/Downloads/SumoWatch',
+            cwd: '/Users/belacttocs/Downloads/Sumo Sauce',
             env: {
               ...process.env,
               PORT: String(BACKEND_PORT),

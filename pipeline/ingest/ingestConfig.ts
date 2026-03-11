@@ -27,7 +27,7 @@ export const ingestConfig: IngestConfig = {
   mode: parseMode(process.env.INGEST_MODE),
   fixturesDir: path.resolve(ROOT, process.env.INGEST_FIXTURES_DIR || 'pipeline/fixtures/snapshots/phase8/'),
   outputDir: path.resolve(ROOT, process.env.INGEST_OUTPUT_DIR || 'data/ingestion/'),
-  userAgent: String(process.env.INGEST_USER_AGENT || 'SumoWatchIngestion/phase8 (+https://example.invalid)').trim(),
+  userAgent: String(process.env.INGEST_USER_AGENT || 'Sumo SauceIngestion/phase8 (+https://example.invalid)').trim(),
   rateLimitMs: parsePositiveInt(process.env.INGEST_RATE_LIMIT_MS, 1000),
   timeoutMs: parsePositiveInt(process.env.INGEST_TIMEOUT_MS, 20000),
 };

@@ -44,8 +44,8 @@ function FavoritesPanel() {
       setFavRikishi(getFavoriteRikishi());
       setFavBasho(getFavoriteBasho());
     };
-    window.addEventListener('sumowatch:favorites-changed', handler);
-    return () => window.removeEventListener('sumowatch:favorites-changed', handler);
+    window.addEventListener('sumosauce:favorites-changed', handler);
+    return () => window.removeEventListener('sumosauce:favorites-changed', handler);
   }, []);
 
   if (!favRikishi.length && !favBasho.length) return null;
@@ -83,8 +83,8 @@ function ContinueExploringRow() {
 
   useEffect(() => {
     const handler = () => setRecent(getAllRecent(8));
-    window.addEventListener('sumowatch:recently-viewed', handler);
-    return () => window.removeEventListener('sumowatch:recently-viewed', handler);
+    window.addEventListener('sumosauce:recently-viewed', handler);
+    return () => window.removeEventListener('sumosauce:recently-viewed', handler);
   }, []);
 
   if (!recent.length) return null;

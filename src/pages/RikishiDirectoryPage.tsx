@@ -1,11 +1,12 @@
 import { useMemo, useCallback } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
-import { Users, Search, ArrowUpDown } from 'lucide-react';
+import { Search, ArrowUpDown } from 'lucide-react';
 import { getRikishiDirectory } from '@/pages/rikishi/api';
 import EmptyState from '@/components/ui/EmptyState';
 import PageMeta from '@/components/ui/PageMeta';
 import ErrorCard from '@/components/ui/ErrorCard';
+import { PremiumPageHeader } from '@/components/ui/premium';
 import type { RikishiDirectoryEntry } from '../../shared/api/v1';
 
 type SortKey = 'shikona' | 'heya' | 'id';
@@ -117,32 +118,21 @@ export default function RikishiDirectoryPage() {
   }
 
   return (
-    <div data-testid="rikishi-directory-page" className="mx-auto max-w-6xl space-y-6 p-6 text-zinc-200">
+    <div data-testid="rikishi-directory-page" className="stagger-children mx-auto max-w-6xl space-y-6 p-6 text-zinc-200">
       <PageMeta
         title="Sumo Sauce — Rikishi Directory"
         description={`Browse all ${directory.length.toLocaleString()} rikishi in the Sumo Sauce dataset. Search by name, filter by heya, and sort.`}
       />
 
-      {/* Breadcrumbs */}
-      <nav className="mb-2 flex items-center gap-1 text-sm text-zinc-400">
-        <Link className="text-red-400 hover:text-red-300" to="/">Home</Link>
-        <span>/</span>
-        <span className="text-zinc-200">Rikishi Directory</span>
-      </nav>
-
-      {/* Hero */}
-      <section className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-6">
-        <div className="flex items-center gap-3">
-          <Users className="h-7 w-7 text-red-500" />
-          <div>
-            <span className="text-xs font-bold uppercase tracking-[0.25em] text-red-500">RIKISHI DIRECTORY</span>
-            <h1 className="font-display text-4xl font-bold uppercase tracking-tight text-white sm:text-5xl">Rikishi Directory</h1>
-            <p className="mt-1 text-sm text-zinc-500">
-              {directory.length.toLocaleString()} wrestlers in the dataset
-            </p>
-          </div>
-        </div>
-      </section>
+      <PremiumPageHeader
+        accentLabel="RIKISHI DIRECTORY"
+        title="Rikishi Directory"
+        subtitle={`${directory.length.toLocaleString()} wrestlers in the dataset`}
+        breadcrumbs={[
+          { label: 'Home', to: '/' },
+          { label: 'Rikishi Directory' },
+        ]}
+      />
 
       {/* Filters */}
       <section className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-4">
@@ -210,7 +200,7 @@ export default function RikishiDirectoryPage() {
         <section className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-3 sm:p-5">
           <div className="overflow-x-auto">
             <table className="min-w-full text-sm">
-              <thead className="sticky top-0 z-10 bg-zinc-950">
+              <thead className="sticky top-0 z-10 bg-zinc-950/90 backdrop-blur-sm">
                 <tr className="border-b border-white/[0.04] text-left text-zinc-400">
                   <th
                     className="cursor-pointer select-none whitespace-nowrap px-3 py-2 hover:text-zinc-200"
@@ -237,7 +227,7 @@ export default function RikishiDirectoryPage() {
                 {sorted.map((entry) => (
                   <tr
                     key={entry.rikishiId}
-                    className="border-b border-white/[0.04] text-zinc-200 transition-colors hover:bg-white/[0.06]/50 cursor-pointer"
+                    className="border-b border-white/[0.04] text-zinc-200 transition-colors hover:bg-white/[0.04] cursor-pointer"
                   >
                     <td className="whitespace-nowrap px-3 py-2">
                       <Link

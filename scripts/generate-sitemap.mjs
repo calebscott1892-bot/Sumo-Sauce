@@ -2,7 +2,7 @@
 /**
  * generate-sitemap.mjs
  *
- * Generates a static sitemap.xml for SumoWatch.
+ * Generates a static sitemap.xml for Sumo Sauce.
  * Run after build: node scripts/generate-sitemap.mjs
  *
  * Reads wrestler + basho data to enumerate all indexable routes.
@@ -16,7 +16,7 @@ import { fileURLToPath } from 'url';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '..');
 
-const SITE_URL = process.env.SITE_URL || 'https://sumowatch.app';
+const SITE_URL = process.env.SITE_URL || 'https://sumosauce.app';
 
 // Static routes with their priorities and change frequencies
 const STATIC_ROUTES = [

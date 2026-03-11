@@ -1,4 +1,4 @@
-const KEY_PREFIX = 'sumowatch_v1:';
+const KEY_PREFIX = 'sumosauce_v1:';
 
 let memoryStore = new Map();
 

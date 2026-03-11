@@ -1,4 +1,4 @@
-# SumoWatch — Deployment Guide
+# Sumo Sauce — Deployment Guide
 
 ## Prerequisites
 
@@ -39,7 +39,7 @@ Copy `.env.example` to `.env` and configure production values:
 | Variable | Required | Default | Description |
 |----------|----------|---------|-------------|
 | `VITE_API_BASE_URL` | No | `/api` | API base URL. Set if API is on a different origin. |
-| `SITE_URL` | No | `https://sumowatch.app` | Public URL for sitemap & canonical links. |
+| `SITE_URL` | No | `https://sumosauce.app` | Public URL for sitemap & canonical links. |
 | `PORT` | No | `8790` | Express server port. |
 | `ADMIN_TOKEN` | Yes | — | Token for admin/ingestion endpoints. **Must change in prod.** |
 | `DATABASE_URL` | No | `file:./prisma/sumo.db` | Prisma database connection string. |
@@ -70,7 +70,7 @@ Or use a process manager:
 
 ```bash
 # PM2
-pm2 start server/index.mjs --name sumowatch-api -- 
+pm2 start server/index.mjs --name sumosauce-api -- 
 
 # Systemd (create service file)
 ```
@@ -97,7 +97,7 @@ pm2 start server/index.mjs --name sumowatch-api --
 ```nginx
 server {
     listen 80;
-    server_name sumowatch.app;
+    server_name sumosauce.app;
 
     root /var/www/sumowatch/dist;
     index index.html;

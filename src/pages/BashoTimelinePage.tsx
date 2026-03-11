@@ -4,6 +4,7 @@ import { trackBashoTimelineView } from '@/utils/analytics';
 import { Calendar, Search, ChevronRight } from 'lucide-react';
 import { recentBashoIds, parseBashoId, bashoTournamentName, bashoLabel, bashoDisplayName } from '@/utils/basho';
 import PageMeta from '@/components/ui/PageMeta';
+import { PremiumPageHeader } from '@/components/ui/premium';
 
 const ALL_BASHO_IDS = recentBashoIds(300); // ~50 years of basho
 
@@ -61,33 +62,25 @@ export default function BashoTimelinePage() {
   };
 
   return (
-    <div className="mx-auto max-w-6xl space-y-6 p-6 text-zinc-200">
+    <div className="stagger-children mx-auto max-w-6xl space-y-6 p-6 text-zinc-200">
       <PageMeta
         title="Sumo Sauce — Basho Timeline"
         description="Browse the complete history of professional sumo tournaments in chronological order."
       />
 
-      <nav className="mb-2 flex items-center gap-1 text-sm text-zinc-400">
-        <Link className="text-red-400 hover:text-red-300" to="/">Home</Link>
-        <span>/</span>
-        <span className="text-zinc-200">Timeline</span>
-      </nav>
-
-      <section className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-6">
-        <div className="flex items-center gap-3">
-          <Calendar className="h-7 w-7 text-blue-500" />
-          <div>
-            <span className="text-xs font-bold uppercase tracking-[0.25em] text-red-500">BASHO TIMELINE</span>
-            <h1 className="font-display text-4xl font-bold uppercase tracking-tight text-white sm:text-5xl">Basho Timeline</h1>
-            <p className="mt-1 text-sm text-zinc-500">
-              Browse every grand sumo tournament chronologically — {ALL_BASHO_IDS.length} basho across {groups.length} years.
-            </p>
-          </div>
-        </div>
-      </section>
+      <PremiumPageHeader
+        accentLabel="BASHO TIMELINE"
+        title="Basho Timeline"
+        subtitle={`Browse every grand sumo tournament chronologically — ${ALL_BASHO_IDS.length} basho across ${groups.length} years`}
+        breadcrumbs={[
+          { label: 'Home', to: '/' },
+          { label: 'Timeline' },
+        ]}
+      />
 
       {/* Search */}
-      <div className="relative max-w-md">
+      <section className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-4">
+        <div className="relative max-w-md">
         <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-zinc-500" />
         <input
           type="text"
@@ -97,7 +90,8 @@ export default function BashoTimelinePage() {
           className="w-full rounded-lg border border-white/[0.08] bg-zinc-800 py-2 pl-9 pr-3 text-sm text-zinc-100 placeholder-zinc-500 focus:border-red-500 focus:outline-none"
           aria-label="Search tournaments"
         />
-      </div>
+        </div>
+      </section>
 
       {/* Timeline */}
       {groups.length === 0 && (

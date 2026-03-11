@@ -12,6 +12,7 @@ import { isValidBashoId } from '@/utils/security';
 import { trackBashoPageView } from '@/utils/analytics';
 import EmptyState from '@/components/ui/EmptyState';
 import PageMeta from '@/components/ui/PageMeta';
+import { PremiumPageHeader } from '@/components/ui/premium';
 
 type SortKey = 'rank' | 'wins' | 'losses' | 'winPct';
 type SortDir = 'asc' | 'desc';
@@ -292,7 +293,7 @@ export default function BashoDivisionPage() {
       return (
         <tr
           key={row.rikishiId}
-          className="border-b border-white/[0.04] text-zinc-200 transition-colors hover:bg-white/[0.06]/50 cursor-pointer"
+          className="border-b border-white/[0.04] text-zinc-200 transition-colors hover:bg-white/[0.04] cursor-pointer"
           onClick={() => navigate(`/rikishi/${encodeURIComponent(row.rikishiId)}`)}
         >
           <td className="whitespace-nowrap px-2 py-2">
@@ -356,31 +357,26 @@ export default function BashoDivisionPage() {
   }, [bashoId, division, navigate]);
 
   return (
-    <div data-testid="division-page" className="mx-auto max-w-6xl space-y-6 p-6 text-zinc-200">
+    <div data-testid="division-page" className="stagger-children mx-auto max-w-6xl space-y-6 p-6 text-zinc-200">
       <PageMeta
         title={`Sumo Sauce \u2014 ${bashoDisplayName(bashoId)} ${divisionLabel(division)}`}
         description={`${bashoDisplayName(bashoId)} ${divisionLabel(division)} standings, results, and analytics on Sumo Sauce.`}
       />
-      <nav data-testid="breadcrumbs" className="mb-2 flex items-center gap-1 text-sm text-zinc-400">
-        <Link className="text-red-400 hover:text-red-300" to="/">Home</Link>
-        <span>/</span>
-        <Link className="text-red-400 hover:text-red-300" to="/basho">Basho</Link>
-        <span>/</span>
-        <Link className="text-red-400 hover:text-red-300" to={`/basho/${encodeURIComponent(bashoId)}`}>{bashoId}</Link>
-        <span>/</span>
-        <span className="text-zinc-200">{division}</span>
-      </nav>
+
+      <PremiumPageHeader
+        accentLabel="TOURNAMENT STANDINGS"
+        title={`${bashoDisplayName(bashoId)} — ${divisionLabel(division)}`}
+        breadcrumbs={[
+          { label: 'Home', to: '/' },
+          { label: 'Basho', to: '/basho' },
+          { label: bashoId, to: `/basho/${encodeURIComponent(bashoId)}` },
+          { label: divisionLabel(division as Division) },
+        ]}
+      />
 
       {picker}
 
       <BashoNav bashoId={bashoId} division={division} />
-
-      <section className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5">
-        <span className="text-xs font-bold uppercase tracking-[0.25em] text-red-500">TOURNAMENT STANDINGS</span>
-        <h1 className="font-display text-4xl font-bold uppercase tracking-tight text-white sm:text-5xl">
-          {bashoDisplayName(bashoId)} — {divisionLabel(division)}
-        </h1>
-      </section>
 
       {/* Filters */}
       <section className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-4">
@@ -452,7 +448,7 @@ export default function BashoDivisionPage() {
         ) : (
         <div className="overflow-x-auto -mx-1">
           <table data-testid="standings-table" className="min-w-full text-sm">
-            <thead className="sticky top-0 z-10 bg-zinc-950">
+            <thead className="sticky top-0 z-10 bg-zinc-950/90 backdrop-blur-sm">
               <tr className="border-b border-white/[0.04] text-left text-zinc-400">
                 <th className="cursor-pointer select-none whitespace-nowrap px-2 py-2 hover:text-zinc-200" onClick={() => handleSort('rank')}>Rank{sortIndicator('rank')}</th>
                 <th className="px-2 py-2">Shikona</th>

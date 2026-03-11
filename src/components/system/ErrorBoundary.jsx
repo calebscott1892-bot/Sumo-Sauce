@@ -34,11 +34,11 @@ export default class ErrorBoundary extends React.Component {
         userAgent: navigator.userAgent,
       };
       // Store in sessionStorage for post-recovery inspection
-      const existing = JSON.parse(sessionStorage.getItem('sumowatch_errors') || '[]');
+      const existing = JSON.parse(sessionStorage.getItem('sumosauce_errors') || '[]');
       existing.push(errorEvent);
       // Keep only last 10 errors
       if (existing.length > 10) existing.splice(0, existing.length - 10);
-      sessionStorage.setItem('sumowatch_errors', JSON.stringify(existing));
+      sessionStorage.setItem('sumosauce_errors', JSON.stringify(existing));
     } catch {
       // Logging should never throw
     }

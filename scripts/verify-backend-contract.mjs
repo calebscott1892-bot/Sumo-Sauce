@@ -148,7 +148,7 @@ async function main() {
     // 1) auth.me() returns stable demo user
     const me = await json('GET', '/auth/me');
     assert.equal(me.id, 'user_1');
-    assert.equal(me.email, 'demo@sumowatch.local');
+    assert.equal(me.email, 'demo@sumosauce.local');
 
     // 2) list sorting works for rank and -rank
     const wrestlersAsc = await json('GET', '/entities/Wrestler?sort=rank&limit=500');

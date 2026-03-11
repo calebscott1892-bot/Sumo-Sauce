@@ -3,8 +3,8 @@
  * Pure client-side — no API calls or DB changes needed.
  */
 
-const RIKISHI_KEY = 'sumowatch:fav-rikishi';
-const BASHO_KEY = 'sumowatch:fav-basho';
+const RIKISHI_KEY = 'sumosauce:fav-rikishi';
+const BASHO_KEY = 'sumosauce:fav-basho';
 
 function readSet(key: string): Set<string> {
   try {
@@ -45,7 +45,7 @@ export function toggleFavoriteRikishi(rikishiId: string): boolean {
     set.add(rikishiId);
   }
   writeSet(RIKISHI_KEY, set);
-  window.dispatchEvent(new CustomEvent('sumowatch:favorites-changed'));
+  window.dispatchEvent(new CustomEvent('sumosauce:favorites-changed'));
   return !wasPresent; // true = now favorited
 }
 
@@ -68,7 +68,7 @@ export function toggleFavoriteBasho(bashoId: string): boolean {
     set.add(bashoId);
   }
   writeSet(BASHO_KEY, set);
-  window.dispatchEvent(new CustomEvent('sumowatch:favorites-changed'));
+  window.dispatchEvent(new CustomEvent('sumosauce:favorites-changed'));
   return !wasPresent;
 }
 
@@ -77,6 +77,6 @@ export function toggleFavoriteBasho(bashoId: string): boolean {
 export function useFavoritesListener(callback: () => void): void {
   if (typeof window === 'undefined') return;
   // This should be used in a useEffect in the consuming component
-  // window.addEventListener('sumowatch:favorites-changed', callback);
-  // return () => window.removeEventListener('sumowatch:favorites-changed', callback);
+  // window.addEventListener('sumosauce:favorites-changed', callback);
+  // return () => window.removeEventListener('sumosauce:favorites-changed', callback);
 }

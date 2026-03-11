@@ -191,10 +191,10 @@ async function main() {
   await ensureBootstrap('ForumTopic', [
     {
       id: 'forumtopic_1',
-      title: 'Welcome to SumoWatch',
+      title: 'Welcome to Sumo Sauce',
       content: 'This is local development data. Replace with imported or live backend data when available.',
       category: 'General',
-      author_email: 'demo@sumowatch.local',
+      author_email: 'demo@sumosauce.local',
       created_date: nowIso(),
       is_pinned: true,
       is_locked: false,
@@ -207,7 +207,7 @@ async function main() {
     {
       id: 'forumreply_1',
       topic_id: 'forumtopic_1',
-      author_email: 'demo@sumowatch.local',
+      author_email: 'demo@sumosauce.local',
       content: 'First reply on the forum topic.',
       created_date: nowIso(),
       likes: 0,
@@ -218,7 +218,7 @@ async function main() {
   await ensureBootstrap('User', [
     {
       id: 'user_1',
-      email: 'demo@sumowatch.local',
+      email: 'demo@sumosauce.local',
       username: 'demo',
       full_name: 'Demo User',
       role: 'user',

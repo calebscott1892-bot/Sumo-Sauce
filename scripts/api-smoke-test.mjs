@@ -63,7 +63,7 @@ async function main() {
   const rateHeaders = { 'x-rate-limit-key': `${runKey}:rate` };
 
   if (!(await isHealthy())) {
-    child = spawn('node', ['/Users/belacttocs/Downloads/SumoWatch/server/index.mjs'], {
+    child = spawn('node', ['/Users/belacttocs/Downloads/Sumo Sauce/server/index.mjs'], {
       env: {
         ...process.env,
         PORT: String(PORT),

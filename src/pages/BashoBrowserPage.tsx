@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
-import { Calendar, Search, Filter } from 'lucide-react';
+import { Search, Filter } from 'lucide-react';
 import {
   recentBashoIds,
   bashoTournamentName,
@@ -9,6 +9,7 @@ import {
 } from '@/utils/basho';
 import EmptyState from '@/components/ui/EmptyState';
 import PageMeta from '@/components/ui/PageMeta';
+import { PremiumPageHeader } from '@/components/ui/premium';
 
 type BashoEntry = {
   bashoId: string;
@@ -113,32 +114,21 @@ export default function BashoBrowserPage() {
   }, [filtered]);
 
   return (
-    <div data-testid="basho-browser-page" className="mx-auto max-w-6xl space-y-6 p-6 text-zinc-200">
+    <div data-testid="basho-browser-page" className="stagger-children mx-auto max-w-6xl space-y-6 p-6 text-zinc-200">
       <PageMeta
         title="Sumo Sauce — Basho Browser"
         description="Browse all historical sumo basho tournaments from 2000 to present. Search and filter by year, tournament name, or month."
       />
 
-      {/* Breadcrumbs */}
-      <nav className="mb-2 flex items-center gap-1 text-sm text-zinc-400">
-        <Link className="text-red-400 hover:text-red-300" to="/">Home</Link>
-        <span>/</span>
-        <span className="text-zinc-200">Basho Browser</span>
-      </nav>
-
-      {/* Hero */}
-      <section className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-6">
-        <div className="flex items-center gap-3">
-          <Calendar className="h-7 w-7 text-red-500" />
-          <div>
-            <span className="text-xs font-bold uppercase tracking-[0.25em] text-red-500">TOURNAMENT BROWSER</span>
-            <h1 className="font-display text-4xl font-bold uppercase tracking-tight text-white sm:text-5xl">Basho Browser</h1>
-            <p className="mt-1 text-sm text-zinc-500">
-              {allBasho.length} tournaments from 2000 to present
-            </p>
-          </div>
-        </div>
-      </section>
+      <PremiumPageHeader
+        accentLabel="TOURNAMENT BROWSER"
+        title="Basho Browser"
+        subtitle={`${allBasho.length} tournaments from 2000 to present`}
+        breadcrumbs={[
+          { label: 'Home', to: '/' },
+          { label: 'Basho Browser' },
+        ]}
+      />
 
       {/* Filters */}
       <section className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-4">
@@ -216,7 +206,7 @@ export default function BashoBrowserPage() {
       ) : (
         grouped.map(([year, bashos]) => (
           <section key={year}>
-            <h2 className="mb-3 text-lg font-bold text-white">{year}</h2>
+            <h2 className="mb-3 font-display text-lg font-bold text-white">{year}</h2>
             <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
               {bashos.map((b) => (
                 <Link

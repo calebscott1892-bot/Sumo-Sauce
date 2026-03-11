@@ -5,8 +5,8 @@ import { Swords } from 'lucide-react';
 import { ApiError, getRikishiComparison } from '@/pages/compare/api';
 import { getCareerTimeline } from '@/pages/rikishi/api';
 import CompareSkeleton from '@/components/ui/skeletons/CompareSkeleton';
-import CopyLinkButton from '@/components/ui/CopyLinkButton';
 import ErrorCard from '@/components/ui/ErrorCard';
+import { PremiumPageHeader } from '@/components/ui/premium';
 import StatBar from '@/components/compare/StatBar';
 import PageMeta from '@/components/ui/PageMeta';
 import { trackCompareUsage } from '@/utils/analytics';
@@ -167,23 +167,19 @@ export default function ComparePage() {
   }, [a, b, shikonaA, shikonaB]);
 
   return (
-    <div className="mx-auto max-w-6xl space-y-6 p-6 text-zinc-200">
+    <div className="stagger-children mx-auto max-w-6xl space-y-6 p-6 text-zinc-200">
       <PageMeta title={pageTitle} description={pageDesc} />
-      <nav data-testid="breadcrumbs" className="mb-2 flex items-center justify-between">
-        <div className="flex items-center gap-1 text-sm text-zinc-400">
-          <Link className="text-red-400 hover:text-red-300" to="/">Home</Link>
-          <span>/</span>
-          <Link className="text-red-400 hover:text-red-300" to="/rikishi">Rikishi</Link>
-          <span>/</span>
-          <span className="text-zinc-200">{a} vs {b}</span>
-        </div>
-        <CopyLinkButton />
-      </nav>
 
-      <section className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5">
-        <span className="text-xs font-bold uppercase tracking-[0.25em] text-red-500">HEAD TO HEAD</span>
-        <h1 className="font-display text-4xl font-bold uppercase tracking-tight text-white sm:text-5xl">{model.rikishiA.shikona} vs {model.rikishiB.shikona}</h1>
-        <div className="mt-2 grid grid-cols-1 gap-3 md:grid-cols-2 text-sm text-zinc-300">
+      <PremiumPageHeader
+        accentLabel="HEAD TO HEAD"
+        title={`${model.rikishiA.shikona} vs ${model.rikishiB.shikona}`}
+        breadcrumbs={[
+          { label: 'Home', to: '/' },
+          { label: 'Rikishi', to: '/rikishi' },
+          { label: `${a} vs ${b}` },
+        ]}
+      >
+        <div className="grid grid-cols-1 gap-3 md:grid-cols-2 text-sm text-zinc-300">
           <div>
             <div className="font-semibold text-zinc-100">{model.rikishiA.shikona}</div>
             <div>{model.rikishiA.rikishiId}</div>
@@ -195,7 +191,7 @@ export default function ComparePage() {
             <div>{heyaLabel(model.rikishiB.heya)}</div>
           </div>
         </div>
-      </section>
+      </PremiumPageHeader>
 
       <section className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5">
         <h2 className="font-display text-xl font-bold tracking-tight text-white">Head-to-Head</h2>

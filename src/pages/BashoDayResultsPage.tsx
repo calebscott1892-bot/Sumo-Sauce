@@ -9,6 +9,7 @@ import { isValidBashoId } from '@/utils/security';
 import PageMeta from '@/components/ui/PageMeta';
 import ErrorCard from '@/components/ui/ErrorCard';
 import EmptyState from '@/components/ui/EmptyState';
+import { PremiumPageHeader } from '@/components/ui/premium';
 import type { Division, Bout, DivisionStandingRow } from '../../shared/api/v1';
 
 const DIVISIONS: Division[] = ['makuuchi', 'juryo', 'makushita', 'sandanme', 'jonidan', 'jonokuchi'];
@@ -85,33 +86,24 @@ export default function BashoDayResultsPage() {
   }
 
   return (
-    <div className="mx-auto max-w-6xl space-y-6 p-6 text-zinc-200">
+    <div className="stagger-children mx-auto max-w-6xl space-y-6 p-6 text-zinc-200">
       <PageMeta
         title={`Sumo Sauce — ${bashoDisplayName(bashoId)} ${divisionLabel(division)} Day ${day}`}
         description={`Day ${day} results for ${divisionLabel(division)} division at ${bashoDisplayName(bashoId)}.`}
       />
 
-      {/* Breadcrumbs */}
-      <nav className="mb-2 flex items-center gap-1 text-sm text-zinc-400">
-        <Link className="text-red-400 hover:text-red-300" to="/">Home</Link>
-        <span>/</span>
-        <Link className="text-red-400 hover:text-red-300" to="/basho">Basho</Link>
-        <span>/</span>
-        <Link className="text-red-400 hover:text-red-300" to={`/basho/${encodeURIComponent(bashoId)}`}>{bashoId}</Link>
-        <span>/</span>
-        <Link className="text-red-400 hover:text-red-300" to={`/basho/${encodeURIComponent(bashoId)}/${encodeURIComponent(division)}`}>
-          {divisionLabel(division)}
-        </Link>
-        <span>/</span>
-        <span className="text-zinc-200">Day {day}</span>
-      </nav>
-
-      {/* Header with day navigation */}
-      <section className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-6">
-        <h1 className="text-2xl font-black text-white sm:text-3xl">
-          {bashoDisplayName(bashoId)} — {divisionLabel(division)}
-        </h1>
-        <div className="mt-4 flex items-center gap-3">
+      <PremiumPageHeader
+        accentLabel={`DAY ${day} RESULTS`}
+        title={`${bashoDisplayName(bashoId)} — ${divisionLabel(division)}`}
+        breadcrumbs={[
+          { label: 'Home', to: '/' },
+          { label: 'Basho', to: '/basho' },
+          { label: bashoId, to: `/basho/${encodeURIComponent(bashoId)}` },
+          { label: divisionLabel(division), to: `/basho/${encodeURIComponent(bashoId)}/${encodeURIComponent(division)}` },
+          { label: `Day ${day}` },
+        ]}
+      >
+        <div className="flex items-center gap-3">
           <button
             type="button"
             onClick={() => navigate(`/basho/${encodeURIComponent(bashoId)}/${encodeURIComponent(division)}/day/${day - 1}`)}
@@ -121,7 +113,7 @@ export default function BashoDayResultsPage() {
           >
             <ChevronLeft className="h-4 w-4" />
           </button>
-          <span className="text-xl font-bold text-white">Day {day}</span>
+          <span className="font-display text-xl font-bold text-white">Day {day}</span>
           <button
             type="button"
             onClick={() => navigate(`/basho/${encodeURIComponent(bashoId)}/${encodeURIComponent(division)}/day/${day + 1}`)}
@@ -133,7 +125,6 @@ export default function BashoDayResultsPage() {
           </button>
         </div>
 
-        {/* Day pills */}
         {availableDays.length > 0 && (
           <div className="mt-3 flex flex-wrap gap-1">
             {availableDays.map((d) => (
@@ -151,7 +142,7 @@ export default function BashoDayResultsPage() {
             ))}
           </div>
         )}
-      </section>
+      </PremiumPageHeader>
 
       {/* Bout results */}
       {isLoading ? (
