@@ -106,7 +106,7 @@ export default function FallbackAvatar({
           }}
         />
       ) : (
-        <div className="flex h-full w-full items-center justify-center bg-zinc-800 text-zinc-200">
+        <div className="flex h-full w-full items-center justify-center bg-white/[0.06] text-zinc-200">
           <span className={`${sizing.initials} font-display font-bold tracking-tight`}>{initial}</span>
         </div>
       )}

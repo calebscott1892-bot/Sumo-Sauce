@@ -102,7 +102,7 @@ export default function MakePredictionDialog({ open, onClose, tournament, league
               </SelectTrigger>
               <SelectContent className="bg-white/[0.04] border-white/[0.08]">
                 {activeWrestlers.map(w => (
-                  <SelectItem key={w.id} value={w.shikona} className="text-white hover:bg-zinc-700 focus:bg-zinc-700">
+                  <SelectItem key={w.id} value={w.shikona} className="text-white hover:bg-white/[0.06] focus:bg-white/[0.06]">
                     {w.shikona} ({w.rank})
                   </SelectItem>
                 ))}
@@ -118,7 +118,7 @@ export default function MakePredictionDialog({ open, onClose, tournament, league
               </SelectTrigger>
               <SelectContent className="bg-white/[0.04] border-white/[0.08]">
                 {activeWrestlers.filter(w => w.shikona !== winner).map(w => (
-                  <SelectItem key={w.id} value={w.shikona} className="text-white hover:bg-zinc-700 focus:bg-zinc-700">
+                  <SelectItem key={w.id} value={w.shikona} className="text-white hover:bg-white/[0.06] focus:bg-white/[0.06]">
                     {w.shikona} ({w.rank})
                   </SelectItem>
                 ))}
@@ -134,7 +134,7 @@ export default function MakePredictionDialog({ open, onClose, tournament, league
               </SelectTrigger>
               <SelectContent className="bg-white/[0.04] border-white/[0.08]">
                 {activeWrestlers.map(w => (
-                  <SelectItem key={w.id} value={w.shikona} className="text-white hover:bg-zinc-700 focus:bg-zinc-700">
+                  <SelectItem key={w.id} value={w.shikona} className="text-white hover:bg-white/[0.06] focus:bg-white/[0.06]">
                     {w.shikona} ({w.rank})
                   </SelectItem>
                 ))}
@@ -143,7 +143,7 @@ export default function MakePredictionDialog({ open, onClose, tournament, league
           </div>
 
           <div className="flex justify-end gap-2 pt-2">
-            <Button variant="outline" onClick={onClose} className="border-zinc-700">
+            <Button variant="outline" onClick={onClose} className="border-white/[0.08]">
               Cancel
             </Button>
             <Button

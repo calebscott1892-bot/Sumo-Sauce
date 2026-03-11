@@ -22,9 +22,9 @@ const iconMap = {
 
 const rarityConfig = {
   common: {
-    bg: 'from-zinc-700 to-zinc-800',
-    border: 'border-zinc-600',
-    glow: 'shadow-zinc-600/20',
+    bg: 'from-white/[0.08] to-white/[0.04]',
+    border: 'border-white/[0.12]',
+    glow: 'shadow-white/10',
     text: 'text-zinc-300'
   },
   rare: {

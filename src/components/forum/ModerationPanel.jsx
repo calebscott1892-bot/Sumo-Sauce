@@ -112,8 +112,8 @@ export default function ModerationPanel({ user }) {
             <div className="text-center py-8 text-zinc-500">No reports</div>
           ) : (
             reports.map(report => (
-              <div key={report.id} className={`bg-zinc-800/50 rounded p-4 border-l-4 ${
-                report.status === 'pending' ? 'border-red-600' : 'border-zinc-700'
+              <div key={report.id} className={`rounded border border-white/[0.06] bg-white/[0.02] p-4 border-l-4 ${
+                report.status === 'pending' ? 'border-l-red-600' : 'border-l-white/[0.08]'
               }`}>
                 <div className="flex items-start justify-between mb-2">
                   <div>
@@ -123,7 +123,7 @@ export default function ModerationPanel({ user }) {
                       <span className={`text-xs px-2 py-0.5 rounded ${
                         report.status === 'pending' ? 'bg-red-900 text-red-300' :
                         report.status === 'resolved' ? 'bg-green-900 text-green-300' :
-                        'bg-zinc-700 text-zinc-400'
+                        'bg-white/[0.06] text-zinc-400'
                       }`}>
                         {report.status}
                       </span>
@@ -141,7 +141,7 @@ export default function ModerationPanel({ user }) {
                         size="sm"
                         variant="outline"
                         onClick={() => handleResolveReport(report, 'dismiss')}
-                        className="border-zinc-700"
+                        className="border-white/[0.08]"
                       >
                         <XCircle className="w-4 h-4 mr-1" />
                         Dismiss
@@ -167,7 +167,7 @@ export default function ModerationPanel({ user }) {
             <div className="text-center py-8 text-zinc-500">No banned users</div>
           ) : (
             bannedUsers.map(ban => (
-              <div key={ban.id} className="bg-zinc-800/50 rounded p-4 flex items-center justify-between">
+              <div key={ban.id} className="rounded border border-white/[0.06] bg-white/[0.02] p-4 flex items-center justify-between">
                 <div>
                   <div className="text-white font-bold">{ban.user_email}</div>
                   <div className="text-sm text-zinc-400">{ban.reason}</div>
@@ -179,7 +179,7 @@ export default function ModerationPanel({ user }) {
                   size="sm"
                   variant="outline"
                   onClick={() => unbanUserMutation.mutate(ban.id)}
-                  className="border-zinc-700"
+                  className="border-white/[0.08]"
                 >
                   Unban
                 </Button>
@@ -190,7 +190,7 @@ export default function ModerationPanel({ user }) {
 
         <TabsContent value="topics" className="space-y-4 mt-4">
           {topics.map(topic => (
-            <div key={topic.id} className="bg-zinc-800/50 rounded p-4 flex items-center justify-between">
+            <div key={topic.id} className="rounded border border-white/[0.06] bg-white/[0.02] p-4 flex items-center justify-between">
               <div className="flex-1">
                 <div className="text-white font-bold">{topic.title}</div>
                 <div className="text-xs text-zinc-500">
@@ -205,7 +205,7 @@ export default function ModerationPanel({ user }) {
                     setUserToBan(topic.created_by);
                     setBanDialogOpen(true);
                   }}
-                  className="border-zinc-700"
+                  className="border-white/[0.08]"
                 >
                   <Ban className="w-4 h-4 mr-1" />
                   Ban Author

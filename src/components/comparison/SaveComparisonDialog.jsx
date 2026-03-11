@@ -99,7 +99,7 @@ export default function SaveComparisonDialog({ open, onClose, wrestlers }) {
             </div>
 
             <div className="flex justify-end gap-3 pt-4">
-              <Button variant="outline" onClick={onClose} className="border-zinc-700">
+              <Button variant="outline" onClick={onClose} className="border-white/[0.08]">
                 Cancel
               </Button>
               <Button
@@ -133,7 +133,7 @@ export default function SaveComparisonDialog({ open, onClose, wrestlers }) {
                   />
                   <Button
                     onClick={copyShareLink}
-                    className="bg-zinc-700 hover:bg-zinc-600"
+                    className="bg-white/[0.06] hover:bg-white/[0.10]"
                   >
                     <Copy className="w-4 h-4" />
                   </Button>

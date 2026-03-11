@@ -86,7 +86,7 @@ export default function CreateTopicDialog({ open, onClose, onSuccess, user }) {
           </div>
 
           <div className="flex justify-end gap-3 pt-4">
-            <Button variant="outline" onClick={onClose} className="border-zinc-700">
+            <Button variant="outline" onClick={onClose} className="border-white/[0.08]">
               Cancel
             </Button>
             <Button

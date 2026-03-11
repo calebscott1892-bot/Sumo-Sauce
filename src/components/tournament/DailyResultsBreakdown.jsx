@@ -34,7 +34,7 @@ export default function DailyResultsBreakdown({ rankChanges, onWrestlerClick }) 
           <button
             key={wrestler.wrestler_id}
             onClick={() => onWrestlerClick?.(wrestler.wrestler_name)}
-            className="px-3 py-1 bg-zinc-800 hover:bg-zinc-700 border border-white/[0.08] rounded text-sm text-white transition-colors"
+            className="px-3 py-1 bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.08] rounded text-sm text-white transition-colors"
             style={{ borderLeftColor: colors[idx], borderLeftWidth: '3px' }}
           >
             {wrestler.wrestler_name}

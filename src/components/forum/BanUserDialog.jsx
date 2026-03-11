@@ -102,7 +102,7 @@ export default function BanUserDialog({ open, onClose, userEmail, adminEmail }) 
           )}
 
           <div className="flex justify-end gap-2">
-            <Button variant="outline" onClick={onClose} className="border-zinc-700">
+            <Button variant="outline" onClick={onClose} className="border-white/[0.08]">
               Cancel
             </Button>
             <Button 

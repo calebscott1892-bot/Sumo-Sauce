@@ -171,7 +171,7 @@ function HomePage() {
             >
               <Search className="h-4 w-4" />
               Search
-              <kbd className="ml-2 rounded border border-white/[0.08] bg-zinc-800 px-1.5 py-0.5 font-mono text-[10px] text-zinc-500">⌘K</kbd>
+              <kbd className="ml-2 rounded border border-white/[0.08] bg-white/[0.04] px-1.5 py-0.5 font-mono text-[10px] text-zinc-500">⌘K</kbd>
             </Link>
           </div>
 

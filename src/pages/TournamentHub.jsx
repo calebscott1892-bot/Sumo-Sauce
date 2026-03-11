@@ -131,7 +131,7 @@ export default function TournamentHub() {
                 <div className="space-y-3">
                   {upcoming.map(t => (
                     <Link to="/Tournaments" key={t.id}>
-                      <div className="bg-zinc-800/50 p-4 rounded hover:bg-white/[0.06] transition-colors">
+                      <div className="border border-white/[0.06] bg-white/[0.02] p-4 rounded hover:bg-white/[0.06] transition-colors">
                         <div className="font-bold text-white mb-1">{t.name}</div>
                         <div className="text-sm text-zinc-400">
                           {format(new Date(t.start_date), 'MMMM d, yyyy')}
@@ -151,7 +151,7 @@ export default function TournamentHub() {
                 <h3 className="text-xl font-black text-white mb-4">Annual Schedule</h3>
                 <div className="space-y-2">
                   {['Hatsu (January)', 'Haru (March)', 'Natsu (May)', 'Nagoya (July)', 'Aki (September)', 'Kyushu (November)'].map((basho, idx) => (
-                    <div key={idx} className="flex items-center justify-between p-3 bg-zinc-800/30 rounded">
+                    <div key={idx} className="flex items-center justify-between p-3 border border-white/[0.06] bg-white/[0.02] rounded">
                       <span className="text-white font-bold">{basho}</span>
                       <span className="text-xs text-zinc-500">15 days</span>
                     </div>
@@ -191,13 +191,13 @@ export default function TournamentHub() {
                       <Button 
                         variant="outline" 
                         size="sm" 
-                        className="border-zinc-700"
+                        className="border-white/[0.08]"
                         onClick={() => setExpandedTournament(expandedTournament === tournament.id ? null : tournament.id)}
                       >
                         {expandedTournament === tournament.id ? 'Hide' : 'Show'} Details
                       </Button>
                       <Link to="/Tournaments">
-                        <Button variant="outline" size="sm" className="border-zinc-700">
+                        <Button variant="outline" size="sm" className="border-white/[0.08]">
                           Full View
                         </Button>
                       </Link>
@@ -274,7 +274,7 @@ export default function TournamentHub() {
                   Tournament Discussions
                 </h3>
                 <Link to="/Forum">
-                  <Button variant="outline" size="sm" className="border-zinc-700">
+                  <Button variant="outline" size="sm" className="border-white/[0.08]">
                     View All
                   </Button>
                 </Link>
@@ -282,7 +282,7 @@ export default function TournamentHub() {
               <div className="space-y-3">
                 {forumTopics.slice(0, 5).map(topic => (
                   <Link to={`/ForumTopic?id=${topic.id}`} key={topic.id}>
-                    <div className="bg-zinc-800/50 p-4 rounded hover:bg-white/[0.06] transition-colors">
+                    <div className="border border-white/[0.06] bg-white/[0.02] p-4 rounded hover:bg-white/[0.06] transition-colors">
                       <div className="font-bold text-white mb-1">{topic.title}</div>
                       <div className="flex items-center gap-4 text-xs text-zinc-500">
                         <span>{topic.reply_count || 0} replies</span>

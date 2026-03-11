@@ -56,7 +56,7 @@ export default function PerformanceTrends({ wrestler }) {
 
         <TabsContent value="winrate" className="mt-4">
           {performanceData.length === 0 ? (
-            <div className="text-center py-10 bg-zinc-800/30 rounded">
+            <div className="text-center py-10 rounded border border-white/[0.06] bg-white/[0.02]">
               <p className="text-zinc-500 text-sm">No performance history available yet</p>
             </div>
           ) : (
@@ -95,7 +95,7 @@ export default function PerformanceTrends({ wrestler }) {
 
         <TabsContent value="record" className="mt-4">
           {performanceData.length === 0 ? (
-            <div className="text-center py-10 bg-zinc-800/30 rounded">
+            <div className="text-center py-10 rounded border border-white/[0.06] bg-white/[0.02]">
               <p className="text-zinc-500 text-sm">No performance history available yet</p>
             </div>
           ) : (
@@ -130,19 +130,19 @@ export default function PerformanceTrends({ wrestler }) {
       {/* Summary Stats */}
       {performanceData.length > 0 && (
       <div className="grid grid-cols-3 gap-4 mt-6">
-        <div className="bg-zinc-800/50 p-3 rounded text-center">
+        <div className="rounded border border-white/[0.06] bg-white/[0.02] p-3 text-center">
           <div className="text-2xl font-black text-blue-400">
             {(performanceData.reduce((sum, d) => sum + parseFloat(d.winRate), 0) / performanceData.length).toFixed(1)}%
           </div>
           <div className="text-xs text-zinc-500">Avg Win Rate</div>
         </div>
-        <div className="bg-zinc-800/50 p-3 rounded text-center">
+        <div className="rounded border border-white/[0.06] bg-white/[0.02] p-3 text-center">
           <div className="text-2xl font-black text-green-400">
             {performanceData.reduce((sum, d) => sum + d.wins, 0)}
           </div>
           <div className="text-xs text-zinc-500">Total Wins</div>
         </div>
-        <div className="bg-zinc-800/50 p-3 rounded text-center">
+        <div className="rounded border border-white/[0.06] bg-white/[0.02] p-3 text-center">
           <div className="text-2xl font-black text-red-400">
             {performanceData.reduce((sum, d) => sum + d.losses, 0)}
           </div>

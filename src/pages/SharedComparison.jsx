@@ -110,7 +110,7 @@ export default function SharedComparison() {
             <div
               key={idx}
               className={`text-center p-2 rounded ${
-                value === max && max > 0 ? 'bg-amber-900/30 border border-amber-700' : 'bg-zinc-800/50'
+                value === max && max > 0 ? 'bg-amber-900/30 border border-amber-700' : 'bg-white/[0.02] border border-white/[0.06]'
               }`}
             >
               <span className={`font-black ${value === max && max > 0 ? 'text-amber-400' : 'text-white'}`}>
@@ -154,7 +154,7 @@ export default function SharedComparison() {
             <Button
               onClick={() => likeMutation.mutate()}
               variant="outline"
-              className={`border-zinc-700 ${
+              className={`border-white/[0.08] ${
                 report.liked_by?.includes(user?.email)
                   ? 'text-red-500 border-red-700'
                   : 'text-zinc-400'
@@ -166,7 +166,7 @@ export default function SharedComparison() {
           </div>
 
           {report.notes && (
-            <div className="bg-zinc-800/50 p-4 rounded border-l-4 border-red-600">
+            <div className="border border-white/[0.06] bg-white/[0.02] p-4 rounded border-l-4 border-l-red-600">
               <div className="text-sm text-zinc-400 whitespace-pre-wrap">{report.notes}</div>
             </div>
           )}

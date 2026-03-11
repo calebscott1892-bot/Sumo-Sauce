@@ -20,12 +20,12 @@ const notificationIcons = {
 };
 
 const notificationColors = {
-  tournament_update: 'text-purple-500 bg-purple-100',
-  league_invitation: 'text-blue-500 bg-blue-100',
-  prediction_closing: 'text-amber-500 bg-amber-100',
-  match_result: 'text-green-500 bg-green-100',
-  forum_reply: 'text-red-500 bg-red-100',
-  achievement_unlocked: 'text-yellow-500 bg-yellow-100'
+  tournament_update: 'text-purple-400 bg-purple-900/30',
+  league_invitation: 'text-blue-400 bg-blue-900/30',
+  prediction_closing: 'text-amber-400 bg-amber-900/30',
+  match_result: 'text-green-400 bg-green-900/30',
+  forum_reply: 'text-red-400 bg-red-900/30',
+  achievement_unlocked: 'text-yellow-400 bg-yellow-900/30'
 };
 
 export default function NotificationCenter({ user }) {
@@ -104,7 +104,7 @@ export default function NotificationCenter({ user }) {
               <AnimatePresence>
                 {notifications.map((notification, idx) => {
                   const Icon = notificationIcons[notification.type] || Bell;
-                  const colorClasses = notificationColors[notification.type] || 'text-zinc-500 bg-zinc-800';
+                  const colorClasses = notificationColors[notification.type] || 'text-zinc-500 bg-white/[0.06]';
                   
                   return (
                     <motion.div
@@ -118,7 +118,7 @@ export default function NotificationCenter({ user }) {
                         to={notification.link || '/Leaderboard'}
                         onClick={() => handleNotificationClick(notification)}
                         className={`block p-4 hover:bg-white/[0.06]/50 transition-colors ${
-                          !notification.is_read ? 'bg-zinc-800/30' : ''
+                          !notification.is_read ? 'bg-white/[0.02]' : ''
                         }`}
                       >
                         <div className="flex gap-3">

@@ -299,7 +299,7 @@ export default function ComparePage() {
               </thead>
               <tbody>
                 {model.recentForm.a.map((row) => (
-                  <tr key={`${row.bashoId}-${row.division}-${row.rank}-${row.wins}-${row.losses}`} className="border-b border-zinc-900">
+                  <tr key={`${row.bashoId}-${row.division}-${row.rank}-${row.wins}-${row.losses}`} className="border-b border-white/[0.04]">
                     <td className="px-2 py-1">{row.bashoId}</td>
                     <td className="px-2 py-1">{row.division}</td>
                     <td className="px-2 py-1">{row.rank}</td>
@@ -328,7 +328,7 @@ export default function ComparePage() {
               </thead>
               <tbody>
                 {model.recentForm.b.map((row) => (
-                  <tr key={`${row.bashoId}-${row.division}-${row.rank}-${row.wins}-${row.losses}`} className="border-b border-zinc-900">
+                  <tr key={`${row.bashoId}-${row.division}-${row.rank}-${row.wins}-${row.losses}`} className="border-b border-white/[0.04]">
                     <td className="px-2 py-1">{row.bashoId}</td>
                     <td className="px-2 py-1">{row.division}</td>
                     <td className="px-2 py-1">{row.rank}</td>

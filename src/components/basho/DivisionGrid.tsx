@@ -69,7 +69,7 @@ export default function DivisionGrid({ bashoId, divisions }: Props) {
                 </div>
               )
             ) : (
-              <div className="mt-3 h-10 animate-pulse rounded-lg bg-zinc-800" />
+              <div className="mt-3 h-10 animate-pulse rounded-lg bg-white/[0.06]" />
             )}
           </Link>
         );

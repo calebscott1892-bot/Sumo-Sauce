@@ -35,7 +35,7 @@ export default function PredictionFactors({ prediction, wrestler1, wrestler2 }) 
           const Icon = factor.icon;
           const wrestler = factor.winner === wrestler1.id ? wrestler1 : wrestler2;
           return (
-            <div key={idx} className="bg-zinc-800/50 rounded p-3">
+            <div key={idx} className="rounded border border-white/[0.06] bg-white/[0.02] p-3">
               <div className="flex items-center gap-2 mb-2">
                 <Icon className="w-4 h-4 text-blue-400" />
                 <span className="text-sm text-zinc-400">{factor.label}</span>

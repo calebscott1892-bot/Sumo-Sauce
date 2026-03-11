@@ -28,7 +28,7 @@ export default function DivisionFilter({ selected, onSelect }) {
                 "flex items-center gap-2 whitespace-nowrap",
                 selected === div.id
                   ? "bg-red-600 text-white"
-                  : "bg-white/[0.04] text-zinc-400 hover:bg-zinc-700 hover:text-white"
+                  : "bg-white/[0.04] text-zinc-400 hover:bg-white/[0.08] hover:text-white"
               )}
             >
               <span className="text-base">{div.kanji}</span>

@@ -58,7 +58,7 @@ export default class ErrorBoundary extends React.Component {
       const isDev = import.meta.env?.DEV;
 
       return (
-        <div className="flex min-h-screen items-center justify-center bg-zinc-950 p-6">
+        <div className="flex min-h-screen items-center justify-center bg-black p-6">
           <div className="w-full max-w-md rounded-xl border border-red-800/30 bg-white/[0.02] p-8 text-center shadow-2xl">
             <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-red-950 text-red-400">
               <svg
@@ -83,7 +83,7 @@ export default class ErrorBoundary extends React.Component {
             </p>
 
             {this.state.error?.message && (
-              <p className="mt-3 rounded-lg bg-zinc-800 px-3 py-2 text-xs font-mono text-zinc-500 break-all">
+              <p className="mt-3 rounded-lg bg-white/[0.04] px-3 py-2 text-xs font-mono text-zinc-500 break-all">
                 {this.state.error.message}
               </p>
             )}
@@ -93,7 +93,7 @@ export default class ErrorBoundary extends React.Component {
                 <summary className="cursor-pointer text-xs text-zinc-500 hover:text-zinc-400">
                   Component stack trace
                 </summary>
-                <pre className="mt-1 max-h-40 overflow-auto rounded-lg bg-zinc-800 px-3 py-2 text-[10px] font-mono text-zinc-600">
+                <pre className="mt-1 max-h-40 overflow-auto rounded-lg bg-white/[0.04] px-3 py-2 text-[10px] font-mono text-zinc-600">
                   {this.state.errorInfo.componentStack}
                 </pre>
               </details>
@@ -110,13 +110,13 @@ export default class ErrorBoundary extends React.Component {
               <button
                 type="button"
                 onClick={() => window.location.reload()}
-                className="rounded-md border border-white/[0.08] px-5 py-2 text-sm font-medium text-zinc-300 hover:border-zinc-500 hover:text-white transition-colors"
+                className="rounded-md border border-white/[0.08] px-5 py-2 text-sm font-medium text-zinc-300 hover:border-white/[0.20] hover:text-white transition-colors"
               >
                 Reload page
               </button>
               <a
                 href="/"
-                className="rounded-md border border-white/[0.08] px-5 py-2 text-sm font-medium text-zinc-300 hover:border-zinc-500 hover:text-white transition-colors"
+                className="rounded-md border border-white/[0.08] px-5 py-2 text-sm font-medium text-zinc-300 hover:border-white/[0.20] hover:text-white transition-colors"
               >
                 Back to home
               </a>

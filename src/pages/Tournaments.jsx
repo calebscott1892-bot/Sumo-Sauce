@@ -276,7 +276,7 @@ function TournamentDetail({ tournament, onBack }) {
             </h2>
             <div className="space-y-3">
               {tournament.notable_upsets.map((upset, idx) => (
-                <div key={idx} className="bg-zinc-800/50 rounded p-4 border-l-4 border-red-600">
+                <div key={idx} className="rounded border border-white/[0.06] bg-white/[0.02] p-4 border-l-4 border-l-red-600">
                   <div className="flex items-center justify-between mb-2">
                     <div className="text-sm text-zinc-500">Day {upset.day}</div>
                   </div>

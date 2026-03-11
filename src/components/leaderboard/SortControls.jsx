@@ -31,7 +31,7 @@ export default function SortControls({ sortBy, onSortChange }) {
             <SelectItem 
               key={option.value} 
               value={option.value} 
-              className="text-white hover:bg-zinc-700 focus:bg-zinc-700 font-medium"
+              className="text-white hover:bg-white/[0.06] focus:bg-white/[0.06] font-medium"
             >
               <span className="flex items-center gap-2">
                 <span>{option.icon}</span>

@@ -204,7 +204,7 @@ export default function ForumTopic() {
                     size="sm"
                     variant="outline"
                     onClick={() => togglePinMutation.mutate()}
-                    className="border-zinc-700"
+                    className="border-white/[0.08]"
                   >
                     <Pin className="w-4 h-4 mr-1" />
                     {topic.is_pinned ? 'Unpin' : 'Pin'}
@@ -213,7 +213,7 @@ export default function ForumTopic() {
                     size="sm"
                     variant="outline"
                     onClick={() => toggleLockMutation.mutate()}
-                    className="border-zinc-700"
+                    className="border-white/[0.08]"
                   >
                     <Lock className="w-4 h-4 mr-1" />
                     {topic.is_locked ? 'Unlock' : 'Lock'}
@@ -225,7 +225,7 @@ export default function ForumTopic() {
                       setUserToBan(topic.created_by);
                       setBanDialogOpen(true);
                     }}
-                    className="border-zinc-700"
+                    className="border-white/[0.08]"
                   >
                     Ban Author
                   </Button>
@@ -246,7 +246,7 @@ export default function ForumTopic() {
                   setReportTarget({ type: 'topic', id: topicId });
                   setReportDialogOpen(true);
                 }}
-                className="border-zinc-700"
+                className="border-white/[0.08]"
               >
                 <Flag className="w-4 h-4 mr-1" />
                 Report

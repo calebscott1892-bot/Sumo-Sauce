@@ -124,7 +124,7 @@ export default function LiveTournamentFeed({ tournamentData, loading, onRefresh 
           </div>
           <div className="space-y-2">
             {upcomingBouts.slice(0, 3).map((bout, idx) => (
-              <div key={idx} className="flex items-center justify-between text-sm border-l-2 border-zinc-700 pl-3 py-1">
+              <div key={idx} className="flex items-center justify-between text-sm border-l-2 border-white/[0.08] pl-3 py-1">
                 <span className="text-white font-bold">{bout.wrestler1}</span>
                 <span className="text-zinc-600 font-bold">VS</span>
                 <span className="text-white font-bold">{bout.wrestler2}</span>
@@ -153,7 +153,7 @@ export default function LiveTournamentFeed({ tournamentData, loading, onRefresh 
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: idx * 0.05 }}
-                className="border-l-2 border-green-600 bg-zinc-800/50 p-3"
+                className="border-l-2 border-green-600 bg-white/[0.02] p-3"
               >
                 <div className="flex items-center justify-between">
                   <div className="flex-1">
@@ -190,7 +190,7 @@ export default function LiveTournamentFeed({ tournamentData, loading, onRefresh 
             {standings.slice(0, 10).map((wrestler, idx) => (
               <div key={idx} className={cn(
                 "flex items-center justify-between p-2 border-l-2",
-                idx === 0 ? "border-amber-500 bg-amber-900/10" : "border-zinc-700"
+                idx === 0 ? "border-amber-500 bg-amber-900/10" : "border-white/[0.08]"
               )}>
                 <div className="flex items-center gap-3">
                   <span className="text-white font-black text-lg w-6">{idx + 1}</span>

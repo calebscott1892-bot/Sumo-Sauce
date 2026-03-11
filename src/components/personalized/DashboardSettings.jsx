@@ -113,7 +113,7 @@ export default function DashboardSettings({ open, onClose, preferences = {}, onT
 
 function SettingRow({ label, description, checked, onChange }) {
   return (
-    <div className="flex items-center justify-between py-2 border-b border-zinc-700 last:border-0">
+    <div className="flex items-center justify-between py-2 border-b border-white/[0.06] last:border-0">
       <div className="flex-1">
         <div className="text-white font-bold text-sm">{label}</div>
         <div className="text-zinc-500 text-xs mt-0.5">{description}</div>

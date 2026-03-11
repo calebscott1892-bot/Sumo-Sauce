@@ -461,7 +461,7 @@ export default function WrestlerProfile() {
       ? 'bg-sky-500/20 border-sky-500 text-sky-300'
       : overallRating >= 70
         ? 'bg-amber-500/20 border-amber-500 text-amber-300'
-        : 'bg-zinc-700 border-zinc-600 text-zinc-200';
+        : 'bg-white/[0.08] border-white/[0.12] text-zinc-200';
 
   const stylePair = getStylePair(wrestler, fallbackRecord);
   const kimarite1 = getKimariteLine(fallbackRecord || {}, 1);

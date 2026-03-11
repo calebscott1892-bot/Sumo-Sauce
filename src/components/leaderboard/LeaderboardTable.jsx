@@ -38,7 +38,7 @@ const rankConfig = {
     bg: 'bg-white/[0.02]',
     border: 'border-l-zinc-700',
     icon: null,
-    accent: 'bg-zinc-700'
+    accent: 'bg-white/[0.08]'
   },
   Juryo: { 
     color: 'text-emerald-400', 
@@ -127,7 +127,7 @@ export default function LeaderboardTable({ wrestlers, onSelect, compareMode = fa
               </div>
 
               {/* Avatar */}
-              <div className="w-16 h-16 overflow-hidden bg-zinc-800 flex items-center justify-center relative ring-2 ring-zinc-700">
+              <div className="w-16 h-16 overflow-hidden bg-white/[0.04] flex items-center justify-center relative ring-2 ring-white/[0.08]">
                 {photoUrl ? (
                   <img 
                     src={photoUrl} 

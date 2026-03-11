@@ -56,14 +56,14 @@ export default function AdvancedFilters({ filters, onFiltersChange, onClear }) {
                       <SelectValue placeholder="All Ranks" />
                     </SelectTrigger>
                     <SelectContent className="bg-white/[0.04] border-white/[0.08]">
-                      <SelectItem value="all" className="text-white hover:bg-zinc-700 focus:bg-zinc-700">All Ranks</SelectItem>
-                      <SelectItem value="Yokozuna" className="text-white hover:bg-zinc-700 focus:bg-zinc-700">Yokozuna</SelectItem>
-                      <SelectItem value="Ozeki" className="text-white hover:bg-zinc-700 focus:bg-zinc-700">Ozeki</SelectItem>
-                      <SelectItem value="Sekiwake" className="text-white hover:bg-zinc-700 focus:bg-zinc-700">Sekiwake</SelectItem>
-                      <SelectItem value="Komusubi" className="text-white hover:bg-zinc-700 focus:bg-zinc-700">Komusubi</SelectItem>
-                      <SelectItem value="Maegashira" className="text-white hover:bg-zinc-700 focus:bg-zinc-700">Maegashira</SelectItem>
-                      <SelectItem value="Juryo" className="text-white hover:bg-zinc-700 focus:bg-zinc-700">Juryo</SelectItem>
-                      <SelectItem value="Makushita" className="text-white hover:bg-zinc-700 focus:bg-zinc-700">Makushita</SelectItem>
+                      <SelectItem value="all" className="text-white hover:bg-white/[0.06] focus:bg-white/[0.06]">All Ranks</SelectItem>
+                      <SelectItem value="Yokozuna" className="text-white hover:bg-white/[0.06] focus:bg-white/[0.06]">Yokozuna</SelectItem>
+                      <SelectItem value="Ozeki" className="text-white hover:bg-white/[0.06] focus:bg-white/[0.06]">Ozeki</SelectItem>
+                      <SelectItem value="Sekiwake" className="text-white hover:bg-white/[0.06] focus:bg-white/[0.06]">Sekiwake</SelectItem>
+                      <SelectItem value="Komusubi" className="text-white hover:bg-white/[0.06] focus:bg-white/[0.06]">Komusubi</SelectItem>
+                      <SelectItem value="Maegashira" className="text-white hover:bg-white/[0.06] focus:bg-white/[0.06]">Maegashira</SelectItem>
+                      <SelectItem value="Juryo" className="text-white hover:bg-white/[0.06] focus:bg-white/[0.06]">Juryo</SelectItem>
+                      <SelectItem value="Makushita" className="text-white hover:bg-white/[0.06] focus:bg-white/[0.06]">Makushita</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
@@ -78,9 +78,9 @@ export default function AdvancedFilters({ filters, onFiltersChange, onClear }) {
                       <SelectValue placeholder="All Rikishi" />
                     </SelectTrigger>
                     <SelectContent className="bg-white/[0.04] border-white/[0.08]">
-                      <SelectItem value="all" className="text-white hover:bg-zinc-700 focus:bg-zinc-700">All Rikishi</SelectItem>
-                      <SelectItem value="active" className="text-white hover:bg-zinc-700 focus:bg-zinc-700">Active Only</SelectItem>
-                      <SelectItem value="inactive" className="text-white hover:bg-zinc-700 focus:bg-zinc-700">Retired Only</SelectItem>
+                      <SelectItem value="all" className="text-white hover:bg-white/[0.06] focus:bg-white/[0.06]">All Rikishi</SelectItem>
+                      <SelectItem value="active" className="text-white hover:bg-white/[0.06] focus:bg-white/[0.06]">Active Only</SelectItem>
+                      <SelectItem value="inactive" className="text-white hover:bg-white/[0.06] focus:bg-white/[0.06]">Retired Only</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
@@ -124,10 +124,10 @@ export default function AdvancedFilters({ filters, onFiltersChange, onClear }) {
                       <SelectValue placeholder="All" />
                     </SelectTrigger>
                     <SelectContent className="bg-white/[0.04] border-white/[0.08]">
-                      <SelectItem value="all" className="text-white hover:bg-zinc-700 focus:bg-zinc-700">All</SelectItem>
-                      <SelectItem value="winning" className="text-white hover:bg-zinc-700 focus:bg-zinc-700">Winning Record</SelectItem>
-                      <SelectItem value="losing" className="text-white hover:bg-zinc-700 focus:bg-zinc-700">Losing Record</SelectItem>
-                      <SelectItem value="even" className="text-white hover:bg-zinc-700 focus:bg-zinc-700">Even Record</SelectItem>
+                      <SelectItem value="all" className="text-white hover:bg-white/[0.06] focus:bg-white/[0.06]">All</SelectItem>
+                      <SelectItem value="winning" className="text-white hover:bg-white/[0.06] focus:bg-white/[0.06]">Winning Record</SelectItem>
+                      <SelectItem value="losing" className="text-white hover:bg-white/[0.06] focus:bg-white/[0.06]">Losing Record</SelectItem>
+                      <SelectItem value="even" className="text-white hover:bg-white/[0.06] focus:bg-white/[0.06]">Even Record</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
@@ -138,7 +138,7 @@ export default function AdvancedFilters({ filters, onFiltersChange, onClear }) {
                   variant="outline"
                   size="sm"
                   onClick={onClear}
-                  className="border-zinc-700 text-zinc-400 hover:text-white"
+                  className="border-white/[0.08] text-zinc-400 hover:text-white"
                 >
                   <X className="w-4 h-4 mr-2" />
                   Clear Filters

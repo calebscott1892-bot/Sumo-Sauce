@@ -217,7 +217,7 @@ export default function WrestlerRatingCard({ wrestler }) {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: idx * 0.05 }}
-                className="bg-zinc-800/50 p-3 border-l-2 border-amber-500"
+                className="bg-white/[0.02] p-3 border-l-2 border-amber-500"
               >
                 <div className="flex items-center justify-between mb-2">
                   <span className="text-xs text-zinc-500">{r.created_by}</span>

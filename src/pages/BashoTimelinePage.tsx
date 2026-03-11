@@ -57,7 +57,7 @@ export default function BashoTimelinePage() {
       case 7: return 'border-amber-600 bg-amber-950/30';
       case 9: return 'border-orange-600 bg-orange-950/30';
       case 11: return 'border-purple-600 bg-purple-950/30';
-      default: return 'border-white/[0.06] bg-zinc-950';
+      default: return 'border-white/[0.06] bg-black';
     }
   };
 
@@ -87,7 +87,7 @@ export default function BashoTimelinePage() {
           placeholder="Search by year, name (Hatsu, Natsu…), or month…"
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
-          className="w-full rounded-lg border border-white/[0.08] bg-zinc-800 py-2 pl-9 pr-3 text-sm text-zinc-100 placeholder-zinc-500 focus:border-red-500 focus:outline-none"
+          className="w-full rounded-lg border border-white/[0.08] bg-white/[0.04] py-2 pl-9 pr-3 text-sm text-zinc-100 placeholder-zinc-500 focus:border-red-500 focus:outline-none"
           aria-label="Search tournaments"
         />
         </div>
@@ -103,13 +103,13 @@ export default function BashoTimelinePage() {
 
       <div className="relative space-y-8">
         {/* Vertical timeline line */}
-        <div className="absolute left-4 top-0 bottom-0 w-px bg-zinc-800 hidden sm:block" aria-hidden="true" />
+        <div className="absolute left-4 top-0 bottom-0 w-px bg-white/[0.08] hidden sm:block" aria-hidden="true" />
 
         {groups.map((group) => (
           <div key={group.year} className="relative">
             {/* Year marker */}
             <div className="flex items-center gap-3 mb-3 sm:pl-10">
-              <div className="hidden sm:flex absolute left-0 h-9 w-9 items-center justify-center rounded-full border-2 border-red-600 bg-zinc-950 text-xs font-bold text-red-400">
+              <div className="hidden sm:flex absolute left-0 h-9 w-9 items-center justify-center rounded-full border-2 border-red-600 bg-black text-xs font-bold text-red-400">
                 {String(group.year).slice(2)}
               </div>
               <h2 className="font-display text-xl font-bold tracking-tight text-white">{group.year}</h2>

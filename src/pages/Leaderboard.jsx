@@ -506,7 +506,7 @@ export default function Leaderboard() {
         {/* ── Loading / Error States ── */}
         {loading && (
           <div className="mt-6 flex items-center gap-3 rounded-xl border border-white/[0.06]/60 bg-white/[0.02] px-5 py-6 text-zinc-400">
-            <div className="h-5 w-5 animate-spin rounded-full border-2 border-zinc-600 border-t-red-500" />
+            <div className="h-5 w-5 animate-spin rounded-full border-2 border-white/[0.08] border-t-red-500" />
             Loading banzuke data…
           </div>
         )}
@@ -550,7 +550,7 @@ export default function Leaderboard() {
             <select
               value={selectedBasho}
               onChange={(event) => setSelectedBasho(event.target.value)}
-              className="rounded-lg border border-white/[0.08]/50 bg-zinc-800/80 px-3 py-2 text-sm text-zinc-200 outline-none focus:border-red-600/50"
+              className="rounded-lg border border-white/[0.08] bg-white/[0.04] px-3 py-2 text-sm text-zinc-200 outline-none focus:border-red-600/50"
             >
               {filteredGroupOptions.map((option) => (
                 <option key={option.key} value={option.key}>
@@ -562,7 +562,7 @@ export default function Leaderboard() {
             <select
               value={selectedDivision}
               onChange={(event) => setSelectedDivision(event.target.value)}
-              className="rounded-lg border border-white/[0.08]/50 bg-zinc-800/80 px-3 py-2 text-sm text-zinc-200 outline-none focus:border-red-600/50"
+              className="rounded-lg border border-white/[0.08] bg-white/[0.04] px-3 py-2 text-sm text-zinc-200 outline-none focus:border-red-600/50"
             >
               <option value="all">All Divisions</option>
               <option value="Makuuchi">Makuuchi</option>
@@ -573,22 +573,22 @@ export default function Leaderboard() {
               <option value="Jonokuchi">Jonokuchi</option>
             </select>
 
-            <label className="flex items-center gap-2 rounded-lg border border-white/[0.08]/50 bg-zinc-800/80 px-3 py-2 text-xs font-medium text-zinc-300">
+            <label className="flex items-center gap-2 rounded-lg border border-white/[0.08] bg-white/[0.04] px-3 py-2 text-xs font-medium text-zinc-300">
               <input
                 type="checkbox"
                 checked={includeSnapshots}
                 onChange={(event) => setIncludeSnapshots(event.target.checked)}
-                className="rounded border-zinc-600 accent-red-500"
+                className="rounded border-white/[0.08] accent-red-500"
               />
               Snapshots
             </label>
 
-            <label className="flex items-center gap-2 rounded-lg border border-white/[0.08]/50 bg-zinc-800/80 px-3 py-2 text-xs font-medium text-zinc-300">
+            <label className="flex items-center gap-2 rounded-lg border border-white/[0.08] bg-white/[0.04] px-3 py-2 text-xs font-medium text-zinc-300">
               <input
                 type="checkbox"
                 checked={hideStubs}
                 onChange={(event) => setHideStubs(event.target.checked)}
-                className="rounded border-zinc-600 accent-red-500"
+                className="rounded border-white/[0.08] accent-red-500"
               />
               Hide Stubs
             </label>

@@ -157,9 +157,9 @@ export default function PredictionLeague() {
                   transition={{ delay: idx * 0.05 }}
                   className={`flex items-center gap-4 p-4 rounded ${
                     idx === 0 ? 'bg-gradient-to-r from-amber-900/30 to-amber-800/30 border-2 border-amber-600' :
-                    idx === 1 ? 'bg-gradient-to-r from-zinc-800/50 to-zinc-700/50 border border-zinc-600' :
+                    idx === 1 ? 'bg-gradient-to-r from-white/[0.04] to-white/[0.02] border border-white/[0.08]' :
                     idx === 2 ? 'bg-gradient-to-r from-amber-900/20 to-amber-800/20 border border-amber-700' :
-                    'bg-zinc-800/30 border border-white/[0.08]'
+                    'bg-white/[0.02] border border-white/[0.08]'
                   }`}
                 >
                   <div className="w-12 text-center">
@@ -170,7 +170,7 @@ export default function PredictionLeague() {
 
                   <Link to={`/Profile?email=${member.user_email}`} className="flex-1">
                     <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-full bg-zinc-700 flex items-center justify-center">
+                      <div className="w-10 h-10 rounded-full bg-white/[0.06] flex items-center justify-center">
                         <span className="text-white font-bold">
                           {getDisplayNameFromEmail(member.user_email, allUsers).charAt(0).toUpperCase()}
                         </span>
@@ -211,7 +211,7 @@ export default function PredictionLeague() {
               {predictions.slice(0, 10).map(pred => {
                 const tournament = tournaments.find(t => t.id === pred.tournament_id);
                 return (
-                  <div key={pred.id} className="bg-zinc-800/50 rounded p-4">
+                  <div key={pred.id} className="rounded border border-white/[0.06] bg-white/[0.02] p-4">
                     <div className="flex items-start justify-between mb-2">
                       <div>
                         <div className="text-white font-bold mb-1">{tournament?.name || 'Tournament'}</div>

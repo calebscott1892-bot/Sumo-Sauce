@@ -29,7 +29,7 @@ export default function EmptyState({ message, description, onReset, suggestions 
           <button
             type="button"
             onClick={onReset}
-            className="rounded-md bg-zinc-800 px-4 py-1.5 text-sm font-medium text-zinc-200 transition-colors hover:bg-zinc-700"
+            className="rounded-md bg-white/[0.06] px-4 py-1.5 text-sm font-medium text-zinc-200 transition-colors hover:bg-white/[0.10]"
           >
             Reset filters
           </button>

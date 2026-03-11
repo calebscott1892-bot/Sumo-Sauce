@@ -11,7 +11,7 @@ export default function WrestlerRivalries({ wrestler }) {
 
   if (rivalries.length === 0) {
     return (
-      <div className="text-center py-8 bg-zinc-800/30 rounded">
+      <div className="text-center py-8 rounded border border-white/[0.06] bg-white/[0.02]">
         <Swords className="w-12 h-12 text-zinc-600 mx-auto mb-2" />
         <p className="text-zinc-500 text-sm">No rivalries data available yet</p>
       </div>
@@ -38,7 +38,7 @@ export default function WrestlerRivalries({ wrestler }) {
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: idx * 0.1 }}
-              className="bg-zinc-800/50 border border-white/[0.08] rounded-lg p-4 hover:border-white/[0.15] transition-colors"
+              className="border border-white/[0.06] bg-white/[0.02] rounded-lg p-4 hover:border-white/[0.15] transition-colors"
             >
               <div className="flex items-start justify-between mb-3">
                 <div className="flex-1">

@@ -146,7 +146,7 @@ export default function PredictionGame() {
                       <Link key={league.id} to={`/PredictionLeague?id=${league.id}`}>
                         <motion.div
                           whileHover={{ x: 4 }}
-                          className="bg-zinc-800/50 border border-white/[0.08] p-5 hover:bg-white/[0.06] transition-all cursor-pointer"
+                          className="border border-white/[0.06] bg-white/[0.02] p-5 hover:bg-white/[0.06] transition-all cursor-pointer"
                         >
                           <div className="flex items-start justify-between mb-2">
                             <div>
@@ -169,7 +169,7 @@ export default function PredictionGame() {
                               <Target className="w-4 h-4" />
                               {membership?.correct_predictions || 0} correct
                             </div>
-                            <div className="px-2 py-1 bg-zinc-700 rounded text-xs font-mono">
+                            <div className="px-2 py-1 bg-white/[0.06] rounded text-xs font-mono">
                               {league.join_code}
                             </div>
                           </div>
@@ -195,7 +195,7 @@ export default function PredictionGame() {
               ) : (
                 <div className="space-y-3">
                   {upcomingTournaments.map(tournament => (
-                    <div key={tournament.id} className="bg-zinc-800/50 border border-white/[0.08] p-4">
+                    <div key={tournament.id} className="border border-white/[0.06] bg-white/[0.02] p-4">
                       <div className="flex items-start justify-between mb-3">
                         <div>
                           <h3 className="text-white font-bold">{tournament.name}</h3>
@@ -215,7 +215,7 @@ export default function PredictionGame() {
                                   size="sm"
                                   onClick={() => setPredictionDialog({ open: true, tournament, league })}
                                   disabled={!!prediction}
-                                  className={prediction ? 'bg-zinc-700' : 'bg-green-600 hover:bg-green-700'}
+                                  className={prediction ? 'bg-white/[0.06]' : 'bg-green-600 hover:bg-green-700'}
                                 >
                                   {prediction ? '✓ Predicted' : 'Predict'}
                                 </Button>
@@ -263,7 +263,7 @@ export default function PredictionGame() {
               <h3 className="text-lg font-black text-white mb-4">Public Leagues</h3>
               <div className="space-y-2">
                 {allLeagues.filter(l => l.is_public && !myLeagues.find(ml => ml.id === l.id)).slice(0, 5).map(league => (
-                  <div key={league.id} className="bg-zinc-800/50 p-3 rounded">
+                  <div key={league.id} className="border border-white/[0.06] bg-white/[0.02] p-3 rounded">
                     <div className="text-white text-sm font-bold mb-1">{league.name}</div>
                     <div className="flex items-center justify-between text-xs text-zinc-500">
                       <span>{league.member_count || 1} members</span>

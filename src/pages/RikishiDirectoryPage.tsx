@@ -148,7 +148,7 @@ export default function RikishiDirectoryPage() {
               value={shikonaFilter}
               onChange={(e) => updateParam('q', e.target.value)}
               placeholder="Hakuho, rks_0001…"
-              className="w-52 rounded-md border border-white/[0.08] bg-zinc-800 px-2 py-1.5 text-sm text-zinc-100 placeholder-zinc-500 focus:border-red-500 focus:outline-none"
+              className="w-52 rounded-md border border-white/[0.08] bg-white/[0.04] px-2 py-1.5 text-sm text-zinc-100 placeholder-zinc-500 focus:border-red-500 focus:outline-none"
             />
           </div>
           <div>
@@ -159,7 +159,7 @@ export default function RikishiDirectoryPage() {
               id="dir-heya"
               value={heyaFilter}
               onChange={(e) => updateParam('heya', e.target.value)}
-              className="rounded-md border border-white/[0.08] bg-zinc-800 px-2 py-1.5 text-sm text-zinc-100 focus:border-red-500 focus:outline-none"
+              className="rounded-md border border-white/[0.08] bg-white/[0.04] px-2 py-1.5 text-sm text-zinc-100 focus:border-red-500 focus:outline-none"
             >
               <option value="">All heya</option>
               {heyaOptions.map((h) => (
@@ -200,7 +200,7 @@ export default function RikishiDirectoryPage() {
         <section className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-3 sm:p-5">
           <div className="overflow-x-auto">
             <table className="min-w-full text-sm">
-              <thead className="sticky top-0 z-10 bg-zinc-950/90 backdrop-blur-sm">
+              <thead className="sticky top-0 z-10 bg-black/90 backdrop-blur-sm">
                 <tr className="border-b border-white/[0.04] text-left text-zinc-400">
                   <th
                     className="cursor-pointer select-none whitespace-nowrap px-3 py-2 hover:text-zinc-200"

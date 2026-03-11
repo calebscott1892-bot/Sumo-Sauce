@@ -311,7 +311,7 @@ export default function MatchPredictor() {
                     </SelectTrigger>
                     <SelectContent className="bg-white/[0.04] border-white/[0.08]">
                       {wrestlers.map(w => (
-                        <SelectItem key={w.id} value={w.id} className="text-white hover:bg-zinc-700 focus:bg-zinc-700">
+                        <SelectItem key={w.id} value={w.id} className="text-white hover:bg-white/[0.06] focus:bg-white/[0.06]">
                           {w.shikona} ({w.current_rank})
                         </SelectItem>
                       ))}
@@ -327,7 +327,7 @@ export default function MatchPredictor() {
                     </SelectTrigger>
                     <SelectContent className="bg-white/[0.04] border-white/[0.08]">
                       {wrestlers.filter(w => w.id !== wrestler1Id).map(w => (
-                        <SelectItem key={w.id} value={w.id} className="text-white hover:bg-zinc-700 focus:bg-zinc-700">
+                        <SelectItem key={w.id} value={w.id} className="text-white hover:bg-white/[0.06] focus:bg-white/[0.06]">
                           {w.shikona} ({w.current_rank})
                         </SelectItem>
                       ))}
@@ -381,7 +381,7 @@ export default function MatchPredictor() {
                     <h3 className="text-lg font-black text-white mb-4">Data Provenance</h3>
                     <div className="grid md:grid-cols-2 gap-4">
                       {/* Wrestler 1 */}
-                      <div className="bg-zinc-800/50 rounded-lg p-4">
+                      <div className="rounded-lg border border-white/[0.06] bg-white/[0.02] p-4">
                         <div className="text-sm font-bold text-white mb-3">{wrestler1.shikona}</div>
                         <div className="space-y-2">
                           <div className="flex items-center gap-2">
@@ -394,7 +394,7 @@ export default function MatchPredictor() {
                                 Wikipedia Image
                               </span>
                             ) : (
-                              <span className="text-xs px-2 py-1 bg-zinc-700 text-zinc-400 rounded border border-zinc-600">
+                              <span className="text-xs px-2 py-1 bg-white/[0.06] text-zinc-400 rounded border border-white/[0.08]">
                                 Missing Image
                               </span>
                             )}
@@ -419,7 +419,7 @@ export default function MatchPredictor() {
                       </div>
 
                       {/* Wrestler 2 */}
-                      <div className="bg-zinc-800/50 rounded-lg p-4">
+                      <div className="rounded-lg border border-white/[0.06] bg-white/[0.02] p-4">
                         <div className="text-sm font-bold text-white mb-3">{wrestler2.shikona}</div>
                         <div className="space-y-2">
                           <div className="flex items-center gap-2">
@@ -432,7 +432,7 @@ export default function MatchPredictor() {
                                 Wikipedia Image
                               </span>
                             ) : (
-                              <span className="text-xs px-2 py-1 bg-zinc-700 text-zinc-400 rounded border border-zinc-600">
+                              <span className="text-xs px-2 py-1 bg-white/[0.06] text-zinc-400 rounded border border-white/[0.08]">
                                 Missing Image
                               </span>
                             )}
@@ -470,11 +470,11 @@ export default function MatchPredictor() {
                     <div className="bg-white/[0.02] border border-white/[0.06] rounded-lg p-6">
                       <h3 className="text-xl font-black text-white mb-4">Betting Odds</h3>
                       <div className="grid grid-cols-2 gap-4">
-                        <div className="bg-zinc-800/50 rounded p-4 text-center">
+                        <div className="rounded border border-white/[0.06] bg-white/[0.02] p-4 text-center">
                           <div className="text-zinc-400 text-sm mb-1">{wrestler1.shikona}</div>
                           <div className="text-3xl font-black text-green-400">{odds.wrestler1Odds}</div>
                         </div>
-                        <div className="bg-zinc-800/50 rounded p-4 text-center">
+                        <div className="rounded border border-white/[0.06] bg-white/[0.02] p-4 text-center">
                           <div className="text-zinc-400 text-sm mb-1">{wrestler2.shikona}</div>
                           <div className="text-3xl font-black text-green-400">{odds.wrestler2Odds}</div>
                         </div>
@@ -493,7 +493,7 @@ export default function MatchPredictor() {
                         onClick={() => setUserPick(wrestler1.id)}
                         className={userPick === wrestler1.id
                           ? 'bg-green-600 hover:bg-green-700 h-16'
-                          : 'bg-zinc-800 hover:bg-zinc-700 h-16'
+                          : 'bg-white/[0.04] hover:bg-white/[0.08] h-16'
                         }
                       >
                         <span className="text-lg font-black">{wrestler1.shikona}</span>
@@ -502,7 +502,7 @@ export default function MatchPredictor() {
                         onClick={() => setUserPick(wrestler2.id)}
                         className={userPick === wrestler2.id
                           ? 'bg-green-600 hover:bg-green-700 h-16'
-                          : 'bg-zinc-800 hover:bg-zinc-700 h-16'
+                          : 'bg-white/[0.04] hover:bg-white/[0.08] h-16'
                         }
                       >
                         <span className="text-lg font-black">{wrestler2.shikona}</span>
@@ -591,7 +591,7 @@ export default function MatchPredictor() {
               </h3>
               <div className="space-y-2">
                 {userPredictions.slice(0, 10).map(pred => (
-                  <div key={pred.id} className="bg-zinc-800/50 rounded p-3">
+                  <div key={pred.id} className="rounded border border-white/[0.06] bg-white/[0.02] p-3">
                     <div className="text-sm text-white font-bold mb-1">
                       {pred.wrestler1_name} vs {pred.wrestler2_name}
                     </div>

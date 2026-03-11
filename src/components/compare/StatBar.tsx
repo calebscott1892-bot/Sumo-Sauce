@@ -43,8 +43,8 @@ export default function StatBar({
           </>
         ) : (
           <>
-            <div className="bg-zinc-700" style={{ width: '50%' }} />
-            <div className="bg-zinc-600" style={{ width: '50%' }} />
+            <div className="bg-white/[0.12]" style={{ width: '50%' }} />
+            <div className="bg-white/[0.08]" style={{ width: '50%' }} />
           </>
         )}
       </div>
