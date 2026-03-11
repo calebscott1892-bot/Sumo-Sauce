@@ -71,7 +71,7 @@ export default function VerifiedProfileCard({ shikona, heya, rank }: Props) {
   // already handles the unverified case gracefully.
   if (!profile) return null;
 
-  const age = computeAge(profile.birthDate);
+  const age = profile.birthDate ? computeAge(profile.birthDate) : null;
 
   return (
     <section className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5">
@@ -93,7 +93,7 @@ export default function VerifiedProfileCard({ shikona, heya, rank }: Props) {
             {profile.shikona}
           </h2>
           <p className="mt-0.5 text-xs text-zinc-500">
-            {profile.heya} stable
+            {profile.heya ? `${profile.heya} stable` : 'Stable unknown'}
             {profile.status === 'active' && (
               <span className="ml-2 inline-flex items-center rounded-full bg-emerald-950/40 px-2 py-0.5 text-[10px] font-semibold text-emerald-400">
                 Active
@@ -111,10 +111,10 @@ export default function VerifiedProfileCard({ shikona, heya, rank }: Props) {
             {profile.nationality && (
               <InfoRow label="From" value={profile.nationality} />
             )}
-            {profile.heightCm > 0 && (
+            {profile.heightCm != null && profile.heightCm > 0 && (
               <InfoRow label="Height" value={formatHeight(profile.heightCm)} />
             )}
-            {profile.weightKg > 0 && (
+            {profile.weightKg != null && profile.weightKg > 0 && (
               <InfoRow label="Weight" value={formatWeight(profile.weightKg)} />
             )}
           </div>

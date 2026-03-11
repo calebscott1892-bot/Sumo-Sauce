@@ -1633,5 +1633,534 @@
       }
     ],
     "notes": "Official JSA image URL extracted from profile flow, but automated fetch returned a cache-miss; confirm URL accessibility. JSA vs SumoDB measurements differ."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Ageha",
+    "heya": "Isenoumi",
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA Shin Jūryō list",
+        "url": "https://www.sumo.or.jp/ResultBanzuke/shin_juryo/"
+      }
+    ],
+    "notes": "Haru 2026 Jūryō roster (East)."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Kagamiiwa",
+    "heya": "Oshima",
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA Shin Jūryō list",
+        "url": "https://www.sumo.or.jp/ResultBanzuke/shin_juryo/"
+      }
+    ],
+    "notes": "Haru 2026 Jūryō roster (East)."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Izushio",
+    "heya": "Ikazuchi",
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA Shin Jūryō list",
+        "url": "https://www.sumo.or.jp/ResultBanzuke/shin_juryo/"
+      }
+    ],
+    "notes": "Haru 2026 Jūryō roster (East)."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Hiranoumi",
+    "heya": "Kise",
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA Shin Jūryō list",
+        "url": "https://www.sumo.or.jp/ResultBanzuke/shin_juryo/"
+      }
+    ],
+    "notes": "Haru 2026 Jūryō roster (East)."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Shachihoko",
+    "heya": "Oitekaze",
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA Shin Jūryō list",
+        "url": "https://www.sumo.or.jp/ResultBanzuke/shin_juryo/"
+      }
+    ],
+    "notes": "Haru 2026 Jūryō roster (East)."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Tokitsunami",
+    "heya": "Takasago",
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA Shin Jūryō list",
+        "url": "https://www.sumo.or.jp/ResultBanzuke/shin_juryo/"
+      }
+    ],
+    "notes": "Haru 2026 Jūryō roster (East)."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Mizuhiki",
+    "heya": "Asakayama",
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA Shin Jūryō list",
+        "url": "https://www.sumo.or.jp/ResultBanzuke/shin_juryo/"
+      }
+    ],
+    "notes": "Haru 2026 Jūryō roster (East)."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Hakkaku",
+    "heya": "Kōbōyama",
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA Shin Jūryō list",
+        "url": "https://www.sumo.or.jp/ResultBanzuke/shin_juryo/"
+      }
+    ],
+    "notes": "Haru 2026 Jūryō roster (East)."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Yatsugamine",
+    "heya": "Tamagawa",
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA Shin Jūryō list",
+        "url": "https://www.sumo.or.jp/ResultBanzuke/shin_juryo/"
+      }
+    ],
+    "notes": "Haru 2026 Jūryō roster (East)."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Onikatsu",
+    "heya": "Onoe",
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA Shin Jūryō list",
+        "url": "https://www.sumo.or.jp/ResultBanzuke/shin_juryo/"
+      }
+    ],
+    "notes": "Haru 2026 Jūryō roster (East)."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Toshinofuji",
+    "heya": "Isegahama",
+    "birthDate": null,
+    "nationality": "Mongolia",
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Shin Jūryō (Jan 2026)",
+        "url": "https://www.sumo.or.jp/ResultBanzuke/shin_juryo/"
+      }
+    ],
+    "notes": "Newly promoted to Jūryō for Haru 2026 (JSA confirmed). Isegahama stable."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Shimazuumi",
+    "heya": "Hamanoshima",
+    "birthDate": null,
+    "nationality": "Japan",
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Shin Jūryō (Jan 2026)",
+        "url": "https://www.sumo.or.jp/ResultBanzuke/shin_juryo/"
+      }
+    ],
+    "notes": "Newly promoted to Jūryō for Haru 2026 (JSA confirmed). Hamanoshima stable."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Yotsuguruma",
+    "heya": "Oho",
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA Shin Jūryō list",
+        "url": "https://www.sumo.or.jp/ResultBanzuke/shin_juryo/"
+      }
+    ],
+    "notes": "Haru 2026 Jūryō roster (West)."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Takinooto",
+    "heya": "Tagonoura",
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA Shin Jūryō list",
+        "url": "https://www.sumo.or.jp/ResultBanzuke/shin_juryo/"
+      }
+    ],
+    "notes": "Haru 2026 Jūryō roster (West)."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Kumagatake",
+    "heya": "Onomatsu",
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA Shin Jūryō list",
+        "url": "https://www.sumo.or.jp/ResultBanzuke/shin_juryo/"
+      }
+    ],
+    "notes": "Haru 2026 Jūryō roster (West)."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Shibatoyama",
+    "heya": null,
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "retired",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA Shin Jūryō list",
+        "url": "https://www.sumo.or.jp/ResultBanzuke/shin_juryo/"
+      }
+    ],
+    "notes": "Retired after Day 1 (0-1 record) in Haru 2026. Stable unknown."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Araumi",
+    "heya": "Dewanoumi",
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA Shin Jūryō list",
+        "url": "https://www.sumo.or.jp/ResultBanzuke/shin_juryo/"
+      }
+    ],
+    "notes": "Haru 2026 Jūryō roster (West)."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Onuma",
+    "heya": null,
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA Shin Jūryō list",
+        "url": "https://www.sumo.or.jp/ResultBanzuke/shin_juryo/"
+      }
+    ],
+    "notes": "Haru 2026 Jūryō roster (West). Stable unconfirmed."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Azumagatake",
+    "heya": "Takadagawa",
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA Shin Jūryō list",
+        "url": "https://www.sumo.or.jp/ResultBanzuke/shin_juryo/"
+      }
+    ],
+    "notes": "Haru 2026 Jūryō roster (West)."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Sanoyama",
+    "heya": "Sanoyama",
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA Shin Jūryō list",
+        "url": "https://www.sumo.or.jp/ResultBanzuke/shin_juryo/"
+      }
+    ],
+    "notes": "Haru 2026 Jūryō roster (West). Heya formerly known as Shibatayama."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Nishikido",
+    "heya": "Asakayama",
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA Shin Jūryō list",
+        "url": "https://www.sumo.or.jp/ResultBanzuke/shin_juryo/"
+      }
+    ],
+    "notes": "Haru 2026 Jūryō roster (West)."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Musashino",
+    "heya": "Naruto",
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA Shin Jūryō list",
+        "url": "https://www.sumo.or.jp/ResultBanzuke/shin_juryo/"
+      }
+    ],
+    "notes": "Haru 2026 Jūryō roster (West)."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Fujitensei",
+    "heya": "Fujishima",
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Shin Jūryō (Jan 2026)",
+        "url": "https://www.sumo.or.jp/ResultBanzuke/shin_juryo/"
+      },
+      {
+        "label": "JSA Kaimei (Rename) list",
+        "url": "https://www.sumo.or.jp/ResultBanzuke/kaimei_rikishi/"
+      }
+    ],
+    "notes": "Newly promoted to Jūryō for Haru 2026 (JSA confirmed). Renamed from Fukuzaki upon promotion."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Asogamori",
+    "heya": null,
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA Shin Jūryō list",
+        "url": "https://www.sumo.or.jp/ResultBanzuke/shin_juryo/"
+      }
+    ],
+    "notes": "Debuting sekitori (0-0 record in Haru 2026). Stable unconfirmed."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Tateiwa",
+    "heya": "Nishonoseki",
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA Shin Jūryō list",
+        "url": "https://www.sumo.or.jp/ResultBanzuke/shin_juryo/"
+      }
+    ],
+    "notes": "Debuting sekitori (0-0 record in Haru 2026)."
   }
 ]

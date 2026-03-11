@@ -1,4 +1,4 @@
-# Verified Makuuchi Profiles — File Format
+# Verified Rikishi Profiles — File Format
 
 ## Location
 
@@ -8,8 +8,8 @@ data/makuuchi_verified_profiles.json
 
 ## Purpose
 
-Authoritative, JSA-sourced profile data for current Makuuchi roster wrestlers
-and historical legends (Yokozuna/Ōzeki from 2000–present).
+Authoritative, JSA-sourced profile data for current Makuuchi roster wrestlers,
+historical legends (Yokozuna/Ōzeki from 2000–present), and Jūryō division.
 Used by the frontend adapter at `src/data/verifiedProfiles.ts` to enrich
 wrestler profile pages with verified images and biographical data.
 
@@ -20,22 +20,20 @@ The file is a JSON array of profile objects:
 ```jsonc
 [
   {
-    "rikishiId": "3842",                // JSA numeric rikishi ID (string)
+    "rikishiId": "3842",                // JSA numeric rikishi ID (string or null)
     "shikona": "Hoshoryu Tomokatsu",    // Full ring name (shikona + given name)
-    "heya": "Tatsunami",                // Stable name
-    "birthDate": "1999-05-22",          // ISO 8601 date
-    "nationality": "Mongolia",          // Country or Japanese prefecture
-    "heightCm": 188,                    // Height in centimetres
-    "weightKg": 148,                    // Weight in kilograms
+    "heya": "Tatsunami",                // Stable name (or null if unknown)
+    "birthDate": "1999-05-22",          // ISO 8601 date (or null)
+    "nationality": "Mongolia",          // Country or prefecture (or null)
+    "heightCm": 188,                    // Height in centimetres (or null)
+    "weightKg": 148,                    // Weight in kilograms (or null)
     "status": "active",                 // "active" | "retired"
-    "officialImageUrl": "https://...",  // JSA profile image URL
+    "officialImageUrl": "https://...",  // JSA profile image URL (or null)
     "imageSource": "Japan Sumo Association official rikishi profile image",
-    "imageConfidence": "verified",      // "verified" | "likely"
+    "imageConfidence": "verified",      // "verified" | "likely" | "missing"
     "profileConfidence": "verified",    // "verified" | "likely"
     "sourceRefs": [                     // Provenance chain
-      { "label": "JSA Find Rikishi (makuuchi roster)", "url": "https://..." },
-      { "label": "JSA rikishi profile", "url": "https://..." },
-      { "label": "JSA profile image", "url": "https://..." }
+      { "label": "JSA Find Rikishi (makuuchi roster)", "url": "https://..." }
     ],
     "notes": "..."                      // Free-text provenance notes
   }
@@ -46,13 +44,13 @@ The file is a JSON array of profile objects:
 
 | Field | Required | Description |
 |-------|----------|-------------|
-| `rikishiId` | ✅ | JSA numeric identifier, unique per rikishi |
-| `shikona` | ✅ | Full ring name as listed on JSA English site |
-| `heya` | ✅ | Stable (training stable) name |
-| `birthDate` | ✅ | ISO 8601 date string |
-| `nationality` | ✅ | Country name for non-Japanese; Japanese prefecture for Japanese-born |
-| `heightCm` | ✅ | Integer, centimetres |
-| `weightKg` | ✅ | Integer, kilograms |
+| `rikishiId` | ✅ | JSA numeric identifier (string), or `null` if unknown |
+| `shikona` | ✅ | Ring name as listed on JSA English site |
+| `heya` | ✅ | Stable (training stable) name, or `null` if unknown |
+| `birthDate` | ✅ | ISO 8601 date string, or `null` if unknown |
+| `nationality` | ✅ | Country name or Japanese prefecture, or `null` if unknown |
+| `heightCm` | ✅ | Integer centimetres, or `null` if unknown |
+| `weightKg` | ✅ | Integer kilograms, or `null` if unknown |
 | `status` | ✅ | `"active"` or `"retired"` |
 | `officialImageUrl` | ✅ | HTTPS URL to JSA profile image (270×474px), or `null` if unavailable |
 | `imageSource` | ✅ | Human-readable image provenance, or `null` if no image |
@@ -82,6 +80,7 @@ support additional divisions or historical batches — just add rows.
 **Current batches:**
 - Makuuchi active roster (42 wrestlers)
 - Historical Yokozuna & Ōzeki, 2000–present (17 wrestlers)
+- Jūryō roster, Haru 2026 (25 wrestlers)
 
 ## Matching strategy
 

@@ -1,8 +1,10 @@
 /**
- * Verified Makuuchi Profile Adapter
+ * Verified Rikishi Profile Adapter
  * ==================================
  * Loads the JSA-verified rikishi profile dataset and provides
  * deterministic lookups by shikona (short or full) and JSA rikishi ID.
+ *
+ * Covers Makuuchi roster, historical legends, and Jūryō divisions.
  *
  * Image policy:
  *   - Only returns an image URL when `imageConfidence === "verified"`
@@ -31,13 +33,13 @@ export interface VerifiedSourceRef {
 }
 
 export interface VerifiedProfile {
-  rikishiId: string;
+  rikishiId: string | null;
   shikona: string;
-  heya: string;
-  birthDate: string;
-  nationality: string;
-  heightCm: number;
-  weightKg: number;
+  heya: string | null;
+  birthDate: string | null;
+  nationality: string | null;
+  heightCm: number | null;
+  weightKg: number | null;
   status: string;
   officialImageUrl: string | null;
   imageSource: string | null;
@@ -64,8 +66,10 @@ function normalizeShikona(value: string): string {
 }
 
 for (const profile of profiles) {
-  // Index by JSA rikishi ID
-  byJsaId.set(profile.rikishiId, profile);
+  // Index by JSA rikishi ID (skip null — some Jūryō profiles lack IDs)
+  if (profile.rikishiId) {
+    byJsaId.set(profile.rikishiId, profile);
+  }
 
   // Index by full shikona ("Hoshoryu Tomokatsu" → "hoshoryu tomokatsu")
   const fullKey = normalizeShikona(profile.shikona);
