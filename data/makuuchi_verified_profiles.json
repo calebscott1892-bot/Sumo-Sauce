@@ -1216,5 +1216,422 @@
       }
     ],
     "notes": "On the confirmed JSA makuuchi roster. Image URL derived from official profile image link, but the fetch failed in-tool; recommend HTTP verification during ingestion."
+  },
+  {
+    "rikishiId": "3321",
+    "shikona": "Terunofuji Haruo",
+    "heya": "Isegahama",
+    "birthDate": "1991-11-29",
+    "nationality": "Mongolia",
+    "heightCm": 192,
+    "weightKg": 176,
+    "status": "retired",
+    "officialImageUrl": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20110008.jpg",
+    "imageSource": "Japan Sumo Association (rikishi profile image)",
+    "imageConfidence": "verified",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA rikishi profile (id 3321)",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3321/"
+      }
+    ],
+    "notes": "JSA marks retirement as January 2025."
+  },
+  {
+    "rikishiId": "2445",
+    "shikona": "Kisenosato Yutaka",
+    "heya": "Tagonoura",
+    "birthDate": "1986-07-03",
+    "nationality": "Japan",
+    "heightCm": 188,
+    "weightKg": 177,
+    "status": "retired",
+    "officialImageUrl": "https://sumo.or.jp/img/sumo_data/rikishi/270x474/20020024.jpg",
+    "imageSource": "Japan Sumo Association (rikishi profile image)",
+    "imageConfidence": "verified",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA rikishi profile (id 2445)",
+        "url": "https://sumo.or.jp/EnSumoDataRikishi/profile/2445/"
+      },
+      {
+        "label": "SumoDB rikishi page (r=1235)",
+        "url": "https://sumodb.sumogames.de/Rikishi.aspx?r=1235"
+      }
+    ],
+    "notes": "JSA marks retirement as January 2019; highest rank listed as 72nd Yokozuna."
+  },
+  {
+    "rikishiId": "2416",
+    "shikona": "Kakuryu Rikisaburo",
+    "heya": "Michinoku",
+    "birthDate": "1985-08-10",
+    "nationality": "Mongolia",
+    "heightCm": 186,
+    "weightKg": 154,
+    "status": "retired",
+    "officialImageUrl": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20010035.jpg",
+    "imageSource": "Japan Sumo Association (rikishi profile image)",
+    "imageConfidence": "verified",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA rikishi profile (id 2416)",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/2416/"
+      },
+      {
+        "label": "SumoDB rikishi page (r=1219)",
+        "url": "https://sumodb.sumogames.de/Rikishi.aspx?r=1219"
+      }
+    ],
+    "notes": "JSA lists weight 154 kg; SumoDB lists 150 kg. Stored JSA value per source priority."
+  },
+  {
+    "rikishiId": "2308",
+    "shikona": "Harumafuji Kohei",
+    "heya": "Isegahama",
+    "birthDate": "1984-04-14",
+    "nationality": "Mongolia",
+    "heightCm": 186,
+    "weightKg": 137,
+    "status": "retired",
+    "officialImageUrl": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20002308.jpg",
+    "imageSource": "Japan Sumo Association (rikishi profile image)",
+    "imageConfidence": "verified",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA rikishi profile (id 2308)",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/2308/"
+      },
+      {
+        "label": "SumoDB rikishi page (r=1111)",
+        "url": "https://sumodb.sumogames.de/Rikishi.aspx?r=1111"
+      }
+    ],
+    "notes": "JSA lists weight 137 kg; SumoDB lists 133 kg. Stored JSA value per source priority."
+  },
+  {
+    "rikishiId": "2320",
+    "shikona": "Hakuho Sho",
+    "heya": "Miyagino",
+    "birthDate": "1985-03-11",
+    "nationality": "Mongolia",
+    "heightCm": 192,
+    "weightKg": 155,
+    "status": "retired",
+    "officialImageUrl": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20002320.jpg",
+    "imageSource": "Japan Sumo Association (rikishi profile image)",
+    "imageConfidence": "verified",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA rikishi profile (id 2320)",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/2320/"
+      },
+      {
+        "label": "SumoDB rikishi page (r=1123)",
+        "url": "https://sumodb.sumogames.de/Rikishi.aspx?r=1123"
+      }
+    ],
+    "notes": "JSA marks retirement as September 2021; highest rank listed as 69th Yokozuna."
+  },
+  {
+    "rikishiId": "100",
+    "shikona": "Asashoryu Akinori",
+    "heya": "Takasago",
+    "birthDate": "1980-09-27",
+    "nationality": "Mongolia",
+    "heightCm": 184,
+    "weightKg": 154,
+    "status": "retired",
+    "officialImageUrl": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20000100.jpg",
+    "imageSource": "Japan Sumo Association (rikishi profile image)",
+    "imageConfidence": "verified",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA rikishi profile (id 100)",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/100/"
+      },
+      {
+        "label": "SumoDB rikishi page (r=878)",
+        "url": "https://sumodb.sumogames.de/Rikishi.aspx?r=878"
+      }
+    ],
+    "notes": "JSA marks retirement as January 2010; highest rank listed as 68th Yokozuna."
+  },
+  {
+    "rikishiId": "36",
+    "shikona": "Musashimaru Koyo",
+    "heya": "Musashigawa",
+    "birthDate": "1971-05-02",
+    "nationality": "United States",
+    "heightCm": 192,
+    "weightKg": 235,
+    "status": "retired",
+    "officialImageUrl": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20000036.jpg",
+    "imageSource": "Japan Sumo Association (rikishi profile image)",
+    "imageConfidence": "verified",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA rikishi profile (id 36)",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/36/"
+      },
+      {
+        "label": "SumoDB rikishi page (r=4)",
+        "url": "https://sumodb.sumogames.de/Rikishi.aspx?r=4"
+      }
+    ],
+    "notes": "JSA birthplace listed as 'America'; nationality standardized to 'United States'. JSA vs SumoDB measurements differ."
+  },
+  {
+    "rikishiId": "35",
+    "shikona": "Akebono Taro",
+    "heya": "Azumazeki",
+    "birthDate": "1969-05-08",
+    "nationality": "United States",
+    "heightCm": 203,
+    "weightKg": 233,
+    "status": "retired",
+    "officialImageUrl": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20000035.jpg",
+    "imageSource": "Japan Sumo Association (rikishi profile image)",
+    "imageConfidence": "likely",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA rikishi profile (id 35)",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/35/"
+      },
+      {
+        "label": "SumoDB rikishi page (r=1)",
+        "url": "https://sumodb.sumogames.de/Rikishi.aspx?r=1"
+      }
+    ],
+    "notes": "Official JSA image URL extracted from profile flow, but automated fetch returned a cache-miss; confirm URL accessibility. JSA vs SumoDB measurements differ substantially."
+  },
+  {
+    "rikishiId": "1",
+    "shikona": "Takanohana Koji",
+    "heya": "Futagoyama",
+    "birthDate": "1972-08-12",
+    "nationality": "Japan",
+    "heightCm": 183,
+    "weightKg": 150,
+    "status": "retired",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA rikishi profile (id 1)",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/1/"
+      },
+      {
+        "label": "SumoDB rikishi page (r=2)",
+        "url": "https://sumodb.sumogames.de/Rikishi.aspx?r=2"
+      }
+    ],
+    "notes": "JSA page content was available via crawl, but the session could not reliably open the profile for image extraction; image left null. JSA vs SumoDB measurements diverge."
+  },
+  {
+    "rikishiId": "2",
+    "shikona": "Wakanohana Masaru",
+    "heya": "Futagoyama",
+    "birthDate": "1971-01-20",
+    "nationality": "Japan",
+    "heightCm": 180,
+    "weightKg": 134,
+    "status": "retired",
+    "officialImageUrl": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20000002.jpg",
+    "imageSource": "Japan Sumo Association (rikishi profile image)",
+    "imageConfidence": "verified",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA rikishi profile (id 2)",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/2/"
+      }
+    ],
+    "notes": "Included because retirement falls in March 2000 (inclusive 2000-present historical window)."
+  },
+  {
+    "rikishiId": "6",
+    "shikona": "Kaio Hiroyuki",
+    "heya": "Tomozuna",
+    "birthDate": "1972-07-24",
+    "nationality": "Japan",
+    "heightCm": 185,
+    "weightKg": 164,
+    "status": "retired",
+    "officialImageUrl": "https://sumo.or.jp/img/sumo_data/rikishi/270x474/20000006.jpg",
+    "imageSource": "Japan Sumo Association (rikishi profile image)",
+    "imageConfidence": "likely",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA rikishi profile (id 6, JP)",
+        "url": "https://sumo.or.jp/ResultRikishiData/profile/6/"
+      },
+      {
+        "label": "SumoDB rikishi page (r=7)",
+        "url": "https://sumodb.sumogames.de/Rikishi.aspx?r=7"
+      }
+    ],
+    "notes": "Official JSA image URL extracted from profile flow, but automated fetch returned a cache-miss; confirm URL accessibility. JSA vs SumoDB measurements differ."
+  },
+  {
+    "rikishiId": "30",
+    "shikona": "Chiyotaikai Ryuji",
+    "heya": "Kokonoe",
+    "birthDate": "1976-04-29",
+    "nationality": "Japan",
+    "heightCm": 180,
+    "weightKg": 145,
+    "status": "retired",
+    "officialImageUrl": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20000030.jpg",
+    "imageSource": "Japan Sumo Association (rikishi profile image)",
+    "imageConfidence": "verified",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA rikishi profile (id 30, JP)",
+        "url": "https://www.sumo.or.jp/ResultRikishiData/profile/30/"
+      },
+      {
+        "label": "SumoDB rikishi page (r=8)",
+        "url": "https://sumodb.sumogames.de/Rikishi.aspx?r=8"
+      }
+    ],
+    "notes": "JSA lists 145 kg; SumoDB lists 158 kg. Stored JSA value per source priority."
+  },
+  {
+    "rikishiId": "2510",
+    "shikona": "Kotooshu Katsunori",
+    "heya": "Sadogatake",
+    "birthDate": "1983-02-19",
+    "nationality": "Bulgaria",
+    "heightCm": 202,
+    "weightKg": 155,
+    "status": "retired",
+    "officialImageUrl": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20020091.jpg",
+    "imageSource": "Japan Sumo Association (rikishi profile image)",
+    "imageConfidence": "verified",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA rikishi profile (id 2510, JP)",
+        "url": "https://www.sumo.or.jp/ResultRikishiData/profile/2510/"
+      },
+      {
+        "label": "SumoDB rikishi page (r=2830)",
+        "url": "https://sumodb.sumogames.de/Rikishi.aspx?r=2830"
+      }
+    ],
+    "notes": "JSA lists 155 kg; SumoDB lists 140 kg. Stored JSA value per source priority."
+  },
+  {
+    "rikishiId": "2731",
+    "shikona": "Baruto Kaito",
+    "heya": "Onoe",
+    "birthDate": "1984-11-05",
+    "nationality": "Estonia",
+    "heightCm": 198,
+    "weightKg": 189,
+    "status": "retired",
+    "officialImageUrl": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20040112.jpg",
+    "imageSource": "Japan Sumo Association (rikishi profile image)",
+    "imageConfidence": "verified",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA rikishi profile (id 2731)",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/2731/"
+      },
+      {
+        "label": "SumoDB rikishi page (r=6432)",
+        "url": "https://sumodb.sumogames.de/Rikishi.aspx?r=6432"
+      }
+    ],
+    "notes": "JSA lists 189 kg; SumoDB lists ~186.8 kg. Stored JSA value per source priority."
+  },
+  {
+    "rikishiId": "2423",
+    "shikona": "Kotoshogiku Kazuhiro",
+    "heya": "Sadogatake",
+    "birthDate": "1984-01-30",
+    "nationality": "Japan",
+    "heightCm": 181,
+    "weightKg": 186,
+    "status": "retired",
+    "officialImageUrl": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20020002.jpg",
+    "imageSource": "Japan Sumo Association (rikishi profile image)",
+    "imageConfidence": "verified",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA rikishi profile (id 2423)",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/2423/"
+      },
+      {
+        "label": "SumoDB rikishi page (r=1226)",
+        "url": "https://sumodb.sumogames.de/Rikishi.aspx?r=1226"
+      }
+    ],
+    "notes": "JSA lists 186 kg; SumoDB lists 174 kg. Stored JSA value per source priority."
+  },
+  {
+    "rikishiId": "2764",
+    "shikona": "Goeido Gotaro",
+    "heya": "Sakaigawa",
+    "birthDate": "1986-04-06",
+    "nationality": "Japan",
+    "heightCm": 183,
+    "weightKg": 160,
+    "status": "retired",
+    "officialImageUrl": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20050008.jpg",
+    "imageSource": "Japan Sumo Association (rikishi profile image)",
+    "imageConfidence": "verified",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA rikishi profile (id 2764, JP)",
+        "url": "https://www.sumo.or.jp/ResultRikishiData/profile/2764/"
+      },
+      {
+        "label": "SumoDB rikishi page (r=6468)",
+        "url": "https://sumodb.sumogames.de/Rikishi.aspx?r=6468"
+      }
+    ],
+    "notes": "JSA lists 160 kg; SumoDB lists ~158.2 kg. Stored JSA value per source priority."
+  },
+  {
+    "rikishiId": "3582",
+    "shikona": "Takakeisho Takanobu",
+    "heya": "Tokiwayama",
+    "birthDate": "1996-08-05",
+    "nationality": "Japan",
+    "heightCm": 175,
+    "weightKg": 165,
+    "status": "retired",
+    "officialImageUrl": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20140083.jpg",
+    "imageSource": "Japan Sumo Association (rikishi profile image)",
+    "imageConfidence": "likely",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA rikishi profile (id 3582)",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3582/"
+      },
+      {
+        "label": "SumoDB rikishi page (r=12191)",
+        "url": "https://sumodb.sumogames.de/Rikishi.aspx?r=12191"
+      }
+    ],
+    "notes": "Official JSA image URL extracted from profile flow, but automated fetch returned a cache-miss; confirm URL accessibility. JSA vs SumoDB measurements differ."
   }
 ]

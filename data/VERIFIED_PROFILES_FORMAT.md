@@ -8,7 +8,8 @@ data/makuuchi_verified_profiles.json
 
 ## Purpose
 
-Authoritative, JSA-sourced profile data for the current Makuuchi roster.
+Authoritative, JSA-sourced profile data for current Makuuchi roster wrestlers
+and historical legends (Yokozuna/Ōzeki from 2000–present).
 Used by the frontend adapter at `src/data/verifiedProfiles.ts` to enrich
 wrestler profile pages with verified images and biographical data.
 
@@ -53,27 +54,34 @@ The file is a JSON array of profile objects:
 | `heightCm` | ✅ | Integer, centimetres |
 | `weightKg` | ✅ | Integer, kilograms |
 | `status` | ✅ | `"active"` or `"retired"` |
-| `officialImageUrl` | ✅ | HTTPS URL to JSA profile image (270×474px) |
-| `imageSource` | ✅ | Human-readable image provenance |
-| `imageConfidence` | ✅ | `"verified"` = confirmed via fetch; `"likely"` = URL derived but fetch failed |
+| `officialImageUrl` | ✅ | HTTPS URL to JSA profile image (270×474px), or `null` if unavailable |
+| `imageSource` | ✅ | Human-readable image provenance, or `null` if no image |
+| `imageConfidence` | ✅ | `"verified"` = confirmed via fetch; `"likely"` = URL derived but fetch failed; `"missing"` = no image URL available |
 | `profileConfidence` | ✅ | `"verified"` = confirmed on JSA roster |
 | `sourceRefs` | ✅ | Array of `{ label, url }` provenance links |
 | `notes` | ✅ | Free-text notes (may be empty string) |
 
 ## Image confidence policy
 
-The frontend only displays images when **both** conditions are true:
-1. `officialImageUrl` is a non-empty HTTPS URL
+The frontend only displays images when **all** conditions are true:
+1. `officialImageUrl` is a non-empty HTTPS URL (not `null`)
 2. `imageConfidence === "verified"`
 
 When `imageConfidence === "likely"`, the URL is stored but **not rendered** —
 the UI shows a placeholder avatar instead.
 
-## Extending for Juryo / future divisions
+When `imageConfidence === "missing"`, `officialImageUrl` is `null` — no image
+was extractable from JSA. The UI shows a placeholder avatar.
+
+## Extending the dataset
 
 Add entries to the same JSON array. The adapter builds indexes at module
 load time and handles any number of entries. No code changes needed to
-support additional divisions — just add rows.
+support additional divisions or historical batches — just add rows.
+
+**Current batches:**
+- Makuuchi active roster (42 wrestlers)
+- Historical Yokozuna & Ōzeki, 2000–present (17 wrestlers)
 
 ## Matching strategy
 

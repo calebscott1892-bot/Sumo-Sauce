@@ -6,8 +6,8 @@
  *
  * Image policy:
  *   - Only returns an image URL when `imageConfidence === "verified"`
- *   - Returns '' for "likely" or missing confidence, triggering the
- *     FallbackAvatar placeholder in all downstream components.
+ *   - Returns '' for "likely", "missing", or unverified confidence,
+ *     triggering the FallbackAvatar placeholder in all downstream components.
  *
  * This module is statically imported at build time — the JSON is
  * tree-shaken into the bundle by Vite. No runtime fetch required.
@@ -22,7 +22,7 @@ import rawProfiles from '../../data/makuuchi_verified_profiles.json';
 // Types
 // ---------------------------------------------------------------------------
 
-export type ImageConfidence = 'verified' | 'likely' | 'unverified';
+export type ImageConfidence = 'verified' | 'likely' | 'unverified' | 'missing';
 export type ProfileConfidence = 'verified' | 'likely' | 'unverified';
 
 export interface VerifiedSourceRef {
@@ -39,8 +39,8 @@ export interface VerifiedProfile {
   heightCm: number;
   weightKg: number;
   status: string;
-  officialImageUrl: string;
-  imageSource: string;
+  officialImageUrl: string | null;
+  imageSource: string | null;
   imageConfidence: ImageConfidence;
   profileConfidence: ProfileConfidence;
   sourceRefs: VerifiedSourceRef[];
