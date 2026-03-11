@@ -1,6 +1,7 @@
 import express from 'express';
 import { z } from 'zod';
 import {
+  listRikishiDirectory,
   getRikishiById,
   getCareerTimeline,
   getRankProgression,
@@ -209,6 +210,11 @@ function withApiErrorHandling(handler) {
 
 router.use(requestLogger);
 router.use(rateLimiter);
+
+router.get('/rikishi', withApiErrorHandling(async (_req, res) => {
+  const rows = await listRikishiDirectory();
+  sendJson(res, rows);
+}));
 
 router.get('/rikishi/:id', withApiErrorHandling(async (req, res, next) => {
   const id = validateRikishiId(req.params.id);

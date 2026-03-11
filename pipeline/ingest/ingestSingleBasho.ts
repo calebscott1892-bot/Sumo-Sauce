@@ -5,6 +5,7 @@ import { load } from 'cheerio';
 import { parse as parseJsa } from '../adapters/jsaAdapter.ts';
 import { parse as parseSumodbBouts } from '../adapters/sumodbBoutsAdapter.ts';
 import { parse as parseSumodb } from '../adapters/sumodbAdapter.ts';
+import { parseSumodbBanzuke } from '../adapters/sumodbBanzukeAdapter.ts';
 import { canonicalizeBanzuke } from '../canonicalize/canonicalizeBanzuke.ts';
 import { canonicalizeBouts } from '../canonicalize/canonicalizeBouts.ts';
 import { canonicalizeRikishi } from '../canonicalize/canonicalizeRikishi.ts';
@@ -255,10 +256,12 @@ export async function ingestSingleBasho(
   const warnings: IngestError[] = [];
   const rosterNumericIdByShikona = new Map<string, string>();
   const rosterAmbiguousNumericIdsByShikona = new Map<string, string[]>();
+  let sumodbRikishiSnapshot: PersistedSnapshot | undefined;
 
   for (const item of persisted) {
     try {
       if (item.source === 'sumodb' && item.kind === 'rikishi') {
+        sumodbRikishiSnapshot = item;
         staged.sumodbRikishi.push(...parseSumodb({ meta: item.meta, bodyBytes: item.bodyBytes }));
         const roster = extractSumodbBashoRoster(item.bodyBytes);
         for (const [shikona, id] of roster.uniqueIdByShikona.entries()) {
@@ -345,7 +348,7 @@ export async function ingestSingleBasho(
     shikonaToIds.set(shikona, existing);
   }
 
-  const canonicalBanzuke = canonicalizeBanzuke({
+  let canonicalBanzuke = canonicalizeBanzuke({
     jsa: staged.jsaRikishi.filter((r) => r.bashoId === bashoId),
     rikishiIdByShikona: new Map(
       [...shikonaToIds.entries()]
@@ -354,6 +357,14 @@ export async function ingestSingleBasho(
         .map((x) => [x.shikona, x.ids[0]])
     ),
   });
+
+  // Fallback: when JSA banzuke is blocked, derive entries from SumoDB snapshot
+  if (!canonicalBanzuke.length && sumodbRikishiSnapshot) {
+    canonicalBanzuke = parseSumodbBanzuke(
+      { meta: sumodbRikishiSnapshot.meta, bodyBytes: sumodbRikishiSnapshot.bodyBytes },
+      { bashoId },
+    );
+  }
 
   const aliasWindowsByShikona = new Map<string, Map<string, AliasWindow[]>>();
   for (const entry of canonicalBanzuke) {

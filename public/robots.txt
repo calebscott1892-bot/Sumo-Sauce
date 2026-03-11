@@ -1,0 +1,19 @@
+# SumoWatch robots.txt
+User-agent: *
+Allow: /
+Allow: /rikishi/
+Allow: /basho/
+Allow: /analytics/
+Allow: /rivalries/
+Allow: /leaderboard
+Allow: /timeline
+Allow: /search
+
+# Block admin and API paths
+Disallow: /admin/
+Disallow: /api/
+
+# Block search with query params from indexing (crawl budget)
+Disallow: /search?
+
+Sitemap: https://sumowatch.app/sitemap.xml

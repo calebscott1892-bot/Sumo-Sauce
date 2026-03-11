@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { memo, useMemo } from 'react';
 import type { KimariteStats } from '@/pages/rikishi/types';
 
 type Props = {
@@ -28,7 +28,7 @@ function TopBars({ title, rows }: { title: string; rows: Array<{ kimariteId: str
   );
 }
 
-export default function KimariteChart({ stats }: Props) {
+function KimariteChart({ stats }: Props) {
   const topWins = useMemo(() => stats.winKimarite.slice(0, 5), [stats.winKimarite]);
   const topLosses = useMemo(() => stats.lossKimarite.slice(0, 5), [stats.lossKimarite]);
 
@@ -58,3 +58,5 @@ export default function KimariteChart({ stats }: Props) {
     </section>
   );
 }
+
+export default memo(KimariteChart);

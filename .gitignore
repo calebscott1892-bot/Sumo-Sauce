@@ -13,7 +13,9 @@ node_modules
 dist
 .vite
 .env
-.env.*
+.env.local
+.env.production
+!.env.example
 server/node_modules
 server/.env
 server/prisma/dev.db

@@ -19,6 +19,18 @@ export default defineConfig({
       },
     },
   },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          'vendor-react': ['react', 'react-dom', 'react-router-dom'],
+          'vendor-query': ['@tanstack/react-query'],
+          'vendor-recharts': ['recharts'],
+          'vendor-motion': ['framer-motion'],
+        },
+      },
+    },
+  },
   resolve: {
     dedupe: ['react', 'react-dom'],
     alias: [

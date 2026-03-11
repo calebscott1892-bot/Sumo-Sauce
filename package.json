@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "vite",
     "dev:all": "concurrently -k -n server,web \"npm run server:dev\" \"npm run dev\"",
-    "build": "vite build",
+    "build": "vite build && node scripts/generate-sitemap.mjs",
+    "build:only": "vite build",
+    "sitemap": "node scripts/generate-sitemap.mjs",
     "lint": "eslint .",
     "preview": "vite preview",
     "bootstrap": "npm run server:db:push && npm run server:bootstrap",
@@ -41,10 +43,10 @@
     "verify:safe-range": "node scripts/safe-range-check.mjs",
     "verify:domain-api": "node scripts/verify-domain-api.mjs",
     "test:basho-range": "node --experimental-strip-types scripts/test-basho-range.mjs",
-    "ingest": "node --experimental-strip-types scripts/ingest-range.mjs"
+    "ingest": "node --experimental-strip-types scripts/ingest-range.mjs",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@supabase/supabase-js": "^2.56.1",
     "@hookform/resolvers": "^4.1.2",
     "@radix-ui/react-accordion": "^1.2.3",
     "@radix-ui/react-alert-dialog": "^1.1.6",
@@ -72,10 +74,11 @@
     "@radix-ui/react-toggle": "^1.1.2",
     "@radix-ui/react-toggle-group": "^1.1.2",
     "@radix-ui/react-tooltip": "^1.1.8",
+    "@supabase/supabase-js": "^2.56.1",
     "@tanstack/react-query": "^5.90.16",
+    "cheerio": "^1.1.2",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
-    "cheerio": "^1.1.2",
     "cmdk": "^1.0.0",
     "date-fns": "^3.6.0",
     "embla-carousel-react": "^8.5.2",
@@ -113,6 +116,7 @@
     "playwright": "^1.57.0",
     "postcss": "^8.5.3",
     "tailwindcss": "^3.4.17",
+    "typescript": "^5.9.3",
     "vite": "^6.1.0"
   }
 }

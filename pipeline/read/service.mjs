@@ -43,6 +43,21 @@ function assertBashoId(bashoId) {
   return id;
 }
 
+export async function listRikishiDirectory() {
+  const prisma = await getPrismaClient();
+
+  const rows = await prisma.rikishi.findMany({
+    select: { rikishiId: true, shikona: true, heya: true },
+    orderBy: [{ shikona: 'asc' }, { rikishiId: 'asc' }],
+  });
+
+  return rows.map((r) => ({
+    rikishiId: r.rikishiId,
+    shikona: r.shikona,
+    heya: r.heya ?? null,
+  }));
+}
+
 export async function getRikishiById(rikishiId) {
   const id = assertRikishiId(rikishiId);
   const prisma = await getPrismaClient();

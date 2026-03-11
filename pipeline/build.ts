@@ -1,5 +1,6 @@
 import { mkdir, readdir, readFile, rename, writeFile } from 'node:fs/promises';
 import path from 'node:path';
+import { existsSync } from 'node:fs';
 
 import {
   BuildManifestSchema,
@@ -56,6 +57,7 @@ const OUTPUT_ROOT = path.join(ROOT, 'data', 'builds');
 const PIPELINE_VERSION = '0.4.0';
 const SCHEMA_VERSION = '0.4.0';
 const PIPELINE_MODE = String(process.env.PIPELINE_MODE || 'phase4').trim().toLowerCase();
+const INGESTION_DIR = path.join(ROOT, 'data', 'ingestion');
 
 const FIXTURE_FILES = {
   rikishi: 'rikishi.fixture.json',
@@ -337,6 +339,61 @@ function toCanonicalBout(row: FixtureBout): Bout {
   return toCanonical(withId as unknown as Record<string, unknown>, BoutSchema);
 }
 
+/**
+ * Read and merge canonical JSONL from the ingestion output directory.
+ *
+ * Each basho ingestion produces per-basho canonical files at
+ * `data/ingestion/<bashoId>/canonical/{rikishi,basho,banzuke_entries,bouts,kimarite}.jsonl`.
+ *
+ * Returns deduplicated, parsed canonical rows ready to merge into the build.
+ */
+async function loadIngestionCanonical(): Promise<{
+  rikishi: Rikishi[];
+  basho: Basho[];
+  banzukeEntries: BanzukeEntry[];
+  bouts: Bout[];
+  kimarite: Kimarite[];
+}> {
+  const result = {
+    rikishi: [] as Rikishi[],
+    basho: [] as Basho[],
+    banzukeEntries: [] as BanzukeEntry[],
+    bouts: [] as Bout[],
+    kimarite: [] as Kimarite[],
+  };
+
+  if (!existsSync(INGESTION_DIR)) return result;
+
+  const bashoDirs = (await readdir(INGESTION_DIR, { withFileTypes: true }))
+    .filter((d) => d.isDirectory() && /^\d{6}$/.test(d.name))
+    .map((d) => d.name)
+    .sort();
+
+  for (const bashoId of bashoDirs) {
+    const canonDir = path.join(INGESTION_DIR, bashoId, 'canonical');
+    if (!existsSync(canonDir)) continue;
+
+    const readJsonl = async <T>(fileName: string, parser: { parse: (v: unknown) => T }): Promise<T[]> => {
+      const filePath = path.join(canonDir, fileName);
+      if (!existsSync(filePath)) return [];
+      const text = await readFile(filePath, 'utf8');
+      return text
+        .split('\n')
+        .map((line) => line.trim())
+        .filter(Boolean)
+        .map((line) => parser.parse(JSON.parse(line)));
+    };
+
+    result.rikishi.push(...await readJsonl('rikishi.jsonl', RikishiSchema));
+    result.basho.push(...await readJsonl('basho.jsonl', BashoSchema));
+    result.banzukeEntries.push(...await readJsonl('banzuke_entries.jsonl', BanzukeEntrySchema));
+    result.bouts.push(...await readJsonl('bouts.jsonl', BoutSchema));
+    result.kimarite.push(...await readJsonl('kimarite.jsonl', KimariteSchema));
+  }
+
+  return result;
+}
+
 export type BuildResult = {
   buildId: string;
   buildDir: string;
@@ -373,11 +430,25 @@ export async function runBuild(): Promise<BuildResult> {
   const snapshotFixtures = await persistSnapshots(snapshotFixtureInputs);
   const snapshotInputs = snapshotFixtures.map(asSnapshotInput);
 
+  // Collect ingestion basho IDs so the buildId changes when ingestion data changes
+  const ingestionBashoIds: string[] = [];
+  if (existsSync(INGESTION_DIR)) {
+    const dirs = (await readdir(INGESTION_DIR, { withFileTypes: true }))
+      .filter((d) => d.isDirectory() && /^\d{6}$/.test(d.name))
+      .map((d) => d.name)
+      .sort();
+    for (const bashoId of dirs) {
+      const canonDir = path.join(INGESTION_DIR, bashoId, 'canonical');
+      if (existsSync(canonDir)) ingestionBashoIds.push(bashoId);
+    }
+  }
+
   // Invariant: buildId = hash(inputs + versions).
   const buildId = hashJson({
     inputs: {
       fixtures: fixtureSnapshots,
       snapshots: snapshotInputs,
+      ingestionBashoIds,
     },
     mode,
     pipelineVersion: PIPELINE_VERSION,
@@ -427,14 +498,71 @@ export async function runBuild(): Promise<BuildResult> {
     canonicalBouts = canonicalizeBouts();
     canonicalKimarite = [];
 
+    // ── Merge ingestion canonical output (per-basho data from offline pipeline) ──
+    const ingested = await loadIngestionCanonical();
+
+    if (ingested.rikishi.length || ingested.basho.length || ingested.banzukeEntries.length || ingested.bouts.length) {
+      // Dedup rikishi by rikishiId (ingestion wins on conflict)
+      const rikishiMap = new Map(canonicalRikishi.map((r) => [r.rikishiId, r]));
+      for (const r of ingested.rikishi) rikishiMap.set(r.rikishiId, r);
+      canonicalRikishi = sortRikishi([...rikishiMap.values()]);
+
+      // Dedup basho by bashoId (ingestion wins)
+      const bashoMap = new Map(canonicalBasho.map((b) => [b.bashoId, b]));
+      for (const b of ingested.basho) bashoMap.set(b.bashoId, b);
+      canonicalBasho = sortBasho([...bashoMap.values()]);
+
+      // Dedup banzuke entries by composite key
+      const banzukeMap = new Map(
+        canonicalBanzukeEntries.map((e) => [
+          `${e.bashoId}|${e.division}|${e.rankValue}|${e.side}`,
+          e,
+        ])
+      );
+      for (const e of ingested.banzukeEntries) {
+        banzukeMap.set(`${e.bashoId}|${e.division}|${e.rankValue}|${e.side}`, e);
+      }
+      canonicalBanzukeEntries = sortBanzukeEntries([...banzukeMap.values()]);
+
+      // Dedup bouts by boutId
+      const boutMap = new Map(canonicalBouts.map((b) => [b.boutId, b]));
+      for (const b of ingested.bouts) boutMap.set(b.boutId, b);
+      canonicalBouts = sortBouts([...boutMap.values()]);
+
+      // Dedup kimarite by kimariteId
+      const kimariteMap = new Map(canonicalKimarite.map((k) => [k.kimariteId, k]));
+      for (const k of ingested.kimarite) kimariteMap.set(k.kimariteId, k);
+
+      // Auto-generate kimarite entries for any IDs referenced in bouts but
+      // not yet in the kimarite table.  Ingested bouts have kimariteId set
+      // from SumoDB HTML but no corresponding kimarite fixture.
+      for (const bout of canonicalBouts) {
+        if (bout.kimariteId && !kimariteMap.has(bout.kimariteId)) {
+          kimariteMap.set(bout.kimariteId, KimariteSchema.parse({
+            kimariteId: bout.kimariteId,
+          }));
+        }
+      }
+
+      canonicalKimarite = sortKimarite([...kimariteMap.values()]);
+    }
+
     const bashoRefs = new Map<string, Array<NonNullable<Basho['sourceRefs']>[number]>>();
     for (const row of canonicalBanzukeEntries) {
       if (!bashoRefs.has(row.bashoId)) bashoRefs.set(row.bashoId, []);
       if (row.sourceRefs?.length) bashoRefs.get(row.bashoId)?.push(...row.sourceRefs);
     }
-
-    canonicalBasho = sortBasho(
-      [...bashoRefs.entries()].map(([bashoId, refs]) =>
+    for (const row of canonicalBouts) {
+      if (!bashoRefs.has(row.bashoId)) bashoRefs.set(row.bashoId, []);
+      if (row.sourceRefs?.length) bashoRefs.get(row.bashoId)?.push(...row.sourceRefs);
+    }
+    // Preserve any basho entries already present (from ingested data) + add
+    // basho IDs discovered only via banzuke/bout sourceRefs.
+    const existingBashoById = new Map(canonicalBasho.map((b) => [b.bashoId, b]));
+    for (const [bashoId, refs] of bashoRefs.entries()) {
+      if (existingBashoById.has(bashoId)) continue; // ingestion already produced this basho
+      existingBashoById.set(
+        bashoId,
         BashoSchema.parse({
           bashoId,
           sourceRefs: refs
@@ -446,8 +574,9 @@ export async function runBuild(): Promise<BuildResult> {
             )
             .filter((ref, i, arr) => i === 0 || `${arr[i - 1].source}:${arr[i - 1].snapshotSha256}:${arr[i - 1].url}` !== `${ref.source}:${ref.snapshotSha256}:${ref.url}`),
         })
-      )
-    );
+      );
+    }
+    canonicalBasho = sortBasho([...existingBashoById.values()]);
   } else {
     canonicalRikishi = sortRikishi(fixtureRikishi.records.map(toCanonicalRikishi));
     canonicalBasho = sortBasho(fixtureBasho.records.map(toCanonicalBasho));

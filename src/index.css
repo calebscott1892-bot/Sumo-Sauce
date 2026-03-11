@@ -156,3 +156,48 @@ button:focus-visible {
     @apply bg-background text-foreground;
   }
 }
+
+/* Skeleton shimmer animation */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.skeleton-shimmer {
+  background: linear-gradient(
+    90deg,
+    rgb(39 39 42 / 0.6) 25%,
+    rgb(63 63 70 / 0.4) 50%,
+    rgb(39 39 42 / 0.6) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.8s ease-in-out infinite;
+}
+
+/* Accessibility: consistent focus ring for keyboard navigation */
+*:focus-visible {
+  outline: 2px solid rgb(239 68 68 / 0.7);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Skip navigation link (screen readers) */
+.sr-only-focusable:focus {
+  position: fixed;
+  top: 0.5rem;
+  left: 0.5rem;
+  z-index: 9999;
+  padding: 0.5rem 1rem;
+  background: #18181b;
+  color: #f4f4f5;
+  border: 2px solid #ef4444;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  clip: auto;
+  width: auto;
+  height: auto;
+}

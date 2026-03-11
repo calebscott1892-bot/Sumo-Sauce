@@ -1,5 +1,13 @@
 export type Division = 'makuuchi' | 'juryo' | 'makushita' | 'sandanme' | 'jonidan' | 'jonokuchi';
 
+export type RikishiDirectoryEntry = {
+  rikishiId: string;
+  shikona: string;
+  heya: string | null;
+};
+
+export type GetRikishiDirectoryResponse = RikishiDirectoryEntry[];
+
 export type CareerSummary = {
   rikishiId: string;
   shikona: string;

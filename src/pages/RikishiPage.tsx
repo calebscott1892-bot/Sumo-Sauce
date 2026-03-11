@@ -1,10 +1,19 @@
 import { Link, useParams } from 'react-router-dom';
-import { useEffect, useMemo } from 'react';
+import { lazy, Suspense, useCallback, useEffect, useMemo, useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
+import { Heart } from 'lucide-react';
 import CareerTable from '@/components/rikishi/CareerTable';
 import KimariteChart from '@/components/rikishi/KimariteChart';
-import ProfileHeader from '@/components/rikishi/ProfileHeader';
-import RankChart from '@/components/rikishi/RankChart';
+import RikishiSummaryCard from '@/components/rikishi/RikishiSummaryCard';
+import RivalryList from '@/components/rikishi/RivalryList';
+import RikishiBoutTimeline from '@/components/rikishi/RikishiBoutTimeline';
+import HistoricalRankExplorer from '@/components/rikishi/HistoricalRankExplorer';
+import CareerHeatmap from '@/components/rikishi/CareerHeatmap';
+import ConsistencyScore from '@/components/rikishi/ConsistencyScore';
+import StreakCard from '@/components/rikishi/StreakCard';
+import PerformanceVsField from '@/components/rikishi/PerformanceVsField';
+import { isFavoriteRikishi, toggleFavoriteRikishi } from '@/utils/favorites';
+import { trackRikishiView } from '@/utils/recentlyViewed';
 import {
   ApiError,
   getCareerSummary,
@@ -14,7 +23,14 @@ import {
   getKimariteStats,
   getRankProgression,
 } from '@/pages/rikishi/api';
+import RikishiProfileSkeleton from '@/components/ui/skeletons/RikishiProfileSkeleton';
+import CopyLinkButton from '@/components/ui/CopyLinkButton';
+import ErrorCard from '@/components/ui/ErrorCard';
+import PageMeta from '@/components/ui/PageMeta';
+import { trackRikishiPageView } from '@/utils/analytics';
 import type { Division, TimelineItem } from '@/pages/rikishi/types';
+
+const RikishiRankChart = lazy(() => import('@/components/rikishi/RikishiRankChart'));
 
 type H2HPreviewItem = {
   opponentId: string;
@@ -70,6 +86,30 @@ export default function RikishiPage() {
     return [...timelineChrono].slice(-6).reverse();
   }, [timelineChrono]);
 
+  // Fetch division standings for recent basho to compute "vs field" metrics
+  const recentForField = useMemo(() => {
+    const sorted = [...timelineChrono].sort((a, b) => b.bashoId.localeCompare(a.bashoId));
+    return uniqueByBashoDivision(sorted).slice(0, 6);
+  }, [timelineChrono]);
+
+  const fieldStandingsQuery = useQuery({
+    queryKey: ['rikishi-field-standings', rikishiId, recentForField.map((x) => `${x.bashoId}:${x.division}`).join('|')],
+    enabled: Boolean(rikishiId) && recentForField.length > 0,
+    queryFn: async () => {
+      const results = await Promise.all(
+        recentForField.map((item) =>
+          getDivisionStandings(item.bashoId, item.division as Division).catch(() => [])
+        )
+      );
+      const map = new Map<string, import('../../shared/api/v1').DivisionStandingRow[]>();
+      recentForField.forEach((item, i) => {
+        map.set(`${item.bashoId}::${item.division}`, results[i]);
+      });
+      return map;
+    },
+    staleTime: 5 * 60 * 1000,
+  });
+
   const h2hPreviewQuery = useQuery({
     queryKey: ['rikishi-h2h-preview', rikishiId, timelineChrono.map((x) => `${x.bashoId}:${x.division}`).join('|')],
     enabled: Boolean(rikishiId) && timelineChrono.length > 0,
@@ -94,7 +134,7 @@ export default function RikishiPage() {
 
       const candidateIds = Array.from(opponentCounts.entries())
         .sort((a, b) => b[1].count - a[1].count || a[0].localeCompare(b[0]))
-        .slice(0, 8)
+        .slice(0, 15)
         .map(([id]) => id);
 
       const h2hRows = await Promise.all(
@@ -111,10 +151,13 @@ export default function RikishiPage() {
       );
 
       return h2hRows
-        .sort((a, b) => b.totalMatches - a.totalMatches || a.opponentId.localeCompare(b.opponentId))
-        .slice(0, 3);
+        .sort((a, b) => b.totalMatches - a.totalMatches || a.opponentId.localeCompare(b.opponentId));
     },
   });
+
+  const h2hPreviewTop3 = useMemo(() => {
+    return (h2hPreviewQuery.data || []).slice(0, 3);
+  }, [h2hPreviewQuery.data]);
 
   const isLoading = summaryQuery.isLoading || timelineQuery.isLoading || progressionQuery.isLoading || kimariteQuery.isLoading;
 
@@ -122,87 +165,116 @@ export default function RikishiPage() {
   const isNotFound = firstError instanceof ApiError && firstError.status === 404;
 
   if (!rikishiId) {
-    return (
-      <div className="mx-auto max-w-6xl p-6 text-zinc-200">
-        <div className="rounded-xl border border-zinc-800 bg-zinc-900 p-4">Invalid rikishi id.</div>
-      </div>
-    );
+    return <ErrorCard code="INVALID_INPUT" message="Invalid rikishi id." />;
   }
 
   if (isLoading) {
-    return (
-      <div className="mx-auto max-w-6xl p-6 text-zinc-200">
-        <div className="rounded-xl border border-zinc-800 bg-zinc-900 p-4">Loading rikishi profile…</div>
-      </div>
-    );
+    return <RikishiProfileSkeleton />;
   }
 
   if (isNotFound) {
-    return (
-      <div className="mx-auto max-w-6xl p-6 text-zinc-200">
-        <div className="rounded-xl border border-zinc-800 bg-zinc-900 p-4">
-          Rikishi not found.
-          <div className="mt-2">
-            <Link className="text-red-400 hover:text-red-300" to="/leaderboard">
-              Back to leaderboard
-            </Link>
-          </div>
-        </div>
-      </div>
-    );
+    return <ErrorCard code="NOT_FOUND" message="Rikishi not found." backTo="/rikishi" backLabel="← Browse rikishi" />;
   }
 
   if (firstError || !summaryQuery.data || !kimariteQuery.data) {
     const errCode = firstError instanceof ApiError ? firstError.code : 'UNKNOWN';
     const errMsg = firstError instanceof ApiError ? firstError.message : 'An unexpected error occurred.';
-    return (
-      <div className="mx-auto max-w-6xl p-6 text-zinc-200">
-        <div className="rounded-xl border border-red-800 bg-red-950/20 p-4">
-          <div className="font-semibold text-red-300">{errCode}</div>
-          <div className="mt-1 text-sm text-zinc-300">{errMsg}</div>
-          <div className="mt-3">
-            <Link className="text-red-400 hover:text-red-300" to="/">
-              ← Home
-            </Link>
-          </div>
-        </div>
-      </div>
-    );
+    return <ErrorCard code={errCode} message={errMsg} />;
   }
 
   const shikona = summaryQuery.data.shikona ?? rikishiId;
+  const [isFav, setIsFav] = useState(() => isFavoriteRikishi(rikishiId));
+
+  const pageTitle = `SumoWatch \u2014 ${shikona} (${rikishiId})`;
+  const pageDesc = `${shikona} career profile, rank progression, kimarite stats, and head-to-head matchups on SumoWatch.`;
 
   useEffect(() => {
-    document.title = `SumoWatch \u2014 ${shikona} (${rikishiId})`;
-    return () => { document.title = 'SumoWatch'; };
+    trackRikishiPageView(rikishiId);
+    trackRikishiView(rikishiId, shikona);
   }, [shikona, rikishiId]);
 
   return (
     <div data-testid="rikishi-page" className="mx-auto max-w-6xl space-y-6 p-6 text-zinc-200">
-      <nav data-testid="breadcrumbs" className="mb-2 flex items-center gap-1 text-sm text-zinc-400">
-        <Link className="text-red-400 hover:text-red-300" to="/">Home</Link>
-        <span>/</span>
-        <span>Rikishi</span>
-        <span>/</span>
-        <span className="text-zinc-200">{rikishiId}</span>
+      <PageMeta title={pageTitle} description={pageDesc} />
+      <nav data-testid="breadcrumbs" className="mb-2 flex items-center justify-between">
+        <div className="flex items-center gap-1 text-sm text-zinc-400">
+          <Link className="text-red-400 hover:text-red-300" to="/">Home</Link>
+          <span>/</span>
+          <Link className="text-red-400 hover:text-red-300" to="/rikishi">Rikishi</Link>
+          <span>/</span>
+          <span className="text-zinc-200">{rikishiId}</span>
+        </div>
+        <div className="flex items-center gap-2">
+          <CopyLinkButton />
+          <Link
+            to={`/compare/${encodeURIComponent(rikishiId)}/`}
+            className="rounded-lg border border-zinc-700 bg-zinc-800 px-3 py-1.5 text-xs text-zinc-300 transition-colors hover:border-red-600 hover:text-white"
+          >
+            Compare →
+          </Link>
+          <button
+            type="button"
+            onClick={() => { toggleFavoriteRikishi(rikishiId); setIsFav(!isFav); }}
+            className="rounded-lg border border-zinc-700 bg-zinc-800 p-1.5 transition-colors hover:border-red-600"
+            aria-label={isFav ? 'Remove from favorites' : 'Add to favorites'}
+          >
+            <Heart className={`h-4 w-4 transition-colors ${isFav ? 'fill-red-500 text-red-500' : 'text-zinc-400'}`} />
+          </button>
+        </div>
       </nav>
 
-      <ProfileHeader summary={summaryQuery.data} />
+      <RikishiSummaryCard
+        summary={summaryQuery.data}
+        timeline={timelineChrono}
+        rankProgression={progressionQuery.data || []}
+      />
 
-      <RankChart points={progressionQuery.data || []} />
+      <ConsistencyScore
+        timeline={timelineChrono}
+        rankProgression={progressionQuery.data || []}
+      />
+
+      <StreakCard rankProgression={progressionQuery.data || []} />
+
+      {fieldStandingsQuery.data && (
+        <PerformanceVsField
+          timeline={timelineChrono}
+          standingsMap={fieldStandingsQuery.data}
+          rikishiId={rikishiId}
+        />
+      )}
+
+      <Suspense
+        fallback={
+          <section className="rounded-xl border border-zinc-800 bg-zinc-900 p-5">
+            <h2 className="text-xl font-bold text-white">Rank Progression</h2>
+            <div className="mt-4 h-64 w-full skeleton-shimmer rounded-lg" />
+          </section>
+        }
+      >
+        <RikishiRankChart points={progressionQuery.data || []} />
+      </Suspense>
+
+      <HistoricalRankExplorer
+        timeline={timelineChrono}
+        rankProgression={progressionQuery.data || []}
+        highestRank={summaryQuery.data.highestRank}
+      />
 
       <CareerTable rows={timelineChrono} />
+
+      <CareerHeatmap timeline={timelineChrono} />
 
       <KimariteChart stats={kimariteQuery.data} />
 
       <section className="rounded-xl border border-zinc-800 bg-zinc-900 p-5">
         <h2 className="text-xl font-bold text-white">Head-to-Head Preview</h2>
         <div className="mt-3 space-y-2">
-          {(h2hPreviewQuery.data || []).map((row) => (
+          {h2hPreviewTop3.map((row) => (
             <Link
               key={row.opponentId}
               to={`/compare/${encodeURIComponent(rikishiId)}/${encodeURIComponent(row.opponentId)}`}
-              className="block rounded-lg border border-zinc-800 bg-zinc-950 p-3 hover:border-red-600"
+              className="block rounded-lg border border-zinc-800 bg-zinc-950 p-3 transition-all duration-200 hover:border-red-600 hover:bg-zinc-900"
             >
               <div className="flex items-center justify-between">
                 <div>
@@ -216,9 +288,17 @@ export default function RikishiPage() {
               </div>
             </Link>
           ))}
-          {!(h2hPreviewQuery.data || []).length && <div className="text-sm text-zinc-400">No head-to-head data.</div>}
+          {!h2hPreviewTop3.length && <div className="text-sm text-zinc-400">No head-to-head data.</div>}
         </div>
       </section>
+
+      <RivalryList
+        rikishiId={rikishiId}
+        rivals={h2hPreviewQuery.data || []}
+        isLoading={h2hPreviewQuery.isLoading}
+      />
+
+      <RikishiBoutTimeline timeline={timelineChrono} limit={20} />
 
       <section className="rounded-xl border border-zinc-800 bg-zinc-900 p-5">
         <h2 className="text-xl font-bold text-white">Recent Basho Performance</h2>
@@ -228,7 +308,7 @@ export default function RikishiPage() {
             return (
               <div
                 key={`${row.bashoId}-${row.division}`}
-                className={`rounded-lg border p-3 ${positive ? 'border-emerald-700 bg-emerald-950/20' : 'border-zinc-800 bg-zinc-950'}`}
+                className={`rounded-lg border p-3 transition-colors duration-200 ${positive ? 'border-emerald-700 bg-emerald-950/20 hover:border-emerald-600' : 'border-zinc-800 bg-zinc-950 hover:border-zinc-700'}`}
               >
                 <div className="flex items-center justify-between">
                   <Link
@@ -245,6 +325,30 @@ export default function RikishiPage() {
             );
           })}
           {!recentBasho.length && <div className="text-sm text-zinc-400">No recent basho data.</div>}
+        </div>
+      </section>
+
+      {/* Data integrity indicator */}
+      <section className="rounded-xl border border-zinc-800 bg-zinc-900 p-4">
+        <div className="flex items-center gap-2 text-sm">
+          {timelineChrono.length > 0 && kimariteQuery.data && progressionQuery.data ? (
+            <>
+              <span className="text-emerald-400">✔</span>
+              <span className="text-zinc-300">
+                Verified — {timelineChrono.length} basho entries, kimarite and rank data loaded
+              </span>
+            </>
+          ) : (
+            <>
+              <span className="text-amber-400">⚠</span>
+              <span className="text-zinc-300">
+                Incomplete —
+                {!timelineChrono.length ? ' no timeline data' : ''}
+                {!kimariteQuery.data ? ' no kimarite data' : ''}
+                {!progressionQuery.data ? ' no rank progression' : ''}
+              </span>
+            </>
+          )}
         </div>
       </section>
     </div>

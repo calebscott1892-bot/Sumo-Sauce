@@ -1,85 +1,187 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useRef, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Home, Upload } from 'lucide-react';
-import { cn } from '@/lib/utils';
+import { Menu, X, Home, Trophy, BarChart3, Calendar, Users, ChevronDown, Swords, Clock, Search } from 'lucide-react';
 
 const navItems = [
-  { name: 'Leaderboard', path: '/leaderboard', icon: Home },
-  { name: 'Admin Import', path: '/admin/import', icon: Upload },
+  { name: 'Home', path: '/', icon: Home },
+  { name: 'Basho', path: '/basho', icon: Calendar },
+  { name: 'Rikishi', path: '/rikishi', icon: Users },
+  { name: 'Rivalries', path: '/rivalries', icon: Swords },
+  { name: 'Timeline', path: '/timeline', icon: Clock },
+  { name: 'Leaderboard', path: '/leaderboard', icon: Trophy },
+  { name: 'Search', path: '/search', icon: Search },
+];
+
+const analyticsItems = [
+  { name: 'Global Analytics', path: '/analytics' },
+  { name: 'Kimarite Analytics', path: '/analytics/kimarite' },
+  { name: 'Era Analytics', path: '/analytics/eras' },
 ];
 
 export default function FloatingNav() {
   const [isOpen, setIsOpen] = useState(false);
+  const [analyticsOpen, setAnalyticsOpen] = useState(false);
+  const analyticsRef = useRef(null);
+  const location = useLocation();
+
+  // Close analytics dropdown on outside click
+  useEffect(() => {
+    function handleClickOutside(e) {
+      if (analyticsRef.current && !analyticsRef.current.contains(e.target)) {
+        setAnalyticsOpen(false);
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  // Close mobile menu on navigation
+  useEffect(() => {
+    setIsOpen(false);
+    setAnalyticsOpen(false);
+  }, [location.pathname]);
+
+  const isActive = (path) => {
+    if (path === '/') return location.pathname === '/';
+    return location.pathname.startsWith(path);
+  };
 
   return (
-    <div className="fixed top-6 right-6 z-50">
+    <header className="sticky top-0 z-50 border-b border-zinc-800 bg-zinc-950/95 backdrop-blur supports-[backdrop-filter]:bg-zinc-950/80">
+      <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
+        {/* Brand */}
+        <Link to="/" className="text-lg font-bold text-white hover:text-red-400 transition-colors">
+          SumoWatch
+        </Link>
+
+        {/* Desktop nav */}
+        <nav className="hidden items-center gap-5 md:flex" aria-label="Main navigation">
+          {navItems.map((item) => (
+            <Link
+              key={item.path}
+              to={item.path}
+              className={`flex items-center gap-1.5 text-sm transition-colors ${
+                isActive(item.path)
+                  ? 'text-red-400 font-medium'
+                  : 'text-zinc-400 hover:text-white'
+              }`}
+            >
+              <item.icon className="h-4 w-4" />
+              {item.name}
+            </Link>
+          ))}
+
+          {/* Analytics dropdown */}
+          <div className="relative" ref={analyticsRef}>
+            <button
+              type="button"
+              onClick={() => setAnalyticsOpen(!analyticsOpen)}
+              className={`flex items-center gap-1.5 text-sm transition-colors ${
+                isActive('/analytics')
+                  ? 'text-red-400 font-medium'
+                  : 'text-zinc-400 hover:text-white'
+              }`}
+            >
+              <BarChart3 className="h-4 w-4" />
+              Analytics
+              <ChevronDown className={`h-3 w-3 transition-transform ${analyticsOpen ? 'rotate-180' : ''}`} />
+            </button>
+
+            <AnimatePresence>
+              {analyticsOpen && (
+                <motion.div
+                  initial={{ opacity: 0, y: -4 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -4 }}
+                  transition={{ duration: 0.15 }}
+                  className="absolute right-0 top-full mt-2 w-48 rounded-lg border border-zinc-700 bg-zinc-900 py-1 shadow-xl"
+                >
+                  {analyticsItems.map((item) => (
+                    <Link
+                      key={item.path}
+                      to={item.path}
+                      onClick={() => setAnalyticsOpen(false)}
+                      className={`block px-3 py-2 text-sm transition-colors ${
+                        location.pathname === item.path
+                          ? 'bg-zinc-800 text-red-400'
+                          : 'text-zinc-300 hover:bg-zinc-800 hover:text-white'
+                      }`}
+                    >
+                      {item.name}
+                    </Link>
+                  ))}
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+
+          <kbd className="rounded border border-zinc-700 bg-zinc-800 px-1.5 py-0.5 text-[10px] text-zinc-500">
+            ⌘K
+          </kbd>
+        </nav>
+
+        {/* Mobile hamburger */}
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          className="rounded-md p-2 text-zinc-400 hover:text-white transition-colors md:hidden"
+          aria-label={isOpen ? 'Close menu' : 'Open menu'}
+        >
+          {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+        </button>
+      </div>
+
+      {/* Mobile dropdown */}
       <AnimatePresence>
         {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -20, scale: 0.9 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: -20, scale: 0.9 }}
-            transition={{ type: 'spring', damping: 20, stiffness: 300 }}
-            className="absolute top-16 right-0 w-64 bg-zinc-900 border-2 border-red-600 rounded-lg shadow-2xl overflow-hidden"
+          <motion.nav
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="overflow-hidden border-t border-zinc-800 bg-zinc-950 md:hidden"
           >
-            <div className="bg-gradient-to-r from-red-900 to-red-700 p-3 border-b border-red-600">
-              <h3 className="text-white font-black text-sm uppercase tracking-wider">Navigation</h3>
-            </div>
-            <div className="py-2">
-              {navItems.map((item, index) => (
+            <div className="space-y-1 px-4 py-3">
+              {navItems.map((item) => (
                 <Link
                   key={item.path}
                   to={item.path}
                   onClick={() => setIsOpen(false)}
-                  className="flex items-center gap-3 px-4 py-3 hover:bg-red-900/20 border-l-4 border-transparent hover:border-red-600 transition-all group"
+                  className={`flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm transition-colors ${
+                    isActive(item.path)
+                      ? 'bg-zinc-800 text-red-400'
+                      : 'text-zinc-300 hover:bg-zinc-800 hover:text-white'
+                  }`}
                 >
-                  <item.icon className="w-5 h-5 text-zinc-400 group-hover:text-red-500 transition-colors" />
-                  <span className="text-zinc-300 group-hover:text-white font-bold text-sm transition-colors">
-                    {item.name}
-                  </span>
+                  <item.icon className="h-4 w-4 text-zinc-500" />
+                  {item.name}
                 </Link>
               ))}
+              {/* Analytics sub-items */}
+              <div className="pl-2 border-l border-zinc-800 ml-3 space-y-1">
+                {analyticsItems.map((item) => (
+                  <Link
+                    key={item.path}
+                    to={item.path}
+                    onClick={() => setIsOpen(false)}
+                    className={`flex items-center gap-3 rounded-lg px-3 py-2 text-sm transition-colors ${
+                      location.pathname === item.path
+                        ? 'text-red-400'
+                        : 'text-zinc-400 hover:bg-zinc-800 hover:text-white'
+                    }`}
+                  >
+                    <BarChart3 className="h-3.5 w-3.5 text-zinc-600" />
+                    {item.name}
+                  </Link>
+                ))}
+              </div>
+              <div className="px-3 pt-2 text-[10px] text-zinc-600">
+                Press <kbd className="rounded border border-zinc-700 bg-zinc-800 px-1 py-0.5">⌘K</kbd> for command palette
+              </div>
             </div>
-          </motion.div>
+          </motion.nav>
         )}
       </AnimatePresence>
-
-      <motion.button
-        onClick={() => setIsOpen(!isOpen)}
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
-        className={cn(
-          "w-14 h-14 rounded-full flex items-center justify-center shadow-2xl transition-all",
-          isOpen 
-            ? "bg-red-600 border-2 border-red-400" 
-            : "bg-zinc-900 border-2 border-zinc-700 hover:border-red-600"
-        )}
-      >
-        <AnimatePresence mode="wait">
-          {isOpen ? (
-            <motion.div
-              key="close"
-              initial={{ rotate: -90, opacity: 0 }}
-              animate={{ rotate: 0, opacity: 1 }}
-              exit={{ rotate: 90, opacity: 0 }}
-              transition={{ duration: 0.2 }}
-            >
-              <X className="w-6 h-6 text-white" />
-            </motion.div>
-          ) : (
-            <motion.div
-              key="menu"
-              initial={{ rotate: -90, opacity: 0 }}
-              animate={{ rotate: 0, opacity: 1 }}
-              exit={{ rotate: 90, opacity: 0 }}
-              transition={{ duration: 0.2 }}
-            >
-              <Menu className="w-6 h-6 text-zinc-300" />
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </motion.button>
-    </div>
+    </header>
   );
 }

@@ -3,6 +3,7 @@ import type {
   Division,
   GetDivisionStandingsResponse,
   GetHeadToHeadResponse,
+  GetRikishiDirectoryResponse,
   GetRikishiKimariteResponse,
   GetRikishiRankProgressionResponse,
   GetRikishiResponse,
@@ -47,6 +48,10 @@ async function fetchApi<T>(path: string): Promise<T> {
 
 export function getCareerSummary(id: string): Promise<GetRikishiResponse> {
   return fetchApi<GetRikishiResponse>(`/rikishi/${encodeURIComponent(id)}`);
+}
+
+export function getRikishiDirectory(): Promise<GetRikishiDirectoryResponse> {
+  return fetchApi<GetRikishiDirectoryResponse>('/rikishi');
 }
 
 export function getCareerTimeline(id: string): Promise<GetRikishiTimelineResponse> {

@@ -357,6 +357,8 @@ export async function runLoad(input: {
       });
 
       await tx.buildSnapshot.deleteMany({ where: { buildId: input.buildId } });
+
+      await tx.buildSnapshot.deleteMany({ where: { buildId: input.buildId } });
       for (const snap of uniqueBuildSnapshots([...manifest.inputs.snapshots])) {
         await tx.buildSnapshot.create({
           data: {
@@ -505,7 +507,7 @@ export async function runLoad(input: {
         where: { buildId: input.buildId },
         data: { status: 'SUCCESS' satisfies BuildStatus },
       });
-    });
+    }, { maxWait: 120_000, timeout: 120_000 });
 
     return {
       buildId: input.buildId,

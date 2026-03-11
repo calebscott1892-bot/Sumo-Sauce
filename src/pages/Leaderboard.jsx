@@ -1,5 +1,6 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { trackLeaderboardView } from '@/utils/analytics';
 import { ChevronRight, Crown, Star } from 'lucide-react';
 import FallbackAvatar from '@/components/FallbackAvatar';
 import { resolvePhotoUrl } from '@/utils/photo';
@@ -225,6 +226,8 @@ export default function Leaderboard() {
 
   const [wrestlersData, setWrestlersData] = useState([]);
   const [bashoRecordsData, setBashoRecordsData] = useState([]);
+
+  useEffect(() => { trackLeaderboardView(); }, []);
 
   const [loading, setLoading] = useState(true);
   const [loadError, setLoadError] = useState('');

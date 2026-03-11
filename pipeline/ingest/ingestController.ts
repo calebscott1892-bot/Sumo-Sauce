@@ -2,6 +2,7 @@ import { readFile } from 'node:fs/promises';
 import path from 'node:path';
 
 import { generateBashoRange } from './bashoRange.ts';
+import { isCancelledBasho } from './cancelledBasho.ts';
 import { toCompactIngestError } from './ingestErrors.ts';
 import { ingestConfig, type IngestMode } from './ingestConfig.ts';
 import { ingestSingleBasho, type IngestSingleBashoSummary } from './ingestSingleBasho.ts';
@@ -104,6 +105,22 @@ export async function ingestRange(input: {
           },
         });
       });
+
+      // Pre-flight: skip known cancelled tournaments (e.g. 202005 COVID)
+      if (isCancelledBasho(bashoId)) {
+        await prisma.$transaction(async (tx: any) => {
+          await tx.bashoIngestion.update({
+            where: { bashoId },
+            data: {
+              status: 'COMPLETE' as IngestionStatus,
+              finishedAt: new Date(),
+              errorMessage: 'cancelled-basho-skip',
+            },
+          });
+        });
+        results.push({ bashoId, status: 'COMPLETE', skipped: true });
+        continue;
+      }
 
       try {
         const summary = await ingestSingleBasho(bashoId, { mode });

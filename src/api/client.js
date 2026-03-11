@@ -1,20 +1,131 @@
 const API_BASE = import.meta.env?.VITE_API_BASE_URL || '/api';
 
-async function requestJson(path, { method = 'GET', body } = {}) {
-	const res = await fetch(`${API_BASE}${path}`, {
-		method,
-		headers: body == null ? undefined : { 'Content-Type': 'application/json' },
-		body: body == null ? undefined : JSON.stringify(body),
-	});
+const REQUEST_TIMEOUT_MS = 8000;
+const MAX_RETRIES = 2;
+const RETRY_DELAY_MS = 500;
 
-	if (!res.ok) {
-		const text = await res.text().catch(() => '');
-		throw new Error(`API ${method} ${path} failed: ${res.status} ${text || res.statusText}`);
+// --- In-memory response cache (TTL = 60 s) ---
+const CACHE_TTL_MS = 60_000;
+const _cache = new Map();
+
+function _cacheKey(method, path) {
+	return `${method}:${path}`;
+}
+
+function _getCached(key) {
+	const entry = _cache.get(key);
+	if (!entry) return undefined;
+	if (Date.now() - entry.ts > CACHE_TTL_MS) {
+		_cache.delete(key);
+		return undefined;
+	}
+	return entry.data;
+}
+
+function _setCache(key, data) {
+	_cache.set(key, { data, ts: Date.now() });
+}
+
+function makeStructuredError(message, status) {
+	return { error: true, message, status: status || 0 };
+}
+
+function isRetryable(status) {
+	return status === 0 || status === 502 || status === 503 || status === 504 || status >= 520;
+}
+
+function sleep(ms) {
+	return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+async function requestJson(path, { method = 'GET', body } = {}) {
+	// Check cache for GET requests
+	const cacheKey = method === 'GET' && body == null ? _cacheKey(method, path) : null;
+	if (cacheKey) {
+		const cached = _getCached(cacheKey);
+		if (cached !== undefined) return cached;
 	}
 
-	// Some endpoints may intentionally return empty.
-	const raw = await res.text();
-	return raw ? JSON.parse(raw) : null;
+	let lastError = null;
+
+	for (let attempt = 0; attempt <= MAX_RETRIES; attempt++) {
+		if (attempt > 0) {
+			await sleep(RETRY_DELAY_MS * attempt);
+		}
+
+		const controller = new AbortController();
+		const timeoutId = setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS);
+
+		try {
+			const res = await fetch(`${API_BASE}${path}`, {
+				method,
+				headers: body == null ? undefined : { 'Content-Type': 'application/json' },
+				body: body == null ? undefined : JSON.stringify(body),
+				signal: controller.signal,
+			});
+
+			clearTimeout(timeoutId);
+
+			if (res.status === 404) {
+				throw Object.assign(
+					new Error(`Not found: ${path}`),
+					{ structured: makeStructuredError('The requested resource was not found.', 404) }
+				);
+			}
+
+			if (res.status >= 500) {
+				lastError = Object.assign(
+					new Error(`Server error ${res.status}`),
+					{ structured: makeStructuredError('The server encountered an error. Please try again later.', res.status) }
+				);
+				if (isRetryable(res.status) && attempt < MAX_RETRIES) continue;
+				throw lastError;
+			}
+
+			if (!res.ok) {
+				const text = await res.text().catch(() => '');
+				throw Object.assign(
+					new Error(`API ${method} ${path} failed: ${res.status} ${text || res.statusText}`),
+					{ structured: makeStructuredError(`Request failed (${res.status}).`, res.status) }
+				);
+			}
+
+			// Some endpoints may intentionally return empty.
+			const raw = await res.text();
+			const result = raw ? JSON.parse(raw) : null;
+			if (cacheKey) _setCache(cacheKey, result);
+			return result;
+		} catch (err) {
+			clearTimeout(timeoutId);
+
+			if (err?.structured) {
+				// non-retryable structured errors (like 404) throw immediately
+				if (!isRetryable(err.structured.status)) throw err;
+				lastError = err;
+				if (attempt < MAX_RETRIES) continue;
+				throw lastError;
+			}
+
+			if (err.name === 'AbortError') {
+				lastError = Object.assign(
+					new Error(`Request timed out: ${path}`),
+					{ structured: makeStructuredError('Request timed out. Please check your connection.', 0) }
+				);
+				if (attempt < MAX_RETRIES) continue;
+				throw lastError;
+			}
+
+			// Network error
+			lastError = Object.assign(
+				err,
+				{ structured: makeStructuredError('API unavailable. Please check your connection.', 0) }
+			);
+			if (attempt < MAX_RETRIES) continue;
+			throw lastError;
+		}
+	}
+
+	throw lastError || new Error('Request failed');
 }
 
 const BULK_ENABLED = new Set(['BashoRecord', 'Match', 'Wrestler']);

@@ -1,4 +1,4 @@
-import type { ApiErrorResponse, Division, GetDivisionStandingsResponse } from '../../../shared/api/v1';
+import type { ApiErrorResponse, Division, GetDivisionStandingsResponse, GetBoutsByDivisionResponse } from '../../../shared/api/v1';
 
 export class ApiError extends Error {
   status: number;
@@ -38,4 +38,8 @@ async function fetchApi<T>(path: string): Promise<T> {
 
 export function getDivisionStandings(bashoId: string, division: Division): Promise<GetDivisionStandingsResponse> {
   return fetchApi<GetDivisionStandingsResponse>(`/basho/${encodeURIComponent(bashoId)}/${encodeURIComponent(division)}`);
+}
+
+export function getBoutsByDivision(bashoId: string, division: Division): Promise<GetBoutsByDivisionResponse> {
+  return fetchApi<GetBoutsByDivisionResponse>(`/bouts/${encodeURIComponent(bashoId)}/${encodeURIComponent(division)}`);
 }

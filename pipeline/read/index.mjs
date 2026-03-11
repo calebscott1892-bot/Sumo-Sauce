@@ -1,4 +1,5 @@
 export {
+  listRikishiDirectory,
   getRikishiById,
   getBashoById,
   getBoutsByBashoAndDivision,
