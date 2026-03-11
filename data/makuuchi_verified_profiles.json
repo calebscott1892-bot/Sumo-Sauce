@@ -10665,5 +10665,1005 @@
       }
     ],
     "notes": "Nationality left null because JSA profile provides birthplace, not explicit nationality; image omitted pending separate verification."
+  },
+  {
+    "rikishiId": "3046",
+    "shikona": "Azumanami",
+    "heya": "Tamanoi",
+    "birthDate": "1984-11-29",
+    "nationality": null,
+    "heightCm": 173,
+    "weightKg": 144,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA rikishi profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3046/"
+      },
+      {
+        "label": "SumoDB Haru 2026 text banzuke",
+        "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+      }
+    ],
+    "notes": "Current rank confirmed on JSA search result as Jonidan #81. Nationality left null because JSA exposes birthplace, not explicit nationality. Image omitted pending separate verification."
+  },
+  {
+    "rikishiId": "3552",
+    "shikona": "Fujinoteru",
+    "heya": "Onoe",
+    "birthDate": "1998-08-24",
+    "nationality": null,
+    "heightCm": 166,
+    "weightKg": 91,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA rikishi profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3552/"
+      },
+      {
+        "label": "SumoDB Haru 2026 text banzuke",
+        "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+      }
+    ],
+    "notes": "Official JSA profile URL resolved from search results; rank snippet in the result was not fully clean, so profile confidence kept conservative. Nationality null; image omitted."
+  },
+  {
+    "rikishiId": "4180",
+    "shikona": "Anzakura",
+    "heya": "Ajigawa",
+    "birthDate": "2005-02-26",
+    "nationality": null,
+    "heightCm": 175,
+    "weightKg": 103,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA rikishi profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4180/"
+      },
+      {
+        "label": "SumoDB Haru 2026 text banzuke",
+        "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+      }
+    ],
+    "notes": "Current rank confirmed on JSA search result as Jonidan #82. Nationality null; image omitted."
+  },
+  {
+    "rikishiId": "3694",
+    "shikona": "Tokio",
+    "heya": "Isenoumi",
+    "birthDate": "2000-08-16",
+    "nationality": null,
+    "heightCm": 176,
+    "weightKg": 125,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA rikishi profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3694/"
+      },
+      {
+        "label": "SumoDB Haru 2026 text banzuke",
+        "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+      }
+    ],
+    "notes": "Current rank confirmed on JSA search result as Jonidan #82. Nationality null; image omitted."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Onbashira",
+    "heya": "Nishonoseki",
+    "birthDate": "2006-07-04",
+    "nationality": null,
+    "heightCm": 172,
+    "weightKg": 127,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "unverified",
+    "sourceRefs": [
+      {
+        "label": "JSA rikishi search page",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/search/"
+      },
+      {
+        "label": "SumoDB Haru 2026 text banzuke",
+        "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+      }
+    ],
+    "notes": "Roster slot Jd83e is confirmed from the current banzuke, but a unique official JSA profile identifier could not be safely resolved in this run. Core scalar fields are taken from the current banzuke. Nationality null; image omitted. Manual review required."
+  },
+  {
+    "rikishiId": "4269",
+    "shikona": "Hamada",
+    "heya": "Shikoroyama",
+    "birthDate": "2006-03-16",
+    "nationality": null,
+    "heightCm": 168,
+    "weightKg": 97,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA rikishi profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4269/"
+      },
+      {
+        "label": "SumoDB Haru 2026 text banzuke",
+        "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+      }
+    ],
+    "notes": "JSA search output contained stale-rank fragments while still pointing to the correct official profile; kept conservative. Nationality null; image omitted."
+  },
+  {
+    "rikishiId": "3688",
+    "shikona": "Hokutoizumi",
+    "heya": "Hakkaku",
+    "birthDate": "1998-02-27",
+    "nationality": null,
+    "heightCm": 174,
+    "weightKg": 130,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA rikishi profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3688/"
+      },
+      {
+        "label": "SumoDB Haru 2026 text banzuke",
+        "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+      }
+    ],
+    "notes": "Current rank confirmed on JSA search result as Jonidan #84. Nationality null; image omitted."
+  },
+  {
+    "rikishiId": "3864",
+    "shikona": "Fujinonami",
+    "heya": "Fujishima",
+    "birthDate": "1999-12-21",
+    "nationality": null,
+    "heightCm": 166,
+    "weightKg": 109,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA rikishi profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3864/"
+      },
+      {
+        "label": "SumoDB Haru 2026 text banzuke",
+        "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+      }
+    ],
+    "notes": "Official JSA profile resolved; snippet contained mixed current-rank text, so kept conservative. Nationality null; image omitted."
+  },
+  {
+    "rikishiId": "4092",
+    "shikona": "Sonoshun",
+    "heya": "Arashio",
+    "birthDate": "2002-11-18",
+    "nationality": null,
+    "heightCm": 169,
+    "weightKg": 98,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA rikishi profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4092/"
+      },
+      {
+        "label": "SumoDB Haru 2026 text banzuke",
+        "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+      }
+    ],
+    "notes": "Current rank confirmed on JSA search result as Jonidan #85. Nationality null; image omitted."
+  },
+  {
+    "rikishiId": "4150",
+    "shikona": "Aratobi",
+    "heya": "Isenoumi",
+    "birthDate": "2006-07-25",
+    "nationality": null,
+    "heightCm": 177,
+    "weightKg": 99,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA rikishi profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4150/"
+      },
+      {
+        "label": "SumoDB Haru 2026 text banzuke",
+        "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+      }
+    ],
+    "notes": "JSA search output contained stale-rank fragments while still pointing to the correct official profile; kept conservative. Nationality null; image omitted."
+  },
+  {
+    "rikishiId": "1147",
+    "shikona": "Yoshiazuma",
+    "heya": "Tamanoi",
+    "birthDate": "1977-05-26",
+    "nationality": null,
+    "heightCm": 195,
+    "weightKg": 160,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA rikishi profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/1147/"
+      },
+      {
+        "label": "SumoDB Haru 2026 text banzuke",
+        "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+      }
+    ],
+    "notes": "Current rank confirmed on JSA search result as Jonidan #86. Nationality null; image omitted."
+  },
+  {
+    "rikishiId": "4330",
+    "shikona": "Hokutonada",
+    "heya": "Hanaregoma",
+    "birthDate": "2007-01-19",
+    "nationality": null,
+    "heightCm": 175,
+    "weightKg": 126,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA rikishi profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4330/"
+      },
+      {
+        "label": "SumoDB Haru 2026 text banzuke",
+        "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+      }
+    ],
+    "notes": "Official JSA profile resolved; snippet included both stale and current rank text. Current roster placement matches Jd86w on the current banzuke. Nationality null; image omitted."
+  },
+  {
+    "rikishiId": "3736",
+    "shikona": "Satsumao",
+    "heya": "Shikihide",
+    "birthDate": "2000-07-26",
+    "nationality": null,
+    "heightCm": 183,
+    "weightKg": 132,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA rikishi profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3736/"
+      },
+      {
+        "label": "SumoDB Haru 2026 text banzuke",
+        "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+      }
+    ],
+    "notes": "JSA search output contained stale-rank fragments while still pointing to the correct official profile; kept conservative. Nationality null; image omitted."
+  },
+  {
+    "rikishiId": "3648",
+    "shikona": "Watatani",
+    "heya": "Arashio",
+    "birthDate": "1999-07-07",
+    "nationality": null,
+    "heightCm": 174,
+    "weightKg": 93,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA rikishi profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3648/"
+      },
+      {
+        "label": "SumoDB Haru 2026 text banzuke",
+        "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+      }
+    ],
+    "notes": "Current rank confirmed on JSA search result as Jonidan #87. Nationality null; image omitted."
+  },
+  {
+    "rikishiId": "4245",
+    "shikona": "Shibuya",
+    "heya": "Nishonoseki",
+    "birthDate": "2005-07-02",
+    "nationality": null,
+    "heightCm": 184,
+    "weightKg": 126,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA rikishi profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4245/"
+      },
+      {
+        "label": "SumoDB Haru 2026 text banzuke",
+        "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+      }
+    ],
+    "notes": "Current rank confirmed on JSA search result as Jonidan #88. Nationality null; image omitted."
+  },
+  {
+    "rikishiId": "4200",
+    "shikona": "Datenomori",
+    "heya": "Isenoumi",
+    "birthDate": "2005-01-12",
+    "nationality": null,
+    "heightCm": 192,
+    "weightKg": 159,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA rikishi profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4200/"
+      },
+      {
+        "label": "SumoDB Haru 2026 text banzuke",
+        "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+      }
+    ],
+    "notes": "Current rank confirmed on JSA search result as Jonidan #88. Nationality null; image omitted."
+  },
+  {
+    "rikishiId": "1179",
+    "shikona": "Tenichi",
+    "heya": "Yamahibiki",
+    "birthDate": "1977-11-22",
+    "nationality": null,
+    "heightCm": 170,
+    "weightKg": 145,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA rikishi profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/1179/"
+      },
+      {
+        "label": "SumoDB Haru 2026 text banzuke",
+        "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+      }
+    ],
+    "notes": "Official JSA profile resolved; snippet included stale-rank fragments while still identifying the correct wrestler. Nationality null; image omitted."
+  },
+  {
+    "rikishiId": "4202",
+    "shikona": "Kuwae",
+    "heya": "Futagoyama",
+    "birthDate": "2004-09-20",
+    "nationality": null,
+    "heightCm": 172,
+    "weightKg": 111,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA rikishi profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4202/"
+      },
+      {
+        "label": "SumoDB Haru 2026 text banzuke",
+        "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+      }
+    ],
+    "notes": "Current rank confirmed on JSA search result as Jonidan #89. Nationality null; image omitted."
+  },
+  {
+    "rikishiId": "3979",
+    "shikona": "Chiyotsurugi",
+    "heya": "Kokonoe",
+    "birthDate": "2003-06-18",
+    "nationality": null,
+    "heightCm": 170,
+    "weightKg": 103,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA rikishi profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3979/"
+      },
+      {
+        "label": "SumoDB Haru 2026 text banzuke",
+        "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+      }
+    ],
+    "notes": "Official JSA profile resolved, but search result exposed stale prior-rank text rather than a clean current-rank snippet. Identity linkage is still strong. Nationality null; image omitted."
+  },
+  {
+    "rikishiId": "3960",
+    "shikona": "Tsurunoumi",
+    "heya": "Shikoroyama",
+    "birthDate": "2004-02-07",
+    "nationality": null,
+    "heightCm": 174,
+    "weightKg": 79,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA rikishi profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3960/"
+      },
+      {
+        "label": "SumoDB Haru 2026 text banzuke",
+        "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+      }
+    ],
+    "notes": "Current rank confirmed on JSA profile as Jonidan #90. Nationality null; image omitted."
+  },
+  {
+    "rikishiId": "3548",
+    "shikona": "Kokuryunami",
+    "heya": "Tatsunami",
+    "birthDate": "1995-04-20",
+    "nationality": null,
+    "heightCm": 177,
+    "weightKg": 114,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA rikishi profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3548/"
+      },
+      {
+        "label": "SumoDB Haru 2026 text banzuke",
+        "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+      }
+    ],
+    "notes": "Official JSA profile resolved through search; current-rank snippet not clean, so kept conservative. Nationality null; image omitted."
+  },
+  {
+    "rikishiId": "4110",
+    "shikona": "Koga",
+    "heya": "Futagoyama",
+    "birthDate": "2005-12-12",
+    "nationality": null,
+    "heightCm": 177,
+    "weightKg": 119,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA rikishi profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4110/"
+      },
+      {
+        "label": "SumoDB Haru 2026 text banzuke",
+        "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+      }
+    ],
+    "notes": "Current rank confirmed on JSA profile as Jonidan #91. Nationality null; image omitted."
+  },
+  {
+    "rikishiId": "3568",
+    "shikona": "Fubu",
+    "heya": "Musashigawa",
+    "birthDate": "1998-07-28",
+    "nationality": null,
+    "heightCm": 178,
+    "weightKg": 115,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA rikishi profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3568/"
+      },
+      {
+        "label": "SumoDB Haru 2026 text banzuke",
+        "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+      }
+    ],
+    "notes": "Current rank confirmed on JSA profile as Jonidan #92. Nationality null; image omitted."
+  },
+  {
+    "rikishiId": "4316",
+    "shikona": "Tensei",
+    "heya": "Tamanoi",
+    "birthDate": "2009-05-30",
+    "nationality": null,
+    "heightCm": 176,
+    "weightKg": 139,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA rikishi profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4316/"
+      },
+      {
+        "label": "SumoDB Haru 2026 text banzuke",
+        "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+      }
+    ],
+    "notes": "Current rank confirmed on JSA profile as Jonidan #92. Nationality null; image omitted."
+  },
+  {
+    "rikishiId": "4299",
+    "shikona": "Asakawasumi",
+    "heya": "Takasago",
+    "birthDate": "2008-04-10",
+    "nationality": null,
+    "heightCm": 175,
+    "weightKg": 94,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA rikishi profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4299/"
+      },
+      {
+        "label": "SumoDB Haru 2026 text banzuke",
+        "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+      }
+    ],
+    "notes": "Current rank confirmed on JSA profile as Jonidan #93. Nationality null; image omitted."
+  },
+  {
+    "rikishiId": "4284",
+    "shikona": "Kosei",
+    "heya": "Hidenoyama",
+    "birthDate": "2008-08-14",
+    "nationality": null,
+    "heightCm": 165,
+    "weightKg": 67,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA rikishi profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4284/"
+      },
+      {
+        "label": "SumoDB Haru 2026 text banzuke",
+        "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+      }
+    ],
+    "notes": "Current rank confirmed on JSA profile as Jonidan #93. Nationality null; image omitted."
+  },
+  {
+    "rikishiId": "4318",
+    "shikona": "Toranomaru",
+    "heya": "Onoe",
+    "birthDate": "2010-03-06",
+    "nationality": null,
+    "heightCm": 166,
+    "weightKg": 107,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA rikishi profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4318/"
+      },
+      {
+        "label": "SumoDB Haru 2026 text banzuke",
+        "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+      }
+    ],
+    "notes": "Current rank confirmed on JSA profile as Jonidan #94. Nationality null; image omitted."
+  },
+  {
+    "rikishiId": "3067",
+    "shikona": "Okuniyama",
+    "heya": "Asahiyama",
+    "birthDate": "1992-09-18",
+    "nationality": null,
+    "heightCm": 188,
+    "weightKg": 132,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA rikishi profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3067/"
+      },
+      {
+        "label": "SumoDB Haru 2026 text banzuke",
+        "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+      }
+    ],
+    "notes": "Current rank confirmed on JSA profile as Jonidan #94. Nationality null; image omitted."
+  },
+  {
+    "rikishiId": "4277",
+    "shikona": "Miyafuji",
+    "heya": "Isegahama",
+    "birthDate": "2005-07-28",
+    "nationality": null,
+    "heightCm": 175,
+    "weightKg": 138,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA rikishi profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4277/"
+      },
+      {
+        "label": "SumoDB Haru 2026 text banzuke",
+        "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+      }
+    ],
+    "notes": "Official JSA profile resolved; current March 2026 rank is visible in tournament-record output rather than a clean basic-info snippet. Nationality null; image omitted."
+  },
+  {
+    "rikishiId": "4328",
+    "shikona": "Ryugi",
+    "heya": "Tagonoura",
+    "birthDate": "2009-12-03",
+    "nationality": null,
+    "heightCm": 175,
+    "weightKg": 139,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA rikishi profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4328/"
+      },
+      {
+        "label": "SumoDB Haru 2026 text banzuke",
+        "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+      }
+    ],
+    "notes": "Current rank confirmed on JSA profile as Jonidan #95. Nationality null; image omitted."
+  },
+  {
+    "rikishiId": "4264",
+    "shikona": "Kaigyokusei",
+    "heya": "Asakayama",
+    "birthDate": "2008-04-06",
+    "nationality": null,
+    "heightCm": 178,
+    "weightKg": 124,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA rikishi profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4264/"
+      },
+      {
+        "label": "SumoDB Haru 2026 text banzuke",
+        "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+      }
+    ],
+    "notes": "JSA search output exposed stale January-rank text despite correct profile resolution. Current roster placement matches Jd96e on the current banzuke. Nationality null; image omitted."
+  },
+  {
+    "rikishiId": "4326",
+    "shikona": "Futagawa",
+    "heya": "Nishikido",
+    "birthDate": "2009-09-11",
+    "nationality": null,
+    "heightCm": 168,
+    "weightKg": 123,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA rikishi profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4326/"
+      },
+      {
+        "label": "SumoDB Haru 2026 text banzuke",
+        "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+      }
+    ],
+    "notes": "Current rank confirmed on JSA profile as Jonidan #96. Nationality null; image omitted."
+  },
+  {
+    "rikishiId": "4276",
+    "shikona": "Kikuchi",
+    "heya": "Futagoyama",
+    "birthDate": "2009-02-03",
+    "nationality": null,
+    "heightCm": 179,
+    "weightKg": 117,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA rikishi profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4276/"
+      },
+      {
+        "label": "SumoDB Haru 2026 text banzuke",
+        "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+      }
+    ],
+    "notes": "Current rank confirmed on JSA profile as Jonidan #97. Nationality null; image omitted."
+  },
+  {
+    "rikishiId": "4291",
+    "shikona": "Daiko",
+    "heya": "Onomatsu",
+    "birthDate": "2007-02-01",
+    "nationality": null,
+    "heightCm": 174,
+    "weightKg": 101,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA rikishi profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4291/"
+      },
+      {
+        "label": "SumoDB Haru 2026 text banzuke",
+        "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+      }
+    ],
+    "notes": "JSA search output showed stale January-rank text, but identity linkage to the official profile is strong. Current roster placement matches Jd97w. Nationality null; image omitted."
+  },
+  {
+    "rikishiId": "4263",
+    "shikona": "Seiseigo",
+    "heya": "Nishonoseki",
+    "birthDate": "2008-06-03",
+    "nationality": null,
+    "heightCm": 166,
+    "weightKg": 115,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA rikishi profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4263/"
+      },
+      {
+        "label": "SumoDB Haru 2026 text banzuke",
+        "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+      }
+    ],
+    "notes": "Current rank confirmed on JSA profile as Jonidan #98. Nationality null; image omitted."
+  },
+  {
+    "rikishiId": "3306",
+    "shikona": "Urutora",
+    "heya": "Shikihide",
+    "birthDate": "1989-05-08",
+    "nationality": null,
+    "heightCm": 165,
+    "weightKg": 60,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA rikishi profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3306/"
+      },
+      {
+        "label": "SumoDB Haru 2026 text banzuke",
+        "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+      }
+    ],
+    "notes": "Current rank confirmed on JSA profile as Jonidan #98. Nationality null; image omitted."
+  },
+  {
+    "rikishiId": "4248",
+    "shikona": "Daishisho",
+    "heya": "Oitekaze",
+    "birthDate": "2009-01-14",
+    "nationality": null,
+    "heightCm": 171,
+    "weightKg": 105,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA rikishi profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4248/"
+      },
+      {
+        "label": "SumoDB Haru 2026 text banzuke",
+        "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+      }
+    ],
+    "notes": "Current rank confirmed on JSA profile as Jonidan #99. Nationality null; image omitted."
+  },
+  {
+    "rikishiId": "4315",
+    "shikona": "Kido",
+    "heya": "Tamanoi",
+    "birthDate": "2006-05-08",
+    "nationality": null,
+    "heightCm": 177,
+    "weightKg": 154,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA rikishi profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4315/"
+      },
+      {
+        "label": "SumoDB Haru 2026 text banzuke",
+        "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+      }
+    ],
+    "notes": "JSA search output exposed stale prior-rank text despite correct profile resolution. Current roster placement matches Jd99w on the current banzuke. Nationality null; image omitted."
+  },
+  {
+    "rikishiId": "3113",
+    "shikona": "Motoazuma",
+    "heya": "Tamanoi",
+    "birthDate": "1991-12-15",
+    "nationality": null,
+    "heightCm": 170,
+    "weightKg": 113,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA rikishi profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3113/"
+      },
+      {
+        "label": "SumoDB Haru 2026 text banzuke",
+        "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+      }
+    ],
+    "notes": "Current rank confirmed on JSA profile as Jonidan #100. Nationality null; image omitted."
+  },
+  {
+    "rikishiId": "4102",
+    "shikona": "Kiryuko",
+    "heya": "Tatsunami",
+    "birthDate": "2002-10-31",
+    "nationality": null,
+    "heightCm": 177,
+    "weightKg": 138,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA rikishi profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4102/"
+      },
+      {
+        "label": "SumoDB Haru 2026 text banzuke",
+        "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+      }
+    ],
+    "notes": "Current rank confirmed on JSA profile as Jonidan #100. Nationality null; image omitted."
   }
 ]
