@@ -5671,5 +5671,867 @@
       }
     ],
     "notes": ""
+  },
+  {
+    "rikishiId": "4054",
+    "shikona": "Kyoda",
+    "heya": "Futagoyama",
+    "birthDate": "2003-02-04",
+    "nationality": "Japan",
+    "heightCm": 176.3,
+    "weightKg": 159.0,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4054/"
+      }
+    ],
+    "notes": "Haru 2026 Jonidan W15. JSA-verified."
+  },
+  {
+    "rikishiId": "2924",
+    "shikona": "Wakahizen",
+    "heya": "Shibatayama",
+    "birthDate": "1990-12-22",
+    "nationality": "Japan",
+    "heightCm": 170.0,
+    "weightKg": 130.0,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/2924/"
+      }
+    ],
+    "notes": "Haru 2026 Jonidan W20. JSA-verified."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Chiyosakae",
+    "heya": "Kokonoe",
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA Banzuke",
+        "url": "https://www.sumo.or.jp/"
+      }
+    ],
+    "notes": "Haru 2026 Jonidan W3. Confirmed via JSA leaders page."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Shimanishiki",
+    "heya": "Asahiyama",
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA Banzuke",
+        "url": "https://www.sumo.or.jp/"
+      }
+    ],
+    "notes": "Haru 2026 Jonidan E5. Confirmed via JSA leaders page."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Aoifuji",
+    "heya": "Isegahama",
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA Banzuke",
+        "url": "https://www.sumo.or.jp/"
+      }
+    ],
+    "notes": "Haru 2026 Jonidan E8. Confirmed via JSA leaders page."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Asahifuji",
+    "heya": "Isegahama",
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA Banzuke",
+        "url": "https://www.sumo.or.jp/"
+      }
+    ],
+    "notes": "Haru 2026 Jonidan W8. Confirmed via JSA leaders page."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Dewanojo",
+    "heya": "Dewanoumi",
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA Banzuke",
+        "url": "https://www.sumo.or.jp/"
+      }
+    ],
+    "notes": "Haru 2026 Jonidan E12. Confirmed via JSA leaders page."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Shoryu",
+    "heya": "Otowayama",
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA Banzuke",
+        "url": "https://www.sumo.or.jp/"
+      }
+    ],
+    "notes": "Haru 2026 Jonidan W16. Confirmed via JSA leaders page."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Tanaka",
+    "heya": "Nishonoseki",
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA Banzuke",
+        "url": "https://www.sumo.or.jp/"
+      }
+    ],
+    "notes": "Haru 2026 Jonidan W17. Confirmed via JSA leaders page."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Chiyonishiki",
+    "heya": "Kokonoe",
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "unverified",
+    "sourceRefs": [],
+    "notes": "Haru 2026 Jonidan W18. Identified via sumo DB; no JSA profile found. Flagged for manual review."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Wakaoki",
+    "heya": "Matsugane",
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "unverified",
+    "sourceRefs": [],
+    "notes": "Haru 2026 Jonidan E19. Identified via sumo DB; no JSA profile found. Flagged for manual review."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Kakonishiki",
+    "heya": "Magaki",
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "unverified",
+    "sourceRefs": [],
+    "notes": "Haru 2026 Jonidan E19. Identified via sumo DB; no JSA profile found. Flagged for manual review."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Keiga",
+    "heya": "Futagoyama",
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA Banzuke",
+        "url": "https://www.sumo.or.jp/"
+      }
+    ],
+    "notes": "Haru 2026 Jonidan E20. Confirmed via JSA leaders page."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Kumago",
+    "heya": "Takasago",
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "unverified",
+    "sourceRefs": [],
+    "notes": "Haru 2026 Jonidan E21. Identified via sumo DB; no JSA profile found. Flagged for manual review."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Tomiyutaka",
+    "heya": "Tokitsukaze",
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA Banzuke",
+        "url": "https://www.sumo.or.jp/"
+      }
+    ],
+    "notes": "Haru 2026 Jonidan E23. Confirmed via JSA leaders page."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Shunta",
+    "heya": "Futagoyama",
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA Banzuke",
+        "url": "https://www.sumo.or.jp/"
+      }
+    ],
+    "notes": "Haru 2026 Jonidan E24. Confirmed via JSA leaders page."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Asaobora",
+    "heya": "Takasago",
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA Banzuke",
+        "url": "https://www.sumo.or.jp/"
+      }
+    ],
+    "notes": "Haru 2026 Jonidan W26. Confirmed via JSA leaders page."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Hagane",
+    "heya": "Otowayama",
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA Banzuke",
+        "url": "https://www.sumo.or.jp/"
+      }
+    ],
+    "notes": "Haru 2026 Jonidan E28. Confirmed via JSA leaders page."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Sekizuka",
+    "heya": "Tagonoura",
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA Banzuke",
+        "url": "https://www.sumo.or.jp/"
+      }
+    ],
+    "notes": "Haru 2026 Jonidan W31. Confirmed via JSA leaders page."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Musubiyama",
+    "heya": "Hanaregoma",
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA Banzuke",
+        "url": "https://www.sumo.or.jp/"
+      }
+    ],
+    "notes": "Haru 2026 Jonidan E34. Confirmed via JSA leaders page."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Fukushoryu",
+    "heya": "Minato",
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA Banzuke",
+        "url": "https://www.sumo.or.jp/"
+      }
+    ],
+    "notes": "Haru 2026 Jonidan W34. Confirmed via JSA leaders page."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Oginosho",
+    "heya": "Dewanoumi",
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA Banzuke",
+        "url": "https://www.sumo.or.jp/"
+      }
+    ],
+    "notes": "Haru 2026 Jonidan W37. Confirmed via JSA leaders page."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Tenshoyama",
+    "heya": "Tamanoi",
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA Banzuke",
+        "url": "https://www.sumo.or.jp/"
+      }
+    ],
+    "notes": "Haru 2026 Jonidan E39. Confirmed via JSA leaders page."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Daigozakura",
+    "heya": "Takadagawa",
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA Banzuke",
+        "url": "https://www.sumo.or.jp/"
+      }
+    ],
+    "notes": "Haru 2026 Jonidan E41. Confirmed via JSA leaders page."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Goseiryu",
+    "heya": "Takekuma",
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA Banzuke",
+        "url": "https://www.sumo.or.jp/"
+      }
+    ],
+    "notes": "Haru 2026 Jonidan E44. Confirmed via JSA leaders page."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Fujiyuho",
+    "heya": "Fujishima",
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA Banzuke",
+        "url": "https://www.sumo.or.jp/"
+      }
+    ],
+    "notes": "Haru 2026 Jonidan E47. Confirmed via JSA leaders page."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Akinishiki",
+    "heya": "Asahiyama",
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA Banzuke",
+        "url": "https://www.sumo.or.jp/"
+      }
+    ],
+    "notes": "Haru 2026 Jonidan E49. Confirmed via JSA leaders page."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Ryuseio",
+    "heya": "Shibatayama",
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA Banzuke",
+        "url": "https://www.sumo.or.jp/"
+      }
+    ],
+    "notes": "Haru 2026 Jonidan W50. Confirmed via JSA leaders page."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Kakusho",
+    "heya": "Otowayama",
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA Banzuke",
+        "url": "https://www.sumo.or.jp/"
+      }
+    ],
+    "notes": "Haru 2026 Jonidan W52. Confirmed via JSA leaders page."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Kazeoka",
+    "heya": "Oshiogawa",
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA Banzuke",
+        "url": "https://www.sumo.or.jp/"
+      }
+    ],
+    "notes": "Haru 2026 Jonidan E54. Confirmed via JSA leaders page."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Dewanosora",
+    "heya": "Dewanoumi",
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA Banzuke",
+        "url": "https://www.sumo.or.jp/"
+      }
+    ],
+    "notes": "Haru 2026 Jonidan W56. Confirmed via JSA leaders page."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Biganzan",
+    "heya": "Yamahibiki",
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA Banzuke",
+        "url": "https://www.sumo.or.jp/"
+      }
+    ],
+    "notes": "Haru 2026 Jonidan E60. Confirmed via JSA leaders page."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Kanryu",
+    "heya": "Arashio",
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA Banzuke",
+        "url": "https://www.sumo.or.jp/"
+      }
+    ],
+    "notes": "Haru 2026 Jonidan W61. Confirmed via JSA leaders page."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Satsumasho",
+    "heya": "Oitekaze",
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA Banzuke",
+        "url": "https://www.sumo.or.jp/"
+      }
+    ],
+    "notes": "Haru 2026 Jonidan E63. Confirmed via JSA leaders page."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Kaihakusho",
+    "heya": "Asakayama",
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA Banzuke",
+        "url": "https://www.sumo.or.jp/"
+      }
+    ],
+    "notes": "Haru 2026 Jonidan E65. Confirmed via JSA leaders page."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Goseimaru",
+    "heya": "Takekuma",
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA Banzuke",
+        "url": "https://www.sumo.or.jp/"
+      }
+    ],
+    "notes": "Haru 2026 Jonidan E68. Confirmed via JSA leaders page."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Komanofuji",
+    "heya": "Isegahama",
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA Banzuke",
+        "url": "https://www.sumo.or.jp/"
+      }
+    ],
+    "notes": "Haru 2026 Jonidan E70. Confirmed via JSA leaders page."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Seki",
+    "heya": "Sakaigawa",
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA Banzuke",
+        "url": "https://www.sumo.or.jp/"
+      }
+    ],
+    "notes": "Haru 2026 Jonidan E72. Confirmed via JSA leaders page."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Nagata",
+    "heya": "Dewanoumi",
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA Banzuke",
+        "url": "https://www.sumo.or.jp/"
+      }
+    ],
+    "notes": "Haru 2026 Jonidan W72. Confirmed via JSA leaders page."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Hirose",
+    "heya": "Arashio",
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA Banzuke",
+        "url": "https://www.sumo.or.jp/"
+      }
+    ],
+    "notes": "Haru 2026 Jonidan E75. Confirmed via JSA leaders page."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Ojiyama",
+    "heya": "Tagonoura",
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA Banzuke",
+        "url": "https://www.sumo.or.jp/"
+      }
+    ],
+    "notes": "Haru 2026 Jonidan W77. Confirmed via JSA leaders page."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Kirinohana",
+    "heya": "Arashio",
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA Banzuke",
+        "url": "https://www.sumo.or.jp/"
+      }
+    ],
+    "notes": "Haru 2026 Jonidan W79. Confirmed via JSA leaders page."
   }
 ]
