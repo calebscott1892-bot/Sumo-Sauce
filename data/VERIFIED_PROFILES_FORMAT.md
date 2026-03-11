@@ -87,6 +87,7 @@ support additional divisions or historical batches — just add rows.
 - Makushita 41–60 (East + West), Haru 2026 (21 wrestlers — 2 unverified, flagged for manual review)
 - Sandanme 51–80 (selected), Haru 2026 (7 wrestlers — 3 skipped as duplicates from Sandanme 1–50)
 - Jonidan 1–80, Haru 2026 (42 wrestlers — 2 verified, 36 likely, 4 unverified/flagged for manual review)
+- Jonokuchi (full division), Haru 2026 (42 wrestlers — all JSA-verified with full bio)
 
 ## Matching strategy
 

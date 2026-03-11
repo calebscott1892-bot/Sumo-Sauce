@@ -6533,5 +6533,887 @@
       }
     ],
     "notes": "Haru 2026 Jonidan W79. Confirmed via JSA leaders page."
+  },
+  {
+    "rikishiId": "4308",
+    "shikona": "Asahirai",
+    "heya": "Takasago",
+    "birthDate": "2009-06-08",
+    "nationality": "Japan",
+    "heightCm": 171.0,
+    "weightKg": 101.0,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4308/"
+      }
+    ],
+    "notes": "Haru 2026 Jonokuchi E1."
+  },
+  {
+    "rikishiId": "3760",
+    "shikona": "Gokishin",
+    "heya": "Shikihide",
+    "birthDate": "1992-06-01",
+    "nationality": "Japan",
+    "heightCm": 164.8,
+    "weightKg": 150.6,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3760/"
+      }
+    ],
+    "notes": "Haru 2026 Jonokuchi W1."
+  },
+  {
+    "rikishiId": "3563",
+    "shikona": "Wakaikki",
+    "heya": "Hanaregoma",
+    "birthDate": "1998-04-16",
+    "nationality": "Japan",
+    "heightCm": 172.5,
+    "weightKg": 123.3,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3563/"
+      }
+    ],
+    "notes": "Haru 2026 Jonokuchi E2."
+  },
+  {
+    "rikishiId": "4349",
+    "shikona": "Suetomi",
+    "heya": "Sakaigawa",
+    "birthDate": "2009-12-23",
+    "nationality": "Japan",
+    "heightCm": 175.0,
+    "weightKg": 142.0,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4349/"
+      }
+    ],
+    "notes": "Haru 2026 Jonokuchi W2."
+  },
+  {
+    "rikishiId": "4294",
+    "shikona": "Ideno",
+    "heya": "Hidenoyama",
+    "birthDate": "2008-04-10",
+    "nationality": "Japan",
+    "heightCm": 170.3,
+    "weightKg": 122.1,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4294/"
+      }
+    ],
+    "notes": "Haru 2026 Jonokuchi E3."
+  },
+  {
+    "rikishiId": "2684",
+    "shikona": "Chiyooume",
+    "heya": "Kokonoe",
+    "birthDate": "1986-01-03",
+    "nationality": "Japan",
+    "heightCm": 173.4,
+    "weightKg": 102.4,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/2684/"
+      }
+    ],
+    "notes": "Haru 2026 Jonokuchi W3."
+  },
+  {
+    "rikishiId": "4329",
+    "shikona": "Yamauchi",
+    "heya": "Tagonoura",
+    "birthDate": "2010-02-05",
+    "nationality": "Japan",
+    "heightCm": 170.0,
+    "weightKg": 114.1,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4329/"
+      }
+    ],
+    "notes": "Haru 2026 Jonokuchi E4."
+  },
+  {
+    "rikishiId": "4314",
+    "shikona": "Ikazuchiarata",
+    "heya": "Ikazuchi",
+    "birthDate": "2009-06-21",
+    "nationality": "Japan",
+    "heightCm": 173.0,
+    "weightKg": 170.0,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4314/"
+      }
+    ],
+    "notes": "Haru 2026 Jonokuchi W4."
+  },
+  {
+    "rikishiId": "4064",
+    "shikona": "Tamanotora",
+    "heya": "Kataonami",
+    "birthDate": "2005-12-22",
+    "nationality": "Japan",
+    "heightCm": 176.0,
+    "weightKg": 114.5,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4064/"
+      }
+    ],
+    "notes": "Haru 2026 Jonokuchi E5."
+  },
+  {
+    "rikishiId": "3333",
+    "shikona": "Onojo",
+    "heya": "Takadagawa",
+    "birthDate": "1996-01-31",
+    "nationality": "Japan",
+    "heightCm": 183.3,
+    "weightKg": 140.9,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3333/"
+      }
+    ],
+    "notes": "Haru 2026 Jonokuchi W5."
+  },
+  {
+    "rikishiId": "3287",
+    "shikona": "Azumayama",
+    "heya": "Tamanoi",
+    "birthDate": "1994-06-10",
+    "nationality": "Japan",
+    "heightCm": 183.7,
+    "weightKg": 120.9,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3287/"
+      }
+    ],
+    "notes": "Haru 2026 Jonokuchi E6."
+  },
+  {
+    "rikishiId": "4311",
+    "shikona": "Kazeoki",
+    "heya": "Oshiogawa",
+    "birthDate": "2009-12-01",
+    "nationality": "Japan",
+    "heightCm": 172.0,
+    "weightKg": 127.6,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4311/"
+      }
+    ],
+    "notes": "Haru 2026 Jonokuchi W6."
+  },
+  {
+    "rikishiId": "4319",
+    "shikona": "Kazenohana",
+    "heya": "Oshiogawa",
+    "birthDate": "2006-07-26",
+    "nationality": "Japan",
+    "heightCm": 173.0,
+    "weightKg": 80.6,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4319/"
+      }
+    ],
+    "notes": "Haru 2026 Jonokuchi E7."
+  },
+  {
+    "rikishiId": "3614",
+    "shikona": "Kyonosato",
+    "heya": "Isenoumi",
+    "birthDate": "1996-09-26",
+    "nationality": "Japan",
+    "heightCm": 185.0,
+    "weightKg": 152.6,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3614/"
+      }
+    ],
+    "notes": "Haru 2026 Jonokuchi W7."
+  },
+  {
+    "rikishiId": "4022",
+    "shikona": "Sadanojo",
+    "heya": "Sakaigawa",
+    "birthDate": "2005-01-05",
+    "nationality": "Japan",
+    "heightCm": 169.5,
+    "weightKg": 139.8,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4022/"
+      }
+    ],
+    "notes": "Haru 2026 Jonokuchi E8."
+  },
+  {
+    "rikishiId": "3307",
+    "shikona": "Okuniiwa",
+    "heya": "Oitekaze",
+    "birthDate": "1992-09-18",
+    "nationality": "Japan",
+    "heightCm": 185.2,
+    "weightKg": 118.6,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3307/"
+      }
+    ],
+    "notes": "Haru 2026 Jonokuchi W8. Banzuke lists as 'Okuni'; JSA profile uses 'Okuniiwa'."
+  },
+  {
+    "rikishiId": "3869",
+    "shikona": "Wakaarata",
+    "heya": "Nishiiwa",
+    "birthDate": "2002-11-16",
+    "nationality": "Japan",
+    "heightCm": 167.0,
+    "weightKg": 116.0,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3869/"
+      }
+    ],
+    "notes": "Haru 2026 Jonokuchi E9."
+  },
+  {
+    "rikishiId": "2688",
+    "shikona": "Higonoryu",
+    "heya": "Kise",
+    "birthDate": "1985-11-19",
+    "nationality": "Japan",
+    "heightCm": 172.0,
+    "weightKg": 220.3,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/2688/"
+      }
+    ],
+    "notes": "Haru 2026 Jonokuchi W9."
+  },
+  {
+    "rikishiId": "4271",
+    "shikona": "Hara",
+    "heya": "Hakkaku",
+    "birthDate": "2007-04-26",
+    "nationality": "Japan",
+    "heightCm": 173.0,
+    "weightKg": 128.8,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4271/"
+      }
+    ],
+    "notes": "Haru 2026 Jonokuchi E10."
+  },
+  {
+    "rikishiId": "4307",
+    "shikona": "Usagifuji",
+    "heya": "Isegahama",
+    "birthDate": "2009-08-18",
+    "nationality": "Japan",
+    "heightCm": 181.8,
+    "weightKg": 123.4,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4307/"
+      }
+    ],
+    "notes": "Haru 2026 Jonokuchi W10."
+  },
+  {
+    "rikishiId": "4303",
+    "shikona": "Akenoyama",
+    "heya": "Ajigawa",
+    "birthDate": "2006-06-14",
+    "nationality": "Japan",
+    "heightCm": 180.0,
+    "weightKg": 121.7,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4303/"
+      }
+    ],
+    "notes": "Haru 2026 Jonokuchi E11."
+  },
+  {
+    "rikishiId": "4206",
+    "shikona": "Katsunonishiki",
+    "heya": "Nishikido",
+    "birthDate": "2007-08-16",
+    "nationality": "Japan",
+    "heightCm": 164.5,
+    "weightKg": 96.9,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4206/"
+      }
+    ],
+    "notes": "Haru 2026 Jonokuchi W11."
+  },
+  {
+    "rikishiId": "3881",
+    "shikona": "Kojikara",
+    "heya": "Tagonoura",
+    "birthDate": "2002-06-15",
+    "nationality": "Japan",
+    "heightCm": 183.9,
+    "weightKg": 148.6,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3881/"
+      }
+    ],
+    "notes": "Haru 2026 Jonokuchi E12."
+  },
+  {
+    "rikishiId": "4091",
+    "shikona": "Aron",
+    "heya": "Nakamura",
+    "birthDate": "2003-01-07",
+    "nationality": "Japan",
+    "heightCm": 185.6,
+    "weightKg": 161.8,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4091/"
+      }
+    ],
+    "notes": "Haru 2026 Jonokuchi W12."
+  },
+  {
+    "rikishiId": "4360",
+    "shikona": "Takeda",
+    "heya": "Nakamura",
+    "birthDate": "2007-09-07",
+    "nationality": "Japan",
+    "heightCm": 170.0,
+    "weightKg": 163.2,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4360/"
+      }
+    ],
+    "notes": "Haru 2026 Jonokuchi E13."
+  },
+  {
+    "rikishiId": "4344",
+    "shikona": "Minami",
+    "heya": "Hidenoyama",
+    "birthDate": "2006-06-02",
+    "nationality": "Japan",
+    "heightCm": 178.0,
+    "weightKg": 111.0,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4344/"
+      }
+    ],
+    "notes": "Haru 2026 Jonokuchi W13."
+  },
+  {
+    "rikishiId": "1451",
+    "shikona": "Terunosato",
+    "heya": "Tagonoura",
+    "birthDate": "1978-01-17",
+    "nationality": "Japan",
+    "heightCm": 172.0,
+    "weightKg": 172.4,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/1451/"
+      }
+    ],
+    "notes": "Haru 2026 Jonokuchi E14. Veteran (b.1978)."
+  },
+  {
+    "rikishiId": "2605",
+    "shikona": "Moriurara",
+    "heya": "Otake",
+    "birthDate": "1987-06-16",
+    "nationality": "Japan",
+    "heightCm": 167.8,
+    "weightKg": 134.2,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/2605/"
+      }
+    ],
+    "notes": "Haru 2026 Jonokuchi W14."
+  },
+  {
+    "rikishiId": "4003",
+    "shikona": "Suzaki",
+    "heya": "Otake",
+    "birthDate": "2004-04-02",
+    "nationality": "Japan",
+    "heightCm": 171.0,
+    "weightKg": 100.2,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4003/"
+      }
+    ],
+    "notes": "Haru 2026 Jonokuchi E15."
+  },
+  {
+    "rikishiId": "4268",
+    "shikona": "Wakasasaki",
+    "heya": "Nishiiwa",
+    "birthDate": "2009-01-06",
+    "nationality": "Japan",
+    "heightCm": 174.0,
+    "weightKg": 123.2,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4268/"
+      }
+    ],
+    "notes": "Haru 2026 Jonokuchi W15."
+  },
+  {
+    "rikishiId": "2491",
+    "shikona": "Adachi",
+    "heya": "Nishonoseki",
+    "birthDate": "1985-07-15",
+    "nationality": "Japan",
+    "heightCm": 182.1,
+    "weightKg": 199.2,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/2491/"
+      }
+    ],
+    "notes": "Haru 2026 Jonokuchi E16. Veteran (b.1985)."
+  },
+  {
+    "rikishiId": "4136",
+    "shikona": "Wakasa",
+    "heya": "Dewanoumi",
+    "birthDate": "2003-10-16",
+    "nationality": "Japan",
+    "heightCm": 174.0,
+    "weightKg": 81.2,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4136/"
+      }
+    ],
+    "notes": "Haru 2026 Jonokuchi W16."
+  },
+  {
+    "rikishiId": "4241",
+    "shikona": "Nishikio",
+    "heya": "Nishikido",
+    "birthDate": "2005-07-23",
+    "nationality": "Japan",
+    "heightCm": 173.1,
+    "weightKg": 150.8,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4241/"
+      }
+    ],
+    "notes": "Haru 2026 Jonokuchi E17."
+  },
+  {
+    "rikishiId": "4363",
+    "shikona": "Asasubaru",
+    "heya": "Takasago",
+    "birthDate": "2005-10-20",
+    "nationality": "Japan",
+    "heightCm": 176.5,
+    "weightKg": 139.2,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4363/"
+      }
+    ],
+    "notes": "Haru 2026 Jonokuchi W17."
+  },
+  {
+    "rikishiId": "4364",
+    "shikona": "Shosei",
+    "heya": "Nakamura",
+    "birthDate": "2008-02-06",
+    "nationality": "Japan",
+    "heightCm": 175.0,
+    "weightKg": 156.6,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4364/"
+      }
+    ],
+    "notes": "Haru 2026 Jonokuchi E18."
+  },
+  {
+    "rikishiId": "4365",
+    "shikona": "Kyokugosei",
+    "heya": "Oshima",
+    "birthDate": "2007-08-28",
+    "nationality": "Japan",
+    "heightCm": 177.0,
+    "weightKg": 126.5,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4365/"
+      }
+    ],
+    "notes": "Haru 2026 Jonokuchi W18."
+  },
+  {
+    "rikishiId": "4368",
+    "shikona": "Teruyutaka",
+    "heya": "Tatsunami",
+    "birthDate": "2007-04-29",
+    "nationality": "Japan",
+    "heightCm": 184.0,
+    "weightKg": 144.0,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4368/"
+      }
+    ],
+    "notes": "Haru 2026 Jonokuchi E19."
+  },
+  {
+    "rikishiId": "4367",
+    "shikona": "Kyokurenma",
+    "heya": "Oshima",
+    "birthDate": "2008-03-26",
+    "nationality": "Japan",
+    "heightCm": 174.0,
+    "weightKg": 135.8,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4367/"
+      }
+    ],
+    "notes": "Haru 2026 Jonokuchi W19."
+  },
+  {
+    "rikishiId": "4366",
+    "shikona": "Kyokutaiyo",
+    "heya": "Oshima",
+    "birthDate": "2008-01-27",
+    "nationality": "Japan",
+    "heightCm": 173.0,
+    "weightKg": 99.0,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4366/"
+      }
+    ],
+    "notes": "Haru 2026 Jonokuchi E20."
+  },
+  {
+    "rikishiId": "1691",
+    "shikona": "Itakozakura",
+    "heya": "Shikihide",
+    "birthDate": "1978-10-02",
+    "nationality": "Japan",
+    "heightCm": 177.6,
+    "weightKg": 105.1,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/1691/"
+      }
+    ],
+    "notes": "Haru 2026 Jonokuchi W20. Veteran (b.1978)."
+  },
+  {
+    "rikishiId": "4369",
+    "shikona": "Chiyoshinzan",
+    "heya": "Kokonoe",
+    "birthDate": "2007-10-15",
+    "nationality": "Japan",
+    "heightCm": 183.0,
+    "weightKg": 123.2,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4369/"
+      }
+    ],
+    "notes": "Haru 2026 Jonokuchi E21."
+  },
+  {
+    "rikishiId": "4213",
+    "shikona": "Chiyonoteru",
+    "heya": "Kokonoe",
+    "birthDate": "2004-05-13",
+    "nationality": "Japan",
+    "heightCm": 177.2,
+    "weightKg": 116.1,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4213/"
+      }
+    ],
+    "notes": "Haru 2026 Jonokuchi W21. Ring name changed from Chiyoryusei."
   }
 ]

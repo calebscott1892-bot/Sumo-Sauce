@@ -4,7 +4,8 @@
  * Loads the JSA-verified rikishi profile dataset and provides
  * deterministic lookups by shikona (short or full) and JSA rikishi ID.
  *
- * Covers Makuuchi roster, historical legends, Jūryō, Makushita, Sandanme, and Jonidan divisions.
+ * Covers all six divisions: Makuuchi, Jūryō, Makushita, Sandanme, Jonidan, and Jonokuchi,
+ * plus historical legends (Yokozuna/Ōzeki 2000–present).
  *
  * Image policy:
  *   - Only returns an image URL when `imageConfidence === "verified"`
