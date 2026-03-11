@@ -4,7 +4,7 @@
  * Loads the JSA-verified rikishi profile dataset and provides
  * deterministic lookups by shikona (short or full) and JSA rikishi ID.
  *
- * Covers Makuuchi roster, historical legends, and Jūryō divisions.
+ * Covers Makuuchi roster, historical legends, Jūryō, and Makushita divisions.
  *
  * Image policy:
  *   - Only returns an image URL when `imageConfidence === "verified"`

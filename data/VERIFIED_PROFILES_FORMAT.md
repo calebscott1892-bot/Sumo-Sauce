@@ -83,6 +83,7 @@ support additional divisions or historical batches — just add rows.
 - Jūryō roster, Haru 2026 (25 wrestlers)
 - Sandanme 1–50 (East + West), Haru 2026 (100 wrestlers)
 - Makushita 1–10 (East + West), Haru 2026 (20 wrestlers)
+- Makushita 11–20 (East + West), Haru 2026 (19 wrestlers — 1 skipped as duplicate)
 
 ## Matching strategy
 

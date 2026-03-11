@@ -4694,5 +4694,404 @@
       }
     ],
     "notes": "Haru 2026 Makushita 10W."
+  },
+  {
+    "rikishiId": "4100",
+    "shikona": "Mienofuji",
+    "heya": "Isegahama",
+    "birthDate": "2002-09-07",
+    "nationality": "Japan",
+    "heightCm": 179.5,
+    "weightKg": 172.7,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Profile",
+        "url": "https://www.sumo.or.jp/ResultRikishiData/profile/4100/"
+      }
+    ],
+    "notes": "Haru 2026 Makushita 11E."
+  },
+  {
+    "rikishiId": "4339",
+    "shikona": "Kakito",
+    "heya": "Oitekaze",
+    "birthDate": "2002-05-16",
+    "nationality": "Japan",
+    "heightCm": 191.0,
+    "weightKg": 142.0,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Profile",
+        "url": "https://www.sumo.or.jp/ResultRikishiData/profile/4339/"
+      }
+    ],
+    "notes": "Haru 2026 Makushita 11W."
+  },
+  {
+    "rikishiId": "3976",
+    "shikona": "Hokutenkai",
+    "heya": "Onoe",
+    "birthDate": "1999-02-02",
+    "nationality": "Mongolia",
+    "heightCm": 180.0,
+    "weightKg": 138.1,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Profile",
+        "url": "https://www.sumo.or.jp/ResultRikishiData/profile/3976/"
+      }
+    ],
+    "notes": "Haru 2026 Makushita 12E."
+  },
+  {
+    "rikishiId": "4142",
+    "shikona": "Tanji",
+    "heya": "Arashio",
+    "birthDate": "2006-06-05",
+    "nationality": "Japan",
+    "heightCm": 185.0,
+    "weightKg": 143.5,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Profile",
+        "url": "https://www.sumo.or.jp/ResultRikishiData/profile/4142/"
+      }
+    ],
+    "notes": "Haru 2026 Makushita 12W."
+  },
+  {
+    "rikishiId": "3948",
+    "shikona": "Mineyaba",
+    "heya": "Shikoroyama",
+    "birthDate": "1999-03-26",
+    "nationality": "Japan",
+    "heightCm": 189.0,
+    "weightKg": 146.0,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Profile",
+        "url": "https://www.sumo.or.jp/ResultRikishiData/profile/3948/"
+      }
+    ],
+    "notes": "Haru 2026 Makushita 13E."
+  },
+  {
+    "rikishiId": "3849",
+    "shikona": "Aso no Yama",
+    "heya": "Sakaigawa",
+    "birthDate": "1999-11-09",
+    "nationality": "Japan",
+    "heightCm": 176.6,
+    "weightKg": 168.1,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Profile",
+        "url": "https://www.sumo.or.jp/ResultRikishiData/profile/3849/"
+      }
+    ],
+    "notes": "Haru 2026 Makushita 13W."
+  },
+  {
+    "rikishiId": "4189",
+    "shikona": "Gounoumi",
+    "heya": "Takakuma",
+    "birthDate": "2004-05-19",
+    "nationality": "Japan",
+    "heightCm": 180.0,
+    "weightKg": 140.1,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Profile",
+        "url": "https://www.sumo.or.jp/ResultRikishiData/profile/4189/"
+      }
+    ],
+    "notes": "Haru 2026 Makushita 14E."
+  },
+  {
+    "rikishiId": "3917",
+    "shikona": "Daikisho",
+    "heya": "Oitekaze",
+    "birthDate": "2000-08-18",
+    "nationality": "Japan",
+    "heightCm": 183.6,
+    "weightKg": 157.6,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Profile",
+        "url": "https://www.sumo.or.jp/ResultRikishiData/profile/3917/"
+      }
+    ],
+    "notes": "Haru 2026 Makushita 14W."
+  },
+  {
+    "rikishiId": "4170",
+    "shikona": "Hanano Fuji",
+    "heya": "Isegahama",
+    "birthDate": "1999-04-10",
+    "nationality": "Japan",
+    "heightCm": 173.0,
+    "weightKg": 123.0,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Profile",
+        "url": "https://www.sumo.or.jp/ResultRikishiData/profile/4170/"
+      }
+    ],
+    "notes": "Haru 2026 Makushita 15E."
+  },
+  {
+    "rikishiId": "4353",
+    "shikona": "Ryusho",
+    "heya": "Oitekaze",
+    "birthDate": "2002-10-01",
+    "nationality": "Japan",
+    "heightCm": 186.0,
+    "weightKg": 120.0,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA (English) Profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4353/"
+      }
+    ],
+    "notes": "Haru 2026 Makushita 15W."
+  },
+  {
+    "rikishiId": "4167",
+    "shikona": "Issho",
+    "heya": "Tatsunami",
+    "birthDate": "2003-12-13",
+    "nationality": "Japan",
+    "heightCm": 178.0,
+    "weightKg": 120.5,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Profile",
+        "url": "https://www.sumo.or.jp/ResultRikishiData/profile/4167/"
+      }
+    ],
+    "notes": "Haru 2026 Makushita 16E."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Reian",
+    "heya": "Tatsunami",
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "unverified",
+    "sourceRefs": [
+      {
+        "label": "JSA Banzuke",
+        "url": "https://www.o-sumo.site/osaka/sumo_banzuke202603_makushita/"
+      }
+    ],
+    "notes": "Haru 2026 Makushita 16W. No JSA profile found; data unverified."
+  },
+  {
+    "rikishiId": "4223",
+    "shikona": "Haruyama",
+    "heya": "Onoe",
+    "birthDate": "2000-06-03",
+    "nationality": "Japan",
+    "heightCm": 181.0,
+    "weightKg": 136.0,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Profile",
+        "url": "https://www.sumo.or.jp/ResultRikishiData/profile/4223/"
+      }
+    ],
+    "notes": "Haru 2026 Makushita 17E."
+  },
+  {
+    "rikishiId": "3921",
+    "shikona": "Awanokuni",
+    "heya": "Takadagawa",
+    "birthDate": "2000-05-18",
+    "nationality": "Japan",
+    "heightCm": 180.0,
+    "weightKg": 175.8,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Profile",
+        "url": "https://www.sumo.or.jp/ResultRikishiData/profile/3921/"
+      }
+    ],
+    "notes": "Haru 2026 Makushita 18E."
+  },
+  {
+    "rikishiId": "3966",
+    "shikona": "Chiyotora",
+    "heya": "Kokonoe",
+    "birthDate": "2003-04-15",
+    "nationality": "Japan",
+    "heightCm": 177.0,
+    "weightKg": 138.1,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Profile",
+        "url": "https://www.sumo.or.jp/ResultRikishiData/profile/3966/"
+      }
+    ],
+    "notes": "Haru 2026 Makushita 18W."
+  },
+  {
+    "rikishiId": "3763",
+    "shikona": "Tochikodai",
+    "heya": "Kasugano",
+    "birthDate": "1999-01-09",
+    "nationality": "Japan",
+    "heightCm": 178.8,
+    "weightKg": 133.8,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Profile",
+        "url": "https://www.sumo.or.jp/ResultRikishiData/profile/3763/"
+      }
+    ],
+    "notes": "Haru 2026 Makushita 19E."
+  },
+  {
+    "rikishiId": "3528",
+    "shikona": "Kaiseijo",
+    "heya": "Asakayama",
+    "birthDate": "1998-07-02",
+    "nationality": "Japan",
+    "heightCm": 179.5,
+    "weightKg": 121.7,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Profile",
+        "url": "https://www.sumo.or.jp/ResultRikishiData/profile/3528/"
+      }
+    ],
+    "notes": "Haru 2026 Makushita 19W."
+  },
+  {
+    "rikishiId": "3992",
+    "shikona": "Tendouzan",
+    "heya": "Fujishima",
+    "birthDate": "2001-12-01",
+    "nationality": "Japan",
+    "heightCm": 182.0,
+    "weightKg": 164.4,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Profile",
+        "url": "https://www.sumo.or.jp/ResultRikishiData/profile/3992/"
+      }
+    ],
+    "notes": "Haru 2026 Makushita 20E."
+  },
+  {
+    "rikishiId": "3546",
+    "shikona": "Hokudaichi",
+    "heya": "Tatsunami",
+    "birthDate": "1998-07-08",
+    "nationality": "Japan",
+    "heightCm": 172.0,
+    "weightKg": 157.8,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Profile",
+        "url": "https://www.sumo.or.jp/ResultRikishiData/profile/3546/"
+      }
+    ],
+    "notes": "Haru 2026 Makushita 20W."
   }
 ]
