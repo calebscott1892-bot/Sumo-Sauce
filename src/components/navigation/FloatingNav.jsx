@@ -1,187 +1,162 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Home, Trophy, BarChart3, Calendar, Users, ChevronDown, Swords, Clock, Search } from 'lucide-react';
+import {
+  Menu, X, Home, Trophy, BarChart3, Calendar, Users,
+  Swords, Clock, Search, Bell, TrendingUp, Compass
+} from 'lucide-react';
 
 const navItems = [
-  { name: 'Home', path: '/', icon: Home },
-  { name: 'Basho', path: '/basho', icon: Calendar },
-  { name: 'Rikishi', path: '/rikishi', icon: Users },
+  { name: 'Leaderboard', path: '/leaderboard', icon: Home },
+  { name: 'Search', path: '/search', icon: Search },
+  { name: 'Tournament Hub', path: '/basho', icon: Calendar },
+  { name: 'Rikishi Directory', path: '/rikishi', icon: Users },
   { name: 'Rivalries', path: '/rivalries', icon: Swords },
   { name: 'Timeline', path: '/timeline', icon: Clock },
-  { name: 'Leaderboard', path: '/leaderboard', icon: Trophy },
-  { name: 'Search', path: '/search', icon: Search },
-];
-
-const analyticsItems = [
-  { name: 'Global Analytics', path: '/analytics' },
-  { name: 'Kimarite Analytics', path: '/analytics/kimarite' },
-  { name: 'Era Analytics', path: '/analytics/eras' },
+  { name: 'Global Analytics', path: '/analytics', icon: BarChart3 },
+  { name: 'Kimarite Analytics', path: '/analytics/kimarite', icon: TrendingUp },
+  { name: 'Era Analytics', path: '/analytics/eras', icon: Compass },
 ];
 
 export default function FloatingNav() {
   const [isOpen, setIsOpen] = useState(false);
-  const [analyticsOpen, setAnalyticsOpen] = useState(false);
-  const analyticsRef = useRef(null);
+  const panelRef = useRef(null);
   const location = useLocation();
 
-  // Close analytics dropdown on outside click
-  useEffect(() => {
-    function handleClickOutside(e) {
-      if (analyticsRef.current && !analyticsRef.current.contains(e.target)) {
-        setAnalyticsOpen(false);
-      }
-    }
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, []);
-
-  // Close mobile menu on navigation
+  // Close on navigation
   useEffect(() => {
     setIsOpen(false);
-    setAnalyticsOpen(false);
   }, [location.pathname]);
+
+  // Close on Escape key
+  useEffect(() => {
+    function handleKeyDown(e) {
+      if (e.key === 'Escape') setIsOpen(false);
+    }
+    if (isOpen) {
+      document.addEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = 'hidden';
+    }
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = '';
+    };
+  }, [isOpen]);
 
   const isActive = (path) => {
     if (path === '/') return location.pathname === '/';
-    return location.pathname.startsWith(path);
+    return location.pathname === path || location.pathname.startsWith(path + '/');
   };
 
   return (
-    <header className="sticky top-0 z-50 border-b border-zinc-800 bg-zinc-950/95 backdrop-blur supports-[backdrop-filter]:bg-zinc-950/80">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
-        {/* Brand */}
-        <Link to="/" className="text-lg font-bold text-white hover:text-red-400 transition-colors">
-          SumoWatch
-        </Link>
-
-        {/* Desktop nav */}
-        <nav className="hidden items-center gap-5 md:flex" aria-label="Main navigation">
-          {navItems.map((item) => (
-            <Link
-              key={item.path}
-              to={item.path}
-              className={`flex items-center gap-1.5 text-sm transition-colors ${
-                isActive(item.path)
-                  ? 'text-red-400 font-medium'
-                  : 'text-zinc-400 hover:text-white'
-              }`}
-            >
-              <item.icon className="h-4 w-4" />
-              {item.name}
-            </Link>
-          ))}
-
-          {/* Analytics dropdown */}
-          <div className="relative" ref={analyticsRef}>
-            <button
-              type="button"
-              onClick={() => setAnalyticsOpen(!analyticsOpen)}
-              className={`flex items-center gap-1.5 text-sm transition-colors ${
-                isActive('/analytics')
-                  ? 'text-red-400 font-medium'
-                  : 'text-zinc-400 hover:text-white'
-              }`}
-            >
-              <BarChart3 className="h-4 w-4" />
-              Analytics
-              <ChevronDown className={`h-3 w-3 transition-transform ${analyticsOpen ? 'rotate-180' : ''}`} />
-            </button>
-
-            <AnimatePresence>
-              {analyticsOpen && (
-                <motion.div
-                  initial={{ opacity: 0, y: -4 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -4 }}
-                  transition={{ duration: 0.15 }}
-                  className="absolute right-0 top-full mt-2 w-48 rounded-lg border border-zinc-700 bg-zinc-900 py-1 shadow-xl"
-                >
-                  {analyticsItems.map((item) => (
-                    <Link
-                      key={item.path}
-                      to={item.path}
-                      onClick={() => setAnalyticsOpen(false)}
-                      className={`block px-3 py-2 text-sm transition-colors ${
-                        location.pathname === item.path
-                          ? 'bg-zinc-800 text-red-400'
-                          : 'text-zinc-300 hover:bg-zinc-800 hover:text-white'
-                      }`}
-                    >
-                      {item.name}
-                    </Link>
-                  ))}
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </div>
-
-          <kbd className="rounded border border-zinc-700 bg-zinc-800 px-1.5 py-0.5 text-[10px] text-zinc-500">
-            ⌘K
-          </kbd>
-        </nav>
-
-        {/* Mobile hamburger */}
+    <>
+      {/* Floating controls — top right */}
+      <div className="fixed right-4 top-4 z-50 flex items-center gap-2 sm:right-6 sm:top-6">
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="rounded-md p-2 text-zinc-400 hover:text-white transition-colors md:hidden"
+          className="flex h-11 w-11 items-center justify-center rounded-full bg-zinc-900/90 text-zinc-300 shadow-lg shadow-black/40 ring-1 ring-white/10 backdrop-blur-sm transition-all hover:bg-zinc-800 hover:text-white hover:ring-white/20"
           aria-label={isOpen ? 'Close menu' : 'Open menu'}
         >
           {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </button>
+        <button
+          className="flex h-11 w-11 items-center justify-center rounded-full bg-zinc-900/90 text-zinc-300 shadow-lg shadow-black/40 ring-1 ring-white/10 backdrop-blur-sm transition-all hover:bg-zinc-800 hover:text-white hover:ring-white/20"
+          aria-label="Notifications"
+        >
+          <Bell className="h-5 w-5" />
+        </button>
       </div>
 
-      {/* Mobile dropdown */}
+      {/* Overlay + Side Panel */}
       <AnimatePresence>
         {isOpen && (
-          <motion.nav
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: 'auto', opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.2 }}
-            className="overflow-hidden border-t border-zinc-800 bg-zinc-950 md:hidden"
-          >
-            <div className="space-y-1 px-4 py-3">
-              {navItems.map((item) => (
-                <Link
-                  key={item.path}
-                  to={item.path}
+          <>
+            {/* Backdrop */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className="fixed inset-0 z-[60] bg-black/60 backdrop-blur-sm"
+              onClick={() => setIsOpen(false)}
+            />
+
+            {/* Side panel */}
+            <motion.nav
+              ref={panelRef}
+              initial={{ x: '100%' }}
+              animate={{ x: 0 }}
+              exit={{ x: '100%' }}
+              transition={{ type: 'spring', damping: 30, stiffness: 300 }}
+              className="fixed right-0 top-0 z-[70] flex h-full w-72 flex-col border-l border-white/[0.06] bg-zinc-950 shadow-2xl shadow-black/50 sm:w-80"
+              aria-label="Navigation menu"
+            >
+              {/* Red header bar */}
+              <div className="flex items-center justify-between border-b border-red-700/50 bg-gradient-to-r from-red-700 to-red-600 px-5 py-3">
+                <div className="flex items-center gap-2.5">
+                  <img src="/logo-64.png" alt="Sumo Sauce" className="h-8 w-8 drop-shadow-lg" />
+                  <span className="font-display text-sm font-semibold uppercase tracking-[0.2em] text-white">
+                    Navigation
+                  </span>
+                </div>
+                <button
                   onClick={() => setIsOpen(false)}
-                  className={`flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm transition-colors ${
-                    isActive(item.path)
-                      ? 'bg-zinc-800 text-red-400'
-                      : 'text-zinc-300 hover:bg-zinc-800 hover:text-white'
+                  className="flex h-8 w-8 items-center justify-center rounded-full bg-white/10 text-white/80 transition-colors hover:bg-white/20 hover:text-white"
+                  aria-label="Close menu"
+                >
+                  <X className="h-4 w-4" />
+                </button>
+              </div>
+
+              {/* Nav links */}
+              <div className="flex-1 overflow-y-auto py-2">
+                {/* Home link */}
+                <Link
+                  to="/"
+                  onClick={() => setIsOpen(false)}
+                  className={`mx-2 mb-1 flex items-center gap-3.5 rounded-lg px-4 py-3 text-sm font-medium transition-all ${
+                    location.pathname === '/'
+                      ? 'bg-red-600/15 text-red-400'
+                      : 'text-zinc-300 hover:bg-white/[0.04] hover:text-white'
                   }`}
                 >
-                  <item.icon className="h-4 w-4 text-zinc-500" />
-                  {item.name}
+                  <Home className="h-[18px] w-[18px] shrink-0 opacity-70" />
+                  Home
                 </Link>
-              ))}
-              {/* Analytics sub-items */}
-              <div className="pl-2 border-l border-zinc-800 ml-3 space-y-1">
-                {analyticsItems.map((item) => (
+
+                <div className="mx-4 my-2 h-px bg-white/[0.06]" />
+
+                {navItems.map((item) => (
                   <Link
                     key={item.path}
                     to={item.path}
                     onClick={() => setIsOpen(false)}
-                    className={`flex items-center gap-3 rounded-lg px-3 py-2 text-sm transition-colors ${
-                      location.pathname === item.path
-                        ? 'text-red-400'
-                        : 'text-zinc-400 hover:bg-zinc-800 hover:text-white'
+                    className={`mx-2 mb-0.5 flex items-center gap-3.5 rounded-lg px-4 py-3 text-sm font-medium transition-all ${
+                      isActive(item.path)
+                        ? 'bg-red-600/15 text-red-400'
+                        : 'text-zinc-300 hover:bg-white/[0.04] hover:text-white'
                     }`}
                   >
-                    <BarChart3 className="h-3.5 w-3.5 text-zinc-600" />
+                    <item.icon className="h-[18px] w-[18px] shrink-0 opacity-70" />
                     {item.name}
                   </Link>
                 ))}
               </div>
-              <div className="px-3 pt-2 text-[10px] text-zinc-600">
-                Press <kbd className="rounded border border-zinc-700 bg-zinc-800 px-1 py-0.5">⌘K</kbd> for command palette
+
+              {/* Footer */}
+              <div className="border-t border-white/[0.06] px-5 py-4">
+                <div className="flex items-center justify-between text-xs text-zinc-500">
+                  <span>Press <kbd className="ml-1 rounded border border-zinc-700 bg-zinc-800 px-1.5 py-0.5 font-mono text-[10px] text-zinc-400">⌘K</kbd></span>
+                  <div className="flex items-center gap-1.5">
+                    <img src="/logo-64.png" alt="" className="h-4 w-4" />
+                    <span className="font-display text-[10px] uppercase tracking-wider text-zinc-600">Sumo Sauce</span>
+                  </div>
+                </div>
               </div>
-            </div>
-          </motion.nav>
+            </motion.nav>
+          </>
         )}
       </AnimatePresence>
-    </header>
+    </>
   );
 }

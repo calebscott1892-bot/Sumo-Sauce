@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { trackLeaderboardView } from '@/utils/analytics';
-import { ChevronRight, Crown, Star } from 'lucide-react';
+import { ChevronRight, Crown, Star, Search } from 'lucide-react';
 import FallbackAvatar from '@/components/FallbackAvatar';
 import { resolvePhotoUrl } from '@/utils/photo';
 
@@ -448,146 +448,211 @@ export default function Leaderboard() {
   const showBackendStatus = Boolean(loadError) || !loading;
 
   return (
-    <div className="min-h-screen bg-black text-white">
-      <div className="mx-auto max-w-4xl px-4 py-8">
-        <div className="mb-6 flex items-start justify-between gap-3">
-          <div>
-            <h1 className="text-4xl font-black tracking-tight">Sumo Leaderboard</h1>
-            <p className="text-zinc-400">DB-backed leaderboard (local dev)</p>
+    <div className="min-h-screen bg-[#0a0a0a] text-white">
+      <div className="mx-auto max-w-5xl px-4 pb-12 pt-6 sm:px-6 sm:pt-8">
+        {/* ── Premium Header ── */}
+        <header className="mb-2">
+          <div className="flex items-center gap-4">
+            <img src="/logo-64.png" alt="Sumo Sauce" className="h-14 w-14 drop-shadow-lg sm:h-16 sm:w-16" />
+            <div>
+              <span className="text-xs font-bold uppercase tracking-[0.25em] text-red-500">
+                Live Rankings
+              </span>
+              <h1 className="mt-1 font-display text-5xl font-bold uppercase tracking-tight text-white sm:text-6xl lg:text-7xl">
+                Banzuke
+              </h1>
+              <p className="mt-1 text-sm text-zinc-500">
+                相撲番付 • Japan Sumo Association
+              </p>
+            </div>
+          </div>
+        </header>
+
+        {/* Tournament badge + wrestler count */}
+        <div className="mt-4 flex items-center gap-4">
+          <div className="flex items-center gap-3">
+            <div className="h-10 w-1 rounded-full bg-red-600" />
+            <div>
+              <span className="font-display text-3xl font-bold text-white">{rows.length}</span>
+              <p className="text-[10px] font-semibold uppercase tracking-widest text-zinc-500">Wrestlers</p>
+            </div>
+          </div>
+          <div className="ml-2">
+            <p className="text-sm font-bold text-white">Grand Sumo Tournament</p>
+            <p className="text-[10px] font-semibold uppercase tracking-widest text-zinc-500">Tournament</p>
           </div>
           {showBackendStatus && (
             <span
-              className={`mt-1 inline-flex rounded-full border px-2.5 py-1 text-[11px] font-semibold ${
+              className={`ml-auto inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[11px] font-medium ${
                 loadError
-                  ? 'border-red-700 bg-red-900/30 text-red-200'
-                  : 'border-emerald-700 bg-emerald-900/30 text-emerald-200'
+                  ? 'bg-red-950/60 text-red-300 ring-1 ring-red-800/50'
+                  : 'bg-emerald-950/60 text-emerald-300 ring-1 ring-emerald-800/50'
               }`}
             >
-              {loadError ? `Backend: error (${loadError})` : 'Backend: connected'}
+              <span className={`h-1.5 w-1.5 rounded-full ${loadError ? 'bg-red-400' : 'bg-emerald-400'}`} />
+              {loadError ? 'Offline' : 'Live'}
             </span>
           )}
         </div>
 
+        {/* Red accent bar */}
+        <div className="mt-5 h-1 w-full overflow-hidden rounded-full bg-zinc-800">
+          <div
+            className="h-full rounded-full bg-gradient-to-r from-red-600 to-red-500 transition-all duration-700"
+            style={{ width: loading ? '40%' : '100%' }}
+          />
+        </div>
+
+        {/* ── Loading / Error States ── */}
         {loading && (
-          <div className="mb-4 rounded-lg border border-zinc-800 bg-zinc-900 px-4 py-6 text-zinc-300">
-            Loading leaderboard data…
+          <div className="mt-6 flex items-center gap-3 rounded-xl border border-zinc-800/60 bg-zinc-900/50 px-5 py-6 text-zinc-400">
+            <div className="h-5 w-5 animate-spin rounded-full border-2 border-zinc-600 border-t-red-500" />
+            Loading banzuke data…
           </div>
         )}
 
         {!loading && loadError && (
-          <div className="mb-4 rounded-lg border border-red-700 bg-red-900/30 px-4 py-4 text-red-100">
-            <div className="font-semibold">Failed to load leaderboard data from API.</div>
-            <div className="mt-1 font-mono text-xs text-red-200">{loadError}</div>
+          <div className="mt-6 rounded-xl border border-red-800/40 bg-red-950/30 px-5 py-5">
+            <div className="flex items-start gap-3">
+              <div className="mt-0.5 h-5 w-5 shrink-0 rounded-full bg-red-600/20 ring-2 ring-red-600/40" />
+              <div>
+                <p className="font-semibold text-red-200">Connection Error</p>
+                <p className="mt-1 text-sm text-red-300/70">{loadError}</p>
+              </div>
+            </div>
           </div>
         )}
 
-        {!loading && !loadError && !latestBasho && (
-          <div className="mb-4 rounded-lg border border-yellow-700 bg-yellow-900/30 px-4 py-3 text-yellow-100">
-            No basho records loaded.
-          </div>
-        )}
-
-        <div className="mb-4 rounded-lg border border-zinc-800 bg-zinc-900 p-3">
-          <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+        {/* ── Search ── */}
+        <div className="mt-6">
+          <div className="relative">
+            <Search className="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-zinc-500" />
             <input
               type="text"
               value={searchQuery}
               onChange={(event) => setSearchQuery(event.target.value)}
-              placeholder="Search shikona or rid..."
-              className="w-full rounded-md border border-zinc-700 bg-black px-3 py-2 text-sm text-zinc-100 placeholder-zinc-500 md:max-w-xs"
+              placeholder="Search wrestlers..."
+              className="w-full rounded-xl border border-zinc-800/60 bg-zinc-900/50 py-3.5 pl-12 pr-4 text-sm text-zinc-100 placeholder-zinc-600 outline-none transition-all focus:border-red-600/50 focus:ring-1 focus:ring-red-600/30"
             />
-
-            <div className="flex flex-wrap items-center gap-2">
-              <select
-                value={selectedBasho}
-                onChange={(event) => setSelectedBasho(event.target.value)}
-                className="rounded-md border border-zinc-700 bg-black px-3 py-2 text-sm"
-              >
-                {filteredGroupOptions.map((option) => (
-                  <option key={option.key} value={option.key}>
-                    {option.label} ({option.count})
-                  </option>
-                ))}
-              </select>
-
-              <label className="flex items-center gap-2 rounded-md border border-zinc-700 px-3 py-2 text-xs text-zinc-300">
-                <input
-                  type="checkbox"
-                  checked={includeSnapshots}
-                  onChange={(event) => setIncludeSnapshots(event.target.checked)}
-                />
-                Include snapshots
-              </label>
-
-              <select
-                value={selectedDivision}
-                onChange={(event) => setSelectedDivision(event.target.value)}
-                className="rounded-md border border-zinc-700 bg-black px-3 py-2 text-sm"
-              >
-                <option value="all">All divisions</option>
-                <option value="Makuuchi">Makuuchi</option>
-                <option value="Juryo">Juryo</option>
-                <option value="Makushita">Makushita</option>
-                <option value="Sandanme">Sandanme</option>
-                <option value="Jonidan">Jonidan</option>
-                <option value="Jonokuchi">Jonokuchi</option>
-              </select>
-
-              <label className="flex items-center gap-2 rounded-md border border-zinc-700 px-3 py-2 text-xs text-zinc-300">
-                <input
-                  type="checkbox"
-                  checked={hideStubs}
-                  onChange={(event) => setHideStubs(event.target.checked)}
-                />
-                Hide stubs
-              </label>
-
-              <div className="inline-flex rounded-md border border-zinc-700 p-1">
-                <button
-                  type="button"
-                  onClick={() => setSortMode('banzuke')}
-                  className={`rounded px-3 py-1 text-xs font-bold ${
-                    sortMode === 'banzuke' ? 'bg-red-600 text-white' : 'text-zinc-300'
-                  }`}
-                >
-                  Banzuke (Official)
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setSortMode('standings')}
-                  className={`rounded px-3 py-1 text-xs font-bold ${
-                    sortMode === 'standings' ? 'bg-red-600 text-white' : 'text-zinc-300'
-                  }`}
-                >
-                  Standings (Selected Basho)
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setSortMode('ovr')}
-                  className={`rounded px-3 py-1 text-xs font-bold ${
-                    sortMode === 'ovr' ? 'bg-red-600 text-white' : 'text-zinc-300'
-                  }`}
-                >
-                  OVR
-                </button>
-              </div>
-            </div>
           </div>
-
-          <p className="mt-2 text-xs text-zinc-400">
-            Active mode:{' '}
-            <span className="font-bold text-zinc-200">
-              {sortMode === 'banzuke'
-                ? 'Banzuke (Official)'
-                : sortMode === 'standings'
-                  ? 'Standings (Selected Basho)'
-                  : 'OVR'}
-            </span>
-          </p>
         </div>
 
+        {/* ── Advanced Filters ── */}
+        <details className="group mt-4">
+          <summary className="flex cursor-pointer items-center justify-between rounded-xl border border-zinc-800/60 bg-zinc-900/50 px-5 py-3.5 text-sm font-medium text-zinc-300 transition-colors hover:border-zinc-700">
+            <div className="flex items-center gap-2.5">
+              <svg className="h-4 w-4 text-zinc-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 1 1-3 0m3 0a1.5 1.5 0 1 0-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-9.75 0h9.75" /></svg>
+              Advanced Filters
+            </div>
+            <svg className="h-4 w-4 text-zinc-500 transition-transform group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" /></svg>
+          </summary>
+          <div className="mt-3 flex flex-wrap items-center gap-3 rounded-xl border border-zinc-800/60 bg-zinc-900/30 p-4">
+            <select
+              value={selectedBasho}
+              onChange={(event) => setSelectedBasho(event.target.value)}
+              className="rounded-lg border border-zinc-700/50 bg-zinc-800/80 px-3 py-2 text-sm text-zinc-200 outline-none focus:border-red-600/50"
+            >
+              {filteredGroupOptions.map((option) => (
+                <option key={option.key} value={option.key}>
+                  {option.label} ({option.count})
+                </option>
+              ))}
+            </select>
+
+            <select
+              value={selectedDivision}
+              onChange={(event) => setSelectedDivision(event.target.value)}
+              className="rounded-lg border border-zinc-700/50 bg-zinc-800/80 px-3 py-2 text-sm text-zinc-200 outline-none focus:border-red-600/50"
+            >
+              <option value="all">All Divisions</option>
+              <option value="Makuuchi">Makuuchi</option>
+              <option value="Juryo">Juryo</option>
+              <option value="Makushita">Makushita</option>
+              <option value="Sandanme">Sandanme</option>
+              <option value="Jonidan">Jonidan</option>
+              <option value="Jonokuchi">Jonokuchi</option>
+            </select>
+
+            <label className="flex items-center gap-2 rounded-lg border border-zinc-700/50 bg-zinc-800/80 px-3 py-2 text-xs font-medium text-zinc-300">
+              <input
+                type="checkbox"
+                checked={includeSnapshots}
+                onChange={(event) => setIncludeSnapshots(event.target.checked)}
+                className="rounded border-zinc-600 accent-red-500"
+              />
+              Snapshots
+            </label>
+
+            <label className="flex items-center gap-2 rounded-lg border border-zinc-700/50 bg-zinc-800/80 px-3 py-2 text-xs font-medium text-zinc-300">
+              <input
+                type="checkbox"
+                checked={hideStubs}
+                onChange={(event) => setHideStubs(event.target.checked)}
+                className="rounded border-zinc-600 accent-red-500"
+              />
+              Hide Stubs
+            </label>
+          </div>
+        </details>
+
+        {/* ── Understanding the Rankings — info card ── */}
+        <div className="mt-5 rounded-xl border border-blue-800/40 bg-blue-950/20 p-4">
+          <div className="flex items-start gap-3">
+            <div className="mt-0.5 h-5 w-5 shrink-0 rounded-full bg-blue-500/20 ring-2 ring-blue-500/40" />
+            <div>
+              <p className="text-sm font-semibold text-blue-300">Understanding the Rankings</p>
+              <p className="mt-1 text-xs leading-relaxed text-zinc-400">
+                <span className="font-semibold text-zinc-300">Official Banzuke Rank</span> shows traditional ranking position (Yokozuna, Ozeki, etc.) based on historical performance.
+                <span className="font-semibold text-zinc-300"> Tournament Standings</span> shows current basho performance (wins-losses).
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* ── Rank Filter Tabs ── */}
+        <div className="mt-6 flex gap-2 overflow-x-auto pb-2 scrollbar-none">
+          <button
+            type="button"
+            onClick={() => setSelectedDivision('all')}
+            className={`tab-btn shrink-0 ${selectedDivision === 'all' ? 'tab-btn-active' : 'tab-btn-inactive'}`}
+          >
+            <span className="text-base">全</span>
+            <span className="text-[11px] uppercase tracking-wider">All Ranks</span>
+          </button>
+          {Object.entries(RANK_KANJI_MAP)
+            .filter(([key]) => MAKUUCHI_RANKS.has(key))
+            .map(([rank, kanji]) => (
+              <button
+                key={rank}
+                type="button"
+                onClick={() => setSelectedDivision(rank === selectedDivision ? 'all' : 'Makuuchi')}
+                className={`tab-btn shrink-0 ${selectedDivision === rank ? 'tab-btn-active' : 'tab-btn-inactive'}`}
+              >
+                <span className="text-base">{kanji}</span>
+                <span className="text-[11px] uppercase tracking-wider">{rank}</span>
+              </button>
+            ))}
+        </div>
+
+        {/* ── Sort Mode ── */}
+        <div className="mt-4 flex items-center gap-3">
+          <div className="flex items-center gap-2 text-xs text-zinc-500">
+            <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M3 7.5 7.5 3m0 0L12 7.5M7.5 3v13.5m13.5-4.5L16.5 16.5m0 0L12 12m4.5 4.5V3" /></svg>
+          </div>
+          <select
+            value={sortMode}
+            onChange={(event) => setSortMode(event.target.value)}
+            className="rounded-lg border border-zinc-800/60 bg-zinc-900/50 px-3 py-2 text-sm text-zinc-300 outline-none focus:border-red-600/50"
+          >
+            <option value="banzuke">Official Banzuke Rank</option>
+            <option value="standings">Tournament Standings</option>
+            <option value="ovr">Overall Rating</option>
+          </select>
+        </div>
+
+        {/* ── Wrestler List ── */}
         {!loading && !loadError && (
-          <div className="space-y-2">
+          <div className="mt-6 space-y-2">
             {rows.map((item, index) => {
               const wrestler = item.wrestler || {};
               const record = item.record || {};
@@ -598,27 +663,33 @@ export default function Leaderboard() {
 
               const photoUrl = resolvePhotoUrl(wrestler);
               const stableName = String(wrestler?.stable || wrestler?.heya?.name || '').trim();
+
               const ovrTone = item.overallRating >= 90
-                ? 'border-emerald-500 bg-emerald-500/20 text-emerald-300'
+                ? 'score-elite'
                 : item.overallRating >= 80
-                  ? 'border-zinc-300 bg-zinc-300/15 text-zinc-100'
+                  ? 'score-high'
                   : item.overallRating >= 70
-                    ? 'border-amber-500 bg-amber-500/20 text-amber-300'
-                    : 'border-zinc-600 bg-zinc-800 text-zinc-200';
+                    ? 'score-mid'
+                    : 'score-low';
 
               return (
                 <Link
                   key={rid || `${record?.record_id || 'row'}-${index}`}
                   to={`/rikishi/${encodeURIComponent(rid)}`}
-                  className="block rounded-lg border border-zinc-800 bg-zinc-900 px-4 py-3 hover:border-red-600"
+                  className="group block rounded-xl border border-white/[0.06] bg-white/[0.02] px-4 py-3 transition-all duration-200 hover:border-red-600/40 hover:bg-white/[0.04] hover:shadow-lg hover:shadow-red-950/10 sm:px-5"
                 >
-                  <div className="flex items-center gap-4">
-                    <div className="w-10 text-right text-2xl font-black">{index + 1}</div>
+                  <div className="flex items-center gap-3 sm:gap-4">
+                    {/* Rank number */}
+                    <div className="w-8 text-right font-display text-xl font-bold text-zinc-500 sm:w-10 sm:text-2xl">
+                      {index + 1}
+                    </div>
 
-                    <div className={`mr-2 flex h-8 w-8 items-center justify-center rounded-full border text-sm font-black ${ovrTone}`}>
+                    {/* OVR badge */}
+                    <div className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full border text-xs font-black ${ovrTone}`}>
                       {item.overallRating}
                     </div>
 
+                    {/* Avatar */}
                     <FallbackAvatar
                       size="sm"
                       photoUrl={photoUrl}
@@ -628,35 +699,29 @@ export default function Leaderboard() {
                       rank={item.tier}
                     />
 
+                    {/* Name & rank */}
                     <div className="min-w-0 flex-1">
-                      <div className="truncate text-xl font-black">{shikona}</div>
-                      <div className="flex items-center gap-1.5 text-sm text-zinc-300">
+                      <div className="truncate font-display text-lg font-bold tracking-tight text-white group-hover:text-red-400 sm:text-xl">
+                        {shikona}
+                      </div>
+                      <div className="flex items-center gap-1.5 text-xs text-zinc-400 sm:text-sm">
                         <RankSignal tier={item.tier} />
-                        <span className="font-semibold">{item.tier}</span>
-                        {rankKanji && <span className="text-zinc-400">{rankKanji}</span>}
-                        <span className="text-zinc-500">·</span>
-                        <span className="text-zinc-400">{getRankLabel(record, wrestler)}</span>
+                        <span className="font-semibold text-zinc-300">{item.tier}</span>
+                        {rankKanji && <span className="text-zinc-500">{rankKanji}</span>}
+                        <span className="text-zinc-700">·</span>
+                        <span className="hidden text-zinc-500 sm:inline">{getRankLabel(record, wrestler)}</span>
                       </div>
                     </div>
 
+                    {/* Win-Loss */}
                     <div className="text-right">
-                      <div className="text-xl font-black">
-                        {item.wins}-{item.losses}
+                      <div className="font-display text-lg font-bold tracking-tight sm:text-xl">
+                        <span className="text-white">{item.wins}</span>
+                        <span className="text-zinc-600">-</span>
+                        <span className="text-zinc-400">{item.losses}</span>
                       </div>
-
-                      <div className="mt-1 flex flex-wrap justify-end gap-1 text-[10px]">
-                        {!photoUrl && (
-                          <span className="rounded border border-amber-700 bg-amber-900/30 px-2 py-0.5 text-amber-200">
-                            Photo missing
-                          </span>
-                        )}
-                        <span className="rounded bg-zinc-800 px-2 py-0.5 text-zinc-300">{getImageBadge(wrestler)}</span>
-                        <span className="rounded bg-zinc-800 px-2 py-0.5 text-zinc-300">{getRecordBadge(record)}</span>
-                        {record?.source_tier && (
-                          <span className="rounded bg-zinc-800 px-2 py-0.5 text-zinc-400">
-                            {String(record.source_tier)}
-                          </span>
-                        )}
+                      <div className="mt-0.5 text-[10px] font-medium uppercase tracking-wider text-zinc-600">
+                        {(item.winPct * 100).toFixed(0)}% Win
                       </div>
                     </div>
                   </div>
@@ -665,53 +730,12 @@ export default function Leaderboard() {
             })}
 
             {!rows.length && (
-              <div className="rounded-lg border border-zinc-800 bg-zinc-900 px-4 py-4 text-sm text-zinc-400">
-                No rows match the current filters.
+              <div className="rounded-xl border border-zinc-800/60 bg-zinc-900/30 px-5 py-8 text-center text-sm text-zinc-500">
+                No wrestlers match the current filters.
               </div>
             )}
           </div>
         )}
-
-        <details className="mt-8 rounded-lg border border-zinc-800 bg-zinc-900">
-          <summary className="cursor-pointer px-4 py-3 font-bold text-zinc-300">Debug</summary>
-          <div className="space-y-2 border-t border-zinc-800 px-4 py-3 text-sm">
-            <div>
-              Selected group label: <span className="font-mono">{selectedGroupLabel}</span>
-            </div>
-            <div>
-              Selected group key: <span className="font-mono">{selectedBasho || '-'}</span>
-            </div>
-            <div>
-              Include snapshots: <span className="font-mono">{includeSnapshots ? 'true' : 'false'}</span>
-            </div>
-            <div>
-              Option list size: <span className="font-mono">{filteredGroupOptions.length}</span>
-            </div>
-            <div>
-              Total wrestlers fetched: <span className="font-mono">{wrestlersData.length}</span>
-            </div>
-            <div>
-              Basho records fetched: <span className="font-mono">{bashoRecordsData.length}</span>
-            </div>
-            <div>
-              Missing basho count: <span className="font-mono">{missingBashoCount}</span>
-            </div>
-            <div>
-              Records used after filtering: <span className="font-mono">{recordsUsedCount}</span>
-            </div>
-            <div>
-              Rows displayed after filters: <span className="font-mono">{rows.length}</span>
-            </div>
-            <div className="pt-1 font-bold">First 5 computed sort keys</div>
-            <ul className="space-y-1 font-mono text-xs text-zinc-300">
-              {debugRows.map((row, idx) => (
-                <li key={`${row.rid}-${idx}`}>
-                  {row.rid},{row.tier},{row.rankNumber},{row.side},{row.wl}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </details>
       </div>
     </div>
   );

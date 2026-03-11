@@ -227,9 +227,10 @@ export default function GlobalStatsPage() {
         <span className="text-zinc-200">Analytics</span>
       </nav>
 
-      <section className="rounded-xl border border-zinc-800 bg-zinc-900 p-6">
-        <h1 className="text-3xl font-black text-white">Global Analytics</h1>
-        <p className="mt-2 text-sm text-zinc-400">
+      <section className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-6">
+        <span className="text-xs font-bold uppercase tracking-[0.25em] text-red-500">GLOBAL ANALYTICS</span>
+        <h1 className="font-display text-4xl font-bold uppercase tracking-tight text-white sm:text-5xl">Global Analytics</h1>
+        <p className="mt-2 text-sm text-zinc-500">
           Overview statistics across the SumoWatch dataset.
         </p>
       </section>

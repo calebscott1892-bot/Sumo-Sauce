@@ -223,6 +223,12 @@ export default function RikishiPage() {
         </div>
       </nav>
 
+      <section className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-6">
+        <span className="text-xs font-bold uppercase tracking-[0.25em] text-red-500">RIKISHI PROFILE</span>
+        <h1 className="font-display text-4xl font-bold uppercase tracking-tight text-white sm:text-5xl">{shikona}</h1>
+        <p className="mt-1 text-sm text-zinc-500">{summaryQuery.data.heya ?? 'Unknown heya'}</p>
+      </section>
+
       <RikishiSummaryCard
         summary={summaryQuery.data}
         timeline={timelineChrono}

@@ -86,7 +86,9 @@ export default function SearchPage() {
       </nav>
 
       {/* Search input */}
-      <section className="rounded-xl border border-zinc-800 bg-zinc-900 p-6">
+      <section className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-6">
+        <span className="text-xs font-bold uppercase tracking-[0.25em] text-red-500">SEARCH</span>
+        <h1 className="font-display text-4xl font-bold uppercase tracking-tight text-white sm:text-5xl mb-4">Search</h1>
         <div className="relative max-w-lg">
           <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-zinc-500" />
           <input

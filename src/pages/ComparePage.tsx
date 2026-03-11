@@ -180,8 +180,9 @@ export default function ComparePage() {
         <CopyLinkButton />
       </nav>
 
-      <section className="rounded-xl border border-zinc-800 bg-zinc-900 p-5">
-        <h1 className="text-2xl font-bold text-white">{model.rikishiA.shikona} vs {model.rikishiB.shikona}</h1>
+      <section className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5">
+        <span className="text-xs font-bold uppercase tracking-[0.25em] text-red-500">HEAD TO HEAD</span>
+        <h1 className="font-display text-4xl font-bold uppercase tracking-tight text-white sm:text-5xl">{model.rikishiA.shikona} vs {model.rikishiB.shikona}</h1>
         <div className="mt-2 grid grid-cols-1 gap-3 md:grid-cols-2 text-sm text-zinc-300">
           <div>
             <div className="font-semibold text-zinc-100">{model.rikishiA.shikona}</div>

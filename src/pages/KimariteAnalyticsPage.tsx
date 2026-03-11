@@ -117,9 +117,10 @@ export default function KimariteAnalyticsPage() {
         <span className="text-zinc-200">Kimarite</span>
       </nav>
 
-      <section className="rounded-xl border border-zinc-800 bg-zinc-900 p-6">
-        <h1 className="text-3xl font-black text-white">Kimarite Analytics</h1>
-        <p className="mt-2 text-sm text-zinc-400">
+      <section className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-6">
+        <span className="text-xs font-bold uppercase tracking-[0.25em] text-red-500">KIMARITE ANALYTICS</span>
+        <h1 className="font-display text-4xl font-bold uppercase tracking-tight text-white sm:text-5xl">Kimarite Analytics</h1>
+        <p className="mt-2 text-sm text-zinc-500">
           Win technique distribution across the last {recentIds.length} makuuchi tournaments.
         </p>
       </section>

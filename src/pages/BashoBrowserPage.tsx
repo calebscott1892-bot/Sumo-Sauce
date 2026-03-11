@@ -127,12 +127,13 @@ export default function BashoBrowserPage() {
       </nav>
 
       {/* Hero */}
-      <section className="rounded-xl border border-zinc-800 bg-zinc-900 p-6">
+      <section className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-6">
         <div className="flex items-center gap-3">
           <Calendar className="h-7 w-7 text-red-500" />
           <div>
-            <h1 className="text-3xl font-black text-white">Basho Browser</h1>
-            <p className="mt-1 text-sm text-zinc-400">
+            <span className="text-xs font-bold uppercase tracking-[0.25em] text-red-500">TOURNAMENT BROWSER</span>
+            <h1 className="font-display text-4xl font-bold uppercase tracking-tight text-white sm:text-5xl">Basho Browser</h1>
+            <p className="mt-1 text-sm text-zinc-500">
               {allBasho.length} tournaments from 2000 to present
             </p>
           </div>

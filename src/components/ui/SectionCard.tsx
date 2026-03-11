@@ -9,13 +9,13 @@ type Props = {
 
 /**
  * Reusable section card with consistent border + background styling.
- * Replaces repeated `rounded-xl border border-zinc-800 bg-zinc-900 p-5` pattern.
+ * Premium glass-card aesthetic.
  */
 export default function SectionCard({ children, className = '', testId }: Props) {
   return (
     <section
       data-testid={testId}
-      className={`rounded-xl border border-zinc-800 bg-zinc-900 p-5 ${className}`.trim()}
+      className={`rounded-xl border border-white/[0.06] bg-white/[0.02] p-5 ${className}`.trim()}
     >
       {children}
     </section>

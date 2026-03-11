@@ -158,12 +158,13 @@ export default function EraAnalyticsPage() {
         <span className="text-zinc-200">Eras</span>
       </nav>
 
-      <section className="rounded-xl border border-zinc-800 bg-gradient-to-br from-zinc-900 to-zinc-950 p-6">
+      <section className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-6">
         <div className="flex items-center gap-3">
           <Clock className="h-7 w-7 text-amber-500" />
           <div>
-            <h1 className="text-3xl font-black text-white">Era Analytics</h1>
-            <p className="mt-1 text-sm text-zinc-400">
+            <span className="text-xs font-bold uppercase tracking-[0.25em] text-red-500">ERA ANALYTICS</span>
+            <h1 className="font-display text-4xl font-bold uppercase tracking-tight text-white sm:text-5xl">Era Analytics</h1>
+            <p className="mt-1 text-sm text-zinc-500">
               Performance trends and top performers across decades of professional sumo.
             </p>
           </div>

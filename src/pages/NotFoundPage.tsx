@@ -3,38 +3,28 @@ import PageMeta from '@/components/ui/PageMeta';
 
 export default function NotFoundPage() {
   return (
-    <div data-testid="not-found" className="mx-auto max-w-6xl p-6 text-zinc-200">
+    <div data-testid="not-found" className="flex min-h-[60vh] items-center justify-center bg-[#0a0a0a] p-6">
       <PageMeta
         title="SumoWatch — Page Not Found"
         description="The page you requested does not exist."
       />
-      <section className="rounded-xl border border-zinc-800 bg-zinc-900 p-6">
-        <h1 className="text-2xl font-bold text-white">Page not found</h1>
-        <p className="mt-2 text-sm text-zinc-400">
+      <section className="w-full max-w-md rounded-xl border border-white/[0.06] bg-white/[0.02] p-8 text-center">
+        <div className="font-display text-6xl font-bold text-red-500">404</div>
+        <h1 className="mt-3 font-display text-2xl font-bold uppercase tracking-tight text-white">Page Not Found</h1>
+        <p className="mt-2 text-sm text-zinc-500">
           The page you requested does not exist.
         </p>
 
-        <nav className="mt-6 space-y-2 text-sm">
-          <div>
-            <Link className="text-red-400 hover:text-red-300" to="/">
-              ← Home
-            </Link>
-          </div>
-          <div>
-            <Link className="text-red-400 hover:text-red-300" to="/rikishi">
-              Browse rikishi directory
-            </Link>
-          </div>
-          <div>
-            <Link className="text-red-400 hover:text-red-300" to="/basho">
-              Browse basho history
-            </Link>
-          </div>
-          <div>
-            <Link className="text-red-400 hover:text-red-300" to="/analytics">
-              View analytics
-            </Link>
-          </div>
+        <nav className="mt-6 flex flex-wrap justify-center gap-2 text-sm">
+          <Link className="rounded-lg border border-white/[0.08] bg-white/[0.03] px-4 py-2 font-medium text-zinc-300 transition-all hover:border-red-600/40 hover:text-white" to="/">
+            ← Home
+          </Link>
+          <Link className="rounded-lg border border-white/[0.08] bg-white/[0.03] px-4 py-2 font-medium text-zinc-300 transition-all hover:border-red-600/40 hover:text-white" to="/rikishi">
+            Rikishi
+          </Link>
+          <Link className="rounded-lg border border-white/[0.08] bg-white/[0.03] px-4 py-2 font-medium text-zinc-300 transition-all hover:border-red-600/40 hover:text-white" to="/basho">
+            Tournaments
+          </Link>
         </nav>
       </section>
     </div>
