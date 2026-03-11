@@ -5524,5 +5524,152 @@
       }
     ],
     "notes": ""
+  },
+  {
+    "rikishiId": "4380",
+    "shikona": "Kaida",
+    "heya": "Kasugano",
+    "birthDate": "2007-08-03",
+    "nationality": "Japan",
+    "heightCm": 192.0,
+    "weightKg": 158.0,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4380/"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "rikishiId": "4019",
+    "shikona": "Takano Ryu",
+    "heya": "Tagonoura",
+    "birthDate": "2004-09-03",
+    "nationality": "Japan",
+    "heightCm": 171.8,
+    "weightKg": 149.2,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Profile",
+        "url": "https://www.sumo.or.jp/ResultRikishiData/profile/4019/"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "rikishiId": "3030",
+    "shikona": "Ryuseizan Ryuuzaburo",
+    "heya": "Dewanoumi",
+    "birthDate": "1991-12-12",
+    "nationality": "Japan",
+    "heightCm": 172.5,
+    "weightKg": 141.1,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Profile",
+        "url": "https://www.sumo.or.jp/ResultRikishiData/profile/3030/"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "rikishiId": "3779",
+    "shikona": "Chiyotaiho",
+    "heya": "Kokonoe",
+    "birthDate": "2001-08-01",
+    "nationality": "Japan",
+    "heightCm": 174.0,
+    "weightKg": 160.0,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Profile",
+        "url": "https://www.sumo.or.jp/ResultRikishiData/profile/3779/"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "rikishiId": "4080",
+    "shikona": "Kumanoryu",
+    "heya": "Takasago",
+    "birthDate": "2003-03-18",
+    "nationality": "Japan",
+    "heightCm": 177.2,
+    "weightKg": 107.2,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Profile",
+        "url": "https://www.sumo.or.jp/ResultRikishiData/profile/4080/"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "rikishiId": "4201",
+    "shikona": "Fujimune",
+    "heya": "Nishonoseki",
+    "birthDate": "2004-10-14",
+    "nationality": "Japan",
+    "heightCm": 187.2,
+    "weightKg": 137.1,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Profile",
+        "url": "https://www.sumo.or.jp/ResultRikishiData/profile/4201/"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "rikishiId": "3383",
+    "shikona": "Tsugarumi Denzou",
+    "heya": "Tamanoi",
+    "birthDate": "1996-04-06",
+    "nationality": "Japan",
+    "heightCm": 175.1,
+    "weightKg": 103.9,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Profile",
+        "url": "https://www.sumo.or.jp/ResultRikishiData/profile/3383/"
+      }
+    ],
+    "notes": ""
   }
 ]
