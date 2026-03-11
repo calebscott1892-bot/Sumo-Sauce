@@ -2162,5 +2162,2117 @@
       }
     ],
     "notes": "Debuting sekitori (0-0 record in Haru 2026)."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Oka",
+    "heya": "Minato",
+    "birthDate": "1993-03-03",
+    "nationality": "Japan",
+    "heightCm": 190,
+    "weightKg": 166,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA banzuke (Sandanme, rank 1E)",
+        "url": "https://www.sumo.or.jp/Hajime/Sandam/Sandanme.htm"
+      },
+      {
+        "label": "SumoDB profile",
+        "url": "https://sumodb.sumogames.de/Rikishi.aspx?r=11953"
+      }
+    ],
+    "notes": "Haru 2026 Sandanme roster (E1)."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Wakaikazuchi",
+    "heya": "Ikazuchi",
+    "birthDate": "2007-02-09",
+    "nationality": "Japan",
+    "heightCm": 184,
+    "weightKg": 104,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA banzuke (Sandanme, rank 2E)",
+        "url": "https://www.sumo.or.jp/Hajime/Sandam/Sandanme.htm"
+      },
+      {
+        "label": "SumoDB profile",
+        "url": "https://sumodb.sumogames.de/Rikishi.aspx?r=12905"
+      }
+    ],
+    "notes": "Haru 2026 Sandanme roster (E2)."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Koseiryu",
+    "heya": "Otowayama",
+    "birthDate": "2000-09-11",
+    "nationality": "Japan",
+    "heightCm": 173,
+    "weightKg": 120,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA banzuke (Sandanme, rank 3E)",
+        "url": "https://www.sumo.or.jp/Hajime/Sandam/Sandanme.htm"
+      },
+      {
+        "label": "SumoDB profile",
+        "url": "https://sumodb.sumogames.de/Rikishi.aspx?r=12947"
+      }
+    ],
+    "notes": "Haru 2026 Sandanme roster (E3)."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Daihisho",
+    "heya": null,
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA banzuke (Sandanme, rank 4E)",
+        "url": "https://www.sumo.or.jp/Hajime/Sandam/Sandanme.htm"
+      }
+    ],
+    "notes": "Haru 2026 Sandanme roster (E4)."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Nionoumi",
+    "heya": null,
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA banzuke (Sandanme, rank 5E)",
+        "url": "https://www.sumo.or.jp/Hajime/Sandam/Sandanme.htm"
+      }
+    ],
+    "notes": "Haru 2026 Sandanme roster (E5)."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Daimasakari",
+    "heya": null,
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA banzuke (Sandanme, rank 6E)",
+        "url": "https://www.sumo.or.jp/Hajime/Sandam/Sandanme.htm"
+      }
+    ],
+    "notes": "Haru 2026 Sandanme roster (E6)."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Hodaka",
+    "heya": null,
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA banzuke (Sandanme, rank 7E)",
+        "url": "https://www.sumo.or.jp/Hajime/Sandam/Sandanme.htm"
+      }
+    ],
+    "notes": "Haru 2026 Sandanme roster (E7)."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Kassho",
+    "heya": null,
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA banzuke (Sandanme, rank 8E)",
+        "url": "https://www.sumo.or.jp/Hajime/Sandam/Sandanme.htm"
+      }
+    ],
+    "notes": "Haru 2026 Sandanme roster (E8)."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Chiyotaiyo",
+    "heya": null,
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA banzuke (Sandanme, rank 9E)",
+        "url": "https://www.sumo.or.jp/Hajime/Sandam/Sandanme.htm"
+      }
+    ],
+    "notes": "Haru 2026 Sandanme roster (E9)."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Kazeeidai",
+    "heya": null,
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA banzuke (Sandanme, rank 10E)",
+        "url": "https://www.sumo.or.jp/Hajime/Sandam/Sandanme.htm"
+      }
+    ],
+    "notes": "Haru 2026 Sandanme roster (E10)."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Yokomaru",
+    "heya": null,
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA banzuke (Sandanme, rank 11E)",
+        "url": "https://www.sumo.or.jp/Hajime/Sandam/Sandanme.htm"
+      }
+    ],
+    "notes": "Haru 2026 Sandanme roster (E11)."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Nishikikuni",
+    "heya": null,
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA banzuke (Sandanme, rank 12E)",
+        "url": "https://www.sumo.or.jp/Hajime/Sandam/Sandanme.htm"
+      }
+    ],
+    "notes": "Haru 2026 Sandanme roster (E12)."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Koki",
+    "heya": null,
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA banzuke (Sandanme, rank 13E)",
+        "url": "https://www.sumo.or.jp/Hajime/Sandam/Sandanme.htm"
+      }
+    ],
+    "notes": "Haru 2026 Sandanme roster (E13)."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Goseizan",
+    "heya": null,
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA banzuke (Sandanme, rank 14E)",
+        "url": "https://www.sumo.or.jp/Hajime/Sandam/Sandanme.htm"
+      }
+    ],
+    "notes": "Haru 2026 Sandanme roster (E14)."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Okinohama",
+    "heya": null,
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA banzuke (Sandanme, rank 15E)",
+        "url": "https://www.sumo.or.jp/Hajime/Sandam/Sandanme.htm"
+      }
+    ],
+    "notes": "Haru 2026 Sandanme roster (E15)."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Suzunofuji",
+    "heya": null,
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA banzuke (Sandanme, rank 16E)",
+        "url": "https://www.sumo.or.jp/Hajime/Sandam/Sandanme.htm"
+      }
+    ],
+    "notes": "Haru 2026 Sandanme roster (E16)."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Tatsubayama",
+    "heya": null,
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA banzuke (Sandanme, rank 17E)",
+        "url": "https://www.sumo.or.jp/Hajime/Sandam/Sandanme.htm"
+      }
+    ],
+    "notes": "Haru 2026 Sandanme roster (E17)."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Akatora",
+    "heya": null,
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA banzuke (Sandanme, rank 18E)",
+        "url": "https://www.sumo.or.jp/Hajime/Sandam/Sandanme.htm"
+      }
+    ],
+    "notes": "Haru 2026 Sandanme roster (E18)."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Suyama",
+    "heya": null,
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA banzuke (Sandanme, rank 19E)",
+        "url": "https://www.sumo.or.jp/Hajime/Sandam/Sandanme.htm"
+      }
+    ],
+    "notes": "Haru 2026 Sandanme roster (E19)."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Chiyonoo",
+    "heya": null,
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA banzuke (Sandanme, rank 20E)",
+        "url": "https://www.sumo.or.jp/Hajime/Sandam/Sandanme.htm"
+      }
+    ],
+    "notes": "Haru 2026 Sandanme roster (E20)."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Hogasho",
+    "heya": null,
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA banzuke (Sandanme, rank 21E)",
+        "url": "https://www.sumo.or.jp/Hajime/Sandam/Sandanme.htm"
+      }
+    ],
+    "notes": "Haru 2026 Sandanme roster (E21)."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Awanoumi",
+    "heya": null,
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA banzuke (Sandanme, rank 22E)",
+        "url": "https://www.sumo.or.jp/Hajime/Sandam/Sandanme.htm"
+      }
+    ],
+    "notes": "Haru 2026 Sandanme roster (E22)."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Yurikisho",
+    "heya": null,
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA banzuke (Sandanme, rank 23E)",
+        "url": "https://www.sumo.or.jp/Hajime/Sandam/Sandanme.htm"
+      }
+    ],
+    "notes": "Haru 2026 Sandanme roster (E23)."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Ienoshima",
+    "heya": null,
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA banzuke (Sandanme, rank 24E)",
+        "url": "https://www.sumo.or.jp/Hajime/Sandam/Sandanme.htm"
+      }
+    ],
+    "notes": "Haru 2026 Sandanme roster (E24)."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Dogo",
+    "heya": null,
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA banzuke (Sandanme, rank 25E)",
+        "url": "https://www.sumo.or.jp/Hajime/Sandam/Sandanme.htm"
+      }
+    ],
+    "notes": "Haru 2026 Sandanme roster (E25)."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Kanpuzan",
+    "heya": null,
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA banzuke (Sandanme, rank 26E)",
+        "url": "https://www.sumo.or.jp/Hajime/Sandam/Sandanme.htm"
+      }
+    ],
+    "notes": "Haru 2026 Sandanme roster (E26)."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Matsuda",
+    "heya": null,
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA banzuke (Sandanme, rank 27E)",
+        "url": "https://www.sumo.or.jp/Hajime/Sandam/Sandanme.htm"
+      }
+    ],
+    "notes": "Haru 2026 Sandanme roster (E27)."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Hatooka",
+    "heya": null,
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA banzuke (Sandanme, rank 28E)",
+        "url": "https://www.sumo.or.jp/Hajime/Sandam/Sandanme.htm"
+      }
+    ],
+    "notes": "Haru 2026 Sandanme roster (E28)."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Oyamatoumi",
+    "heya": null,
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA banzuke (Sandanme, rank 29E)",
+        "url": "https://www.sumo.or.jp/Hajime/Sandam/Sandanme.htm"
+      }
+    ],
+    "notes": "Haru 2026 Sandanme roster (E29)."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Asakiryu",
+    "heya": null,
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA banzuke (Sandanme, rank 30E)",
+        "url": "https://www.sumo.or.jp/Hajime/Sandam/Sandanme.htm"
+      }
+    ],
+    "notes": "Haru 2026 Sandanme roster (E30)."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Takahara",
+    "heya": null,
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA banzuke (Sandanme, rank 31E)",
+        "url": "https://www.sumo.or.jp/Hajime/Sandam/Sandanme.htm"
+      }
+    ],
+    "notes": "Haru 2026 Sandanme roster (E31)."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Dairaido",
+    "heya": null,
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA banzuke (Sandanme, rank 32E)",
+        "url": "https://www.sumo.or.jp/Hajime/Sandam/Sandanme.htm"
+      }
+    ],
+    "notes": "Haru 2026 Sandanme roster (E32)."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Kawamura",
+    "heya": null,
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA banzuke (Sandanme, rank 33E)",
+        "url": "https://www.sumo.or.jp/Hajime/Sandam/Sandanme.htm"
+      }
+    ],
+    "notes": "Haru 2026 Sandanme roster (E33)."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Akitoba",
+    "heya": null,
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA banzuke (Sandanme, rank 34E)",
+        "url": "https://www.sumo.or.jp/Hajime/Sandam/Sandanme.htm"
+      }
+    ],
+    "notes": "Haru 2026 Sandanme roster (E34)."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Rinko",
+    "heya": null,
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA banzuke (Sandanme, rank 35E)",
+        "url": "https://www.sumo.or.jp/Hajime/Sandam/Sandanme.htm"
+      }
+    ],
+    "notes": "Haru 2026 Sandanme roster (E35)."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Dairinzan",
+    "heya": null,
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA banzuke (Sandanme, rank 36E)",
+        "url": "https://www.sumo.or.jp/Hajime/Sandam/Sandanme.htm"
+      }
+    ],
+    "notes": "Haru 2026 Sandanme roster (E36)."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Hakuonada",
+    "heya": null,
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA banzuke (Sandanme, rank 37E)",
+        "url": "https://www.sumo.or.jp/Hajime/Sandam/Sandanme.htm"
+      }
+    ],
+    "notes": "Haru 2026 Sandanme roster (E37)."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Sekimoto",
+    "heya": null,
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA banzuke (Sandanme, rank 38E)",
+        "url": "https://www.sumo.or.jp/Hajime/Sandam/Sandanme.htm"
+      }
+    ],
+    "notes": "Haru 2026 Sandanme roster (E38)."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Oginohama",
+    "heya": null,
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA banzuke (Sandanme, rank 39E)",
+        "url": "https://www.sumo.or.jp/Hajime/Sandam/Sandanme.htm"
+      }
+    ],
+    "notes": "Haru 2026 Sandanme roster (E39)."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Karino",
+    "heya": null,
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA banzuke (Sandanme, rank 40E)",
+        "url": "https://www.sumo.or.jp/Hajime/Sandam/Sandanme.htm"
+      }
+    ],
+    "notes": "Haru 2026 Sandanme roster (E40)."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Teraosho",
+    "heya": null,
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA banzuke (Sandanme, rank 41E)",
+        "url": "https://www.sumo.or.jp/Hajime/Sandam/Sandanme.htm"
+      }
+    ],
+    "notes": "Haru 2026 Sandanme roster (E41)."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Furuta",
+    "heya": null,
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA banzuke (Sandanme, rank 42E)",
+        "url": "https://www.sumo.or.jp/Hajime/Sandam/Sandanme.htm"
+      }
+    ],
+    "notes": "Haru 2026 Sandanme roster (E42)."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Kotonofuji",
+    "heya": null,
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA banzuke (Sandanme, rank 43E)",
+        "url": "https://www.sumo.or.jp/Hajime/Sandam/Sandanme.htm"
+      }
+    ],
+    "notes": "Haru 2026 Sandanme roster (E43)."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Kenshin",
+    "heya": null,
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA banzuke (Sandanme, rank 44E)",
+        "url": "https://www.sumo.or.jp/Hajime/Sandam/Sandanme.htm"
+      }
+    ],
+    "notes": "Haru 2026 Sandanme roster (E44)."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Kisenoumi",
+    "heya": null,
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA banzuke (Sandanme, rank 45E)",
+        "url": "https://www.sumo.or.jp/Hajime/Sandam/Sandanme.htm"
+      }
+    ],
+    "notes": "Haru 2026 Sandanme roster (E45)."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Wakazakura",
+    "heya": null,
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA banzuke (Sandanme, rank 46E)",
+        "url": "https://www.sumo.or.jp/Hajime/Sandam/Sandanme.htm"
+      }
+    ],
+    "notes": "Haru 2026 Sandanme roster (E46)."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Kyokutaiga",
+    "heya": null,
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA banzuke (Sandanme, rank 47E)",
+        "url": "https://www.sumo.or.jp/Hajime/Sandam/Sandanme.htm"
+      }
+    ],
+    "notes": "Haru 2026 Sandanme roster (E47)."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Hakuda",
+    "heya": null,
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA banzuke (Sandanme, rank 48E)",
+        "url": "https://www.sumo.or.jp/Hajime/Sandam/Sandanme.htm"
+      }
+    ],
+    "notes": "Haru 2026 Sandanme roster (E48)."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Fukutsuumi",
+    "heya": null,
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA banzuke (Sandanme, rank 49E)",
+        "url": "https://www.sumo.or.jp/Hajime/Sandam/Sandanme.htm"
+      }
+    ],
+    "notes": "Haru 2026 Sandanme roster (E49)."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Izumifuji",
+    "heya": null,
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA banzuke (Sandanme, rank 50E)",
+        "url": "https://www.sumo.or.jp/Hajime/Sandam/Sandanme.htm"
+      }
+    ],
+    "notes": "Haru 2026 Sandanme roster (E50)."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Chiyomaru",
+    "heya": "Kise",
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA banzuke (Sandanme, rank 1W)",
+        "url": "https://www.sumo.or.jp/Hajime/Sandam/Sandanme.htm"
+      }
+    ],
+    "notes": "Haru 2026 Sandanme roster (W1)."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Harunishiki",
+    "heya": null,
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA banzuke (Sandanme, rank 2W)",
+        "url": "https://www.sumo.or.jp/Hajime/Sandam/Sandanme.htm"
+      }
+    ],
+    "notes": "Haru 2026 Sandanme roster (W2)."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Nabatame",
+    "heya": null,
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA banzuke (Sandanme, rank 3W)",
+        "url": "https://www.sumo.or.jp/Hajime/Sandam/Sandanme.htm"
+      }
+    ],
+    "notes": "Haru 2026 Sandanme roster (W3)."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Kiyonoumi",
+    "heya": null,
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA banzuke (Sandanme, rank 4W)",
+        "url": "https://www.sumo.or.jp/Hajime/Sandam/Sandanme.htm"
+      }
+    ],
+    "notes": "Haru 2026 Sandanme roster (W4)."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Gyotoku",
+    "heya": null,
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA banzuke (Sandanme, rank 5W)",
+        "url": "https://www.sumo.or.jp/Hajime/Sandam/Sandanme.htm"
+      }
+    ],
+    "notes": "Haru 2026 Sandanme roster (W5)."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Daishinkai",
+    "heya": null,
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA banzuke (Sandanme, rank 6W)",
+        "url": "https://www.sumo.or.jp/Hajime/Sandam/Sandanme.htm"
+      }
+    ],
+    "notes": "Haru 2026 Sandanme roster (W6)."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Nishiomoto",
+    "heya": null,
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA banzuke (Sandanme, rank 7W)",
+        "url": "https://www.sumo.or.jp/Hajime/Sandam/Sandanme.htm"
+      }
+    ],
+    "notes": "Haru 2026 Sandanme roster (W7)."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Fujiazuma",
+    "heya": null,
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA banzuke (Sandanme, rank 8W)",
+        "url": "https://www.sumo.or.jp/Hajime/Sandam/Sandanme.htm"
+      }
+    ],
+    "notes": "Haru 2026 Sandanme roster (W8)."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Kaishin",
+    "heya": null,
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA banzuke (Sandanme, rank 9W)",
+        "url": "https://www.sumo.or.jp/Hajime/Sandam/Sandanme.htm"
+      }
+    ],
+    "notes": "Haru 2026 Sandanme roster (W9)."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Hamanoumi",
+    "heya": null,
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA banzuke (Sandanme, rank 10W)",
+        "url": "https://www.sumo.or.jp/Hajime/Sandam/Sandanme.htm"
+      }
+    ],
+    "notes": "Haru 2026 Sandanme roster (W10)."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Hokutoryu",
+    "heya": null,
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA banzuke (Sandanme, rank 11W)",
+        "url": "https://www.sumo.or.jp/Hajime/Sandam/Sandanme.htm"
+      }
+    ],
+    "notes": "Haru 2026 Sandanme roster (W11)."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Hamayutaka",
+    "heya": null,
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA banzuke (Sandanme, rank 12W)",
+        "url": "https://www.sumo.or.jp/Hajime/Sandam/Sandanme.htm"
+      }
+    ],
+    "notes": "Haru 2026 Sandanme roster (W12)."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Kiyonohana",
+    "heya": null,
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA banzuke (Sandanme, rank 13W)",
+        "url": "https://www.sumo.or.jp/Hajime/Sandam/Sandanme.htm"
+      }
+    ],
+    "notes": "Haru 2026 Sandanme roster (W13)."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Churafuji",
+    "heya": null,
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA banzuke (Sandanme, rank 14W)",
+        "url": "https://www.sumo.or.jp/Hajime/Sandam/Sandanme.htm"
+      }
+    ],
+    "notes": "Haru 2026 Sandanme roster (W14)."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Seigo",
+    "heya": null,
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA banzuke (Sandanme, rank 15W)",
+        "url": "https://www.sumo.or.jp/Hajime/Sandam/Sandanme.htm"
+      }
+    ],
+    "notes": "Haru 2026 Sandanme roster (W15)."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Daishoho",
+    "heya": null,
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA banzuke (Sandanme, rank 16W)",
+        "url": "https://www.sumo.or.jp/Hajime/Sandam/Sandanme.htm"
+      }
+    ],
+    "notes": "Haru 2026 Sandanme roster (W16)."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Hakuomaru",
+    "heya": null,
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA banzuke (Sandanme, rank 17W)",
+        "url": "https://www.sumo.or.jp/Hajime/Sandam/Sandanme.htm"
+      }
+    ],
+    "notes": "Haru 2026 Sandanme roster (W17)."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Marusho",
+    "heya": null,
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA banzuke (Sandanme, rank 18W)",
+        "url": "https://www.sumo.or.jp/Hajime/Sandam/Sandanme.htm"
+      }
+    ],
+    "notes": "Haru 2026 Sandanme roster (W18)."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Akiyoshi",
+    "heya": null,
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA banzuke (Sandanme, rank 19W)",
+        "url": "https://www.sumo.or.jp/Hajime/Sandam/Sandanme.htm"
+      }
+    ],
+    "notes": "Haru 2026 Sandanme roster (W19)."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Chiyoraizan",
+    "heya": null,
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA banzuke (Sandanme, rank 20W)",
+        "url": "https://www.sumo.or.jp/Hajime/Sandam/Sandanme.htm"
+      }
+    ],
+    "notes": "Haru 2026 Sandanme roster (W20)."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Imamura",
+    "heya": null,
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA banzuke (Sandanme, rank 21W)",
+        "url": "https://www.sumo.or.jp/Hajime/Sandam/Sandanme.htm"
+      }
+    ],
+    "notes": "Haru 2026 Sandanme roster (W21)."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Kotodaishin",
+    "heya": null,
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA banzuke (Sandanme, rank 22W)",
+        "url": "https://www.sumo.or.jp/Hajime/Sandam/Sandanme.htm"
+      }
+    ],
+    "notes": "Haru 2026 Sandanme roster (W22)."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Toshunryu",
+    "heya": null,
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA banzuke (Sandanme, rank 23W)",
+        "url": "https://www.sumo.or.jp/Hajime/Sandam/Sandanme.htm"
+      }
+    ],
+    "notes": "Haru 2026 Sandanme roster (W23)."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Naya",
+    "heya": null,
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA banzuke (Sandanme, rank 24W)",
+        "url": "https://www.sumo.or.jp/Hajime/Sandam/Sandanme.htm"
+      }
+    ],
+    "notes": "Haru 2026 Sandanme roster (W24)."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Kototsubasa",
+    "heya": null,
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA banzuke (Sandanme, rank 25W)",
+        "url": "https://www.sumo.or.jp/Hajime/Sandam/Sandanme.htm"
+      }
+    ],
+    "notes": "Haru 2026 Sandanme roster (W25)."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Shuji",
+    "heya": null,
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA banzuke (Sandanme, rank 26W)",
+        "url": "https://www.sumo.or.jp/Hajime/Sandam/Sandanme.htm"
+      }
+    ],
+    "notes": "Haru 2026 Sandanme roster (W26)."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Yutakasho",
+    "heya": null,
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA banzuke (Sandanme, rank 27W)",
+        "url": "https://www.sumo.or.jp/Hajime/Sandam/Sandanme.htm"
+      }
+    ],
+    "notes": "Haru 2026 Sandanme roster (W27)."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Araoyama",
+    "heya": null,
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA banzuke (Sandanme, rank 28W)",
+        "url": "https://www.sumo.or.jp/Hajime/Sandam/Sandanme.htm"
+      }
+    ],
+    "notes": "Haru 2026 Sandanme roster (W28)."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Tenshoma",
+    "heya": null,
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA banzuke (Sandanme, rank 29W)",
+        "url": "https://www.sumo.or.jp/Hajime/Sandam/Sandanme.htm"
+      }
+    ],
+    "notes": "Haru 2026 Sandanme roster (W29)."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Kotetsu",
+    "heya": null,
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA banzuke (Sandanme, rank 30W)",
+        "url": "https://www.sumo.or.jp/Hajime/Sandam/Sandanme.htm"
+      }
+    ],
+    "notes": "Haru 2026 Sandanme roster (W30)."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Kotodaigo",
+    "heya": null,
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA banzuke (Sandanme, rank 31W)",
+        "url": "https://www.sumo.or.jp/Hajime/Sandam/Sandanme.htm"
+      }
+    ],
+    "notes": "Haru 2026 Sandanme roster (W31)."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Rakanji",
+    "heya": null,
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA banzuke (Sandanme, rank 32W)",
+        "url": "https://www.sumo.or.jp/Hajime/Sandam/Sandanme.htm"
+      }
+    ],
+    "notes": "Haru 2026 Sandanme roster (W32)."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Daishimatsu",
+    "heya": null,
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA banzuke (Sandanme, rank 33W)",
+        "url": "https://www.sumo.or.jp/Hajime/Sandam/Sandanme.htm"
+      }
+    ],
+    "notes": "Haru 2026 Sandanme roster (W33)."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Daishomaru",
+    "heya": null,
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA banzuke (Sandanme, rank 34W)",
+        "url": "https://www.sumo.or.jp/Hajime/Sandam/Sandanme.htm"
+      }
+    ],
+    "notes": "Haru 2026 Sandanme roster (W34)."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Kuranofuji",
+    "heya": null,
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA banzuke (Sandanme, rank 35W)",
+        "url": "https://www.sumo.or.jp/Hajime/Sandam/Sandanme.htm"
+      }
+    ],
+    "notes": "Haru 2026 Sandanme roster (W35)."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Ryutsukasa",
+    "heya": null,
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA banzuke (Sandanme, rank 36W)",
+        "url": "https://www.sumo.or.jp/Hajime/Sandam/Sandanme.htm"
+      }
+    ],
+    "notes": "Haru 2026 Sandanme roster (W36)."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Wakaterumoto",
+    "heya": null,
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA banzuke (Sandanme, rank 37W)",
+        "url": "https://www.sumo.or.jp/Hajime/Sandam/Sandanme.htm"
+      }
+    ],
+    "notes": "Haru 2026 Sandanme roster (W37)."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Tochiaoi",
+    "heya": null,
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA banzuke (Sandanme, rank 38W)",
+        "url": "https://www.sumo.or.jp/Hajime/Sandam/Sandanme.htm"
+      }
+    ],
+    "notes": "Haru 2026 Sandanme roster (W38)."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Toshoyama",
+    "heya": null,
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA banzuke (Sandanme, rank 39W)",
+        "url": "https://www.sumo.or.jp/Hajime/Sandam/Sandanme.htm"
+      }
+    ],
+    "notes": "Haru 2026 Sandanme roster (W39)."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Tokikenryu",
+    "heya": null,
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA banzuke (Sandanme, rank 40W)",
+        "url": "https://www.sumo.or.jp/Hajime/Sandam/Sandanme.htm"
+      }
+    ],
+    "notes": "Haru 2026 Sandanme roster (W40)."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Asakoki",
+    "heya": null,
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA banzuke (Sandanme, rank 41W)",
+        "url": "https://www.sumo.or.jp/Hajime/Sandam/Sandanme.htm"
+      }
+    ],
+    "notes": "Haru 2026 Sandanme roster (W41)."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Kazeyuki",
+    "heya": null,
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA banzuke (Sandanme, rank 42W)",
+        "url": "https://www.sumo.or.jp/Hajime/Sandam/Sandanme.htm"
+      }
+    ],
+    "notes": "Haru 2026 Sandanme roster (W42)."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Kototaiko",
+    "heya": null,
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA banzuke (Sandanme, rank 43W)",
+        "url": "https://www.sumo.or.jp/Hajime/Sandam/Sandanme.htm"
+      }
+    ],
+    "notes": "Haru 2026 Sandanme roster (W43)."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Gonosho",
+    "heya": null,
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA banzuke (Sandanme, rank 44W)",
+        "url": "https://www.sumo.or.jp/Hajime/Sandam/Sandanme.htm"
+      }
+    ],
+    "notes": "Haru 2026 Sandanme roster (W44)."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Taniguchi",
+    "heya": null,
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA banzuke (Sandanme, rank 45W)",
+        "url": "https://www.sumo.or.jp/Hajime/Sandam/Sandanme.htm"
+      }
+    ],
+    "notes": "Haru 2026 Sandanme roster (W45)."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Tsugaruumi",
+    "heya": null,
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA banzuke (Sandanme, rank 46W)",
+        "url": "https://www.sumo.or.jp/Hajime/Sandam/Sandanme.htm"
+      }
+    ],
+    "notes": "Haru 2026 Sandanme roster (W46)."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Fujiso",
+    "heya": null,
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA banzuke (Sandanme, rank 47W)",
+        "url": "https://www.sumo.or.jp/Hajime/Sandam/Sandanme.htm"
+      }
+    ],
+    "notes": "Haru 2026 Sandanme roster (W47)."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Denuma",
+    "heya": null,
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA banzuke (Sandanme, rank 48W)",
+        "url": "https://www.sumo.or.jp/Hajime/Sandam/Sandanme.htm"
+      }
+    ],
+    "notes": "Haru 2026 Sandanme roster (W48)."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Amao",
+    "heya": null,
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA banzuke (Sandanme, rank 49W)",
+        "url": "https://www.sumo.or.jp/Hajime/Sandam/Sandanme.htm"
+      }
+    ],
+    "notes": "Haru 2026 Sandanme roster (W49)."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Kotohaguro",
+    "heya": null,
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA banzuke (Sandanme, rank 50W)",
+        "url": "https://www.sumo.or.jp/Hajime/Sandam/Sandanme.htm"
+      }
+    ],
+    "notes": "Haru 2026 Sandanme roster (W50)."
   }
 ]

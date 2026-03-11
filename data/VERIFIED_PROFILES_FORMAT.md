@@ -81,6 +81,7 @@ support additional divisions or historical batches — just add rows.
 - Makuuchi active roster (42 wrestlers)
 - Historical Yokozuna & Ōzeki, 2000–present (17 wrestlers)
 - Jūryō roster, Haru 2026 (25 wrestlers)
+- Sandanme 1–50 (East + West), Haru 2026 (100 wrestlers)
 
 ## Matching strategy
 
