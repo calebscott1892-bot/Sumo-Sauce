@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 import { Link } from 'react-router-dom';
-import { Trophy, TrendingUp, TrendingDown, Zap, BookOpen } from 'lucide-react';
+import { Trophy, TrendingUp, TrendingDown, Zap, BookOpen, Newspaper } from 'lucide-react';
 import type { DivisionStandingRow } from '../../../shared/api/v1';
 
 type Props = {
@@ -129,15 +129,19 @@ export default function BashoStorylines({ rows, bashoId }: Props) {
 
   return (
     <section className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5" aria-label="Basho storylines">
-      <h2 className="font-display text-xl font-bold tracking-tight text-white">📰 Storylines</h2>
+      <div className="flex items-center gap-2">
+        <Newspaper className="h-5 w-5 text-red-500" />
+        <h2 className="font-display text-xl font-bold tracking-tight text-white">Storylines</h2>
+      </div>
       <p className="mt-0.5 text-xs text-zinc-500">Key narratives from this tournament.</p>
 
       <div className="mt-4 space-y-3">
         {storylines.map((story) => (
           <div
             key={story.title}
-            className="rounded-lg border border-white/[0.06] bg-white/[0.02] p-4 transition-colors duration-150 hover:border-white/[0.12]"
+            className="relative overflow-hidden rounded-lg border border-white/[0.06] bg-white/[0.02] p-4 transition-all duration-150 hover:border-white/[0.12] hover-lift"
           >
+            <div className="absolute inset-y-0 left-0 w-[3px] bg-gradient-to-b from-red-500 to-transparent" />
             <div className="flex items-start gap-3">
               <story.icon className={`mt-0.5 h-5 w-5 flex-shrink-0 ${story.color}`} />
               <div className="min-w-0 flex-1">

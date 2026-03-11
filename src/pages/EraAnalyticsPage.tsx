@@ -8,6 +8,7 @@ import { getRikishiDirectory, getCareerTimeline } from '@/pages/rikishi/api';
 import { parseBashoId, bashoLabel } from '@/utils/basho';
 import PageMeta from '@/components/ui/PageMeta';
 import ErrorCard from '@/components/ui/ErrorCard';
+import { PremiumPageHeader } from '@/components/ui/premium';
 import type { TimelineItem } from '../../shared/api/v1';
 
 type EraData = {
@@ -144,32 +145,22 @@ export default function EraAnalyticsPage() {
   }
 
   return (
-    <div className="mx-auto max-w-6xl space-y-6 p-6 text-zinc-200">
+    <div className="stagger-children mx-auto max-w-6xl space-y-6 p-6 text-zinc-200">
       <PageMeta
         title="Sumo Sauce — Era Analytics"
         description="Explore sumo performance across decades — win rates, top performers, and historical trends."
       />
 
-      <nav className="mb-2 flex items-center gap-1 text-sm text-zinc-400">
-        <Link className="text-red-400 hover:text-red-300" to="/">Home</Link>
-        <span>/</span>
-        <Link className="text-red-400 hover:text-red-300" to="/analytics">Analytics</Link>
-        <span>/</span>
-        <span className="text-zinc-200">Eras</span>
-      </nav>
-
-      <section className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-6">
-        <div className="flex items-center gap-3">
-          <Clock className="h-7 w-7 text-amber-500" />
-          <div>
-            <span className="text-xs font-bold uppercase tracking-[0.25em] text-red-500">ERA ANALYTICS</span>
-            <h1 className="font-display text-4xl font-bold uppercase tracking-tight text-white sm:text-5xl">Era Analytics</h1>
-            <p className="mt-1 text-sm text-zinc-500">
-              Performance trends and top performers across decades of professional sumo.
-            </p>
-          </div>
-        </div>
-      </section>
+      <PremiumPageHeader
+        accentLabel="ERA ANALYTICS"
+        title="Era Analytics"
+        subtitle="Performance trends and top performers across decades of professional sumo."
+        breadcrumbs={[
+          { label: 'Home', to: '/' },
+          { label: 'Analytics', to: '/analytics' },
+          { label: 'Eras' },
+        ]}
+      />
 
       {isLoading && (
         <div className="space-y-4">
@@ -211,7 +202,7 @@ export default function EraAnalyticsPage() {
 
           {/* Participation chart */}
           <section className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5">
-            <h2 className="text-xl font-bold text-white flex items-center gap-2">
+            <h2 className="font-display text-xl font-bold text-white flex items-center gap-2">
               <BarChart3 className="h-5 w-5 text-blue-400" />
               Participation by Era
             </h2>
@@ -235,7 +226,7 @@ export default function EraAnalyticsPage() {
 
           {/* Win rate trend */}
           <section className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5">
-            <h2 className="text-xl font-bold text-white flex items-center gap-2">
+            <h2 className="font-display text-xl font-bold text-white flex items-center gap-2">
               <TrendingUp className="h-5 w-5 text-emerald-400" />
               Win Rate Trend
             </h2>
@@ -265,7 +256,7 @@ export default function EraAnalyticsPage() {
 
           {/* Era breakdowns */}
           <section className="space-y-4">
-            <h2 className="text-xl font-bold text-white flex items-center gap-2">
+            <h2 className="font-display text-xl font-bold text-white flex items-center gap-2">
               <Award className="h-5 w-5 text-amber-400" />
               Top Performers by Era
             </h2>
@@ -275,7 +266,7 @@ export default function EraAnalyticsPage() {
                 className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5 transition-colors duration-150 hover:border-white/[0.12]"
               >
                 <div className="flex items-baseline justify-between">
-                  <h3 className="text-lg font-bold text-white">{era.decade}</h3>
+                  <h3 className="font-display text-lg font-bold text-white">{era.decade}</h3>
                   <div className="flex gap-4 text-xs text-zinc-500">
                     <span>{era.bashoCount} basho</span>
                     <span>{era.uniqueRikishi} rikishi</span>

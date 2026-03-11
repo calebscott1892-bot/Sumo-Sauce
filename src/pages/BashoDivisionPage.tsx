@@ -139,7 +139,7 @@ export default function BashoDivisionPage() {
               setBashoError('');
             }}
             onKeyDown={handleKeyDown}
-            className="w-28 rounded-md border border-white/[0.08] bg-zinc-800 px-2 py-1.5 text-sm text-zinc-100 placeholder-zinc-500 focus:border-red-500 focus:outline-none"
+            className="w-28 rounded-md border border-white/[0.08] bg-white/[0.04] px-2 py-1.5 text-sm text-zinc-100 placeholder-zinc-500 focus:border-red-500 focus:outline-none"
             placeholder="202401"
           />
         </div>
@@ -153,7 +153,7 @@ export default function BashoDivisionPage() {
             data-testid="division-select"
             value={draftDivision}
             onChange={handleDivisionChange}
-            className="rounded-md border border-white/[0.08] bg-zinc-800 px-2 py-1.5 text-sm text-zinc-100 focus:border-red-500 focus:outline-none"
+            className="rounded-md border border-white/[0.08] bg-white/[0.04] px-2 py-1.5 text-sm text-zinc-100 focus:border-red-500 focus:outline-none"
           >
             {VALID_DIVISIONS.map((d) => (
               <option key={d} value={d}>
@@ -390,7 +390,7 @@ export default function BashoDivisionPage() {
               value={shikonaSearch}
               onChange={(e) => setFilterParam('q', e.target.value)}
               placeholder="Search…"
-              className="w-36 rounded-md border border-white/[0.08] bg-zinc-800 px-2 py-1.5 text-sm text-zinc-100 placeholder-zinc-500 focus:border-red-500 focus:outline-none"
+              className="w-36 rounded-md border border-white/[0.08] bg-white/[0.04] px-2 py-1.5 text-sm text-zinc-100 placeholder-zinc-500 focus:border-red-500 focus:outline-none"
             />
           </div>
           <div>
@@ -400,7 +400,7 @@ export default function BashoDivisionPage() {
               data-testid="filter-mode"
               value={filterMode}
               onChange={(e) => setFilterParam('filter', e.target.value)}
-              className="rounded-md border border-white/[0.08] bg-zinc-800 px-2 py-1.5 text-sm text-zinc-100 focus:border-red-500 focus:outline-none"
+              className="rounded-md border border-white/[0.08] bg-white/[0.04] px-2 py-1.5 text-sm text-zinc-100 focus:border-red-500 focus:outline-none"
             >
               <option value="all">All</option>
               <option value="kk">Kachi-koshi only</option>

@@ -43,7 +43,7 @@ export default function BashoQuickNav() {
     <article className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5 md:col-span-2 xl:col-span-3">
       <div className="flex items-center gap-2 mb-4">
         <Calendar className="h-5 w-5 text-red-500" />
-        <h2 className="text-lg font-semibold text-white">Browse basho</h2>
+        <h2 className="font-display text-lg font-bold tracking-tight text-white">Browse basho</h2>
       </div>
 
       {/* Recent basho grid */}
@@ -59,7 +59,7 @@ export default function BashoQuickNav() {
               <Link
                 key={id}
                 to={`/basho/${id}`}
-                className="group flex flex-col rounded-lg border border-white/[0.06] bg-zinc-800/50 px-3 py-2 transition-colors hover:border-red-600 hover:bg-red-950/20"
+                className="hover-lift group flex flex-col rounded-lg border border-white/[0.06] bg-white/[0.02] px-3 py-2 transition-all hover:border-red-600 hover:bg-red-950/20"
                 data-testid={`quick-basho-${id}`}
               >
                 <span className="text-sm font-semibold text-zinc-200 group-hover:text-white">
@@ -95,7 +95,7 @@ export default function BashoQuickNav() {
               }}
               onKeyDown={handleKeyDown}
               placeholder="200301"
-              className="w-28 rounded-md border border-white/[0.08] bg-zinc-800 px-2 py-1.5 text-sm text-zinc-100 placeholder-zinc-500 focus:border-red-500 focus:outline-none"
+              className="w-28 rounded-md border border-white/[0.08] bg-white/[0.04] px-2 py-1.5 text-sm text-zinc-100 placeholder-zinc-500 focus:border-red-500 focus:outline-none"
             />
           </div>
           <div>
@@ -107,7 +107,7 @@ export default function BashoQuickNav() {
               data-testid="quick-basho-division"
               value={jumpDivision}
               onChange={(e) => setJumpDivision(e.target.value)}
-              className="rounded-md border border-white/[0.08] bg-zinc-800 px-2 py-1.5 text-sm text-zinc-100 focus:border-red-500 focus:outline-none"
+              className="rounded-md border border-white/[0.08] bg-white/[0.04] px-2 py-1.5 text-sm text-zinc-100 focus:border-red-500 focus:outline-none"
             >
               {DIVISIONS.map((d) => (
                 <option key={d} value={d}>

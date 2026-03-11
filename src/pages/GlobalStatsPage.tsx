@@ -4,6 +4,7 @@ import { trackGlobalStatsView } from '@/utils/analytics';
 import { useQuery } from '@tanstack/react-query';
 import PageMeta from '@/components/ui/PageMeta';
 import ErrorCard from '@/components/ui/ErrorCard';
+import { PremiumPageHeader } from '@/components/ui/premium';
 import {
   ResponsiveContainer,
   BarChart,
@@ -216,24 +217,21 @@ export default function GlobalStatsPage() {
   }
 
   return (
-    <div data-testid="global-stats-page" className="mx-auto max-w-6xl space-y-6 p-6 text-zinc-200">
+    <div data-testid="global-stats-page" className="stagger-children mx-auto max-w-6xl space-y-6 p-6 text-zinc-200">
       <PageMeta
         title="Sumo Sauce \u2014 Global Analytics"
         description="Overview statistics across the Sumo Sauce dataset \u2014 rikishi counts, bout totals, kimarite distribution, and average wins per basho."
       />
-      <nav className="mb-2 flex items-center gap-1 text-sm text-zinc-400">
-        <Link className="text-red-400 hover:text-red-300" to="/">Home</Link>
-        <span>/</span>
-        <span className="text-zinc-200">Analytics</span>
-      </nav>
 
-      <section className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-6">
-        <span className="text-xs font-bold uppercase tracking-[0.25em] text-red-500">GLOBAL ANALYTICS</span>
-        <h1 className="font-display text-4xl font-bold uppercase tracking-tight text-white sm:text-5xl">Global Analytics</h1>
-        <p className="mt-2 text-sm text-zinc-500">
-          Overview statistics across the Sumo Sauce dataset.
-        </p>
-      </section>
+      <PremiumPageHeader
+        accentLabel="GLOBAL ANALYTICS"
+        title="Global Analytics"
+        subtitle="Overview statistics across the Sumo Sauce dataset."
+        breadcrumbs={[
+          { label: 'Home', to: '/' },
+          { label: 'Analytics' },
+        ]}
+      />
 
       {isLoading ? (
         <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
@@ -320,7 +318,7 @@ export default function GlobalStatsPage() {
               <div className="mt-3 overflow-x-auto">
                 <table className="min-w-full text-sm" aria-label="Top 10 most successful rikishi">
                   <thead>
-                    <tr className="border-b border-white/[0.04] text-left text-zinc-400">
+                    <tr className="border-b border-white/[0.06] bg-white/[0.03] text-left text-xs font-semibold uppercase tracking-wider text-zinc-400">
                       <th className="px-2 py-2" scope="col">#</th>
                       <th className="px-2 py-2" scope="col">Rikishi</th>
                       <th className="px-2 py-2" scope="col">Win Rate</th>

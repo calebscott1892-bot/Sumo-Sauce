@@ -48,6 +48,12 @@ export default function StatBar({
           </>
         )}
       </div>
+      {total > 0 && (
+        <div className="flex justify-between text-[10px] text-zinc-500">
+          <span>{pctA.toFixed(0)}%</span>
+          <span>{pctB.toFixed(0)}%</span>
+        </div>
+      )}
     </div>
   );
 }

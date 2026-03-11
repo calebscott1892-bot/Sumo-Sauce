@@ -81,7 +81,7 @@ export default function PromotionWatchlist({ rows, bashoId, limit = 8 }: Props) 
 
   return (
     <section className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5">
-      <h2 className="mb-4 text-xl font-bold text-white">Promotion & Demotion Watchlist</h2>
+      <h2 className="font-display mb-4 text-xl font-bold text-white">Promotion & Demotion Watchlist</h2>
 
       <div className="grid grid-cols-1 gap-5 lg:grid-cols-2">
         {/* Promotion candidates */}
@@ -96,7 +96,7 @@ export default function PromotionWatchlist({ rows, bashoId, limit = 8 }: Props) 
                 <Link
                   key={entry.rikishiId}
                   to={`/rikishi/${encodeURIComponent(entry.rikishiId)}`}
-                  className="flex items-center justify-between rounded-lg border border-white/[0.06] bg-white/[0.02] px-3 py-2 transition-colors hover:border-emerald-700 hover:bg-emerald-950/10"
+                  className="flex items-center justify-between rounded-lg border border-white/[0.06] bg-white/[0.02] px-3 py-2 transition-all hover:border-emerald-700 hover:bg-emerald-950/10 hover-lift"
                 >
                   <div className="flex items-center gap-2">
                     <span className="text-xs text-zinc-500">{entry.rank}</span>
@@ -126,7 +126,7 @@ export default function PromotionWatchlist({ rows, bashoId, limit = 8 }: Props) 
                 <Link
                   key={entry.rikishiId}
                   to={`/rikishi/${encodeURIComponent(entry.rikishiId)}`}
-                  className="flex items-center justify-between rounded-lg border border-white/[0.06] bg-white/[0.02] px-3 py-2 transition-colors hover:border-red-700 hover:bg-red-950/10"
+                  className="flex items-center justify-between rounded-lg border border-white/[0.06] bg-white/[0.02] px-3 py-2 transition-all hover:border-red-700 hover:bg-red-950/10 hover-lift"
                 >
                   <div className="flex items-center gap-2">
                     <span className="text-xs text-zinc-500">{entry.rank}</span>

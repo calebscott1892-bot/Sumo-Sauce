@@ -121,13 +121,13 @@ export default function ComparePage() {
           <div className="mt-4 flex flex-wrap justify-center gap-3">
             <Link
               to="/rikishi"
-              className="rounded-lg border border-white/[0.08] bg-zinc-800 px-4 py-2 text-sm text-zinc-200 transition-colors hover:border-red-600 hover:text-white"
+              className="rounded-lg border border-white/[0.08] bg-white/[0.04] px-4 py-2 text-sm text-zinc-200 transition-all hover:border-red-600 hover:text-white hover-lift"
             >
               Browse rikishi directory
             </Link>
             <Link
               to="/rivalries"
-              className="rounded-lg border border-white/[0.08] bg-zinc-800 px-4 py-2 text-sm text-zinc-200 transition-colors hover:border-red-600 hover:text-white"
+              className="rounded-lg border border-white/[0.08] bg-white/[0.04] px-4 py-2 text-sm text-zinc-200 transition-all hover:border-red-600 hover:text-white hover-lift"
             >
               Explore rivalries
             </Link>

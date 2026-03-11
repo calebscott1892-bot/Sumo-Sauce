@@ -4,6 +4,7 @@ import { trackKimariteAnalyticsView } from '@/utils/analytics';
 import { useQuery } from '@tanstack/react-query';
 import PageMeta from '@/components/ui/PageMeta';
 import ErrorCard from '@/components/ui/ErrorCard';
+import { PremiumPageHeader } from '@/components/ui/premium';
 import {
   ResponsiveContainer,
   BarChart,
@@ -104,26 +105,22 @@ export default function KimariteAnalyticsPage() {
   }
 
   return (
-    <div data-testid="kimarite-analytics-page" className="mx-auto max-w-6xl space-y-6 p-6 text-zinc-200">
+    <div data-testid="kimarite-analytics-page" className="stagger-children mx-auto max-w-6xl space-y-6 p-6 text-zinc-200">
       <PageMeta
         title="Sumo Sauce \u2014 Kimarite Analytics"
         description={`Win technique distribution across the last ${recentIds.length} makuuchi tournaments \u2014 frequency charts, pie distribution, and full technique table.`}
       />
-      <nav className="mb-2 flex items-center gap-1 text-sm text-zinc-400">
-        <Link className="text-red-400 hover:text-red-300" to="/">Home</Link>
-        <span>/</span>
-        <Link className="text-red-400 hover:text-red-300" to="/analytics">Analytics</Link>
-        <span>/</span>
-        <span className="text-zinc-200">Kimarite</span>
-      </nav>
 
-      <section className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-6">
-        <span className="text-xs font-bold uppercase tracking-[0.25em] text-red-500">KIMARITE ANALYTICS</span>
-        <h1 className="font-display text-4xl font-bold uppercase tracking-tight text-white sm:text-5xl">Kimarite Analytics</h1>
-        <p className="mt-2 text-sm text-zinc-500">
-          Win technique distribution across the last {recentIds.length} makuuchi tournaments.
-        </p>
-      </section>
+      <PremiumPageHeader
+        accentLabel="KIMARITE ANALYTICS"
+        title="Kimarite Analytics"
+        subtitle={`Win technique distribution across the last ${recentIds.length} makuuchi tournaments.`}
+        breadcrumbs={[
+          { label: 'Home', to: '/' },
+          { label: 'Analytics', to: '/analytics' },
+          { label: 'Kimarite' },
+        ]}
+      />
 
       {results.isLoading ? (
         <div className="space-y-4">
@@ -213,7 +210,7 @@ export default function KimariteAnalyticsPage() {
             <div className="mt-3 overflow-x-auto">
               <table className="min-w-full text-sm">
                 <thead>
-                  <tr className="border-b border-white/[0.04] text-left text-zinc-400">
+                  <tr className="border-b border-white/[0.06] bg-white/[0.03] text-left text-xs font-semibold uppercase tracking-wider text-zinc-400">
                     <th className="px-2 py-2">#</th>
                     <th className="px-2 py-2">Kimarite</th>
                     <th className="px-2 py-2">Count</th>

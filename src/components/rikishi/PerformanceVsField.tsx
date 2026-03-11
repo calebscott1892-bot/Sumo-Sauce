@@ -28,7 +28,7 @@ function MetricCard({
     format === 'pct' ? `${(v * 100).toFixed(1)}%` : v.toFixed(1);
 
   return (
-    <div className="rounded-lg border border-white/[0.06] bg-white/[0.02] p-3">
+    <div className="hover-lift rounded-lg border border-white/[0.06] bg-white/[0.02] p-3 transition-all">
       <div className="text-xs text-zinc-500">{label}</div>
       <div className="mt-1 flex items-baseline gap-2">
         <span className="text-lg font-bold text-white">{fmt(rikishiVal)}</span>

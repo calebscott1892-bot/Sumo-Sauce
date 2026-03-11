@@ -29,7 +29,7 @@ export default function RikishiBoutTimeline({ timeline, limit = 20 }: Props) {
       ) : (
         <div className="relative mt-4 ml-3">
           {/* Vertical line */}
-          <div className="absolute left-2.5 top-0 bottom-0 w-px bg-zinc-700" />
+          <div className="absolute left-2.5 top-0 bottom-0 w-px bg-white/[0.08]" />
 
           <div className="space-y-3">
             {recent.map((entry, idx) => {
@@ -63,7 +63,7 @@ export default function RikishiBoutTimeline({ timeline, limit = 20 }: Props) {
                   </div>
 
                   {/* Card */}
-                  <div className={`rounded-lg border ${borderColor} bg-zinc-950 p-3`}>
+                  <div className={`rounded-lg border ${borderColor} bg-white/[0.02] p-3`}>
                     <div className="flex items-center justify-between">
                       <Link
                         to={`/basho/${encodeURIComponent(entry.bashoId)}/${encodeURIComponent(entry.division)}`}

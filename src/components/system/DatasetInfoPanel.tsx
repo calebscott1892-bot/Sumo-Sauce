@@ -26,7 +26,7 @@ export default function DatasetInfoPanel() {
   if (isLoading) {
     return (
       <section className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5">
-        <div className="h-20 animate-pulse rounded-lg bg-zinc-800" />
+        <div className="h-20 animate-pulse rounded-lg border border-white/[0.06] bg-white/[0.02]" />
       </section>
     );
   }
@@ -40,7 +40,7 @@ export default function DatasetInfoPanel() {
 
   return (
     <section data-testid="dataset-info-panel" className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5">
-      <h2 className="mb-3 text-sm font-semibold uppercase tracking-wider text-zinc-500">
+      <h2 className="font-display mb-3 text-sm font-bold uppercase tracking-wider text-zinc-500">
         Dataset Info
       </h2>
       <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">

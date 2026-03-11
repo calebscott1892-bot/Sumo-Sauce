@@ -1,5 +1,6 @@
 import { useMemo } from 'react';
 import { Link } from 'react-router-dom';
+import { Flame } from 'lucide-react';
 import type { DivisionStandingRow } from '../../../shared/api/v1';
 
 type Props = {
@@ -97,7 +98,10 @@ export default function UpsetList({ rows, bashoId }: Props) {
 
   return (
     <section className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5">
-      <h2 className="font-display text-xl font-bold tracking-tight text-white">🔥 Notable Upsets</h2>
+      <div className="flex items-center gap-2">
+        <Flame className="h-5 w-5 text-orange-500" />
+        <h2 className="font-display text-xl font-bold tracking-tight text-white">Notable Upsets</h2>
+      </div>
       <p className="mt-0.5 text-xs text-zinc-500">
         Lower-ranked wrestlers who significantly outperformed expectations.
       </p>
@@ -107,7 +111,7 @@ export default function UpsetList({ rows, bashoId }: Props) {
           <Link
             key={upset.rikishiId}
             to={`/rikishi/${encodeURIComponent(upset.rikishiId)}`}
-            className="flex items-center justify-between rounded-lg border border-white/[0.06] bg-white/[0.02] p-3 transition-colors hover:border-red-600"
+            className="flex items-center justify-between rounded-lg border border-white/[0.06] bg-white/[0.02] p-3 transition-all hover:border-red-600 hover-lift"
           >
             <div>
               <div className="font-semibold text-zinc-100">{upset.shikona}</div>

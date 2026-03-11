@@ -108,7 +108,7 @@ export default function BashoDayResultsPage() {
             type="button"
             onClick={() => navigate(`/basho/${encodeURIComponent(bashoId)}/${encodeURIComponent(division)}/day/${day - 1}`)}
             disabled={!hasPrev}
-            className="rounded-lg border border-white/[0.08] bg-zinc-800 p-2 text-zinc-300 transition-colors hover:border-red-600 hover:text-white disabled:cursor-not-allowed disabled:opacity-40"
+            className="rounded-lg border border-white/[0.08] bg-white/[0.04] p-2 text-zinc-300 transition-colors hover:border-red-600 hover:text-white disabled:cursor-not-allowed disabled:opacity-40"
             aria-label="Previous day"
           >
             <ChevronLeft className="h-4 w-4" />
@@ -118,7 +118,7 @@ export default function BashoDayResultsPage() {
             type="button"
             onClick={() => navigate(`/basho/${encodeURIComponent(bashoId)}/${encodeURIComponent(division)}/day/${day + 1}`)}
             disabled={!hasNext}
-            className="rounded-lg border border-white/[0.08] bg-zinc-800 p-2 text-zinc-300 transition-colors hover:border-red-600 hover:text-white disabled:cursor-not-allowed disabled:opacity-40"
+            className="rounded-lg border border-white/[0.08] bg-white/[0.04] p-2 text-zinc-300 transition-colors hover:border-red-600 hover:text-white disabled:cursor-not-allowed disabled:opacity-40"
             aria-label="Next day"
           >
             <ChevronRight className="h-4 w-4" />
@@ -186,7 +186,7 @@ export default function BashoDayResultsPage() {
 
                   {/* Center: kimarite */}
                   <div className="flex flex-col items-center">
-                    <div className="rounded border border-white/[0.08] bg-zinc-800 px-2 py-0.5 text-[10px] text-zinc-400">
+                    <div className="rounded border border-white/[0.08] bg-white/[0.04] px-2 py-0.5 text-[10px] text-zinc-400">
                       #{bout.boutNo}
                     </div>
                     {bout.kimariteId && (

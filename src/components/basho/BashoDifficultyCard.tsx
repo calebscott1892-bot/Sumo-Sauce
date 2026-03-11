@@ -106,21 +106,21 @@ export default function BashoDifficultyCard({ rows, bashoId }: Props) {
       </div>
 
       <div className="mt-4 grid grid-cols-2 gap-3 text-sm sm:grid-cols-4">
-        <div className="rounded-lg border border-white/[0.06] bg-white/[0.02]/50 p-3">
+        <div className="rounded-lg border border-white/[0.06] bg-white/[0.03] p-3">
           <div className="text-xs text-zinc-400">Rating</div>
           <div className={`mt-0.5 font-semibold ${scoreColor(difficulty.score)}`}>
             {difficulty.competitiveness}
           </div>
         </div>
-        <div className="rounded-lg border border-white/[0.06] bg-white/[0.02]/50 p-3">
+        <div className="rounded-lg border border-white/[0.06] bg-white/[0.03] p-3">
           <div className="text-xs text-zinc-400">Avg Wins</div>
           <div className="mt-0.5 font-semibold text-zinc-100">{difficulty.avgWins}</div>
         </div>
-        <div className="rounded-lg border border-white/[0.06] bg-white/[0.02]/50 p-3">
+        <div className="rounded-lg border border-white/[0.06] bg-white/[0.03] p-3">
           <div className="text-xs text-zinc-400">Top Score</div>
           <div className="mt-0.5 font-semibold text-zinc-100">{difficulty.topWins}W</div>
         </div>
-        <div className="rounded-lg border border-white/[0.06] bg-white/[0.02]/50 p-3">
+        <div className="rounded-lg border border-white/[0.06] bg-white/[0.03] p-3">
           <div className="text-xs text-zinc-400">Win Spread</div>
           <div className="mt-0.5 font-semibold text-zinc-100">{difficulty.spread}</div>
         </div>

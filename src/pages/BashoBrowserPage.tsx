@@ -144,7 +144,7 @@ export default function BashoBrowserPage() {
               value={searchQuery}
               onChange={(e) => updateParam('q', e.target.value)}
               placeholder="Hatsu, 2020, 202301…"
-              className="w-48 rounded-md border border-white/[0.08] bg-zinc-800 px-2 py-1.5 text-sm text-zinc-100 placeholder-zinc-500 focus:border-red-500 focus:outline-none"
+              className="w-48 rounded-md border border-white/[0.08] bg-white/[0.04] px-2 py-1.5 text-sm text-zinc-100 placeholder-zinc-500 focus:border-red-500 focus:outline-none"
             />
           </div>
           <div>
@@ -156,7 +156,7 @@ export default function BashoBrowserPage() {
               id="basho-year"
               value={yearFilter}
               onChange={(e) => updateParam('year', e.target.value)}
-              className="rounded-md border border-white/[0.08] bg-zinc-800 px-2 py-1.5 text-sm text-zinc-100 focus:border-red-500 focus:outline-none"
+              className="rounded-md border border-white/[0.08] bg-white/[0.04] px-2 py-1.5 text-sm text-zinc-100 focus:border-red-500 focus:outline-none"
             >
               <option value="">All years</option>
               {availableYears.map((y) => (
@@ -172,7 +172,7 @@ export default function BashoBrowserPage() {
               id="basho-month"
               value={monthFilter}
               onChange={(e) => updateParam('month', e.target.value)}
-              className="rounded-md border border-white/[0.08] bg-zinc-800 px-2 py-1.5 text-sm text-zinc-100 focus:border-red-500 focus:outline-none"
+              className="rounded-md border border-white/[0.08] bg-white/[0.04] px-2 py-1.5 text-sm text-zinc-100 focus:border-red-500 focus:outline-none"
             >
               <option value="">All tournaments</option>
               {Object.entries(TOURNAMENT_MONTHS).map(([m, name]) => (

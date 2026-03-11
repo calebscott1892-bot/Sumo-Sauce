@@ -6,6 +6,7 @@ import { Swords, Search, ArrowUpDown, Trophy } from 'lucide-react';
 import { getRikishiDirectory, getHeadToHead } from '@/pages/rikishi/api';
 import PageMeta from '@/components/ui/PageMeta';
 import ErrorCard from '@/components/ui/ErrorCard';
+import { PremiumPageHeader } from '@/components/ui/premium';
 
 type RivalryEntry = {
   rikishiA: string;
@@ -123,54 +124,47 @@ export default function RivalryExplorerPage() {
   }
 
   return (
-    <div className="mx-auto max-w-6xl space-y-6 p-6 text-zinc-200">
+    <div className="stagger-children mx-auto max-w-6xl space-y-6 p-6 text-zinc-200">
       <PageMeta
         title="Sumo Sauce — Rivalry Explorer"
         description="Explore the greatest rivalries in professional sumo. Search and compare head-to-head records."
       />
 
-      <nav className="mb-2 flex items-center gap-1 text-sm text-zinc-400">
-        <Link className="text-red-400 hover:text-red-300" to="/">Home</Link>
-        <span>/</span>
-        <span className="text-zinc-200">Rivalries</span>
-      </nav>
-
-      <section className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-6">
-        <div className="flex items-center gap-3">
-          <Swords className="h-7 w-7 text-red-500" />
-          <div>
-            <span className="text-xs font-bold uppercase tracking-[0.25em] text-red-500">HEAD TO HEAD</span>
-            <h1 className="font-display text-4xl font-bold uppercase tracking-tight text-white sm:text-5xl">Rivalry Explorer</h1>
-            <p className="mt-1 text-sm text-zinc-500">
-              Discover the most contested head-to-head matchups in sumo history.
-            </p>
-          </div>
-        </div>
-      </section>
+      <PremiumPageHeader
+        accentLabel="HEAD TO HEAD"
+        title="Rivalry Explorer"
+        subtitle="Discover the most contested head-to-head matchups in sumo history."
+        breadcrumbs={[
+          { label: 'Home', to: '/' },
+          { label: 'Rivalries' },
+        ]}
+      />
 
       {/* Controls */}
-      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-        <div className="relative flex-1 max-w-md">
-          <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-zinc-500" />
-          <input
-            type="text"
-            placeholder="Search rikishi..."
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full rounded-lg border border-white/[0.08] bg-zinc-800 py-2 pl-9 pr-3 text-sm text-zinc-100 placeholder-zinc-500 focus:border-red-500 focus:outline-none"
-            aria-label="Search rivalries"
-          />
+      <section className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-4">
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+          <div className="relative flex-1 max-w-md">
+            <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-zinc-500" />
+            <input
+              type="text"
+              placeholder="Search rikishi..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="w-full rounded-lg border border-white/[0.08] bg-white/[0.04] py-2 pl-9 pr-3 text-sm text-zinc-100 placeholder-zinc-500 focus:border-red-500 focus:outline-none"
+              aria-label="Search rivalries"
+            />
+          </div>
+          <button
+            type="button"
+            onClick={toggleSort}
+            className="flex items-center gap-2 rounded-lg border border-white/[0.08] bg-white/[0.04] px-4 py-2 text-sm text-zinc-300 transition-colors hover:border-white/[0.15] hover:text-white"
+            aria-label={`Sort by ${sortBy === 'matches' ? 'closeness' : 'total matches'}`}
+          >
+            <ArrowUpDown className="h-4 w-4" />
+            Sort: {sortBy === 'matches' ? 'Most matches' : 'Closest record'}
+          </button>
         </div>
-        <button
-          type="button"
-          onClick={toggleSort}
-          className="flex items-center gap-2 rounded-lg border border-white/[0.08] bg-zinc-800 px-4 py-2 text-sm text-zinc-300 transition-colors hover:border-white/[0.15] hover:text-white"
-          aria-label={`Sort by ${sortBy === 'matches' ? 'closeness' : 'total matches'}`}
-        >
-          <ArrowUpDown className="h-4 w-4" />
-          Sort: {sortBy === 'matches' ? 'Most matches' : 'Closest record'}
-        </button>
-      </div>
+      </section>
 
       {/* Loading */}
       {h2hQuery.isLoading && (

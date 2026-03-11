@@ -96,7 +96,7 @@ export default function SearchPage() {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Search rikishi, basho, tournaments…"
-            className="w-full rounded-lg border border-white/[0.08] bg-zinc-800 py-2.5 pl-10 pr-10 text-sm text-zinc-100 placeholder-zinc-500 focus:border-red-500 focus:outline-none"
+            className="w-full rounded-lg border border-white/[0.08] bg-white/[0.04] py-2.5 pl-10 pr-10 text-sm text-zinc-100 placeholder-zinc-500 focus:border-red-500 focus:outline-none"
             autoFocus
           />
           {query && (

@@ -35,7 +35,7 @@ export default function BashoNav({ bashoId, division }: Props) {
         <span className="text-sm text-zinc-600">—</span>
       )}
 
-      <span className="text-sm font-medium text-zinc-300" data-testid="basho-nav-current">
+      <span className="font-display text-sm font-bold tracking-tight text-zinc-200" data-testid="basho-nav-current">
         {bashoLabel(bashoId)}
       </span>
 

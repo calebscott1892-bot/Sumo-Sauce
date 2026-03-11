@@ -26,7 +26,7 @@ export default function RivalryList({ rikishiId, rivals, isLoading }: Props) {
         <h2 className="font-display text-xl font-bold tracking-tight text-white">Rivalries</h2>
         <div className="mt-3 space-y-2">
           {Array.from({ length: 3 }).map((_, i) => (
-            <div key={i} className="h-16 animate-pulse rounded-lg bg-zinc-800" />
+            <div key={i} className="h-16 animate-pulse rounded-lg border border-white/[0.06] bg-white/[0.02]" />
           ))}
         </div>
       </section>
@@ -63,7 +63,7 @@ export default function RivalryList({ rikishiId, rivals, isLoading }: Props) {
             <Link
               key={rival.opponentId}
               to={`/compare/${encodeURIComponent(rikishiId)}/${encodeURIComponent(rival.opponentId)}`}
-              className="block rounded-lg border border-white/[0.06] bg-white/[0.02] p-3 transition-colors hover:border-red-600"
+              className="block rounded-lg border border-white/[0.06] bg-white/[0.02] p-3 transition-all hover:border-red-600 hover-lift"
               data-testid={`rivalry-${rival.opponentId}`}
             >
               <div className="flex items-center justify-between">
