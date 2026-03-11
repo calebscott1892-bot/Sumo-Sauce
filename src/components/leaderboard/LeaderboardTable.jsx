@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Trophy, Crown, Star as StarIcon, Flame, TrendingUp } from 'lucide-react';
 import StatsBar from './StatsBar';
 import { cn } from '@/lib/utils';
+import { resolveVerifiedImageUrl } from '@/data/verifiedProfiles';
 
 const rankConfig = {
   Yokozuna: { 
@@ -98,7 +99,7 @@ export default function LeaderboardTable({ wrestlers, onSelect, compareMode = fa
         const displayRank = wrestler.displayRank || wrestler.current_rank || wrestler.rank || 'Maegashira';
         const config = rankConfig[displayRank] || rankConfig.Maegashira;
         const Icon = config.icon;
-        const photoUrl = wrestler.photoUrl || wrestler.official_image_url || wrestler.image?.url || wrestler.imageUrl || wrestler.image_url;
+        const photoUrl = resolveVerifiedImageUrl(wrestler.shikona || '');
         const wins = wrestler.displayWins ?? wrestler.wins ?? 0;
         const losses = wrestler.displayLosses ?? wrestler.losses ?? 0;
         

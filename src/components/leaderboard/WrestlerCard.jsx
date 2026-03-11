@@ -10,6 +10,7 @@ import WrestlerRatingCard from '../ratings/WrestlerRatingCard';
 import PerformanceTrends from '../history/PerformanceTrends';
 import WrestlerRivalries from '../history/WrestlerRivalries';
 import MatchHistory from '../history/MatchHistory';
+import { resolveVerifiedImageUrl } from '@/data/verifiedProfiles';
 
 const rankColors = {
   Yokozuna: 'from-amber-500 to-yellow-400',
@@ -53,13 +54,18 @@ export default function WrestlerCard({ wrestler, open, onClose, isFollowing = fa
           </div>
           
           <div className="flex items-center gap-4">
-            <div className="w-20 h-20 rounded-2xl bg-white/20 backdrop-blur flex items-center justify-center overflow-hidden border-2 border-white/30">
-              {wrestler.image_url ? (
-                <img src={wrestler.image_url} alt={wrestler.shikona} className="w-full h-full object-cover" />
-              ) : (
-                <span className="text-3xl font-serif text-white">{wrestler.shikona?.charAt(0)}</span>
-              )}
-            </div>
+            {(() => {
+              const verifiedPhoto = resolveVerifiedImageUrl(wrestler.shikona || '');
+              return (
+                <div className="w-20 h-20 rounded-2xl bg-white/20 backdrop-blur flex items-center justify-center overflow-hidden border-2 border-white/30">
+                  {verifiedPhoto ? (
+                    <img src={verifiedPhoto} alt={wrestler.shikona} className="w-full h-full object-cover" />
+                  ) : (
+                    <span className="text-3xl font-serif text-white">{wrestler.shikona?.charAt(0)}</span>
+                  )}
+                </div>
+              );
+            })()}
             <div>
               <h2 className="text-2xl font-bold text-white">{wrestler.shikona}</h2>
               {wrestler.real_name && (

@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import { ArrowLeft, ThumbsUp, Eye, Share2 } from 'lucide-react';
 import { toast } from 'sonner';
 import { format } from 'date-fns';
+import { resolveVerifiedImageUrl } from '@/data/verifiedProfiles';
 
 export default function SharedComparison() {
   const urlParams = new URLSearchParams(window.location.search);
@@ -174,19 +175,26 @@ export default function SharedComparison() {
 
         {/* Wrestlers */}
         <div className="grid gap-4 mb-6" style={{ gridTemplateColumns: `repeat(${wrestlers.length}, 1fr)` }}>
-          {wrestlers.map((wrestler) => (
-            <div key={wrestler.id} className="bg-white/[0.02] border border-white/[0.06] p-4 text-center">
-              {wrestler.image_url && (
-                <img
-                  src={wrestler.image_url}
-                  alt={wrestler.shikona}
-                  className="w-24 h-24 mx-auto mb-3 object-cover"
-                />
-              )}
-              <h3 className="text-xl font-black text-white mb-1">{wrestler.shikona}</h3>
-              <div className="text-sm text-zinc-500">{wrestler.rank}</div>
-            </div>
-          ))}
+          {wrestlers.map((wrestler) => {
+            const verifiedPhoto = resolveVerifiedImageUrl(wrestler.shikona || '');
+            return (
+              <div key={wrestler.id} className="bg-white/[0.02] border border-white/[0.06] p-4 text-center">
+                {verifiedPhoto ? (
+                  <img
+                    src={verifiedPhoto}
+                    alt={wrestler.shikona}
+                    className="w-24 h-24 mx-auto mb-3 rounded-full object-cover"
+                  />
+                ) : (
+                  <div className="w-24 h-24 mx-auto mb-3 rounded-full bg-white/[0.06] flex items-center justify-center">
+                    <span className="text-4xl font-black text-zinc-600">{wrestler.shikona?.charAt(0) || '?'}</span>
+                  </div>
+                )}
+                <h3 className="text-xl font-black text-white mb-1">{wrestler.shikona}</h3>
+                <div className="text-sm text-zinc-500">{wrestler.rank}</div>
+              </div>
+            );
+          })}
         </div>
 
         {/* Stats Comparison */}

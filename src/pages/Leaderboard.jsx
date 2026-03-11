@@ -149,14 +149,6 @@ function isStubWrestler(wrestler) {
   return false;
 }
 
-function getImageBadge(wrestler) {
-  const official = String(wrestler?.official_image_url || '').trim();
-  const wiki = String(wrestler?.image?.url || '').trim();
-  if (official.toLowerCase().includes('sumo.or.jp')) return 'JSA image';
-  if (wiki) return 'Wiki image';
-  return 'No image';
-}
-
 function getRecordBadge(record) {
   return record?.is_stub === true ? 'Stub record' : 'Real record';
 }

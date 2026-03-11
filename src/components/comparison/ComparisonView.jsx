@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
 import { cn } from '@/lib/utils';
 import SaveComparisonDialog from './SaveComparisonDialog';
+import { resolveVerifiedImageUrl } from '@/data/verifiedProfiles';
 
 const StatRow = ({ label, values, icon: Icon }) => {
   // Find the best value(s)
@@ -160,15 +161,20 @@ export default function ComparisonView({ wrestlers, open, onClose }) {
               className="bg-white/[0.02] border border-white/[0.06] p-4"
             >
               <div className="flex flex-col items-center gap-3">
-                <div className="w-24 h-24 bg-white/[0.04] overflow-hidden">
-                  {wrestler.image_url ? (
-                    <img src={wrestler.image_url} alt={wrestler.shikona} className="w-full h-full object-cover" />
-                  ) : (
-                    <div className="w-full h-full flex items-center justify-center text-4xl font-black text-zinc-600">
-                      {wrestler.shikona?.charAt(0)}
+                {(() => {
+                  const verifiedPhoto = resolveVerifiedImageUrl(wrestler.shikona || '');
+                  return (
+                    <div className="w-24 h-24 bg-white/[0.04] overflow-hidden">
+                      {verifiedPhoto ? (
+                        <img src={verifiedPhoto} alt={wrestler.shikona} className="w-full h-full object-cover" />
+                      ) : (
+                        <div className="w-full h-full flex items-center justify-center text-4xl font-black text-zinc-600">
+                          {wrestler.shikona?.charAt(0)}
+                        </div>
+                      )}
                     </div>
-                  )}
-                </div>
+                  );
+                })()}
                 <div className="text-center">
                   <h3 className="text-xl font-black text-white">{wrestler.shikona}</h3>
                   {wrestler.real_name && (

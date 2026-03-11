@@ -11,6 +11,7 @@ import { format } from 'date-fns';
 import WrestlerComparisonCard from '../components/predictor/WrestlerComparisonCard';
 import PredictionFactors from '../components/predictor/PredictionFactors';
 import { calculateMatchProbability, fetchMatchOdds } from '@/api/functions/matchPrediction';
+import { getVerifiedProfile, getVerifiedImageUrl } from '@/data/verifiedProfiles';
 
 export default function MatchPredictor() {
   const [wrestler1Id, setWrestler1Id] = useState('');
@@ -381,21 +382,25 @@ export default function MatchPredictor() {
                     <h3 className="text-lg font-black text-white mb-4">Data Provenance</h3>
                     <div className="grid md:grid-cols-2 gap-4">
                       {/* Wrestler 1 */}
+                      {(() => {
+                        const vp1 = getVerifiedProfile(wrestler1.shikona || '');
+                        const hasVerifiedImage1 = !!getVerifiedImageUrl(vp1);
+                        return (
                       <div className="rounded-lg border border-white/[0.06] bg-white/[0.02] p-4">
                         <div className="text-sm font-bold text-white mb-3">{wrestler1.shikona}</div>
                         <div className="space-y-2">
                           <div className="flex items-center gap-2">
-                            {wrestler1.official_image_url ? (
+                            {hasVerifiedImage1 ? (
                               <span className="text-xs px-2 py-1 bg-green-900/50 text-green-400 rounded border border-green-700">
-                                ✓ Official JSA Image
+                                ✓ Verified Image
                               </span>
-                            ) : wrestler1.image_url ? (
-                              <span className="text-xs px-2 py-1 bg-blue-900/50 text-blue-400 rounded border border-blue-700">
-                                Wikipedia Image
+                            ) : vp1 ? (
+                              <span className="text-xs px-2 py-1 bg-amber-900/50 text-amber-400 rounded border border-amber-700">
+                                Profile Found · No Verified Image
                               </span>
                             ) : (
                               <span className="text-xs px-2 py-1 bg-white/[0.06] text-zinc-400 rounded border border-white/[0.08]">
-                                Missing Image
+                                No Verified Profile
                               </span>
                             )}
                           </div>
@@ -417,23 +422,29 @@ export default function MatchPredictor() {
                           )}
                         </div>
                       </div>
+                        );
+                      })()}
 
                       {/* Wrestler 2 */}
+                      {(() => {
+                        const vp2 = getVerifiedProfile(wrestler2.shikona || '');
+                        const hasVerifiedImage2 = !!getVerifiedImageUrl(vp2);
+                        return (
                       <div className="rounded-lg border border-white/[0.06] bg-white/[0.02] p-4">
                         <div className="text-sm font-bold text-white mb-3">{wrestler2.shikona}</div>
                         <div className="space-y-2">
                           <div className="flex items-center gap-2">
-                            {wrestler2.official_image_url ? (
+                            {hasVerifiedImage2 ? (
                               <span className="text-xs px-2 py-1 bg-green-900/50 text-green-400 rounded border border-green-700">
-                                ✓ Official JSA Image
+                                ✓ Verified Image
                               </span>
-                            ) : wrestler2.image_url ? (
-                              <span className="text-xs px-2 py-1 bg-blue-900/50 text-blue-400 rounded border border-blue-700">
-                                Wikipedia Image
+                            ) : vp2 ? (
+                              <span className="text-xs px-2 py-1 bg-amber-900/50 text-amber-400 rounded border border-amber-700">
+                                Profile Found · No Verified Image
                               </span>
                             ) : (
                               <span className="text-xs px-2 py-1 bg-white/[0.06] text-zinc-400 rounded border border-white/[0.08]">
-                                Missing Image
+                                No Verified Profile
                               </span>
                             )}
                           </div>
@@ -455,6 +466,8 @@ export default function MatchPredictor() {
                           )}
                         </div>
                       </div>
+                        );
+                      })()}
                     </div>
                   </div>
 

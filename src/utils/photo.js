@@ -10,27 +10,20 @@ export function isUsableHttpUrl(value) {
 /**
  * Resolve the best available photo URL for a wrestler.
  *
- * Resolution order:
- *   1. Verified Makuuchi profile (imageConfidence === "verified" only)
- *   2. wrestler.official_image_url  (legacy field)
- *   3. wrestler.image.url           (Wikimedia/Wikipedia fallback)
- *   4. '' → triggers FallbackAvatar placeholder
+ * TRUST RULE — only images that have passed the verified-profile
+ * confidence gate (imageConfidence === "verified") are returned.
+ * All other cases return '' which triggers the FallbackAvatar
+ * placeholder.  Raw API fields like official_image_url or
+ * image.url are intentionally NOT used here because they have
+ * no confidence metadata.
  */
 export function resolvePhotoUrl(wrestler) {
-  // 1. Check JSA-verified profiles first (highest confidence)
   const shikona = typeof wrestler?.shikona === 'string' ? wrestler.shikona.trim() : '';
   if (shikona) {
     const verifiedUrl = resolveVerifiedImageUrl(shikona);
     if (verifiedUrl) return verifiedUrl;
   }
 
-  // 2. Legacy official_image_url field
-  const official = typeof wrestler?.official_image_url === 'string' ? wrestler.official_image_url.trim() : '';
-  if (isUsableHttpUrl(official)) return official;
-
-  // 3. Nested image.url (Wikimedia/Wikipedia)
-  const imageUrl = typeof wrestler?.image?.url === 'string' ? wrestler.image.url.trim() : '';
-  if (isUsableHttpUrl(imageUrl)) return imageUrl;
-
+  // No verified image available → placeholder
   return '';
 }

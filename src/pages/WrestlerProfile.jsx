@@ -97,12 +97,11 @@ function getNationality(wrestler) {
   ).trim();
 }
 
-function getImageSourceBadge(wrestler) {
-  const official = String(wrestler?.official_image_url || '').trim().toLowerCase();
-  const wiki = String(wrestler?.image?.url || '').trim();
-  if (official.includes('sumo.or.jp')) return 'JSA image';
-  if (wiki) return 'Wiki image';
-  return 'No image';
+function getImageSourceBadge(wrestler, verifiedProfile) {
+  if (verifiedProfile?.imageConfidence === 'verified') return 'Verified image';
+  if (verifiedProfile?.imageConfidence === 'likely') return 'Pending verification';
+  if (verifiedProfile) return 'No verified image';
+  return 'No image data';
 }
 
 function getRecordSourceBadge(record) {
@@ -564,7 +563,7 @@ export default function WrestlerProfile() {
               {verifiedProfile?.profileConfidence === 'verified' && (
                 <span className="rounded border border-emerald-700 bg-emerald-900/30 px-2 py-1 text-emerald-200">JSA Verified</span>
               )}
-              <span className="rounded bg-white/[0.06] px-2 py-1 text-zinc-300">{getImageSourceBadge(wrestler || {})}</span>
+              <span className="rounded bg-white/[0.06] px-2 py-1 text-zinc-300">{getImageSourceBadge(wrestler || {}, verifiedProfile)}</span>
               <span className="rounded bg-white/[0.06] px-2 py-1 text-zinc-300">{latestRecordSourceBadge}</span>
             </div>
           </div>

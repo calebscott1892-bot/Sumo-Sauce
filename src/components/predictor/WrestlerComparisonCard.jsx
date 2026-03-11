@@ -1,6 +1,7 @@
 import React from 'react';
 import { Trophy, TrendingUp, Award, Weight, Ruler, Calendar } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { resolveVerifiedImageUrl } from '@/data/verifiedProfiles';
 
 export default function WrestlerComparisonCard({ wrestler, side, isWinner, probability }) {
   if (!wrestler) return null;
@@ -18,13 +19,18 @@ export default function WrestlerComparisonCard({ wrestler, side, isWinner, proba
     )}>
       {/* Profile */}
       <div className="text-center mb-6">
-        <div className="w-24 h-24 mx-auto mb-4 rounded-full bg-white/[0.06] flex items-center justify-center overflow-hidden">
-          {wrestler.image_url ? (
-            <img src={wrestler.image_url} alt={wrestler.shikona} className="w-full h-full object-cover" />
-          ) : (
-            <span className="text-4xl font-black text-zinc-600">{wrestler.shikona?.charAt(0)}</span>
-          )}
-        </div>
+        {(() => {
+          const verifiedPhoto = resolveVerifiedImageUrl(wrestler.shikona || '');
+          return (
+            <div className="w-24 h-24 mx-auto mb-4 rounded-full bg-white/[0.06] flex items-center justify-center overflow-hidden">
+              {verifiedPhoto ? (
+                <img src={verifiedPhoto} alt={wrestler.shikona} className="w-full h-full object-cover" />
+              ) : (
+                <span className="text-4xl font-black text-zinc-600">{wrestler.shikona?.charAt(0)}</span>
+              )}
+            </div>
+          );
+        })()}
         <h3 className="text-2xl font-black text-white mb-1">{wrestler.shikona}</h3>
         <div className={cn(
           "text-sm font-bold uppercase tracking-wider",
