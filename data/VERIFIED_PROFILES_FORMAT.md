@@ -77,18 +77,31 @@ Add entries to the same JSON array. The adapter builds indexes at module
 load time and handles any number of entries. No code changes needed to
 support additional divisions or historical batches — just add rows.
 
-**Current batches:**
-- Makuuchi active roster (42 wrestlers)
-- Historical Yokozuna & Ōzeki, 2000–present (17 wrestlers)
-- Jūryō roster, Haru 2026 (25 wrestlers)
-- Sandanme 1–50 (East + West), Haru 2026 (100 wrestlers)
-- Makushita 1–10 (East + West), Haru 2026 (20 wrestlers)
-- Makushita 11–20 (East + West), Haru 2026 (19 wrestlers — 1 skipped as duplicate)
-- Makushita 41–60 (East + West), Haru 2026 (21 wrestlers — 2 unverified, flagged for manual review)
-- Sandanme 51–80 (selected), Haru 2026 (7 wrestlers — 3 skipped as duplicates from Sandanme 1–50)
-- Jonidan 1–80, Haru 2026 (42 wrestlers — 2 verified, 36 likely, 4 unverified/flagged for manual review)
-- Jonokuchi (full division), Haru 2026 (42 wrestlers — all JSA-verified with full bio)
-- Jonidan 81–160 (selected), Haru 2026 (15 wrestlers — 1 duplicate skipped; many fields remain unverified)
+**Current batches (consolidated March 2026):**
+
+| Batch | Division / Range | Profiles | Notes |
+|-------|-----------------|----------|-------|
+| Makuuchi | Active roster | 42 | JSA-verified with images |
+| Historical | Yokozuna & Ōzeki 2000–present | 17 | Retired legends |
+| Jūryō | Full roster, Haru 2026 | 25 | JSA-verified |
+| Makushita 1–20 | E+W, Haru 2026 | 39 | 1 skipped as duplicate |
+| Makushita 21–40 | E+W, Haru 2026 | 40 | Batch 12 |
+| Makushita 41–60 | E+W, Haru 2026 | 22 | 2 unverified, flagged |
+| Sandanme 1–50 | E+W, Haru 2026 | 100 | Full coverage |
+| Sandanme 51–80 | Selected, Haru 2026 | 7 | 3 skipped as Sd1–50 dupes |
+| Sandanme / lower-Makushita | Mixed, Haru 2026 | 56 | Batch 14 |
+| Jonidan 1–80 | Haru 2026 | 42 | 4 unverified/flagged |
+| Jonidan 81–100 | E+W, Haru 2026 | 40 | Batch 15 |
+| Jonokuchi | Full division, Haru 2026 | 42 | All JSA-verified |
+| Jonidan 81–160 (early) | Selected, Haru 2026 | 15 | 1 duplicate skipped |
+| **Total (after dedup)** | | **496** | 12 cross-batch dupes resolved |
+
+**Consolidation notes (March 2026):**
+- 12 duplicate-shikona pairs were resolved by merging the best data from each entry
+- Merge preserved the stronger profileConfidence value and backfilled null fields
+- All sourceRefs were merged and deduplicated by URL
+- 9 profiles remain with empty sourceRefs (all unverified/sparse — flagged for review)
+- 172 profiles have null rikishiId (mostly Jonokuchi and sparse lower-division entries)
 
 ## Matching strategy
 

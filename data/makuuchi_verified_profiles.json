@@ -7417,7 +7417,7 @@
     "notes": "Haru 2026 Jonokuchi W21. Ring name changed from Chiyoryusei."
   },
   {
-    "rikishiId": null,
+    "rikishiId": "3552",
     "shikona": "Fujinoteru",
     "heya": "Onoe",
     "birthDate": "1998-08-24",
@@ -7433,60 +7433,26 @@
       {
         "label": "JSA leaders page",
         "url": "https://www.sumo.or.jp/"
-      }
-    ],
-    "notes": "Haru 2026 Jonidan 81–160 batch. Core profile verified from JSA profile; rikishiId not recovered from provided sources."
-  },
-  {
-    "rikishiId": null,
-    "shikona": "Azumanami",
-    "heya": "Tamanoi",
-    "birthDate": "1984-11-29",
-    "nationality": "Japan",
-    "heightCm": null,
-    "weightKg": null,
-    "status": "active",
-    "officialImageUrl": null,
-    "imageSource": null,
-    "imageConfidence": "missing",
-    "profileConfidence": "likely",
-    "sourceRefs": [
+      },
       {
-        "label": "JSA leaders page",
-        "url": "https://www.sumo.or.jp/"
-      }
-    ],
-    "notes": "Haru 2026 Jonidan 81–160 batch. Birth date confirmed; height and weight unavailable in provided official sources."
-  },
-  {
-    "rikishiId": null,
-    "shikona": "Anzakura",
-    "heya": "Ajigawa",
-    "birthDate": null,
-    "nationality": null,
-    "heightCm": null,
-    "weightKg": null,
-    "status": "active",
-    "officialImageUrl": null,
-    "imageSource": null,
-    "imageConfidence": "missing",
-    "profileConfidence": "likely",
-    "sourceRefs": [
+        "label": "JSA rikishi profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3552/"
+      },
       {
-        "label": "JSA leaders page",
-        "url": "https://www.sumo.or.jp/"
+        "label": "SumoDB Haru 2026 text banzuke",
+        "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
       }
     ],
-    "notes": "Haru 2026 Jonidan 81–160 batch. Rank/stable confirmed; no profile data recovered."
+    "notes": "Haru 2026 Jonidan 81–160 batch. Core profile verified from JSA profile; rikishiId not recovered from provided sources. | [Merged from earlier entry]: Official JSA profile URL resolved from search results; rank snippet in the result was not fully clean, so profile confidence kept conservative. Nationality null; image omitted."
   },
   {
     "rikishiId": null,
     "shikona": "Onbashira",
     "heya": "Nishonoseki",
-    "birthDate": null,
+    "birthDate": "2006-07-04",
     "nationality": null,
-    "heightCm": null,
-    "weightKg": null,
+    "heightCm": 172,
+    "weightKg": 127,
     "status": "active",
     "officialImageUrl": null,
     "imageSource": null,
@@ -7496,30 +7462,17 @@
       {
         "label": "JSA leaders page",
         "url": "https://www.sumo.or.jp/"
-      }
-    ],
-    "notes": "Haru 2026 Jonidan 81–160 batch. Rank/stable confirmed; no profile data recovered."
-  },
-  {
-    "rikishiId": null,
-    "shikona": "Sonoshun",
-    "heya": "Arashio",
-    "birthDate": null,
-    "nationality": null,
-    "heightCm": null,
-    "weightKg": null,
-    "status": "active",
-    "officialImageUrl": null,
-    "imageSource": null,
-    "imageConfidence": "missing",
-    "profileConfidence": "likely",
-    "sourceRefs": [
+      },
       {
-        "label": "JSA leaders page",
-        "url": "https://www.sumo.or.jp/"
+        "label": "JSA rikishi search page",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/search/"
+      },
+      {
+        "label": "SumoDB Haru 2026 text banzuke",
+        "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
       }
     ],
-    "notes": "Haru 2026 Jonidan 81–160 batch. Rank/stable confirmed; no profile data recovered."
+    "notes": "Haru 2026 Jonidan 81–160 batch. Rank/stable confirmed; no profile data recovered. | [Merged from earlier entry]: Roster slot Jd83e is confirmed from the current banzuke, but a unique official JSA profile identifier could not be safely resolved in this run. Core scalar fields are taken from the current banzuke. Nationality null; image omitted. Manual review required."
   },
   {
     "rikishiId": null,
@@ -7536,153 +7489,6 @@
     "profileConfidence": "likely",
     "sourceRefs": [],
     "notes": "Haru 2026 Jonidan 81–160 batch. Height/weight from secondary sumo database; no official profile recovered."
-  },
-  {
-    "rikishiId": null,
-    "shikona": "Datenomori",
-    "heya": "Isenoumi",
-    "birthDate": null,
-    "nationality": null,
-    "heightCm": null,
-    "weightKg": null,
-    "status": "active",
-    "officialImageUrl": null,
-    "imageSource": null,
-    "imageConfidence": "missing",
-    "profileConfidence": "likely",
-    "sourceRefs": [
-      {
-        "label": "JSA leaders page",
-        "url": "https://www.sumo.or.jp/"
-      }
-    ],
-    "notes": "Haru 2026 Jonidan 81–160 batch. Rank/stable confirmed; no profile data recovered."
-  },
-  {
-    "rikishiId": null,
-    "shikona": "Tsurunoumi",
-    "heya": "Shikoroyama",
-    "birthDate": null,
-    "nationality": null,
-    "heightCm": null,
-    "weightKg": null,
-    "status": "active",
-    "officialImageUrl": null,
-    "imageSource": null,
-    "imageConfidence": "missing",
-    "profileConfidence": "likely",
-    "sourceRefs": [
-      {
-        "label": "JSA leaders page",
-        "url": "https://www.sumo.or.jp/"
-      }
-    ],
-    "notes": "Haru 2026 Jonidan 81–160 batch. Rank/stable confirmed; no profile data recovered."
-  },
-  {
-    "rikishiId": null,
-    "shikona": "Fubu",
-    "heya": "Musashigawa",
-    "birthDate": null,
-    "nationality": null,
-    "heightCm": null,
-    "weightKg": null,
-    "status": "active",
-    "officialImageUrl": null,
-    "imageSource": null,
-    "imageConfidence": "missing",
-    "profileConfidence": "likely",
-    "sourceRefs": [
-      {
-        "label": "JSA leaders page",
-        "url": "https://www.sumo.or.jp/"
-      }
-    ],
-    "notes": "Haru 2026 Jonidan 81–160 batch. Rank/stable confirmed; no profile data recovered."
-  },
-  {
-    "rikishiId": null,
-    "shikona": "Kosei",
-    "heya": "Hidenoyama",
-    "birthDate": null,
-    "nationality": null,
-    "heightCm": null,
-    "weightKg": null,
-    "status": "active",
-    "officialImageUrl": null,
-    "imageSource": null,
-    "imageConfidence": "missing",
-    "profileConfidence": "likely",
-    "sourceRefs": [
-      {
-        "label": "JSA leaders page",
-        "url": "https://www.sumo.or.jp/"
-      }
-    ],
-    "notes": "Haru 2026 Jonidan 81–160 batch. Rank/stable confirmed; no profile data recovered."
-  },
-  {
-    "rikishiId": null,
-    "shikona": "Kaigyokusei",
-    "heya": "Asakayama",
-    "birthDate": null,
-    "nationality": null,
-    "heightCm": null,
-    "weightKg": null,
-    "status": "active",
-    "officialImageUrl": null,
-    "imageSource": null,
-    "imageConfidence": "missing",
-    "profileConfidence": "likely",
-    "sourceRefs": [
-      {
-        "label": "JSA leaders page",
-        "url": "https://www.sumo.or.jp/"
-      }
-    ],
-    "notes": "Haru 2026 Jonidan 81–160 batch. Rank/stable confirmed; no profile data recovered."
-  },
-  {
-    "rikishiId": null,
-    "shikona": "Urutora",
-    "heya": "Shikihide",
-    "birthDate": null,
-    "nationality": null,
-    "heightCm": null,
-    "weightKg": null,
-    "status": "active",
-    "officialImageUrl": null,
-    "imageSource": null,
-    "imageConfidence": "missing",
-    "profileConfidence": "likely",
-    "sourceRefs": [
-      {
-        "label": "JSA leaders page",
-        "url": "https://www.sumo.or.jp/"
-      }
-    ],
-    "notes": "Haru 2026 Jonidan 81–160 batch. Rank/stable confirmed; no profile data recovered."
-  },
-  {
-    "rikishiId": null,
-    "shikona": "Kiryuko",
-    "heya": "Tatsunami",
-    "birthDate": null,
-    "nationality": null,
-    "heightCm": null,
-    "weightKg": null,
-    "status": "active",
-    "officialImageUrl": null,
-    "imageSource": null,
-    "imageConfidence": "missing",
-    "profileConfidence": "likely",
-    "sourceRefs": [
-      {
-        "label": "JSA leaders page",
-        "url": "https://www.sumo.or.jp/"
-      }
-    ],
-    "notes": "Haru 2026 Jonidan 81–160 batch. Rank/stable confirmed; no profile data recovered."
   },
   {
     "rikishiId": null,
@@ -10671,7 +10477,7 @@
     "shikona": "Azumanami",
     "heya": "Tamanoi",
     "birthDate": "1984-11-29",
-    "nationality": null,
+    "nationality": "Japan",
     "heightCm": 173,
     "weightKg": 144,
     "status": "active",
@@ -10687,34 +10493,13 @@
       {
         "label": "SumoDB Haru 2026 text banzuke",
         "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
-      }
-    ],
-    "notes": "Current rank confirmed on JSA search result as Jonidan #81. Nationality left null because JSA exposes birthplace, not explicit nationality. Image omitted pending separate verification."
-  },
-  {
-    "rikishiId": "3552",
-    "shikona": "Fujinoteru",
-    "heya": "Onoe",
-    "birthDate": "1998-08-24",
-    "nationality": null,
-    "heightCm": 166,
-    "weightKg": 91,
-    "status": "active",
-    "officialImageUrl": null,
-    "imageSource": null,
-    "imageConfidence": "missing",
-    "profileConfidence": "likely",
-    "sourceRefs": [
-      {
-        "label": "JSA rikishi profile",
-        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3552/"
       },
       {
-        "label": "SumoDB Haru 2026 text banzuke",
-        "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        "label": "JSA leaders page",
+        "url": "https://www.sumo.or.jp/"
       }
     ],
-    "notes": "Official JSA profile URL resolved from search results; rank snippet in the result was not fully clean, so profile confidence kept conservative. Nationality null; image omitted."
+    "notes": "Current rank confirmed on JSA search result as Jonidan #81. Nationality left null because JSA exposes birthplace, not explicit nationality. Image omitted pending separate verification. | [Merged from earlier entry]: Haru 2026 Jonidan 81–160 batch. Birth date confirmed; height and weight unavailable in provided official sources."
   },
   {
     "rikishiId": "4180",
@@ -10737,9 +10522,13 @@
       {
         "label": "SumoDB Haru 2026 text banzuke",
         "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+      },
+      {
+        "label": "JSA leaders page",
+        "url": "https://www.sumo.or.jp/"
       }
     ],
-    "notes": "Current rank confirmed on JSA search result as Jonidan #82. Nationality null; image omitted."
+    "notes": "Current rank confirmed on JSA search result as Jonidan #82. Nationality null; image omitted. | [Merged from earlier entry]: Haru 2026 Jonidan 81–160 batch. Rank/stable confirmed; no profile data recovered."
   },
   {
     "rikishiId": "3694",
@@ -10765,31 +10554,6 @@
       }
     ],
     "notes": "Current rank confirmed on JSA search result as Jonidan #82. Nationality null; image omitted."
-  },
-  {
-    "rikishiId": null,
-    "shikona": "Onbashira",
-    "heya": "Nishonoseki",
-    "birthDate": "2006-07-04",
-    "nationality": null,
-    "heightCm": 172,
-    "weightKg": 127,
-    "status": "active",
-    "officialImageUrl": null,
-    "imageSource": null,
-    "imageConfidence": "missing",
-    "profileConfidence": "unverified",
-    "sourceRefs": [
-      {
-        "label": "JSA rikishi search page",
-        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/search/"
-      },
-      {
-        "label": "SumoDB Haru 2026 text banzuke",
-        "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
-      }
-    ],
-    "notes": "Roster slot Jd83e is confirmed from the current banzuke, but a unique official JSA profile identifier could not be safely resolved in this run. Core scalar fields are taken from the current banzuke. Nationality null; image omitted. Manual review required."
   },
   {
     "rikishiId": "4269",
@@ -10887,9 +10651,13 @@
       {
         "label": "SumoDB Haru 2026 text banzuke",
         "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+      },
+      {
+        "label": "JSA leaders page",
+        "url": "https://www.sumo.or.jp/"
       }
     ],
-    "notes": "Current rank confirmed on JSA search result as Jonidan #85. Nationality null; image omitted."
+    "notes": "Current rank confirmed on JSA search result as Jonidan #85. Nationality null; image omitted. | [Merged from earlier entry]: Haru 2026 Jonidan 81–160 batch. Rank/stable confirmed; no profile data recovered."
   },
   {
     "rikishiId": "4150",
@@ -11062,9 +10830,13 @@
       {
         "label": "SumoDB Haru 2026 text banzuke",
         "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+      },
+      {
+        "label": "JSA leaders page",
+        "url": "https://www.sumo.or.jp/"
       }
     ],
-    "notes": "Current rank confirmed on JSA search result as Jonidan #88. Nationality null; image omitted."
+    "notes": "Current rank confirmed on JSA search result as Jonidan #88. Nationality null; image omitted. | [Merged from earlier entry]: Haru 2026 Jonidan 81–160 batch. Rank/stable confirmed; no profile data recovered."
   },
   {
     "rikishiId": "1179",
@@ -11162,9 +10934,13 @@
       {
         "label": "SumoDB Haru 2026 text banzuke",
         "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+      },
+      {
+        "label": "JSA leaders page",
+        "url": "https://www.sumo.or.jp/"
       }
     ],
-    "notes": "Current rank confirmed on JSA profile as Jonidan #90. Nationality null; image omitted."
+    "notes": "Current rank confirmed on JSA profile as Jonidan #90. Nationality null; image omitted. | [Merged from earlier entry]: Haru 2026 Jonidan 81–160 batch. Rank/stable confirmed; no profile data recovered."
   },
   {
     "rikishiId": "3548",
@@ -11237,9 +11013,13 @@
       {
         "label": "SumoDB Haru 2026 text banzuke",
         "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+      },
+      {
+        "label": "JSA leaders page",
+        "url": "https://www.sumo.or.jp/"
       }
     ],
-    "notes": "Current rank confirmed on JSA profile as Jonidan #92. Nationality null; image omitted."
+    "notes": "Current rank confirmed on JSA profile as Jonidan #92. Nationality null; image omitted. | [Merged from earlier entry]: Haru 2026 Jonidan 81–160 batch. Rank/stable confirmed; no profile data recovered."
   },
   {
     "rikishiId": "4316",
@@ -11312,9 +11092,13 @@
       {
         "label": "SumoDB Haru 2026 text banzuke",
         "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+      },
+      {
+        "label": "JSA leaders page",
+        "url": "https://www.sumo.or.jp/"
       }
     ],
-    "notes": "Current rank confirmed on JSA profile as Jonidan #93. Nationality null; image omitted."
+    "notes": "Current rank confirmed on JSA profile as Jonidan #93. Nationality null; image omitted. | [Merged from earlier entry]: Haru 2026 Jonidan 81–160 batch. Rank/stable confirmed; no profile data recovered."
   },
   {
     "rikishiId": "4318",
@@ -11437,9 +11221,13 @@
       {
         "label": "SumoDB Haru 2026 text banzuke",
         "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+      },
+      {
+        "label": "JSA leaders page",
+        "url": "https://www.sumo.or.jp/"
       }
     ],
-    "notes": "JSA search output exposed stale January-rank text despite correct profile resolution. Current roster placement matches Jd96e on the current banzuke. Nationality null; image omitted."
+    "notes": "JSA search output exposed stale January-rank text despite correct profile resolution. Current roster placement matches Jd96e on the current banzuke. Nationality null; image omitted. | [Merged from earlier entry]: Haru 2026 Jonidan 81–160 batch. Rank/stable confirmed; no profile data recovered."
   },
   {
     "rikishiId": "4326",
@@ -11562,9 +11350,13 @@
       {
         "label": "SumoDB Haru 2026 text banzuke",
         "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+      },
+      {
+        "label": "JSA leaders page",
+        "url": "https://www.sumo.or.jp/"
       }
     ],
-    "notes": "Current rank confirmed on JSA profile as Jonidan #98. Nationality null; image omitted."
+    "notes": "Current rank confirmed on JSA profile as Jonidan #98. Nationality null; image omitted. | [Merged from earlier entry]: Haru 2026 Jonidan 81–160 batch. Rank/stable confirmed; no profile data recovered."
   },
   {
     "rikishiId": "4248",
@@ -11662,8 +11454,12 @@
       {
         "label": "SumoDB Haru 2026 text banzuke",
         "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+      },
+      {
+        "label": "JSA leaders page",
+        "url": "https://www.sumo.or.jp/"
       }
     ],
-    "notes": "Current rank confirmed on JSA profile as Jonidan #100. Nationality null; image omitted."
+    "notes": "Current rank confirmed on JSA profile as Jonidan #100. Nationality null; image omitted. | [Merged from earlier entry]: Haru 2026 Jonidan 81–160 batch. Rank/stable confirmed; no profile data recovered."
   }
 ]
