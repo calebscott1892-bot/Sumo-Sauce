@@ -84,6 +84,7 @@ support additional divisions or historical batches — just add rows.
 - Sandanme 1–50 (East + West), Haru 2026 (100 wrestlers)
 - Makushita 1–10 (East + West), Haru 2026 (20 wrestlers)
 - Makushita 11–20 (East + West), Haru 2026 (19 wrestlers — 1 skipped as duplicate)
+- Makushita 41–60 (East + West), Haru 2026 (21 wrestlers — 2 unverified, flagged for manual review)
 
 ## Matching strategy
 

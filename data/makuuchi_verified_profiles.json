@@ -5093,5 +5093,436 @@
       }
     ],
     "notes": "Haru 2026 Makushita 20W."
+  },
+  {
+    "rikishiId": "3163",
+    "shikona": "Tochinobori Minoru",
+    "heya": "Kasugano",
+    "birthDate": "1993-09-01",
+    "nationality": "Japan",
+    "heightCm": 183.0,
+    "weightKg": 133.6,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3163/"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "rikishiId": "4289",
+    "shikona": "Mita Taiki",
+    "heya": "Futagoyama",
+    "birthDate": "2001-12-13",
+    "nationality": "Japan",
+    "heightCm": 173.0,
+    "weightKg": 115.4,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Profile",
+        "url": "https://www.sumo.or.jp/Profile/rikishi/4289/"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "rikishiId": "4057",
+    "shikona": "Gououshou Taizou",
+    "heya": "Naruto",
+    "birthDate": "2002-06-06",
+    "nationality": "Japan",
+    "heightCm": 169.0,
+    "weightKg": 129.0,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4057/"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "rikishiId": "4089",
+    "shikona": "Daishoryu Tomoyoshi",
+    "heya": "Yamagata",
+    "birthDate": "2002-11-03",
+    "nationality": "Japan",
+    "heightCm": 178.0,
+    "weightKg": 120.2,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4089/"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "rikishiId": "3946",
+    "shikona": "Kiyota Junpei",
+    "heya": "Dewanoumi",
+    "birthDate": "2003-08-04",
+    "nationality": "Japan",
+    "heightCm": 179.0,
+    "weightKg": 122.8,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3946/"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "rikishiId": "4103",
+    "shikona": "Shunrai Shoma",
+    "heya": "Tatsunami",
+    "birthDate": "2005-04-10",
+    "nationality": "Japan",
+    "heightCm": 180.5,
+    "weightKg": 133.6,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4103/"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Kirinryu Yuto",
+    "heya": null,
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "unverified",
+    "sourceRefs": [],
+    "notes": "No official profile found; identity not confirmed."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Tsushimanada Masamitsu",
+    "heya": null,
+    "birthDate": "1993-06-27",
+    "nationality": "Japan",
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "unverified",
+    "sourceRefs": [],
+    "notes": "Official profile inaccessible; fields not confirmed."
+  },
+  {
+    "rikishiId": "3978",
+    "shikona": "Oshoryu Kenta",
+    "heya": "Naruto",
+    "birthDate": "1996-04-22",
+    "nationality": "Japan",
+    "heightCm": 178.6,
+    "weightKg": 164.1,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3978/"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "rikishiId": "4194",
+    "shikona": "Yumenofuji Yudai",
+    "heya": "Isegahama",
+    "birthDate": "2008-02-02",
+    "nationality": "Japan",
+    "heightCm": 183.5,
+    "weightKg": 151.6,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4194/"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "rikishiId": "3985",
+    "shikona": "Nihonyanagi Wataru",
+    "heya": "Onomatsu",
+    "birthDate": "2000-05-31",
+    "nationality": "Japan",
+    "heightCm": 176.0,
+    "weightKg": 175.7,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3985/"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "rikishiId": "4115",
+    "shikona": "Kotokenryu Takeaki",
+    "heya": "Sadogatake",
+    "birthDate": "1995-09-06",
+    "nationality": "Mongolia",
+    "heightCm": 185.7,
+    "weightKg": 153.6,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4115/"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "rikishiId": "3654",
+    "shikona": "Tosamidori Kiyota",
+    "heya": "Onoumi",
+    "birthDate": "1996-05-11",
+    "nationality": "Japan",
+    "heightCm": 181.0,
+    "weightKg": 138.7,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3654/"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "rikishiId": "4235",
+    "shikona": "Anhiki Kaoto",
+    "heya": "Anjigawa",
+    "birthDate": "2005-11-25",
+    "nationality": "Japan",
+    "heightCm": 184.5,
+    "weightKg": 145.2,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4235/"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "rikishiId": "4346",
+    "shikona": "Kakueizan Shusei",
+    "heya": "Otowayama",
+    "birthDate": "2003-01-23",
+    "nationality": "Japan",
+    "heightCm": 184.0,
+    "weightKg": 167.0,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4346/"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "rikishiId": "3925",
+    "shikona": "Fujinoyama Yuto",
+    "heya": "Fujishima",
+    "birthDate": "2000-07-26",
+    "nationality": "Japan",
+    "heightCm": 182.7,
+    "weightKg": 121.9,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3925/"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "rikishiId": "4356",
+    "shikona": "Ryuho Kazuma",
+    "heya": "Otowayama",
+    "birthDate": "2007-06-12",
+    "nationality": "Japan",
+    "heightCm": 175.2,
+    "weightKg": 156.0,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4356/"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "rikishiId": "4351",
+    "shikona": "Yabugasaki Akihito",
+    "heya": "Yamahibiki",
+    "birthDate": "2006-10-10",
+    "nationality": "Japan",
+    "heightCm": 180.0,
+    "weightKg": 167.8,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4351/"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "rikishiId": "4292",
+    "shikona": "Tenrosei Kenichi",
+    "heya": "Shikoroyama",
+    "birthDate": "2006-09-15",
+    "nationality": "Mongolia",
+    "heightCm": 187.0,
+    "weightKg": 120.9,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4292/"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "rikishiId": "4135",
+    "shikona": "Yamato Yuji",
+    "heya": "Dewanoumi",
+    "birthDate": "2003-08-13",
+    "nationality": "Japan",
+    "heightCm": 177.5,
+    "weightKg": 76.3,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4135/"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "rikishiId": "4295",
+    "shikona": "Okada Ryotaro",
+    "heya": "Takadagawa",
+    "birthDate": "2002-05-11",
+    "nationality": "Japan",
+    "heightCm": 172.0,
+    "weightKg": 162.0,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4295/"
+      }
+    ],
+    "notes": ""
   }
 ]
