@@ -12,6 +12,7 @@ import CareerHeatmap from '@/components/rikishi/CareerHeatmap';
 import ConsistencyScore from '@/components/rikishi/ConsistencyScore';
 import StreakCard from '@/components/rikishi/StreakCard';
 import PerformanceVsField from '@/components/rikishi/PerformanceVsField';
+import VerifiedProfileCard from '@/components/rikishi/VerifiedProfileCard';
 import { isFavoriteRikishi, toggleFavoriteRikishi } from '@/utils/favorites';
 import { trackRikishiView } from '@/utils/recentlyViewed';
 import {
@@ -218,6 +219,12 @@ export default function RikishiPage() {
             Compare →
           </Link>
         }
+      />
+
+      <VerifiedProfileCard
+        shikona={shikona}
+        heya={summaryQuery.data.heya}
+        rank={summaryQuery.data.highestRank?.rank}
       />
 
       <RikishiSummaryCard

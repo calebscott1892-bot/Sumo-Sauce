@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import FallbackAvatar from '@/components/FallbackAvatar';
 import { resolvePhotoUrl } from '@/utils/photo';
+import { getVerifiedProfile } from '@/data/verifiedProfiles';
 
 const WRESTLERS_URL = '/api/entities/Wrestler?limit=2000';
 const BASHO_RECORDS_URL = '/api/entities/BashoRecord?limit=5000';
@@ -417,6 +418,7 @@ export default function WrestlerProfile() {
 
   const fallbackRecord = records[0] || null;
   const profileName = String(wrestler?.shikona || fallbackRecord?.shikona || rid || 'Unknown').trim();
+  const verifiedProfile = useMemo(() => getVerifiedProfile(profileName), [profileName]);
   const photoUrl = resolvePhotoUrl(wrestler);
   const division = String(
     wrestler?.current_division ||
@@ -424,21 +426,28 @@ export default function WrestlerProfile() {
       wrestler?.division ||
       '-'
   ).trim();
-  const stable = getStableName(wrestler);
-  const nationality = getNationality(wrestler);
+  const stable = getStableName(wrestler) || (verifiedProfile?.heya ?? '');
+  const nationality = getNationality(wrestler) || (verifiedProfile?.nationality ?? '');
   const latestGroup = fallbackRecord ? getRecordGroup(fallbackRecord) : null;
   const latestRankLabel = rankLabelFrom(wrestler, fallbackRecord);
   const latestRecordSourceBadge = getRecordSourceBadge(fallbackRecord);
   const statsSource = fallbackRecord || wrestler || {};
   const showBackendStatus = Boolean(loadError) || !loading;
-  const stableColorKey = String(wrestler?.stable || wrestler?.heya?.name || '').trim();
+  const stableColorKey = String(wrestler?.stable || wrestler?.heya?.name || verifiedProfile?.heya || '').trim();
   const profileRankTier = String(wrestler?.current_rank || fallbackRecord?.rank || wrestler?.rank || '').trim();
 
-  const overviewStable = getStableValue(wrestler, fallbackRecord);
-  const overviewNationality = getNationalityValue(wrestler, fallbackRecord);
-  const overviewBirthplace = getBirthplaceValue(wrestler, fallbackRecord);
-  const overviewBirthDate = getBirthDateValue(wrestler, fallbackRecord);
-  const overviewHeightWeight = getHeightWeightValue(wrestler, fallbackRecord);
+  const overviewStable = getStableValue(wrestler, fallbackRecord) || (verifiedProfile?.heya ?? '');
+  const overviewNationality = getNationalityValue(wrestler, fallbackRecord) || (verifiedProfile?.nationality ?? '');
+  const overviewBirthplace = getBirthplaceValue(wrestler, fallbackRecord) || (verifiedProfile?.nationality ?? '');
+  const overviewBirthDate = getBirthDateValue(wrestler, fallbackRecord) || (verifiedProfile?.birthDate ?? '');
+  const overviewHeightWeight = (() => {
+    const base = getHeightWeightValue(wrestler, fallbackRecord);
+    if (base !== '— / —' && base !== '—' && base) return base;
+    if (verifiedProfile?.heightCm && verifiedProfile?.weightKg) {
+      return `${verifiedProfile.heightCm} cm / ${verifiedProfile.weightKg} kg`;
+    }
+    return base;
+  })();
   const overviewDebut = getDebutValue(wrestler, fallbackRecord);
 
   const careerTotals = getCareerTotals(wrestler, fallbackRecord);
@@ -551,6 +560,9 @@ export default function WrestlerProfile() {
             <div className="flex flex-wrap gap-2 text-xs">
               {(!photoUrl || imageFailed) && (
                 <span className="rounded border border-amber-700 bg-amber-900/30 px-2 py-1 text-amber-200">Photo missing</span>
+              )}
+              {verifiedProfile?.profileConfidence === 'verified' && (
+                <span className="rounded border border-emerald-700 bg-emerald-900/30 px-2 py-1 text-emerald-200">JSA Verified</span>
               )}
               <span className="rounded bg-white/[0.06] px-2 py-1 text-zinc-300">{getImageSourceBadge(wrestler || {})}</span>
               <span className="rounded bg-white/[0.06] px-2 py-1 text-zinc-300">{latestRecordSourceBadge}</span>

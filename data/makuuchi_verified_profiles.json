@@ -1,0 +1,1220 @@
+[
+  {
+    "rikishiId": "3842",
+    "shikona": "Hoshoryu Tomokatsu",
+    "heya": "Tatsunami",
+    "birthDate": "1999-05-22",
+    "nationality": "Mongolia",
+    "heightCm": 188,
+    "weightKg": 148,
+    "status": "active",
+    "officialImageUrl": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20170096.jpg",
+    "imageSource": "Japan Sumo Association official rikishi profile image",
+    "imageConfidence": "verified",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Find Rikishi (makuuchi roster)",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/search/"
+      },
+      {
+        "label": "JSA rikishi profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3842/"
+      },
+      {
+        "label": "JSA profile image",
+        "url": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20170096.jpg"
+      }
+    ],
+    "notes": "On the confirmed JSA makuuchi roster. Field 'nationality' is populated with JSA Birthplace to avoid inference."
+  },
+  {
+    "rikishiId": "4227",
+    "shikona": "Onosato Daiki",
+    "heya": "Nishonoseki",
+    "birthDate": "2000-06-07",
+    "nationality": "Ishikawa",
+    "heightCm": 192,
+    "weightKg": 184,
+    "status": "active",
+    "officialImageUrl": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20230048.jpg",
+    "imageSource": "Japan Sumo Association official rikishi profile image",
+    "imageConfidence": "verified",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Find Rikishi (makuuchi roster)",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/search/"
+      },
+      {
+        "label": "JSA rikishi profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4227/"
+      },
+      {
+        "label": "JSA profile image",
+        "url": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20230048.jpg"
+      }
+    ],
+    "notes": "On the confirmed JSA makuuchi roster. Birthplace is a prefecture for Japan-born rikishi."
+  },
+  {
+    "rikishiId": "4230",
+    "shikona": "Aonishiki Arata",
+    "heya": "Ajigawa",
+    "birthDate": "2004-03-23",
+    "nationality": "Ukraine",
+    "heightCm": 182,
+    "weightKg": 141,
+    "status": "active",
+    "officialImageUrl": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20230052.jpg",
+    "imageSource": "Japan Sumo Association official rikishi profile image",
+    "imageConfidence": "verified",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Find Rikishi (makuuchi roster)",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/search/"
+      },
+      {
+        "label": "JSA rikishi profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4230/"
+      },
+      {
+        "label": "JSA profile image",
+        "url": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20230052.jpg"
+      }
+    ],
+    "notes": "On the confirmed JSA makuuchi roster."
+  },
+  {
+    "rikishiId": "3661",
+    "shikona": "Kotozakura Masakatsu",
+    "heya": "Sadogatake",
+    "birthDate": "1997-11-19",
+    "nationality": "Chiba",
+    "heightCm": 189,
+    "weightKg": 179,
+    "status": "active",
+    "officialImageUrl": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20150081.jpg",
+    "imageSource": "Japan Sumo Association official rikishi profile image",
+    "imageConfidence": "verified",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Find Rikishi (makuuchi roster)",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/search/"
+      },
+      {
+        "label": "JSA rikishi profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3661/"
+      },
+      {
+        "label": "JSA profile image",
+        "url": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20150081.jpg"
+      }
+    ],
+    "notes": "On the confirmed JSA makuuchi roster."
+  },
+  {
+    "rikishiId": "3622",
+    "shikona": "Kirishima Tetsuo",
+    "heya": "Otowayama",
+    "birthDate": "1996-04-24",
+    "nationality": "Mongolia",
+    "heightCm": 186,
+    "weightKg": 149,
+    "status": "active",
+    "officialImageUrl": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20150034.jpg",
+    "imageSource": "Japan Sumo Association official rikishi profile image",
+    "imageConfidence": "verified",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Find Rikishi (makuuchi roster)",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/search/"
+      },
+      {
+        "label": "JSA rikishi profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3622/"
+      },
+      {
+        "label": "JSA profile image",
+        "url": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20150034.jpg"
+      }
+    ],
+    "notes": "On the confirmed JSA makuuchi roster."
+  },
+  {
+    "rikishiId": "2775",
+    "shikona": "Takayasu Akira",
+    "heya": "Tagonoura",
+    "birthDate": "1990-02-28",
+    "nationality": "Ibaraki",
+    "heightCm": 188,
+    "weightKg": 173,
+    "status": "active",
+    "officialImageUrl": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20050022.jpg",
+    "imageSource": "Japan Sumo Association official rikishi profile image",
+    "imageConfidence": "verified",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Find Rikishi (makuuchi roster)",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/search/"
+      },
+      {
+        "label": "JSA rikishi profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/2775/"
+      },
+      {
+        "label": "JSA profile image",
+        "url": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20050022.jpg"
+      }
+    ],
+    "notes": "On the confirmed JSA makuuchi roster."
+  },
+  {
+    "rikishiId": "3371",
+    "shikona": "Wakamotoharu Minato",
+    "heya": "Arashio",
+    "birthDate": "1993-10-05",
+    "nationality": "Fukushima",
+    "heightCm": 187,
+    "weightKg": 144,
+    "status": "active",
+    "officialImageUrl": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20110065.jpg",
+    "imageSource": "Japan Sumo Association official rikishi profile image",
+    "imageConfidence": "verified",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Find Rikishi (makuuchi roster)",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/search/"
+      },
+      {
+        "label": "JSA rikishi profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3371/"
+      },
+      {
+        "label": "JSA profile image",
+        "url": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20110065.jpg"
+      }
+    ],
+    "notes": "On the confirmed JSA makuuchi roster."
+  },
+  {
+    "rikishiId": "4055",
+    "shikona": "Atamifuji Sakutaro",
+    "heya": "Isegahama",
+    "birthDate": "2002-09-03",
+    "nationality": "Shizuoka",
+    "heightCm": 187,
+    "weightKg": 197,
+    "status": "active",
+    "officialImageUrl": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20200074.jpg",
+    "imageSource": "Japan Sumo Association official rikishi profile image",
+    "imageConfidence": "verified",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Find Rikishi (makuuchi roster)",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/search/"
+      },
+      {
+        "label": "JSA rikishi profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4055/"
+      },
+      {
+        "label": "JSA profile image",
+        "url": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20200074.jpg"
+      }
+    ],
+    "notes": "On the confirmed JSA makuuchi roster."
+  },
+  {
+    "rikishiId": "3761",
+    "shikona": "Wakatakakage Atsushi",
+    "heya": "Arashio",
+    "birthDate": "1994-12-06",
+    "nationality": "Fukushima",
+    "heightCm": 183,
+    "weightKg": 135,
+    "status": "active",
+    "officialImageUrl": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20170011.jpg",
+    "imageSource": "Japan Sumo Association official rikishi profile image",
+    "imageConfidence": "verified",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Find Rikishi (makuuchi roster)",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/search/"
+      },
+      {
+        "label": "JSA rikishi profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3761/"
+      },
+      {
+        "label": "JSA profile image",
+        "url": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20170011.jpg"
+      }
+    ],
+    "notes": "On the confirmed JSA makuuchi roster."
+  },
+  {
+    "rikishiId": "4279",
+    "shikona": "Yoshinofuji Naoya",
+    "heya": "Isegahama",
+    "birthDate": "2001-06-25",
+    "nationality": "Kumamoto",
+    "heightCm": 185,
+    "weightKg": 160,
+    "status": "active",
+    "officialImageUrl": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20240045.jpg",
+    "imageSource": "Japan Sumo Association official rikishi profile image",
+    "imageConfidence": "verified",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Find Rikishi (makuuchi roster)",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/search/"
+      },
+      {
+        "label": "JSA rikishi profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4279/"
+      },
+      {
+        "label": "JSA profile image",
+        "url": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20240045.jpg"
+      }
+    ],
+    "notes": "On the confirmed JSA makuuchi roster."
+  },
+  {
+    "rikishiId": "4191",
+    "shikona": "Fujinokawa Seigo",
+    "heya": "Isenoumi",
+    "birthDate": "2005-02-22",
+    "nationality": "Kyoto",
+    "heightCm": 177,
+    "weightKg": 121,
+    "status": "active",
+    "officialImageUrl": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20230008.jpg",
+    "imageSource": "Japan Sumo Association official rikishi profile image",
+    "imageConfidence": "likely",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Find Rikishi (makuuchi roster)",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/search/"
+      },
+      {
+        "label": "JSA rikishi profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4191/"
+      },
+      {
+        "label": "JSA profile image (tool fetch error in this run)",
+        "url": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20230008.jpg"
+      }
+    ],
+    "notes": "On the confirmed JSA makuuchi roster. Image URL derived from official profile image link, but the fetch failed in-tool; recommend HTTP verification during ingestion."
+  },
+  {
+    "rikishiId": "3711",
+    "shikona": "Churanoumi Yoshihisa",
+    "heya": "Kise",
+    "birthDate": "1993-05-06",
+    "nationality": "Okinawa",
+    "heightCm": 178,
+    "weightKg": 152,
+    "status": "active",
+    "officialImageUrl": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20160048.jpg",
+    "imageSource": "Japan Sumo Association official rikishi profile image",
+    "imageConfidence": "verified",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Find Rikishi (makuuchi roster)",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/search/"
+      },
+      {
+        "label": "JSA rikishi profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3711/"
+      },
+      {
+        "label": "JSA profile image",
+        "url": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20160048.jpg"
+      }
+    ],
+    "notes": "On the confirmed JSA makuuchi roster."
+  },
+  {
+    "rikishiId": "3705",
+    "shikona": "Hiradoumi Yuki",
+    "heya": "Sakaigawa",
+    "birthDate": "2000-04-20",
+    "nationality": "Nagasaki",
+    "heightCm": 178,
+    "weightKg": 140,
+    "status": "active",
+    "officialImageUrl": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20160042.jpg",
+    "imageSource": "Japan Sumo Association official rikishi profile image",
+    "imageConfidence": "verified",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Find Rikishi (makuuchi roster)",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/search/"
+      },
+      {
+        "label": "JSA rikishi profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3705/"
+      },
+      {
+        "label": "JSA profile image",
+        "url": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20160042.jpg"
+      }
+    ],
+    "notes": "On the confirmed JSA makuuchi roster."
+  },
+  {
+    "rikishiId": "3844",
+    "shikona": "Oho Konosuke",
+    "heya": "Otake",
+    "birthDate": "2000-02-14",
+    "nationality": "Tokyo",
+    "heightCm": 192,
+    "weightKg": 178,
+    "status": "active",
+    "officialImageUrl": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20180002.jpg",
+    "imageSource": "Japan Sumo Association official rikishi profile image",
+    "imageConfidence": "verified",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Find Rikishi (makuuchi roster)",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/search/"
+      },
+      {
+        "label": "JSA rikishi profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3844/"
+      },
+      {
+        "label": "JSA profile image",
+        "url": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20180002.jpg"
+      }
+    ],
+    "notes": "On the confirmed JSA makuuchi roster."
+  },
+  {
+    "rikishiId": "3376",
+    "shikona": "Daieisho Hayato",
+    "heya": "Oitekaze",
+    "birthDate": "1993-11-10",
+    "nationality": "Saitama",
+    "heightCm": 183,
+    "weightKg": 166,
+    "status": "active",
+    "officialImageUrl": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20120003.jpg",
+    "imageSource": "Japan Sumo Association official rikishi profile image",
+    "imageConfidence": "verified",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Find Rikishi (makuuchi roster)",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/search/"
+      },
+      {
+        "label": "JSA rikishi profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3376/"
+      },
+      {
+        "label": "JSA profile image",
+        "url": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20120003.jpg"
+      }
+    ],
+    "notes": "On the confirmed JSA makuuchi roster."
+  },
+  {
+    "rikishiId": "3265",
+    "shikona": "Takanosho Nobuaki",
+    "heya": "Minatogawa",
+    "birthDate": "1994-11-14",
+    "nationality": "Chiba",
+    "heightCm": 184,
+    "weightKg": 168,
+    "status": "active",
+    "officialImageUrl": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20100039.jpg",
+    "imageSource": "Japan Sumo Association official rikishi profile image",
+    "imageConfidence": "verified",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Find Rikishi (makuuchi roster)",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/search/"
+      },
+      {
+        "label": "JSA rikishi profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3265/"
+      },
+      {
+        "label": "JSA profile image",
+        "url": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20100039.jpg"
+      }
+    ],
+    "notes": "On the confirmed JSA makuuchi roster."
+  },
+  {
+    "rikishiId": "3485",
+    "shikona": "Abi Masatora",
+    "heya": "Shikoroyama",
+    "birthDate": "1994-05-04",
+    "nationality": "Saitama",
+    "heightCm": 188,
+    "weightKg": 165,
+    "status": "active",
+    "officialImageUrl": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20130059.jpg",
+    "imageSource": "Japan Sumo Association official rikishi profile image",
+    "imageConfidence": "verified",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Find Rikishi (makuuchi roster)",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/search/"
+      },
+      {
+        "label": "JSA rikishi profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3485/"
+      },
+      {
+        "label": "JSA profile image",
+        "url": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20130059.jpg"
+      }
+    ],
+    "notes": "On the confirmed JSA makuuchi roster."
+  },
+  {
+    "rikishiId": "3840",
+    "shikona": "Kotoshoho Yoshinari",
+    "heya": "Sadogatake",
+    "birthDate": "1999-08-26",
+    "nationality": "Chiba",
+    "heightCm": 191,
+    "weightKg": 171,
+    "status": "active",
+    "officialImageUrl": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20170094.jpg",
+    "imageSource": "Japan Sumo Association official rikishi profile image",
+    "imageConfidence": "verified",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Find Rikishi (makuuchi roster)",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/search/"
+      },
+      {
+        "label": "JSA rikishi profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3840/"
+      },
+      {
+        "label": "JSA profile image",
+        "url": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20170094.jpg"
+      }
+    ],
+    "notes": "On the confirmed JSA makuuchi roster."
+  },
+  {
+    "rikishiId": "3753",
+    "shikona": "Ichiyamamoto Daiki",
+    "heya": "Hanaregoma",
+    "birthDate": "1993-10-01",
+    "nationality": "Hokkaido",
+    "heightCm": 190,
+    "weightKg": 155,
+    "status": "active",
+    "officialImageUrl": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20170002.jpg",
+    "imageSource": "Japan Sumo Association official rikishi profile image",
+    "imageConfidence": "verified",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Find Rikishi (makuuchi roster)",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/search/"
+      },
+      {
+        "label": "JSA rikishi profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3753/"
+      },
+      {
+        "label": "JSA profile image",
+        "url": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20170002.jpg"
+      }
+    ],
+    "notes": "On the confirmed JSA makuuchi roster."
+  },
+  {
+    "rikishiId": "4231",
+    "shikona": "Onokatsu Kazuhiro",
+    "heya": "Onomatsu",
+    "birthDate": "2000-05-05",
+    "nationality": "Mongolia",
+    "heightCm": 185,
+    "weightKg": 171,
+    "status": "active",
+    "officialImageUrl": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20230053.jpg",
+    "imageSource": "Japan Sumo Association official rikishi profile image",
+    "imageConfidence": "verified",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Find Rikishi (makuuchi roster)",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/search/"
+      },
+      {
+        "label": "JSA rikishi profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4231/"
+      },
+      {
+        "label": "JSA profile image",
+        "url": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20230053.jpg"
+      }
+    ],
+    "notes": "On the confirmed JSA makuuchi roster."
+  },
+  {
+    "rikishiId": "4108",
+    "shikona": "Oshoma Degi",
+    "heya": "Naruto",
+    "birthDate": "1997-04-09",
+    "nationality": "Mongolia",
+    "heightCm": 190,
+    "weightKg": 163,
+    "status": "active",
+    "officialImageUrl": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20210053.jpg",
+    "imageSource": "Japan Sumo Association official rikishi profile image",
+    "imageConfidence": "verified",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Find Rikishi (makuuchi roster)",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/search/"
+      },
+      {
+        "label": "JSA rikishi profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4108/"
+      },
+      {
+        "label": "JSA profile image",
+        "url": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20210053.jpg"
+      }
+    ],
+    "notes": "On the confirmed JSA makuuchi roster."
+  },
+  {
+    "rikishiId": "4187",
+    "shikona": "Hakunofuji Tetsuya",
+    "heya": "Isegahama",
+    "birthDate": "2003-08-22",
+    "nationality": "Tottori",
+    "heightCm": 181,
+    "weightKg": 161,
+    "status": "active",
+    "officialImageUrl": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20230004.jpg",
+    "imageSource": "Japan Sumo Association official rikishi profile image",
+    "imageConfidence": "verified",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Find Rikishi (makuuchi roster)",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/search/"
+      },
+      {
+        "label": "JSA rikishi profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4187/"
+      },
+      {
+        "label": "JSA profile image",
+        "url": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20230004.jpg"
+      }
+    ],
+    "notes": "On the confirmed JSA makuuchi roster."
+  },
+  {
+    "rikishiId": "3616",
+    "shikona": "Ura Kazuki",
+    "heya": "Kise",
+    "birthDate": "1992-06-22",
+    "nationality": "Osaka",
+    "heightCm": 176,
+    "weightKg": 138,
+    "status": "active",
+    "officialImageUrl": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20150028.jpg",
+    "imageSource": "Japan Sumo Association official rikishi profile image",
+    "imageConfidence": "verified",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Find Rikishi (makuuchi roster)",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/search/"
+      },
+      {
+        "label": "JSA rikishi profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3616/"
+      },
+      {
+        "label": "JSA profile image",
+        "url": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20150028.jpg"
+      }
+    ],
+    "notes": "On the confirmed JSA makuuchi roster."
+  },
+  {
+    "rikishiId": "3521",
+    "shikona": "Shodai Naoya",
+    "heya": "Tokitsukaze",
+    "birthDate": "1991-11-05",
+    "nationality": "Kumamoto",
+    "heightCm": 184,
+    "weightKg": 169,
+    "status": "active",
+    "officialImageUrl": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20140019.jpg",
+    "imageSource": "Japan Sumo Association official rikishi profile image",
+    "imageConfidence": "verified",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Find Rikishi (makuuchi roster)",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/search/"
+      },
+      {
+        "label": "JSA rikishi profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3521/"
+      },
+      {
+        "label": "JSA profile image",
+        "url": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20140019.jpg"
+      }
+    ],
+    "notes": "On the confirmed JSA makuuchi roster."
+  },
+  {
+    "rikishiId": "3933",
+    "shikona": "Tokihayate Hideki",
+    "heya": "Tokitsukaze",
+    "birthDate": "1996-08-25",
+    "nationality": "Miyagi",
+    "heightCm": 179,
+    "weightKg": 129,
+    "status": "active",
+    "officialImageUrl": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20190020.jpg",
+    "imageSource": "Japan Sumo Association official rikishi profile image",
+    "imageConfidence": "verified",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Find Rikishi (makuuchi roster)",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/search/"
+      },
+      {
+        "label": "JSA rikishi profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3933/"
+      },
+      {
+        "label": "JSA profile image",
+        "url": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20190020.jpg"
+      }
+    ],
+    "notes": "On the confirmed JSA makuuchi roster."
+  },
+  {
+    "rikishiId": "2629",
+    "shikona": "Tamawashi Ichiro",
+    "heya": "Kataonami",
+    "birthDate": "1984-11-16",
+    "nationality": "Mongolia",
+    "heightCm": 189,
+    "weightKg": 176,
+    "status": "active",
+    "officialImageUrl": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20040005.jpg",
+    "imageSource": "Japan Sumo Association official rikishi profile image",
+    "imageConfidence": "verified",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Find Rikishi (makuuchi roster)",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/search/"
+      },
+      {
+        "label": "JSA rikishi profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/2629/"
+      },
+      {
+        "label": "JSA profile image",
+        "url": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20040005.jpg"
+      }
+    ],
+    "notes": "On the confirmed JSA makuuchi roster."
+  },
+  {
+    "rikishiId": "4079",
+    "shikona": "Gonoyama Toki",
+    "heya": "Takekuma",
+    "birthDate": "1998-04-07",
+    "nationality": "Osaka",
+    "heightCm": 178,
+    "weightKg": 161,
+    "status": "active",
+    "officialImageUrl": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20210023.jpg",
+    "imageSource": "Japan Sumo Association official rikishi profile image",
+    "imageConfidence": "verified",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Find Rikishi (makuuchi roster)",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/search/"
+      },
+      {
+        "label": "JSA rikishi profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4079/"
+      },
+      {
+        "label": "JSA profile image",
+        "url": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20210023.jpg"
+      }
+    ],
+    "notes": "On the confirmed JSA makuuchi roster."
+  },
+  {
+    "rikishiId": "3907",
+    "shikona": "Roga Tokiyoshi",
+    "heya": "Futagoyama",
+    "birthDate": "1999-03-02",
+    "nationality": "Russia",
+    "heightCm": 184,
+    "weightKg": 160,
+    "status": "active",
+    "officialImageUrl": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20180068.jpg",
+    "imageSource": "Japan Sumo Association official rikishi profile image",
+    "imageConfidence": "verified",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Find Rikishi (makuuchi roster)",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/search/"
+      },
+      {
+        "label": "JSA rikishi profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3907/"
+      },
+      {
+        "label": "JSA profile image",
+        "url": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20180068.jpg"
+      }
+    ],
+    "notes": "On the confirmed JSA makuuchi roster."
+  },
+  {
+    "rikishiId": "3990",
+    "shikona": "Shishi Masaru",
+    "heya": "Ikazuchi",
+    "birthDate": "1997-01-16",
+    "nationality": "Ukraine",
+    "heightCm": 192,
+    "weightKg": 171,
+    "status": "active",
+    "officialImageUrl": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20200005.jpg",
+    "imageSource": "Japan Sumo Association official rikishi profile image",
+    "imageConfidence": "verified",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Find Rikishi (makuuchi roster)",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/search/"
+      },
+      {
+        "label": "JSA rikishi profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3990/"
+      },
+      {
+        "label": "JSA profile image",
+        "url": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20200005.jpg"
+      }
+    ],
+    "notes": "On the confirmed JSA makuuchi roster."
+  },
+  {
+    "rikishiId": "4025",
+    "shikona": "Oshoumi Seiya",
+    "heya": "Naruto",
+    "birthDate": "2001-05-12",
+    "nationality": "Ishikawa",
+    "heightCm": 184,
+    "weightKg": 148,
+    "status": "active",
+    "officialImageUrl": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20200042.jpg",
+    "imageSource": "Japan Sumo Association official rikishi profile image",
+    "imageConfidence": "verified",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Find Rikishi (makuuchi roster)",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/search/"
+      },
+      {
+        "label": "JSA rikishi profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4025/"
+      },
+      {
+        "label": "JSA profile image",
+        "url": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20200042.jpg"
+      }
+    ],
+    "notes": "On the confirmed JSA makuuchi roster."
+  },
+  {
+    "rikishiId": "4101",
+    "shikona": "Asakoryu Takuma",
+    "heya": "Takasago",
+    "birthDate": "1998-09-24",
+    "nationality": "Osaka",
+    "heightCm": 178,
+    "weightKg": 125,
+    "status": "active",
+    "officialImageUrl": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20210046.jpg",
+    "imageSource": "Japan Sumo Association official rikishi profile image",
+    "imageConfidence": "verified",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Find Rikishi (makuuchi roster)",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/search/"
+      },
+      {
+        "label": "JSA rikishi profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4101/"
+      },
+      {
+        "label": "JSA profile image",
+        "url": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20210046.jpg"
+      }
+    ],
+    "notes": "On the confirmed JSA makuuchi roster."
+  },
+  {
+    "rikishiId": "3682",
+    "shikona": "Asanoyama Hiroki",
+    "heya": "Takasago",
+    "birthDate": "1994-03-01",
+    "nationality": "Toyama",
+    "heightCm": 188,
+    "weightKg": 170,
+    "status": "active",
+    "officialImageUrl": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20160019.jpg",
+    "imageSource": "Japan Sumo Association official rikishi profile image",
+    "imageConfidence": "verified",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Find Rikishi (makuuchi roster)",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/search/"
+      },
+      {
+        "label": "JSA rikishi profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3682/"
+      },
+      {
+        "label": "JSA profile image",
+        "url": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20160019.jpg"
+      }
+    ],
+    "notes": "On the confirmed JSA makuuchi roster."
+  },
+  {
+    "rikishiId": "3594",
+    "shikona": "Tobizaru Masaya",
+    "heya": "Oitekaze",
+    "birthDate": "1992-04-24",
+    "nationality": "Tokyo",
+    "heightCm": 173,
+    "weightKg": 140,
+    "status": "active",
+    "officialImageUrl": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20150005.jpg",
+    "imageSource": "Japan Sumo Association official rikishi profile image",
+    "imageConfidence": "verified",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Find Rikishi (makuuchi roster)",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/search/"
+      },
+      {
+        "label": "JSA rikishi profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3594/"
+      },
+      {
+        "label": "JSA profile image",
+        "url": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20150005.jpg"
+      }
+    ],
+    "notes": "On the confirmed JSA makuuchi roster."
+  },
+  {
+    "rikishiId": "4093",
+    "shikona": "Fujiseiun Tatsuki",
+    "heya": "Fujishima",
+    "birthDate": "1997-12-05",
+    "nationality": "Kumamoto",
+    "heightCm": 185,
+    "weightKg": 147,
+    "status": "active",
+    "officialImageUrl": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20210037.jpg",
+    "imageSource": "Japan Sumo Association official rikishi profile image",
+    "imageConfidence": "likely",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Find Rikishi (makuuchi roster)",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/search/"
+      },
+      {
+        "label": "JSA rikishi profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4093/"
+      },
+      {
+        "label": "JSA profile image (tool cache-miss in this run)",
+        "url": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20210037.jpg"
+      }
+    ],
+    "notes": "On the confirmed JSA makuuchi roster. Image URL derived from official profile image link, but the fetch failed in-tool; recommend HTTP verification during ingestion."
+  },
+  {
+    "rikishiId": "3207",
+    "shikona": "Chiyoshoma Fujio",
+    "heya": "Kokonoe",
+    "birthDate": "1991-07-20",
+    "nationality": "Mongolia",
+    "heightCm": 184,
+    "weightKg": 140,
+    "status": "active",
+    "officialImageUrl": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20090066.jpg",
+    "imageSource": "Japan Sumo Association official rikishi profile image",
+    "imageConfidence": "verified",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Find Rikishi (makuuchi roster)",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/search/"
+      },
+      {
+        "label": "JSA rikishi profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3207/"
+      },
+      {
+        "label": "JSA profile image",
+        "url": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20090066.jpg"
+      }
+    ],
+    "notes": "On the confirmed JSA makuuchi roster."
+  },
+  {
+    "rikishiId": "3742",
+    "shikona": "Nishikifuji Ryusei",
+    "heya": "Isegahama",
+    "birthDate": "1996-07-22",
+    "nationality": "Aomori",
+    "heightCm": 184,
+    "weightKg": 160,
+    "status": "active",
+    "officialImageUrl": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20160081.jpg",
+    "imageSource": "Japan Sumo Association official rikishi profile image",
+    "imageConfidence": "verified",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Find Rikishi (makuuchi roster)",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/search/"
+      },
+      {
+        "label": "JSA rikishi profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3742/"
+      },
+      {
+        "label": "JSA profile image",
+        "url": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20160081.jpg"
+      }
+    ],
+    "notes": "On the confirmed JSA makuuchi roster."
+  },
+  {
+    "rikishiId": "3743",
+    "shikona": "Midorifuji Kazunari",
+    "heya": "Isegahama",
+    "birthDate": "1996-08-30",
+    "nationality": "Shizuoka",
+    "heightCm": 174,
+    "weightKg": 116,
+    "status": "active",
+    "officialImageUrl": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20160082.jpg",
+    "imageSource": "Japan Sumo Association official rikishi profile image",
+    "imageConfidence": "verified",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Find Rikishi (makuuchi roster)",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/search/"
+      },
+      {
+        "label": "JSA rikishi profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3743/"
+      },
+      {
+        "label": "JSA profile image",
+        "url": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20160082.jpg"
+      }
+    ],
+    "notes": "On the confirmed JSA makuuchi roster."
+  },
+  {
+    "rikishiId": "3620",
+    "shikona": "Mitakeumi Hisashi",
+    "heya": "Dewanoumi",
+    "birthDate": "1992-12-25",
+    "nationality": "Nagano",
+    "heightCm": 182,
+    "weightKg": 178,
+    "status": "active",
+    "officialImageUrl": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20150032.jpg",
+    "imageSource": "Japan Sumo Association official rikishi profile image",
+    "imageConfidence": "verified",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Find Rikishi (makuuchi roster)",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/search/"
+      },
+      {
+        "label": "JSA rikishi profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3620/"
+      },
+      {
+        "label": "JSA profile image",
+        "url": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20150032.jpg"
+      }
+    ],
+    "notes": "On the confirmed JSA makuuchi roster."
+  },
+  {
+    "rikishiId": "4175",
+    "shikona": "Asahakuryu Taro",
+    "heya": "Takasago",
+    "birthDate": "1999-01-08",
+    "nationality": "Mongolia",
+    "heightCm": 185,
+    "weightKg": 151,
+    "status": "active",
+    "officialImageUrl": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20220063.jpg",
+    "imageSource": "Japan Sumo Association official rikishi profile image",
+    "imageConfidence": "verified",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Find Rikishi (makuuchi roster)",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/search/"
+      },
+      {
+        "label": "JSA rikishi profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4175/"
+      },
+      {
+        "label": "JSA profile image",
+        "url": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20220063.jpg"
+      }
+    ],
+    "notes": "On the confirmed JSA makuuchi roster."
+  },
+  {
+    "rikishiId": "4112",
+    "shikona": "Kinbozan Haruki",
+    "heya": "Kise",
+    "birthDate": "1997-06-24",
+    "nationality": "Kazakhstan",
+    "heightCm": 195,
+    "weightKg": 173,
+    "status": "active",
+    "officialImageUrl": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20210057.jpg",
+    "imageSource": "Japan Sumo Association official rikishi profile image",
+    "imageConfidence": "verified",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Find Rikishi (makuuchi roster)",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/search/"
+      },
+      {
+        "label": "JSA rikishi profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4112/"
+      },
+      {
+        "label": "JSA profile image",
+        "url": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20210057.jpg"
+      }
+    ],
+    "notes": "On the confirmed JSA makuuchi roster."
+  },
+  {
+    "rikishiId": "4336",
+    "shikona": "Fujiryoga Masaharu",
+    "heya": "Fujishima",
+    "birthDate": "2003-02-27",
+    "nationality": "Aichi",
+    "heightCm": 180,
+    "weightKg": 183,
+    "status": "active",
+    "officialImageUrl": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20250038.jpg",
+    "imageSource": "Japan Sumo Association official rikishi profile image",
+    "imageConfidence": "likely",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Find Rikishi (makuuchi roster)",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/search/"
+      },
+      {
+        "label": "JSA rikishi profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4336/"
+      },
+      {
+        "label": "JSA profile image (tool cache-miss in this run)",
+        "url": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20250038.jpg"
+      }
+    ],
+    "notes": "On the confirmed JSA makuuchi roster. Image URL derived from official profile image link, but the fetch failed in-tool; recommend HTTP verification during ingestion."
+  },
+  {
+    "rikishiId": "4120",
+    "shikona": "Kotoeiho Hiroki",
+    "heya": "Sadogatake",
+    "birthDate": "2003-07-08",
+    "nationality": "Chiba",
+    "heightCm": 184,
+    "weightKg": 141,
+    "status": "active",
+    "officialImageUrl": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20220003.jpg",
+    "imageSource": "Japan Sumo Association official rikishi profile image",
+    "imageConfidence": "likely",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Find Rikishi (makuuchi roster)",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/search/"
+      },
+      {
+        "label": "JSA rikishi profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4120/"
+      },
+      {
+        "label": "JSA profile image (tool cache-miss in this run)",
+        "url": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20220003.jpg"
+      }
+    ],
+    "notes": "On the confirmed JSA makuuchi roster. Image URL derived from official profile image link, but the fetch failed in-tool; recommend HTTP verification during ingestion."
+  }
+]
