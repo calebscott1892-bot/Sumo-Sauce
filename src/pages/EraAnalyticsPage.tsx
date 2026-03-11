@@ -146,7 +146,7 @@ export default function EraAnalyticsPage() {
   return (
     <div className="mx-auto max-w-6xl space-y-6 p-6 text-zinc-200">
       <PageMeta
-        title="SumoWatch — Era Analytics"
+        title="Sumo Sauce — Era Analytics"
         description="Explore sumo performance across decades — win rates, top performers, and historical trends."
       />
 
@@ -174,7 +174,7 @@ export default function EraAnalyticsPage() {
       {isLoading && (
         <div className="space-y-4">
           {Array.from({ length: 4 }).map((_, i) => (
-            <div key={i} className="h-32 animate-pulse rounded-xl border border-zinc-800 bg-zinc-900" />
+            <div key={i} className="h-32 animate-pulse rounded-xl border border-white/[0.06] bg-white/[0.02]" />
           ))}
         </div>
       )}
@@ -183,23 +183,23 @@ export default function EraAnalyticsPage() {
         <>
           {/* Overview stats */}
           <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
-            <div className="rounded-xl border border-zinc-800 bg-zinc-900 p-4 text-center">
+            <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-4 text-center">
               <div className="text-2xl font-bold text-white">{eraData.length}</div>
               <div className="text-xs text-zinc-500">Decades</div>
             </div>
-            <div className="rounded-xl border border-zinc-800 bg-zinc-900 p-4 text-center">
+            <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-4 text-center">
               <div className="text-2xl font-bold text-amber-400">
                 {eraData.reduce((s, e) => s + e.bashoCount, 0)}
               </div>
               <div className="text-xs text-zinc-500">Tournaments</div>
             </div>
-            <div className="rounded-xl border border-zinc-800 bg-zinc-900 p-4 text-center">
+            <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-4 text-center">
               <div className="text-2xl font-bold text-emerald-400">
                 {new Set(eraData.flatMap((e) => e.topPerformers.map((p) => p.id))).size}
               </div>
               <div className="text-xs text-zinc-500">Top Performers</div>
             </div>
-            <div className="rounded-xl border border-zinc-800 bg-zinc-900 p-4 text-center">
+            <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-4 text-center">
               <div className="text-2xl font-bold text-red-400">
                 {eraData.length > 0
                   ? `${(eraData[eraData.length - 1].avgWinRate * 100).toFixed(0)}%`
@@ -210,7 +210,7 @@ export default function EraAnalyticsPage() {
           </div>
 
           {/* Participation chart */}
-          <section className="rounded-xl border border-zinc-800 bg-zinc-900 p-5">
+          <section className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5">
             <h2 className="text-xl font-bold text-white flex items-center gap-2">
               <BarChart3 className="h-5 w-5 text-blue-400" />
               Participation by Era
@@ -234,7 +234,7 @@ export default function EraAnalyticsPage() {
           </section>
 
           {/* Win rate trend */}
-          <section className="rounded-xl border border-zinc-800 bg-zinc-900 p-5">
+          <section className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5">
             <h2 className="text-xl font-bold text-white flex items-center gap-2">
               <TrendingUp className="h-5 w-5 text-emerald-400" />
               Win Rate Trend
@@ -272,7 +272,7 @@ export default function EraAnalyticsPage() {
             {eraData.map((era) => (
               <div
                 key={era.decade}
-                className="rounded-xl border border-zinc-800 bg-zinc-900 p-5 transition-colors duration-150 hover:border-zinc-700"
+                className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5 transition-colors duration-150 hover:border-white/[0.12]"
               >
                 <div className="flex items-baseline justify-between">
                   <h3 className="text-lg font-bold text-white">{era.decade}</h3>
@@ -288,7 +288,7 @@ export default function EraAnalyticsPage() {
                       <Link
                         key={perf.id}
                         to={`/rikishi/${encodeURIComponent(perf.id)}`}
-                        className="flex items-center justify-between rounded-lg border border-zinc-800 bg-zinc-950 px-3 py-2 transition-colors hover:border-red-600"
+                        className="flex items-center justify-between rounded-lg border border-white/[0.06] bg-white/[0.02] px-3 py-2 transition-colors hover:border-red-600"
                       >
                         <div className="flex items-center gap-3">
                           <span className="text-xs text-zinc-600 w-5 text-right">#{idx + 1}</span>
@@ -311,7 +311,7 @@ export default function EraAnalyticsPage() {
       )}
 
       {!isLoading && eraData.length === 0 && (
-        <div className="rounded-xl border border-zinc-800 bg-zinc-900 p-8 text-center">
+        <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-8 text-center">
           <Clock className="mx-auto h-10 w-10 text-zinc-600" />
           <p className="mt-3 text-sm text-zinc-400">No era data available.</p>
         </div>

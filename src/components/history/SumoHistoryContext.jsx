@@ -103,11 +103,11 @@ function HistorySection({ section, expanded, onToggle }) {
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      className="border border-zinc-800 bg-zinc-900"
+      className="border border-white/[0.06] bg-white/[0.02]"
     >
       <button
         onClick={() => onToggle(section.id)}
-        className="w-full p-6 flex items-start gap-4 hover:bg-zinc-800/50 transition-colors"
+        className="w-full p-6 flex items-start gap-4 hover:bg-white/[0.06]/50 transition-colors"
       >
         <div className="flex-shrink-0">
           <Icon className="w-6 h-6 text-amber-500" />
@@ -130,7 +130,7 @@ function HistorySection({ section, expanded, onToggle }) {
           initial={{ height: 0, opacity: 0 }}
           animate={{ height: 'auto', opacity: 1 }}
           exit={{ height: 0, opacity: 0 }}
-          className="border-t border-zinc-800"
+          className="border-t border-white/[0.04]"
         >
           <div className="p-6 bg-black/30">
             <div className="prose prose-invert prose-sm max-w-none">
@@ -163,7 +163,7 @@ export default function SumoHistoryContext() {
   };
 
   return (
-    <div className="bg-zinc-950 border border-zinc-800 p-6">
+    <div className="bg-white/[0.02] border border-white/[0.06] p-6">
       <div className="flex items-center gap-3 mb-6">
         <BookOpen className="w-6 h-6 text-amber-500" />
         <div>

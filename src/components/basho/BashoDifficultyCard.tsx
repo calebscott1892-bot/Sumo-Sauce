@@ -80,7 +80,7 @@ function scoreBg(score: number): string {
   if (score >= 75) return 'border-red-700 bg-red-950/20';
   if (score >= 55) return 'border-amber-700 bg-amber-950/20';
   if (score >= 35) return 'border-blue-700 bg-blue-950/20';
-  return 'border-zinc-800 bg-zinc-950';
+  return 'border-white/[0.06] bg-white/[0.02]';
 }
 
 export default function BashoDifficultyCard({ rows, bashoId }: Props) {
@@ -92,7 +92,7 @@ export default function BashoDifficultyCard({ rows, bashoId }: Props) {
     <section className={`rounded-xl border p-5 ${scoreBg(difficulty.score)}`}>
       <div className="flex items-start justify-between">
         <div>
-          <h2 className="text-xl font-bold text-white">Difficulty Index</h2>
+          <h2 className="font-display text-xl font-bold tracking-tight text-white">Difficulty Index</h2>
           <p className="mt-0.5 text-xs text-zinc-500">
             How competitive this basho was based on win distribution and record spread.
           </p>
@@ -106,21 +106,21 @@ export default function BashoDifficultyCard({ rows, bashoId }: Props) {
       </div>
 
       <div className="mt-4 grid grid-cols-2 gap-3 text-sm sm:grid-cols-4">
-        <div className="rounded-lg border border-zinc-800 bg-zinc-950/50 p-3">
+        <div className="rounded-lg border border-white/[0.06] bg-white/[0.02]/50 p-3">
           <div className="text-xs text-zinc-400">Rating</div>
           <div className={`mt-0.5 font-semibold ${scoreColor(difficulty.score)}`}>
             {difficulty.competitiveness}
           </div>
         </div>
-        <div className="rounded-lg border border-zinc-800 bg-zinc-950/50 p-3">
+        <div className="rounded-lg border border-white/[0.06] bg-white/[0.02]/50 p-3">
           <div className="text-xs text-zinc-400">Avg Wins</div>
           <div className="mt-0.5 font-semibold text-zinc-100">{difficulty.avgWins}</div>
         </div>
-        <div className="rounded-lg border border-zinc-800 bg-zinc-950/50 p-3">
+        <div className="rounded-lg border border-white/[0.06] bg-white/[0.02]/50 p-3">
           <div className="text-xs text-zinc-400">Top Score</div>
           <div className="mt-0.5 font-semibold text-zinc-100">{difficulty.topWins}W</div>
         </div>
-        <div className="rounded-lg border border-zinc-800 bg-zinc-950/50 p-3">
+        <div className="rounded-lg border border-white/[0.06] bg-white/[0.02]/50 p-3">
           <div className="text-xs text-zinc-400">Win Spread</div>
           <div className="mt-0.5 font-semibold text-zinc-100">{difficulty.spread}</div>
         </div>
@@ -132,7 +132,7 @@ export default function BashoDifficultyCard({ rows, bashoId }: Props) {
           <span>Low</span>
           <span>High</span>
         </div>
-        <div className="mt-1 h-2.5 w-full overflow-hidden rounded-full bg-zinc-800">
+        <div className="mt-1 h-2.5 w-full overflow-hidden rounded-full bg-white/[0.06]">
           <div
             className="h-full rounded-full transition-all duration-700"
             style={{

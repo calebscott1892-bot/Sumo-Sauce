@@ -52,7 +52,7 @@ export default function BanUserDialog({ open, onClose, userEmail, adminEmail }) 
 
   return (
     <Dialog open={open} onOpenChange={onClose}>
-      <DialogContent className="bg-zinc-900 border border-zinc-800">
+      <DialogContent className="bg-white/[0.02] border border-white/[0.06]">
         <DialogHeader>
           <DialogTitle className="text-white flex items-center gap-2">
             <Ban className="w-5 h-5 text-red-400" />
@@ -61,7 +61,7 @@ export default function BanUserDialog({ open, onClose, userEmail, adminEmail }) 
         </DialogHeader>
 
         <div className="space-y-4">
-          <div className="bg-zinc-800 rounded p-3">
+          <div className="bg-white/[0.04] rounded p-3">
             <div className="text-sm text-zinc-400">User to ban:</div>
             <div className="text-white font-bold">{userEmail}</div>
           </div>
@@ -72,7 +72,7 @@ export default function BanUserDialog({ open, onClose, userEmail, adminEmail }) 
               value={reason}
               onChange={(e) => setReason(e.target.value)}
               placeholder="Explain why this user is being banned..."
-              className="bg-zinc-800 border-zinc-700 text-white"
+              className="bg-white/[0.04] border-white/[0.08] text-white"
               rows={3}
             />
           </div>
@@ -96,7 +96,7 @@ export default function BanUserDialog({ open, onClose, userEmail, adminEmail }) 
                 type="date"
                 value={banUntil}
                 onChange={(e) => setBanUntil(e.target.value)}
-                className="bg-zinc-800 border-zinc-700 text-white"
+                className="bg-white/[0.04] border-white/[0.08] text-white"
               />
             </div>
           )}

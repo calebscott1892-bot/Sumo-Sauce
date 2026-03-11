@@ -100,7 +100,7 @@ export default function SharedComparison() {
     const max = Math.max(...values.filter(v => v !== undefined && v !== null));
     
     return (
-      <div className="py-3 border-b border-zinc-800">
+      <div className="py-3 border-b border-white/[0.04]">
         <div className="flex items-center gap-2 mb-2">
           {Icon && <Icon className="w-4 h-4 text-zinc-500" />}
           <span className="text-sm text-zinc-400 font-bold">{label}</span>
@@ -135,7 +135,7 @@ export default function SharedComparison() {
           </Button>
         </Link>
 
-        <div className="bg-zinc-900 border-2 border-zinc-800 p-6 mb-6">
+        <div className="bg-white/[0.02] border-2 border-white/[0.06] p-6 mb-6">
           <div className="flex items-start justify-between mb-4">
             <div>
               <h1 className="text-3xl font-black text-white mb-2">{report.title}</h1>
@@ -175,7 +175,7 @@ export default function SharedComparison() {
         {/* Wrestlers */}
         <div className="grid gap-4 mb-6" style={{ gridTemplateColumns: `repeat(${wrestlers.length}, 1fr)` }}>
           {wrestlers.map((wrestler) => (
-            <div key={wrestler.id} className="bg-zinc-900 border border-zinc-800 p-4 text-center">
+            <div key={wrestler.id} className="bg-white/[0.02] border border-white/[0.06] p-4 text-center">
               {wrestler.image_url && (
                 <img
                   src={wrestler.image_url}
@@ -190,7 +190,7 @@ export default function SharedComparison() {
         </div>
 
         {/* Stats Comparison */}
-        <div className="bg-zinc-900 border border-zinc-800 p-6">
+        <div className="bg-white/[0.02] border border-white/[0.06] p-6">
           <h2 className="text-2xl font-black text-white mb-6">Statistics</h2>
           
           <StatRow

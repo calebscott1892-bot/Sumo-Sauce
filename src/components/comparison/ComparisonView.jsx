@@ -21,7 +21,7 @@ const StatRow = ({ label, values, icon: Icon }) => {
   const bestIndices = numericValues.map((v, i) => v === maxValue && v !== -Infinity ? i : -1).filter(i => i !== -1);
 
   return (
-    <div className="grid grid-cols-[200px_1fr] gap-4 border-b border-zinc-800 py-4">
+    <div className="grid grid-cols-[200px_1fr] gap-4 border-b border-white/[0.04] py-4">
       <div className="flex items-center gap-2">
         {Icon && <Icon className="w-4 h-4 text-zinc-500" />}
         <span className="text-xs font-black text-zinc-400 uppercase tracking-wider">{label}</span>
@@ -149,7 +149,7 @@ export default function ComparisonView({ wrestlers, open, onClose }) {
 
         {/* Wrestler Cards */}
         <div className={cn(
-          "grid gap-4 p-6 border-b border-zinc-800",
+          "grid gap-4 p-6 border-b border-white/[0.04]",
           wrestlers.length === 2 ? "grid-cols-2" : "grid-cols-3"
         )}>
           {wrestlers.map((wrestler) => (
@@ -157,10 +157,10 @@ export default function ComparisonView({ wrestlers, open, onClose }) {
               key={wrestler.id}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="bg-zinc-900 border border-zinc-800 p-4"
+              className="bg-white/[0.02] border border-white/[0.06] p-4"
             >
               <div className="flex flex-col items-center gap-3">
-                <div className="w-24 h-24 bg-zinc-800 overflow-hidden">
+                <div className="w-24 h-24 bg-white/[0.04] overflow-hidden">
                   {wrestler.image_url ? (
                     <img src={wrestler.image_url} alt={wrestler.shikona} className="w-full h-full object-cover" />
                   ) : (
@@ -194,7 +194,7 @@ export default function ComparisonView({ wrestlers, open, onClose }) {
         </div>
 
         {/* Legend */}
-        <div className="bg-zinc-900 border-t border-zinc-800 p-4 text-center">
+        <div className="bg-white/[0.02] border-t border-white/[0.04] p-4 text-center">
           <p className="text-xs text-zinc-500 uppercase font-bold tracking-wider">
             <span className="text-white">★</span> White Text = Best Stat
           </p>

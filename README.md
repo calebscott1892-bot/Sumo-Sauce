@@ -1,6 +1,6 @@
-# SumoWatch
+# Sumo Sauce
 
-SumoWatch is a Vite + React app with an owned backend API.
+Sumo Sauce is a Vite + React app with an owned backend API.
 
 - Frontend: Vite dev server
 - Backend: Express server under `/api/*`

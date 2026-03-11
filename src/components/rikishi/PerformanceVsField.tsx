@@ -28,7 +28,7 @@ function MetricCard({
     format === 'pct' ? `${(v * 100).toFixed(1)}%` : v.toFixed(1);
 
   return (
-    <div className="rounded-lg border border-zinc-800 bg-zinc-950 p-3">
+    <div className="rounded-lg border border-white/[0.06] bg-white/[0.02] p-3">
       <div className="text-xs text-zinc-500">{label}</div>
       <div className="mt-1 flex items-baseline gap-2">
         <span className="text-lg font-bold text-white">{fmt(rikishiVal)}</span>
@@ -145,8 +145,8 @@ export default function PerformanceVsField({ timeline, standingsMap, rikishiId }
   if (!stats) return null;
 
   return (
-    <section className="rounded-xl border border-zinc-800 bg-zinc-900 p-5">
-      <h2 className="text-xl font-bold text-white">Performance vs Division</h2>
+    <section className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5">
+      <h2 className="font-display text-xl font-bold tracking-tight text-white">Performance vs Division</h2>
       <p className="mt-1 text-xs text-zinc-500">
         Comparing against {stats.bashoWithData} recent basho division averages.
       </p>

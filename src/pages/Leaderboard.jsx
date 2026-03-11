@@ -496,7 +496,7 @@ export default function Leaderboard() {
         </div>
 
         {/* Red accent bar */}
-        <div className="mt-5 h-1 w-full overflow-hidden rounded-full bg-zinc-800">
+        <div className="mt-5 h-1 w-full overflow-hidden rounded-full bg-white/[0.06]">
           <div
             className="h-full rounded-full bg-gradient-to-r from-red-600 to-red-500 transition-all duration-700"
             style={{ width: loading ? '40%' : '100%' }}
@@ -505,7 +505,7 @@ export default function Leaderboard() {
 
         {/* ── Loading / Error States ── */}
         {loading && (
-          <div className="mt-6 flex items-center gap-3 rounded-xl border border-zinc-800/60 bg-zinc-900/50 px-5 py-6 text-zinc-400">
+          <div className="mt-6 flex items-center gap-3 rounded-xl border border-white/[0.06]/60 bg-white/[0.02] px-5 py-6 text-zinc-400">
             <div className="h-5 w-5 animate-spin rounded-full border-2 border-zinc-600 border-t-red-500" />
             Loading banzuke data…
           </div>
@@ -532,25 +532,25 @@ export default function Leaderboard() {
               value={searchQuery}
               onChange={(event) => setSearchQuery(event.target.value)}
               placeholder="Search wrestlers..."
-              className="w-full rounded-xl border border-zinc-800/60 bg-zinc-900/50 py-3.5 pl-12 pr-4 text-sm text-zinc-100 placeholder-zinc-600 outline-none transition-all focus:border-red-600/50 focus:ring-1 focus:ring-red-600/30"
+              className="w-full rounded-xl border border-white/[0.06]/60 bg-white/[0.02] py-3.5 pl-12 pr-4 text-sm text-zinc-100 placeholder-zinc-600 outline-none transition-all focus:border-red-600/50 focus:ring-1 focus:ring-red-600/30"
             />
           </div>
         </div>
 
         {/* ── Advanced Filters ── */}
         <details className="group mt-4">
-          <summary className="flex cursor-pointer items-center justify-between rounded-xl border border-zinc-800/60 bg-zinc-900/50 px-5 py-3.5 text-sm font-medium text-zinc-300 transition-colors hover:border-zinc-700">
+          <summary className="flex cursor-pointer items-center justify-between rounded-xl border border-white/[0.06]/60 bg-white/[0.02] px-5 py-3.5 text-sm font-medium text-zinc-300 transition-colors hover:border-white/[0.12]">
             <div className="flex items-center gap-2.5">
               <svg className="h-4 w-4 text-zinc-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 1 1-3 0m3 0a1.5 1.5 0 1 0-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-9.75 0h9.75" /></svg>
               Advanced Filters
             </div>
             <svg className="h-4 w-4 text-zinc-500 transition-transform group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" /></svg>
           </summary>
-          <div className="mt-3 flex flex-wrap items-center gap-3 rounded-xl border border-zinc-800/60 bg-zinc-900/30 p-4">
+          <div className="mt-3 flex flex-wrap items-center gap-3 rounded-xl border border-white/[0.06]/60 bg-white/[0.02] p-4">
             <select
               value={selectedBasho}
               onChange={(event) => setSelectedBasho(event.target.value)}
-              className="rounded-lg border border-zinc-700/50 bg-zinc-800/80 px-3 py-2 text-sm text-zinc-200 outline-none focus:border-red-600/50"
+              className="rounded-lg border border-white/[0.08]/50 bg-zinc-800/80 px-3 py-2 text-sm text-zinc-200 outline-none focus:border-red-600/50"
             >
               {filteredGroupOptions.map((option) => (
                 <option key={option.key} value={option.key}>
@@ -562,7 +562,7 @@ export default function Leaderboard() {
             <select
               value={selectedDivision}
               onChange={(event) => setSelectedDivision(event.target.value)}
-              className="rounded-lg border border-zinc-700/50 bg-zinc-800/80 px-3 py-2 text-sm text-zinc-200 outline-none focus:border-red-600/50"
+              className="rounded-lg border border-white/[0.08]/50 bg-zinc-800/80 px-3 py-2 text-sm text-zinc-200 outline-none focus:border-red-600/50"
             >
               <option value="all">All Divisions</option>
               <option value="Makuuchi">Makuuchi</option>
@@ -573,7 +573,7 @@ export default function Leaderboard() {
               <option value="Jonokuchi">Jonokuchi</option>
             </select>
 
-            <label className="flex items-center gap-2 rounded-lg border border-zinc-700/50 bg-zinc-800/80 px-3 py-2 text-xs font-medium text-zinc-300">
+            <label className="flex items-center gap-2 rounded-lg border border-white/[0.08]/50 bg-zinc-800/80 px-3 py-2 text-xs font-medium text-zinc-300">
               <input
                 type="checkbox"
                 checked={includeSnapshots}
@@ -583,7 +583,7 @@ export default function Leaderboard() {
               Snapshots
             </label>
 
-            <label className="flex items-center gap-2 rounded-lg border border-zinc-700/50 bg-zinc-800/80 px-3 py-2 text-xs font-medium text-zinc-300">
+            <label className="flex items-center gap-2 rounded-lg border border-white/[0.08]/50 bg-zinc-800/80 px-3 py-2 text-xs font-medium text-zinc-300">
               <input
                 type="checkbox"
                 checked={hideStubs}
@@ -642,7 +642,7 @@ export default function Leaderboard() {
           <select
             value={sortMode}
             onChange={(event) => setSortMode(event.target.value)}
-            className="rounded-lg border border-zinc-800/60 bg-zinc-900/50 px-3 py-2 text-sm text-zinc-300 outline-none focus:border-red-600/50"
+            className="rounded-lg border border-white/[0.06]/60 bg-white/[0.02] px-3 py-2 text-sm text-zinc-300 outline-none focus:border-red-600/50"
           >
             <option value="banzuke">Official Banzuke Rank</option>
             <option value="standings">Tournament Standings</option>
@@ -730,7 +730,7 @@ export default function Leaderboard() {
             })}
 
             {!rows.length && (
-              <div className="rounded-xl border border-zinc-800/60 bg-zinc-900/30 px-5 py-8 text-center text-sm text-zinc-500">
+              <div className="rounded-xl border border-white/[0.06]/60 bg-white/[0.02] px-5 py-8 text-center text-sm text-zinc-500">
                 No wrestlers match the current filters.
               </div>
             )}

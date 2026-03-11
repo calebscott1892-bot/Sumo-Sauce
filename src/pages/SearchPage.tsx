@@ -76,8 +76,8 @@ export default function SearchPage() {
   return (
     <div className="mx-auto max-w-6xl space-y-6 p-6 text-zinc-200">
       <PageMeta
-        title="SumoWatch — Search"
-        description="Search across rikishi, basho, and rivalries in the SumoWatch dataset."
+        title="Sumo Sauce — Search"
+        description="Search across rikishi, basho, and rivalries in the Sumo Sauce dataset."
       />
       <nav className="mb-2 flex items-center gap-1 text-sm text-zinc-400">
         <Link className="text-red-400 hover:text-red-300" to="/">Home</Link>
@@ -96,7 +96,7 @@ export default function SearchPage() {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Search rikishi, basho, tournaments…"
-            className="w-full rounded-lg border border-zinc-700 bg-zinc-800 py-2.5 pl-10 pr-10 text-sm text-zinc-100 placeholder-zinc-500 focus:border-red-500 focus:outline-none"
+            className="w-full rounded-lg border border-white/[0.08] bg-zinc-800 py-2.5 pl-10 pr-10 text-sm text-zinc-100 placeholder-zinc-500 focus:border-red-500 focus:outline-none"
             autoFocus
           />
           {query && (
@@ -113,7 +113,7 @@ export default function SearchPage() {
       </section>
 
       {/* Tabs */}
-      <div className="flex gap-1 border-b border-zinc-800">
+      <div className="flex gap-1 border-b border-white/[0.04]">
         {TABS.map((t) => (
           <button
             key={t.key}
@@ -127,7 +127,7 @@ export default function SearchPage() {
           >
             <t.icon className="h-4 w-4" />
             {t.label}
-            <span className="ml-1 rounded-full bg-zinc-800 px-2 py-0.5 text-[10px] text-zinc-400">
+            <span className="ml-1 rounded-full bg-white/[0.06] px-2 py-0.5 text-[10px] text-zinc-400">
               {resultCounts[t.key]}
             </span>
           </button>
@@ -140,7 +140,7 @@ export default function SearchPage() {
           {dirLoading ? (
             <div className="space-y-2">
               {Array.from({ length: 8 }).map((_, i) => (
-                <div key={i} className="h-14 animate-pulse rounded-lg border border-zinc-800 bg-zinc-900" />
+                <div key={i} className="h-14 animate-pulse rounded-lg border border-white/[0.06] bg-white/[0.02]" />
               ))}
             </div>
           ) : rikishiResults.length === 0 ? (
@@ -155,7 +155,7 @@ export default function SearchPage() {
                 <Link
                   key={r.rikishiId}
                   to={`/rikishi/${encodeURIComponent(r.rikishiId)}`}
-                  className="flex items-center justify-between rounded-lg border border-zinc-800 bg-zinc-900 px-4 py-3 transition-colors hover:border-red-600 hover:bg-zinc-800/80"
+                  className="flex items-center justify-between rounded-lg border border-white/[0.06] bg-white/[0.02] px-4 py-3 transition-colors hover:border-red-600 hover:bg-white/[0.06]/80"
                 >
                   <div>
                     <div className="font-semibold text-zinc-100">{r.shikona}</div>
@@ -188,7 +188,7 @@ export default function SearchPage() {
                   <Link
                     key={id}
                     to={`/basho/${encodeURIComponent(id)}`}
-                    className="rounded-lg border border-zinc-800 bg-zinc-900 p-4 transition-colors hover:border-blue-600 hover:bg-zinc-800/80"
+                    className="rounded-lg border border-white/[0.06] bg-white/[0.02] p-4 transition-colors hover:border-blue-600 hover:bg-white/[0.06]/80"
                   >
                     <div className="font-semibold text-zinc-100">{bashoDisplayName(id)}</div>
                     <div className="mt-1 text-xs text-zinc-500">{id}</div>

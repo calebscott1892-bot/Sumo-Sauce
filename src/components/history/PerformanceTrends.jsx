@@ -28,7 +28,7 @@ export default function PerformanceTrends({ wrestler }) {
   const CustomTooltip = ({ active, payload, label }) => {
     if (active && payload && payload.length) {
       return (
-        <div className="bg-zinc-900 border border-zinc-700 p-3 rounded shadow-lg">
+        <div className="bg-white/[0.03] border border-white/[0.08] p-3 rounded shadow-lg">
           <p className="text-white font-bold text-sm mb-2">{label}</p>
           {payload.map((entry, index) => (
             <p key={index} className="text-xs" style={{ color: entry.color }}>
@@ -45,11 +45,11 @@ export default function PerformanceTrends({ wrestler }) {
     <div className="space-y-4">
       <div className="flex items-center gap-2 mb-4">
         <TrendingUp className="w-5 h-5 text-blue-400" />
-        <h3 className="text-lg font-bold text-white">Performance Trends</h3>
+        <h3 className="font-display text-lg font-bold tracking-tight text-white">Performance Trends</h3>
       </div>
 
       <Tabs value={activeChart} onValueChange={setActiveChart}>
-        <TabsList className="bg-zinc-800 w-full">
+        <TabsList className="bg-white/[0.03] w-full">
           <TabsTrigger value="winrate" className="flex-1">Win Rate</TabsTrigger>
           <TabsTrigger value="record" className="flex-1">W/L Record</TabsTrigger>
         </TabsList>

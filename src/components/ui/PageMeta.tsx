@@ -11,7 +11,7 @@ type Props = {
   ogType?: string;
 };
 
-const SITE_NAME = 'SumoWatch';
+const SITE_NAME = 'Sumo Sauce';
 const DEFAULT_IMAGE = '/favicon.svg';
 
 /**

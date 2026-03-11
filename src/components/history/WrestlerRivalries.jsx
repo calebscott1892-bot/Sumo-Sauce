@@ -22,7 +22,7 @@ export default function WrestlerRivalries({ wrestler }) {
     <div className="space-y-4">
       <div className="flex items-center gap-2 mb-4">
         <Swords className="w-5 h-5 text-red-400" />
-        <h3 className="text-lg font-bold text-white">Notable Rivalries</h3>
+        <h3 className="font-display text-lg font-bold tracking-tight text-white">Notable Rivalries</h3>
       </div>
 
       <div className="space-y-3">
@@ -38,7 +38,7 @@ export default function WrestlerRivalries({ wrestler }) {
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: idx * 0.1 }}
-              className="bg-zinc-800/50 border border-zinc-700 rounded-lg p-4 hover:border-zinc-600 transition-colors"
+              className="bg-zinc-800/50 border border-white/[0.08] rounded-lg p-4 hover:border-white/[0.15] transition-colors"
             >
               <div className="flex items-start justify-between mb-3">
                 <div className="flex-1">
@@ -66,7 +66,7 @@ export default function WrestlerRivalries({ wrestler }) {
                   <span>{wrestler.shikona}</span>
                   <span>{rival.name}</span>
                 </div>
-                <div className="h-2 bg-zinc-900 rounded-full overflow-hidden flex">
+                <div className="h-2 bg-white/[0.04] rounded-full overflow-hidden flex">
                   <div 
                     className="bg-green-500"
                     style={{ width: `${winRate}%` }}
@@ -83,7 +83,7 @@ export default function WrestlerRivalries({ wrestler }) {
               </div>
 
               {/* Memorable Match */}
-              <div className="bg-zinc-900/50 rounded p-2 border-l-2 border-amber-500">
+              <div className="bg-white/[0.02] rounded p-2 border-l-2 border-amber-500">
                 <div className="text-xs text-zinc-500 mb-1">Memorable Bout</div>
                 <div className="text-xs text-zinc-300">{rival.memorable}</div>
               </div>

@@ -18,7 +18,7 @@ export default function AchievementNotification({ achievement, onClose }) {
           initial={{ x: 400, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           exit={{ x: 400, opacity: 0 }}
-          className="fixed top-4 right-4 z-50 bg-zinc-900 border-2 border-amber-500 rounded-lg p-4 shadow-2xl max-w-sm"
+          className="fixed top-4 right-4 z-50 bg-white/[0.03] border-2 border-amber-500 rounded-lg p-4 shadow-2xl max-w-sm"
         >
           <button
             onClick={onClose}

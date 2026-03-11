@@ -19,7 +19,7 @@ export default function BashoNav({ bashoId, division }: Props) {
   return (
     <nav
       data-testid="basho-nav"
-      className="flex items-center justify-between rounded-xl border border-zinc-800 bg-zinc-900 px-4 py-3"
+      className="flex items-center justify-between rounded-xl border border-white/[0.06] bg-white/[0.02] px-4 py-3"
     >
       {prev ? (
         <Link

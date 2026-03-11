@@ -21,7 +21,7 @@ function CustomTooltip({ active, payload }: any) {
   if (!active || !payload?.length) return null;
   const d = payload[0].payload;
   return (
-    <div className="rounded-lg border border-zinc-700 bg-zinc-900 p-2.5 text-xs text-zinc-200 shadow-lg">
+    <div className="rounded-lg border border-white/[0.08] bg-white/[0.03] p-2.5 text-xs text-zinc-200 shadow-lg">
       <div className="font-semibold">{d.shikona}</div>
       <div>Rank: {d.rank}</div>
       <div>Record: {d.wins}-{d.losses}</div>
@@ -53,8 +53,8 @@ export default function BashoPerformanceChart({ rows, limit = 20 }: Props) {
 
   if (!data.length) {
     return (
-      <section className="rounded-xl border border-zinc-800 bg-zinc-900 p-5">
-        <h2 className="text-xl font-bold text-white">Performance Chart</h2>
+      <section className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5">
+        <h2 className="font-display text-xl font-bold tracking-tight text-white">Performance Chart</h2>
         <div className="mt-3 text-sm text-zinc-400">No standings data available.</div>
       </section>
     );
@@ -63,8 +63,8 @@ export default function BashoPerformanceChart({ rows, limit = 20 }: Props) {
   const maxWins = data[0]?.wins ?? 0;
 
   return (
-    <section className="rounded-xl border border-zinc-800 bg-zinc-900 p-5">
-      <h2 className="text-xl font-bold text-white">Makuuchi Performance</h2>
+    <section className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5">
+      <h2 className="font-display text-xl font-bold tracking-tight text-white">Makuuchi Performance</h2>
       <p className="mt-1 text-xs text-zinc-500">Win totals sorted by performance</p>
       <div className="mt-4" style={{ height: Math.max(300, data.length * 28) }}>
         <ResponsiveContainer width="100%" height="100%">

@@ -121,9 +121,9 @@ export default function WrestlerRatingCard({ wrestler }) {
   };
 
   return (
-    <div className="bg-zinc-900 border border-zinc-800 p-6 space-y-6">
+    <div className="bg-white/[0.02] border border-white/[0.06] p-6 space-y-6">
       {/* Average Rating */}
-      <div className="text-center border-b border-zinc-800 pb-6">
+      <div className="text-center border-b border-white/[0.04] pb-6">
         <div className="text-5xl font-black text-white mb-2">{avgRating}</div>
         <StarRating value={parseFloat(avgRating)} readonly />
         <div className="text-sm text-zinc-500 mt-2">
@@ -133,7 +133,7 @@ export default function WrestlerRatingCard({ wrestler }) {
 
       {/* Category Averages */}
       {avgCategories && (
-        <div className="grid grid-cols-2 gap-4 border-b border-zinc-800 pb-6">
+        <div className="grid grid-cols-2 gap-4 border-b border-white/[0.04] pb-6">
           {Object.entries(avgCategories).map(([key, value]) => (
             <div key={key} className="text-center">
               <div className="text-xs text-zinc-500 uppercase mb-1 font-bold">{key}</div>
@@ -192,7 +192,7 @@ export default function WrestlerRatingCard({ wrestler }) {
               value={comment}
               onChange={(e) => setComment(e.target.value)}
               placeholder="Share your thoughts..."
-              className="bg-zinc-800 border-zinc-700 text-white"
+              className="bg-white/[0.04] border-white/[0.08] text-white"
             />
           </div>
 
@@ -208,7 +208,7 @@ export default function WrestlerRatingCard({ wrestler }) {
 
       {/* Recent Ratings */}
       {allRatings.length > 0 && (
-        <div className="border-t border-zinc-800 pt-6">
+        <div className="border-t border-white/[0.04] pt-6">
           <h3 className="text-sm font-bold text-zinc-400 mb-4 uppercase">Recent Ratings</h3>
           <div className="space-y-3 max-h-64 overflow-y-auto">
             {allRatings.slice(0, 10).map((r, idx) => (

@@ -85,7 +85,7 @@ function StreakBadge({ streak, label, icon: Icon, color }: {
 }) {
   if (!streak) {
     return (
-      <div className="rounded-lg border border-zinc-800 bg-zinc-950 p-3">
+      <div className="rounded-lg border border-white/[0.06] bg-white/[0.02] p-3">
         <div className="flex items-center gap-2 text-xs text-zinc-500">
           <Icon className="h-3.5 w-3.5" />
           <span>{label}</span>
@@ -96,7 +96,7 @@ function StreakBadge({ streak, label, icon: Icon, color }: {
   }
 
   return (
-    <div className={`rounded-lg border p-3 transition-colors duration-200 hover:border-zinc-600 ${color}`}>
+    <div className={`rounded-lg border p-3 transition-colors duration-200 hover:border-white/[0.15] ${color}`}>
       <div className="flex items-center gap-2 text-xs text-zinc-400">
         <Icon className="h-3.5 w-3.5" />
         <span>{label}</span>
@@ -115,8 +115,8 @@ function StreakCard({ rankProgression }: Props) {
   if (!rankProgression.length) return null;
 
   return (
-    <section className="rounded-xl border border-zinc-800 bg-zinc-900 p-5" aria-label="Streak analysis">
-      <h2 className="text-xl font-bold text-white">Streak Analysis</h2>
+    <section className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5" aria-label="Streak analysis">
+      <h2 className="font-display text-xl font-bold tracking-tight text-white">Streak Analysis</h2>
       <p className="mt-0.5 text-xs text-zinc-500">Consecutive kachi-koshi and make-koshi basho streaks.</p>
 
       <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-3">

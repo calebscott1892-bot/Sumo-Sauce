@@ -59,7 +59,7 @@ export default class ErrorBoundary extends React.Component {
 
       return (
         <div className="flex min-h-screen items-center justify-center bg-zinc-950 p-6">
-          <div className="w-full max-w-md rounded-xl border border-red-800 bg-zinc-900 p-8 text-center shadow-2xl">
+          <div className="w-full max-w-md rounded-xl border border-red-800/30 bg-white/[0.02] p-8 text-center shadow-2xl">
             <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-red-950 text-red-400">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -110,13 +110,13 @@ export default class ErrorBoundary extends React.Component {
               <button
                 type="button"
                 onClick={() => window.location.reload()}
-                className="rounded-md border border-zinc-700 px-5 py-2 text-sm font-medium text-zinc-300 hover:border-zinc-500 hover:text-white transition-colors"
+                className="rounded-md border border-white/[0.08] px-5 py-2 text-sm font-medium text-zinc-300 hover:border-zinc-500 hover:text-white transition-colors"
               >
                 Reload page
               </button>
               <a
                 href="/"
-                className="rounded-md border border-zinc-700 px-5 py-2 text-sm font-medium text-zinc-300 hover:border-zinc-500 hover:text-white transition-colors"
+                className="rounded-md border border-white/[0.08] px-5 py-2 text-sm font-medium text-zinc-300 hover:border-zinc-500 hover:text-white transition-colors"
               >
                 Back to home
               </a>

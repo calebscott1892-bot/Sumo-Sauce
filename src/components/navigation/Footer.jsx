@@ -93,7 +93,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-10 border-t border-white/[0.06] pt-5 text-center text-[11px] text-zinc-600">
-          © {new Date().getFullYear()} SumoWatch. All data sourced from{' '}
+          © {new Date().getFullYear()} Sumo Sauce. All data sourced from{' '}
           <a
             href="https://sumodb.sumogames.de/"
             target="_blank"

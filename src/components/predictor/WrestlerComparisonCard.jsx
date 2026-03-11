@@ -14,11 +14,11 @@ export default function WrestlerComparisonCard({ wrestler, side, isWinner, proba
       "flex-1 p-6 rounded-lg border-2 transition-all",
       isWinner 
         ? "bg-gradient-to-br from-green-900/30 to-green-800/20 border-green-500"
-        : "bg-zinc-900 border-zinc-700"
+        : "bg-white/[0.02] border-white/[0.06]"
     )}>
       {/* Profile */}
       <div className="text-center mb-6">
-        <div className="w-24 h-24 mx-auto mb-4 rounded-full bg-zinc-800 flex items-center justify-center overflow-hidden">
+        <div className="w-24 h-24 mx-auto mb-4 rounded-full bg-white/[0.06] flex items-center justify-center overflow-hidden">
           {wrestler.image_url ? (
             <img src={wrestler.image_url} alt={wrestler.shikona} className="w-full h-full object-cover" />
           ) : (

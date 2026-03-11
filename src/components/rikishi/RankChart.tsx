@@ -41,16 +41,16 @@ export default function RankChart({ points }: Props) {
 
   if (!points.length) {
     return (
-      <section className="rounded-xl border border-zinc-800 bg-zinc-900 p-5">
-        <h2 className="text-xl font-bold text-white">Rank Progression</h2>
+      <section className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5">
+        <h2 className="font-display text-xl font-bold tracking-tight text-white">Rank Progression</h2>
         <div className="mt-3 text-sm text-zinc-400">No data.</div>
       </section>
     );
   }
 
   return (
-    <section data-testid="rank-progression" className="rounded-xl border border-zinc-800 bg-zinc-900 p-5">
-      <h2 className="text-xl font-bold text-white">Rank Progression</h2>
+    <section data-testid="rank-progression" className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5">
+      <h2 className="font-display text-xl font-bold tracking-tight text-white">Rank Progression</h2>
       <svg viewBox={`0 0 ${plotted.width} ${plotted.height}`} className="mt-4 w-full" role="img" aria-label="Rank progression chart">
         <line x1="48" y1="16" x2="48" y2="204" stroke="#3f3f46" strokeWidth="1" />
         <line x1="48" y1="204" x2="888" y2="204" stroke="#3f3f46" strokeWidth="1" />

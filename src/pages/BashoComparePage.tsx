@@ -30,7 +30,7 @@ const DIVISIONS: Division[] = ['makuuchi', 'juryo', 'makushita', 'sandanme', 'jo
 function ChartTooltip({ active, payload }: any) {
   if (!active || !payload?.length) return null;
   return (
-    <div className="rounded-lg border border-zinc-700 bg-zinc-900 p-2.5 text-xs text-zinc-200 shadow-lg">
+    <div className="rounded-lg border border-white/[0.08] bg-white/[0.03] p-2.5 text-xs text-zinc-200 shadow-lg">
       <div className="font-semibold">{payload[0]?.payload?.name}</div>
       {payload.map((p: any) => (
         <div key={p.dataKey} style={{ color: p.color }}>
@@ -141,7 +141,7 @@ export default function BashoComparePage() {
   if (!validA || !validB) {
     return (
       <div className="mx-auto max-w-6xl p-6 text-zinc-200">
-        <section className="rounded-xl border border-zinc-800 bg-zinc-900 p-6">
+        <section className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-6">
           <h1 className="text-2xl font-bold text-white">Invalid basho comparison</h1>
           <p className="mt-2 text-sm text-zinc-400">
             Both basho IDs must be valid YYYYMM format (e.g. 202401).
@@ -166,7 +166,7 @@ export default function BashoComparePage() {
   return (
     <div data-testid="basho-compare-page" className="mx-auto max-w-6xl space-y-6 p-6 text-zinc-200">
       <PageMeta
-        title={`SumoWatch — ${shortA} vs ${shortB}`}
+        title={`Sumo Sauce — ${shortA} vs ${shortB}`}
         description={`Compare ${nameA} and ${nameB} — wrestler counts, bouts, top performers, and kimarite distribution.`}
       />
 
@@ -180,7 +180,7 @@ export default function BashoComparePage() {
       </nav>
 
       {/* Hero */}
-      <section className="rounded-xl border border-zinc-800 bg-zinc-900 p-6">
+      <section className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-6">
         <h1 className="text-3xl font-black text-white">
           {shortA} <span className="text-zinc-500">vs</span> {shortB}
         </h1>
@@ -190,13 +190,13 @@ export default function BashoComparePage() {
       {isLoading ? (
         <div className="space-y-4">
           {Array.from({ length: 4 }).map((_, i) => (
-            <div key={i} className="h-32 animate-pulse rounded-xl border border-zinc-800 bg-zinc-900" />
+            <div key={i} className="h-32 animate-pulse rounded-xl border border-white/[0.06] bg-white/[0.02]" />
           ))}
         </div>
       ) : (
         <>
           {/* Overview stats */}
-          <section className="rounded-xl border border-zinc-800 bg-zinc-900 p-5">
+          <section className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5">
             <h2 className="mb-4 text-xl font-bold text-white">Overview</h2>
             <div className="space-y-4">
               <div>
@@ -225,7 +225,7 @@ export default function BashoComparePage() {
           </section>
 
           {/* Division participation chart */}
-          <section className="rounded-xl border border-zinc-800 bg-zinc-900 p-5">
+          <section className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5">
             <h2 className="mb-4 text-xl font-bold text-white">Division Participation</h2>
             <div className="h-64">
               <ResponsiveContainer width="100%" height="100%">
@@ -247,7 +247,7 @@ export default function BashoComparePage() {
           </section>
 
           {/* Top performers */}
-          <section className="rounded-xl border border-zinc-800 bg-zinc-900 p-5">
+          <section className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5">
             <h2 className="mb-4 text-xl font-bold text-white">Top Performers (Makuuchi)</h2>
             <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
               <div>
@@ -257,7 +257,7 @@ export default function BashoComparePage() {
                     <Link
                       key={row.rikishiId}
                       to={`/rikishi/${encodeURIComponent(row.rikishiId)}`}
-                      className="flex items-center justify-between rounded-lg border border-zinc-800 bg-zinc-950 px-3 py-2 transition-colors hover:border-red-700"
+                      className="flex items-center justify-between rounded-lg border border-white/[0.06] bg-white/[0.02] px-3 py-2 transition-colors hover:border-red-700"
                     >
                       <div className="flex items-center gap-2">
                         <span className="text-xs text-zinc-500">#{idx + 1}</span>
@@ -276,7 +276,7 @@ export default function BashoComparePage() {
                     <Link
                       key={row.rikishiId}
                       to={`/rikishi/${encodeURIComponent(row.rikishiId)}`}
-                      className="flex items-center justify-between rounded-lg border border-zinc-800 bg-zinc-950 px-3 py-2 transition-colors hover:border-blue-700"
+                      className="flex items-center justify-between rounded-lg border border-white/[0.06] bg-white/[0.02] px-3 py-2 transition-colors hover:border-blue-700"
                     >
                       <div className="flex items-center gap-2">
                         <span className="text-xs text-zinc-500">#{idx + 1}</span>
@@ -293,7 +293,7 @@ export default function BashoComparePage() {
 
           {/* Kimarite distribution chart */}
           {analysis.kimariteChart.length > 0 && (
-            <section className="rounded-xl border border-zinc-800 bg-zinc-900 p-5">
+            <section className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5">
               <h2 className="mb-4 text-xl font-bold text-white">Kimarite Distribution</h2>
               <div className="h-72">
                 <ResponsiveContainer width="100%" height="100%">
@@ -324,17 +324,17 @@ export default function BashoComparePage() {
           )}
 
           {/* Links to individual basho */}
-          <section className="rounded-xl border border-zinc-800 bg-zinc-900 p-5">
+          <section className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5">
             <div className="flex flex-wrap gap-4">
               <Link
                 to={`/basho/${bashoA}`}
-                className="rounded-lg border border-zinc-800 bg-zinc-950 px-4 py-2 text-sm text-red-400 transition-colors hover:border-red-700 hover:text-red-300"
+                className="rounded-lg border border-white/[0.06] bg-white/[0.02] px-4 py-2 text-sm text-red-400 transition-colors hover:border-red-700 hover:text-red-300"
               >
                 View {shortA} →
               </Link>
               <Link
                 to={`/basho/${bashoB}`}
-                className="rounded-lg border border-zinc-800 bg-zinc-950 px-4 py-2 text-sm text-blue-400 transition-colors hover:border-blue-700 hover:text-blue-300"
+                className="rounded-lg border border-white/[0.06] bg-white/[0.02] px-4 py-2 text-sm text-blue-400 transition-colors hover:border-blue-700 hover:text-blue-300"
               >
                 View {shortB} →
               </Link>

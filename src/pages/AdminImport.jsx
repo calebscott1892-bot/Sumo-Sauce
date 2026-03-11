@@ -86,14 +86,14 @@ export default function AdminImport() {
       <div className="mx-auto max-w-4xl px-4 py-10">
         <h1 className="text-3xl font-black mb-3">Admin Import (Phase 2)</h1>
 
-        <div className="mb-6 rounded-lg border border-zinc-800 bg-zinc-900 p-4 space-y-4">
+        <div className="mb-6 rounded-lg border border-white/[0.06] bg-white/[0.02] p-4 space-y-4">
           <div className="grid gap-4 md:grid-cols-2">
             <label className="space-y-2">
               <div className="text-sm font-bold text-zinc-300">Entity</div>
               <select
                 value={entity}
                 onChange={(e) => setEntity(e.target.value)}
-                className="w-full rounded-md border border-zinc-700 bg-black px-3 py-2"
+                className="w-full rounded-md border border-white/[0.08] bg-black px-3 py-2"
               >
                 <option value="Wrestler">Wrestler</option>
                 <option value="BashoRecord">BashoRecord</option>
@@ -107,7 +107,7 @@ export default function AdminImport() {
                 value={adminToken}
                 onChange={(e) => setAdminToken(e.target.value)}
                 placeholder="X-ADMIN-TOKEN"
-                className="w-full rounded-md border border-zinc-700 bg-black px-3 py-2"
+                className="w-full rounded-md border border-white/[0.08] bg-black px-3 py-2"
               />
             </label>
           </div>
@@ -126,7 +126,7 @@ export default function AdminImport() {
             <textarea
               value={jsonText}
               onChange={(e) => setJsonText(e.target.value)}
-              className="h-64 w-full rounded-md border border-zinc-700 bg-black px-3 py-2 font-mono text-sm"
+              className="h-64 w-full rounded-md border border-white/[0.08] bg-black px-3 py-2 font-mono text-sm"
               spellCheck={false}
             />
           </label>
@@ -150,7 +150,7 @@ export default function AdminImport() {
           )}
 
           {report && (
-            <div className="rounded-md border border-zinc-700 bg-black px-3 py-2">
+            <div className="rounded-md border border-white/[0.08] bg-black px-3 py-2">
               <div className="mb-2 text-sm font-bold text-zinc-300">Import Report</div>
               <pre className="overflow-x-auto text-xs text-zinc-200">
                 {JSON.stringify(report, null, 2)}

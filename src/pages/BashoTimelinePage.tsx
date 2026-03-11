@@ -56,14 +56,14 @@ export default function BashoTimelinePage() {
       case 7: return 'border-amber-600 bg-amber-950/30';
       case 9: return 'border-orange-600 bg-orange-950/30';
       case 11: return 'border-purple-600 bg-purple-950/30';
-      default: return 'border-zinc-700 bg-zinc-950';
+      default: return 'border-white/[0.06] bg-zinc-950';
     }
   };
 
   return (
     <div className="mx-auto max-w-6xl space-y-6 p-6 text-zinc-200">
       <PageMeta
-        title="SumoWatch — Basho Timeline"
+        title="Sumo Sauce — Basho Timeline"
         description="Browse the complete history of professional sumo tournaments in chronological order."
       />
 
@@ -94,14 +94,14 @@ export default function BashoTimelinePage() {
           placeholder="Search by year, name (Hatsu, Natsu…), or month…"
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
-          className="w-full rounded-lg border border-zinc-700 bg-zinc-800 py-2 pl-9 pr-3 text-sm text-zinc-100 placeholder-zinc-500 focus:border-red-500 focus:outline-none"
+          className="w-full rounded-lg border border-white/[0.08] bg-zinc-800 py-2 pl-9 pr-3 text-sm text-zinc-100 placeholder-zinc-500 focus:border-red-500 focus:outline-none"
           aria-label="Search tournaments"
         />
       </div>
 
       {/* Timeline */}
       {groups.length === 0 && (
-        <div className="rounded-xl border border-zinc-800 bg-zinc-900 p-8 text-center">
+        <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-8 text-center">
           <Calendar className="mx-auto h-10 w-10 text-zinc-600" />
           <p className="mt-3 text-sm text-zinc-400">No tournaments match your search.</p>
         </div>
@@ -118,7 +118,7 @@ export default function BashoTimelinePage() {
               <div className="hidden sm:flex absolute left-0 h-9 w-9 items-center justify-center rounded-full border-2 border-red-600 bg-zinc-950 text-xs font-bold text-red-400">
                 {String(group.year).slice(2)}
               </div>
-              <h2 className="text-xl font-bold text-white">{group.year}</h2>
+              <h2 className="font-display text-xl font-bold tracking-tight text-white">{group.year}</h2>
               <span className="text-xs text-zinc-500">{group.bashoIds.length} basho</span>
             </div>
 

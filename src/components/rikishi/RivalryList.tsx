@@ -22,8 +22,8 @@ type Props = {
 export default function RivalryList({ rikishiId, rivals, isLoading }: Props) {
   if (isLoading) {
     return (
-      <section className="rounded-xl border border-zinc-800 bg-zinc-900 p-5">
-        <h2 className="text-xl font-bold text-white">Rivalries</h2>
+      <section className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5">
+        <h2 className="font-display text-xl font-bold tracking-tight text-white">Rivalries</h2>
         <div className="mt-3 space-y-2">
           {Array.from({ length: 3 }).map((_, i) => (
             <div key={i} className="h-16 animate-pulse rounded-lg bg-zinc-800" />
@@ -36,10 +36,10 @@ export default function RivalryList({ rikishiId, rivals, isLoading }: Props) {
   const qualifying = rivals.filter((r) => r.totalMatches >= 10);
 
   return (
-    <section data-testid="rivalry-list" className="rounded-xl border border-zinc-800 bg-zinc-900 p-5">
+    <section data-testid="rivalry-list" className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5">
       <div className="flex items-center gap-2">
         <Swords className="h-5 w-5 text-red-500" />
-        <h2 className="text-xl font-bold text-white">Rivalries</h2>
+        <h2 className="font-display text-xl font-bold tracking-tight text-white">Rivalries</h2>
         {qualifying.length > 0 && (
           <span className="rounded-full bg-red-900/50 px-2 py-0.5 text-xs text-red-300">
             {qualifying.length}
@@ -63,7 +63,7 @@ export default function RivalryList({ rikishiId, rivals, isLoading }: Props) {
             <Link
               key={rival.opponentId}
               to={`/compare/${encodeURIComponent(rikishiId)}/${encodeURIComponent(rival.opponentId)}`}
-              className="block rounded-lg border border-zinc-800 bg-zinc-950 p-3 transition-colors hover:border-red-600"
+              className="block rounded-lg border border-white/[0.06] bg-white/[0.02] p-3 transition-colors hover:border-red-600"
               data-testid={`rivalry-${rival.opponentId}`}
             >
               <div className="flex items-center justify-between">
@@ -82,7 +82,7 @@ export default function RivalryList({ rikishiId, rivals, isLoading }: Props) {
               </div>
               {/* Win rate bar */}
               <div className="mt-2">
-                <div className="h-1.5 w-full rounded-full bg-zinc-800 overflow-hidden">
+                <div className="h-1.5 w-full rounded-full bg-white/[0.06] overflow-hidden">
                   <div
                     className={`h-1.5 rounded-full transition-all ${
                       isWinning ? 'bg-emerald-500' : isTied ? 'bg-zinc-500' : 'bg-red-500'

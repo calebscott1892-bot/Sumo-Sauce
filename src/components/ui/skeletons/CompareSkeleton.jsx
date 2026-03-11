@@ -17,7 +17,7 @@ export default function CompareSkeleton() {
       </div>
 
       {/* Header */}
-      <div className="rounded-xl border border-zinc-800 bg-zinc-900 p-5">
+      <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5">
         <SkeletonBar className="h-7 w-64 mb-3" />
         <div className="grid grid-cols-2 gap-3">
           <div className="space-y-2">
@@ -34,31 +34,31 @@ export default function CompareSkeleton() {
       </div>
 
       {/* Head-to-Head */}
-      <div className="rounded-xl border border-zinc-800 bg-zinc-900 p-5">
+      <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5">
         <SkeletonBar className="h-6 w-32 mb-4" />
         <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
           {Array.from({ length: 4 }, (_, i) => (
-            <div key={i} className="rounded-lg border border-zinc-800 bg-zinc-950 p-3 space-y-2">
+            <div key={i} className="rounded-lg border border-white/[0.06] bg-white/[0.02] p-3 space-y-2">
               <SkeletonBar className="h-3 w-16" />
               <SkeletonBar className="h-5 w-10" />
             </div>
           ))}
         </div>
-        <div className="mt-3 rounded-lg border border-zinc-800 bg-zinc-950 p-3 space-y-2">
+        <div className="mt-3 rounded-lg border border-white/[0.06] bg-white/[0.02] p-3 space-y-2">
           <SkeletonBar className="h-3 w-20" />
           <SkeletonBar className="h-4 w-48" />
         </div>
       </div>
 
       {/* Recent Form */}
-      <div className="rounded-xl border border-zinc-800 bg-zinc-900 p-5">
+      <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5">
         <SkeletonBar className="h-6 w-44 mb-4" />
         <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
           {[0, 1].map((col) => (
             <div key={col}>
               <SkeletonBar className="h-4 w-28 mb-3" />
               {Array.from({ length: 4 }, (_, i) => (
-                <div key={i} className="grid grid-cols-4 gap-2 border-b border-zinc-800/40 py-2">
+                <div key={i} className="grid grid-cols-4 gap-2 border-b border-white/[0.04]/40 py-2">
                   <SkeletonBar className="h-4 w-14" />
                   <SkeletonBar className="h-4 w-16" />
                   <SkeletonBar className="h-4 w-10" />
@@ -71,14 +71,14 @@ export default function CompareSkeleton() {
       </div>
 
       {/* Kimarite */}
-      <div className="rounded-xl border border-zinc-800 bg-zinc-900 p-5">
+      <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5">
         <SkeletonBar className="h-6 w-48 mb-4" />
         <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
           {[0, 1].map((col) => (
             <div key={col} className="space-y-2">
               <SkeletonBar className="h-4 w-28 mb-2" />
               {Array.from({ length: 5 }, (_, i) => (
-                <div key={i} className="flex items-center justify-between rounded border border-zinc-800 bg-zinc-950 px-2 py-1.5">
+                <div key={i} className="flex items-center justify-between rounded border border-white/[0.06] bg-white/[0.02] px-2 py-1.5">
                   <SkeletonBar className="h-4 w-20" />
                   <SkeletonBar className="h-4 w-10" />
                 </div>

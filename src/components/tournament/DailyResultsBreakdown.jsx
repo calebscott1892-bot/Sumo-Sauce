@@ -24,7 +24,7 @@ export default function DailyResultsBreakdown({ rankChanges, onWrestlerClick }) 
   const colors = ['#3B82F6', '#EF4444', '#10B981', '#F59E0B', '#8B5CF6'];
 
   return (
-    <div className="bg-zinc-900 border border-zinc-800 p-6">
+    <div className="bg-white/[0.02] border border-white/[0.06] p-6">
       <h3 className="text-xl font-black text-white mb-6 flex items-center gap-2">
         <TrendingUp className="w-5 h-5 text-blue-400" />
         Daily Results - Top Wrestlers
@@ -34,7 +34,7 @@ export default function DailyResultsBreakdown({ rankChanges, onWrestlerClick }) 
           <button
             key={wrestler.wrestler_id}
             onClick={() => onWrestlerClick?.(wrestler.wrestler_name)}
-            className="px-3 py-1 bg-zinc-800 hover:bg-zinc-700 border border-zinc-700 rounded text-sm text-white transition-colors"
+            className="px-3 py-1 bg-zinc-800 hover:bg-zinc-700 border border-white/[0.08] rounded text-sm text-white transition-colors"
             style={{ borderLeftColor: colors[idx], borderLeftWidth: '3px' }}
           >
             {wrestler.wrestler_name}

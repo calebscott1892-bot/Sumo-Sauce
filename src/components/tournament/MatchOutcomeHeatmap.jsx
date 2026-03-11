@@ -37,7 +37,7 @@ export default function MatchOutcomeHeatmap({ rankChanges }) {
   };
 
   return (
-    <div className="bg-zinc-900 border border-zinc-800 p-6">
+    <div className="bg-white/[0.02] border border-white/[0.06] p-6">
       <h3 className="text-xl font-black text-white mb-6 flex items-center gap-2">
         <Calendar className="w-5 h-5 text-purple-400" />
         Match Outcome Heatmap

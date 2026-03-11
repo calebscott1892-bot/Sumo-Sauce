@@ -128,15 +128,15 @@ export default function BashoStorylines({ rows, bashoId }: Props) {
   if (!storylines.length) return null;
 
   return (
-    <section className="rounded-xl border border-zinc-800 bg-zinc-900 p-5" aria-label="Basho storylines">
-      <h2 className="text-xl font-bold text-white">📰 Storylines</h2>
+    <section className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5" aria-label="Basho storylines">
+      <h2 className="font-display text-xl font-bold tracking-tight text-white">📰 Storylines</h2>
       <p className="mt-0.5 text-xs text-zinc-500">Key narratives from this tournament.</p>
 
       <div className="mt-4 space-y-3">
         {storylines.map((story) => (
           <div
             key={story.title}
-            className="rounded-lg border border-zinc-800 bg-zinc-950 p-4 transition-colors duration-150 hover:border-zinc-700"
+            className="rounded-lg border border-white/[0.06] bg-white/[0.02] p-4 transition-colors duration-150 hover:border-white/[0.12]"
           >
             <div className="flex items-start gap-3">
               <story.icon className={`mt-0.5 h-5 w-5 flex-shrink-0 ${story.color}`} />

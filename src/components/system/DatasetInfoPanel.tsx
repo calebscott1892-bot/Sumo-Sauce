@@ -25,7 +25,7 @@ export default function DatasetInfoPanel() {
 
   if (isLoading) {
     return (
-      <section className="rounded-xl border border-zinc-800 bg-zinc-900 p-5">
+      <section className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5">
         <div className="h-20 animate-pulse rounded-lg bg-zinc-800" />
       </section>
     );
@@ -39,13 +39,13 @@ export default function DatasetInfoPanel() {
   ];
 
   return (
-    <section data-testid="dataset-info-panel" className="rounded-xl border border-zinc-800 bg-zinc-900 p-5">
+    <section data-testid="dataset-info-panel" className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5">
       <h2 className="mb-3 text-sm font-semibold uppercase tracking-wider text-zinc-500">
         Dataset Info
       </h2>
       <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
         {items.map((item) => (
-          <div key={item.label} className="rounded-lg border border-zinc-800 bg-zinc-950 p-3">
+          <div key={item.label} className="rounded-lg border border-white/[0.06] bg-white/[0.02] p-3">
             <div className="flex items-center gap-1.5 text-zinc-400">
               <item.icon className="h-3.5 w-3.5" />
               <span className="text-xs">{item.label}</span>

@@ -112,7 +112,7 @@ export default function FallbackAvatar({
       )}
 
       <span
-        className={`absolute -bottom-0.5 -right-0.5 flex ${sizing.marker} items-center justify-center rounded-full border border-zinc-700 bg-zinc-900`}
+        className={`absolute -bottom-0.5 -right-0.5 flex ${sizing.marker} items-center justify-center rounded-full border border-white/[0.08] bg-white/[0.03]`}
         title={tier}
       >
         <RankMarker tier={tier} iconClass={sizing.markerIcon} />

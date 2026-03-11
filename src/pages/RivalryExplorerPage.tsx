@@ -125,7 +125,7 @@ export default function RivalryExplorerPage() {
   return (
     <div className="mx-auto max-w-6xl space-y-6 p-6 text-zinc-200">
       <PageMeta
-        title="SumoWatch — Rivalry Explorer"
+        title="Sumo Sauce — Rivalry Explorer"
         description="Explore the greatest rivalries in professional sumo. Search and compare head-to-head records."
       />
 
@@ -157,14 +157,14 @@ export default function RivalryExplorerPage() {
             placeholder="Search rikishi..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full rounded-lg border border-zinc-700 bg-zinc-800 py-2 pl-9 pr-3 text-sm text-zinc-100 placeholder-zinc-500 focus:border-red-500 focus:outline-none"
+            className="w-full rounded-lg border border-white/[0.08] bg-zinc-800 py-2 pl-9 pr-3 text-sm text-zinc-100 placeholder-zinc-500 focus:border-red-500 focus:outline-none"
             aria-label="Search rivalries"
           />
         </div>
         <button
           type="button"
           onClick={toggleSort}
-          className="flex items-center gap-2 rounded-lg border border-zinc-700 bg-zinc-800 px-4 py-2 text-sm text-zinc-300 transition-colors hover:border-zinc-600 hover:text-white"
+          className="flex items-center gap-2 rounded-lg border border-white/[0.08] bg-zinc-800 px-4 py-2 text-sm text-zinc-300 transition-colors hover:border-white/[0.15] hover:text-white"
           aria-label={`Sort by ${sortBy === 'matches' ? 'closeness' : 'total matches'}`}
         >
           <ArrowUpDown className="h-4 w-4" />
@@ -176,7 +176,7 @@ export default function RivalryExplorerPage() {
       {h2hQuery.isLoading && (
         <div className="space-y-3">
           {Array.from({ length: 8 }).map((_, i) => (
-            <div key={i} className="h-20 animate-pulse rounded-xl border border-zinc-800 bg-zinc-900" />
+            <div key={i} className="h-20 animate-pulse rounded-xl border border-white/[0.06] bg-white/[0.02]" />
           ))}
         </div>
       )}
@@ -185,7 +185,7 @@ export default function RivalryExplorerPage() {
       {!h2hQuery.isLoading && (
         <div className="space-y-3">
           {rivalries.length === 0 && (
-            <div className="rounded-xl border border-zinc-800 bg-zinc-900 p-8 text-center">
+            <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-8 text-center">
               <Swords className="mx-auto h-10 w-10 text-zinc-600" />
               <p className="mt-3 text-sm text-zinc-400">
                 {searchTerm ? 'No rivalries match your search.' : 'No rivalry data available.'}
@@ -200,7 +200,7 @@ export default function RivalryExplorerPage() {
               <Link
                 key={`${rivalry.rikishiA}-${rivalry.rikishiB}`}
                 to={`/compare/${encodeURIComponent(rivalry.rikishiA)}/${encodeURIComponent(rivalry.rikishiB)}`}
-                className="block rounded-xl border border-zinc-800 bg-zinc-900 p-4 transition-all duration-200 hover:border-red-600 hover:bg-zinc-900/80"
+                className="block rounded-xl border border-white/[0.06] bg-white/[0.02] p-4 transition-all duration-200 hover:border-red-600 hover:bg-white/[0.04]"
               >
                 <div className="flex items-center justify-between">
                   <div className="flex-1 min-w-0">
@@ -228,7 +228,7 @@ export default function RivalryExplorerPage() {
                 </div>
 
                 {/* Split bar */}
-                <div className="mt-3 h-2 w-full rounded-full bg-zinc-800 overflow-hidden flex">
+                <div className="mt-3 h-2 w-full rounded-full bg-white/[0.06] overflow-hidden flex">
                   <div
                     className="h-2 rounded-l-full bg-red-500 transition-all"
                     style={{ width: `${aWinPct}%` }}

@@ -111,7 +111,7 @@ export default function TournamentHub() {
         )}
 
         <Tabs defaultValue="schedule" className="w-full">
-          <TabsList className="bg-zinc-900 mb-8 w-full grid grid-cols-5">
+          <TabsList className="bg-white/[0.03] mb-8 w-full grid grid-cols-5">
             <TabsTrigger value="schedule">Schedule</TabsTrigger>
             <TabsTrigger value="results">Results</TabsTrigger>
             <TabsTrigger value="matches">Match History</TabsTrigger>
@@ -123,7 +123,7 @@ export default function TournamentHub() {
           <TabsContent value="schedule" className="space-y-6">
             <div className="grid md:grid-cols-2 gap-6">
               {/* Upcoming Tournaments */}
-              <div className="bg-zinc-900 border border-zinc-800 p-6">
+              <div className="bg-white/[0.02] border border-white/[0.06] p-6">
                 <h3 className="text-xl font-black text-white mb-4 flex items-center gap-2">
                   <Calendar className="w-5 h-5 text-blue-400" />
                   Upcoming Bashos
@@ -131,7 +131,7 @@ export default function TournamentHub() {
                 <div className="space-y-3">
                   {upcoming.map(t => (
                     <Link to="/Tournaments" key={t.id}>
-                      <div className="bg-zinc-800/50 p-4 rounded hover:bg-zinc-800 transition-colors">
+                      <div className="bg-zinc-800/50 p-4 rounded hover:bg-white/[0.06] transition-colors">
                         <div className="font-bold text-white mb-1">{t.name}</div>
                         <div className="text-sm text-zinc-400">
                           {format(new Date(t.start_date), 'MMMM d, yyyy')}
@@ -147,7 +147,7 @@ export default function TournamentHub() {
               </div>
 
               {/* Tournament Calendar */}
-              <div className="bg-zinc-900 border border-zinc-800 p-6">
+              <div className="bg-white/[0.02] border border-white/[0.06] p-6">
                 <h3 className="text-xl font-black text-white mb-4">Annual Schedule</h3>
                 <div className="space-y-2">
                   {['Hatsu (January)', 'Haru (March)', 'Natsu (May)', 'Nagoya (July)', 'Aki (September)', 'Kyushu (November)'].map((basho, idx) => (
@@ -163,7 +163,7 @@ export default function TournamentHub() {
 
           {/* Match History Tab */}
           <TabsContent value="matches" className="space-y-6">
-            <div className="bg-zinc-900 border border-zinc-800 p-6">
+            <div className="bg-white/[0.02] border border-white/[0.06] p-6">
               <h3 className="text-2xl font-black text-white mb-6 flex items-center gap-2">
                 <Swords className="w-6 h-6 text-red-400" />
                 Historical Match Records
@@ -179,7 +179,7 @@ export default function TournamentHub() {
           <TabsContent value="results" className="space-y-6">
             <div className="grid gap-6">
               {recentCompleted.map(tournament => (
-                <div key={tournament.id} className="bg-zinc-900 border border-zinc-800 p-6">
+                <div key={tournament.id} className="bg-white/[0.02] border border-white/[0.06] p-6">
                   <div className="flex items-start justify-between mb-4">
                     <div>
                       <h3 className="text-2xl font-black text-white mb-1">{tournament.name}</h3>
@@ -246,7 +246,7 @@ export default function TournamentHub() {
                   )}
 
                   {expandedTournament === tournament.id && tournament.rank_changes && tournament.rank_changes.length > 0 && (
-                    <div className="space-y-6 mt-6 border-t border-zinc-800 pt-6">
+                    <div className="space-y-6 mt-6 border-t border-white/[0.04] pt-6">
                       <DailyResultsBreakdown rankChanges={tournament.rank_changes} />
                       <div className="grid md:grid-cols-2 gap-6">
                         <WinLossDistribution rankChanges={tournament.rank_changes} />
@@ -267,7 +267,7 @@ export default function TournamentHub() {
             <StandoutPerformances tournaments={recentCompleted} />
             
             {/* Forum Discussions */}
-            <div className="bg-zinc-900 border border-zinc-800 p-6">
+            <div className="bg-white/[0.02] border border-white/[0.06] p-6">
               <div className="flex items-center justify-between mb-4">
                 <h3 className="text-xl font-black text-white flex items-center gap-2">
                   <MessageSquare className="w-5 h-5 text-green-400" />
@@ -282,7 +282,7 @@ export default function TournamentHub() {
               <div className="space-y-3">
                 {forumTopics.slice(0, 5).map(topic => (
                   <Link to={`/ForumTopic?id=${topic.id}`} key={topic.id}>
-                    <div className="bg-zinc-800/50 p-4 rounded hover:bg-zinc-800 transition-colors">
+                    <div className="bg-zinc-800/50 p-4 rounded hover:bg-white/[0.06] transition-colors">
                       <div className="font-bold text-white mb-1">{topic.title}</div>
                       <div className="flex items-center gap-4 text-xs text-zinc-500">
                         <span>{topic.reply_count || 0} replies</span>
@@ -341,7 +341,7 @@ function StandoutPerformances({ tournaments }) {
   });
 
   return (
-    <div className="bg-zinc-900 border border-zinc-800 p-6">
+    <div className="bg-white/[0.02] border border-white/[0.06] p-6">
       <h3 className="text-xl font-black text-white mb-6 flex items-center gap-2">
         <TrendingUp className="w-5 h-5 text-purple-400" />
         Standout Performances
@@ -421,7 +421,7 @@ function TournamentTrends({ tournaments }) {
   return (
     <div className="space-y-6">
       {/* Championship Leaders */}
-      <div className="bg-zinc-900 border border-zinc-800 p-6">
+      <div className="bg-white/[0.02] border border-white/[0.06] p-6">
         <h3 className="text-xl font-black text-white mb-6 flex items-center gap-2">
           <Trophy className="w-5 h-5 text-amber-400" />
           Championship Leaders
@@ -442,7 +442,7 @@ function TournamentTrends({ tournaments }) {
 
       {/* Attendance Trends */}
       {attendanceData.length > 0 && (
-        <div className="bg-zinc-900 border border-zinc-800 p-6">
+        <div className="bg-white/[0.02] border border-white/[0.06] p-6">
           <h3 className="text-xl font-black text-white mb-6 flex items-center gap-2">
             <Users className="w-5 h-5 text-blue-400" />
             Attendance Trends
@@ -463,7 +463,7 @@ function TournamentTrends({ tournaments }) {
       )}
 
       {/* Record Distribution */}
-      <div className="bg-zinc-900 border border-zinc-800 p-6">
+      <div className="bg-white/[0.02] border border-white/[0.06] p-6">
         <h3 className="text-xl font-black text-white mb-6 flex items-center gap-2">
           <TrendingUp className="w-5 h-5 text-green-400" />
           Win Rate Distribution

@@ -36,7 +36,7 @@ function CustomTooltip({ active, payload }: any) {
   if (!active || !payload?.length) return null;
   const d = payload[0].payload;
   return (
-    <div className="rounded-lg border border-zinc-700 bg-zinc-900 p-2.5 text-xs text-zinc-200 shadow-lg">
+    <div className="rounded-lg border border-white/[0.08] bg-white/[0.03] p-2.5 text-xs text-zinc-200 shadow-lg">
       <div className="font-semibold">{d.bashoId}</div>
       <div>
         {d.division} — {d.rank}
@@ -66,8 +66,8 @@ export default function RikishiRankChart({ points }: Props) {
 
   if (!points.length) {
     return (
-      <section className="rounded-xl border border-zinc-800 bg-zinc-900 p-5">
-        <h2 className="text-xl font-bold text-white">Rank Progression</h2>
+      <section className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5">
+        <h2 className="font-display text-xl font-bold tracking-tight text-white">Rank Progression</h2>
         <div className="mt-3 text-sm text-zinc-400">No data.</div>
       </section>
     );
@@ -76,8 +76,8 @@ export default function RikishiRankChart({ points }: Props) {
   const maxRankValue = Math.max(...data.map((d) => d.rankValue));
 
   return (
-    <section className="rounded-xl border border-zinc-800 bg-zinc-900 p-5">
-      <h2 className="text-xl font-bold text-white">Rank Progression</h2>
+    <section className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5">
+      <h2 className="font-display text-xl font-bold tracking-tight text-white">Rank Progression</h2>
       <div className="mt-4 h-64 w-full">
         <ResponsiveContainer width="100%" height="100%">
           <LineChart data={data} margin={{ top: 8, right: 20, left: 10, bottom: 8 }}>

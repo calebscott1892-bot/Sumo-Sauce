@@ -62,7 +62,7 @@ export default function MatchHistory({ wrestler }) {
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
           <Calendar className="w-5 h-5 text-purple-400" />
-          <h3 className="text-lg font-bold text-white">Match History</h3>
+          <h3 className="font-display text-lg font-bold tracking-tight text-white">Match History</h3>
         </div>
         <div className="text-sm text-zinc-500">
           {stats.wins}W - {stats.losses}L ({((stats.wins / stats.total) * 100).toFixed(0)}%)
@@ -72,7 +72,7 @@ export default function MatchHistory({ wrestler }) {
       {/* Filters */}
       <div className="flex gap-3">
         <Select value={filterBasho} onValueChange={setFilterBasho}>
-          <SelectTrigger className="w-40 bg-zinc-800 border-zinc-700">
+          <SelectTrigger className="w-40 bg-white/[0.04] border-white/[0.08]">
             <SelectValue placeholder="All Tournaments" />
           </SelectTrigger>
           <SelectContent>
@@ -87,7 +87,7 @@ export default function MatchHistory({ wrestler }) {
         </Select>
 
         <Select value={filterOutcome} onValueChange={setFilterOutcome}>
-          <SelectTrigger className="w-32 bg-zinc-800 border-zinc-700">
+          <SelectTrigger className="w-32 bg-white/[0.04] border-white/[0.08]">
             <SelectValue placeholder="All Results" />
           </SelectTrigger>
           <SelectContent>
@@ -160,7 +160,7 @@ export default function MatchHistory({ wrestler }) {
         </div>
       )}
 
-      <div className="text-center text-xs text-zinc-600 mt-4 pt-4 border-t border-zinc-800">
+      <div className="text-center text-xs text-zinc-600 mt-4 pt-4 border-t border-white/[0.04]">
         Showing {filteredMatches.length} of {allMatches.length} matches
       </div>
     </div>

@@ -17,7 +17,7 @@ export default function RikishiProfileSkeleton() {
       </div>
 
       {/* Profile header */}
-      <div className="rounded-xl border border-zinc-800 bg-zinc-900 p-5">
+      <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5">
         <div className="flex items-center gap-4">
           <SkeletonBar className="h-16 w-16 rounded-full" />
           <div className="flex-1 space-y-2">
@@ -28,7 +28,7 @@ export default function RikishiProfileSkeleton() {
         </div>
         <div className="mt-4 grid grid-cols-2 gap-3 md:grid-cols-4">
           {Array.from({ length: 4 }, (_, i) => (
-            <div key={i} className="rounded-lg border border-zinc-800 bg-zinc-950 p-3 space-y-2">
+            <div key={i} className="rounded-lg border border-white/[0.06] bg-white/[0.02] p-3 space-y-2">
               <SkeletonBar className="h-3 w-16" />
               <SkeletonBar className="h-5 w-12" />
             </div>
@@ -37,16 +37,16 @@ export default function RikishiProfileSkeleton() {
       </div>
 
       {/* Chart placeholder */}
-      <div className="rounded-xl border border-zinc-800 bg-zinc-900 p-5">
+      <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5">
         <SkeletonBar className="h-6 w-40 mb-4" />
         <SkeletonBar className="h-48 w-full" />
       </div>
 
       {/* Career table */}
-      <div className="rounded-xl border border-zinc-800 bg-zinc-900 p-5">
+      <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5">
         <SkeletonBar className="h-6 w-36 mb-4" />
         {Array.from({ length: 6 }, (_, i) => (
-          <div key={i} className="grid grid-cols-5 gap-2 border-b border-zinc-800/40 py-2.5">
+          <div key={i} className="grid grid-cols-5 gap-2 border-b border-white/[0.04]/40 py-2.5">
             <SkeletonBar className="h-4 w-16" />
             <SkeletonBar className="h-4 w-20" />
             <SkeletonBar className="h-4 w-14" />
@@ -57,10 +57,10 @@ export default function RikishiProfileSkeleton() {
       </div>
 
       {/* Head-to-Head */}
-      <div className="rounded-xl border border-zinc-800 bg-zinc-900 p-5">
+      <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5">
         <SkeletonBar className="h-6 w-44 mb-4" />
         {Array.from({ length: 3 }, (_, i) => (
-          <div key={i} className="mb-2 rounded-lg border border-zinc-800 bg-zinc-950 p-3">
+          <div key={i} className="mb-2 rounded-lg border border-white/[0.06] bg-white/[0.02] p-3">
             <div className="flex items-center justify-between">
               <div className="space-y-1">
                 <SkeletonBar className="h-4 w-28" />

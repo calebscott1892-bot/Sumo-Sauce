@@ -12,7 +12,7 @@ export default function SearchBar({ value, onChange }) {
         placeholder="SEARCH RIKISHI..."
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className="pl-12 pr-10 py-4 bg-zinc-900 border-2 border-zinc-800
+        className="pl-12 pr-10 py-4 bg-white/[0.02] border-2 border-white/[0.06]
                    focus:border-red-600 focus:ring-0 transition-all
                    text-white placeholder:text-zinc-600 font-bold text-sm tracking-wide uppercase"
       />
@@ -24,7 +24,7 @@ export default function SearchBar({ value, onChange }) {
             exit={{ opacity: 0, scale: 0.8 }}
             onClick={() => onChange('')}
             className="absolute right-4 top-1/2 -translate-y-1/2 p-1
-                       hover:bg-zinc-800 transition-colors rounded"
+                       hover:bg-white/[0.06] transition-colors rounded"
           >
             <X className="w-5 h-5 text-zinc-500" />
           </motion.button>

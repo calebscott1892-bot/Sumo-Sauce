@@ -197,10 +197,10 @@ export default function SumoLegends() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: idx * 0.1 }}
                 onClick={() => toggleLegend(legend.id)}
-                className={`relative bg-zinc-900 border-2 p-4 text-left transition-all ${
+                className={`relative bg-white/[0.02] border-2 p-4 text-left transition-all ${
                   selectedLegends.includes(legend.id)
                     ? 'border-amber-500 bg-amber-900/20'
-                    : 'border-zinc-800 hover:border-zinc-700'
+                    : 'border-white/[0.06] hover:border-white/[0.12]'
                 }`}
               >
                 {selectedLegends.includes(legend.id) && (
@@ -223,7 +223,7 @@ export default function SumoLegends() {
                       className="w-16 h-16 object-cover rounded"
                     />
                   ) : (
-                    <div className="w-16 h-16 bg-zinc-800 rounded flex items-center justify-center text-zinc-500 font-black">
+                    <div className="w-16 h-16 bg-white/[0.04] rounded flex items-center justify-center text-zinc-500 font-black">
                       {legend.name
                         .split(' ')
                         .filter(Boolean)
@@ -250,7 +250,7 @@ export default function SumoLegends() {
         {/* Comparison Charts */}
         <div className="grid md:grid-cols-2 gap-8 mb-12">
           {/* Radar Chart */}
-          <div className="bg-zinc-900 border border-zinc-800 p-6">
+          <div className="bg-white/[0.02] border border-white/[0.06] p-6">
             <h3 className="text-lg font-black text-white mb-6 flex items-center gap-2">
               <Flame className="w-5 h-5 text-red-400" />
               OVERALL DOMINANCE
@@ -276,7 +276,7 @@ export default function SumoLegends() {
           </div>
 
           {/* Bar Chart */}
-          <div className="bg-zinc-900 border border-zinc-800 p-6">
+          <div className="bg-white/[0.02] border border-white/[0.06] p-6">
             <h3 className="text-lg font-black text-white mb-6 flex items-center gap-2">
               <TrendingUp className="w-5 h-5 text-blue-400" />
               CHAMPIONSHIPS & WINS
@@ -299,7 +299,7 @@ export default function SumoLegends() {
         </div>
 
         {/* Detailed Comparison Table */}
-        <div className="bg-zinc-900 border border-zinc-800 p-6">
+        <div className="bg-white/[0.02] border border-white/[0.06] p-6">
           <h3 className="text-lg font-black text-white mb-6 flex items-center gap-2">
             <Medal className="w-5 h-5 text-purple-400" />
             CAREER STATISTICS
@@ -307,7 +307,7 @@ export default function SumoLegends() {
           <div className="overflow-x-auto">
             <table className="w-full">
               <thead>
-                <tr className="border-b border-zinc-800">
+                <tr className="border-b border-white/[0.04]">
                   <th className="text-left text-zinc-500 font-black uppercase text-xs p-3">Legend</th>
                   <th className="text-center text-zinc-500 font-black uppercase text-xs p-3">Era</th>
                   <th className="text-center text-zinc-500 font-black uppercase text-xs p-3">Titles</th>
@@ -317,7 +317,7 @@ export default function SumoLegends() {
               </thead>
               <tbody>
                 {selectedLegendsData.map((legend) => (
-                  <tr key={legend.id} className="border-b border-zinc-800 hover:bg-zinc-800/50">
+                  <tr key={legend.id} className="border-b border-white/[0.04] hover:bg-white/[0.06]/50">
                     <td className="p-3">
                       <div className="flex items-center gap-3">
                         <img src={legend.image} alt={legend.name} className="w-10 h-10 object-cover rounded" />
@@ -350,7 +350,7 @@ export default function SumoLegends() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: idx * 0.1 }}
-              className="bg-zinc-900 border border-zinc-800 p-6"
+              className="bg-white/[0.02] border border-white/[0.06] p-6"
             >
               <div className="flex items-start gap-4 mb-4">
                 <img src={legend.image} alt={legend.name} className="w-20 h-20 object-cover rounded" />

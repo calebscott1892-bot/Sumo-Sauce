@@ -70,7 +70,7 @@ export default function BashoDayResultsPage() {
   if (!isValid) {
     return (
       <div className="mx-auto max-w-6xl p-6 text-zinc-200">
-        <div className="rounded-xl border border-zinc-800 bg-zinc-900 p-4">
+        <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-4">
           <div className="text-zinc-400">Invalid parameters for daily results.</div>
           <Link className="mt-2 inline-block text-red-400 hover:text-red-300" to="/">← Home</Link>
         </div>
@@ -87,7 +87,7 @@ export default function BashoDayResultsPage() {
   return (
     <div className="mx-auto max-w-6xl space-y-6 p-6 text-zinc-200">
       <PageMeta
-        title={`SumoWatch — ${bashoDisplayName(bashoId)} ${divisionLabel(division)} Day ${day}`}
+        title={`Sumo Sauce — ${bashoDisplayName(bashoId)} ${divisionLabel(division)} Day ${day}`}
         description={`Day ${day} results for ${divisionLabel(division)} division at ${bashoDisplayName(bashoId)}.`}
       />
 
@@ -107,7 +107,7 @@ export default function BashoDayResultsPage() {
       </nav>
 
       {/* Header with day navigation */}
-      <section className="rounded-xl border border-zinc-800 bg-zinc-900 p-6">
+      <section className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-6">
         <h1 className="text-2xl font-black text-white sm:text-3xl">
           {bashoDisplayName(bashoId)} — {divisionLabel(division)}
         </h1>
@@ -116,7 +116,7 @@ export default function BashoDayResultsPage() {
             type="button"
             onClick={() => navigate(`/basho/${encodeURIComponent(bashoId)}/${encodeURIComponent(division)}/day/${day - 1}`)}
             disabled={!hasPrev}
-            className="rounded-lg border border-zinc-700 bg-zinc-800 p-2 text-zinc-300 transition-colors hover:border-red-600 hover:text-white disabled:cursor-not-allowed disabled:opacity-40"
+            className="rounded-lg border border-white/[0.08] bg-zinc-800 p-2 text-zinc-300 transition-colors hover:border-red-600 hover:text-white disabled:cursor-not-allowed disabled:opacity-40"
             aria-label="Previous day"
           >
             <ChevronLeft className="h-4 w-4" />
@@ -126,7 +126,7 @@ export default function BashoDayResultsPage() {
             type="button"
             onClick={() => navigate(`/basho/${encodeURIComponent(bashoId)}/${encodeURIComponent(division)}/day/${day + 1}`)}
             disabled={!hasNext}
-            className="rounded-lg border border-zinc-700 bg-zinc-800 p-2 text-zinc-300 transition-colors hover:border-red-600 hover:text-white disabled:cursor-not-allowed disabled:opacity-40"
+            className="rounded-lg border border-white/[0.08] bg-zinc-800 p-2 text-zinc-300 transition-colors hover:border-red-600 hover:text-white disabled:cursor-not-allowed disabled:opacity-40"
             aria-label="Next day"
           >
             <ChevronRight className="h-4 w-4" />
@@ -143,7 +143,7 @@ export default function BashoDayResultsPage() {
                 className={`rounded-full px-3 py-1 text-xs font-medium transition-colors ${
                   d === day
                     ? 'bg-red-600 text-white'
-                    : 'border border-zinc-700 bg-zinc-800 text-zinc-400 hover:border-red-600 hover:text-white'
+                    : 'border border-white/[0.08] bg-white/[0.04] text-zinc-400 hover:border-red-600 hover:text-white'
                 }`}
               >
                 {d}
@@ -157,7 +157,7 @@ export default function BashoDayResultsPage() {
       {isLoading ? (
         <div className="space-y-2">
           {Array.from({ length: 8 }).map((_, i) => (
-            <div key={i} className="h-16 animate-pulse rounded-lg border border-zinc-800 bg-zinc-900" />
+            <div key={i} className="h-16 animate-pulse rounded-lg border border-white/[0.06] bg-white/[0.02]" />
           ))}
         </div>
       ) : dayBouts.length === 0 ? (
@@ -177,7 +177,7 @@ export default function BashoDayResultsPage() {
             return (
               <div
                 key={bout.boutId}
-                className="rounded-lg border border-zinc-800 bg-zinc-900 p-4 transition-colors hover:border-zinc-700"
+                className="rounded-lg border border-white/[0.06] bg-white/[0.02] p-4 transition-colors hover:border-white/[0.12]"
               >
                 <div className="flex items-center justify-between gap-4">
                   {/* East */}
@@ -195,7 +195,7 @@ export default function BashoDayResultsPage() {
 
                   {/* Center: kimarite */}
                   <div className="flex flex-col items-center">
-                    <div className="rounded border border-zinc-700 bg-zinc-800 px-2 py-0.5 text-[10px] text-zinc-400">
+                    <div className="rounded border border-white/[0.08] bg-zinc-800 px-2 py-0.5 text-[10px] text-zinc-400">
                       #{bout.boutNo}
                     </div>
                     {bout.kimariteId && (

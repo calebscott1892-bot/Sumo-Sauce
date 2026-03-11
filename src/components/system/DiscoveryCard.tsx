@@ -84,7 +84,7 @@ export default function DiscoveryCard() {
   ];
 
   return (
-    <section className="rounded-xl border border-zinc-800 bg-zinc-900 p-5">
+    <section className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5">
       <div className="flex items-center gap-2">
         <Shuffle className="h-5 w-5 text-red-400" />
         <h2 className="text-lg font-semibold text-white">Discover</h2>

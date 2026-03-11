@@ -11,7 +11,7 @@ export default function DashboardSettings({ open, onClose, preferences = {}, onT
   };
   return (
     <Dialog open={open} onOpenChange={onClose}>
-      <DialogContent className="max-w-2xl bg-zinc-900 border-2 border-zinc-800">
+      <DialogContent className="max-w-2xl bg-white/[0.02] border-2 border-white/[0.06]">
         <div className="flex items-center justify-between mb-6">
           <div className="flex items-center gap-3">
             <Settings className="w-6 h-6 text-amber-500" />
@@ -19,7 +19,7 @@ export default function DashboardSettings({ open, onClose, preferences = {}, onT
               Dashboard Settings
             </h2>
           </div>
-          <button onClick={() => onClose(false)} className="hover:bg-zinc-800 p-2 rounded">
+          <button onClick={() => onClose(false)} className="hover:bg-white/[0.06] p-2 rounded">
             <X className="w-5 h-5 text-zinc-400" />
           </button>
         </div>
@@ -33,7 +33,7 @@ export default function DashboardSettings({ open, onClose, preferences = {}, onT
             </h3>
           </div>
 
-          <div className="space-y-3 bg-zinc-800 border border-zinc-700 p-4">
+          <div className="space-y-3 bg-white/[0.04] border border-white/[0.08] p-4">
             <SettingRow
               label="Live Tournament Feed"
               description="Shows ongoing matches and today's results"
@@ -76,7 +76,7 @@ export default function DashboardSettings({ open, onClose, preferences = {}, onT
             </h3>
           </div>
 
-          <div className="space-y-3 bg-zinc-800 border border-zinc-700 p-4">
+          <div className="space-y-3 bg-white/[0.04] border border-white/[0.08] p-4">
             <SettingRow
               label="Live Match Alerts"
               description="Notify when favorites enter the ring"
@@ -98,7 +98,7 @@ export default function DashboardSettings({ open, onClose, preferences = {}, onT
           </div>
         </div>
 
-        <div className="mt-6 pt-4 border-t border-zinc-800">
+        <div className="mt-6 pt-4 border-t border-white/[0.04]">
           <Button
             onClick={() => onClose(false)}
             className="w-full bg-red-600 hover:bg-red-700 font-black uppercase"

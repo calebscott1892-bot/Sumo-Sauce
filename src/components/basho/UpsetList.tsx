@@ -96,8 +96,8 @@ export default function UpsetList({ rows, bashoId }: Props) {
   if (!upsets.length) return null;
 
   return (
-    <section className="rounded-xl border border-zinc-800 bg-zinc-900 p-5">
-      <h2 className="text-xl font-bold text-white">🔥 Notable Upsets</h2>
+    <section className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5">
+      <h2 className="font-display text-xl font-bold tracking-tight text-white">🔥 Notable Upsets</h2>
       <p className="mt-0.5 text-xs text-zinc-500">
         Lower-ranked wrestlers who significantly outperformed expectations.
       </p>
@@ -107,7 +107,7 @@ export default function UpsetList({ rows, bashoId }: Props) {
           <Link
             key={upset.rikishiId}
             to={`/rikishi/${encodeURIComponent(upset.rikishiId)}`}
-            className="flex items-center justify-between rounded-lg border border-zinc-800 bg-zinc-950 p-3 transition-colors hover:border-red-600"
+            className="flex items-center justify-between rounded-lg border border-white/[0.06] bg-white/[0.02] p-3 transition-colors hover:border-red-600"
           >
             <div>
               <div className="font-semibold text-zinc-100">{upset.shikona}</div>

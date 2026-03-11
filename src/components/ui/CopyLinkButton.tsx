@@ -35,7 +35,7 @@ export default function CopyLinkButton({ url, className = '' }: Props) {
     <button
       type="button"
       onClick={handleCopy}
-      className={`inline-flex items-center gap-1.5 rounded-lg border border-zinc-700 bg-zinc-800 px-3 py-1.5 text-xs text-zinc-300 transition-colors hover:border-red-600 hover:text-white ${className}`}
+      className={`inline-flex items-center gap-1.5 rounded-lg border border-white/[0.08] bg-zinc-800 px-3 py-1.5 text-xs text-zinc-300 transition-colors hover:border-red-600 hover:text-white ${className}`}
       aria-label={copied ? 'Link copied' : 'Copy link'}
     >
       {copied ? (

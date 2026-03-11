@@ -119,8 +119,8 @@ export default function RikishiDirectoryPage() {
   return (
     <div data-testid="rikishi-directory-page" className="mx-auto max-w-6xl space-y-6 p-6 text-zinc-200">
       <PageMeta
-        title="SumoWatch — Rikishi Directory"
-        description={`Browse all ${directory.length.toLocaleString()} rikishi in the SumoWatch dataset. Search by name, filter by heya, and sort.`}
+        title="Sumo Sauce — Rikishi Directory"
+        description={`Browse all ${directory.length.toLocaleString()} rikishi in the Sumo Sauce dataset. Search by name, filter by heya, and sort.`}
       />
 
       {/* Breadcrumbs */}
@@ -145,7 +145,7 @@ export default function RikishiDirectoryPage() {
       </section>
 
       {/* Filters */}
-      <section className="rounded-xl border border-zinc-800 bg-zinc-900 p-4">
+      <section className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-4">
         <div className="flex flex-wrap items-end gap-4">
           <div>
             <label htmlFor="dir-search" className="mb-1 block text-xs text-zinc-400">
@@ -158,7 +158,7 @@ export default function RikishiDirectoryPage() {
               value={shikonaFilter}
               onChange={(e) => updateParam('q', e.target.value)}
               placeholder="Hakuho, rks_0001…"
-              className="w-52 rounded-md border border-zinc-700 bg-zinc-800 px-2 py-1.5 text-sm text-zinc-100 placeholder-zinc-500 focus:border-red-500 focus:outline-none"
+              className="w-52 rounded-md border border-white/[0.08] bg-zinc-800 px-2 py-1.5 text-sm text-zinc-100 placeholder-zinc-500 focus:border-red-500 focus:outline-none"
             />
           </div>
           <div>
@@ -169,7 +169,7 @@ export default function RikishiDirectoryPage() {
               id="dir-heya"
               value={heyaFilter}
               onChange={(e) => updateParam('heya', e.target.value)}
-              className="rounded-md border border-zinc-700 bg-zinc-800 px-2 py-1.5 text-sm text-zinc-100 focus:border-red-500 focus:outline-none"
+              className="rounded-md border border-white/[0.08] bg-zinc-800 px-2 py-1.5 text-sm text-zinc-100 focus:border-red-500 focus:outline-none"
             >
               <option value="">All heya</option>
               {heyaOptions.map((h) => (
@@ -196,7 +196,7 @@ export default function RikishiDirectoryPage() {
       {isLoading ? (
         <div className="space-y-2">
           {Array.from({ length: 8 }).map((_, i) => (
-            <div key={i} className="h-10 animate-pulse rounded-lg border border-zinc-800 bg-zinc-900" />
+            <div key={i} className="h-10 animate-pulse rounded-lg border border-white/[0.06] bg-white/[0.02]" />
           ))}
         </div>
       ) : sorted.length === 0 ? (
@@ -207,11 +207,11 @@ export default function RikishiDirectoryPage() {
           suggestions={[['← Back to Home', '/'], ['Browse basho', '/basho']]}
         />
       ) : (
-        <section className="rounded-xl border border-zinc-800 bg-zinc-900 p-3 sm:p-5">
+        <section className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-3 sm:p-5">
           <div className="overflow-x-auto">
             <table className="min-w-full text-sm">
-              <thead className="sticky top-0 z-10 bg-zinc-900">
-                <tr className="border-b border-zinc-800 text-left text-zinc-400">
+              <thead className="sticky top-0 z-10 bg-zinc-950">
+                <tr className="border-b border-white/[0.04] text-left text-zinc-400">
                   <th
                     className="cursor-pointer select-none whitespace-nowrap px-3 py-2 hover:text-zinc-200"
                     onClick={() => handleSort('shikona')}
@@ -237,7 +237,7 @@ export default function RikishiDirectoryPage() {
                 {sorted.map((entry) => (
                   <tr
                     key={entry.rikishiId}
-                    className="border-b border-zinc-800/70 text-zinc-200 transition-colors hover:bg-zinc-800/50 cursor-pointer"
+                    className="border-b border-white/[0.04] text-zinc-200 transition-colors hover:bg-white/[0.06]/50 cursor-pointer"
                   >
                     <td className="whitespace-nowrap px-3 py-2">
                       <Link

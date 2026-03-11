@@ -42,7 +42,7 @@ export default function ReportDialog({ open, onClose, contentType, contentId }) 
 
   return (
     <Dialog open={open} onOpenChange={onClose}>
-      <DialogContent className="bg-zinc-900 border border-zinc-800">
+      <DialogContent className="bg-white/[0.02] border border-white/[0.06]">
         <DialogHeader>
           <DialogTitle className="text-white flex items-center gap-2">
             <Flag className="w-5 h-5 text-red-400" />
@@ -54,7 +54,7 @@ export default function ReportDialog({ open, onClose, contentType, contentId }) 
           <div>
             <label className="text-sm text-zinc-400 mb-2 block">Reason</label>
             <Select value={reason} onValueChange={setReason}>
-              <SelectTrigger className="bg-zinc-800 border-zinc-700">
+              <SelectTrigger className="bg-white/[0.04] border-white/[0.08]">
                 <SelectValue placeholder="Select a reason" />
               </SelectTrigger>
               <SelectContent>
@@ -73,7 +73,7 @@ export default function ReportDialog({ open, onClose, contentType, contentId }) 
               value={details}
               onChange={(e) => setDetails(e.target.value)}
               placeholder="Provide more context about why you're reporting this..."
-              className="bg-zinc-800 border-zinc-700 text-white"
+              className="bg-white/[0.04] border-white/[0.08] text-white"
               rows={4}
             />
           </div>

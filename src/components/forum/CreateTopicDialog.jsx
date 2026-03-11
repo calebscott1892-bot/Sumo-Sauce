@@ -43,7 +43,7 @@ export default function CreateTopicDialog({ open, onClose, onSuccess, user }) {
 
   return (
     <Dialog open={open} onOpenChange={onClose}>
-      <DialogContent className="bg-zinc-900 border-zinc-800 text-white max-w-2xl">
+      <DialogContent className="bg-white/[0.02] border-white/[0.06] text-white max-w-2xl">
         <DialogHeader>
           <DialogTitle className="text-2xl font-black">Create New Topic</DialogTitle>
         </DialogHeader>
@@ -55,14 +55,14 @@ export default function CreateTopicDialog({ open, onClose, onSuccess, user }) {
               value={title}
               onChange={(e) => setTitle(e.target.value)}
               placeholder="What's on your mind?"
-              className="bg-zinc-800 border-zinc-700 text-white"
+              className="bg-white/[0.04] border-white/[0.08] text-white"
             />
           </div>
 
           <div>
             <label className="text-sm font-bold text-zinc-400 mb-2 block">Category</label>
             <Select value={category} onValueChange={setCategory}>
-              <SelectTrigger className="bg-zinc-800 border-zinc-700 text-white">
+              <SelectTrigger className="bg-white/[0.04] border-white/[0.08] text-white">
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
@@ -81,7 +81,7 @@ export default function CreateTopicDialog({ open, onClose, onSuccess, user }) {
               value={content}
               onChange={(e) => setContent(e.target.value)}
               placeholder="Share your thoughts in detail..."
-              className="bg-zinc-800 border-zinc-700 text-white min-h-48"
+              className="bg-white/[0.04] border-white/[0.08] text-white min-h-48"
             />
           </div>
 

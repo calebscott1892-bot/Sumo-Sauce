@@ -31,7 +31,7 @@ function BarTooltip({ active, payload }: any) {
   if (!active || !payload?.length) return null;
   const d = payload[0].payload;
   return (
-    <div className="rounded-lg border border-zinc-700 bg-zinc-900 p-2.5 text-xs text-zinc-200 shadow-lg">
+    <div className="rounded-lg border border-white/[0.08] bg-white/[0.03] p-2.5 text-xs text-zinc-200 shadow-lg">
       <div className="font-semibold">{d.name}</div>
       <div>Count: {d.count}</div>
       <div>Share: {d.pct}%</div>
@@ -43,7 +43,7 @@ function PieTooltip({ active, payload }: any) {
   if (!active || !payload?.length) return null;
   const d = payload[0].payload;
   return (
-    <div className="rounded-lg border border-zinc-700 bg-zinc-900 p-2.5 text-xs text-zinc-200 shadow-lg">
+    <div className="rounded-lg border border-white/[0.08] bg-white/[0.03] p-2.5 text-xs text-zinc-200 shadow-lg">
       <div className="font-semibold">{d.name}</div>
       <div>Count: {d.count}</div>
       <div>Share: {d.pct}%</div>
@@ -106,7 +106,7 @@ export default function KimariteAnalyticsPage() {
   return (
     <div data-testid="kimarite-analytics-page" className="mx-auto max-w-6xl space-y-6 p-6 text-zinc-200">
       <PageMeta
-        title="SumoWatch \u2014 Kimarite Analytics"
+        title="Sumo Sauce \u2014 Kimarite Analytics"
         description={`Win technique distribution across the last ${recentIds.length} makuuchi tournaments \u2014 frequency charts, pie distribution, and full technique table.`}
       />
       <nav className="mb-2 flex items-center gap-1 text-sm text-zinc-400">
@@ -128,22 +128,22 @@ export default function KimariteAnalyticsPage() {
       {results.isLoading ? (
         <div className="space-y-4">
           {Array.from({ length: 3 }).map((_, i) => (
-            <div key={i} className="h-32 animate-pulse rounded-xl border border-zinc-800 bg-zinc-900" />
+            <div key={i} className="h-32 animate-pulse rounded-xl border border-white/[0.06] bg-white/[0.02]" />
           ))}
         </div>
       ) : (
         <>
           {/* Summary cards */}
           <section className="grid grid-cols-1 gap-3 sm:grid-cols-3">
-            <div className="rounded-xl border border-zinc-800 bg-zinc-900 p-4">
+            <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-4">
               <div className="text-xs text-zinc-400">Total Techniques Recorded</div>
               <div className="mt-1 text-2xl font-bold text-white">{kimariteData.total.toLocaleString()}</div>
             </div>
-            <div className="rounded-xl border border-zinc-800 bg-zinc-900 p-4">
+            <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-4">
               <div className="text-xs text-zinc-400">Unique Kimarite</div>
               <div className="mt-1 text-2xl font-bold text-white">{kimariteData.frequency.length}</div>
             </div>
-            <div className="rounded-xl border border-zinc-800 bg-zinc-900 p-4">
+            <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-4">
               <div className="text-xs text-zinc-400">Most Common</div>
               <div className="mt-1 text-2xl font-bold text-amber-300">
                 {kimariteData.frequency[0]?.name ?? '—'}
@@ -155,8 +155,8 @@ export default function KimariteAnalyticsPage() {
           </section>
 
           {/* Bar chart — Top 15 */}
-          <section className="rounded-xl border border-zinc-800 bg-zinc-900 p-5">
-            <h2 className="text-xl font-bold text-white">Top 15 Kimarite by Frequency</h2>
+          <section className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5">
+            <h2 className="font-display text-xl font-bold tracking-tight text-white">Top 15 Kimarite by Frequency</h2>
             <div className="mt-4" style={{ height: Math.max(360, topFrequency.length * 28) }}>
               <ResponsiveContainer width="100%" height="100%">
                 <BarChart data={topFrequency} layout="vertical" margin={{ top: 4, right: 20, left: 100, bottom: 4 }}>
@@ -177,8 +177,8 @@ export default function KimariteAnalyticsPage() {
           </section>
 
           {/* Pie chart — Top 10 distribution */}
-          <section className="rounded-xl border border-zinc-800 bg-zinc-900 p-5">
-            <h2 className="text-xl font-bold text-white">Technique Distribution (Top 10)</h2>
+          <section className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5">
+            <h2 className="font-display text-xl font-bold tracking-tight text-white">Technique Distribution (Top 10)</h2>
             <div className="mt-4 h-80">
               <ResponsiveContainer width="100%" height="100%">
                 <PieChart>
@@ -208,12 +208,12 @@ export default function KimariteAnalyticsPage() {
           </section>
 
           {/* Full table */}
-          <section className="rounded-xl border border-zinc-800 bg-zinc-900 p-5">
-            <h2 className="text-xl font-bold text-white">All Kimarite</h2>
+          <section className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5">
+            <h2 className="font-display text-xl font-bold tracking-tight text-white">All Kimarite</h2>
             <div className="mt-3 overflow-x-auto">
               <table className="min-w-full text-sm">
                 <thead>
-                  <tr className="border-b border-zinc-800 text-left text-zinc-400">
+                  <tr className="border-b border-white/[0.04] text-left text-zinc-400">
                     <th className="px-2 py-2">#</th>
                     <th className="px-2 py-2">Kimarite</th>
                     <th className="px-2 py-2">Count</th>
@@ -222,7 +222,7 @@ export default function KimariteAnalyticsPage() {
                 </thead>
                 <tbody>
                   {kimariteData.frequency.map((row, idx) => (
-                    <tr key={row.name} className="border-b border-zinc-800/70 text-zinc-200">
+                    <tr key={row.name} className="border-b border-white/[0.04] text-zinc-200">
                       <td className="px-2 py-2 text-zinc-500">{idx + 1}</td>
                       <td className="px-2 py-2 font-medium">{row.name}</td>
                       <td className="px-2 py-2">{row.count.toLocaleString()}</td>

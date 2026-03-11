@@ -70,7 +70,7 @@ export default function CareerHistory({ wrestler }) {
       </div>
 
       {/* Career Info */}
-      <div className="bg-zinc-900 border border-zinc-800 p-4 space-y-2">
+      <div className="bg-white/[0.02] border border-white/[0.06] p-4 space-y-2">
         <InfoRow label="Professional Debut" value={wrestler.debut_year || 'Unknown'} />
         <InfoRow label="Years Active" value={yearsActive > 0 ? `${yearsActive} years` : 'N/A'} />
         <InfoRow label="Highest Rank" value={wrestler.highest_rank || wrestler.rank} />
@@ -82,7 +82,7 @@ export default function CareerHistory({ wrestler }) {
 
       {/* Tournament Victories */}
       {wrestler.yusho_wins && wrestler.yusho_wins.length > 0 && (
-        <div className="bg-zinc-900 border border-amber-600 p-4">
+        <div className="bg-white/[0.02] border border-amber-600 p-4">
           <div className="flex items-center gap-2 mb-3">
             <Trophy className="w-5 h-5 text-amber-500" />
             <h3 className="text-amber-400 font-black uppercase text-sm tracking-wider">
@@ -102,7 +102,7 @@ export default function CareerHistory({ wrestler }) {
 
       {/* Kimarite Distribution */}
       {kimariteData.length > 0 && (
-        <div className="bg-zinc-900 border border-zinc-800 p-4">
+        <div className="bg-white/[0.02] border border-white/[0.06] p-4">
           <div className="flex items-center gap-2 mb-4">
             <Shield className="w-5 h-5 text-blue-500" />
             <h3 className="text-blue-400 font-black uppercase text-sm tracking-wider">
@@ -143,7 +143,7 @@ export default function CareerHistory({ wrestler }) {
 
       {/* Rank Timeline */}
       {timelineData.length > 0 && (
-        <div className="bg-zinc-900 border border-zinc-800 p-4">
+        <div className="bg-white/[0.02] border border-white/[0.06] p-4">
           <div className="flex items-center gap-2 mb-4">
             <TrendingUp className="w-5 h-5 text-green-500" />
             <h3 className="text-green-400 font-black uppercase text-sm tracking-wider">
@@ -153,7 +153,7 @@ export default function CareerHistory({ wrestler }) {
           
           <div className="space-y-2">
             {timelineData.map((entry, idx) => (
-              <div key={idx} className="flex justify-between items-center text-sm py-2 border-b border-zinc-800 last:border-0">
+              <div key={idx} className="flex justify-between items-center text-sm py-2 border-b border-white/[0.04] last:border-0">
                 <span className="text-zinc-400">{entry.date}</span>
                 <span className="text-white font-bold">{entry.rank}</span>
                 <span className="text-zinc-500">{entry.record}</span>
@@ -165,7 +165,7 @@ export default function CareerHistory({ wrestler }) {
 
       {/* Notable Achievements */}
       {wrestler.notable_achievements && wrestler.notable_achievements.length > 0 && (
-        <div className="bg-zinc-900 border border-purple-600 p-4">
+        <div className="bg-white/[0.02] border border-purple-600 p-4">
           <div className="flex items-center gap-2 mb-3">
             <Award className="w-5 h-5 text-purple-500" />
             <h3 className="text-purple-400 font-black uppercase text-sm tracking-wider">
@@ -199,7 +199,7 @@ export default function CareerHistory({ wrestler }) {
 
 function StatCard({ icon: Icon, label, value, sublabel, color, bg }) {
   return (
-    <div className={cn("p-4 border border-zinc-800", bg)}>
+    <div className={cn("p-4 border border-white/[0.06]", bg)}>
       <Icon className={cn("w-5 h-5 mb-2", color)} />
       <div className={cn("text-2xl font-black mb-1", color)}>{value}</div>
       <div className="text-xs text-zinc-500 font-bold uppercase">{label}</div>
@@ -210,7 +210,7 @@ function StatCard({ icon: Icon, label, value, sublabel, color, bg }) {
 
 function InfoRow({ label, value }) {
   return (
-    <div className="flex justify-between items-center text-sm border-b border-zinc-800 pb-2 last:border-0 last:pb-0">
+    <div className="flex justify-between items-center text-sm border-b border-white/[0.04] pb-2 last:border-0 last:pb-0">
       <span className="text-zinc-500 font-medium">{label}</span>
       <span className="text-white font-bold">{value}</span>
     </div>

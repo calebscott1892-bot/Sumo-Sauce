@@ -298,7 +298,7 @@ export default function MatchPredictor() {
           {/* Main Predictor */}
           <div className="lg:col-span-2 space-y-8">
             {/* Wrestler Selection */}
-            <div className="bg-zinc-900 border border-zinc-800 rounded-lg p-6">
+            <div className="bg-white/[0.02] border border-white/[0.06] rounded-lg p-6">
               <div className="flex items-center justify-between mb-6">
                 <h2 className="text-xl font-black text-white">Select Wrestlers</h2>
               </div>
@@ -306,10 +306,10 @@ export default function MatchPredictor() {
                 <div>
                   <label className="text-sm text-zinc-400 mb-2 block">Wrestler 1</label>
                   <Select value={wrestler1Id} onValueChange={setWrestler1Id}>
-                    <SelectTrigger className="bg-zinc-800 border-zinc-700 text-white">
+                    <SelectTrigger className="bg-white/[0.04] border-white/[0.08] text-white">
                       <SelectValue placeholder="Select rikishi" />
                     </SelectTrigger>
-                    <SelectContent className="bg-zinc-800 border-zinc-700">
+                    <SelectContent className="bg-white/[0.04] border-white/[0.08]">
                       {wrestlers.map(w => (
                         <SelectItem key={w.id} value={w.id} className="text-white hover:bg-zinc-700 focus:bg-zinc-700">
                           {w.shikona} ({w.current_rank})
@@ -322,10 +322,10 @@ export default function MatchPredictor() {
                 <div>
                   <label className="text-sm text-zinc-400 mb-2 block">Wrestler 2</label>
                   <Select value={wrestler2Id} onValueChange={setWrestler2Id}>
-                    <SelectTrigger className="bg-zinc-800 border-zinc-700 text-white">
+                    <SelectTrigger className="bg-white/[0.04] border-white/[0.08] text-white">
                       <SelectValue placeholder="Select rikishi" />
                     </SelectTrigger>
-                    <SelectContent className="bg-zinc-800 border-zinc-700">
+                    <SelectContent className="bg-white/[0.04] border-white/[0.08]">
                       {wrestlers.filter(w => w.id !== wrestler1Id).map(w => (
                         <SelectItem key={w.id} value={w.id} className="text-white hover:bg-zinc-700 focus:bg-zinc-700">
                           {w.shikona} ({w.current_rank})
@@ -377,7 +377,7 @@ export default function MatchPredictor() {
                   </div>
 
                   {/* Data Provenance Panel */}
-                  <div className="bg-zinc-900 border border-zinc-800 rounded-lg p-6">
+                  <div className="bg-white/[0.02] border border-white/[0.06] rounded-lg p-6">
                     <h3 className="text-lg font-black text-white mb-4">Data Provenance</h3>
                     <div className="grid md:grid-cols-2 gap-4">
                       {/* Wrestler 1 */}
@@ -467,7 +467,7 @@ export default function MatchPredictor() {
 
                   {/* Odds (if available) */}
                   {odds && odds.available && (
-                    <div className="bg-zinc-900 border border-zinc-800 rounded-lg p-6">
+                    <div className="bg-white/[0.02] border border-white/[0.06] rounded-lg p-6">
                       <h3 className="text-xl font-black text-white mb-4">Betting Odds</h3>
                       <div className="grid grid-cols-2 gap-4">
                         <div className="bg-zinc-800/50 rounded p-4 text-center">
@@ -486,7 +486,7 @@ export default function MatchPredictor() {
                   )}
 
                   {/* User Prediction */}
-                  <div className="bg-zinc-900 border border-zinc-800 rounded-lg p-6">
+                  <div className="bg-white/[0.02] border border-white/[0.06] rounded-lg p-6">
                     <h3 className="text-xl font-black text-white mb-4">Your Prediction</h3>
                     <div className="grid grid-cols-2 gap-4 mb-4">
                       <Button
@@ -525,7 +525,7 @@ export default function MatchPredictor() {
           <div className="space-y-6">
             {/* Data Status */}
             {dataStatus && (
-              <div className="bg-zinc-900 border border-zinc-800 rounded-lg p-6">
+              <div className="bg-white/[0.02] border border-white/[0.06] rounded-lg p-6">
                 <h3 className="text-lg font-black text-white mb-4 flex items-center gap-2">
                   <Trophy className="w-5 h-5 text-amber-400" />
                   Data Status
@@ -555,7 +555,7 @@ export default function MatchPredictor() {
 
             {/* User Stats */}
             {userStats && (
-              <div className="bg-zinc-900 border border-zinc-800 rounded-lg p-6">
+              <div className="bg-white/[0.02] border border-white/[0.06] rounded-lg p-6">
                 <h3 className="text-lg font-black text-white mb-4 flex items-center gap-2">
                   <TrendingUp className="w-5 h-5 text-green-400" />
                   Your Stats
@@ -584,7 +584,7 @@ export default function MatchPredictor() {
             )}
 
             {/* Recent Predictions */}
-            <div className="bg-zinc-900 border border-zinc-800 rounded-lg p-6">
+            <div className="bg-white/[0.02] border border-white/[0.06] rounded-lg p-6">
               <h3 className="text-lg font-black text-white mb-4 flex items-center gap-2">
                 <History className="w-5 h-5 text-blue-400" />
                 Recent Predictions

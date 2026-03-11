@@ -81,7 +81,7 @@ export default function WrestlerCard({ wrestler, open, onClose, isFollowing = fa
 
         {/* Tabs */}
         <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-          <TabsList className="w-full bg-zinc-900 border-b border-zinc-800 rounded-none grid grid-cols-6 overflow-x-auto">
+          <TabsList className="w-full bg-white/[0.03] border-b border-white/[0.04] rounded-none grid grid-cols-6 overflow-x-auto">
             <TabsTrigger value="current" className="data-[state=active]:bg-red-600 data-[state=active]:text-white text-xs">
               Stats
             </TabsTrigger>

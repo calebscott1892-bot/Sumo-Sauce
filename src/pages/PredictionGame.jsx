@@ -124,7 +124,7 @@ export default function PredictionGame() {
         <div className="grid md:grid-cols-3 gap-8">
           {/* My Leagues */}
           <div className="md:col-span-2 space-y-6">
-            <div className="bg-zinc-900 border border-zinc-800 p-6">
+            <div className="bg-white/[0.02] border border-white/[0.06] p-6">
               <h2 className="text-2xl font-black text-white mb-4 flex items-center gap-2">
                 <Trophy className="w-6 h-6 text-amber-400" />
                 My Leagues
@@ -146,7 +146,7 @@ export default function PredictionGame() {
                       <Link key={league.id} to={`/PredictionLeague?id=${league.id}`}>
                         <motion.div
                           whileHover={{ x: 4 }}
-                          className="bg-zinc-800/50 border border-zinc-700 p-5 hover:bg-zinc-800 transition-all cursor-pointer"
+                          className="bg-zinc-800/50 border border-white/[0.08] p-5 hover:bg-white/[0.06] transition-all cursor-pointer"
                         >
                           <div className="flex items-start justify-between mb-2">
                             <div>
@@ -182,7 +182,7 @@ export default function PredictionGame() {
             </div>
 
             {/* Upcoming Tournaments */}
-            <div className="bg-zinc-900 border border-zinc-800 p-6">
+            <div className="bg-white/[0.02] border border-white/[0.06] p-6">
               <h2 className="text-2xl font-black text-white mb-4 flex items-center gap-2">
                 <Calendar className="w-6 h-6 text-green-400" />
                 Make Predictions
@@ -195,7 +195,7 @@ export default function PredictionGame() {
               ) : (
                 <div className="space-y-3">
                   {upcomingTournaments.map(tournament => (
-                    <div key={tournament.id} className="bg-zinc-800/50 border border-zinc-700 p-4">
+                    <div key={tournament.id} className="bg-zinc-800/50 border border-white/[0.08] p-4">
                       <div className="flex items-start justify-between mb-3">
                         <div>
                           <h3 className="text-white font-bold">{tournament.name}</h3>
@@ -236,7 +236,7 @@ export default function PredictionGame() {
           {/* Sidebar */}
           <div className="space-y-6">
             {/* My Stats */}
-            <div className="bg-zinc-900 border border-zinc-800 p-6">
+            <div className="bg-white/[0.02] border border-white/[0.06] p-6">
               <h3 className="text-lg font-black text-white mb-4">My Stats</h3>
               <div className="space-y-3">
                 <div className="flex items-center justify-between">
@@ -259,7 +259,7 @@ export default function PredictionGame() {
             </div>
 
             {/* Public Leagues */}
-            <div className="bg-zinc-900 border border-zinc-800 p-6">
+            <div className="bg-white/[0.02] border border-white/[0.06] p-6">
               <h3 className="text-lg font-black text-white mb-4">Public Leagues</h3>
               <div className="space-y-2">
                 {allLeagues.filter(l => l.is_public && !myLeagues.find(ml => ml.id === l.id)).slice(0, 5).map(league => (

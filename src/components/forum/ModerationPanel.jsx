@@ -88,14 +88,14 @@ export default function ModerationPanel({ user }) {
   }
 
   return (
-    <div className="bg-zinc-900 border border-zinc-800 rounded-lg p-6">
+    <div className="bg-white/[0.02] border border-white/[0.06] rounded-lg p-6">
       <div className="flex items-center gap-2 mb-6">
         <Shield className="w-6 h-6 text-red-400" />
         <h2 className="text-2xl font-black text-white">Moderation Panel</h2>
       </div>
 
       <Tabs defaultValue="reports">
-        <TabsList className="bg-zinc-800">
+        <TabsList className="bg-white/[0.03]">
           <TabsTrigger value="reports">
             Reports {pendingReports.length > 0 && (
               <span className="ml-2 bg-red-600 text-white text-xs px-2 py-0.5 rounded-full">

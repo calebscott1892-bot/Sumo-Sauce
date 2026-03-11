@@ -112,7 +112,7 @@ export default function ComparePage() {
           <span>/</span>
           <span className="text-zinc-200">Compare</span>
         </nav>
-        <div className="rounded-xl border border-zinc-800 bg-zinc-900 p-8 text-center">
+        <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-8 text-center">
           <Swords className="mx-auto h-12 w-12 text-zinc-600" />
           <h2 className="mt-4 text-xl font-bold text-white">Compare Two Rikishi</h2>
           <p className="mt-2 text-sm text-zinc-400">
@@ -121,13 +121,13 @@ export default function ComparePage() {
           <div className="mt-4 flex flex-wrap justify-center gap-3">
             <Link
               to="/rikishi"
-              className="rounded-lg border border-zinc-700 bg-zinc-800 px-4 py-2 text-sm text-zinc-200 transition-colors hover:border-red-600 hover:text-white"
+              className="rounded-lg border border-white/[0.08] bg-zinc-800 px-4 py-2 text-sm text-zinc-200 transition-colors hover:border-red-600 hover:text-white"
             >
               Browse rikishi directory
             </Link>
             <Link
               to="/rivalries"
-              className="rounded-lg border border-zinc-700 bg-zinc-800 px-4 py-2 text-sm text-zinc-200 transition-colors hover:border-red-600 hover:text-white"
+              className="rounded-lg border border-white/[0.08] bg-zinc-800 px-4 py-2 text-sm text-zinc-200 transition-colors hover:border-red-600 hover:text-white"
             >
               Explore rivalries
             </Link>
@@ -158,8 +158,8 @@ export default function ComparePage() {
 
   const shikonaA = model.rikishiA.shikona;
   const shikonaB = model.rikishiB.shikona;
-  const pageTitle = `SumoWatch \u2014 ${shikonaA} vs ${shikonaB}`;
-  const pageDesc = `Head-to-head comparison of ${shikonaA} vs ${shikonaB} — career stats, kimarite, and recent form on SumoWatch.`;
+  const pageTitle = `Sumo Sauce \u2014 ${shikonaA} vs ${shikonaB}`;
+  const pageDesc = `Head-to-head comparison of ${shikonaA} vs ${shikonaB} — career stats, kimarite, and recent form on Sumo Sauce.`;
 
   useEffect(() => {
     trackCompareUsage(a, b);
@@ -197,27 +197,27 @@ export default function ComparePage() {
         </div>
       </section>
 
-      <section className="rounded-xl border border-zinc-800 bg-zinc-900 p-5">
-        <h2 className="text-xl font-bold text-white">Head-to-Head</h2>
+      <section className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5">
+        <h2 className="font-display text-xl font-bold tracking-tight text-white">Head-to-Head</h2>
         <div className="mt-3 grid grid-cols-2 gap-3 md:grid-cols-4 text-sm">
-          <div className="rounded-lg border border-zinc-800 bg-zinc-950 p-3 transition-colors hover:border-zinc-700">
+          <div className="rounded-lg border border-white/[0.06] bg-white/[0.02] p-3 transition-colors hover:border-white/[0.12]">
             <div className="text-zinc-400">Total</div>
             <div className="font-semibold text-zinc-100">{model.headToHead.totalMatches}</div>
           </div>
-          <div className="rounded-lg border border-zinc-800 bg-zinc-950 p-3 transition-colors hover:border-red-700">
+          <div className="rounded-lg border border-white/[0.06] bg-white/[0.02] p-3 transition-colors hover:border-red-700">
             <div className="text-zinc-400">{model.rikishiA.shikona} wins</div>
             <div className="font-semibold text-zinc-100">{model.headToHead.rikishiAWins}</div>
           </div>
-          <div className="rounded-lg border border-zinc-800 bg-zinc-950 p-3 transition-colors hover:border-blue-700">
+          <div className="rounded-lg border border-white/[0.06] bg-white/[0.02] p-3 transition-colors hover:border-blue-700">
             <div className="text-zinc-400">{model.rikishiB.shikona} wins</div>
             <div className="font-semibold text-zinc-100">{model.headToHead.rikishiBWins}</div>
           </div>
-          <div className="rounded-lg border border-zinc-800 bg-zinc-950 p-3 transition-colors hover:border-zinc-700">
+          <div className="rounded-lg border border-white/[0.06] bg-white/[0.02] p-3 transition-colors hover:border-white/[0.12]">
             <div className="text-zinc-400">Common basho</div>
             <div className="font-semibold text-zinc-100">{model.commonBashoCount}</div>
           </div>
         </div>
-        <div className="mt-3 rounded-lg border border-zinc-800 bg-zinc-950 p-3 text-sm">
+        <div className="mt-3 rounded-lg border border-white/[0.06] bg-white/[0.02] p-3 text-sm">
           <div className="text-zinc-400">Last match</div>
           {model.lastMatch ? (
             <div className="text-zinc-200">
@@ -251,8 +251,8 @@ export default function ComparePage() {
         </div>
       </section>
 
-      <section className="rounded-xl border border-zinc-800 bg-zinc-900 p-5">
-        <h2 className="text-xl font-bold text-white">Career Comparison</h2>
+      <section className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5">
+        <h2 className="font-display text-xl font-bold tracking-tight text-white">Career Comparison</h2>
         <div className="mt-3 space-y-4">
           <div>
             <div className="mb-1 text-xs text-zinc-400">Career Wins</div>
@@ -287,14 +287,14 @@ export default function ComparePage() {
         </div>
       </section>
 
-      <section className="rounded-xl border border-zinc-800 bg-zinc-900 p-5">
-        <h2 className="text-xl font-bold text-white">Recent Form (Last 6)</h2>
+      <section className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5">
+        <h2 className="font-display text-xl font-bold tracking-tight text-white">Recent Form (Last 6)</h2>
         <div className="mt-3 grid grid-cols-1 gap-4 lg:grid-cols-2">
           <div>
             <h3 className="mb-2 text-sm font-semibold text-zinc-100">{model.rikishiA.shikona}</h3>
             <table className="w-full border-collapse text-sm">
               <thead>
-                <tr className="border-b border-zinc-800 text-zinc-400">
+                <tr className="border-b border-white/[0.04] text-zinc-400">
                   <th className="px-2 py-1 text-left">Basho</th>
                   <th className="px-2 py-1 text-left">Div</th>
                   <th className="px-2 py-1 text-left">Rank</th>
@@ -323,7 +323,7 @@ export default function ComparePage() {
             <h3 className="mb-2 text-sm font-semibold text-zinc-100">{model.rikishiB.shikona}</h3>
             <table className="w-full border-collapse text-sm">
               <thead>
-                <tr className="border-b border-zinc-800 text-zinc-400">
+                <tr className="border-b border-white/[0.04] text-zinc-400">
                   <th className="px-2 py-1 text-left">Basho</th>
                   <th className="px-2 py-1 text-left">Div</th>
                   <th className="px-2 py-1 text-left">Rank</th>
@@ -350,8 +350,8 @@ export default function ComparePage() {
         </div>
       </section>
 
-      <section className="rounded-xl border border-zinc-800 bg-zinc-900 p-5">
-        <h2 className="text-xl font-bold text-white">Kimarite Distribution</h2>
+      <section className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5">
+        <h2 className="font-display text-xl font-bold tracking-tight text-white">Kimarite Distribution</h2>
         <div className="mt-3 grid grid-cols-1 gap-4 lg:grid-cols-2">
           <div>
             <h3 className="mb-2 text-sm font-semibold text-zinc-100">{model.rikishiA.shikona}</h3>
@@ -363,7 +363,7 @@ export default function ComparePage() {
                     <span>{item.kimariteId}</span>
                     <span>{item.count} ({formatPct(item.percentage)})</span>
                   </div>
-                  <div className="mt-0.5 h-2 w-full rounded bg-zinc-800">
+                  <div className="mt-0.5 h-2 w-full rounded bg-white/[0.06]">
                     <div className="h-2 rounded bg-red-500" style={{ width: `${(item.count / max) * 100}%` }} />
                   </div>
                 </div>
@@ -382,7 +382,7 @@ export default function ComparePage() {
                     <span>{item.kimariteId}</span>
                     <span>{item.count} ({formatPct(item.percentage)})</span>
                   </div>
-                  <div className="mt-0.5 h-2 w-full rounded bg-zinc-800">
+                  <div className="mt-0.5 h-2 w-full rounded bg-white/[0.06]">
                     <div className="h-2 rounded bg-blue-500" style={{ width: `${(item.count / max) * 100}%` }} />
                   </div>
                 </div>
@@ -395,15 +395,15 @@ export default function ComparePage() {
 
       {/* Era Comparison */}
       {eraComparison && (
-        <section className="rounded-xl border border-zinc-800 bg-zinc-900 p-5">
-          <h2 className="text-xl font-bold text-white">Era Comparison</h2>
+        <section className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5">
+          <h2 className="font-display text-xl font-bold tracking-tight text-white">Era Comparison</h2>
           <p className="mt-1 text-xs text-zinc-500">
             Career span analysis and overlap between these two rikishi.
           </p>
 
           <div className="mt-3 grid grid-cols-1 gap-3 md:grid-cols-2">
             {/* Rikishi A span */}
-            <div className="rounded-lg border border-zinc-800 bg-zinc-950 p-3">
+            <div className="rounded-lg border border-white/[0.06] bg-white/[0.02] p-3">
               <div className="text-sm font-semibold text-zinc-100">{model.rikishiA.shikona}</div>
               <div className="mt-1 text-xs text-zinc-400">
                 {bashoLabel(eraComparison.spanA.first)} → {bashoLabel(eraComparison.spanA.last)}
@@ -414,7 +414,7 @@ export default function ComparePage() {
             </div>
 
             {/* Rikishi B span */}
-            <div className="rounded-lg border border-zinc-800 bg-zinc-950 p-3">
+            <div className="rounded-lg border border-white/[0.06] bg-white/[0.02] p-3">
               <div className="text-sm font-semibold text-zinc-100">{model.rikishiB.shikona}</div>
               <div className="mt-1 text-xs text-zinc-400">
                 {bashoLabel(eraComparison.spanB.first)} → {bashoLabel(eraComparison.spanB.last)}
@@ -426,7 +426,7 @@ export default function ComparePage() {
           </div>
 
           {/* Overlap info */}
-          <div className="mt-3 rounded-lg border border-zinc-800 bg-zinc-950 p-3">
+          <div className="mt-3 rounded-lg border border-white/[0.06] bg-white/[0.02] p-3">
             {eraComparison.hasOverlap ? (
               <>
                 <div className="flex items-center gap-2 text-sm">
@@ -439,11 +439,11 @@ export default function ComparePage() {
                   {eraComparison.commonBashoCount} shared basho
                 </div>
                 <div className="mt-2 grid grid-cols-2 gap-2 text-xs">
-                  <div className="rounded border border-zinc-800 bg-zinc-900 p-2">
+                  <div className="rounded border border-white/[0.06] bg-white/[0.02] p-2">
                     <div className="text-zinc-500">{model.rikishiA.shikona} avg wins (overlap)</div>
                     <div className="font-semibold text-red-400">{eraComparison.avgWinsOverlapA}</div>
                   </div>
-                  <div className="rounded border border-zinc-800 bg-zinc-900 p-2">
+                  <div className="rounded border border-white/[0.06] bg-white/[0.02] p-2">
                     <div className="text-zinc-500">{model.rikishiB.shikona} avg wins (overlap)</div>
                     <div className="font-semibold text-blue-400">{eraComparison.avgWinsOverlapB}</div>
                   </div>

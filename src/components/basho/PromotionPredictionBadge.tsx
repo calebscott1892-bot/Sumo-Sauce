@@ -43,7 +43,7 @@ export default function PromotionPredictionBadge({ wins, losses }: Props) {
   if (wins === 7) {
     return (
       <span
-        className="inline-flex items-center gap-0.5 rounded-full bg-zinc-800 px-1.5 py-0.5 text-[10px] text-zinc-500"
+        className="inline-flex items-center gap-0.5 rounded-full bg-white/[0.06] px-1.5 py-0.5 text-[10px] text-zinc-500"
         title="7 wins — neutral"
       >
         —

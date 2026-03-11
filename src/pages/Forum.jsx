@@ -100,7 +100,7 @@ export default function Forum() {
               onClick={() => setSelectedCategory(cat)}
               className={selectedCategory === cat 
                 ? 'bg-red-600 hover:bg-red-700 font-bold' 
-                : 'bg-zinc-900 border-zinc-800 hover:bg-zinc-800 text-zinc-400 font-bold'
+                : 'bg-white/[0.02] border-white/[0.06] hover:bg-white/[0.06] text-zinc-400 font-bold'
               }
             >
               {cat === 'all' ? 'ALL' : cat.toUpperCase()}
@@ -119,7 +119,7 @@ export default function Forum() {
         {isLoading ? (
           <div className="text-center py-20 text-zinc-500">Loading topics...</div>
         ) : sortedTopics.length === 0 ? (
-          <div className="bg-zinc-900 border border-zinc-800 p-12 text-center">
+          <div className="bg-white/[0.02] border border-white/[0.06] p-12 text-center">
             <MessageSquare className="w-16 h-16 text-zinc-700 mx-auto mb-4" />
             <h3 className="text-xl font-bold text-zinc-400 mb-2">No topics yet</h3>
             <p className="text-zinc-600 mb-4">Be the first to start a discussion!</p>
@@ -133,7 +133,7 @@ export default function Forum() {
               <Link key={topic.id} to={`/ForumTopic?id=${topic.id}`}>
                 <motion.div
                   whileHover={{ x: 4 }}
-                  className="bg-zinc-900 border border-zinc-800 hover:bg-zinc-900/80 p-5 cursor-pointer transition-all"
+                  className="bg-white/[0.02] border border-white/[0.06] hover:bg-white/[0.04] p-5 cursor-pointer transition-all"
                 >
                   <div className="flex items-start gap-4">
                     <div className="flex-1 min-w-0">

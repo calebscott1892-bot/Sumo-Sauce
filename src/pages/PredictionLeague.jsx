@@ -130,7 +130,7 @@ export default function PredictionLeague() {
         </div>
 
         {/* Leaderboard */}
-        <div className="bg-zinc-900 border border-zinc-800 p-6">
+        <div className="bg-white/[0.02] border border-white/[0.06] p-6">
           <div className="flex items-center justify-between mb-6">
             <h2 className="text-2xl font-black text-white flex items-center gap-2">
               <Trophy className="w-6 h-6 text-amber-400" />
@@ -159,7 +159,7 @@ export default function PredictionLeague() {
                     idx === 0 ? 'bg-gradient-to-r from-amber-900/30 to-amber-800/30 border-2 border-amber-600' :
                     idx === 1 ? 'bg-gradient-to-r from-zinc-800/50 to-zinc-700/50 border border-zinc-600' :
                     idx === 2 ? 'bg-gradient-to-r from-amber-900/20 to-amber-800/20 border border-amber-700' :
-                    'bg-zinc-800/30 border border-zinc-700'
+                    'bg-zinc-800/30 border border-white/[0.08]'
                   }`}
                 >
                   <div className="w-12 text-center">
@@ -199,7 +199,7 @@ export default function PredictionLeague() {
         </div>
 
         {/* Recent Predictions Activity */}
-        <div className="bg-zinc-900 border border-zinc-800 p-6 mt-8">
+        <div className="bg-white/[0.02] border border-white/[0.06] p-6 mt-8">
           <h2 className="text-2xl font-black text-white mb-6 flex items-center gap-2">
             <TrendingUp className="w-6 h-6 text-blue-400" />
             Recent Predictions

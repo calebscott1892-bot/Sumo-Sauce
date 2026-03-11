@@ -32,7 +32,7 @@ export default function WinLossDistribution({ rankChanges }) {
   const COLORS = ['#10B981', '#3B82F6', '#F59E0B', '#EF4444', '#6B7280'];
 
   return (
-    <div className="bg-zinc-900 border border-zinc-800 p-6">
+    <div className="bg-white/[0.02] border border-white/[0.06] p-6">
       <h3 className="text-xl font-black text-white mb-6 flex items-center gap-2">
         <TrendingUp className="w-5 h-5 text-green-400" />
         Final Record Distribution

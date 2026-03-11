@@ -35,7 +35,7 @@ const rankConfig = {
   },
   Maegashira: { 
     color: 'text-zinc-400', 
-    bg: 'bg-zinc-900/30',
+    bg: 'bg-white/[0.02]',
     border: 'border-l-zinc-700',
     icon: null,
     accent: 'bg-zinc-700'
@@ -77,8 +77,8 @@ export default function LeaderboardTable({ wrestlers, onSelect, compareMode = fa
 
   if (!wrestlers?.length) {
     return (
-      <div className="text-center py-20 bg-zinc-900/50 border border-zinc-800">
-        <div className="w-20 h-20 mx-auto mb-4 bg-zinc-800 flex items-center justify-center">
+      <div className="text-center py-20 bg-white/[0.02] border border-white/[0.06]">
+        <div className="w-20 h-20 mx-auto mb-4 bg-white/[0.04] flex items-center justify-center">
           <Trophy className="w-10 h-10 text-zinc-600" />
         </div>
         <h3 className="text-xl font-black text-zinc-400 uppercase tracking-wide">No wrestlers found</h3>
@@ -110,7 +110,7 @@ export default function LeaderboardTable({ wrestlers, onSelect, compareMode = fa
             whileTap={{ scale: 0.99 }}
             onClick={() => onSelect(wrestler)}
             className={cn(
-              "relative border-l-4 bg-zinc-900/80 hover:bg-zinc-900 border-zinc-800 cursor-pointer transition-all",
+              "relative border-l-4 bg-white/[0.03] hover:bg-white/[0.02] border-white/[0.06] cursor-pointer transition-all",
               config.border,
               compareMode && Array.isArray(selectedForCompare) && selectedForCompare.includes(wrestler.id) && "ring-2 ring-red-500 bg-red-900/20"
             )}

@@ -22,7 +22,7 @@ function track(type: string, properties: Record<string, string | number | boolea
   };
   eventLog.push(event);
   // eslint-disable-next-line no-console
-  console.log('[SumoWatch Analytics]', type, properties);
+  console.log('[Sumo Sauce Analytics]', type, properties);
 }
 
 /** Track a rikishi profile page view. */

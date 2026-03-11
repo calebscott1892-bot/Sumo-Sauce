@@ -26,7 +26,7 @@ export default function DivisionGrid({ bashoId, divisions }: Props) {
   const divisionMap = new Map(divisions.map((d) => [d.division, d]));
 
   return (
-    <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+    <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3 stagger-children">
       {DIVISION_ORDER.map((div) => {
         const info = divisionMap.get(div);
         const champion = info?.champion;
@@ -37,7 +37,7 @@ export default function DivisionGrid({ bashoId, divisions }: Props) {
           <Link
             key={div}
             to={`/basho/${encodeURIComponent(bashoId)}/${encodeURIComponent(div)}`}
-            className="group rounded-xl border border-zinc-800 bg-zinc-900 p-4 transition-colors hover:border-red-600 hover:bg-red-950/10"
+            className="group rounded-xl border border-white/[0.06] bg-white/[0.02] p-4 transition-all duration-200 hover:border-red-600 hover:bg-red-950/10 hover-lift"
             data-testid={`division-card-${div}`}
           >
             <div className="flex items-center justify-between">
@@ -64,7 +64,7 @@ export default function DivisionGrid({ bashoId, divisions }: Props) {
                   </div>
                 </div>
               ) : (
-                <div className="mt-3 rounded-lg border border-zinc-800 bg-zinc-950 px-3 py-2 text-xs text-zinc-500">
+                <div className="mt-3 rounded-lg border border-white/[0.06] bg-white/[0.02] px-3 py-2 text-xs text-zinc-500">
                   No standings data
                 </div>
               )

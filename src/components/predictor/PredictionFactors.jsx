@@ -28,7 +28,7 @@ export default function PredictionFactors({ prediction, wrestler1, wrestler2 }) 
   ];
 
   return (
-    <div className="bg-zinc-900 border border-zinc-800 rounded-lg p-6">
+    <div className="bg-white/[0.02] border border-white/[0.06] rounded-lg p-6">
       <h3 className="text-xl font-black text-white mb-4">Key Factors</h3>
       <div className="grid grid-cols-2 gap-4">
         {factors.map((factor, idx) => {
@@ -49,7 +49,7 @@ export default function PredictionFactors({ prediction, wrestler1, wrestler2 }) 
       <div className="mt-4 p-3 bg-blue-900/20 border border-blue-700 rounded">
         <div className="text-sm text-blue-400 mb-1">AI Confidence</div>
         <div className="flex items-center gap-2">
-          <div className="flex-1 bg-zinc-800 rounded-full h-2">
+          <div className="flex-1 bg-white/[0.06] rounded-full h-2">
             <div 
               className="bg-blue-500 h-full rounded-full transition-all"
               style={{ width: `${prediction.confidence}%` }}

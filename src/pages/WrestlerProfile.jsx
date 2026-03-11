@@ -476,7 +476,7 @@ export default function WrestlerProfile() {
     return (
       <div className="min-h-screen bg-black text-white">
         <div className="mx-auto max-w-4xl px-4 py-10">
-          <div className="rounded-lg border border-zinc-800 bg-zinc-900 px-4 py-6 text-zinc-300">
+          <div className="rounded-lg border border-white/[0.06] bg-white/[0.02] px-4 py-6 text-zinc-300">
             Loading wrestler profile…
           </div>
         </div>
@@ -523,7 +523,7 @@ export default function WrestlerProfile() {
           </div>
         )}
 
-        <div className="mt-4 rounded-xl border border-zinc-800 bg-zinc-900 p-5">
+        <div className="mt-4 rounded-xl border border-white/[0.06] bg-white/[0.02] p-5">
           <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
             <div className="flex items-center gap-4">
             <FallbackAvatar
@@ -552,14 +552,14 @@ export default function WrestlerProfile() {
               {(!photoUrl || imageFailed) && (
                 <span className="rounded border border-amber-700 bg-amber-900/30 px-2 py-1 text-amber-200">Photo missing</span>
               )}
-              <span className="rounded bg-zinc-800 px-2 py-1 text-zinc-300">{getImageSourceBadge(wrestler || {})}</span>
-              <span className="rounded bg-zinc-800 px-2 py-1 text-zinc-300">{latestRecordSourceBadge}</span>
+              <span className="rounded bg-white/[0.06] px-2 py-1 text-zinc-300">{getImageSourceBadge(wrestler || {})}</span>
+              <span className="rounded bg-white/[0.06] px-2 py-1 text-zinc-300">{latestRecordSourceBadge}</span>
             </div>
           </div>
         </div>
 
-        <div className="mt-6 rounded-xl border border-zinc-800 bg-zinc-900 p-5">
-          <div className="mb-4 inline-flex rounded-md border border-zinc-700 p-1">
+        <div className="mt-6 rounded-xl border border-white/[0.06] bg-white/[0.02] p-5">
+          <div className="mb-4 inline-flex rounded-md border border-white/[0.08] p-1">
             <button
               type="button"
               onClick={() => setActiveTab('overview')}
@@ -591,13 +591,13 @@ export default function WrestlerProfile() {
 
           {activeTab === 'overview' && (
             <div className="space-y-3 text-sm">
-              <div className="rounded-lg border border-zinc-800 px-3 py-2">
+              <div className="rounded-lg border border-white/[0.06] px-3 py-2">
                 <div className="text-zinc-400">Latest basho group</div>
                 <div className="font-bold text-zinc-100">{latestGroup?.label || '—'}</div>
               </div>
 
               <div className="grid gap-4 md:grid-cols-3">
-                <div className="rounded-lg border border-zinc-800 bg-zinc-900/40 backdrop-blur p-4">
+                <div className="rounded-lg border border-white/[0.06] bg-white/[0.02]/40 backdrop-blur p-4">
                   <div className="mb-2 text-[11px] font-extrabold uppercase tracking-widest text-zinc-500">Identity</div>
                   <div className="space-y-1.5">
                     <div className="flex items-center justify-between gap-3"><span className="text-zinc-400">Stable</span><span className="text-right font-semibold text-zinc-100">{displayValue(overviewStable)}</span></div>
@@ -609,7 +609,7 @@ export default function WrestlerProfile() {
                   </div>
                 </div>
 
-                <div className="rounded-lg border border-zinc-800 bg-zinc-900/40 backdrop-blur p-4">
+                <div className="rounded-lg border border-white/[0.06] bg-white/[0.02]/40 backdrop-blur p-4">
                   <div className="mb-2 text-[11px] font-extrabold uppercase tracking-widest text-zinc-500">Career</div>
                   <div className="space-y-1.5">
                     <div className="flex items-center justify-between gap-3"><span className="text-zinc-400">Career record</span><span className="text-right text-lg font-black text-zinc-100">{displayValue(careerRecordText)}</span></div>
@@ -621,7 +621,7 @@ export default function WrestlerProfile() {
                   </div>
                 </div>
 
-                <div className="rounded-lg border border-zinc-800 bg-zinc-900/40 backdrop-blur p-4">
+                <div className="rounded-lg border border-white/[0.06] bg-white/[0.02]/40 backdrop-blur p-4">
                   <div className="mb-2 text-[11px] font-extrabold uppercase tracking-widest text-zinc-500">Style</div>
                   <div className="space-y-1.5">
                     <div className="flex items-center justify-between gap-3"><span className="text-zinc-400">Primary / Secondary</span><span className="text-right font-semibold text-zinc-100">{displayValue(stylePair.primary)} / {displayValue(stylePair.secondary)}</span></div>
@@ -640,15 +640,15 @@ export default function WrestlerProfile() {
             ) : (
               <div className="space-y-3">
                 {groupedRecords.map((group) => (
-                  <div key={group.key} className="rounded-lg border border-zinc-800">
-                    <div className="border-b border-zinc-800 px-3 py-2 text-sm font-bold text-zinc-200">
+                  <div key={group.key} className="rounded-lg border border-white/[0.06]">
+                    <div className="border-b border-white/[0.04] px-3 py-2 text-sm font-bold text-zinc-200">
                       {group.label}
                     </div>
                     <div className="space-y-1 p-2">
                       {group.records.map((record, index) => (
                         <div
                           key={String(record?.record_id || `${group.key}-${index}`)}
-                          className="flex items-center justify-between rounded-md border border-zinc-800 px-3 py-2"
+                          className="flex items-center justify-between rounded-md border border-white/[0.06] px-3 py-2"
                         >
                           <div>
                             <div className="text-xs text-zinc-400">{rankLabelFrom(null, record)}</div>
@@ -671,33 +671,33 @@ export default function WrestlerProfile() {
 
           {activeTab === 'stats' && (
             <div className="grid gap-2 md:grid-cols-2 text-sm">
-              <div className="rounded-lg border border-zinc-800 px-3 py-2">
+              <div className="rounded-lg border border-white/[0.06] px-3 py-2">
                 <div className="text-zinc-400">career_wins</div>
                 <div className="font-bold text-zinc-100">{displayValue(statsSource?.career_wins)}</div>
               </div>
-              <div className="rounded-lg border border-zinc-800 px-3 py-2">
+              <div className="rounded-lg border border-white/[0.06] px-3 py-2">
                 <div className="text-zinc-400">career_losses</div>
                 <div className="font-bold text-zinc-100">{displayValue(statsSource?.career_losses)}</div>
               </div>
-              <div className="rounded-lg border border-zinc-800 px-3 py-2">
+              <div className="rounded-lg border border-white/[0.06] px-3 py-2">
                 <div className="text-zinc-400">career_win_pct</div>
                 <div className="font-bold text-zinc-100">{displayValue(statsSource?.career_win_pct)}</div>
               </div>
-              <div className="rounded-lg border border-zinc-800 px-3 py-2">
+              <div className="rounded-lg border border-white/[0.06] px-3 py-2">
                 <div className="text-zinc-400">yusho_top_div</div>
                 <div className="font-bold text-zinc-100">{displayValue(statsSource?.yusho_top_div)}</div>
               </div>
-              <div className="rounded-lg border border-zinc-800 px-3 py-2">
+              <div className="rounded-lg border border-white/[0.06] px-3 py-2">
                 <div className="text-zinc-400">special_prizes</div>
                 <div className="font-bold text-zinc-100">{displayValue(statsSource?.special_prizes)}</div>
               </div>
-              <div className="rounded-lg border border-zinc-800 px-3 py-2">
+              <div className="rounded-lg border border-white/[0.06] px-3 py-2">
                 <div className="text-zinc-400">style_primary / style_secondary</div>
                 <div className="font-bold text-zinc-100">
                   {displayValue(statsSource?.style_primary)} / {displayValue(statsSource?.style_secondary)}
                 </div>
               </div>
-              <div className="rounded-lg border border-zinc-800 px-3 py-2 md:col-span-2">
+              <div className="rounded-lg border border-white/[0.06] px-3 py-2 md:col-span-2">
                 <div className="text-zinc-400">Kimarite top 3</div>
                 <div className="font-bold text-zinc-100">
                   {displayValue(statsSource?.kimarite_1)} ({displayValue(statsSource?.kimarite_1_pct)}) ·{' '}

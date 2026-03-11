@@ -16,10 +16,10 @@ export default function AdvancedFilters({ filters, onFiltersChange, onClear }) {
   const activeFilterCount = Object.values(filters).filter(v => v && v !== 'all' && v !== '').length;
 
   return (
-    <div className="bg-zinc-900 border border-zinc-800 rounded-lg overflow-hidden">
+    <div className="bg-white/[0.02] border border-white/[0.06] rounded-lg overflow-hidden">
       <button
         onClick={() => setExpanded(!expanded)}
-        className="w-full px-4 py-3 flex items-center justify-between hover:bg-zinc-800 transition-colors"
+        className="w-full px-4 py-3 flex items-center justify-between hover:bg-white/[0.06] transition-colors"
       >
         <div className="flex items-center gap-2">
           <SlidersHorizontal className="w-4 h-4 text-zinc-400" />
@@ -42,7 +42,7 @@ export default function AdvancedFilters({ filters, onFiltersChange, onClear }) {
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            className="border-t border-zinc-800"
+            className="border-t border-white/[0.04]"
           >
             <div className="p-4 space-y-4">
               <div className="grid md:grid-cols-3 gap-4">
@@ -52,10 +52,10 @@ export default function AdvancedFilters({ filters, onFiltersChange, onClear }) {
                     Rank
                   </label>
                   <Select value={filters.rank || 'all'} onValueChange={(v) => handleChange('rank', v)}>
-                    <SelectTrigger className="bg-zinc-800 border-zinc-700 text-white">
+                    <SelectTrigger className="bg-white/[0.04] border-white/[0.08] text-white">
                       <SelectValue placeholder="All Ranks" />
                     </SelectTrigger>
-                    <SelectContent className="bg-zinc-800 border-zinc-700">
+                    <SelectContent className="bg-white/[0.04] border-white/[0.08]">
                       <SelectItem value="all" className="text-white hover:bg-zinc-700 focus:bg-zinc-700">All Ranks</SelectItem>
                       <SelectItem value="Yokozuna" className="text-white hover:bg-zinc-700 focus:bg-zinc-700">Yokozuna</SelectItem>
                       <SelectItem value="Ozeki" className="text-white hover:bg-zinc-700 focus:bg-zinc-700">Ozeki</SelectItem>
@@ -74,10 +74,10 @@ export default function AdvancedFilters({ filters, onFiltersChange, onClear }) {
                     Status
                   </label>
                   <Select value={filters.activeStatus || 'all'} onValueChange={(v) => handleChange('activeStatus', v)}>
-                    <SelectTrigger className="bg-zinc-800 border-zinc-700 text-white">
+                    <SelectTrigger className="bg-white/[0.04] border-white/[0.08] text-white">
                       <SelectValue placeholder="All Rikishi" />
                     </SelectTrigger>
-                    <SelectContent className="bg-zinc-800 border-zinc-700">
+                    <SelectContent className="bg-white/[0.04] border-white/[0.08]">
                       <SelectItem value="all" className="text-white hover:bg-zinc-700 focus:bg-zinc-700">All Rikishi</SelectItem>
                       <SelectItem value="active" className="text-white hover:bg-zinc-700 focus:bg-zinc-700">Active Only</SelectItem>
                       <SelectItem value="inactive" className="text-white hover:bg-zinc-700 focus:bg-zinc-700">Retired Only</SelectItem>
@@ -94,7 +94,7 @@ export default function AdvancedFilters({ filters, onFiltersChange, onClear }) {
                     placeholder="e.g., Japan, Mongolia"
                     value={filters.country || ''}
                     onChange={(e) => handleChange('country', e.target.value)}
-                    className="bg-zinc-800 border-zinc-700"
+                    className="bg-white/[0.04] border-white/[0.08]"
                   />
                 </div>
               </div>
@@ -110,7 +110,7 @@ export default function AdvancedFilters({ filters, onFiltersChange, onClear }) {
                     placeholder="e.g., 50"
                     value={filters.minWinRate || ''}
                     onChange={(e) => handleChange('minWinRate', e.target.value)}
-                    className="bg-zinc-800 border-zinc-700"
+                    className="bg-white/[0.04] border-white/[0.08]"
                   />
                 </div>
 
@@ -120,10 +120,10 @@ export default function AdvancedFilters({ filters, onFiltersChange, onClear }) {
                     Current Tournament
                   </label>
                   <Select value={filters.tournamentPerformance || 'all'} onValueChange={(v) => handleChange('tournamentPerformance', v)}>
-                    <SelectTrigger className="bg-zinc-800 border-zinc-700 text-white">
+                    <SelectTrigger className="bg-white/[0.04] border-white/[0.08] text-white">
                       <SelectValue placeholder="All" />
                     </SelectTrigger>
-                    <SelectContent className="bg-zinc-800 border-zinc-700">
+                    <SelectContent className="bg-white/[0.04] border-white/[0.08]">
                       <SelectItem value="all" className="text-white hover:bg-zinc-700 focus:bg-zinc-700">All</SelectItem>
                       <SelectItem value="winning" className="text-white hover:bg-zinc-700 focus:bg-zinc-700">Winning Record</SelectItem>
                       <SelectItem value="losing" className="text-white hover:bg-zinc-700 focus:bg-zinc-700">Losing Record</SelectItem>
@@ -133,7 +133,7 @@ export default function AdvancedFilters({ filters, onFiltersChange, onClear }) {
                 </div>
               </div>
 
-              <div className="flex justify-end gap-2 pt-2 border-t border-zinc-800">
+              <div className="flex justify-end gap-2 pt-2 border-t border-white/[0.04]">
                 <Button
                   variant="outline"
                   size="sm"

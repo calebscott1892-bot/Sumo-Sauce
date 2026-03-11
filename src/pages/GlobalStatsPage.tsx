@@ -21,7 +21,7 @@ import type { Division, DivisionStandingRow, TimelineItem } from '../../shared/a
 
 function StatCard({ label, value, sub, highlight }: { label: string; value: string; sub?: string; highlight?: boolean }) {
   return (
-    <div className={`rounded-xl border p-4 ${highlight ? 'border-amber-700 bg-amber-950/20' : 'border-zinc-800 bg-zinc-900'}`}>
+    <div className={`rounded-xl border p-4 ${highlight ? 'border-amber-700 bg-amber-950/20' : 'border-white/[0.06] bg-white/[0.02]'}`}>
       <div className="text-xs text-zinc-400">{label}</div>
       <div className={`mt-1 text-2xl font-bold ${highlight ? 'text-amber-300' : 'text-white'}`}>{value}</div>
       {sub && <div className="mt-0.5 text-xs text-zinc-500">{sub}</div>}
@@ -33,7 +33,7 @@ function ChartTooltip({ active, payload }: any) {
   if (!active || !payload?.length) return null;
   const d = payload[0].payload;
   return (
-    <div className="rounded-lg border border-zinc-700 bg-zinc-900 p-2.5 text-xs text-zinc-200 shadow-lg">
+    <div className="rounded-lg border border-white/[0.08] bg-white/[0.03] p-2.5 text-xs text-zinc-200 shadow-lg">
       <div className="font-semibold">{d.label}</div>
       <div>Avg wins: {d.avgWins}</div>
       <div>Wrestlers: {d.wrestlers}</div>
@@ -218,8 +218,8 @@ export default function GlobalStatsPage() {
   return (
     <div data-testid="global-stats-page" className="mx-auto max-w-6xl space-y-6 p-6 text-zinc-200">
       <PageMeta
-        title="SumoWatch \u2014 Global Analytics"
-        description="Overview statistics across the SumoWatch dataset \u2014 rikishi counts, bout totals, kimarite distribution, and average wins per basho."
+        title="Sumo Sauce \u2014 Global Analytics"
+        description="Overview statistics across the Sumo Sauce dataset \u2014 rikishi counts, bout totals, kimarite distribution, and average wins per basho."
       />
       <nav className="mb-2 flex items-center gap-1 text-sm text-zinc-400">
         <Link className="text-red-400 hover:text-red-300" to="/">Home</Link>
@@ -231,14 +231,14 @@ export default function GlobalStatsPage() {
         <span className="text-xs font-bold uppercase tracking-[0.25em] text-red-500">GLOBAL ANALYTICS</span>
         <h1 className="font-display text-4xl font-bold uppercase tracking-tight text-white sm:text-5xl">Global Analytics</h1>
         <p className="mt-2 text-sm text-zinc-500">
-          Overview statistics across the SumoWatch dataset.
+          Overview statistics across the Sumo Sauce dataset.
         </p>
       </section>
 
       {isLoading ? (
         <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
           {Array.from({ length: 4 }).map((_, i) => (
-            <div key={i} className="h-24 animate-pulse rounded-xl border border-zinc-800 bg-zinc-900" />
+            <div key={i} className="h-24 animate-pulse rounded-xl border border-white/[0.06] bg-white/[0.02]" />
           ))}
         </div>
       ) : (
@@ -260,13 +260,13 @@ export default function GlobalStatsPage() {
           </section>
 
           {/* Most common kimarite */}
-          <section className="rounded-xl border border-zinc-800 bg-zinc-900 p-5">
-            <h2 className="text-xl font-bold text-white">Most Common Kimarite</h2>
+          <section className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5">
+            <h2 className="font-display text-xl font-bold tracking-tight text-white">Most Common Kimarite</h2>
             <div className="mt-3 grid grid-cols-2 gap-2 sm:grid-cols-5">
               {stats.topKimarite.map(([name, count], idx) => (
                 <div
                   key={name}
-                  className={`rounded-lg border p-3 ${idx === 0 ? 'border-amber-700 bg-amber-950/20' : 'border-zinc-800 bg-zinc-950'}`}
+                  className={`rounded-lg border p-3 ${idx === 0 ? 'border-amber-700 bg-amber-950/20' : 'border-white/[0.06] bg-white/[0.02]'}`}
                 >
                   <div className={`font-semibold ${idx === 0 ? 'text-amber-300' : 'text-zinc-100'}`}>
                     {name}
@@ -284,8 +284,8 @@ export default function GlobalStatsPage() {
           </section>
 
           {/* Average wins per basho chart */}
-          <section className="rounded-xl border border-zinc-800 bg-zinc-900 p-5">
-            <h2 className="text-xl font-bold text-white">Average Wins per Basho (Makuuchi)</h2>
+          <section className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5">
+            <h2 className="font-display text-xl font-bold tracking-tight text-white">Average Wins per Basho (Makuuchi)</h2>
             <div className="mt-4 h-64">
               <ResponsiveContainer width="100%" height="100%">
                 <BarChart data={stats.bashoChart} margin={{ top: 8, right: 20, left: 10, bottom: 8 }}>
@@ -314,13 +314,13 @@ export default function GlobalStatsPage() {
 
           {/* Top 10 Most Successful */}
           {stats.topSuccessful.length > 0 && (
-            <section className="rounded-xl border border-zinc-800 bg-zinc-900 p-5">
-              <h2 className="text-xl font-bold text-white">Top 10 Most Successful</h2>
+            <section className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5">
+              <h2 className="font-display text-xl font-bold tracking-tight text-white">Top 10 Most Successful</h2>
               <p className="mt-1 text-xs text-zinc-500">Highest win rate (min 3 sampled basho, Makuuchi)</p>
               <div className="mt-3 overflow-x-auto">
                 <table className="min-w-full text-sm" aria-label="Top 10 most successful rikishi">
                   <thead>
-                    <tr className="border-b border-zinc-800 text-left text-zinc-400">
+                    <tr className="border-b border-white/[0.04] text-left text-zinc-400">
                       <th className="px-2 py-2" scope="col">#</th>
                       <th className="px-2 py-2" scope="col">Rikishi</th>
                       <th className="px-2 py-2" scope="col">Win Rate</th>
@@ -330,7 +330,7 @@ export default function GlobalStatsPage() {
                   </thead>
                   <tbody>
                     {stats.topSuccessful.map((r, idx) => (
-                      <tr key={r.rikishiId} className="border-b border-zinc-800/70 text-zinc-200 transition-colors hover:bg-zinc-800/40">
+                      <tr key={r.rikishiId} className="border-b border-white/[0.04] text-zinc-200 transition-colors hover:bg-white/[0.04]">
                         <td className="px-2 py-2">{idx + 1}</td>
                         <td className="px-2 py-2">
                           <Link to={`/rikishi/${encodeURIComponent(r.rikishiId)}`} className="text-red-300 hover:text-red-200">
@@ -350,15 +350,15 @@ export default function GlobalStatsPage() {
 
           {/* Most Volatile Performers */}
           {stats.mostVolatile.length > 0 && (
-            <section className="rounded-xl border border-zinc-800 bg-zinc-900 p-5">
-              <h2 className="text-xl font-bold text-white">Most Volatile Performers</h2>
+            <section className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5">
+              <h2 className="font-display text-xl font-bold tracking-tight text-white">Most Volatile Performers</h2>
               <p className="mt-1 text-xs text-zinc-500">Highest variation in win percentage across basho</p>
               <div className="mt-3 grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-5">
                 {stats.mostVolatile.map((r, idx) => (
                   <Link
                     key={r.rikishiId}
                     to={`/rikishi/${encodeURIComponent(r.rikishiId)}`}
-                    className={`rounded-lg border p-3 transition-colors hover:border-amber-600 ${idx === 0 ? 'border-amber-700 bg-amber-950/20' : 'border-zinc-800 bg-zinc-950'}`}
+                    className={`rounded-lg border p-3 transition-colors hover:border-amber-600 ${idx === 0 ? 'border-amber-700 bg-amber-950/20' : 'border-white/[0.06] bg-white/[0.02]'}`}
                   >
                     <div className={`font-semibold ${idx === 0 ? 'text-amber-300' : 'text-zinc-100'}`}>{r.shikona}</div>
                     <div className="text-xs text-zinc-500">σ = {(r.volatility * 100).toFixed(1)}%</div>
@@ -371,15 +371,15 @@ export default function GlobalStatsPage() {
 
           {/* Most Dominant Basho */}
           {stats.mostDominant.length > 0 && (
-            <section className="rounded-xl border border-zinc-800 bg-zinc-900 p-5">
-              <h2 className="text-xl font-bold text-white">Most Dominant Basho</h2>
+            <section className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5">
+              <h2 className="font-display text-xl font-bold tracking-tight text-white">Most Dominant Basho</h2>
               <p className="mt-1 text-xs text-zinc-500">Tournaments with the highest champion win count</p>
               <div className="mt-3 grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-5">
                 {stats.mostDominant.map((b, idx) => (
                   <Link
                     key={b.bashoId}
                     to={`/basho/${encodeURIComponent(b.bashoId)}`}
-                    className={`rounded-lg border p-3 transition-colors hover:border-emerald-600 ${idx === 0 ? 'border-emerald-700 bg-emerald-950/20' : 'border-zinc-800 bg-zinc-950'}`}
+                    className={`rounded-lg border p-3 transition-colors hover:border-emerald-600 ${idx === 0 ? 'border-emerald-700 bg-emerald-950/20' : 'border-white/[0.06] bg-white/[0.02]'}`}
                   >
                     <div className={`font-semibold ${idx === 0 ? 'text-emerald-300' : 'text-zinc-100'}`}>
                       {bashoDisplayName(b.bashoId)}
@@ -393,15 +393,15 @@ export default function GlobalStatsPage() {
 
           {/* Upset-Heavy Tournaments */}
           {stats.upsetHeavy.length > 0 && (
-            <section className="rounded-xl border border-zinc-800 bg-zinc-900 p-5">
-              <h2 className="text-xl font-bold text-white">Upset-Heavy Tournaments</h2>
+            <section className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5">
+              <h2 className="font-display text-xl font-bold tracking-tight text-white">Upset-Heavy Tournaments</h2>
               <p className="mt-1 text-xs text-zinc-500">Basho where lower-ranked wrestlers had the most kachi-koshi</p>
               <div className="mt-3 grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-5">
                 {stats.upsetHeavy.map((b, idx) => (
                   <Link
                     key={b.bashoId}
                     to={`/basho/${encodeURIComponent(b.bashoId)}`}
-                    className={`rounded-lg border p-3 transition-colors hover:border-red-600 ${idx === 0 ? 'border-red-700 bg-red-950/20' : 'border-zinc-800 bg-zinc-950'}`}
+                    className={`rounded-lg border p-3 transition-colors hover:border-red-600 ${idx === 0 ? 'border-red-700 bg-red-950/20' : 'border-white/[0.06] bg-white/[0.02]'}`}
                   >
                     <div className={`font-semibold ${idx === 0 ? 'text-red-300' : 'text-zinc-100'}`}>
                       {bashoDisplayName(b.bashoId)}

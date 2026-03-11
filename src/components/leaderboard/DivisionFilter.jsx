@@ -14,7 +14,7 @@ const divisions = [
 
 export default function DivisionFilter({ selected, onSelect }) {
   return (
-    <div className="bg-zinc-900 border-y border-zinc-800 py-4 -mx-4 px-4">
+    <div className="bg-white/[0.02] border-y border-white/[0.06] py-4 -mx-4 px-4">
       <div className="max-w-4xl mx-auto overflow-x-auto">
         <div className="flex gap-1 min-w-max">
           {divisions.map((div) => (
@@ -28,7 +28,7 @@ export default function DivisionFilter({ selected, onSelect }) {
                 "flex items-center gap-2 whitespace-nowrap",
                 selected === div.id
                   ? "bg-red-600 text-white"
-                  : "bg-zinc-800 text-zinc-400 hover:bg-zinc-700 hover:text-white"
+                  : "bg-white/[0.04] text-zinc-400 hover:bg-zinc-700 hover:text-white"
               )}
             >
               <span className="text-base">{div.kanji}</span>

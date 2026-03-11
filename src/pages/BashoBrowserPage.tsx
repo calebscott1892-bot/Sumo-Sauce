@@ -115,7 +115,7 @@ export default function BashoBrowserPage() {
   return (
     <div data-testid="basho-browser-page" className="mx-auto max-w-6xl space-y-6 p-6 text-zinc-200">
       <PageMeta
-        title="SumoWatch — Basho Browser"
+        title="Sumo Sauce — Basho Browser"
         description="Browse all historical sumo basho tournaments from 2000 to present. Search and filter by year, tournament name, or month."
       />
 
@@ -141,7 +141,7 @@ export default function BashoBrowserPage() {
       </section>
 
       {/* Filters */}
-      <section className="rounded-xl border border-zinc-800 bg-zinc-900 p-4">
+      <section className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-4">
         <div className="flex flex-wrap items-end gap-4">
           <div>
             <label htmlFor="basho-search" className="mb-1 block text-xs text-zinc-400">
@@ -154,7 +154,7 @@ export default function BashoBrowserPage() {
               value={searchQuery}
               onChange={(e) => updateParam('q', e.target.value)}
               placeholder="Hatsu, 2020, 202301…"
-              className="w-48 rounded-md border border-zinc-700 bg-zinc-800 px-2 py-1.5 text-sm text-zinc-100 placeholder-zinc-500 focus:border-red-500 focus:outline-none"
+              className="w-48 rounded-md border border-white/[0.08] bg-zinc-800 px-2 py-1.5 text-sm text-zinc-100 placeholder-zinc-500 focus:border-red-500 focus:outline-none"
             />
           </div>
           <div>
@@ -166,7 +166,7 @@ export default function BashoBrowserPage() {
               id="basho-year"
               value={yearFilter}
               onChange={(e) => updateParam('year', e.target.value)}
-              className="rounded-md border border-zinc-700 bg-zinc-800 px-2 py-1.5 text-sm text-zinc-100 focus:border-red-500 focus:outline-none"
+              className="rounded-md border border-white/[0.08] bg-zinc-800 px-2 py-1.5 text-sm text-zinc-100 focus:border-red-500 focus:outline-none"
             >
               <option value="">All years</option>
               {availableYears.map((y) => (
@@ -182,7 +182,7 @@ export default function BashoBrowserPage() {
               id="basho-month"
               value={monthFilter}
               onChange={(e) => updateParam('month', e.target.value)}
-              className="rounded-md border border-zinc-700 bg-zinc-800 px-2 py-1.5 text-sm text-zinc-100 focus:border-red-500 focus:outline-none"
+              className="rounded-md border border-white/[0.08] bg-zinc-800 px-2 py-1.5 text-sm text-zinc-100 focus:border-red-500 focus:outline-none"
             >
               <option value="">All tournaments</option>
               {Object.entries(TOURNAMENT_MONTHS).map(([m, name]) => (
@@ -222,7 +222,7 @@ export default function BashoBrowserPage() {
                 <Link
                   key={b.bashoId}
                   to={`/basho/${b.bashoId}`}
-                  className="group rounded-xl border border-zinc-800 bg-zinc-900 p-4 transition-all hover:border-red-600 hover:bg-red-950/10 hover:shadow-lg hover:shadow-red-950/10"
+                  className="group rounded-xl border border-white/[0.06] bg-white/[0.02] p-4 transition-all hover:border-red-600 hover:bg-red-950/10 hover:shadow-lg hover:shadow-red-950/10"
                 >
                   <div className="text-base font-bold text-white transition-colors group-hover:text-red-300">
                     {b.tournament}

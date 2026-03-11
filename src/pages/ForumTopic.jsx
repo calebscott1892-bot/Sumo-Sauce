@@ -192,7 +192,7 @@ export default function ForumTopic() {
         </Link>
 
         {/* Topic */}
-        <div className="bg-zinc-900 border-2 border-zinc-800 p-6 mb-6">
+        <div className="bg-white/[0.02] border-2 border-white/[0.06] p-6 mb-6">
           <div className="flex items-start justify-between mb-4">
             <span className="text-xs font-bold text-red-500 uppercase tracking-wider">
               {topic.category}
@@ -258,7 +258,7 @@ export default function ForumTopic() {
           
           <div className="text-zinc-300 whitespace-pre-wrap mb-4">{topic.content}</div>
           
-          <div className="flex items-center gap-4 text-sm text-zinc-500 border-t border-zinc-800 pt-4">
+          <div className="flex items-center gap-4 text-sm text-zinc-500 border-t border-white/[0.04] pt-4">
             <span className="font-bold text-zinc-400">{getDisplayName(topic.created_by, allUsers)}</span>
             <span>•</span>
             <span>{format(new Date(topic.created_date), 'MMM d, yyyy h:mm a')}</span>
@@ -278,11 +278,11 @@ export default function ForumTopic() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: idx * 0.05 }}
-              className="bg-zinc-900/50 border border-zinc-800 p-5"
+              className="bg-white/[0.02] border border-white/[0.06] p-5"
             >
               <div className="flex items-start gap-4">
                 <Link to={`/Profile?email=${reply.created_by}`}>
-                  <div className="w-10 h-10 rounded-full bg-zinc-800 flex items-center justify-center hover:ring-2 hover:ring-red-500 transition-all cursor-pointer">
+                  <div className="w-10 h-10 rounded-full bg-white/[0.06] flex items-center justify-center hover:ring-2 hover:ring-red-500 transition-all cursor-pointer">
                     <span className="text-zinc-400 font-bold">
                       {getDisplayName(reply.created_by, allUsers).charAt(0).toUpperCase()}
                     </span>
@@ -349,13 +349,13 @@ export default function ForumTopic() {
 
         {/* Reply Form */}
         {!topic.is_locked ? (
-          <div className="bg-zinc-900 border border-zinc-800 p-6">
+          <div className="bg-white/[0.02] border border-white/[0.06] p-6">
             <h3 className="text-lg font-bold text-white mb-4">Post a Reply</h3>
             <Textarea
               value={replyContent}
               onChange={(e) => setReplyContent(e.target.value)}
               placeholder="Share your thoughts..."
-              className="mb-4 bg-zinc-800 border-zinc-700 text-white min-h-32"
+              className="mb-4 bg-white/[0.04] border-white/[0.08] text-white min-h-32"
             />
             <Button
               onClick={handleSubmitReply}
@@ -367,7 +367,7 @@ export default function ForumTopic() {
             </Button>
           </div>
         ) : (
-          <div className="bg-zinc-900/50 border border-zinc-800 p-6 text-center text-zinc-500">
+          <div className="bg-white/[0.02] border border-white/[0.06] p-6 text-center text-zinc-500">
             This topic is locked and cannot receive new replies.
           </div>
         )}

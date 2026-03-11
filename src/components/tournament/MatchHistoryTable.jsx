@@ -13,7 +13,7 @@ export default function MatchHistoryTable({ matches, onSelectMatch }) {
 
   if (!matches || matches.length === 0) {
     return (
-      <div className="bg-zinc-900 border border-zinc-800 rounded-lg p-12 text-center">
+      <div className="bg-white/[0.02] border border-white/[0.06] rounded-lg p-12 text-center">
         <Swords className="w-16 h-16 text-zinc-700 mx-auto mb-4" />
         <p className="text-zinc-500">No match history available</p>
       </div>
@@ -46,10 +46,10 @@ export default function MatchHistoryTable({ matches, onSelectMatch }) {
       {/* Filters */}
       <div className="flex gap-4 flex-wrap">
         <Select value={filterDivision} onValueChange={setFilterDivision}>
-          <SelectTrigger className="w-40 bg-zinc-800 border-zinc-700 text-white">
+          <SelectTrigger className="w-40 bg-white/[0.04] border-white/[0.08] text-white">
             <SelectValue placeholder="Division" />
           </SelectTrigger>
-          <SelectContent className="bg-zinc-800 border-zinc-700">
+          <SelectContent className="bg-white/[0.04] border-white/[0.08]">
             <SelectItem value="all" className="text-white">All Divisions</SelectItem>
             <SelectItem value="Makuuchi" className="text-white">Makuuchi</SelectItem>
             <SelectItem value="Juryo" className="text-white">Juryo</SelectItem>
@@ -58,10 +58,10 @@ export default function MatchHistoryTable({ matches, onSelectMatch }) {
         </Select>
 
         <Select value={filterDay} onValueChange={setFilterDay}>
-          <SelectTrigger className="w-32 bg-zinc-800 border-zinc-700 text-white">
+          <SelectTrigger className="w-32 bg-white/[0.04] border-white/[0.08] text-white">
             <SelectValue placeholder="Day" />
           </SelectTrigger>
-          <SelectContent className="bg-zinc-800 border-zinc-700">
+          <SelectContent className="bg-white/[0.04] border-white/[0.08]">
             <SelectItem value="all" className="text-white">All Days</SelectItem>
             {[...Array(15)].map((_, i) => (
               <SelectItem key={i + 1} value={String(i + 1)} className="text-white">
@@ -72,10 +72,10 @@ export default function MatchHistoryTable({ matches, onSelectMatch }) {
         </Select>
 
         <Select value={sortBy} onValueChange={setSortBy}>
-          <SelectTrigger className="w-40 bg-zinc-800 border-zinc-700 text-white">
+          <SelectTrigger className="w-40 bg-white/[0.04] border-white/[0.08] text-white">
             <SelectValue placeholder="Sort" />
           </SelectTrigger>
-          <SelectContent className="bg-zinc-800 border-zinc-700">
+          <SelectContent className="bg-white/[0.04] border-white/[0.08]">
             <SelectItem value="date_desc" className="text-white">Newest First</SelectItem>
             <SelectItem value="date_asc" className="text-white">Oldest First</SelectItem>
             <SelectItem value="day" className="text-white">By Day</SelectItem>
@@ -96,8 +96,8 @@ export default function MatchHistoryTable({ matches, onSelectMatch }) {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: idx * 0.03 }}
             className={cn(
-              "bg-zinc-900 border rounded-lg p-4 hover:bg-zinc-800 transition-colors cursor-pointer",
-              match.is_upset ? "border-red-700" : "border-zinc-800"
+              "bg-white/[0.02] border border-white/[0.06] rounded-lg p-4 hover:bg-white/[0.06] transition-colors cursor-pointer",
+              match.is_upset ? "border-red-700" : "border-white/[0.06]"
             )}
             onClick={() => onSelectMatch && onSelectMatch(match)}
           >
@@ -157,7 +157,7 @@ export default function MatchHistoryTable({ matches, onSelectMatch }) {
 
             {/* Result Details */}
             {match.winner_name && (
-              <div className="mt-3 pt-3 border-t border-zinc-800 flex items-center justify-between text-sm">
+              <div className="mt-3 pt-3 border-t border-white/[0.04] flex items-center justify-between text-sm">
                 <div className="text-zinc-400">
                   <span className="text-white font-bold">{match.winner_name}</span> wins
                   {match.kimarite && <span className="ml-2">by {match.kimarite}</span>}

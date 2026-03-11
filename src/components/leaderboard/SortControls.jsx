@@ -18,7 +18,7 @@ export default function SortControls({ sortBy, onSortChange }) {
     <div className="flex items-center gap-2">
       <ArrowUpDown className="w-4 h-4 text-zinc-500" />
       <Select value={sortBy} onValueChange={onSortChange}>
-        <SelectTrigger className="bg-zinc-900 border-zinc-800 text-white font-bold w-[260px]">
+        <SelectTrigger className="bg-white/[0.02] border-white/[0.06] text-white font-bold w-[260px]">
           <SelectValue>
             <span className="flex items-center gap-2">
               <span>{currentOption?.icon}</span>
@@ -26,7 +26,7 @@ export default function SortControls({ sortBy, onSortChange }) {
             </span>
           </SelectValue>
         </SelectTrigger>
-        <SelectContent className="bg-zinc-800 border-zinc-700">
+        <SelectContent className="bg-white/[0.04] border-white/[0.08]">
           {sortOptions.map(option => (
             <SelectItem 
               key={option.value} 

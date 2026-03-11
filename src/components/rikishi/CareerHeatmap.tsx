@@ -88,8 +88,8 @@ function CareerHeatmap({ timeline }: Props) {
   }
 
   return (
-    <section className="rounded-xl border border-zinc-800 bg-zinc-900 p-5">
-      <h2 className="text-xl font-bold text-white">Career Performance Heatmap</h2>
+    <section className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5">
+      <h2 className="font-display text-xl font-bold tracking-tight text-white">Career Performance Heatmap</h2>
       <p className="mt-1 text-xs text-zinc-500">Each cell shows wins per basho. Brighter = more wins.</p>
 
       <div className="mt-4 overflow-x-auto">

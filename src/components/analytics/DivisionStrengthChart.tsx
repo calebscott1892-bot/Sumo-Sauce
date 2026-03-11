@@ -36,7 +36,7 @@ function ChartTooltipContent({ active, payload }: any) {
   const d = payload[0]?.payload as ChartPoint;
   if (!d) return null;
   return (
-    <div className="rounded-lg border border-zinc-700 bg-zinc-900 p-2.5 text-xs text-zinc-200 shadow-lg">
+    <div className="rounded-lg border border-white/[0.08] bg-white/[0.03] p-2.5 text-xs text-zinc-200 shadow-lg">
       <div className="font-semibold">{d.label}</div>
       <div className="mt-1 space-y-0.5">
         <div>Avg wins: <span className="text-red-400">{d.avgWins}</span></div>
@@ -84,8 +84,8 @@ function DivisionStrengthChart({ bashoData }: Props) {
   if (chartData.length < 2) return null;
 
   return (
-    <section className="rounded-xl border border-zinc-800 bg-zinc-900 p-5">
-      <h2 className="text-xl font-bold text-white">Division Strength Trends</h2>
+    <section className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5">
+      <h2 className="font-display text-xl font-bold tracking-tight text-white">Division Strength Trends</h2>
       <p className="mt-1 text-xs text-zinc-500">
         Average wins and competitiveness per basho for Makuuchi over the last {chartData.length} tournaments.
       </p>

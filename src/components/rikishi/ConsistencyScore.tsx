@@ -112,8 +112,8 @@ function ConsistencyScore({ timeline, rankProgression }: Props) {
   const strokeDashoffset = circumference - (result.score / 100) * circumference;
 
   return (
-    <section className="rounded-xl border border-zinc-800 bg-zinc-900 p-5">
-      <h2 className="text-xl font-bold text-white">Consistency Score</h2>
+    <section className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5">
+      <h2 className="font-display text-xl font-bold tracking-tight text-white">Consistency Score</h2>
       <p className="mt-0.5 text-xs text-zinc-500">
         Measures performance stability across career basho.
       </p>
@@ -155,19 +155,19 @@ function ConsistencyScore({ timeline, rankProgression }: Props) {
             {result.label}
           </div>
           <div className="grid grid-cols-2 gap-2 text-xs">
-            <div className="rounded-lg border border-zinc-800 bg-zinc-950 p-2">
+            <div className="rounded-lg border border-white/[0.06] bg-white/[0.02] p-2">
               <div className="text-zinc-500">Win Rate StdDev</div>
               <div className="font-semibold text-zinc-200">{result.details.variance}</div>
             </div>
-            <div className="rounded-lg border border-zinc-800 bg-zinc-950 p-2">
+            <div className="rounded-lg border border-white/[0.06] bg-white/[0.02] p-2">
               <div className="text-zinc-500">Kachi-koshi %</div>
               <div className="font-semibold text-zinc-200">{result.details.kachiRatio}%</div>
             </div>
-            <div className="rounded-lg border border-zinc-800 bg-zinc-950 p-2">
+            <div className="rounded-lg border border-white/[0.06] bg-white/[0.02] p-2">
               <div className="text-zinc-500">Avg Win Rate</div>
               <div className="font-semibold text-zinc-200">{result.details.avgWinRate}%</div>
             </div>
-            <div className="rounded-lg border border-zinc-800 bg-zinc-950 p-2">
+            <div className="rounded-lg border border-white/[0.06] bg-white/[0.02] p-2">
               <div className="text-zinc-500">Division Changes</div>
               <div className="font-semibold text-zinc-200">{result.details.divChanges}</div>
             </div>

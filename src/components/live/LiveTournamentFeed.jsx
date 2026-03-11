@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button';
 export default function LiveTournamentFeed({ tournamentData, loading, onRefresh }) {
   if (loading) {
     return (
-      <div className="bg-zinc-900 border border-zinc-800 p-6 mb-6">
+      <div className="bg-white/[0.02] border border-white/[0.06] p-6 mb-6">
         <div className="flex items-center gap-3">
           <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse" />
           <span className="text-zinc-400 text-sm font-bold uppercase tracking-wider">
@@ -20,7 +20,7 @@ export default function LiveTournamentFeed({ tournamentData, loading, onRefresh 
 
   if (!tournamentData?.is_active) {
     return (
-      <div className="bg-zinc-900/50 border border-zinc-800 p-4 mb-6">
+      <div className="bg-white/[0.02] border border-white/[0.06] p-4 mb-6">
         <div className="text-center text-zinc-500 text-sm font-bold uppercase tracking-wider">
           No Active Tournament • Next Basho Coming Soon
         </div>
@@ -115,7 +115,7 @@ export default function LiveTournamentFeed({ tournamentData, loading, onRefresh 
 
       {/* Upcoming Matches */}
       {upcomingBouts.length > 0 && (
-        <div className="bg-zinc-900 border border-zinc-800 p-4">
+        <div className="bg-white/[0.02] border border-white/[0.06] p-4">
           <div className="flex items-center gap-2 mb-3">
             <Clock className="w-4 h-4 text-amber-500" />
             <span className="text-amber-400 text-xs font-black uppercase tracking-wider">
@@ -139,7 +139,7 @@ export default function LiveTournamentFeed({ tournamentData, loading, onRefresh 
 
       {/* Today's Results */}
       {todaysResults.length > 0 && (
-        <div className="bg-zinc-900 border border-zinc-800 p-4">
+        <div className="bg-white/[0.02] border border-white/[0.06] p-4">
           <div className="flex items-center gap-2 mb-3">
             <TrendingUp className="w-4 h-4 text-green-500" />
             <span className="text-green-400 text-xs font-black uppercase tracking-wider">
@@ -179,7 +179,7 @@ export default function LiveTournamentFeed({ tournamentData, loading, onRefresh 
 
       {/* Tournament Standings */}
       {standings?.length > 0 && (
-        <div className="bg-zinc-900 border border-zinc-800 p-4">
+        <div className="bg-white/[0.02] border border-white/[0.06] p-4">
           <div className="flex items-center gap-2 mb-3">
             <Trophy className="w-4 h-4 text-amber-500" />
             <span className="text-amber-400 text-xs font-black uppercase tracking-wider">

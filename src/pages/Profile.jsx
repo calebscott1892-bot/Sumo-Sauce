@@ -127,7 +127,7 @@ export default function Profile() {
         {/* Profile Header */}
         <div className="bg-gradient-to-r from-red-900 via-red-700 to-red-900 border-2 border-red-600 p-8 mb-8">
           <div className="flex items-start gap-6">
-            <div className="w-24 h-24 rounded-full bg-zinc-800 flex items-center justify-center border-4 border-white/20">
+            <div className="w-24 h-24 rounded-full bg-white/[0.06] flex items-center justify-center border-4 border-white/20">
               {profileUser?.username || profileUser?.full_name ? (
                 <span className="text-4xl font-black text-white">
                   {(profileUser.username || profileUser.full_name).charAt(0).toUpperCase()}
@@ -214,22 +214,22 @@ export default function Profile() {
 
         {/* Stats Grid */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-          <div className="bg-zinc-900 border border-zinc-800 p-6 text-center">
+          <div className="bg-white/[0.02] border border-white/[0.06] p-6 text-center">
             <Trophy className="w-8 h-8 text-amber-400 mx-auto mb-2" />
             <div className="text-3xl font-black text-white">{achievements.length}</div>
             <div className="text-xs text-zinc-500 uppercase font-bold">Achievements</div>
           </div>
-          <div className="bg-zinc-900 border border-zinc-800 p-6 text-center">
+          <div className="bg-white/[0.02] border border-white/[0.06] p-6 text-center">
             <MessageSquare className="w-8 h-8 text-blue-400 mx-auto mb-2" />
             <div className="text-3xl font-black text-white">{topics.length}</div>
             <div className="text-xs text-zinc-500 uppercase font-bold">Topics Created</div>
           </div>
-          <div className="bg-zinc-900 border border-zinc-800 p-6 text-center">
+          <div className="bg-white/[0.02] border border-white/[0.06] p-6 text-center">
             <Star className="w-8 h-8 text-purple-400 mx-auto mb-2" />
             <div className="text-3xl font-black text-white">{replies.length}</div>
             <div className="text-xs text-zinc-500 uppercase font-bold">Replies Posted</div>
           </div>
-          <div className="bg-zinc-900 border border-zinc-800 p-6 text-center">
+          <div className="bg-white/[0.02] border border-white/[0.06] p-6 text-center">
             <ThumbsUp className="w-8 h-8 text-green-400 mx-auto mb-2" />
             <div className="text-3xl font-black text-white">{totalLikes}</div>
             <div className="text-xs text-zinc-500 uppercase font-bold">Total Likes</div>
@@ -237,7 +237,7 @@ export default function Profile() {
         </div>
 
         {/* Achievements Section */}
-        <div className="bg-zinc-900 border border-zinc-800 p-8">
+        <div className="bg-white/[0.02] border border-white/[0.06] p-8">
           <h2 className="text-2xl font-black text-white mb-6 flex items-center gap-2">
             <Trophy className="w-6 h-6 text-amber-400" />
             Achievements & Badges
@@ -258,7 +258,7 @@ export default function Profile() {
                   const count = achievements.filter(a => a.rarity === rarity).length;
                   if (count === 0) return null;
                   return (
-                    <div key={rarity} className="px-4 py-2 bg-zinc-800 rounded border border-zinc-700">
+                    <div key={rarity} className="px-4 py-2 bg-white/[0.04] rounded border border-white/[0.08]">
                       <span className={`text-sm font-bold uppercase ${
                         rarity === 'legendary' ? 'text-amber-400' :
                         rarity === 'epic' ? 'text-purple-400' :

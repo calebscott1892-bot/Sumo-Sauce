@@ -78,7 +78,7 @@ export default function MakePredictionDialog({ open, onClose, tournament, league
 
   return (
     <Dialog open={open} onOpenChange={onClose}>
-      <DialogContent className="bg-zinc-900 border border-zinc-800 max-w-md">
+      <DialogContent className="bg-white/[0.02] border border-white/[0.06] max-w-md">
         <DialogHeader>
           <DialogTitle className="text-white flex items-center gap-2">
             <Target className="w-5 h-5 text-green-400" />
@@ -87,7 +87,7 @@ export default function MakePredictionDialog({ open, onClose, tournament, league
         </DialogHeader>
 
         <div className="space-y-4">
-          <div className="bg-zinc-800 p-3 rounded">
+          <div className="bg-white/[0.04] p-3 rounded">
             <div className="text-xs text-zinc-500 uppercase">Tournament</div>
             <div className="text-white font-bold">{tournament?.name}</div>
           </div>
@@ -97,10 +97,10 @@ export default function MakePredictionDialog({ open, onClose, tournament, league
               Predicted Winner <span className="text-red-400">*</span>
             </label>
             <Select value={winner} onValueChange={setWinner}>
-              <SelectTrigger className="bg-zinc-800 border-zinc-700 text-white">
+              <SelectTrigger className="bg-white/[0.04] border-white/[0.08] text-white">
                 <SelectValue placeholder="Select rikishi" />
               </SelectTrigger>
-              <SelectContent className="bg-zinc-800 border-zinc-700">
+              <SelectContent className="bg-white/[0.04] border-white/[0.08]">
                 {activeWrestlers.map(w => (
                   <SelectItem key={w.id} value={w.shikona} className="text-white hover:bg-zinc-700 focus:bg-zinc-700">
                     {w.shikona} ({w.rank})
@@ -113,10 +113,10 @@ export default function MakePredictionDialog({ open, onClose, tournament, league
           <div>
             <label className="text-sm text-zinc-400 mb-2 block">Predicted Runner-Up</label>
             <Select value={runnerUp} onValueChange={setRunnerUp}>
-              <SelectTrigger className="bg-zinc-800 border-zinc-700 text-white">
+              <SelectTrigger className="bg-white/[0.04] border-white/[0.08] text-white">
                 <SelectValue placeholder="Select rikishi (optional)" />
               </SelectTrigger>
-              <SelectContent className="bg-zinc-800 border-zinc-700">
+              <SelectContent className="bg-white/[0.04] border-white/[0.08]">
                 {activeWrestlers.filter(w => w.shikona !== winner).map(w => (
                   <SelectItem key={w.id} value={w.shikona} className="text-white hover:bg-zinc-700 focus:bg-zinc-700">
                     {w.shikona} ({w.rank})
@@ -129,10 +129,10 @@ export default function MakePredictionDialog({ open, onClose, tournament, league
           <div>
             <label className="text-sm text-zinc-400 mb-2 block">Outstanding Performance Prize</label>
             <Select value={outstanding} onValueChange={setOutstanding}>
-              <SelectTrigger className="bg-zinc-800 border-zinc-700 text-white">
+              <SelectTrigger className="bg-white/[0.04] border-white/[0.08] text-white">
                 <SelectValue placeholder="Select rikishi (optional)" />
               </SelectTrigger>
-              <SelectContent className="bg-zinc-800 border-zinc-700">
+              <SelectContent className="bg-white/[0.04] border-white/[0.08]">
                 {activeWrestlers.map(w => (
                   <SelectItem key={w.id} value={w.shikona} className="text-white hover:bg-zinc-700 focus:bg-zinc-700">
                     {w.shikona} ({w.rank})

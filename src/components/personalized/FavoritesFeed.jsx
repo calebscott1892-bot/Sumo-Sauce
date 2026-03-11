@@ -6,7 +6,7 @@ import { cn } from '@/lib/utils';
 export default function FavoritesFeed({ wrestlers = [], tournamentData, onSelectWrestler }) {
   if (!wrestlers || wrestlers.length === 0) {
     return (
-      <div className="bg-zinc-900/50 border border-zinc-800 p-8 text-center">
+      <div className="bg-white/[0.02] border border-white/[0.06] p-8 text-center">
         <Star className="w-12 h-12 text-zinc-700 mx-auto mb-3" />
         <h3 className="text-zinc-400 font-bold uppercase text-sm tracking-wider mb-2">
           No Favorites Yet
@@ -69,7 +69,7 @@ export default function FavoritesFeed({ wrestlers = [], tournamentData, onSelect
   }
 
   return (
-    <div className="bg-zinc-900 border border-amber-600 p-6">
+    <div className="bg-white/[0.02] border border-amber-600 p-6">
       <div className="flex items-center gap-2 mb-4">
         <Star className="w-5 h-5 text-amber-500 fill-amber-500" />
         <h2 className="text-amber-400 font-black text-sm uppercase tracking-wider">
@@ -86,7 +86,7 @@ export default function FavoritesFeed({ wrestlers = [], tournamentData, onSelect
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: idx * 0.05 }}
               className={cn(
-                "border-l-4 p-3 cursor-pointer hover:bg-zinc-800 transition-all",
+                "border-l-4 p-3 cursor-pointer hover:bg-white/[0.06] transition-all",
                 match.type === 'live' ? "border-red-500 bg-red-900/20" :
                 match.type === 'result' && match.won ? "border-green-500 bg-green-900/10" :
                 match.type === 'result' ? "border-red-500 bg-red-900/10" :
@@ -134,7 +134,7 @@ export default function FavoritesFeed({ wrestlers = [], tournamentData, onSelect
             key={wrestler.id}
             whileHover={{ scale: 1.05 }}
             onClick={() => onSelectWrestler(wrestler)}
-            className="bg-zinc-800 border border-zinc-700 p-3 cursor-pointer hover:border-amber-600 transition-all"
+            className="bg-white/[0.04] border border-white/[0.08] p-3 cursor-pointer hover:border-amber-600 transition-all"
           >
             <div className="text-center">
               <div className="text-white font-black text-sm truncate mb-1">

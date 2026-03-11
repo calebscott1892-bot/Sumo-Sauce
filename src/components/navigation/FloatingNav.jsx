@@ -54,13 +54,13 @@ export default function FloatingNav() {
       <div className="fixed right-4 top-4 z-50 flex items-center gap-2 sm:right-6 sm:top-6">
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="flex h-11 w-11 items-center justify-center rounded-full bg-zinc-900/90 text-zinc-300 shadow-lg shadow-black/40 ring-1 ring-white/10 backdrop-blur-sm transition-all hover:bg-zinc-800 hover:text-white hover:ring-white/20"
+          className="flex h-11 w-11 items-center justify-center rounded-full bg-zinc-950/90 text-zinc-300 shadow-lg shadow-black/40 ring-1 ring-white/10 backdrop-blur-sm transition-all hover:bg-white/[0.06] hover:text-white hover:ring-white/20"
           aria-label={isOpen ? 'Close menu' : 'Open menu'}
         >
           {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </button>
         <button
-          className="flex h-11 w-11 items-center justify-center rounded-full bg-zinc-900/90 text-zinc-300 shadow-lg shadow-black/40 ring-1 ring-white/10 backdrop-blur-sm transition-all hover:bg-zinc-800 hover:text-white hover:ring-white/20"
+          className="flex h-11 w-11 items-center justify-center rounded-full bg-zinc-950/90 text-zinc-300 shadow-lg shadow-black/40 ring-1 ring-white/10 backdrop-blur-sm transition-all hover:bg-white/[0.06] hover:text-white hover:ring-white/20"
           aria-label="Notifications"
         >
           <Bell className="h-5 w-5" />
@@ -146,7 +146,7 @@ export default function FloatingNav() {
               {/* Footer */}
               <div className="border-t border-white/[0.06] px-5 py-4">
                 <div className="flex items-center justify-between text-xs text-zinc-500">
-                  <span>Press <kbd className="ml-1 rounded border border-zinc-700 bg-zinc-800 px-1.5 py-0.5 font-mono text-[10px] text-zinc-400">⌘K</kbd></span>
+                  <span>Press <kbd className="ml-1 rounded border border-white/[0.08] bg-zinc-800 px-1.5 py-0.5 font-mono text-[10px] text-zinc-400">⌘K</kbd></span>
                   <div className="flex items-center gap-1.5">
                     <img src="/logo-64.png" alt="" className="h-4 w-4" />
                     <span className="font-display text-[10px] uppercase tracking-wider text-zinc-600">Sumo Sauce</span>

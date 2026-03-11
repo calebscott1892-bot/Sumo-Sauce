@@ -17,7 +17,7 @@ function TopBars({ title, rows }: { title: string; rows: Array<{ kimariteId: str
               <span>{row.kimariteId}</span>
               <span>{row.count}</span>
             </div>
-            <div className="mt-1 h-2 w-full rounded bg-zinc-800">
+            <div className="mt-1 h-2 w-full rounded bg-white/[0.06]">
               <div className="h-2 rounded bg-red-500" style={{ width: `${(row.count / max) * 100}%` }} />
             </div>
           </div>
@@ -33,19 +33,19 @@ function KimariteChart({ stats }: Props) {
   const topLosses = useMemo(() => stats.lossKimarite.slice(0, 5), [stats.lossKimarite]);
 
   return (
-    <section data-testid="kimarite-chart" className="rounded-xl border border-zinc-800 bg-zinc-900 p-5">
-      <h2 className="text-xl font-bold text-white">Kimarite Breakdown</h2>
+    <section data-testid="kimarite-chart" className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5">
+      <h2 className="font-display text-xl font-bold tracking-tight text-white">Kimarite Breakdown</h2>
 
       <div className="mt-4 grid grid-cols-1 gap-3 text-sm md:grid-cols-3">
-        <div className="rounded-lg border border-zinc-800 bg-zinc-950 p-3">
+        <div className="rounded-lg border border-white/[0.06] bg-white/[0.02] p-3">
           <div className="text-zinc-400">Total wins</div>
           <div className="font-semibold text-zinc-100">{stats.totalWins}</div>
         </div>
-        <div className="rounded-lg border border-zinc-800 bg-zinc-950 p-3">
+        <div className="rounded-lg border border-white/[0.06] bg-white/[0.02] p-3">
           <div className="text-zinc-400">Total losses</div>
           <div className="font-semibold text-zinc-100">{stats.totalLosses}</div>
         </div>
-        <div className="rounded-lg border border-zinc-800 bg-zinc-950 p-3">
+        <div className="rounded-lg border border-white/[0.06] bg-white/[0.02] p-3">
           <div className="text-zinc-400">Most used kimarite</div>
           <div className="font-semibold text-zinc-100">{stats.mostUsedKimarite || '—'}</div>
         </div>

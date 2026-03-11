@@ -54,7 +54,7 @@ export default function SaveComparisonDialog({ open, onClose, wrestlers }) {
 
   return (
     <Dialog open={open} onOpenChange={onClose}>
-      <DialogContent className="bg-zinc-900 border-zinc-800 text-white max-w-lg">
+      <DialogContent className="bg-white/[0.02] border-white/[0.06] text-white max-w-lg">
         <DialogHeader>
           <DialogTitle className="text-2xl font-black flex items-center gap-2">
             <Share2 className="w-6 h-6" />
@@ -70,7 +70,7 @@ export default function SaveComparisonDialog({ open, onClose, wrestlers }) {
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
                 placeholder="e.g., Yokozuna Power Comparison"
-                className="bg-zinc-800 border-zinc-700 text-white"
+                className="bg-white/[0.04] border-white/[0.08] text-white"
               />
             </div>
 
@@ -86,11 +86,11 @@ export default function SaveComparisonDialog({ open, onClose, wrestlers }) {
                 value={notes}
                 onChange={(e) => setNotes(e.target.value)}
                 placeholder="Add your analysis or observations..."
-                className="bg-zinc-800 border-zinc-700 text-white min-h-24"
+                className="bg-white/[0.04] border-white/[0.08] text-white min-h-24"
               />
             </div>
 
-            <div className="flex items-center justify-between p-4 bg-zinc-800 rounded-lg">
+            <div className="flex items-center justify-between p-4 bg-white/[0.04] rounded-lg">
               <div>
                 <div className="font-bold text-white">Make Public</div>
                 <div className="text-xs text-zinc-500">Allow others to view this comparison</div>
@@ -129,7 +129,7 @@ export default function SaveComparisonDialog({ open, onClose, wrestlers }) {
                   <Input
                     value={shareUrl}
                     readOnly
-                    className="bg-zinc-800 border-zinc-700 text-white flex-1"
+                    className="bg-white/[0.04] border-white/[0.08] text-white flex-1"
                   />
                   <Button
                     onClick={copyShareLink}

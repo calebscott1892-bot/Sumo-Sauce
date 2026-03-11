@@ -17,10 +17,10 @@ export default function RikishiBoutTimeline({ timeline, limit = 20 }: Props) {
   const recent = [...timeline].reverse().slice(0, limit);
 
   return (
-    <section data-testid="bout-timeline" className="rounded-xl border border-zinc-800 bg-zinc-900 p-5">
+    <section data-testid="bout-timeline" className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5">
       <div className="flex items-center gap-2">
         <Clock className="h-5 w-5 text-red-500" />
-        <h2 className="text-xl font-bold text-white">Recent Performance Timeline</h2>
+        <h2 className="font-display text-xl font-bold tracking-tight text-white">Recent Performance Timeline</h2>
       </div>
       <p className="mt-1 text-xs text-zinc-500">Last {Math.min(limit, recent.length)} basho entries</p>
 
@@ -49,7 +49,7 @@ export default function RikishiBoutTimeline({ timeline, limit = 20 }: Props) {
                 ? 'border-emerald-800/50'
                 : isMK
                   ? 'border-red-800/50'
-                  : 'border-zinc-800';
+                  : 'border-white/[0.06]';
 
               return (
                 <div key={`${entry.bashoId}-${entry.division}`} className="relative pl-8">
@@ -87,7 +87,7 @@ export default function RikishiBoutTimeline({ timeline, limit = 20 }: Props) {
                               ? 'bg-emerald-900/40 text-emerald-300'
                               : isMK
                                 ? 'bg-red-900/40 text-red-300'
-                                : 'bg-zinc-800 text-zinc-400'
+                                : 'bg-white/[0.04] text-zinc-400'
                           }`}
                         >
                           {isKK ? 'KK' : isMK ? 'MK' : 'Even'}
@@ -96,7 +96,7 @@ export default function RikishiBoutTimeline({ timeline, limit = 20 }: Props) {
                     </div>
 
                     {/* Mini win-rate bar */}
-                    <div className="mt-2 h-1 w-full rounded-full bg-zinc-800 overflow-hidden">
+                    <div className="mt-2 h-1 w-full rounded-full bg-white/[0.06] overflow-hidden">
                       <div
                         className={`h-1 rounded-full ${isKK ? 'bg-emerald-500' : isMK ? 'bg-red-500' : 'bg-zinc-500'}`}
                         style={{ width: `${pct}%` }}

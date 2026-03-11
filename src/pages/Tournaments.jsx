@@ -38,7 +38,7 @@ export default function Tournaments() {
       animate={{ opacity: 1, y: 0 }}
       whileHover={{ y: -4 }}
       onClick={() => setSelectedTournament(tournament)}
-      className="bg-zinc-900 border border-zinc-800 p-6 cursor-pointer hover:border-red-600 transition-all"
+      className="bg-white/[0.02] border border-white/[0.06] p-6 cursor-pointer hover:border-red-600 transition-all"
     >
       <div className="flex items-start justify-between mb-4">
         <div>
@@ -51,7 +51,7 @@ export default function Tournaments() {
         <div className={`px-3 py-1 rounded text-xs font-bold uppercase ${
           status === 'upcoming' ? 'bg-blue-900/30 text-blue-400 border border-blue-700' :
           status === 'in_progress' ? 'bg-red-900/30 text-red-400 border border-red-700' :
-          'bg-zinc-800 text-zinc-400 border border-zinc-700'
+          'bg-white/[0.04] text-zinc-400 border border-white/[0.08]'
         }`}>
           {status.replace('_', ' ')}
         </div>
@@ -126,7 +126,7 @@ export default function Tournaments() {
           <div className="text-center py-20 text-zinc-500">Loading tournaments...</div>
         ) : (
           <Tabs defaultValue="all" className="w-full">
-            <TabsList className="bg-zinc-900 mb-8 w-full md:w-auto">
+            <TabsList className="bg-white/[0.03] mb-8 w-full md:w-auto">
               <TabsTrigger value="all">All</TabsTrigger>
               <TabsTrigger value="upcoming">Upcoming ({upcomingTournaments.length})</TabsTrigger>
               <TabsTrigger value="in_progress">Live ({inProgressTournaments.length})</TabsTrigger>
@@ -219,7 +219,7 @@ function TournamentDetail({ tournament, onBack }) {
         <div className="grid md:grid-cols-2 gap-8 mb-8">
           {/* Winner */}
           {tournament.winner && (
-            <div className="bg-zinc-900 border-2 border-amber-600 p-6">
+            <div className="bg-white/[0.03] border-2 border-amber-600 p-6">
               <div className="flex items-center gap-2 mb-4">
                 <Trophy className="w-6 h-6 text-amber-400" />
                 <h2 className="text-xl font-black text-white">Champion</h2>
@@ -238,7 +238,7 @@ function TournamentDetail({ tournament, onBack }) {
 
           {/* Special Prizes */}
           {tournament.special_prizes && (
-            <div className="bg-zinc-900 border border-zinc-800 p-6">
+            <div className="bg-white/[0.02] border border-white/[0.06] p-6">
               <div className="flex items-center gap-2 mb-4">
                 <Award className="w-6 h-6 text-purple-400" />
                 <h2 className="text-xl font-black text-white">Special Prizes</h2>
@@ -269,7 +269,7 @@ function TournamentDetail({ tournament, onBack }) {
 
         {/* Notable Upsets */}
         {tournament.notable_upsets && tournament.notable_upsets.length > 0 && (
-          <div className="bg-zinc-900 border border-zinc-800 p-6 mb-8">
+          <div className="bg-white/[0.02] border border-white/[0.06] p-6 mb-8">
             <h2 className="text-xl font-black text-white mb-4 flex items-center gap-2">
               <TrendingUp className="w-5 h-5 text-red-400" />
               Notable Upsets
@@ -323,7 +323,7 @@ function TournamentDetail({ tournament, onBack }) {
       {/* Wrestler Detail Modal */}
       {selectedWrestler && (
         <div className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4" onClick={() => setSelectedWrestler(null)}>
-          <div className="bg-zinc-900 border-2 border-red-600 rounded-lg p-6 max-w-md" onClick={(e) => e.stopPropagation()}>
+          <div className="bg-white/[0.03] border-2 border-red-600 rounded-lg p-6 max-w-md" onClick={(e) => e.stopPropagation()}>
             <h3 className="text-2xl font-black text-white mb-2">{selectedWrestler.shikona}</h3>
             <p className="text-zinc-400 mb-4">{selectedWrestler.rank}</p>
             <Link to="/Leaderboard">
@@ -360,7 +360,7 @@ function TournamentRankChart({ rankChanges }) {
   const colors = ['#3B82F6', '#EF4444', '#10B981', '#F59E0B', '#8B5CF6'];
 
   return (
-    <div className="bg-zinc-900 border border-zinc-800 p-6">
+    <div className="bg-white/[0.02] border border-white/[0.06] p-6">
       <h2 className="text-xl font-black text-white mb-6 flex items-center gap-2">
         <TrendingUp className="w-5 h-5 text-blue-400" />
         Win Progression

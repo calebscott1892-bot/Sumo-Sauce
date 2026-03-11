@@ -53,7 +53,7 @@ export default function CreateLeagueDialog({ open, onClose, user, onSuccess }) {
 
   return (
     <Dialog open={open} onOpenChange={onClose}>
-      <DialogContent className="bg-zinc-900 border border-zinc-800">
+      <DialogContent className="bg-white/[0.02] border border-white/[0.06]">
         <DialogHeader>
           <DialogTitle className="text-white flex items-center gap-2">
             <Trophy className="w-5 h-5 text-amber-400" />
@@ -68,7 +68,7 @@ export default function CreateLeagueDialog({ open, onClose, user, onSuccess }) {
               value={name}
               onChange={(e) => setName(e.target.value)}
               placeholder="e.g., Friends League, Office Pool"
-              className="bg-zinc-800 border-zinc-700 text-white"
+              className="bg-white/[0.04] border-white/[0.08] text-white"
             />
           </div>
 
@@ -78,7 +78,7 @@ export default function CreateLeagueDialog({ open, onClose, user, onSuccess }) {
               value={description}
               onChange={(e) => setDescription(e.target.value)}
               placeholder="Describe your league..."
-              className="bg-zinc-800 border-zinc-700 text-white"
+              className="bg-white/[0.04] border-white/[0.08] text-white"
               rows={3}
             />
           </div>

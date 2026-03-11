@@ -7,12 +7,12 @@ type Props = {
 
 export default function CareerTable({ rows }: Props) {
   return (
-    <section data-testid="career-table" className="rounded-xl border border-zinc-800 bg-zinc-900 p-5">
-      <h2 className="text-xl font-bold text-white">Career Timeline</h2>
+    <section data-testid="career-table" className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5">
+      <h2 className="font-display text-xl font-bold tracking-tight text-white">Career Timeline</h2>
       <div className="mt-4 overflow-x-auto">
         <table className="min-w-full text-sm">
           <thead>
-            <tr className="border-b border-zinc-800 text-left text-zinc-400">
+            <tr className="border-b border-white/[0.04] text-left text-zinc-400">
               <th className="px-2 py-2">Basho</th>
               <th className="px-2 py-2">Division</th>
               <th className="px-2 py-2">Rank</th>
@@ -22,7 +22,7 @@ export default function CareerTable({ rows }: Props) {
           </thead>
           <tbody>
             {rows.map((row) => (
-              <tr key={`${row.bashoId}-${row.division}-${row.rank}`} className="border-b border-zinc-800/70 text-zinc-200">
+              <tr key={`${row.bashoId}-${row.division}-${row.rank}`} className="border-b border-white/[0.04] text-zinc-200">
                 <td className="px-2 py-2">
                   <Link
                     className="text-red-300 hover:text-red-200"

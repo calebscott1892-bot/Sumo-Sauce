@@ -62,7 +62,7 @@ export default function JoinLeagueDialog({ open, onClose, user, onSuccess }) {
 
   return (
     <Dialog open={open} onOpenChange={onClose}>
-      <DialogContent className="bg-zinc-900 border border-zinc-800">
+      <DialogContent className="bg-white/[0.02] border border-white/[0.06]">
         <DialogHeader>
           <DialogTitle className="text-white flex items-center gap-2">
             <Users className="w-5 h-5 text-blue-400" />
@@ -77,7 +77,7 @@ export default function JoinLeagueDialog({ open, onClose, user, onSuccess }) {
               value={joinCode}
               onChange={(e) => setJoinCode(e.target.value.toUpperCase())}
               placeholder="Enter 6-digit code"
-              className="bg-zinc-800 border-zinc-700 text-white uppercase"
+              className="bg-white/[0.04] border-white/[0.08] text-white uppercase"
               maxLength={6}
             />
           </div>

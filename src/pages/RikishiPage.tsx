@@ -24,10 +24,10 @@ import {
   getRankProgression,
 } from '@/pages/rikishi/api';
 import RikishiProfileSkeleton from '@/components/ui/skeletons/RikishiProfileSkeleton';
-import CopyLinkButton from '@/components/ui/CopyLinkButton';
 import ErrorCard from '@/components/ui/ErrorCard';
 import PageMeta from '@/components/ui/PageMeta';
 import { trackRikishiPageView } from '@/utils/analytics';
+import { PremiumPageHeader, PremiumSectionShell, PremiumBadge } from '@/components/ui/premium';
 import type { Division, TimelineItem } from '@/pages/rikishi/types';
 
 const RikishiRankChart = lazy(() => import('@/components/rikishi/RikishiRankChart'));
@@ -185,8 +185,8 @@ export default function RikishiPage() {
   const shikona = summaryQuery.data.shikona ?? rikishiId;
   const [isFav, setIsFav] = useState(() => isFavoriteRikishi(rikishiId));
 
-  const pageTitle = `SumoWatch \u2014 ${shikona} (${rikishiId})`;
-  const pageDesc = `${shikona} career profile, rank progression, kimarite stats, and head-to-head matchups on SumoWatch.`;
+  const pageTitle = `Sumo Sauce \u2014 ${shikona} (${rikishiId})`;
+  const pageDesc = `${shikona} career profile, rank progression, kimarite stats, and head-to-head matchups on Sumo Sauce.`;
 
   useEffect(() => {
     trackRikishiPageView(rikishiId);
@@ -196,38 +196,29 @@ export default function RikishiPage() {
   return (
     <div data-testid="rikishi-page" className="mx-auto max-w-6xl space-y-6 p-6 text-zinc-200">
       <PageMeta title={pageTitle} description={pageDesc} />
-      <nav data-testid="breadcrumbs" className="mb-2 flex items-center justify-between">
-        <div className="flex items-center gap-1 text-sm text-zinc-400">
-          <Link className="text-red-400 hover:text-red-300" to="/">Home</Link>
-          <span>/</span>
-          <Link className="text-red-400 hover:text-red-300" to="/rikishi">Rikishi</Link>
-          <span>/</span>
-          <span className="text-zinc-200">{rikishiId}</span>
-        </div>
-        <div className="flex items-center gap-2">
-          <CopyLinkButton />
+
+      <PremiumPageHeader
+        accentLabel="RIKISHI PROFILE"
+        title={shikona}
+        subtitle={summaryQuery.data.heya ?? 'Unknown heya'}
+        breadcrumbs={[
+          { label: 'Home', to: '/' },
+          { label: 'Rikishi', to: '/rikishi' },
+          { label: rikishiId },
+        ]}
+        favorite={{
+          active: isFav,
+          onToggle: () => { toggleFavoriteRikishi(rikishiId); setIsFav(!isFav); },
+        }}
+        actions={
           <Link
             to={`/compare/${encodeURIComponent(rikishiId)}/`}
-            className="rounded-lg border border-zinc-700 bg-zinc-800 px-3 py-1.5 text-xs text-zinc-300 transition-colors hover:border-red-600 hover:text-white"
+            className="rounded-lg border border-white/[0.06] bg-white/[0.03] px-3 py-1.5 text-xs font-medium text-zinc-300 transition-colors hover:border-red-600 hover:text-white"
           >
             Compare →
           </Link>
-          <button
-            type="button"
-            onClick={() => { toggleFavoriteRikishi(rikishiId); setIsFav(!isFav); }}
-            className="rounded-lg border border-zinc-700 bg-zinc-800 p-1.5 transition-colors hover:border-red-600"
-            aria-label={isFav ? 'Remove from favorites' : 'Add to favorites'}
-          >
-            <Heart className={`h-4 w-4 transition-colors ${isFav ? 'fill-red-500 text-red-500' : 'text-zinc-400'}`} />
-          </button>
-        </div>
-      </nav>
-
-      <section className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-6">
-        <span className="text-xs font-bold uppercase tracking-[0.25em] text-red-500">RIKISHI PROFILE</span>
-        <h1 className="font-display text-4xl font-bold uppercase tracking-tight text-white sm:text-5xl">{shikona}</h1>
-        <p className="mt-1 text-sm text-zinc-500">{summaryQuery.data.heya ?? 'Unknown heya'}</p>
-      </section>
+        }
+      />
 
       <RikishiSummaryCard
         summary={summaryQuery.data}
@@ -252,10 +243,9 @@ export default function RikishiPage() {
 
       <Suspense
         fallback={
-          <section className="rounded-xl border border-zinc-800 bg-zinc-900 p-5">
-            <h2 className="text-xl font-bold text-white">Rank Progression</h2>
-            <div className="mt-4 h-64 w-full skeleton-shimmer rounded-lg" />
-          </section>
+          <PremiumSectionShell title="Rank Progression">
+            <div className="h-64 w-full skeleton-shimmer rounded-lg" />
+          </PremiumSectionShell>
         }
       >
         <RikishiRankChart points={progressionQuery.data || []} />
@@ -273,30 +263,33 @@ export default function RikishiPage() {
 
       <KimariteChart stats={kimariteQuery.data} />
 
-      <section className="rounded-xl border border-zinc-800 bg-zinc-900 p-5">
-        <h2 className="text-xl font-bold text-white">Head-to-Head Preview</h2>
-        <div className="mt-3 space-y-2">
+      <PremiumSectionShell title="Head-to-Head Preview" subtitle="Top rivals by recent matchups">
+        <div className="space-y-2">
           {h2hPreviewTop3.map((row) => (
             <Link
               key={row.opponentId}
               to={`/compare/${encodeURIComponent(rikishiId)}/${encodeURIComponent(row.opponentId)}`}
-              className="block rounded-lg border border-zinc-800 bg-zinc-950 p-3 transition-all duration-200 hover:border-red-600 hover:bg-zinc-900"
+              className="group block rounded-lg border border-white/[0.06] bg-white/[0.02] p-3.5 transition-all duration-200 hover:border-red-600/50 hover:bg-white/[0.04]"
             >
               <div className="flex items-center justify-between">
                 <div>
-                  <div className="font-semibold text-zinc-100">{row.opponentShikona}</div>
+                  <div className="font-semibold text-white group-hover:text-red-300 transition-colors">{row.opponentShikona}</div>
                   <div className="text-xs text-zinc-500">{row.opponentId}</div>
                 </div>
                 <div className="text-right">
-                  <div className="font-semibold text-zinc-100">{row.wins}-{row.losses}</div>
-                  <div className="text-xs text-zinc-500">{row.totalMatches} matches</div>
+                  <div className="font-bold text-white">
+                    <span className="text-emerald-400">{row.wins}</span>
+                    <span className="text-zinc-600"> – </span>
+                    <span className="text-red-400">{row.losses}</span>
+                  </div>
+                  <div className="text-xs text-zinc-500">{row.totalMatches} bouts</div>
                 </div>
               </div>
             </Link>
           ))}
-          {!h2hPreviewTop3.length && <div className="text-sm text-zinc-400">No head-to-head data.</div>}
+          {!h2hPreviewTop3.length && <div className="text-sm text-zinc-500">No head-to-head data available.</div>}
         </div>
-      </section>
+      </PremiumSectionShell>
 
       <RivalryList
         rikishiId={rikishiId}
@@ -306,48 +299,53 @@ export default function RikishiPage() {
 
       <RikishiBoutTimeline timeline={timelineChrono} limit={20} />
 
-      <section className="rounded-xl border border-zinc-800 bg-zinc-900 p-5">
-        <h2 className="text-xl font-bold text-white">Recent Basho Performance</h2>
-        <div className="mt-3 grid grid-cols-1 gap-2 md:grid-cols-2">
+      <PremiumSectionShell title="Recent Basho Performance" subtitle="Last 6 tournaments">
+        <div className="grid grid-cols-1 gap-2 md:grid-cols-2">
           {recentBasho.map((row) => {
             const positive = row.wins > row.losses;
             return (
               <div
                 key={`${row.bashoId}-${row.division}`}
-                className={`rounded-lg border p-3 transition-colors duration-200 ${positive ? 'border-emerald-700 bg-emerald-950/20 hover:border-emerald-600' : 'border-zinc-800 bg-zinc-950 hover:border-zinc-700'}`}
+                className={`rounded-lg border p-3.5 transition-all duration-200 ${
+                  positive
+                    ? 'border-emerald-700/40 bg-emerald-950/15 hover:border-emerald-600/50'
+                    : 'border-white/[0.06] bg-white/[0.02] hover:border-white/[0.12]'
+                }`}
               >
                 <div className="flex items-center justify-between">
                   <Link
-                    className="font-semibold text-red-300 hover:text-red-200"
+                    className="font-semibold text-red-400 hover:text-red-300 transition-colors"
                     to={`/basho/${encodeURIComponent(row.bashoId)}/${encodeURIComponent(row.division)}`}
                   >
                     {row.bashoId}
                   </Link>
-                  <div className="text-sm text-zinc-300">{row.division}</div>
+                  <PremiumBadge variant={positive ? 'green' : 'zinc'}>{row.division}</PremiumBadge>
                 </div>
-                <div className="mt-1 text-sm text-zinc-300">Rank: {row.rank}</div>
-                <div className="text-sm text-zinc-300">Record: {row.wins}-{row.losses}</div>
+                <div className="mt-2 flex items-center gap-4 text-sm text-zinc-300">
+                  <span>Rank: <span className="font-medium text-white">{row.rank}</span></span>
+                  <span>Record: <span className={`font-bold ${positive ? 'text-emerald-300' : 'text-zinc-200'}`}>{row.wins}-{row.losses}</span></span>
+                </div>
               </div>
             );
           })}
-          {!recentBasho.length && <div className="text-sm text-zinc-400">No recent basho data.</div>}
+          {!recentBasho.length && <div className="text-sm text-zinc-500">No recent basho data.</div>}
         </div>
-      </section>
+      </PremiumSectionShell>
 
       {/* Data integrity indicator */}
-      <section className="rounded-xl border border-zinc-800 bg-zinc-900 p-4">
+      <section className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-4">
         <div className="flex items-center gap-2 text-sm">
           {timelineChrono.length > 0 && kimariteQuery.data && progressionQuery.data ? (
             <>
-              <span className="text-emerald-400">✔</span>
-              <span className="text-zinc-300">
+              <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-emerald-950/40 text-xs text-emerald-400">✔</span>
+              <span className="text-zinc-400">
                 Verified — {timelineChrono.length} basho entries, kimarite and rank data loaded
               </span>
             </>
           ) : (
             <>
-              <span className="text-amber-400">⚠</span>
-              <span className="text-zinc-300">
+              <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-amber-950/40 text-xs text-amber-400">⚠</span>
+              <span className="text-zinc-400">
                 Incomplete —
                 {!timelineChrono.length ? ' no timeline data' : ''}
                 {!kimariteQuery.data ? ' no kimarite data' : ''}

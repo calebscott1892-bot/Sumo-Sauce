@@ -104,7 +104,7 @@ export default function RikishiSearch() {
   return (
     <div ref={containerRef} className="relative w-full">
       <Command
-        className="rounded-xl border border-zinc-700 bg-zinc-800"
+        className="rounded-xl border border-white/[0.08] bg-zinc-800"
         shouldFilter={false}
       >
         <CommandInput
@@ -120,7 +120,7 @@ export default function RikishiSearch() {
         />
 
         {open && search.trim().length > 0 && (
-          <CommandList className="absolute top-full left-0 right-0 z-50 mt-1 max-h-72 rounded-xl border border-zinc-700 bg-zinc-900 shadow-2xl">
+          <CommandList className="absolute top-full left-0 right-0 z-50 mt-1 max-h-72 rounded-xl border border-white/[0.08] bg-white/[0.03] shadow-2xl">
             {isLoading ? (
               <div className="flex items-center justify-center gap-2 py-6 text-sm text-zinc-400">
                 <Loader2 className="h-4 w-4 animate-spin" />
@@ -137,7 +137,7 @@ export default function RikishiSearch() {
                     key={entry.rikishiId}
                     value={entry.rikishiId}
                     onSelect={handleSelect}
-                    className="flex cursor-pointer items-center gap-3 px-3 py-2.5 text-zinc-200 hover:bg-zinc-800 data-[selected=true]:bg-zinc-800"
+                    className="flex cursor-pointer items-center gap-3 px-3 py-2.5 text-zinc-200 hover:bg-white/[0.06] data-[selected=true]:bg-zinc-800"
                   >
                     <User className="h-4 w-4 shrink-0 text-red-500" />
                     <div className="min-w-0 flex-1">

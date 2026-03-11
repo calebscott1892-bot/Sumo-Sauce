@@ -29,7 +29,7 @@ export default function StatBar({
           {labelB}: <span className="font-semibold text-zinc-100">{valueB}</span>
         </span>
       </div>
-      <div className="flex h-3 overflow-hidden rounded-full bg-zinc-800">
+      <div className="flex h-3 overflow-hidden rounded-full bg-white/[0.06]">
         {total > 0 ? (
           <>
             <div

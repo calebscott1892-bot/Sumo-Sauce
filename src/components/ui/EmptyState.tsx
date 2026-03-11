@@ -18,7 +18,7 @@ type Props = {
  */
 export default function EmptyState({ message, description, onReset, suggestions }: Props) {
   return (
-    <div className="flex flex-col items-center justify-center rounded-xl border border-zinc-800 bg-zinc-900 px-6 py-12 text-center">
+    <div className="flex flex-col items-center justify-center rounded-xl border border-white/[0.06] bg-white/[0.02] px-6 py-12 text-center">
       <SearchX className="mb-3 h-10 w-10 text-zinc-600" />
       <p className="text-sm font-medium text-zinc-300">{message}</p>
       {description && (

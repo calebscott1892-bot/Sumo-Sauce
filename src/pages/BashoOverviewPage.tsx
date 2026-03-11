@@ -14,9 +14,9 @@ import { isValidBashoId } from '@/utils/security';
 import { trackBashoPageView } from '@/utils/analytics';
 import PageMeta from '@/components/ui/PageMeta';
 import ErrorCard from '@/components/ui/ErrorCard';
-import CopyLinkButton from '@/components/ui/CopyLinkButton';
 import { isFavoriteBasho, toggleFavoriteBasho } from '@/utils/favorites';
 import { trackBashoView } from '@/utils/recentlyViewed';
+import { PremiumPageHeader, PremiumSectionShell, PremiumBadge } from '@/components/ui/premium';
 import type { Division, DivisionStandingRow } from '../../shared/api/v1';
 
 const BashoPerformanceChart = lazy(() => import('@/components/basho/BashoPerformanceChart'));
@@ -90,7 +90,7 @@ export default function BashoOverviewPage() {
   if (!isValid) {
     return (
       <div className="mx-auto max-w-6xl p-6 text-zinc-200">
-        <div className="rounded-xl border border-zinc-800 bg-zinc-900 p-4">
+        <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-4">
           <div className="text-zinc-400">
             Invalid basho ID. Expected format: <span className="font-mono text-zinc-300">YYYYMM</span> (e.g. 202401).
           </div>
@@ -110,48 +110,32 @@ export default function BashoOverviewPage() {
 
   return (
     <div data-testid="basho-overview-page" className="mx-auto max-w-6xl space-y-6 p-6 text-zinc-200">
-      {/* Breadcrumbs */}
-      <nav data-testid="breadcrumbs" className="mb-2 flex items-center justify-between">
-        <div className="flex items-center gap-1 text-sm text-zinc-400">
-          <Link className="text-red-400 hover:text-red-300" to="/">Home</Link>
-          <span>/</span>
-          <Link className="text-red-400 hover:text-red-300" to="/basho">Basho</Link>
-          <span>/</span>
-          <span className="text-zinc-200">{bashoId}</span>
-        </div>
-        <div className="flex items-center gap-2">
-          <CopyLinkButton />
-          <button
-            type="button"
-            onClick={() => { toggleFavoriteBasho(bashoId); setIsFav(!isFav); }}
-            className="rounded-lg border border-zinc-700 bg-zinc-800 p-1.5 transition-colors hover:border-red-600"
-            aria-label={isFav ? 'Remove from favorites' : 'Add to favorites'}
-          >
-            <Heart className={`h-4 w-4 transition-colors ${isFav ? 'fill-red-500 text-red-500' : 'text-zinc-400'}`} />
-          </button>
-        </div>
-      </nav>
-
-      <PageMeta
-        title={`SumoWatch \u2014 ${bashoDisplayName(bashoId)}`}
-        description={`${tournamentName} ${parsed?.year} basho overview \u2014 champions, division standings, performance charts, and promotion watchlist.`}
-      />
-
-      {/* Hero */}
-      <section className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-6">
-        <span className="text-xs font-bold uppercase tracking-[0.25em] text-red-500">BASHO OVERVIEW</span>
-        <div className="flex flex-wrap items-baseline gap-3">
-          <h1 className="font-display text-4xl font-bold uppercase tracking-tight text-white sm:text-5xl">
-            {tournamentName} {parsed?.year}
-          </h1>
-          <span className="text-sm text-zinc-500">{label}</span>
-        </div>
+      <PremiumPageHeader
+        accentLabel="BASHO OVERVIEW"
+        title={`${tournamentName} ${parsed?.year ?? ''}`}
+        badge={label}
+        breadcrumbs={[
+          { label: 'Home', to: '/' },
+          { label: 'Basho', to: '/basho' },
+          { label: bashoId },
+        ]}
+        favorite={{
+          active: isFav,
+          onToggle: () => { toggleFavoriteBasho(bashoId); setIsFav(!isFav); },
+        }}
+      >
         {allSettled && (
-          <div className="mt-3 flex flex-wrap gap-4 text-sm text-zinc-400">
-            <span>{totalWrestlers} wrestlers across {divisionsWithData} divisions</span>
+          <div className="flex flex-wrap gap-4 text-sm text-zinc-400">
+            <span><span className="font-semibold text-white">{totalWrestlers}</span> wrestlers</span>
+            <span><span className="font-semibold text-white">{divisionsWithData}</span> divisions</span>
           </div>
         )}
-      </section>
+      </PremiumPageHeader>
+
+      <PageMeta
+        title={`Sumo Sauce \u2014 ${bashoDisplayName(bashoId)}`}
+        description={`${tournamentName} ${parsed?.year} basho overview \u2014 champions, division standings, performance charts, and promotion watchlist.`}
+      />
 
       {/* Navigation */}
       <BashoNav bashoId={bashoId} division="makuuchi" />
@@ -167,41 +151,41 @@ export default function BashoOverviewPage() {
       )}
 
       {/* Division Grid with champion detection */}
-      <section>
-        <h2 className="mb-3 text-xl font-bold text-white">Divisions</h2>
+      <PremiumSectionShell title="Divisions" subtitle="All six divisions at a glance">
         {isLoading && divisionData.every((d) => !d.loaded) ? (
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {Array.from({ length: 6 }).map((_, i) => (
-              <div key={i} className="h-28 animate-pulse rounded-xl border border-zinc-800 bg-zinc-900" />
+              <div key={i} className="h-28 animate-pulse rounded-xl border border-white/[0.06] bg-white/[0.02]" />
             ))}
           </div>
         ) : (
           <DivisionGrid bashoId={bashoId} divisions={divisionData} />
         )}
-      </section>
+      </PremiumSectionShell>
 
       {/* Makuuchi leaderboard preview */}
       {divisionData[0]?.rows.length > 0 && (
-        <section className="rounded-xl border border-zinc-800 bg-zinc-900 p-5">
-          <div className="flex items-center justify-between">
-            <h2 className="text-xl font-bold text-white">Makuuchi Top 10</h2>
+        <PremiumSectionShell
+          title="Makuuchi Top 10"
+          trailing={
             <Link
               to={`/basho/${encodeURIComponent(bashoId)}/makuuchi`}
-              className="text-sm text-red-400 hover:text-red-300"
+              className="text-sm font-medium text-red-400 transition-colors hover:text-red-300"
             >
               View full standings →
             </Link>
-          </div>
-          <div className="mt-3 overflow-x-auto">
+          }
+        >
+          <div className="overflow-x-auto rounded-lg border border-white/[0.04]">
             <table className="min-w-full text-sm" aria-label="Makuuchi top 10 standings">
               <thead>
-                <tr className="border-b border-zinc-800 text-left text-zinc-400">
-                  <th className="px-2 py-2" scope="col">#</th>
-                  <th className="px-2 py-2" scope="col">Rank</th>
-                  <th className="px-2 py-2" scope="col">Shikona</th>
-                  <th className="px-2 py-2" scope="col">W</th>
-                  <th className="px-2 py-2" scope="col">L</th>
-                  <th className="px-2 py-2" scope="col">Win %</th>
+                <tr className="border-b border-white/[0.06] bg-white/[0.03]">
+                  <th className="whitespace-nowrap px-3 py-2.5 text-left text-xs font-semibold uppercase tracking-wider text-zinc-400" scope="col">#</th>
+                  <th className="whitespace-nowrap px-3 py-2.5 text-left text-xs font-semibold uppercase tracking-wider text-zinc-400" scope="col">Rank</th>
+                  <th className="whitespace-nowrap px-3 py-2.5 text-left text-xs font-semibold uppercase tracking-wider text-zinc-400" scope="col">Shikona</th>
+                  <th className="whitespace-nowrap px-3 py-2.5 text-left text-xs font-semibold uppercase tracking-wider text-zinc-400" scope="col">W</th>
+                  <th className="whitespace-nowrap px-3 py-2.5 text-left text-xs font-semibold uppercase tracking-wider text-zinc-400" scope="col">L</th>
+                  <th className="whitespace-nowrap px-3 py-2.5 text-left text-xs font-semibold uppercase tracking-wider text-zinc-400" scope="col">Win %</th>
                 </tr>
               </thead>
               <tbody>
@@ -216,33 +200,39 @@ export default function BashoOverviewPage() {
                     return (
                       <tr
                         key={row.rikishiId}
-                        className={`border-b border-zinc-800/70 transition-colors duration-150 ${isChampion ? 'bg-amber-950/20 text-amber-200' : 'text-zinc-200 hover:bg-zinc-800/40'}`}
+                        className={`border-b border-white/[0.04] transition-colors duration-150 ${
+                          isChampion
+                            ? 'bg-amber-950/20 text-amber-200'
+                            : idx % 2 === 0
+                              ? 'text-zinc-200 hover:bg-white/[0.04]'
+                              : 'bg-white/[0.01] text-zinc-200 hover:bg-white/[0.04]'
+                        }`}
                       >
-                        <td className="px-2 py-2">{idx + 1}</td>
-                        <td className="px-2 py-2">{row.rank}</td>
-                        <td className="whitespace-nowrap px-2 py-2">
+                        <td className="whitespace-nowrap px-3 py-2.5">{idx + 1}</td>
+                        <td className="whitespace-nowrap px-3 py-2.5">{row.rank}</td>
+                        <td className="whitespace-nowrap px-3 py-2.5">
                           <Link
-                            className={`hover:text-red-200 ${isChampion ? 'text-amber-300 font-semibold' : 'text-red-300'}`}
+                            className={`transition-colors hover:text-red-200 ${isChampion ? 'font-semibold text-amber-300' : 'text-red-400'}`}
                             to={`/rikishi/${encodeURIComponent(row.rikishiId)}`}
                           >
                             {row.shikona} {isChampion ? '🏆' : ''}
                           </Link>
                         </td>
-                        <td className="px-2 py-2">{row.wins}</td>
-                        <td className="px-2 py-2">{row.losses}</td>
-                        <td className="px-2 py-2">{pct}%</td>
+                        <td className="whitespace-nowrap px-3 py-2.5 font-medium">{row.wins}</td>
+                        <td className="whitespace-nowrap px-3 py-2.5">{row.losses}</td>
+                        <td className="whitespace-nowrap px-3 py-2.5">{pct}%</td>
                       </tr>
                     );
                   })}
               </tbody>
             </table>
           </div>
-        </section>
+        </PremiumSectionShell>
       )}
 
       {/* Basho performance chart */}
       {divisionData[0]?.rows.length > 0 && (
-        <Suspense fallback={<div className="h-64 animate-pulse rounded-xl border border-zinc-800 bg-zinc-900" />}>
+        <Suspense fallback={<div className="h-64 animate-pulse rounded-xl border border-white/[0.06] bg-white/[0.02]" />}>
           <BashoPerformanceChart rows={divisionData[0].rows} limit={20} />
         </Suspense>
       )}
@@ -259,17 +249,17 @@ export default function BashoOverviewPage() {
 
       {/* Data integrity indicator */}
       {allSettled && (
-        <section className="rounded-xl border border-zinc-800 bg-zinc-900 p-4">
+        <section className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-4">
           <div className="flex items-center gap-2 text-sm">
             {divisionsWithData === 6 ? (
               <>
-                <span className="text-emerald-400">✔</span>
-                <span className="text-zinc-300">Complete data — all 6 divisions loaded</span>
+                <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-emerald-950/40 text-xs text-emerald-400">✔</span>
+                <span className="text-zinc-400">Complete data — all 6 divisions loaded</span>
               </>
             ) : (
               <>
-                <span className="text-amber-400">⚠</span>
-                <span className="text-zinc-300">
+                <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-amber-950/40 text-xs text-amber-400">⚠</span>
+                <span className="text-zinc-400">
                   Partial data — {divisionsWithData}/6 divisions have standings
                 </span>
               </>
