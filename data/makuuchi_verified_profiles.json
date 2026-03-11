@@ -7415,5 +7415,305 @@
       }
     ],
     "notes": "Haru 2026 Jonokuchi W21. Ring name changed from Chiyoryusei."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Fujinoteru",
+    "heya": "Onoe",
+    "birthDate": "1998-08-24",
+    "nationality": "Japan",
+    "heightCm": 166.0,
+    "weightKg": 91.0,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA leaders page",
+        "url": "https://www.sumo.or.jp/"
+      }
+    ],
+    "notes": "Haru 2026 Jonidan 81–160 batch. Core profile verified from JSA profile; rikishiId not recovered from provided sources."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Azumanami",
+    "heya": "Tamanoi",
+    "birthDate": "1984-11-29",
+    "nationality": "Japan",
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA leaders page",
+        "url": "https://www.sumo.or.jp/"
+      }
+    ],
+    "notes": "Haru 2026 Jonidan 81–160 batch. Birth date confirmed; height and weight unavailable in provided official sources."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Anzakura",
+    "heya": "Ajigawa",
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA leaders page",
+        "url": "https://www.sumo.or.jp/"
+      }
+    ],
+    "notes": "Haru 2026 Jonidan 81–160 batch. Rank/stable confirmed; no profile data recovered."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Onbashira",
+    "heya": "Nishonoseki",
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA leaders page",
+        "url": "https://www.sumo.or.jp/"
+      }
+    ],
+    "notes": "Haru 2026 Jonidan 81–160 batch. Rank/stable confirmed; no profile data recovered."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Sonoshun",
+    "heya": "Arashio",
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA leaders page",
+        "url": "https://www.sumo.or.jp/"
+      }
+    ],
+    "notes": "Haru 2026 Jonidan 81–160 batch. Rank/stable confirmed; no profile data recovered."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Toryuyama",
+    "heya": "Kasugayama",
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": 180.0,
+    "weightKg": 116.0,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [],
+    "notes": "Haru 2026 Jonidan 81–160 batch. Height/weight from secondary sumo database; no official profile recovered."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Datenomori",
+    "heya": "Isenoumi",
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA leaders page",
+        "url": "https://www.sumo.or.jp/"
+      }
+    ],
+    "notes": "Haru 2026 Jonidan 81–160 batch. Rank/stable confirmed; no profile data recovered."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Tsurunoumi",
+    "heya": "Shikoroyama",
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA leaders page",
+        "url": "https://www.sumo.or.jp/"
+      }
+    ],
+    "notes": "Haru 2026 Jonidan 81–160 batch. Rank/stable confirmed; no profile data recovered."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Fubu",
+    "heya": "Musashigawa",
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA leaders page",
+        "url": "https://www.sumo.or.jp/"
+      }
+    ],
+    "notes": "Haru 2026 Jonidan 81–160 batch. Rank/stable confirmed; no profile data recovered."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Kosei",
+    "heya": "Hidenoyama",
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA leaders page",
+        "url": "https://www.sumo.or.jp/"
+      }
+    ],
+    "notes": "Haru 2026 Jonidan 81–160 batch. Rank/stable confirmed; no profile data recovered."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Kaigyokusei",
+    "heya": "Asakayama",
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA leaders page",
+        "url": "https://www.sumo.or.jp/"
+      }
+    ],
+    "notes": "Haru 2026 Jonidan 81–160 batch. Rank/stable confirmed; no profile data recovered."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Urutora",
+    "heya": "Shikihide",
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA leaders page",
+        "url": "https://www.sumo.or.jp/"
+      }
+    ],
+    "notes": "Haru 2026 Jonidan 81–160 batch. Rank/stable confirmed; no profile data recovered."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Kiryuko",
+    "heya": "Tatsunami",
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA leaders page",
+        "url": "https://www.sumo.or.jp/"
+      }
+    ],
+    "notes": "Haru 2026 Jonidan 81–160 batch. Rank/stable confirmed; no profile data recovered."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Shimizu",
+    "heya": "Musashigawa",
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": 179.0,
+    "weightKg": 128.0,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "unverified",
+    "sourceRefs": [],
+    "notes": "Haru 2026 Jonidan 81–160 batch. Secondary-source entry only; height/weight from sumo-stat database."
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Takamiya",
+    "heya": "Taiho",
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": 178.0,
+    "weightKg": 164.0,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "unverified",
+    "sourceRefs": [],
+    "notes": "Haru 2026 Jonidan 81–160 batch. Secondary-source entry only; height/weight from sumo-stat database."
   }
 ]

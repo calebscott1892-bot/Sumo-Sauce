@@ -88,6 +88,7 @@ support additional divisions or historical batches — just add rows.
 - Sandanme 51–80 (selected), Haru 2026 (7 wrestlers — 3 skipped as duplicates from Sandanme 1–50)
 - Jonidan 1–80, Haru 2026 (42 wrestlers — 2 verified, 36 likely, 4 unverified/flagged for manual review)
 - Jonokuchi (full division), Haru 2026 (42 wrestlers — all JSA-verified with full bio)
+- Jonidan 81–160 (selected), Haru 2026 (15 wrestlers — 1 duplicate skipped; many fields remain unverified)
 
 ## Matching strategy
 
