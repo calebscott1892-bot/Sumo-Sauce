@@ -1,0 +1,1303 @@
+{
+  "_meta": {
+    "batchId": "D",
+    "resolvedDate": "2026-03-12T00:00:00.000Z",
+    "sourceFile": "data/research_exports/batch-d-lower-block.json",
+    "description": "Resolved Batch D — 44 lower-block profiles (Sandanme indices 413–457). All 44 confirmed as Sandanme via JSA profile lookup.",
+    "researchNotes": [
+      "All 44 profiles confirmed as Sandanme via individual JSA profile lookups on 2026-03-12.",
+      "Zero CONFLICT_FIELD mismatches (heya, birthDate, status all match canonical dataset).",
+      "Despite batch description warning division could span Sandanme/Jonidan/Jonokuchi, all 44 resolved to Sandanme.",
+      "Notable ex-sekitori: Amakaze (3002, ex-Maegashira #13, Juryo yusho), Asazenshin (3875, ex-Juryo #4, 3 division yusho).",
+      "Kikunoshiro (4228) born Feb 2008 — youngest in entire dataset.",
+      "Buomaru (3663) at 200.8kg — heaviest in batch; Takabayama (3714) at 96.3kg — lightest.",
+      "Takashoki (4083) at 193cm — tallest in batch; Tosashimizu (3645) at 191.5kg — second heaviest.",
+      "No nationality data added — JSA profiles give birthplace only, not citizenship."
+    ],
+    "counts": {
+      "total": 44,
+      "confirmed": 44,
+      "sandanme": 44,
+      "conflicts": 0
+    },
+    "mergeCommand": "node scripts/merge-research.mjs --file data/research_exports/resolved-d-lower-block.json"
+  },
+  "profiles": [
+    {
+      "rikishiId": "3953",
+      "shikona": "Tokazan",
+      "heya": "Tamanoi",
+      "birthDate": "2004-01-15",
+      "nationality": null,
+      "heightCm": 183.5,
+      "weightKg": 134.1,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "verified",
+      "division": "Sandanme",
+      "batchRef": "d-lower-block",
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "confirmed",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3953/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "Nationality left null (JSA gives birthplace only). | Batch D confirmed: Sandanme #58, Tamanoi stable. Highest rank Sandanme #27."
+    },
+    {
+      "rikishiId": "3727",
+      "shikona": "Kaiyuma",
+      "heya": "Asakayama",
+      "birthDate": "2000-04-26",
+      "nationality": null,
+      "heightCm": 172.5,
+      "weightKg": 184.9,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "verified",
+      "division": "Sandanme",
+      "batchRef": "d-lower-block",
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "confirmed",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3727/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "Nationality left null (JSA gives birthplace only). | Batch D confirmed: Sandanme #59, Asakayama stable. 184.9kg — one of heaviest in batch."
+    },
+    {
+      "rikishiId": "4183",
+      "shikona": "Gonowaka",
+      "heya": "Takekuma",
+      "birthDate": "2004-11-15",
+      "nationality": null,
+      "heightCm": 177.1,
+      "weightKg": 128.0,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "verified",
+      "division": "Sandanme",
+      "batchRef": "d-lower-block",
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "confirmed",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4183/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "Nationality left null (JSA gives birthplace only). | Batch D confirmed: Sandanme #59, Takekuma stable. Jonidan yusho Jul 2025."
+    },
+    {
+      "rikishiId": "3564",
+      "shikona": "Ryuma",
+      "heya": "Hanaregoma",
+      "birthDate": "1998-07-24",
+      "nationality": null,
+      "heightCm": 183,
+      "weightKg": 150.1,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "verified",
+      "division": "Sandanme",
+      "batchRef": "d-lower-block",
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "confirmed",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3564/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "Nationality left null (JSA gives birthplace only). | Batch D confirmed: Sandanme #60, Hanaregoma stable. Career 212-201-79."
+    },
+    {
+      "rikishiId": "2983",
+      "shikona": "Kayatoiwa",
+      "heya": "Minato",
+      "birthDate": "1991-07-13",
+      "nationality": null,
+      "heightCm": 177,
+      "weightKg": 114.1,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "verified",
+      "division": "Sandanme",
+      "batchRef": "d-lower-block",
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "confirmed",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/2983/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "Nationality left null (JSA gives birthplace only). | Batch D confirmed: Sandanme #60, Minato stable. Veteran born 1991."
+    },
+    {
+      "rikishiId": "3542",
+      "shikona": "Toukiryu",
+      "heya": "Tamanoi",
+      "birthDate": "1998-06-25",
+      "nationality": null,
+      "heightCm": 174,
+      "weightKg": 119.1,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "verified",
+      "division": "Sandanme",
+      "batchRef": "d-lower-block",
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "confirmed",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3542/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "JSA transliteration 'Toukiryu' vs SumoDB 'Tokiryu' — following JSA. | Batch D confirmed: Sandanme #61, Tamanoi stable. Highest rank Makushita #54."
+    },
+    {
+      "rikishiId": "3002",
+      "shikona": "Amakaze",
+      "heya": "Oshiogawa",
+      "birthDate": "1991-07-07",
+      "nationality": null,
+      "heightCm": 185,
+      "weightKg": 165,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "verified",
+      "division": "Sandanme",
+      "batchRef": "d-lower-block",
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "confirmed",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3002/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "Nationality left null (JSA gives birthplace only). | Batch D confirmed: Sandanme #62, Oshiogawa stable. Ex-Maegashira #13, Juryo yusho winner."
+    },
+    {
+      "rikishiId": "4233",
+      "shikona": "Daigoyama",
+      "heya": "Isenoumi",
+      "birthDate": "2006-08-17",
+      "nationality": null,
+      "heightCm": 181,
+      "weightKg": 131.8,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "verified",
+      "division": "Sandanme",
+      "batchRef": "d-lower-block",
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "confirmed",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4233/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "Nationality left null (JSA gives birthplace only). | Batch D confirmed: Sandanme #62, Isenoumi stable."
+    },
+    {
+      "rikishiId": "2522",
+      "shikona": "Katsunofuji",
+      "heya": "Sakaigawa",
+      "birthDate": "1984-05-04",
+      "nationality": null,
+      "heightCm": 181,
+      "weightKg": 142.5,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "verified",
+      "division": "Sandanme",
+      "batchRef": "d-lower-block",
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "confirmed",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/2522/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "Nationality left null (JSA gives birthplace only). | Batch D confirmed: Sandanme #63, Sakaigawa stable. Born 1984 — oldest in batch."
+    },
+    {
+      "rikishiId": "4290",
+      "shikona": "Hikarumusashi",
+      "heya": "Musashigawa",
+      "birthDate": "2005-11-07",
+      "nationality": null,
+      "heightCm": 182.1,
+      "weightKg": 131,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "verified",
+      "division": "Sandanme",
+      "batchRef": "d-lower-block",
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "confirmed",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4290/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "Birthplace America per JSA. Nationality left null (JSA gives birthplace only). | Batch D confirmed: Sandanme #63, Musashigawa stable."
+    },
+    {
+      "rikishiId": "3859",
+      "shikona": "Kotakiyama",
+      "heya": "Futagoyama",
+      "birthDate": "2003-01-09",
+      "nationality": null,
+      "heightCm": 184,
+      "weightKg": 140.2,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "verified",
+      "division": "Sandanme",
+      "batchRef": "d-lower-block",
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "confirmed",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3859/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "Nationality left null (JSA gives birthplace only). | Batch D confirmed: Sandanme #64, Futagoyama stable. Highest rank Makushita #37."
+    },
+    {
+      "rikishiId": "4322",
+      "shikona": "Tsurunosato",
+      "heya": "Nishiiwa",
+      "birthDate": "2007-01-25",
+      "nationality": null,
+      "heightCm": 174,
+      "weightKg": 108.5,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "verified",
+      "division": "Sandanme",
+      "batchRef": "d-lower-block",
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "confirmed",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4322/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "Nationality left null (JSA gives birthplace only). | Batch D confirmed: Sandanme #64, Nishiiwa stable. Debut Mar 2025."
+    },
+    {
+      "rikishiId": "2637",
+      "shikona": "Asanojo",
+      "heya": "Takasago",
+      "birthDate": "1986-09-03",
+      "nationality": null,
+      "heightCm": 174,
+      "weightKg": 117,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "verified",
+      "division": "Sandanme",
+      "batchRef": "d-lower-block",
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "confirmed",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/2637/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "Nationality left null (JSA gives birthplace only). | Batch D confirmed: Sandanme #65, Takasago stable. Veteran born 1986."
+    },
+    {
+      "rikishiId": "4300",
+      "shikona": "Sunasaka",
+      "heya": "Takasago",
+      "birthDate": "2006-10-13",
+      "nationality": null,
+      "heightCm": 175.1,
+      "weightKg": 140.4,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "verified",
+      "division": "Sandanme",
+      "batchRef": "d-lower-block",
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "confirmed",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4300/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "Nationality left null (JSA gives birthplace only). | Batch D confirmed: Sandanme #65, Takasago stable. Debut Jan 2025."
+    },
+    {
+      "rikishiId": "3685",
+      "shikona": "Asashinjo",
+      "heya": "Takasago",
+      "birthDate": "1998-02-12",
+      "nationality": null,
+      "heightCm": 170,
+      "weightKg": 131.6,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "verified",
+      "division": "Sandanme",
+      "batchRef": "d-lower-block",
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "confirmed",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3685/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "Nationality left null (JSA gives birthplace only). | Batch D confirmed: Sandanme #66, Takasago stable. Highest rank Makushita #39."
+    },
+    {
+      "rikishiId": "3780",
+      "shikona": "Suio",
+      "heya": "Dewanoumi",
+      "birthDate": "2001-07-03",
+      "nationality": null,
+      "heightCm": 180.3,
+      "weightKg": 115.8,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "verified",
+      "division": "Sandanme",
+      "batchRef": "d-lower-block",
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "confirmed",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3780/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "Nationality left null (JSA gives birthplace only). | Batch D confirmed: Sandanme #66, Dewanoumi stable. Highest rank Sandanme #15."
+    },
+    {
+      "rikishiId": "4247",
+      "shikona": "Ayanofuji",
+      "heya": "Isegahama",
+      "birthDate": "2005-08-07",
+      "nationality": null,
+      "heightCm": 184.1,
+      "weightKg": 166.6,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "verified",
+      "division": "Sandanme",
+      "batchRef": "d-lower-block",
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "confirmed",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4247/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "Nationality left null (JSA gives birthplace only). | Batch D confirmed: Sandanme #67, Isegahama stable. 166.6kg."
+    },
+    {
+      "rikishiId": "3718",
+      "shikona": "Oshozan",
+      "heya": "Naruto",
+      "birthDate": "2000-05-11",
+      "nationality": null,
+      "heightCm": 168,
+      "weightKg": 134.1,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "verified",
+      "division": "Sandanme",
+      "batchRef": "d-lower-block",
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "confirmed",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3718/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "Nationality left null (JSA gives birthplace only). | Batch D confirmed: Sandanme #67, Naruto stable. Highest rank Sandanme #18."
+    },
+    {
+      "rikishiId": "3645",
+      "shikona": "Tosashimizu",
+      "heya": "Tokitsukaze",
+      "birthDate": "1997-02-25",
+      "nationality": null,
+      "heightCm": 169.5,
+      "weightKg": 191.5,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "verified",
+      "division": "Sandanme",
+      "batchRef": "d-lower-block",
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "confirmed",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3645/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "Nationality left null (JSA gives birthplace only). | Batch D confirmed: Sandanme #68, Tokitsukaze stable. 191.5kg — second heaviest in batch."
+    },
+    {
+      "rikishiId": "4114",
+      "shikona": "Masakifuji",
+      "heya": "Isegahama",
+      "birthDate": "2003-11-12",
+      "nationality": null,
+      "heightCm": 172,
+      "weightKg": 113.9,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "verified",
+      "division": "Sandanme",
+      "batchRef": "d-lower-block",
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "confirmed",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4114/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "Nationality left null (JSA gives birthplace only). | Batch D confirmed: Sandanme #68, Isegahama stable. Highest rank Sandanme #49."
+    },
+    {
+      "rikishiId": "4083",
+      "shikona": "Takashoki",
+      "heya": "Minatogawa",
+      "birthDate": "2005-12-09",
+      "nationality": null,
+      "heightCm": 193,
+      "weightKg": 155.2,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "verified",
+      "division": "Sandanme",
+      "batchRef": "d-lower-block",
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "confirmed",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4083/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "Nationality left null (JSA gives birthplace only). | Batch D confirmed: Sandanme #69, Minatogawa stable. 193cm — tallest in batch."
+    },
+    {
+      "rikishiId": "3663",
+      "shikona": "Buomaru",
+      "heya": "Musashigawa",
+      "birthDate": "1998-09-20",
+      "nationality": null,
+      "heightCm": 178.7,
+      "weightKg": 200.8,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "verified",
+      "division": "Sandanme",
+      "batchRef": "d-lower-block",
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "confirmed",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3663/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "Nationality left null (JSA gives birthplace only). | Batch D confirmed: Sandanme #69, Musashigawa stable. 200.8kg — heaviest in batch."
+    },
+    {
+      "rikishiId": "3897",
+      "shikona": "Tokinohira",
+      "heya": "Tokitsukaze",
+      "birthDate": "1999-04-08",
+      "nationality": null,
+      "heightCm": 180,
+      "weightKg": 159.4,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "verified",
+      "division": "Sandanme",
+      "batchRef": "d-lower-block",
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "confirmed",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3897/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "Nationality left null (JSA gives birthplace only). | Batch D confirmed: Sandanme #70, Tokitsukaze stable. Highest rank Makushita #32, Jonokuchi yusho."
+    },
+    {
+      "rikishiId": "4082",
+      "shikona": "Zuitenryu",
+      "heya": "Sakaigawa",
+      "birthDate": "2005-12-02",
+      "nationality": null,
+      "heightCm": 178,
+      "weightKg": 133.1,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "verified",
+      "division": "Sandanme",
+      "batchRef": "d-lower-block",
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "confirmed",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4082/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "Nationality left null (JSA gives birthplace only). | Batch D confirmed: Sandanme #70, Sakaigawa stable. 0-0-3 absent Mar 2026."
+    },
+    {
+      "rikishiId": "4052",
+      "shikona": "Minorufuji",
+      "heya": "Isegahama",
+      "birthDate": "2002-05-08",
+      "nationality": null,
+      "heightCm": 174,
+      "weightKg": 119.8,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "verified",
+      "division": "Sandanme",
+      "batchRef": "d-lower-block",
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "confirmed",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4052/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "Nationality left null (JSA gives birthplace only). | Batch D confirmed: Sandanme #71, Isegahama stable. Highest rank Sandanme #40."
+    },
+    {
+      "rikishiId": "3019",
+      "shikona": "Ebisumaru",
+      "heya": "Takadagawa",
+      "birthDate": "1991-05-31",
+      "nationality": null,
+      "heightCm": 181,
+      "weightKg": 140.1,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "verified",
+      "division": "Sandanme",
+      "batchRef": "d-lower-block",
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "confirmed",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3019/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "Nationality left null (JSA gives birthplace only). | Batch D confirmed: Sandanme #71, Takadagawa stable. Veteran born 1991."
+    },
+    {
+      "rikishiId": "3717",
+      "shikona": "Tsugunohana",
+      "heya": "Onomatsu",
+      "birthDate": "1997-10-20",
+      "nationality": null,
+      "heightCm": 186,
+      "weightKg": 138,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "verified",
+      "division": "Sandanme",
+      "batchRef": "d-lower-block",
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "confirmed",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3717/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "Nationality left null (JSA gives birthplace only). | Batch D confirmed: Sandanme #72, Onomatsu stable. Highest rank Sandanme #72 — career-high this basho."
+    },
+    {
+      "rikishiId": "3930",
+      "shikona": "Inaba",
+      "heya": "Onomatsu",
+      "birthDate": "2000-05-18",
+      "nationality": null,
+      "heightCm": 173,
+      "weightKg": 138,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "verified",
+      "division": "Sandanme",
+      "batchRef": "d-lower-block",
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "confirmed",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3930/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "Nationality left null (JSA gives birthplace only). | Batch D confirmed: Sandanme #72, Onomatsu stable. Highest rank Sandanme #42."
+    },
+    {
+      "rikishiId": "3789",
+      "shikona": "Chiyotaiko",
+      "heya": "Kokonoe",
+      "birthDate": "2001-12-26",
+      "nationality": null,
+      "heightCm": 179,
+      "weightKg": 122.2,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "verified",
+      "division": "Sandanme",
+      "batchRef": "d-lower-block",
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "confirmed",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3789/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "Nationality left null (JSA gives birthplace only). | Batch D confirmed: Sandanme #73, Kokonoe stable. Highest rank Sandanme #69."
+    },
+    {
+      "rikishiId": "2647",
+      "shikona": "Hitachigo",
+      "heya": "Fujishima",
+      "birthDate": "1985-06-17",
+      "nationality": null,
+      "heightCm": 182,
+      "weightKg": 148.9,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "verified",
+      "division": "Sandanme",
+      "batchRef": "d-lower-block",
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "confirmed",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/2647/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "Nationality left null (JSA gives birthplace only). | Batch D confirmed: Sandanme #73, Fujishima stable. Born 1985 — second oldest in batch."
+    },
+    {
+      "rikishiId": "3525",
+      "shikona": "Tochimitsuru",
+      "heya": "Kasugano",
+      "birthDate": "1995-06-08",
+      "nationality": null,
+      "heightCm": 171.5,
+      "weightKg": 118.9,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "verified",
+      "division": "Sandanme",
+      "batchRef": "d-lower-block",
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "confirmed",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3525/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "Nationality left null (JSA gives birthplace only). | Batch D confirmed: Sandanme #74, Kasugano stable. Highest rank Makushita #60."
+    },
+    {
+      "rikishiId": "3837",
+      "shikona": "Tenei",
+      "heya": "Takadagawa",
+      "birthDate": "1999-10-11",
+      "nationality": null,
+      "heightCm": 177,
+      "weightKg": 151.5,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "verified",
+      "division": "Sandanme",
+      "batchRef": "d-lower-block",
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "confirmed",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3837/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "Nationality left null (JSA gives birthplace only). | Batch D confirmed: Sandanme #74, Takadagawa stable. Highest rank Sandanme #6."
+    },
+    {
+      "rikishiId": "3875",
+      "shikona": "Asazenshin",
+      "heya": "Takasago",
+      "birthDate": "1995-06-22",
+      "nationality": null,
+      "heightCm": 183,
+      "weightKg": 119.2,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "verified",
+      "division": "Sandanme",
+      "batchRef": "d-lower-block",
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "confirmed",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3875/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "Nationality left null (JSA gives birthplace only). | Batch D confirmed: Sandanme #75, Takasago stable. Ex-Juryo #4, 3 division yusho."
+    },
+    {
+      "rikishiId": "4238",
+      "shikona": "Kyokutairyu",
+      "heya": "Oshima",
+      "birthDate": "2006-01-22",
+      "nationality": null,
+      "heightCm": 176,
+      "weightKg": 139.4,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "verified",
+      "division": "Sandanme",
+      "batchRef": "d-lower-block",
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "confirmed",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4238/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "Nationality left null (JSA gives birthplace only). | Batch D confirmed: Sandanme #75, Oshima stable. Highest rank Sandanme #52."
+    },
+    {
+      "rikishiId": "3854",
+      "shikona": "Kinotsukasa",
+      "heya": "Ikazuchi",
+      "birthDate": "2000-01-19",
+      "nationality": null,
+      "heightCm": 173,
+      "weightKg": 125,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "verified",
+      "division": "Sandanme",
+      "batchRef": "d-lower-block",
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "confirmed",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3854/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "Nationality left null (JSA gives birthplace only). | Batch D confirmed: Sandanme #76, Ikazuchi stable. Highest rank Makushita #48."
+    },
+    {
+      "rikishiId": "3769",
+      "shikona": "Amane",
+      "heya": "Shikoroyama",
+      "birthDate": "1998-11-21",
+      "nationality": null,
+      "heightCm": 182,
+      "weightKg": 163,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "verified",
+      "division": "Sandanme",
+      "batchRef": "d-lower-block",
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "confirmed",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3769/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "Nationality left null (JSA gives birthplace only). | Batch D confirmed: Sandanme #76, Shikoroyama stable. Highest rank Makushita #58."
+    },
+    {
+      "rikishiId": "4254",
+      "shikona": "Hakuryu",
+      "heya": "Otowayama",
+      "birthDate": "2005-11-06",
+      "nationality": null,
+      "heightCm": 182,
+      "weightKg": 148.3,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "verified",
+      "division": "Sandanme",
+      "batchRef": "d-lower-block",
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "confirmed",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4254/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "Nationality left null (JSA gives birthplace only). | Batch D confirmed: Sandanme #77, Otowayama stable. Highest rank Sandanme #59."
+    },
+    {
+      "rikishiId": "3776",
+      "shikona": "Kototaiga",
+      "heya": "Sadogatake",
+      "birthDate": "2001-04-21",
+      "nationality": null,
+      "heightCm": 182.3,
+      "weightKg": 125.9,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "verified",
+      "division": "Sandanme",
+      "batchRef": "d-lower-block",
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "confirmed",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3776/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "Nationality left null (JSA gives birthplace only). | Batch D confirmed: Sandanme #77, Sadogatake stable. Tsukidashi specialist."
+    },
+    {
+      "rikishiId": "4140",
+      "shikona": "Shoran",
+      "heya": "Hanaregoma",
+      "birthDate": "2003-12-06",
+      "nationality": null,
+      "heightCm": 176,
+      "weightKg": 108.5,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "verified",
+      "division": "Sandanme",
+      "batchRef": "d-lower-block",
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "confirmed",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4140/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "Nationality left null (JSA gives birthplace only). | Batch D confirmed: Sandanme #78, Hanaregoma stable. Highest rank Sandanme #46."
+    },
+    {
+      "rikishiId": "3714",
+      "shikona": "Takabayama",
+      "heya": "Onoe",
+      "birthDate": "2000-10-02",
+      "nationality": null,
+      "heightCm": 174,
+      "weightKg": 96.3,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "verified",
+      "division": "Sandanme",
+      "batchRef": "d-lower-block",
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "confirmed",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3714/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "Nationality left null (JSA gives birthplace only). | Batch D confirmed: Sandanme #78, Onoe stable. 96.3kg — lightest in batch."
+    },
+    {
+      "rikishiId": "4159",
+      "shikona": "Najima",
+      "heya": "Minato",
+      "birthDate": "2006-04-18",
+      "nationality": null,
+      "heightCm": 180,
+      "weightKg": 104,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "verified",
+      "division": "Sandanme",
+      "batchRef": "d-lower-block",
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "confirmed",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4159/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "Nationality left null (JSA gives birthplace only). | Batch D confirmed: Sandanme #79, Minato stable. Highest rank Sandanme #71."
+    },
+    {
+      "rikishiId": "3551",
+      "shikona": "Takakurayama",
+      "heya": "Onoe",
+      "birthDate": "1998-08-11",
+      "nationality": null,
+      "heightCm": 181.3,
+      "weightKg": 129.7,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "verified",
+      "division": "Sandanme",
+      "batchRef": "d-lower-block",
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "confirmed",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3551/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "Nationality left null (JSA gives birthplace only). | Batch D confirmed: Sandanme #79, Onoe stable. Career 232-243-17."
+    },
+    {
+      "rikishiId": "4228",
+      "shikona": "Kikunoshiro",
+      "heya": "Hidenoyama",
+      "birthDate": "2008-02-04",
+      "nationality": null,
+      "heightCm": 183,
+      "weightKg": 154.7,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "verified",
+      "division": "Sandanme",
+      "batchRef": "d-lower-block",
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "confirmed",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4228/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "Nationality left null (JSA gives birthplace only). | Batch D confirmed: Sandanme #80, Hidenoyama stable. Born Feb 2008 — youngest in entire dataset."
+    },
+    {
+      "rikishiId": "3847",
+      "shikona": "Sakabayashi",
+      "heya": "Onoe",
+      "birthDate": "1999-11-28",
+      "nationality": null,
+      "heightCm": 176.5,
+      "weightKg": 124.4,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "verified",
+      "division": "Sandanme",
+      "batchRef": "d-lower-block",
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "confirmed",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3847/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "Nationality left null (JSA gives birthplace only). | Batch D confirmed: Sandanme #80, Onoe stable. Highest rank Sandanme #37."
+    }
+  ]
+}

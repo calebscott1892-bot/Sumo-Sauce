@@ -1,0 +1,883 @@
+{
+  "_meta": {
+    "batchId": "A",
+    "exportDate": "2026-03-11T18:34:45.385Z",
+    "sourceFile": "data/makuuchi_verified_profiles.json",
+    "description": "Verified-identity profiles — need division lookup only",
+    "researchNotes": [
+      "All 21 profiles have profileConfidence=\"verified\" with valid JSA rikishiId.",
+      "All biographical fields (heya, birthDate, nationality, height, weight) are populated.",
+      "The ONLY missing field is division.",
+      "These are the highest-value, lowest-risk research targets.",
+      "19 are from the early-import block (indices 223–250), 2 outliers at 354 and 375.",
+      "Expect a mix of Makushita, Sandanme, Jonidan, and possibly Juryo."
+    ],
+    "priority": 2,
+    "counts": {
+      "total": 21,
+      "unresolved": 21,
+      "quarantined": 0
+    },
+    "mergeCommand": "node scripts/merge-research.mjs --file data/research_exports/batch-a-verified-identity.json",
+    "instructions": [
+      "For each profile, research the correct current division and any missing fields.",
+      "Set provenanceStatus to \"confirmed\" when you have verified the data.",
+      "Add or append to sourceRefs with the source you used.",
+      "Append research notes to the notes field (pipe-delimited: \" | <your note>\").",
+      "Do NOT change rikishiId — it is the primary match key.",
+      "Do NOT downgrade profileConfidence or imageConfidence.",
+      "The _researchContext field is for reference only — ignored during merge.",
+      "Return the full profiles array in the same schema."
+    ]
+  },
+  "profiles": [
+    {
+      "_researchContext": {
+        "canonicalIndex": 223,
+        "neighborBefore": {
+          "shikona": "Hokudaichi",
+          "division": "Makushita",
+          "batchRef": "makushita-1-20",
+          "provenanceStatus": "confirmed"
+        },
+        "neighborAfter": {
+          "shikona": "Mita Taiki",
+          "division": "Juryo",
+          "batchRef": "juryo-roster",
+          "provenanceStatus": "inferred"
+        }
+      },
+      "rikishiId": "3163",
+      "shikona": "Tochinobori Minoru",
+      "heya": "Kasugano",
+      "birthDate": "1993-09-01",
+      "nationality": "Japan",
+      "heightCm": 183,
+      "weightKg": 133.6,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "verified",
+      "division": null,
+      "batchRef": null,
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "unresolved",
+      "sourceRefs": [
+        {
+          "label": "JSA Profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3163/"
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "_researchContext": {
+        "canonicalIndex": 225,
+        "neighborBefore": {
+          "shikona": "Mita Taiki",
+          "division": "Juryo",
+          "batchRef": "juryo-roster",
+          "provenanceStatus": "inferred"
+        },
+        "neighborAfter": {
+          "shikona": "Daishoryu Tomoyoshi",
+          "division": "Makushita",
+          "batchRef": "makushita-41-60",
+          "provenanceStatus": "inferred"
+        }
+      },
+      "rikishiId": "4057",
+      "shikona": "Gououshou Taizou",
+      "heya": "Naruto",
+      "birthDate": "2002-06-06",
+      "nationality": "Japan",
+      "heightCm": 169,
+      "weightKg": 129,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "verified",
+      "division": null,
+      "batchRef": null,
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "unresolved",
+      "sourceRefs": [
+        {
+          "label": "JSA Profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4057/"
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "_researchContext": {
+        "canonicalIndex": 227,
+        "neighborBefore": {
+          "shikona": "Daishoryu Tomoyoshi",
+          "division": "Makushita",
+          "batchRef": "makushita-41-60",
+          "provenanceStatus": "inferred"
+        },
+        "neighborAfter": {
+          "shikona": "Shunrai Shoma",
+          "division": "Sandanme",
+          "batchRef": "sandanme-51-80",
+          "provenanceStatus": "inferred"
+        }
+      },
+      "rikishiId": "3946",
+      "shikona": "Kiyota Junpei",
+      "heya": "Dewanoumi",
+      "birthDate": "2003-08-04",
+      "nationality": "Japan",
+      "heightCm": 179,
+      "weightKg": 122.8,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "verified",
+      "division": null,
+      "batchRef": null,
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "unresolved",
+      "sourceRefs": [
+        {
+          "label": "JSA Profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3946/"
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "_researchContext": {
+        "canonicalIndex": 231,
+        "neighborBefore": {
+          "shikona": "Tsushimanada Masamitsu",
+          "division": null,
+          "batchRef": null,
+          "provenanceStatus": "quarantined"
+        },
+        "neighborAfter": {
+          "shikona": "Yumenofuji Yudai",
+          "division": "Sandanme",
+          "batchRef": "sandanme-1-50",
+          "provenanceStatus": "inferred"
+        }
+      },
+      "rikishiId": "3978",
+      "shikona": "Oshoryu Kenta",
+      "heya": "Naruto",
+      "birthDate": "1996-04-22",
+      "nationality": "Japan",
+      "heightCm": 178.6,
+      "weightKg": 164.1,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "verified",
+      "division": null,
+      "batchRef": null,
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "unresolved",
+      "sourceRefs": [
+        {
+          "label": "JSA Profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3978/"
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "_researchContext": {
+        "canonicalIndex": 234,
+        "neighborBefore": {
+          "shikona": "Nihonyanagi Wataru",
+          "division": "Makushita",
+          "batchRef": "makushita-21-40",
+          "provenanceStatus": "inferred"
+        },
+        "neighborAfter": {
+          "shikona": "Tosamidori Kiyota",
+          "division": null,
+          "batchRef": null,
+          "provenanceStatus": "unresolved"
+        }
+      },
+      "rikishiId": "4115",
+      "shikona": "Kotokenryu Takeaki",
+      "heya": "Sadogatake",
+      "birthDate": "1995-09-06",
+      "nationality": "Mongolia",
+      "heightCm": 185.7,
+      "weightKg": 153.6,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "verified",
+      "division": null,
+      "batchRef": null,
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "unresolved",
+      "sourceRefs": [
+        {
+          "label": "JSA Profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4115/"
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "_researchContext": {
+        "canonicalIndex": 235,
+        "neighborBefore": {
+          "shikona": "Kotokenryu Takeaki",
+          "division": null,
+          "batchRef": null,
+          "provenanceStatus": "unresolved"
+        },
+        "neighborAfter": {
+          "shikona": "Anhiki Kaoto",
+          "division": null,
+          "batchRef": null,
+          "provenanceStatus": "unresolved"
+        }
+      },
+      "rikishiId": "3654",
+      "shikona": "Tosamidori Kiyota",
+      "heya": "Onoumi",
+      "birthDate": "1996-05-11",
+      "nationality": "Japan",
+      "heightCm": 181,
+      "weightKg": 138.7,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "verified",
+      "division": null,
+      "batchRef": null,
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "unresolved",
+      "sourceRefs": [
+        {
+          "label": "JSA Profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3654/"
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "_researchContext": {
+        "canonicalIndex": 236,
+        "neighborBefore": {
+          "shikona": "Tosamidori Kiyota",
+          "division": null,
+          "batchRef": null,
+          "provenanceStatus": "unresolved"
+        },
+        "neighborAfter": {
+          "shikona": "Kakueizan Shusei",
+          "division": "Jonidan",
+          "batchRef": "jonidan-1-80",
+          "provenanceStatus": "inferred"
+        }
+      },
+      "rikishiId": "4235",
+      "shikona": "Anhiki Kaoto",
+      "heya": "Anjigawa",
+      "birthDate": "2005-11-25",
+      "nationality": "Japan",
+      "heightCm": 184.5,
+      "weightKg": 145.2,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "verified",
+      "division": null,
+      "batchRef": null,
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "unresolved",
+      "sourceRefs": [
+        {
+          "label": "JSA Profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4235/"
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "_researchContext": {
+        "canonicalIndex": 238,
+        "neighborBefore": {
+          "shikona": "Kakueizan Shusei",
+          "division": "Jonidan",
+          "batchRef": "jonidan-1-80",
+          "provenanceStatus": "inferred"
+        },
+        "neighborAfter": {
+          "shikona": "Ryuho Kazuma",
+          "division": null,
+          "batchRef": null,
+          "provenanceStatus": "unresolved"
+        }
+      },
+      "rikishiId": "3925",
+      "shikona": "Fujinoyama Yuto",
+      "heya": "Fujishima",
+      "birthDate": "2000-07-26",
+      "nationality": "Japan",
+      "heightCm": 182.7,
+      "weightKg": 121.9,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "verified",
+      "division": null,
+      "batchRef": null,
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "unresolved",
+      "sourceRefs": [
+        {
+          "label": "JSA Profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3925/"
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "_researchContext": {
+        "canonicalIndex": 239,
+        "neighborBefore": {
+          "shikona": "Fujinoyama Yuto",
+          "division": null,
+          "batchRef": null,
+          "provenanceStatus": "unresolved"
+        },
+        "neighborAfter": {
+          "shikona": "Yabugasaki Akihito",
+          "division": null,
+          "batchRef": null,
+          "provenanceStatus": "unresolved"
+        }
+      },
+      "rikishiId": "4356",
+      "shikona": "Ryuho Kazuma",
+      "heya": "Otowayama",
+      "birthDate": "2007-06-12",
+      "nationality": "Japan",
+      "heightCm": 175.2,
+      "weightKg": 156,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "verified",
+      "division": null,
+      "batchRef": null,
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "unresolved",
+      "sourceRefs": [
+        {
+          "label": "JSA Profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4356/"
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "_researchContext": {
+        "canonicalIndex": 240,
+        "neighborBefore": {
+          "shikona": "Ryuho Kazuma",
+          "division": null,
+          "batchRef": null,
+          "provenanceStatus": "unresolved"
+        },
+        "neighborAfter": {
+          "shikona": "Tenrosei Kenichi",
+          "division": "Sandanme",
+          "batchRef": "sandanme-1-50",
+          "provenanceStatus": "inferred"
+        }
+      },
+      "rikishiId": "4351",
+      "shikona": "Yabugasaki Akihito",
+      "heya": "Yamahibiki",
+      "birthDate": "2006-10-10",
+      "nationality": "Japan",
+      "heightCm": 180,
+      "weightKg": 167.8,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "verified",
+      "division": null,
+      "batchRef": null,
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "unresolved",
+      "sourceRefs": [
+        {
+          "label": "JSA Profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4351/"
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "_researchContext": {
+        "canonicalIndex": 242,
+        "neighborBefore": {
+          "shikona": "Tenrosei Kenichi",
+          "division": "Sandanme",
+          "batchRef": "sandanme-1-50",
+          "provenanceStatus": "inferred"
+        },
+        "neighborAfter": {
+          "shikona": "Okada Ryotaro",
+          "division": null,
+          "batchRef": null,
+          "provenanceStatus": "unresolved"
+        }
+      },
+      "rikishiId": "4135",
+      "shikona": "Yamato Yuji",
+      "heya": "Dewanoumi",
+      "birthDate": "2003-08-13",
+      "nationality": "Japan",
+      "heightCm": 177.5,
+      "weightKg": 76.3,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "verified",
+      "division": null,
+      "batchRef": null,
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "unresolved",
+      "sourceRefs": [
+        {
+          "label": "JSA Profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4135/"
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "_researchContext": {
+        "canonicalIndex": 243,
+        "neighborBefore": {
+          "shikona": "Yamato Yuji",
+          "division": null,
+          "batchRef": null,
+          "provenanceStatus": "unresolved"
+        },
+        "neighborAfter": {
+          "shikona": "Kaida",
+          "division": null,
+          "batchRef": null,
+          "provenanceStatus": "unresolved"
+        }
+      },
+      "rikishiId": "4295",
+      "shikona": "Okada Ryotaro",
+      "heya": "Takadagawa",
+      "birthDate": "2002-05-11",
+      "nationality": "Japan",
+      "heightCm": 172,
+      "weightKg": 162,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "verified",
+      "division": null,
+      "batchRef": null,
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "unresolved",
+      "sourceRefs": [
+        {
+          "label": "JSA Profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4295/"
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "_researchContext": {
+        "canonicalIndex": 244,
+        "neighborBefore": {
+          "shikona": "Okada Ryotaro",
+          "division": null,
+          "batchRef": null,
+          "provenanceStatus": "unresolved"
+        },
+        "neighborAfter": {
+          "shikona": "Takano Ryu",
+          "division": null,
+          "batchRef": null,
+          "provenanceStatus": "unresolved"
+        }
+      },
+      "rikishiId": "4380",
+      "shikona": "Kaida",
+      "heya": "Kasugano",
+      "birthDate": "2007-08-03",
+      "nationality": "Japan",
+      "heightCm": 192,
+      "weightKg": 158,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "verified",
+      "division": null,
+      "batchRef": null,
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "unresolved",
+      "sourceRefs": [
+        {
+          "label": "JSA Profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4380/"
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "_researchContext": {
+        "canonicalIndex": 245,
+        "neighborBefore": {
+          "shikona": "Kaida",
+          "division": null,
+          "batchRef": null,
+          "provenanceStatus": "unresolved"
+        },
+        "neighborAfter": {
+          "shikona": "Ryuseizan Ryuuzaburo",
+          "division": null,
+          "batchRef": null,
+          "provenanceStatus": "unresolved"
+        }
+      },
+      "rikishiId": "4019",
+      "shikona": "Takano Ryu",
+      "heya": "Tagonoura",
+      "birthDate": "2004-09-03",
+      "nationality": "Japan",
+      "heightCm": 171.8,
+      "weightKg": 149.2,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "verified",
+      "division": null,
+      "batchRef": null,
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "unresolved",
+      "sourceRefs": [
+        {
+          "label": "JSA Profile",
+          "url": "https://www.sumo.or.jp/ResultRikishiData/profile/4019/"
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "_researchContext": {
+        "canonicalIndex": 246,
+        "neighborBefore": {
+          "shikona": "Takano Ryu",
+          "division": null,
+          "batchRef": null,
+          "provenanceStatus": "unresolved"
+        },
+        "neighborAfter": {
+          "shikona": "Chiyotaiho",
+          "division": null,
+          "batchRef": null,
+          "provenanceStatus": "unresolved"
+        }
+      },
+      "rikishiId": "3030",
+      "shikona": "Ryuseizan Ryuuzaburo",
+      "heya": "Dewanoumi",
+      "birthDate": "1991-12-12",
+      "nationality": "Japan",
+      "heightCm": 172.5,
+      "weightKg": 141.1,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "verified",
+      "division": null,
+      "batchRef": null,
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "unresolved",
+      "sourceRefs": [
+        {
+          "label": "JSA Profile",
+          "url": "https://www.sumo.or.jp/ResultRikishiData/profile/3030/"
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "_researchContext": {
+        "canonicalIndex": 247,
+        "neighborBefore": {
+          "shikona": "Ryuseizan Ryuuzaburo",
+          "division": null,
+          "batchRef": null,
+          "provenanceStatus": "unresolved"
+        },
+        "neighborAfter": {
+          "shikona": "Kumanoryu",
+          "division": null,
+          "batchRef": null,
+          "provenanceStatus": "unresolved"
+        }
+      },
+      "rikishiId": "3779",
+      "shikona": "Chiyotaiho",
+      "heya": "Kokonoe",
+      "birthDate": "2001-08-01",
+      "nationality": "Japan",
+      "heightCm": 174,
+      "weightKg": 160,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "verified",
+      "division": null,
+      "batchRef": null,
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "unresolved",
+      "sourceRefs": [
+        {
+          "label": "JSA Profile",
+          "url": "https://www.sumo.or.jp/ResultRikishiData/profile/3779/"
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "_researchContext": {
+        "canonicalIndex": 248,
+        "neighborBefore": {
+          "shikona": "Chiyotaiho",
+          "division": null,
+          "batchRef": null,
+          "provenanceStatus": "unresolved"
+        },
+        "neighborAfter": {
+          "shikona": "Fujimune",
+          "division": null,
+          "batchRef": null,
+          "provenanceStatus": "unresolved"
+        }
+      },
+      "rikishiId": "4080",
+      "shikona": "Kumanoryu",
+      "heya": "Takasago",
+      "birthDate": "2003-03-18",
+      "nationality": "Japan",
+      "heightCm": 177.2,
+      "weightKg": 107.2,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "verified",
+      "division": null,
+      "batchRef": null,
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "unresolved",
+      "sourceRefs": [
+        {
+          "label": "JSA Profile",
+          "url": "https://www.sumo.or.jp/ResultRikishiData/profile/4080/"
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "_researchContext": {
+        "canonicalIndex": 249,
+        "neighborBefore": {
+          "shikona": "Kumanoryu",
+          "division": null,
+          "batchRef": null,
+          "provenanceStatus": "unresolved"
+        },
+        "neighborAfter": {
+          "shikona": "Tsugarumi Denzou",
+          "division": null,
+          "batchRef": null,
+          "provenanceStatus": "unresolved"
+        }
+      },
+      "rikishiId": "4201",
+      "shikona": "Fujimune",
+      "heya": "Nishonoseki",
+      "birthDate": "2004-10-14",
+      "nationality": "Japan",
+      "heightCm": 187.2,
+      "weightKg": 137.1,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "verified",
+      "division": null,
+      "batchRef": null,
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "unresolved",
+      "sourceRefs": [
+        {
+          "label": "JSA Profile",
+          "url": "https://www.sumo.or.jp/ResultRikishiData/profile/4201/"
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "_researchContext": {
+        "canonicalIndex": 250,
+        "neighborBefore": {
+          "shikona": "Fujimune",
+          "division": null,
+          "batchRef": null,
+          "provenanceStatus": "unresolved"
+        },
+        "neighborAfter": {
+          "shikona": "Kyoda",
+          "division": "Jonidan",
+          "batchRef": "jonidan-1-80",
+          "provenanceStatus": "confirmed"
+        }
+      },
+      "rikishiId": "3383",
+      "shikona": "Tsugarumi Denzou",
+      "heya": "Tamanoi",
+      "birthDate": "1996-04-06",
+      "nationality": "Japan",
+      "heightCm": 175.1,
+      "weightKg": 103.9,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "verified",
+      "division": null,
+      "batchRef": null,
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "unresolved",
+      "sourceRefs": [
+        {
+          "label": "JSA Profile",
+          "url": "https://www.sumo.or.jp/ResultRikishiData/profile/3383/"
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "_researchContext": {
+        "canonicalIndex": 354,
+        "neighborBefore": {
+          "shikona": "Aratakayama",
+          "division": null,
+          "batchRef": null,
+          "provenanceStatus": "unresolved"
+        },
+        "neighborAfter": {
+          "shikona": "Toseiryu",
+          "division": null,
+          "batchRef": null,
+          "provenanceStatus": "unresolved"
+        }
+      },
+      "rikishiId": "4361",
+      "shikona": "Wakanofuji",
+      "heya": "Kasugano",
+      "birthDate": "2001-04-15",
+      "nationality": "Mongolia",
+      "heightCm": 185,
+      "weightKg": 130,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "verified",
+      "division": null,
+      "batchRef": null,
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "unresolved",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4361/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "Nationality taken from JSA birthplace field; image omitted pending separate verification."
+    },
+    {
+      "_researchContext": {
+        "canonicalIndex": 375,
+        "neighborBefore": {
+          "shikona": "Yago",
+          "division": "Makushita",
+          "batchRef": "makushita-21-40",
+          "provenanceStatus": "inferred"
+        },
+        "neighborAfter": {
+          "shikona": "Akua",
+          "division": "Juryo",
+          "batchRef": "juryo-roster",
+          "provenanceStatus": "inferred"
+        }
+      },
+      "rikishiId": "3557",
+      "shikona": "Sadanohikari",
+      "heya": "Sakaigawa",
+      "birthDate": "1995-12-31",
+      "nationality": "Mongolia",
+      "heightCm": 187,
+      "weightKg": 141.6,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "verified",
+      "division": null,
+      "batchRef": null,
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "unresolved",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3557/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "Nationality taken from JSA birthplace field; image omitted pending separate verification."
+    }
+  ]
+}

@@ -1,0 +1,111 @@
+{
+  "_meta": {
+    "generatedAt": "2026-03-11T18:34:45.385Z",
+    "sourceFile": "data/makuuchi_verified_profiles.json",
+    "totalProfiles": 100,
+    "description": "Manifest of research-ready export batches for the SumoWatch unresolved profile verification cycle.",
+    "mergeWorkflow": "For each completed batch, run: node scripts/merge-research.mjs --file <batch-file> [--apply]",
+    "validationCommand": "node scripts/validate-profiles.mjs"
+  },
+  "batches": [
+    {
+      "batchId": "Q",
+      "filename": "batch-q-quarantined.json",
+      "path": "data/research_exports/batch-q-quarantined.json",
+      "profileCount": 1,
+      "purpose": "Quarantined singleton — requires identity re-verification",
+      "priority": 1,
+      "mergeCommand": "node scripts/merge-research.mjs --file data/research_exports/batch-q-quarantined.json"
+    },
+    {
+      "batchId": "A",
+      "filename": "batch-a-verified-identity.json",
+      "path": "data/research_exports/batch-a-verified-identity.json",
+      "profileCount": 21,
+      "purpose": "Verified-identity profiles — need division lookup only",
+      "priority": 2,
+      "mergeCommand": "node scripts/merge-research.mjs --file data/research_exports/batch-a-verified-identity.json"
+    },
+    {
+      "batchId": "B",
+      "filename": "batch-b-border-zone.json",
+      "path": "data/research_exports/batch-b-border-zone.json",
+      "profileCount": 19,
+      "purpose": "Makushita/Sandanme border zone (indices 341–383)",
+      "priority": 4,
+      "mergeCommand": "node scripts/merge-research.mjs --file data/research_exports/batch-b-border-zone.json"
+    },
+    {
+      "batchId": "C",
+      "filename": "batch-c-upper-transition.json",
+      "path": "data/research_exports/batch-c-upper-transition.json",
+      "profileCount": 15,
+      "purpose": "Upper transition block (indices 392–411) — Makushita/Sandanme boundary",
+      "priority": 3,
+      "mergeCommand": "node scripts/merge-research.mjs --file data/research_exports/batch-c-upper-transition.json"
+    },
+    {
+      "batchId": "D",
+      "filename": "batch-d-lower-block.json",
+      "path": "data/research_exports/batch-d-lower-block.json",
+      "profileCount": 44,
+      "purpose": "Lower unknown block (indices 413–457) — deep lower-division territory",
+      "priority": 5,
+      "mergeCommand": "node scripts/merge-research.mjs --file data/research_exports/batch-d-lower-block.json"
+    }
+  ],
+  "researchOrder": [
+    {
+      "priority": 1,
+      "batchId": "Q",
+      "reason": "Quick win. Binary outcome: wrestler exists or does not. Resolves the only quarantined profile."
+    },
+    {
+      "priority": 2,
+      "batchId": "A",
+      "reason": "Highest value/lowest risk. All 21 have verified identity — only need division lookup. Full biographical data already present."
+    },
+    {
+      "priority": 3,
+      "batchId": "C",
+      "reason": "Establishes the upper boundary of the big unknown block. Resolving 10 profiles here narrows the division range for batch D."
+    },
+    {
+      "priority": 4,
+      "batchId": "B",
+      "reason": "Mixed border zone. Independent of C/D — can be researched in parallel with C. Division mix expected (Makushita/Sandanme/Juryo)."
+    },
+    {
+      "priority": 5,
+      "batchId": "D",
+      "reason": "Largest and lowest-confidence batch. Should be done last — resolving C first constrains the possible division range."
+    }
+  ],
+  "risks": [
+    {
+      "batchId": "Q",
+      "level": "low",
+      "note": "If Tsushimanada cannot be found, the profile stays quarantined permanently. Impact: 1 profile."
+    },
+    {
+      "batchId": "A",
+      "level": "low",
+      "note": "2 outlier profiles (idx 354, 375) are outside the main 223–250 block and may be in unexpected divisions."
+    },
+    {
+      "batchId": "B",
+      "level": "medium",
+      "note": "Original import batch crossed division boundaries. Each profile genuinely could be Makushita, Sandanme, or Juryo."
+    },
+    {
+      "batchId": "C",
+      "level": "medium",
+      "note": "Small batch but neighbors show Makushita/Sandanme mixing. Some \"stale-rank\" notes suggest rank data may be outdated."
+    },
+    {
+      "batchId": "D",
+      "level": "high",
+      "note": "45 profiles with almost no resolved neighbors between them. Division span is wide (Sandanme → Jonokuchi). Expect the most surprises."
+    }
+  ]
+}

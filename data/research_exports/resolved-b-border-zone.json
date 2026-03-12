@@ -1,0 +1,576 @@
+{
+  "_meta": {
+    "batchId": "B",
+    "resolvedDate": "2026-03-12T00:00:00.000Z",
+    "sourceFile": "data/research_exports/batch-b-border-zone.json",
+    "description": "Resolved Batch B — 19 border-zone profiles (Makushita/Sandanme indices 341–383). All 19 confirmed as Makushita via JSA profile lookup.",
+    "researchNotes": [
+      "All 19 profiles confirmed as Makushita via individual JSA profile lookups on 2026-03-12.",
+      "Zero CONFLICT_FIELD mismatches (heya, birthDate, status all match canonical dataset).",
+      "Notable ex-sanyaku: Bushozan (ex-Maegashira #12), Tsushimanada (ex-Juryo #9), Miyanokaze (ex-Juryo #10).",
+      "Uzumasa born 2008 — youngest in dataset. Ikarigata debuted Jan 2025 — fastest riser.",
+      "Bushozan and Miyanokaze both currently absent (0-0-3 in March 2026).",
+      "No nationality data added — JSA profiles give birthplace only, not citizenship."
+    ],
+    "counts": {
+      "total": 19,
+      "confirmed": 19,
+      "makushita": 19,
+      "conflicts": 0
+    },
+    "mergeCommand": "node scripts/merge-research.mjs --file data/research_exports/resolved-b-border-zone.json"
+  },
+  "profiles": [
+    {
+      "rikishiId": "3580",
+      "shikona": "Shohoryu",
+      "heya": "Tokitsukaze",
+      "birthDate": "1996-10-12",
+      "nationality": null,
+      "heightCm": 171.5,
+      "weightKg": 154.7,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "verified",
+      "division": "Makushita",
+      "batchRef": "b-border-zone",
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "confirmed",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3580/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "Nationality left null (JSA gives birthplace only). | Batch B confirmed: Makushita #21, Tokitsukaze stable. Highest rank Makushita #3. Career 205-183-14."
+    },
+    {
+      "rikishiId": "4001",
+      "shikona": "Fukai",
+      "heya": "Takasago",
+      "birthDate": "1997-09-10",
+      "nationality": null,
+      "heightCm": 181.3,
+      "weightKg": 131.1,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "verified",
+      "division": "Makushita",
+      "batchRef": "b-border-zone",
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "confirmed",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4001/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "Nationality left null (JSA gives birthplace only). | Batch B confirmed: Makushita #22, Takasago stable. Highest rank Makushita #4. Makushita & Sandanme yusho winner."
+    },
+    {
+      "rikishiId": "4026",
+      "shikona": "Mikazuchiyama",
+      "heya": "Shikoroyama",
+      "birthDate": "2005-02-04",
+      "nationality": null,
+      "heightCm": 173.7,
+      "weightKg": 151.5,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "verified",
+      "division": "Makushita",
+      "batchRef": "b-border-zone",
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "confirmed",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4026/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "Nationality left null (JSA gives birthplace only). | Batch B confirmed: Makushita #25, Shikoroyama stable. Ring name changed from Miyata. Highest rank Makushita #14."
+    },
+    {
+      "rikishiId": "3224",
+      "shikona": "Wakatakamoto",
+      "heya": "Arashio",
+      "birthDate": "1991-12-29",
+      "nationality": null,
+      "heightCm": 183,
+      "weightKg": 125.1,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "verified",
+      "division": "Makushita",
+      "batchRef": "b-border-zone",
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "confirmed",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3224/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "Nationality left null (JSA gives birthplace only). | Batch B confirmed: Makushita #26, Arashio stable. Ring name changed from Onami. Veteran born 1991. Career 213-207-10. Highest rank Makushita #5."
+    },
+    {
+      "rikishiId": "4184",
+      "shikona": "Satorufuji",
+      "heya": "Isegahama",
+      "birthDate": "2004-05-29",
+      "nationality": null,
+      "heightCm": 178,
+      "weightKg": 167.1,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "verified",
+      "division": "Makushita",
+      "batchRef": "b-border-zone",
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "confirmed",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4184/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "Nationality left null (JSA gives birthplace only). | Batch B confirmed: Makushita #26, Isegahama stable. Highest rank Makushita #1. Makushita & Jonidan yusho winner."
+    },
+    {
+      "rikishiId": "4128",
+      "shikona": "Kyokumizuno",
+      "heya": "Oshima",
+      "birthDate": "2004-03-12",
+      "nationality": null,
+      "heightCm": 171.5,
+      "weightKg": 155.2,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "verified",
+      "division": "Makushita",
+      "batchRef": "b-border-zone",
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "confirmed",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4128/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "Nationality left null (JSA gives birthplace only). | Batch B confirmed: Makushita #27, Oshima stable. Highest rank Makushita #15."
+    },
+    {
+      "rikishiId": "3950",
+      "shikona": "Aratakayama",
+      "heya": "Minatogawa",
+      "birthDate": "2003-10-23",
+      "nationality": null,
+      "heightCm": 177,
+      "weightKg": 163.4,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "verified",
+      "division": "Makushita",
+      "batchRef": "b-border-zone",
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "confirmed",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3950/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "Nationality left null (JSA gives birthplace only). | Batch B confirmed: Makushita #27, Minatogawa stable. Ring name changed from Wakahiroto. Highest rank Makushita #14."
+    },
+    {
+      "rikishiId": "4122",
+      "shikona": "Toseiryu",
+      "heya": "Tamanoi",
+      "birthDate": "1999-07-05",
+      "nationality": null,
+      "heightCm": 184.5,
+      "weightKg": 144.6,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "verified",
+      "division": "Makushita",
+      "batchRef": "b-border-zone",
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "confirmed",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4122/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "Nationality left null (JSA gives birthplace only). | Batch B confirmed: Makushita #28, Tamanoi stable. Highest rank Makushita #6."
+    },
+    {
+      "rikishiId": "3807",
+      "shikona": "Kamito",
+      "heya": "Tatsunami",
+      "birthDate": "1995-08-19",
+      "nationality": null,
+      "heightCm": 178,
+      "weightKg": 156.4,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "verified",
+      "division": "Makushita",
+      "batchRef": "b-border-zone",
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "confirmed",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3807/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "Nationality left null (JSA gives birthplace only). | Batch B confirmed: Makushita #30, Tatsunami stable. Highest rank Makushita #3."
+    },
+    {
+      "rikishiId": "4104",
+      "shikona": "Miyanokaze",
+      "heya": "Nakamura",
+      "birthDate": "1999-01-30",
+      "nationality": null,
+      "heightCm": 172,
+      "weightKg": 116.8,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "verified",
+      "division": "Makushita",
+      "batchRef": "b-border-zone",
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "confirmed",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4104/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "Nationality left null (JSA gives birthplace only). | Batch B confirmed: Makushita #30, Nakamura stable. Ex-Juryo (highest Juryo #10, May-Sep 2025). Currently absent 0-0-3 in Mar 2026."
+    },
+    {
+      "rikishiId": "4253",
+      "shikona": "Uzumasa",
+      "heya": "Isenoumi",
+      "birthDate": "2008-10-29",
+      "nationality": null,
+      "heightCm": 187,
+      "weightKg": 138,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "verified",
+      "division": "Makushita",
+      "batchRef": "b-border-zone",
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "confirmed",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4253/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "Nationality left null (JSA gives birthplace only). | Batch B confirmed: Makushita #31, Isenoumi stable. Born 2008 — youngest in dataset. Debuted Mar 2024. Was Sandanme until Nov 2025."
+    },
+    {
+      "rikishiId": "3508",
+      "shikona": "Bushozan",
+      "heya": "Fujishima",
+      "birthDate": "1995-12-06",
+      "nationality": null,
+      "heightCm": 171.5,
+      "weightKg": 171.2,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "verified",
+      "division": "Makushita",
+      "batchRef": "b-border-zone",
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "confirmed",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3508/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "Nationality left null (JSA gives birthplace only). | Batch B confirmed: Makushita #32, Fujishima stable. Ex-Maegashira (highest Maegashira #12). Career 342-318-32. Currently absent 0-0-3 in Mar 2026."
+    },
+    {
+      "rikishiId": "4302",
+      "shikona": "Ikarigata",
+      "heya": "Isenoumi",
+      "birthDate": "2007-02-24",
+      "nationality": null,
+      "heightCm": 174,
+      "weightKg": 126.3,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "verified",
+      "division": "Makushita",
+      "batchRef": "b-border-zone",
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "confirmed",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4302/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "Nationality left null (JSA gives birthplace only). | Batch B confirmed: Makushita #35, Isenoumi stable. Born 2007, debuted Jan 2025 — fastest riser in batch. Highest rank Makushita #19."
+    },
+    {
+      "rikishiId": "4278",
+      "shikona": "Yonezawaryu",
+      "heya": "Sakaigawa",
+      "birthDate": "2005-03-28",
+      "nationality": null,
+      "heightCm": 190,
+      "weightKg": 131.9,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "verified",
+      "division": "Makushita",
+      "batchRef": "b-border-zone",
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "confirmed",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4278/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "Nationality left null (JSA gives birthplace only). | Batch B confirmed: Makushita #35, Sakaigawa stable. 190cm tallest in batch. Debuted May 2024. Was Sandanme until May 2025."
+    },
+    {
+      "rikishiId": "4118",
+      "shikona": "Hananoumi",
+      "heya": "Nishonoseki",
+      "birthDate": "2003-04-15",
+      "nationality": null,
+      "heightCm": 173,
+      "weightKg": 147.1,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "verified",
+      "division": "Makushita",
+      "batchRef": "b-border-zone",
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "confirmed",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4118/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "Nationality left null (JSA gives birthplace only). | Batch B confirmed: Makushita #39, Nishonoseki stable (stablemate of Onosato). Highest rank Makushita #7. Dropped from #15 after 1-6 in Jan 2026."
+    },
+    {
+      "rikishiId": "4130",
+      "shikona": "Gyokuozan",
+      "heya": "Naruto",
+      "birthDate": "2003-06-20",
+      "nationality": null,
+      "heightCm": 184,
+      "weightKg": 187.6,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "verified",
+      "division": "Makushita",
+      "batchRef": "b-border-zone",
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "confirmed",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4130/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "Nationality left null (JSA gives birthplace only). | Batch B confirmed: Makushita #40, Naruto stable. 187.6kg heaviest in batch. Highest rank Makushita #20. Was Sandanme in Jul 2025."
+    },
+    {
+      "rikishiId": "3733",
+      "shikona": "Tsushimanada",
+      "heya": "Sakaigawa",
+      "birthDate": "1993-06-27",
+      "nationality": null,
+      "heightCm": 185.3,
+      "weightKg": 140.2,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "verified",
+      "division": "Makushita",
+      "batchRef": "b-border-zone",
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "confirmed",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3733/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "Nationality left null (JSA gives birthplace only). | Batch B confirmed: Makushita #44, Sakaigawa stable. Ex-Juryo (highest Juryo #9). Career 234-203-23. Batch Q dedup survivor."
+    },
+    {
+      "rikishiId": "3454",
+      "shikona": "Chiyonokatsu",
+      "heya": "Kokonoe",
+      "birthDate": "1994-04-13",
+      "nationality": null,
+      "heightCm": 177.2,
+      "weightKg": 127.2,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "verified",
+      "division": "Makushita",
+      "batchRef": "b-border-zone",
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "confirmed",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3454/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "Nationality left null (JSA gives birthplace only). | Batch B confirmed: Makushita #49, Kokonoe stable. Veteran since Mar 2013. Career 263-239-32. Highest rank Makushita #20. Jonidan yusho winner."
+    },
+    {
+      "rikishiId": "4225",
+      "shikona": "Anosho",
+      "heya": "Ajigawa",
+      "birthDate": "2005-03-02",
+      "nationality": null,
+      "heightCm": 175,
+      "weightKg": 163.8,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "verified",
+      "division": "Makushita",
+      "batchRef": "b-border-zone",
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "confirmed",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4225/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "Nationality left null (JSA gives birthplace only). | Batch B confirmed: Makushita #50, Ajigawa stable (stablemate of Aonishiki). Highest rank Makushita #8. Jonidan + Jonokuchi yusho winner. Dropped from #25 after 1-6 in Jan 2026."
+    }
+  ]
+}

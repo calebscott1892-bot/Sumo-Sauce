@@ -27,6 +27,7 @@ import rawProfiles from '../../data/makuuchi_verified_profiles.json';
 
 export type ImageConfidence = 'verified' | 'likely' | 'unverified' | 'missing';
 export type ProfileConfidence = 'verified' | 'likely' | 'unverified';
+export type ProvenanceStatus = 'confirmed' | 'inferred' | 'unresolved' | 'quarantined';
 
 export interface VerifiedSourceRef {
   label: string;
@@ -48,6 +49,12 @@ export interface VerifiedProfile {
   profileConfidence: ProfileConfidence;
   sourceRefs: VerifiedSourceRef[];
   notes: string;
+
+  // Provenance metadata (added March 2026)
+  division: string | null;
+  batchRef: string | null;
+  lastVerifiedBasho: string | null;
+  provenanceStatus: ProvenanceStatus;
 }
 
 // ---------------------------------------------------------------------------

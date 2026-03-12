@@ -1871,13 +1871,263 @@
     "provenanceStatus": "confirmed"
   },
   {
-    "rikishiId": "4243",
+    "rikishiId": null,
+    "shikona": "Ageha",
+    "heya": "Isenoumi",
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA Shin Jūryō list",
+        "url": "https://www.sumo.or.jp/ResultBanzuke/shin_juryo/"
+      }
+    ],
+    "notes": "Haru 2026 Jūryō roster (East).",
+    "division": "Juryo",
+    "batchRef": "juryo-roster",
+    "lastVerifiedBasho": "202603",
+    "provenanceStatus": "confirmed"
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Kagamiiwa",
+    "heya": "Oshima",
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA Shin Jūryō list",
+        "url": "https://www.sumo.or.jp/ResultBanzuke/shin_juryo/"
+      }
+    ],
+    "notes": "Haru 2026 Jūryō roster (East).",
+    "division": "Juryo",
+    "batchRef": "juryo-roster",
+    "lastVerifiedBasho": "202603",
+    "provenanceStatus": "confirmed"
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Izushio",
+    "heya": "Ikazuchi",
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA Shin Jūryō list",
+        "url": "https://www.sumo.or.jp/ResultBanzuke/shin_juryo/"
+      }
+    ],
+    "notes": "Haru 2026 Jūryō roster (East).",
+    "division": "Juryo",
+    "batchRef": "juryo-roster",
+    "lastVerifiedBasho": "202603",
+    "provenanceStatus": "confirmed"
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Hiranoumi",
+    "heya": "Kise",
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA Shin Jūryō list",
+        "url": "https://www.sumo.or.jp/ResultBanzuke/shin_juryo/"
+      }
+    ],
+    "notes": "Haru 2026 Jūryō roster (East).",
+    "division": "Juryo",
+    "batchRef": "juryo-roster",
+    "lastVerifiedBasho": "202603",
+    "provenanceStatus": "confirmed"
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Shachihoko",
+    "heya": "Oitekaze",
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA Shin Jūryō list",
+        "url": "https://www.sumo.or.jp/ResultBanzuke/shin_juryo/"
+      }
+    ],
+    "notes": "Haru 2026 Jūryō roster (East).",
+    "division": "Juryo",
+    "batchRef": "juryo-roster",
+    "lastVerifiedBasho": "202603",
+    "provenanceStatus": "confirmed"
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Tokitsunami",
+    "heya": "Takasago",
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA Shin Jūryō list",
+        "url": "https://www.sumo.or.jp/ResultBanzuke/shin_juryo/"
+      }
+    ],
+    "notes": "Haru 2026 Jūryō roster (East).",
+    "division": "Juryo",
+    "batchRef": "juryo-roster",
+    "lastVerifiedBasho": "202603",
+    "provenanceStatus": "confirmed"
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Mizuhiki",
+    "heya": "Asakayama",
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA Shin Jūryō list",
+        "url": "https://www.sumo.or.jp/ResultBanzuke/shin_juryo/"
+      }
+    ],
+    "notes": "Haru 2026 Jūryō roster (East).",
+    "division": "Juryo",
+    "batchRef": "juryo-roster",
+    "lastVerifiedBasho": "202603",
+    "provenanceStatus": "confirmed"
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Hakkaku",
+    "heya": "Kōbōyama",
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA Shin Jūryō list",
+        "url": "https://www.sumo.or.jp/ResultBanzuke/shin_juryo/"
+      }
+    ],
+    "notes": "Haru 2026 Jūryō roster (East).",
+    "division": "Juryo",
+    "batchRef": "juryo-roster",
+    "lastVerifiedBasho": "202603",
+    "provenanceStatus": "confirmed"
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Yatsugamine",
+    "heya": "Tamagawa",
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA Shin Jūryō list",
+        "url": "https://www.sumo.or.jp/ResultBanzuke/shin_juryo/"
+      }
+    ],
+    "notes": "Haru 2026 Jūryō roster (East).",
+    "division": "Juryo",
+    "batchRef": "juryo-roster",
+    "lastVerifiedBasho": "202603",
+    "provenanceStatus": "confirmed"
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Onikatsu",
+    "heya": "Onoe",
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA Shin Jūryō list",
+        "url": "https://www.sumo.or.jp/ResultBanzuke/shin_juryo/"
+      }
+    ],
+    "notes": "Haru 2026 Jūryō roster (East).",
+    "division": "Juryo",
+    "batchRef": "juryo-roster",
+    "lastVerifiedBasho": "202603",
+    "provenanceStatus": "confirmed"
+  },
+  {
+    "rikishiId": null,
     "shikona": "Toshinofuji",
     "heya": "Isegahama",
-    "birthDate": "2000-08-24",
+    "birthDate": null,
     "nationality": "Mongolia",
-    "heightCm": 195,
-    "weightKg": 145,
+    "heightCm": null,
+    "weightKg": null,
     "status": "active",
     "officialImageUrl": null,
     "imageSource": null,
@@ -1887,26 +2137,22 @@
       {
         "label": "JSA Shin Jūryō (Jan 2026)",
         "url": "https://www.sumo.or.jp/ResultBanzuke/shin_juryo/"
-      },
-      {
-        "label": "JSA Profile #4243",
-        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4243/"
       }
     ],
-    "notes": "Newly promoted to Jūryō for Haru 2026 (JSA confirmed). Isegahama stable. | Batch E Juryo-backfill: rikishiId=4243 confirmed via JSA profile. Real name Usukhbayar Demidjamts. Former shikona Seihakuho. Debuted March 2024. Juryo debut March 2026. Signature: migi-yotsu, yori, uwatenage.",
+    "notes": "Newly promoted to Jūryō for Haru 2026 (JSA confirmed). Isegahama stable.",
     "division": "Juryo",
     "batchRef": "juryo-roster",
     "lastVerifiedBasho": "202603",
     "provenanceStatus": "confirmed"
   },
   {
-    "rikishiId": "3404",
+    "rikishiId": null,
     "shikona": "Shimazuumi",
-    "heya": "Hanaregoma",
-    "birthDate": "1996-05-18",
+    "heya": "Hamanoshima",
+    "birthDate": null,
     "nationality": "Japan",
-    "heightCm": 175,
-    "weightKg": 155,
+    "heightCm": null,
+    "weightKg": null,
     "status": "active",
     "officialImageUrl": null,
     "imageSource": null,
@@ -1916,30 +2162,272 @@
       {
         "label": "JSA Shin Jūryō (Jan 2026)",
         "url": "https://www.sumo.or.jp/ResultBanzuke/shin_juryo/"
-      },
-      {
-        "label": "JSA Profile #3404",
-        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3404/"
-      },
-      {
-        "label": "SumoDB Rikishi #12013",
-        "url": "https://sumodb.sumogames.de/Rikishi.aspx?r=12013"
       }
     ],
-    "notes": "Newly promoted to Jūryō for Haru 2026 (JSA confirmed). Hamanoshima stable. | Batch E Juryo-backfill: rikishiId=3404 confirmed via JSA profile. Heya=Hanaregoma (was Matsugane → Nishonoseki → Hanaregoma). Real name Nakazono Sora. Highest rank Maegashira #12. Born Kagoshima (Nishinoomote). | Heya corrected: Hamanoshima → Hanaregoma (confirmed via JSA stable page detail/31/).",
+    "notes": "Newly promoted to Jūryō for Haru 2026 (JSA confirmed). Hamanoshima stable.",
     "division": "Juryo",
     "batchRef": "juryo-roster",
     "lastVerifiedBasho": "202603",
     "provenanceStatus": "confirmed"
   },
   {
-    "rikishiId": "4337",
+    "rikishiId": null,
+    "shikona": "Yotsuguruma",
+    "heya": "Oho",
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA Shin Jūryō list",
+        "url": "https://www.sumo.or.jp/ResultBanzuke/shin_juryo/"
+      }
+    ],
+    "notes": "Haru 2026 Jūryō roster (West).",
+    "division": "Juryo",
+    "batchRef": "juryo-roster",
+    "lastVerifiedBasho": "202603",
+    "provenanceStatus": "confirmed"
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Takinooto",
+    "heya": "Tagonoura",
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA Shin Jūryō list",
+        "url": "https://www.sumo.or.jp/ResultBanzuke/shin_juryo/"
+      }
+    ],
+    "notes": "Haru 2026 Jūryō roster (West).",
+    "division": "Juryo",
+    "batchRef": "juryo-roster",
+    "lastVerifiedBasho": "202603",
+    "provenanceStatus": "confirmed"
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Kumagatake",
+    "heya": "Onomatsu",
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA Shin Jūryō list",
+        "url": "https://www.sumo.or.jp/ResultBanzuke/shin_juryo/"
+      }
+    ],
+    "notes": "Haru 2026 Jūryō roster (West).",
+    "division": "Juryo",
+    "batchRef": "juryo-roster",
+    "lastVerifiedBasho": "202603",
+    "provenanceStatus": "confirmed"
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Shibatoyama",
+    "heya": null,
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "retired",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA Shin Jūryō list",
+        "url": "https://www.sumo.or.jp/ResultBanzuke/shin_juryo/"
+      }
+    ],
+    "notes": "Retired after Day 1 (0-1 record) in Haru 2026. Stable unknown.",
+    "division": "Juryo",
+    "batchRef": "juryo-roster",
+    "lastVerifiedBasho": "202603",
+    "provenanceStatus": "confirmed"
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Araumi",
+    "heya": "Dewanoumi",
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA Shin Jūryō list",
+        "url": "https://www.sumo.or.jp/ResultBanzuke/shin_juryo/"
+      }
+    ],
+    "notes": "Haru 2026 Jūryō roster (West).",
+    "division": "Juryo",
+    "batchRef": "juryo-roster",
+    "lastVerifiedBasho": "202603",
+    "provenanceStatus": "confirmed"
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Onuma",
+    "heya": null,
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA Shin Jūryō list",
+        "url": "https://www.sumo.or.jp/ResultBanzuke/shin_juryo/"
+      }
+    ],
+    "notes": "Haru 2026 Jūryō roster (West). Stable unconfirmed.",
+    "division": "Juryo",
+    "batchRef": "juryo-roster",
+    "lastVerifiedBasho": "202603",
+    "provenanceStatus": "confirmed"
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Azumagatake",
+    "heya": "Takadagawa",
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA Shin Jūryō list",
+        "url": "https://www.sumo.or.jp/ResultBanzuke/shin_juryo/"
+      }
+    ],
+    "notes": "Haru 2026 Jūryō roster (West).",
+    "division": "Juryo",
+    "batchRef": "juryo-roster",
+    "lastVerifiedBasho": "202603",
+    "provenanceStatus": "confirmed"
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Sanoyama",
+    "heya": "Sanoyama",
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA Shin Jūryō list",
+        "url": "https://www.sumo.or.jp/ResultBanzuke/shin_juryo/"
+      }
+    ],
+    "notes": "Haru 2026 Jūryō roster (West). Heya formerly known as Shibatayama.",
+    "division": "Juryo",
+    "batchRef": "juryo-roster",
+    "lastVerifiedBasho": "202603",
+    "provenanceStatus": "confirmed"
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Nishikido",
+    "heya": "Asakayama",
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA Shin Jūryō list",
+        "url": "https://www.sumo.or.jp/ResultBanzuke/shin_juryo/"
+      }
+    ],
+    "notes": "Haru 2026 Jūryō roster (West).",
+    "division": "Juryo",
+    "batchRef": "juryo-roster",
+    "lastVerifiedBasho": "202603",
+    "provenanceStatus": "confirmed"
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Musashino",
+    "heya": "Naruto",
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA Shin Jūryō list",
+        "url": "https://www.sumo.or.jp/ResultBanzuke/shin_juryo/"
+      }
+    ],
+    "notes": "Haru 2026 Jūryō roster (West).",
+    "division": "Juryo",
+    "batchRef": "juryo-roster",
+    "lastVerifiedBasho": "202603",
+    "provenanceStatus": "confirmed"
+  },
+  {
+    "rikishiId": null,
     "shikona": "Fujitensei",
     "heya": "Fujishima",
-    "birthDate": "2007-01-09",
-    "nationality": "Japan",
-    "heightCm": 172,
-    "weightKg": 139,
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
     "status": "active",
     "officialImageUrl": null,
     "imageSource": null,
@@ -1953,13 +2441,59 @@
       {
         "label": "JSA Kaimei (Rename) list",
         "url": "https://www.sumo.or.jp/ResultBanzuke/kaimei_rikishi/"
-      },
-      {
-        "label": "JSA Profile #4337",
-        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4337/"
       }
     ],
-    "notes": "Newly promoted to Jūryō for Haru 2026 (JSA confirmed). Renamed from Fukuzaki upon promotion. | Batch E Juryo-backfill: rikishiId=4337 confirmed via JSA profile. Real name Maaru Fukuzaki. Former shikona Fukuzaki. Debuted March 2025 in Makushita. Juryo debut March 2026. Signature: oshi.",
+    "notes": "Newly promoted to Jūryō for Haru 2026 (JSA confirmed). Renamed from Fukuzaki upon promotion.",
+    "division": "Juryo",
+    "batchRef": "juryo-roster",
+    "lastVerifiedBasho": "202603",
+    "provenanceStatus": "confirmed"
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Asogamori",
+    "heya": null,
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA Shin Jūryō list",
+        "url": "https://www.sumo.or.jp/ResultBanzuke/shin_juryo/"
+      }
+    ],
+    "notes": "Debuting sekitori (0-0 record in Haru 2026). Stable unconfirmed.",
+    "division": "Juryo",
+    "batchRef": "juryo-roster",
+    "lastVerifiedBasho": "202603",
+    "provenanceStatus": "confirmed"
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Tateiwa",
+    "heya": "Nishonoseki",
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA Shin Jūryō list",
+        "url": "https://www.sumo.or.jp/ResultBanzuke/shin_juryo/"
+      }
+    ],
+    "notes": "Debuting sekitori (0-0 record in Haru 2026).",
     "division": "Juryo",
     "batchRef": "juryo-roster",
     "lastVerifiedBasho": "202603",

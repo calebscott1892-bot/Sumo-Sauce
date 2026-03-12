@@ -35,7 +35,11 @@ The file is a JSON array of profile objects:
     "sourceRefs": [                     // Provenance chain
       { "label": "JSA Find Rikishi (makuuchi roster)", "url": "https://..." }
     ],
-    "notes": "..."                      // Free-text provenance notes
+    "notes": "...",                     // Free-text provenance notes
+    "division": "Makuuchi",             // Machine-readable division (or null)
+    "batchRef": "makuuchi-roster",      // Canonical batch identifier (or null)
+    "lastVerifiedBasho": "202603",      // Basho this profile was verified against
+    "provenanceStatus": "confirmed"     // "confirmed" | "inferred" | "unresolved" | "quarantined"
   }
 ]
 ```
@@ -58,6 +62,10 @@ The file is a JSON array of profile objects:
 | `profileConfidence` | ✅ | `"verified"` = confirmed on JSA roster |
 | `sourceRefs` | ✅ | Array of `{ label, url }` provenance links |
 | `notes` | ✅ | Free-text notes (may be empty string) |
+| `division` | ✅ | Machine-readable division: `"Makuuchi"`, `"Juryo"`, `"Makushita"`, `"Sandanme"`, `"Jonidan"`, `"Jonokuchi"`, `"Historical"`, or `null` if unknown |
+| `batchRef` | ✅ | Canonical batch identifier string (see table below), or `null` if unknown |
+| `lastVerifiedBasho` | ✅ | Basho code this profile was verified against (e.g. `"202603"` for Haru 2026) |
+| `provenanceStatus` | ✅ | `"confirmed"` = direct evidence; `"inferred"` = structural/legacy evidence; `"unresolved"` = cannot safely assign; `"quarantined"` = serious data quality issue |
 
 ## Image confidence policy
 
@@ -76,6 +84,48 @@ was extractable from JSA. The UI shows a placeholder avatar.
 Add entries to the same JSON array. The adapter builds indexes at module
 load time and handles any number of entries. No code changes needed to
 support additional divisions or historical batches — just add rows.
+
+New entries **must** include the three provenance fields:
+- `division` — one of the valid division strings, or `null`
+- `batchRef` — a canonical batch identifier string matching an entry in the
+  batch table, or `null`
+- `lastVerifiedBasho` — the basho code (YYYYMM) this profile was verified against
+
+## Provenance metadata
+
+The `division`, `batchRef`, and `lastVerifiedBasho` fields provide machine-readable
+provenance for each profile. They were added in March 2026 by content-based
+inference from each profile's `sourceRefs` labels and `notes` text.
+
+**Inference rules (priority order for `division`):**
+1. sourceRef label contains "makuuchi roster" → `"Makuuchi"`
+2. Notes or sourceRef mention "Jūryō" / "Juryo" → `"Juryo"`
+3. `status === "retired"` with no active-division signals → `"Historical"`
+4. Notes mention "Jonokuchi" → `"Jonokuchi"`
+5. Notes mention "Jonidan" → `"Jonidan"`
+6. Notes or sourceRef mention "Sandanme" → `"Sandanme"`
+7. Notes or sourceRef mention "Makushita" → `"Makushita"`
+8. Otherwise → `null` (147 profiles; mostly batches 12–14 with generic notes)
+
+**Valid `batchRef` values:**
+
+| batchRef | Division | Rank Range |
+|----------|----------|------------|
+| `makuuchi-roster` | Makuuchi | Full roster |
+| `historical-legends` | Historical | Yokozuna/Ōzeki 2000–present |
+| `juryo-roster` | Jūryō | Full roster |
+| `sandanme-1-50` | Sandanme | E+W 1–50 |
+| `sandanme-51-80` | Sandanme | Selected 51–80 |
+| `sandanme` | Sandanme | Range unknown |
+| `makushita-1-20` | Makushita | E+W 1–20 |
+| `makushita-21-40` | Makushita | E+W 21–40 |
+| `makushita-41-60` | Makushita | E+W 41–60 |
+| `makushita` | Makushita | Range unknown |
+| `jonidan-1-80` | Jonidan | 1–80 |
+| `jonidan-81-100` | Jonidan | E+W 81–100 |
+| `jonidan-81-160` | Jonidan | Selected 81–160 |
+| `jonidan` | Jonidan | Range unknown |
+| `jonokuchi` | Jonokuchi | Full division |
 
 **Current batches (consolidated March 2026):**
 

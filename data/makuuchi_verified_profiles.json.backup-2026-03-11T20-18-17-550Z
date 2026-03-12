@@ -1871,13 +1871,263 @@
     "provenanceStatus": "confirmed"
   },
   {
-    "rikishiId": "4243",
+    "rikishiId": null,
+    "shikona": "Ageha",
+    "heya": "Isenoumi",
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA Shin Jūryō list",
+        "url": "https://www.sumo.or.jp/ResultBanzuke/shin_juryo/"
+      }
+    ],
+    "notes": "Haru 2026 Jūryō roster (East).",
+    "division": "Juryo",
+    "batchRef": "juryo-roster",
+    "lastVerifiedBasho": "202603",
+    "provenanceStatus": "confirmed"
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Kagamiiwa",
+    "heya": "Oshima",
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA Shin Jūryō list",
+        "url": "https://www.sumo.or.jp/ResultBanzuke/shin_juryo/"
+      }
+    ],
+    "notes": "Haru 2026 Jūryō roster (East).",
+    "division": "Juryo",
+    "batchRef": "juryo-roster",
+    "lastVerifiedBasho": "202603",
+    "provenanceStatus": "confirmed"
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Izushio",
+    "heya": "Ikazuchi",
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA Shin Jūryō list",
+        "url": "https://www.sumo.or.jp/ResultBanzuke/shin_juryo/"
+      }
+    ],
+    "notes": "Haru 2026 Jūryō roster (East).",
+    "division": "Juryo",
+    "batchRef": "juryo-roster",
+    "lastVerifiedBasho": "202603",
+    "provenanceStatus": "confirmed"
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Hiranoumi",
+    "heya": "Kise",
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA Shin Jūryō list",
+        "url": "https://www.sumo.or.jp/ResultBanzuke/shin_juryo/"
+      }
+    ],
+    "notes": "Haru 2026 Jūryō roster (East).",
+    "division": "Juryo",
+    "batchRef": "juryo-roster",
+    "lastVerifiedBasho": "202603",
+    "provenanceStatus": "confirmed"
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Shachihoko",
+    "heya": "Oitekaze",
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA Shin Jūryō list",
+        "url": "https://www.sumo.or.jp/ResultBanzuke/shin_juryo/"
+      }
+    ],
+    "notes": "Haru 2026 Jūryō roster (East).",
+    "division": "Juryo",
+    "batchRef": "juryo-roster",
+    "lastVerifiedBasho": "202603",
+    "provenanceStatus": "confirmed"
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Tokitsunami",
+    "heya": "Takasago",
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA Shin Jūryō list",
+        "url": "https://www.sumo.or.jp/ResultBanzuke/shin_juryo/"
+      }
+    ],
+    "notes": "Haru 2026 Jūryō roster (East).",
+    "division": "Juryo",
+    "batchRef": "juryo-roster",
+    "lastVerifiedBasho": "202603",
+    "provenanceStatus": "confirmed"
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Mizuhiki",
+    "heya": "Asakayama",
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA Shin Jūryō list",
+        "url": "https://www.sumo.or.jp/ResultBanzuke/shin_juryo/"
+      }
+    ],
+    "notes": "Haru 2026 Jūryō roster (East).",
+    "division": "Juryo",
+    "batchRef": "juryo-roster",
+    "lastVerifiedBasho": "202603",
+    "provenanceStatus": "confirmed"
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Hakkaku",
+    "heya": "Kōbōyama",
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA Shin Jūryō list",
+        "url": "https://www.sumo.or.jp/ResultBanzuke/shin_juryo/"
+      }
+    ],
+    "notes": "Haru 2026 Jūryō roster (East).",
+    "division": "Juryo",
+    "batchRef": "juryo-roster",
+    "lastVerifiedBasho": "202603",
+    "provenanceStatus": "confirmed"
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Yatsugamine",
+    "heya": "Tamagawa",
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA Shin Jūryō list",
+        "url": "https://www.sumo.or.jp/ResultBanzuke/shin_juryo/"
+      }
+    ],
+    "notes": "Haru 2026 Jūryō roster (East).",
+    "division": "Juryo",
+    "batchRef": "juryo-roster",
+    "lastVerifiedBasho": "202603",
+    "provenanceStatus": "confirmed"
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Onikatsu",
+    "heya": "Onoe",
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA Shin Jūryō list",
+        "url": "https://www.sumo.or.jp/ResultBanzuke/shin_juryo/"
+      }
+    ],
+    "notes": "Haru 2026 Jūryō roster (East).",
+    "division": "Juryo",
+    "batchRef": "juryo-roster",
+    "lastVerifiedBasho": "202603",
+    "provenanceStatus": "confirmed"
+  },
+  {
+    "rikishiId": null,
     "shikona": "Toshinofuji",
     "heya": "Isegahama",
-    "birthDate": "2000-08-24",
+    "birthDate": null,
     "nationality": "Mongolia",
-    "heightCm": 195,
-    "weightKg": 145,
+    "heightCm": null,
+    "weightKg": null,
     "status": "active",
     "officialImageUrl": null,
     "imageSource": null,
@@ -1887,26 +2137,22 @@
       {
         "label": "JSA Shin Jūryō (Jan 2026)",
         "url": "https://www.sumo.or.jp/ResultBanzuke/shin_juryo/"
-      },
-      {
-        "label": "JSA Profile #4243",
-        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4243/"
       }
     ],
-    "notes": "Newly promoted to Jūryō for Haru 2026 (JSA confirmed). Isegahama stable. | Batch E Juryo-backfill: rikishiId=4243 confirmed via JSA profile. Real name Usukhbayar Demidjamts. Former shikona Seihakuho. Debuted March 2024. Juryo debut March 2026. Signature: migi-yotsu, yori, uwatenage.",
+    "notes": "Newly promoted to Jūryō for Haru 2026 (JSA confirmed). Isegahama stable.",
     "division": "Juryo",
     "batchRef": "juryo-roster",
     "lastVerifiedBasho": "202603",
     "provenanceStatus": "confirmed"
   },
   {
-    "rikishiId": "3404",
+    "rikishiId": null,
     "shikona": "Shimazuumi",
-    "heya": "Hanaregoma",
-    "birthDate": "1996-05-18",
+    "heya": "Hamanoshima",
+    "birthDate": null,
     "nationality": "Japan",
-    "heightCm": 175,
-    "weightKg": 155,
+    "heightCm": null,
+    "weightKg": null,
     "status": "active",
     "officialImageUrl": null,
     "imageSource": null,
@@ -1916,30 +2162,272 @@
       {
         "label": "JSA Shin Jūryō (Jan 2026)",
         "url": "https://www.sumo.or.jp/ResultBanzuke/shin_juryo/"
-      },
-      {
-        "label": "JSA Profile #3404",
-        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3404/"
-      },
-      {
-        "label": "SumoDB Rikishi #12013",
-        "url": "https://sumodb.sumogames.de/Rikishi.aspx?r=12013"
       }
     ],
-    "notes": "Newly promoted to Jūryō for Haru 2026 (JSA confirmed). Hamanoshima stable. | Batch E Juryo-backfill: rikishiId=3404 confirmed via JSA profile. Heya=Hanaregoma (was Matsugane → Nishonoseki → Hanaregoma). Real name Nakazono Sora. Highest rank Maegashira #12. Born Kagoshima (Nishinoomote). | Heya corrected: Hamanoshima → Hanaregoma (confirmed via JSA stable page detail/31/).",
+    "notes": "Newly promoted to Jūryō for Haru 2026 (JSA confirmed). Hamanoshima stable.",
     "division": "Juryo",
     "batchRef": "juryo-roster",
     "lastVerifiedBasho": "202603",
     "provenanceStatus": "confirmed"
   },
   {
-    "rikishiId": "4337",
+    "rikishiId": null,
+    "shikona": "Yotsuguruma",
+    "heya": "Oho",
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA Shin Jūryō list",
+        "url": "https://www.sumo.or.jp/ResultBanzuke/shin_juryo/"
+      }
+    ],
+    "notes": "Haru 2026 Jūryō roster (West).",
+    "division": "Juryo",
+    "batchRef": "juryo-roster",
+    "lastVerifiedBasho": "202603",
+    "provenanceStatus": "confirmed"
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Takinooto",
+    "heya": "Tagonoura",
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA Shin Jūryō list",
+        "url": "https://www.sumo.or.jp/ResultBanzuke/shin_juryo/"
+      }
+    ],
+    "notes": "Haru 2026 Jūryō roster (West).",
+    "division": "Juryo",
+    "batchRef": "juryo-roster",
+    "lastVerifiedBasho": "202603",
+    "provenanceStatus": "confirmed"
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Kumagatake",
+    "heya": "Onomatsu",
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA Shin Jūryō list",
+        "url": "https://www.sumo.or.jp/ResultBanzuke/shin_juryo/"
+      }
+    ],
+    "notes": "Haru 2026 Jūryō roster (West).",
+    "division": "Juryo",
+    "batchRef": "juryo-roster",
+    "lastVerifiedBasho": "202603",
+    "provenanceStatus": "confirmed"
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Shibatoyama",
+    "heya": null,
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "retired",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA Shin Jūryō list",
+        "url": "https://www.sumo.or.jp/ResultBanzuke/shin_juryo/"
+      }
+    ],
+    "notes": "Retired after Day 1 (0-1 record) in Haru 2026. Stable unknown.",
+    "division": "Juryo",
+    "batchRef": "juryo-roster",
+    "lastVerifiedBasho": "202603",
+    "provenanceStatus": "confirmed"
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Araumi",
+    "heya": "Dewanoumi",
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA Shin Jūryō list",
+        "url": "https://www.sumo.or.jp/ResultBanzuke/shin_juryo/"
+      }
+    ],
+    "notes": "Haru 2026 Jūryō roster (West).",
+    "division": "Juryo",
+    "batchRef": "juryo-roster",
+    "lastVerifiedBasho": "202603",
+    "provenanceStatus": "confirmed"
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Onuma",
+    "heya": null,
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA Shin Jūryō list",
+        "url": "https://www.sumo.or.jp/ResultBanzuke/shin_juryo/"
+      }
+    ],
+    "notes": "Haru 2026 Jūryō roster (West). Stable unconfirmed.",
+    "division": "Juryo",
+    "batchRef": "juryo-roster",
+    "lastVerifiedBasho": "202603",
+    "provenanceStatus": "confirmed"
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Azumagatake",
+    "heya": "Takadagawa",
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA Shin Jūryō list",
+        "url": "https://www.sumo.or.jp/ResultBanzuke/shin_juryo/"
+      }
+    ],
+    "notes": "Haru 2026 Jūryō roster (West).",
+    "division": "Juryo",
+    "batchRef": "juryo-roster",
+    "lastVerifiedBasho": "202603",
+    "provenanceStatus": "confirmed"
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Sanoyama",
+    "heya": "Sanoyama",
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA Shin Jūryō list",
+        "url": "https://www.sumo.or.jp/ResultBanzuke/shin_juryo/"
+      }
+    ],
+    "notes": "Haru 2026 Jūryō roster (West). Heya formerly known as Shibatayama.",
+    "division": "Juryo",
+    "batchRef": "juryo-roster",
+    "lastVerifiedBasho": "202603",
+    "provenanceStatus": "confirmed"
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Nishikido",
+    "heya": "Asakayama",
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA Shin Jūryō list",
+        "url": "https://www.sumo.or.jp/ResultBanzuke/shin_juryo/"
+      }
+    ],
+    "notes": "Haru 2026 Jūryō roster (West).",
+    "division": "Juryo",
+    "batchRef": "juryo-roster",
+    "lastVerifiedBasho": "202603",
+    "provenanceStatus": "confirmed"
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Musashino",
+    "heya": "Naruto",
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA Shin Jūryō list",
+        "url": "https://www.sumo.or.jp/ResultBanzuke/shin_juryo/"
+      }
+    ],
+    "notes": "Haru 2026 Jūryō roster (West).",
+    "division": "Juryo",
+    "batchRef": "juryo-roster",
+    "lastVerifiedBasho": "202603",
+    "provenanceStatus": "confirmed"
+  },
+  {
+    "rikishiId": null,
     "shikona": "Fujitensei",
     "heya": "Fujishima",
-    "birthDate": "2007-01-09",
-    "nationality": "Japan",
-    "heightCm": 172,
-    "weightKg": 139,
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
     "status": "active",
     "officialImageUrl": null,
     "imageSource": null,
@@ -1953,13 +2441,59 @@
       {
         "label": "JSA Kaimei (Rename) list",
         "url": "https://www.sumo.or.jp/ResultBanzuke/kaimei_rikishi/"
-      },
-      {
-        "label": "JSA Profile #4337",
-        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4337/"
       }
     ],
-    "notes": "Newly promoted to Jūryō for Haru 2026 (JSA confirmed). Renamed from Fukuzaki upon promotion. | Batch E Juryo-backfill: rikishiId=4337 confirmed via JSA profile. Real name Maaru Fukuzaki. Former shikona Fukuzaki. Debuted March 2025 in Makushita. Juryo debut March 2026. Signature: oshi.",
+    "notes": "Newly promoted to Jūryō for Haru 2026 (JSA confirmed). Renamed from Fukuzaki upon promotion.",
+    "division": "Juryo",
+    "batchRef": "juryo-roster",
+    "lastVerifiedBasho": "202603",
+    "provenanceStatus": "confirmed"
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Asogamori",
+    "heya": null,
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA Shin Jūryō list",
+        "url": "https://www.sumo.or.jp/ResultBanzuke/shin_juryo/"
+      }
+    ],
+    "notes": "Debuting sekitori (0-0 record in Haru 2026). Stable unconfirmed.",
+    "division": "Juryo",
+    "batchRef": "juryo-roster",
+    "lastVerifiedBasho": "202603",
+    "provenanceStatus": "confirmed"
+  },
+  {
+    "rikishiId": null,
+    "shikona": "Tateiwa",
+    "heya": "Nishonoseki",
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "likely",
+    "sourceRefs": [
+      {
+        "label": "JSA Shin Jūryō list",
+        "url": "https://www.sumo.or.jp/ResultBanzuke/shin_juryo/"
+      }
+    ],
+    "notes": "Debuting sekitori (0-0 record in Haru 2026).",
     "division": "Juryo",
     "batchRef": "juryo-roster",
     "lastVerifiedBasho": "202603",
@@ -10521,7 +11055,7 @@
     "officialImageUrl": null,
     "imageSource": null,
     "imageConfidence": "missing",
-    "profileConfidence": "verified",
+    "profileConfidence": "likely",
     "sourceRefs": [
       {
         "label": "JSA rikishi profile",
@@ -10532,11 +11066,11 @@
         "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
       }
     ],
-    "notes": "JSA snippet included stale-rank text but the official profile identity is correct. Nationality left null; image omitted pending separate verification. | Nationality left null (JSA gives birthplace only). | Batch D confirmed: Sandanme #58, Tamanoi stable. Highest rank Sandanme #27.",
-    "division": "Sandanme",
-    "batchRef": "d-lower-block",
+    "notes": "JSA snippet included stale-rank text but the official profile identity is correct. Nationality left null; image omitted pending separate verification.",
+    "division": null,
+    "batchRef": null,
     "lastVerifiedBasho": "202603",
-    "provenanceStatus": "confirmed"
+    "provenanceStatus": "unresolved"
   },
   {
     "rikishiId": "3727",
@@ -10550,7 +11084,7 @@
     "officialImageUrl": null,
     "imageSource": null,
     "imageConfidence": "missing",
-    "profileConfidence": "verified",
+    "profileConfidence": "likely",
     "sourceRefs": [
       {
         "label": "JSA rikishi profile",
@@ -10561,11 +11095,11 @@
         "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
       }
     ],
-    "notes": "Nationality left null because JSA profile provides birthplace, not explicit nationality; image omitted pending separate verification. | Nationality left null (JSA gives birthplace only). | Batch D confirmed: Sandanme #59, Asakayama stable. 184.9kg — one of heaviest in batch.",
-    "division": "Sandanme",
-    "batchRef": "d-lower-block",
+    "notes": "Nationality left null because JSA profile provides birthplace, not explicit nationality; image omitted pending separate verification.",
+    "division": null,
+    "batchRef": null,
     "lastVerifiedBasho": "202603",
-    "provenanceStatus": "confirmed"
+    "provenanceStatus": "unresolved"
   },
   {
     "rikishiId": "4183",
@@ -10579,7 +11113,7 @@
     "officialImageUrl": null,
     "imageSource": null,
     "imageConfidence": "missing",
-    "profileConfidence": "verified",
+    "profileConfidence": "likely",
     "sourceRefs": [
       {
         "label": "JSA rikishi profile",
@@ -10590,11 +11124,11 @@
         "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
       }
     ],
-    "notes": "Official JSA profile confirmed identity even where snippets were tournament-record heavy. Nationality left null; image omitted pending separate verification. | Nationality left null (JSA gives birthplace only). | Batch D confirmed: Sandanme #59, Takekuma stable. Jonidan yusho Jul 2025.",
-    "division": "Sandanme",
-    "batchRef": "d-lower-block",
+    "notes": "Official JSA profile confirmed identity even where snippets were tournament-record heavy. Nationality left null; image omitted pending separate verification.",
+    "division": null,
+    "batchRef": null,
     "lastVerifiedBasho": "202603",
-    "provenanceStatus": "confirmed"
+    "provenanceStatus": "unresolved"
   },
   {
     "rikishiId": "3564",
@@ -10608,7 +11142,7 @@
     "officialImageUrl": null,
     "imageSource": null,
     "imageConfidence": "missing",
-    "profileConfidence": "verified",
+    "profileConfidence": "likely",
     "sourceRefs": [
       {
         "label": "JSA rikishi profile",
@@ -10619,11 +11153,11 @@
         "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
       }
     ],
-    "notes": "Nationality left null because JSA profile provides birthplace, not explicit nationality; image omitted pending separate verification. | Nationality left null (JSA gives birthplace only). | Batch D confirmed: Sandanme #60, Hanaregoma stable. Career 212-201-79.",
-    "division": "Sandanme",
-    "batchRef": "d-lower-block",
+    "notes": "Nationality left null because JSA profile provides birthplace, not explicit nationality; image omitted pending separate verification.",
+    "division": null,
+    "batchRef": null,
     "lastVerifiedBasho": "202603",
-    "provenanceStatus": "confirmed"
+    "provenanceStatus": "unresolved"
   },
   {
     "rikishiId": "2983",
@@ -10637,7 +11171,7 @@
     "officialImageUrl": null,
     "imageSource": null,
     "imageConfidence": "missing",
-    "profileConfidence": "verified",
+    "profileConfidence": "likely",
     "sourceRefs": [
       {
         "label": "JSA rikishi profile",
@@ -10648,11 +11182,11 @@
         "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
       }
     ],
-    "notes": "Nationality left null because JSA profile provides birthplace, not explicit nationality; image omitted pending separate verification. | Nationality left null (JSA gives birthplace only). | Batch D confirmed: Sandanme #60, Minato stable. Veteran born 1991.",
-    "division": "Sandanme",
-    "batchRef": "d-lower-block",
+    "notes": "Nationality left null because JSA profile provides birthplace, not explicit nationality; image omitted pending separate verification.",
+    "division": null,
+    "batchRef": null,
     "lastVerifiedBasho": "202603",
-    "provenanceStatus": "confirmed"
+    "provenanceStatus": "unresolved"
   },
   {
     "rikishiId": "4179",
@@ -10695,7 +11229,7 @@
     "officialImageUrl": null,
     "imageSource": null,
     "imageConfidence": "missing",
-    "profileConfidence": "verified",
+    "profileConfidence": "likely",
     "sourceRefs": [
       {
         "label": "JSA rikishi profile",
@@ -10706,11 +11240,11 @@
         "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
       }
     ],
-    "notes": "Official JSA profile uses the transliteration 'Toukiryu' while SumoDB roster text renders the same rikishi as 'Tokiryu'. Final dataset follows the JSA profile spelling. Nationality left null; image omitted pending separate verification. | JSA transliteration 'Toukiryu' vs SumoDB 'Tokiryu' — following JSA. | Batch D confirmed: Sandanme #61, Tamanoi stable. Highest rank Makushita #54.",
-    "division": "Sandanme",
-    "batchRef": "d-lower-block",
+    "notes": "Official JSA profile uses the transliteration 'Toukiryu' while SumoDB roster text renders the same rikishi as 'Tokiryu'. Final dataset follows the JSA profile spelling. Nationality left null; image omitted pending separate verification.",
+    "division": null,
+    "batchRef": null,
     "lastVerifiedBasho": "202603",
-    "provenanceStatus": "confirmed"
+    "provenanceStatus": "unresolved"
   },
   {
     "rikishiId": "3002",
@@ -10724,7 +11258,7 @@
     "officialImageUrl": null,
     "imageSource": null,
     "imageConfidence": "missing",
-    "profileConfidence": "verified",
+    "profileConfidence": "likely",
     "sourceRefs": [
       {
         "label": "JSA rikishi profile",
@@ -10735,11 +11269,11 @@
         "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
       }
     ],
-    "notes": "Nationality left null because JSA profile provides birthplace, not explicit nationality; image omitted pending separate verification. | Nationality left null (JSA gives birthplace only). | Batch D confirmed: Sandanme #62, Oshiogawa stable. Ex-Maegashira #13, Juryo yusho winner.",
-    "division": "Sandanme",
-    "batchRef": "d-lower-block",
+    "notes": "Nationality left null because JSA profile provides birthplace, not explicit nationality; image omitted pending separate verification.",
+    "division": null,
+    "batchRef": null,
     "lastVerifiedBasho": "202603",
-    "provenanceStatus": "confirmed"
+    "provenanceStatus": "unresolved"
   },
   {
     "rikishiId": "4233",
@@ -10753,7 +11287,7 @@
     "officialImageUrl": null,
     "imageSource": null,
     "imageConfidence": "missing",
-    "profileConfidence": "verified",
+    "profileConfidence": "likely",
     "sourceRefs": [
       {
         "label": "JSA rikishi profile",
@@ -10764,11 +11298,11 @@
         "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
       }
     ],
-    "notes": "JSA snippet included stale-rank text but the official profile identity is correct. Nationality left null; image omitted pending separate verification. | Nationality left null (JSA gives birthplace only). | Batch D confirmed: Sandanme #62, Isenoumi stable.",
-    "division": "Sandanme",
-    "batchRef": "d-lower-block",
+    "notes": "JSA snippet included stale-rank text but the official profile identity is correct. Nationality left null; image omitted pending separate verification.",
+    "division": null,
+    "batchRef": null,
     "lastVerifiedBasho": "202603",
-    "provenanceStatus": "confirmed"
+    "provenanceStatus": "unresolved"
   },
   {
     "rikishiId": "2522",
@@ -10782,7 +11316,7 @@
     "officialImageUrl": null,
     "imageSource": null,
     "imageConfidence": "missing",
-    "profileConfidence": "verified",
+    "profileConfidence": "likely",
     "sourceRefs": [
       {
         "label": "JSA rikishi profile",
@@ -10793,11 +11327,11 @@
         "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
       }
     ],
-    "notes": "Nationality left null because JSA profile provides birthplace, not explicit nationality; image omitted pending separate verification. | Nationality left null (JSA gives birthplace only). | Batch D confirmed: Sandanme #63, Sakaigawa stable. Born 1984 — oldest in batch.",
-    "division": "Sandanme",
-    "batchRef": "d-lower-block",
+    "notes": "Nationality left null because JSA profile provides birthplace, not explicit nationality; image omitted pending separate verification.",
+    "division": null,
+    "batchRef": null,
     "lastVerifiedBasho": "202603",
-    "provenanceStatus": "confirmed"
+    "provenanceStatus": "unresolved"
   },
   {
     "rikishiId": "4290",
@@ -10811,7 +11345,7 @@
     "officialImageUrl": null,
     "imageSource": null,
     "imageConfidence": "missing",
-    "profileConfidence": "verified",
+    "profileConfidence": "likely",
     "sourceRefs": [
       {
         "label": "JSA rikishi profile",
@@ -10822,11 +11356,11 @@
         "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
       }
     ],
-    "notes": "Birthplace is listed as America on the JSA profile, but nationality is still left null because the profile does not explicitly state nationality. Image omitted pending separate verification. | Birthplace America per JSA. Nationality left null (JSA gives birthplace only). | Batch D confirmed: Sandanme #63, Musashigawa stable.",
-    "division": "Sandanme",
-    "batchRef": "d-lower-block",
+    "notes": "Birthplace is listed as America on the JSA profile, but nationality is still left null because the profile does not explicitly state nationality. Image omitted pending separate verification.",
+    "division": null,
+    "batchRef": null,
     "lastVerifiedBasho": "202603",
-    "provenanceStatus": "confirmed"
+    "provenanceStatus": "unresolved"
   },
   {
     "rikishiId": "3859",
@@ -10840,7 +11374,7 @@
     "officialImageUrl": null,
     "imageSource": null,
     "imageConfidence": "missing",
-    "profileConfidence": "verified",
+    "profileConfidence": "likely",
     "sourceRefs": [
       {
         "label": "JSA rikishi profile",
@@ -10851,11 +11385,11 @@
         "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
       }
     ],
-    "notes": "Nationality left null because JSA profile provides birthplace, not explicit nationality; image omitted pending separate verification. | Nationality left null (JSA gives birthplace only). | Batch D confirmed: Sandanme #64, Futagoyama stable. Highest rank Makushita #37.",
-    "division": "Sandanme",
-    "batchRef": "d-lower-block",
+    "notes": "Nationality left null because JSA profile provides birthplace, not explicit nationality; image omitted pending separate verification.",
+    "division": null,
+    "batchRef": null,
     "lastVerifiedBasho": "202603",
-    "provenanceStatus": "confirmed"
+    "provenanceStatus": "unresolved"
   },
   {
     "rikishiId": "4322",
@@ -10869,7 +11403,7 @@
     "officialImageUrl": null,
     "imageSource": null,
     "imageConfidence": "missing",
-    "profileConfidence": "verified",
+    "profileConfidence": "likely",
     "sourceRefs": [
       {
         "label": "JSA rikishi profile",
@@ -10880,11 +11414,11 @@
         "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
       }
     ],
-    "notes": "Nationality left null because JSA profile provides birthplace, not explicit nationality; image omitted pending separate verification. | Nationality left null (JSA gives birthplace only). | Batch D confirmed: Sandanme #64, Nishiiwa stable. Debut Mar 2025.",
-    "division": "Sandanme",
-    "batchRef": "d-lower-block",
+    "notes": "Nationality left null because JSA profile provides birthplace, not explicit nationality; image omitted pending separate verification.",
+    "division": null,
+    "batchRef": null,
     "lastVerifiedBasho": "202603",
-    "provenanceStatus": "confirmed"
+    "provenanceStatus": "unresolved"
   },
   {
     "rikishiId": "2637",
@@ -10898,7 +11432,7 @@
     "officialImageUrl": null,
     "imageSource": null,
     "imageConfidence": "missing",
-    "profileConfidence": "verified",
+    "profileConfidence": "likely",
     "sourceRefs": [
       {
         "label": "JSA rikishi profile",
@@ -10909,11 +11443,11 @@
         "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
       }
     ],
-    "notes": "Official JSA profile confirmed identity even where snippets were tournament-record heavy. Nationality left null; image omitted pending separate verification. | Nationality left null (JSA gives birthplace only). | Batch D confirmed: Sandanme #65, Takasago stable. Veteran born 1986.",
-    "division": "Sandanme",
-    "batchRef": "d-lower-block",
+    "notes": "Official JSA profile confirmed identity even where snippets were tournament-record heavy. Nationality left null; image omitted pending separate verification.",
+    "division": null,
+    "batchRef": null,
     "lastVerifiedBasho": "202603",
-    "provenanceStatus": "confirmed"
+    "provenanceStatus": "unresolved"
   },
   {
     "rikishiId": "4300",
@@ -10927,7 +11461,7 @@
     "officialImageUrl": null,
     "imageSource": null,
     "imageConfidence": "missing",
-    "profileConfidence": "verified",
+    "profileConfidence": "likely",
     "sourceRefs": [
       {
         "label": "JSA rikishi profile",
@@ -10938,11 +11472,11 @@
         "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
       }
     ],
-    "notes": "JSA snippet included stale-rank text but the official profile identity is correct. Nationality left null; image omitted pending separate verification. | Nationality left null (JSA gives birthplace only). | Batch D confirmed: Sandanme #65, Takasago stable. Debut Jan 2025.",
-    "division": "Sandanme",
-    "batchRef": "d-lower-block",
+    "notes": "JSA snippet included stale-rank text but the official profile identity is correct. Nationality left null; image omitted pending separate verification.",
+    "division": null,
+    "batchRef": null,
     "lastVerifiedBasho": "202603",
-    "provenanceStatus": "confirmed"
+    "provenanceStatus": "unresolved"
   },
   {
     "rikishiId": "3685",
@@ -10956,7 +11490,7 @@
     "officialImageUrl": null,
     "imageSource": null,
     "imageConfidence": "missing",
-    "profileConfidence": "verified",
+    "profileConfidence": "likely",
     "sourceRefs": [
       {
         "label": "JSA rikishi profile",
@@ -10967,11 +11501,11 @@
         "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
       }
     ],
-    "notes": "JSA snippet included stale-rank text but the official profile identity is correct. Nationality left null; image omitted pending separate verification. | Nationality left null (JSA gives birthplace only). | Batch D confirmed: Sandanme #66, Takasago stable. Highest rank Makushita #39.",
-    "division": "Sandanme",
-    "batchRef": "d-lower-block",
+    "notes": "JSA snippet included stale-rank text but the official profile identity is correct. Nationality left null; image omitted pending separate verification.",
+    "division": null,
+    "batchRef": null,
     "lastVerifiedBasho": "202603",
-    "provenanceStatus": "confirmed"
+    "provenanceStatus": "unresolved"
   },
   {
     "rikishiId": "3780",
@@ -10985,7 +11519,7 @@
     "officialImageUrl": null,
     "imageSource": null,
     "imageConfidence": "missing",
-    "profileConfidence": "verified",
+    "profileConfidence": "likely",
     "sourceRefs": [
       {
         "label": "JSA rikishi profile",
@@ -10996,11 +11530,11 @@
         "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
       }
     ],
-    "notes": "Nationality left null because JSA profile provides birthplace, not explicit nationality; image omitted pending separate verification. | Nationality left null (JSA gives birthplace only). | Batch D confirmed: Sandanme #66, Dewanoumi stable. Highest rank Sandanme #15.",
-    "division": "Sandanme",
-    "batchRef": "d-lower-block",
+    "notes": "Nationality left null because JSA profile provides birthplace, not explicit nationality; image omitted pending separate verification.",
+    "division": null,
+    "batchRef": null,
     "lastVerifiedBasho": "202603",
-    "provenanceStatus": "confirmed"
+    "provenanceStatus": "unresolved"
   },
   {
     "rikishiId": "4247",
@@ -11014,7 +11548,7 @@
     "officialImageUrl": null,
     "imageSource": null,
     "imageConfidence": "missing",
-    "profileConfidence": "verified",
+    "profileConfidence": "likely",
     "sourceRefs": [
       {
         "label": "JSA rikishi profile",
@@ -11025,11 +11559,11 @@
         "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
       }
     ],
-    "notes": "Nationality left null because JSA profile provides birthplace, not explicit nationality; image omitted pending separate verification. | Nationality left null (JSA gives birthplace only). | Batch D confirmed: Sandanme #67, Isegahama stable. 166.6kg.",
-    "division": "Sandanme",
-    "batchRef": "d-lower-block",
+    "notes": "Nationality left null because JSA profile provides birthplace, not explicit nationality; image omitted pending separate verification.",
+    "division": null,
+    "batchRef": null,
     "lastVerifiedBasho": "202603",
-    "provenanceStatus": "confirmed"
+    "provenanceStatus": "unresolved"
   },
   {
     "rikishiId": "3718",
@@ -11043,7 +11577,7 @@
     "officialImageUrl": null,
     "imageSource": null,
     "imageConfidence": "missing",
-    "profileConfidence": "verified",
+    "profileConfidence": "likely",
     "sourceRefs": [
       {
         "label": "JSA rikishi profile",
@@ -11054,11 +11588,11 @@
         "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
       }
     ],
-    "notes": "Nationality left null because JSA profile provides birthplace, not explicit nationality; image omitted pending separate verification. | Nationality left null (JSA gives birthplace only). | Batch D confirmed: Sandanme #67, Naruto stable. Highest rank Sandanme #18.",
-    "division": "Sandanme",
-    "batchRef": "d-lower-block",
+    "notes": "Nationality left null because JSA profile provides birthplace, not explicit nationality; image omitted pending separate verification.",
+    "division": null,
+    "batchRef": null,
     "lastVerifiedBasho": "202603",
-    "provenanceStatus": "confirmed"
+    "provenanceStatus": "unresolved"
   },
   {
     "rikishiId": "3645",
@@ -11072,7 +11606,7 @@
     "officialImageUrl": null,
     "imageSource": null,
     "imageConfidence": "missing",
-    "profileConfidence": "verified",
+    "profileConfidence": "likely",
     "sourceRefs": [
       {
         "label": "JSA rikishi profile",
@@ -11083,11 +11617,11 @@
         "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
       }
     ],
-    "notes": "JSA snippet included stale-rank text but the official profile identity is correct. Nationality left null; image omitted pending separate verification. | Nationality left null (JSA gives birthplace only). | Batch D confirmed: Sandanme #68, Tokitsukaze stable. 191.5kg — second heaviest in batch.",
-    "division": "Sandanme",
-    "batchRef": "d-lower-block",
+    "notes": "JSA snippet included stale-rank text but the official profile identity is correct. Nationality left null; image omitted pending separate verification.",
+    "division": null,
+    "batchRef": null,
     "lastVerifiedBasho": "202603",
-    "provenanceStatus": "confirmed"
+    "provenanceStatus": "unresolved"
   },
   {
     "rikishiId": "4114",
@@ -11101,7 +11635,7 @@
     "officialImageUrl": null,
     "imageSource": null,
     "imageConfidence": "missing",
-    "profileConfidence": "verified",
+    "profileConfidence": "likely",
     "sourceRefs": [
       {
         "label": "JSA rikishi profile",
@@ -11112,11 +11646,11 @@
         "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
       }
     ],
-    "notes": "JSA snippet included stale-rank text but the official profile identity is correct. Nationality left null; image omitted pending separate verification. | Nationality left null (JSA gives birthplace only). | Batch D confirmed: Sandanme #68, Isegahama stable. Highest rank Sandanme #49.",
-    "division": "Sandanme",
-    "batchRef": "d-lower-block",
+    "notes": "JSA snippet included stale-rank text but the official profile identity is correct. Nationality left null; image omitted pending separate verification.",
+    "division": null,
+    "batchRef": null,
     "lastVerifiedBasho": "202603",
-    "provenanceStatus": "confirmed"
+    "provenanceStatus": "unresolved"
   },
   {
     "rikishiId": "4083",
@@ -11130,7 +11664,7 @@
     "officialImageUrl": null,
     "imageSource": null,
     "imageConfidence": "missing",
-    "profileConfidence": "verified",
+    "profileConfidence": "likely",
     "sourceRefs": [
       {
         "label": "JSA rikishi profile",
@@ -11141,11 +11675,11 @@
         "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
       }
     ],
-    "notes": "Official JSA profile confirmed identity even where snippets were tournament-record heavy. Nationality left null; image omitted pending separate verification. | Nationality left null (JSA gives birthplace only). | Batch D confirmed: Sandanme #69, Minatogawa stable. 193cm — tallest in batch.",
-    "division": "Sandanme",
-    "batchRef": "d-lower-block",
+    "notes": "Official JSA profile confirmed identity even where snippets were tournament-record heavy. Nationality left null; image omitted pending separate verification.",
+    "division": null,
+    "batchRef": null,
     "lastVerifiedBasho": "202603",
-    "provenanceStatus": "confirmed"
+    "provenanceStatus": "unresolved"
   },
   {
     "rikishiId": "3663",
@@ -11159,7 +11693,7 @@
     "officialImageUrl": null,
     "imageSource": null,
     "imageConfidence": "missing",
-    "profileConfidence": "verified",
+    "profileConfidence": "likely",
     "sourceRefs": [
       {
         "label": "JSA rikishi profile",
@@ -11170,11 +11704,11 @@
         "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
       }
     ],
-    "notes": "Nationality left null because JSA profile provides birthplace, not explicit nationality; image omitted pending separate verification. | Nationality left null (JSA gives birthplace only). | Batch D confirmed: Sandanme #69, Musashigawa stable. 200.8kg — heaviest in batch.",
-    "division": "Sandanme",
-    "batchRef": "d-lower-block",
+    "notes": "Nationality left null because JSA profile provides birthplace, not explicit nationality; image omitted pending separate verification.",
+    "division": null,
+    "batchRef": null,
     "lastVerifiedBasho": "202603",
-    "provenanceStatus": "confirmed"
+    "provenanceStatus": "unresolved"
   },
   {
     "rikishiId": "3897",
@@ -11188,7 +11722,7 @@
     "officialImageUrl": null,
     "imageSource": null,
     "imageConfidence": "missing",
-    "profileConfidence": "verified",
+    "profileConfidence": "likely",
     "sourceRefs": [
       {
         "label": "JSA rikishi profile",
@@ -11199,11 +11733,11 @@
         "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
       }
     ],
-    "notes": "JSA snippet included stale-rank text but the official profile identity is correct. Nationality left null; image omitted pending separate verification. | Nationality left null (JSA gives birthplace only). | Batch D confirmed: Sandanme #70, Tokitsukaze stable. Highest rank Makushita #32, Jonokuchi yusho.",
-    "division": "Sandanme",
-    "batchRef": "d-lower-block",
+    "notes": "JSA snippet included stale-rank text but the official profile identity is correct. Nationality left null; image omitted pending separate verification.",
+    "division": null,
+    "batchRef": null,
     "lastVerifiedBasho": "202603",
-    "provenanceStatus": "confirmed"
+    "provenanceStatus": "unresolved"
   },
   {
     "rikishiId": "4082",
@@ -11217,7 +11751,7 @@
     "officialImageUrl": null,
     "imageSource": null,
     "imageConfidence": "missing",
-    "profileConfidence": "verified",
+    "profileConfidence": "likely",
     "sourceRefs": [
       {
         "label": "JSA rikishi profile",
@@ -11228,11 +11762,11 @@
         "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
       }
     ],
-    "notes": "Nationality left null because JSA profile provides birthplace, not explicit nationality; image omitted pending separate verification. | Nationality left null (JSA gives birthplace only). | Batch D confirmed: Sandanme #70, Sakaigawa stable. 0-0-3 absent Mar 2026.",
-    "division": "Sandanme",
-    "batchRef": "d-lower-block",
+    "notes": "Nationality left null because JSA profile provides birthplace, not explicit nationality; image omitted pending separate verification.",
+    "division": null,
+    "batchRef": null,
     "lastVerifiedBasho": "202603",
-    "provenanceStatus": "confirmed"
+    "provenanceStatus": "unresolved"
   },
   {
     "rikishiId": "4052",
@@ -11246,7 +11780,7 @@
     "officialImageUrl": null,
     "imageSource": null,
     "imageConfidence": "missing",
-    "profileConfidence": "verified",
+    "profileConfidence": "likely",
     "sourceRefs": [
       {
         "label": "JSA rikishi profile",
@@ -11257,11 +11791,11 @@
         "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
       }
     ],
-    "notes": "Nationality left null because JSA profile provides birthplace, not explicit nationality; image omitted pending separate verification. | Nationality left null (JSA gives birthplace only). | Batch D confirmed: Sandanme #71, Isegahama stable. Highest rank Sandanme #40.",
-    "division": "Sandanme",
-    "batchRef": "d-lower-block",
+    "notes": "Nationality left null because JSA profile provides birthplace, not explicit nationality; image omitted pending separate verification.",
+    "division": null,
+    "batchRef": null,
     "lastVerifiedBasho": "202603",
-    "provenanceStatus": "confirmed"
+    "provenanceStatus": "unresolved"
   },
   {
     "rikishiId": "3019",
@@ -11275,7 +11809,7 @@
     "officialImageUrl": null,
     "imageSource": null,
     "imageConfidence": "missing",
-    "profileConfidence": "verified",
+    "profileConfidence": "likely",
     "sourceRefs": [
       {
         "label": "JSA rikishi profile",
@@ -11286,11 +11820,11 @@
         "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
       }
     ],
-    "notes": "Nationality left null because JSA profile provides birthplace, not explicit nationality; image omitted pending separate verification. | Nationality left null (JSA gives birthplace only). | Batch D confirmed: Sandanme #71, Takadagawa stable. Veteran born 1991.",
-    "division": "Sandanme",
-    "batchRef": "d-lower-block",
+    "notes": "Nationality left null because JSA profile provides birthplace, not explicit nationality; image omitted pending separate verification.",
+    "division": null,
+    "batchRef": null,
     "lastVerifiedBasho": "202603",
-    "provenanceStatus": "confirmed"
+    "provenanceStatus": "unresolved"
   },
   {
     "rikishiId": "3717",
@@ -11304,7 +11838,7 @@
     "officialImageUrl": null,
     "imageSource": null,
     "imageConfidence": "missing",
-    "profileConfidence": "verified",
+    "profileConfidence": "likely",
     "sourceRefs": [
       {
         "label": "JSA rikishi profile",
@@ -11315,11 +11849,11 @@
         "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
       }
     ],
-    "notes": "JSA snippet included stale-rank text but the official profile identity is correct. Nationality left null; image omitted pending separate verification. | Nationality left null (JSA gives birthplace only). | Batch D confirmed: Sandanme #72, Onomatsu stable. Highest rank Sandanme #72 — career-high this basho.",
-    "division": "Sandanme",
-    "batchRef": "d-lower-block",
+    "notes": "JSA snippet included stale-rank text but the official profile identity is correct. Nationality left null; image omitted pending separate verification.",
+    "division": null,
+    "batchRef": null,
     "lastVerifiedBasho": "202603",
-    "provenanceStatus": "confirmed"
+    "provenanceStatus": "unresolved"
   },
   {
     "rikishiId": "3930",
@@ -11333,7 +11867,7 @@
     "officialImageUrl": null,
     "imageSource": null,
     "imageConfidence": "missing",
-    "profileConfidence": "verified",
+    "profileConfidence": "likely",
     "sourceRefs": [
       {
         "label": "JSA rikishi profile",
@@ -11344,11 +11878,11 @@
         "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
       }
     ],
-    "notes": "Nationality left null because JSA profile provides birthplace, not explicit nationality; image omitted pending separate verification. | Nationality left null (JSA gives birthplace only). | Batch D confirmed: Sandanme #72, Onomatsu stable. Highest rank Sandanme #42.",
-    "division": "Sandanme",
-    "batchRef": "d-lower-block",
+    "notes": "Nationality left null because JSA profile provides birthplace, not explicit nationality; image omitted pending separate verification.",
+    "division": null,
+    "batchRef": null,
     "lastVerifiedBasho": "202603",
-    "provenanceStatus": "confirmed"
+    "provenanceStatus": "unresolved"
   },
   {
     "rikishiId": "3789",
@@ -11362,7 +11896,7 @@
     "officialImageUrl": null,
     "imageSource": null,
     "imageConfidence": "missing",
-    "profileConfidence": "verified",
+    "profileConfidence": "likely",
     "sourceRefs": [
       {
         "label": "JSA rikishi profile",
@@ -11373,11 +11907,11 @@
         "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
       }
     ],
-    "notes": "JSA snippet included stale-rank text but the official profile identity is correct. Nationality left null; image omitted pending separate verification. | Nationality left null (JSA gives birthplace only). | Batch D confirmed: Sandanme #73, Kokonoe stable. Highest rank Sandanme #69.",
-    "division": "Sandanme",
-    "batchRef": "d-lower-block",
+    "notes": "JSA snippet included stale-rank text but the official profile identity is correct. Nationality left null; image omitted pending separate verification.",
+    "division": null,
+    "batchRef": null,
     "lastVerifiedBasho": "202603",
-    "provenanceStatus": "confirmed"
+    "provenanceStatus": "unresolved"
   },
   {
     "rikishiId": "2647",
@@ -11391,7 +11925,7 @@
     "officialImageUrl": null,
     "imageSource": null,
     "imageConfidence": "missing",
-    "profileConfidence": "verified",
+    "profileConfidence": "likely",
     "sourceRefs": [
       {
         "label": "JSA rikishi profile",
@@ -11402,11 +11936,11 @@
         "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
       }
     ],
-    "notes": "Official JSA profile confirmed identity even where snippets were tournament-record heavy. Nationality left null; image omitted pending separate verification. | Nationality left null (JSA gives birthplace only). | Batch D confirmed: Sandanme #73, Fujishima stable. Born 1985 — second oldest in batch.",
-    "division": "Sandanme",
-    "batchRef": "d-lower-block",
+    "notes": "Official JSA profile confirmed identity even where snippets were tournament-record heavy. Nationality left null; image omitted pending separate verification.",
+    "division": null,
+    "batchRef": null,
     "lastVerifiedBasho": "202603",
-    "provenanceStatus": "confirmed"
+    "provenanceStatus": "unresolved"
   },
   {
     "rikishiId": "3525",
@@ -11420,7 +11954,7 @@
     "officialImageUrl": null,
     "imageSource": null,
     "imageConfidence": "missing",
-    "profileConfidence": "verified",
+    "profileConfidence": "likely",
     "sourceRefs": [
       {
         "label": "JSA rikishi profile",
@@ -11431,11 +11965,11 @@
         "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
       }
     ],
-    "notes": "JSA snippet included stale-rank text but the official profile identity is correct. Nationality left null; image omitted pending separate verification. | Nationality left null (JSA gives birthplace only). | Batch D confirmed: Sandanme #74, Kasugano stable. Highest rank Makushita #60.",
-    "division": "Sandanme",
-    "batchRef": "d-lower-block",
+    "notes": "JSA snippet included stale-rank text but the official profile identity is correct. Nationality left null; image omitted pending separate verification.",
+    "division": null,
+    "batchRef": null,
     "lastVerifiedBasho": "202603",
-    "provenanceStatus": "confirmed"
+    "provenanceStatus": "unresolved"
   },
   {
     "rikishiId": "3837",
@@ -11449,7 +11983,7 @@
     "officialImageUrl": null,
     "imageSource": null,
     "imageConfidence": "missing",
-    "profileConfidence": "verified",
+    "profileConfidence": "likely",
     "sourceRefs": [
       {
         "label": "JSA rikishi profile",
@@ -11460,11 +11994,11 @@
         "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
       }
     ],
-    "notes": "Official JSA profile confirmed identity even where snippets were tournament-record heavy. Nationality left null; image omitted pending separate verification. | Nationality left null (JSA gives birthplace only). | Batch D confirmed: Sandanme #74, Takadagawa stable. Highest rank Sandanme #6.",
-    "division": "Sandanme",
-    "batchRef": "d-lower-block",
+    "notes": "Official JSA profile confirmed identity even where snippets were tournament-record heavy. Nationality left null; image omitted pending separate verification.",
+    "division": null,
+    "batchRef": null,
     "lastVerifiedBasho": "202603",
-    "provenanceStatus": "confirmed"
+    "provenanceStatus": "unresolved"
   },
   {
     "rikishiId": "3875",
@@ -11478,7 +12012,7 @@
     "officialImageUrl": null,
     "imageSource": null,
     "imageConfidence": "missing",
-    "profileConfidence": "verified",
+    "profileConfidence": "likely",
     "sourceRefs": [
       {
         "label": "JSA rikishi profile",
@@ -11489,11 +12023,11 @@
         "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
       }
     ],
-    "notes": "Nationality left null because JSA profile provides birthplace, not explicit nationality; image omitted pending separate verification. | Nationality left null (JSA gives birthplace only). | Batch D confirmed: Sandanme #75, Takasago stable. Ex-Juryo #4, 3 division yusho.",
-    "division": "Sandanme",
-    "batchRef": "d-lower-block",
+    "notes": "Nationality left null because JSA profile provides birthplace, not explicit nationality; image omitted pending separate verification.",
+    "division": null,
+    "batchRef": null,
     "lastVerifiedBasho": "202603",
-    "provenanceStatus": "confirmed"
+    "provenanceStatus": "unresolved"
   },
   {
     "rikishiId": "4238",
@@ -11507,7 +12041,7 @@
     "officialImageUrl": null,
     "imageSource": null,
     "imageConfidence": "missing",
-    "profileConfidence": "verified",
+    "profileConfidence": "likely",
     "sourceRefs": [
       {
         "label": "JSA rikishi profile",
@@ -11518,11 +12052,11 @@
         "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
       }
     ],
-    "notes": "Official JSA profile confirmed identity even where snippets were tournament-record heavy. Nationality left null; image omitted pending separate verification. | Nationality left null (JSA gives birthplace only). | Batch D confirmed: Sandanme #75, Oshima stable. Highest rank Sandanme #52.",
-    "division": "Sandanme",
-    "batchRef": "d-lower-block",
+    "notes": "Official JSA profile confirmed identity even where snippets were tournament-record heavy. Nationality left null; image omitted pending separate verification.",
+    "division": null,
+    "batchRef": null,
     "lastVerifiedBasho": "202603",
-    "provenanceStatus": "confirmed"
+    "provenanceStatus": "unresolved"
   },
   {
     "rikishiId": "3854",
@@ -11536,7 +12070,7 @@
     "officialImageUrl": null,
     "imageSource": null,
     "imageConfidence": "missing",
-    "profileConfidence": "verified",
+    "profileConfidence": "likely",
     "sourceRefs": [
       {
         "label": "JSA rikishi profile",
@@ -11547,11 +12081,11 @@
         "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
       }
     ],
-    "notes": "JSA snippet included stale-rank text but the official profile identity is correct. Nationality left null; image omitted pending separate verification. | Nationality left null (JSA gives birthplace only). | Batch D confirmed: Sandanme #76, Ikazuchi stable. Highest rank Makushita #48.",
-    "division": "Sandanme",
-    "batchRef": "d-lower-block",
+    "notes": "JSA snippet included stale-rank text but the official profile identity is correct. Nationality left null; image omitted pending separate verification.",
+    "division": null,
+    "batchRef": null,
     "lastVerifiedBasho": "202603",
-    "provenanceStatus": "confirmed"
+    "provenanceStatus": "unresolved"
   },
   {
     "rikishiId": "3769",
@@ -11565,7 +12099,7 @@
     "officialImageUrl": null,
     "imageSource": null,
     "imageConfidence": "missing",
-    "profileConfidence": "verified",
+    "profileConfidence": "likely",
     "sourceRefs": [
       {
         "label": "JSA rikishi profile",
@@ -11576,11 +12110,11 @@
         "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
       }
     ],
-    "notes": "JSA snippet included stale-rank text but the official profile identity is correct. Nationality left null; image omitted pending separate verification. | Nationality left null (JSA gives birthplace only). | Batch D confirmed: Sandanme #76, Shikoroyama stable. Highest rank Makushita #58.",
-    "division": "Sandanme",
-    "batchRef": "d-lower-block",
+    "notes": "JSA snippet included stale-rank text but the official profile identity is correct. Nationality left null; image omitted pending separate verification.",
+    "division": null,
+    "batchRef": null,
     "lastVerifiedBasho": "202603",
-    "provenanceStatus": "confirmed"
+    "provenanceStatus": "unresolved"
   },
   {
     "rikishiId": "4254",
@@ -11594,7 +12128,7 @@
     "officialImageUrl": null,
     "imageSource": null,
     "imageConfidence": "missing",
-    "profileConfidence": "verified",
+    "profileConfidence": "likely",
     "sourceRefs": [
       {
         "label": "JSA rikishi profile",
@@ -11605,11 +12139,11 @@
         "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
       }
     ],
-    "notes": "JSA snippet included stale-rank text but the official profile identity is correct. Nationality left null; image omitted pending separate verification. | Nationality left null (JSA gives birthplace only). | Batch D confirmed: Sandanme #77, Otowayama stable. Highest rank Sandanme #59.",
-    "division": "Sandanme",
-    "batchRef": "d-lower-block",
+    "notes": "JSA snippet included stale-rank text but the official profile identity is correct. Nationality left null; image omitted pending separate verification.",
+    "division": null,
+    "batchRef": null,
     "lastVerifiedBasho": "202603",
-    "provenanceStatus": "confirmed"
+    "provenanceStatus": "unresolved"
   },
   {
     "rikishiId": "3776",
@@ -11623,7 +12157,7 @@
     "officialImageUrl": null,
     "imageSource": null,
     "imageConfidence": "missing",
-    "profileConfidence": "verified",
+    "profileConfidence": "likely",
     "sourceRefs": [
       {
         "label": "JSA rikishi profile",
@@ -11634,11 +12168,11 @@
         "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
       }
     ],
-    "notes": "JSA snippet included stale-rank text but the official profile identity is correct. Nationality left null; image omitted pending separate verification. | Nationality left null (JSA gives birthplace only). | Batch D confirmed: Sandanme #77, Sadogatake stable. Tsukidashi specialist.",
-    "division": "Sandanme",
-    "batchRef": "d-lower-block",
+    "notes": "JSA snippet included stale-rank text but the official profile identity is correct. Nationality left null; image omitted pending separate verification.",
+    "division": null,
+    "batchRef": null,
     "lastVerifiedBasho": "202603",
-    "provenanceStatus": "confirmed"
+    "provenanceStatus": "unresolved"
   },
   {
     "rikishiId": "4140",
@@ -11652,7 +12186,7 @@
     "officialImageUrl": null,
     "imageSource": null,
     "imageConfidence": "missing",
-    "profileConfidence": "verified",
+    "profileConfidence": "likely",
     "sourceRefs": [
       {
         "label": "JSA rikishi profile",
@@ -11663,11 +12197,11 @@
         "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
       }
     ],
-    "notes": "JSA snippet included stale-rank text but the official profile identity is correct. Nationality left null; image omitted pending separate verification. | Nationality left null (JSA gives birthplace only). | Batch D confirmed: Sandanme #78, Hanaregoma stable. Highest rank Sandanme #46.",
-    "division": "Sandanme",
-    "batchRef": "d-lower-block",
+    "notes": "JSA snippet included stale-rank text but the official profile identity is correct. Nationality left null; image omitted pending separate verification.",
+    "division": null,
+    "batchRef": null,
     "lastVerifiedBasho": "202603",
-    "provenanceStatus": "confirmed"
+    "provenanceStatus": "unresolved"
   },
   {
     "rikishiId": "3714",
@@ -11681,7 +12215,7 @@
     "officialImageUrl": null,
     "imageSource": null,
     "imageConfidence": "missing",
-    "profileConfidence": "verified",
+    "profileConfidence": "likely",
     "sourceRefs": [
       {
         "label": "JSA rikishi profile",
@@ -11692,11 +12226,11 @@
         "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
       }
     ],
-    "notes": "Nationality left null because JSA profile provides birthplace, not explicit nationality; image omitted pending separate verification. | Nationality left null (JSA gives birthplace only). | Batch D confirmed: Sandanme #78, Onoe stable. 96.3kg — lightest in batch.",
-    "division": "Sandanme",
-    "batchRef": "d-lower-block",
+    "notes": "Nationality left null because JSA profile provides birthplace, not explicit nationality; image omitted pending separate verification.",
+    "division": null,
+    "batchRef": null,
     "lastVerifiedBasho": "202603",
-    "provenanceStatus": "confirmed"
+    "provenanceStatus": "unresolved"
   },
   {
     "rikishiId": "4159",
@@ -11710,7 +12244,7 @@
     "officialImageUrl": null,
     "imageSource": null,
     "imageConfidence": "missing",
-    "profileConfidence": "verified",
+    "profileConfidence": "likely",
     "sourceRefs": [
       {
         "label": "JSA rikishi profile",
@@ -11721,11 +12255,11 @@
         "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
       }
     ],
-    "notes": "Nationality left null because JSA profile provides birthplace, not explicit nationality; image omitted pending separate verification. | Nationality left null (JSA gives birthplace only). | Batch D confirmed: Sandanme #79, Minato stable. Highest rank Sandanme #71.",
-    "division": "Sandanme",
-    "batchRef": "d-lower-block",
+    "notes": "Nationality left null because JSA profile provides birthplace, not explicit nationality; image omitted pending separate verification.",
+    "division": null,
+    "batchRef": null,
     "lastVerifiedBasho": "202603",
-    "provenanceStatus": "confirmed"
+    "provenanceStatus": "unresolved"
   },
   {
     "rikishiId": "3551",
@@ -11739,7 +12273,7 @@
     "officialImageUrl": null,
     "imageSource": null,
     "imageConfidence": "missing",
-    "profileConfidence": "verified",
+    "profileConfidence": "likely",
     "sourceRefs": [
       {
         "label": "JSA rikishi profile",
@@ -11750,11 +12284,11 @@
         "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
       }
     ],
-    "notes": "Nationality left null because JSA profile provides birthplace, not explicit nationality; image omitted pending separate verification. | Nationality left null (JSA gives birthplace only). | Batch D confirmed: Sandanme #79, Onoe stable. Career 232-243-17.",
-    "division": "Sandanme",
-    "batchRef": "d-lower-block",
+    "notes": "Nationality left null because JSA profile provides birthplace, not explicit nationality; image omitted pending separate verification.",
+    "division": null,
+    "batchRef": null,
     "lastVerifiedBasho": "202603",
-    "provenanceStatus": "confirmed"
+    "provenanceStatus": "unresolved"
   },
   {
     "rikishiId": "4228",
@@ -11768,7 +12302,7 @@
     "officialImageUrl": null,
     "imageSource": null,
     "imageConfidence": "missing",
-    "profileConfidence": "verified",
+    "profileConfidence": "likely",
     "sourceRefs": [
       {
         "label": "JSA rikishi profile",
@@ -11779,11 +12313,11 @@
         "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
       }
     ],
-    "notes": "JSA snippet included stale-rank text but the official profile identity is correct. Nationality left null; image omitted pending separate verification. | Nationality left null (JSA gives birthplace only). | Batch D confirmed: Sandanme #80, Hidenoyama stable. Born Feb 2008 — youngest in entire dataset.",
-    "division": "Sandanme",
-    "batchRef": "d-lower-block",
+    "notes": "JSA snippet included stale-rank text but the official profile identity is correct. Nationality left null; image omitted pending separate verification.",
+    "division": null,
+    "batchRef": null,
     "lastVerifiedBasho": "202603",
-    "provenanceStatus": "confirmed"
+    "provenanceStatus": "unresolved"
   },
   {
     "rikishiId": "3847",
@@ -11797,7 +12331,7 @@
     "officialImageUrl": null,
     "imageSource": null,
     "imageConfidence": "missing",
-    "profileConfidence": "verified",
+    "profileConfidence": "likely",
     "sourceRefs": [
       {
         "label": "JSA rikishi profile",
@@ -11808,11 +12342,11 @@
         "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
       }
     ],
-    "notes": "Nationality left null because JSA profile provides birthplace, not explicit nationality; image omitted pending separate verification. | Nationality left null (JSA gives birthplace only). | Batch D confirmed: Sandanme #80, Onoe stable. Highest rank Sandanme #37.",
-    "division": "Sandanme",
-    "batchRef": "d-lower-block",
+    "notes": "Nationality left null because JSA profile provides birthplace, not explicit nationality; image omitted pending separate verification.",
+    "division": null,
+    "batchRef": null,
     "lastVerifiedBasho": "202603",
-    "provenanceStatus": "confirmed"
+    "provenanceStatus": "unresolved"
   },
   {
     "rikishiId": "3046",

@@ -1,0 +1,458 @@
+{
+  "_meta": {
+    "batchId": "C",
+    "resolvedDate": "2026-03-12T00:00:00.000Z",
+    "description": "Resolved upper transition block (indices 392–411) — 15 profiles verified against JSA",
+    "researchNotes": [
+      "All 15 profiles verified against live JSA profile pages.",
+      "5 confirmed as Makushita (current rank Makushita #54–#60).",
+      "10 confirmed as Sandanme (current rank Sandanme #51–#57).",
+      "Zero CONFLICT_FIELD mismatches — no pre-merge fix script needed.",
+      "Weight/height fluctuations noted but not corrected (normal variation).",
+      "All profiles upgraded to provenanceStatus=confirmed, division set to current JSA division."
+    ],
+    "counts": {
+      "total": 15,
+      "makushita": 5,
+      "sandanme": 10,
+      "conflicts": 0
+    }
+  },
+  "profiles": [
+    {
+      "rikishiId": "4219",
+      "shikona": "Ryuji",
+      "heya": "Onomatsu",
+      "birthDate": "2004-11-26",
+      "nationality": null,
+      "heightCm": 187.7,
+      "weightKg": 117.8,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "likely",
+      "division": "Makushita",
+      "batchRef": "c-upper-transition",
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "confirmed",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4219/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "JSA confirmed: Makushita #54 (Mar 2026). Highest rank Makushita #45. | Batch C resolved 2026-03-12."
+    },
+    {
+      "rikishiId": "4144",
+      "shikona": "Tatsuosho",
+      "heya": "Tatsunami",
+      "birthDate": "2003-09-01",
+      "nationality": null,
+      "heightCm": 184.5,
+      "weightKg": 158,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "likely",
+      "division": "Makushita",
+      "batchRef": "c-upper-transition",
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "confirmed",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4144/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "JSA confirmed: Makushita #56 (Mar 2026). Highest rank Makushita #32. | Batch C resolved 2026-03-12."
+    },
+    {
+      "rikishiId": "3070",
+      "shikona": "Akinoyama",
+      "heya": "Takadagawa",
+      "birthDate": "1992-11-30",
+      "nationality": null,
+      "heightCm": 177.1,
+      "weightKg": 199,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "likely",
+      "division": "Makushita",
+      "batchRef": "c-upper-transition",
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "confirmed",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3070/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "JSA confirmed: Makushita #58 (Mar 2026). Veteran (born 1992). | Batch C resolved 2026-03-12."
+    },
+    {
+      "rikishiId": "4208",
+      "shikona": "Soma",
+      "heya": "Futagoyama",
+      "birthDate": "2004-09-03",
+      "nationality": null,
+      "heightCm": 179,
+      "weightKg": 148.8,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "likely",
+      "division": "Makushita",
+      "batchRef": "c-upper-transition",
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "confirmed",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4208/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "JSA confirmed: Makushita #60 (Mar 2026). Highest rank Makushita #47. | Batch C resolved 2026-03-12."
+    },
+    {
+      "rikishiId": "4182",
+      "shikona": "Gohakuun",
+      "heya": "Takekuma",
+      "birthDate": "2005-03-22",
+      "nationality": null,
+      "heightCm": 173.5,
+      "weightKg": 135,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "likely",
+      "division": "Makushita",
+      "batchRef": "c-upper-transition",
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "confirmed",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4182/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "JSA confirmed: Makushita #60 (Mar 2026). Ring name changed from Okano. | Batch C resolved 2026-03-12."
+    },
+    {
+      "rikishiId": "4168",
+      "shikona": "Sachinofuji",
+      "heya": "Isegahama",
+      "birthDate": "2006-03-06",
+      "nationality": null,
+      "heightCm": 169,
+      "weightKg": 84,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "likely",
+      "division": "Sandanme",
+      "batchRef": "c-upper-transition",
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "confirmed",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4168/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "JSA confirmed: Sandanme #51 (Mar 2026). JSA height 172cm/weight 97.7kg vs dataset 169/84 — normal growth for young wrestler (born 2006). | Batch C resolved 2026-03-12."
+    },
+    {
+      "rikishiId": "4320",
+      "shikona": "Kazekodai",
+      "heya": "Oshiogawa",
+      "birthDate": "2007-03-16",
+      "nationality": null,
+      "heightCm": 173,
+      "weightKg": 130,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "likely",
+      "division": "Sandanme",
+      "batchRef": "c-upper-transition",
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "confirmed",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4320/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "JSA confirmed: Sandanme #52 (Mar 2026). Debuted Mar 2025, rapidly climbing. | Batch C resolved 2026-03-12."
+    },
+    {
+      "rikishiId": "3823",
+      "shikona": "Shoji",
+      "heya": "Musashigawa",
+      "birthDate": "1994-08-25",
+      "nationality": null,
+      "heightCm": 191,
+      "weightKg": 139,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "likely",
+      "division": "Sandanme",
+      "batchRef": "c-upper-transition",
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "confirmed",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3823/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "JSA confirmed: Sandanme #53 (Mar 2026). Highest rank Makushita #43. Jonidan and Jonokuchi yusho winner. | Batch C resolved 2026-03-12."
+    },
+    {
+      "rikishiId": "3886",
+      "shikona": "Hokutosakae",
+      "heya": "Hakkaku",
+      "birthDate": "1999-10-24",
+      "nationality": null,
+      "heightCm": 189,
+      "weightKg": 129,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "likely",
+      "division": "Sandanme",
+      "batchRef": "c-upper-transition",
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "confirmed",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3886/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "JSA confirmed: Sandanme #54 (Mar 2026). Ring name changed from Sasaki. | Batch C resolved 2026-03-12."
+    },
+    {
+      "rikishiId": "4332",
+      "shikona": "Uchima",
+      "heya": "Nishonoseki",
+      "birthDate": "2009-09-17",
+      "nationality": null,
+      "heightCm": 183,
+      "weightKg": 158,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "likely",
+      "division": "Sandanme",
+      "batchRef": "c-upper-transition",
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "confirmed",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4332/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "JSA confirmed: Sandanme #55 (Mar 2026). Born 2009 — youngest in batch. Debuted Mar 2025. | Batch C resolved 2026-03-12."
+    },
+    {
+      "rikishiId": "3555",
+      "shikona": "Kaishinmaru",
+      "heya": "Asakayama",
+      "birthDate": "1998-09-14",
+      "nationality": null,
+      "heightCm": 170,
+      "weightKg": 149,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "likely",
+      "division": "Sandanme",
+      "batchRef": "c-upper-transition",
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "confirmed",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3555/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "JSA confirmed: Sandanme #55 (Mar 2026). Highest rank Makushita #54. Ring name changed from Nakatsuji. | Batch C resolved 2026-03-12."
+    },
+    {
+      "rikishiId": "4359",
+      "shikona": "Kazemitsuki",
+      "heya": "Oshiogawa",
+      "birthDate": "2006-09-27",
+      "nationality": null,
+      "heightCm": 175,
+      "weightKg": 125,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "likely",
+      "division": "Sandanme",
+      "batchRef": "c-upper-transition",
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "confirmed",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4359/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "JSA confirmed: Sandanme #56 (Mar 2026). Debuted Sep 2025, rapid riser. | Batch C resolved 2026-03-12."
+    },
+    {
+      "rikishiId": "4134",
+      "shikona": "Takaarashi",
+      "heya": "Tagonoura",
+      "birthDate": "2006-12-28",
+      "nationality": null,
+      "heightCm": 175,
+      "weightKg": 134,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "likely",
+      "division": "Sandanme",
+      "batchRef": "c-upper-transition",
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "confirmed",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4134/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "JSA confirmed: Sandanme #56 (Mar 2026). Currently absent (0-0-3 in Mar 2026). | Batch C resolved 2026-03-12."
+    },
+    {
+      "rikishiId": "4045",
+      "shikona": "Chiyoyamato",
+      "heya": "Kokonoe",
+      "birthDate": "2001-02-16",
+      "nationality": null,
+      "heightCm": 181,
+      "weightKg": 156,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "likely",
+      "division": "Sandanme",
+      "batchRef": "c-upper-transition",
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "confirmed",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4045/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "JSA confirmed: Sandanme #57 (Mar 2026). Ring name changed from Furusawa. | Batch C resolved 2026-03-12."
+    },
+    {
+      "rikishiId": "3809",
+      "shikona": "Taranami",
+      "heya": "Tatsunami",
+      "birthDate": "2002-02-19",
+      "nationality": null,
+      "heightCm": 178,
+      "weightKg": 153,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "likely",
+      "division": "Sandanme",
+      "batchRef": "c-upper-transition",
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "confirmed",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3809/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "JSA confirmed: Sandanme #57 (Mar 2026). Highest rank Sandanme #27. | Batch C resolved 2026-03-12."
+    }
+  ]
+}
