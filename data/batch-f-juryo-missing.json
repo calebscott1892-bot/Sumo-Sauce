@@ -1,0 +1,263 @@
+{
+  "_meta": {
+    "description": "Batch F: Full Juryo Population — missing wrestler handoff",
+    "generatedDate": "2026-03-12",
+    "sourceAudit": "docs/BATCH_E_AUDIT.md",
+    "banzukeBasho": "202603 (Haru 2026)",
+    "targetDivision": "Juryo",
+    "totalBanzukeSlots": 28,
+    "alreadyPresent": 8,
+    "needsRikishiIdOnly": 2,
+    "fullyMissing": 19,
+    "j14wUnidentified": 1,
+    "instructions": "For each entry below, research via SumoDB and JSA to populate rikishiId, heya, birthDate, nationality, heightCm, weightKg. Use the standard merge-research.mjs workflow with --file data/resolved-f-juryo-population.json --apply"
+  },
+  "alreadyPresent_noActionNeeded": [
+    { "rank": "J5w",  "shikona": "Toshinofuji", "rikishiId": "4243", "status": "✅ complete" },
+    { "rank": "J7e",  "shikona": "Shimazuumi",  "rikishiId": "3404", "status": "✅ complete" },
+    { "rank": "J9w",  "shikona": "Fujitensei",  "rikishiId": "4337", "status": "✅ complete" },
+    { "rank": "J12w", "shikona": "Mita Taiki",  "rikishiId": "4289", "status": "✅ complete" },
+    { "rank": "J14e", "shikona": "Akua",         "rikishiId": "3312", "status": "✅ complete" },
+    { "rank": "J11e", "shikona": "Tsurubayashi", "rikishiId": "3177", "status": "✅ complete" }
+  ],
+  "alreadyPresent_needsRikishiId": [
+    {
+      "rank": "J3e",
+      "shikona": "Chiyosakae",
+      "heya": "Kokonoe",
+      "rikishiId": null,
+      "action": "LOOKUP rikishiId, birthDate, nationality, heightCm, weightKg"
+    },
+    {
+      "rank": "J6w",
+      "shikona": "Chiyomaru",
+      "heya": "Kise",
+      "rikishiId": null,
+      "action": "LOOKUP rikishiId, birthDate, nationality, heightCm, weightKg"
+    }
+  ],
+  "fullyMissing_needsNewProfile": [
+    {
+      "rank": "J1e",
+      "shikona": "Onosho",
+      "rikishiId": null,
+      "heya": null,
+      "birthDate": null,
+      "nationality": null,
+      "heightCm": null,
+      "weightKg": null,
+      "action": "CREATE full profile via SumoDB + JSA"
+    },
+    {
+      "rank": "J1w",
+      "shikona": "Nishikigi",
+      "rikishiId": null,
+      "heya": null,
+      "birthDate": null,
+      "nationality": null,
+      "heightCm": null,
+      "weightKg": null,
+      "action": "CREATE full profile via SumoDB + JSA"
+    },
+    {
+      "rank": "J2e",
+      "shikona": "Tsurugisho",
+      "rikishiId": null,
+      "heya": null,
+      "birthDate": null,
+      "nationality": null,
+      "heightCm": null,
+      "weightKg": null,
+      "action": "CREATE full profile via SumoDB + JSA"
+    },
+    {
+      "rank": "J2w",
+      "shikona": "Tohakuryu",
+      "rikishiId": null,
+      "heya": null,
+      "birthDate": null,
+      "nationality": null,
+      "heightCm": null,
+      "weightKg": null,
+      "action": "CREATE full profile via SumoDB + JSA"
+    },
+    {
+      "rank": "J3w",
+      "shikona": "Daiseizan",
+      "rikishiId": null,
+      "heya": null,
+      "birthDate": null,
+      "nationality": null,
+      "heightCm": null,
+      "weightKg": null,
+      "action": "CREATE full profile via SumoDB + JSA"
+    },
+    {
+      "rank": "J4e",
+      "shikona": "Asasuiryu",
+      "rikishiId": null,
+      "heya": null,
+      "birthDate": null,
+      "nationality": null,
+      "heightCm": null,
+      "weightKg": null,
+      "action": "CREATE full profile via SumoDB + JSA"
+    },
+    {
+      "rank": "J4w",
+      "shikona": "Nishinoryu",
+      "rikishiId": null,
+      "heya": null,
+      "birthDate": null,
+      "nationality": null,
+      "heightCm": null,
+      "weightKg": null,
+      "action": "CREATE full profile via SumoDB + JSA"
+    },
+    {
+      "rank": "J5e",
+      "shikona": "Takerufuji",
+      "rikishiId": null,
+      "heya": null,
+      "birthDate": null,
+      "nationality": null,
+      "heightCm": null,
+      "weightKg": null,
+      "action": "CREATE full profile via SumoDB + JSA"
+    },
+    {
+      "rank": "J6e",
+      "shikona": "Hakuyozan",
+      "rikishiId": null,
+      "heya": null,
+      "birthDate": null,
+      "nationality": null,
+      "heightCm": null,
+      "weightKg": null,
+      "action": "CREATE full profile via SumoDB + JSA"
+    },
+    {
+      "rank": "J7w",
+      "shikona": "Kazekeno",
+      "rikishiId": null,
+      "heya": null,
+      "birthDate": null,
+      "nationality": null,
+      "heightCm": null,
+      "weightKg": null,
+      "action": "CREATE full profile via SumoDB + JSA"
+    },
+    {
+      "rank": "J8e",
+      "shikona": "Kotokuzan",
+      "rikishiId": null,
+      "heya": null,
+      "birthDate": null,
+      "nationality": null,
+      "heightCm": null,
+      "weightKg": null,
+      "action": "CREATE full profile via SumoDB + JSA"
+    },
+    {
+      "rank": "J8w",
+      "shikona": "Meisei",
+      "rikishiId": null,
+      "heya": null,
+      "birthDate": null,
+      "nationality": null,
+      "heightCm": null,
+      "weightKg": null,
+      "action": "CREATE full profile via SumoDB + JSA"
+    },
+    {
+      "rank": "J9e",
+      "shikona": "Kyokukaiyu",
+      "rikishiId": null,
+      "heya": null,
+      "birthDate": null,
+      "nationality": null,
+      "heightCm": null,
+      "weightKg": null,
+      "action": "CREATE full profile via SumoDB + JSA"
+    },
+    {
+      "rank": "J10e",
+      "shikona": "Kitanowaka",
+      "rikishiId": null,
+      "heya": null,
+      "birthDate": null,
+      "nationality": null,
+      "heightCm": null,
+      "weightKg": null,
+      "action": "CREATE full profile via SumoDB + JSA"
+    },
+    {
+      "rank": "J10w",
+      "shikona": "Dewanoryu",
+      "rikishiId": null,
+      "heya": null,
+      "birthDate": null,
+      "nationality": null,
+      "heightCm": null,
+      "weightKg": null,
+      "action": "CREATE full profile via SumoDB + JSA"
+    },
+    {
+      "rank": "J11w",
+      "shikona": "Tamashoho",
+      "rikishiId": null,
+      "heya": null,
+      "birthDate": null,
+      "nationality": null,
+      "heightCm": null,
+      "weightKg": null,
+      "action": "CREATE full profile via SumoDB + JSA"
+    },
+    {
+      "rank": "J12e",
+      "shikona": "Shimanoumi",
+      "rikishiId": null,
+      "heya": null,
+      "birthDate": null,
+      "nationality": null,
+      "heightCm": null,
+      "weightKg": null,
+      "action": "CREATE full profile via SumoDB + JSA"
+    },
+    {
+      "rank": "J13e",
+      "shikona": "Asakoryu",
+      "rikishiId": null,
+      "heya": null,
+      "birthDate": null,
+      "nationality": null,
+      "heightCm": null,
+      "weightKg": null,
+      "action": "CREATE full profile via SumoDB + JSA. NOTE: This is a DIFFERENT wrestler from Asakoryu Takuma (Makuuchi, rikishiId 4101). Verify identity carefully."
+    },
+    {
+      "rank": "J13w",
+      "shikona": "Daitensho",
+      "rikishiId": null,
+      "heya": null,
+      "birthDate": null,
+      "nationality": null,
+      "heightCm": null,
+      "weightKg": null,
+      "action": "CREATE full profile via SumoDB + JSA"
+    }
+  ],
+  "unidentified": [
+    {
+      "rank": "J14w",
+      "shikona": null,
+      "rikishiId": null,
+      "action": "IDENTIFY wrestler at this banzuke position from official JSA Haru 2026 banzuke, then create full profile"
+    }
+  ],
+  "excludedToshiyori": {
+    "count": 22,
+    "quarantineFile": "data/_quarantine_batch_e_removed.json",
+    "note": "These 22 names were removed in Batch E. They are toshiyori/elder names, NOT wrestlers. Do NOT re-add them."
+  }
+}

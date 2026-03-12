@@ -1,0 +1,152 @@
+[
+  {
+    "rikishiId": "4287",
+    "shikona": "Kazuma",
+    "heya": "Kise",
+    "birthDate": "2001-11-12",
+    "nationality": "Japan",
+    "heightCm": 185.0,
+    "weightKg": 199.0,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Rikishi Profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4287/"
+      }
+    ],
+    "notes": "Batch F: Haru 2026 Juryo. JSA-verified profile.",
+    "division": "Juryo",
+    "batchRef": "juryo-roster",
+    "lastVerifiedBasho": "202603",
+    "provenanceStatus": "confirmed"
+  },
+  {
+    "rikishiId": "4124",
+    "shikona": "Hatsuyama",
+    "heya": "Tamanoi",
+    "birthDate": "1999-11-05",
+    "nationality": "Japan",
+    "heightCm": 195.0,
+    "weightKg": 142.0,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Rikishi Profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4124/"
+      }
+    ],
+    "notes": "Batch F: Haru 2026 Juryo. JSA-verified profile.",
+    "division": "Juryo",
+    "batchRef": "juryo-roster",
+    "lastVerifiedBasho": "202603",
+    "provenanceStatus": "confirmed"
+  },
+  {
+    "rikishiId": "2892",
+    "shikona": "Nishikigi",
+    "heya": "Isenoumi",
+    "birthDate": "1990-08-25",
+    "nationality": "Japan",
+    "heightCm": 186.0,
+    "weightKg": 186.0,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Rikishi Profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/2892/"
+      }
+    ],
+    "notes": "Batch F: Haru 2026 Juryo J1w. JSA-verified profile. Full shikona: Nishikigi Tetsuya.",
+    "division": "Juryo",
+    "batchRef": "juryo-roster",
+    "lastVerifiedBasho": "202603",
+    "provenanceStatus": "confirmed"
+  },
+  {
+    "rikishiId": "3969",
+    "shikona": "Tohakuryu",
+    "heya": "Tamanoi",
+    "birthDate": "1996-04-17",
+    "nationality": "Japan",
+    "heightCm": 182.0,
+    "weightKg": 135.0,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Rikishi Profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3969/"
+      }
+    ],
+    "notes": "Batch F: Haru 2026 Juryo J2w. JSA-verified profile. Full shikona: Tohakuryu Masahito.",
+    "division": "Juryo",
+    "batchRef": "juryo-roster",
+    "lastVerifiedBasho": "202603",
+    "provenanceStatus": "confirmed"
+  },
+  {
+    "rikishiId": "3367",
+    "shikona": "Tamashoho",
+    "heya": "Kataonami",
+    "birthDate": "1993-03-06",
+    "nationality": "Mongolia",
+    "heightCm": 189.0,
+    "weightKg": 121.0,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Rikishi Profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3367/"
+      }
+    ],
+    "notes": "Batch F: Haru 2026 Juryo J11w. JSA-verified profile. Full shikona: Tamashoho Manpei.",
+    "division": "Juryo",
+    "batchRef": "juryo-roster",
+    "lastVerifiedBasho": "202603",
+    "provenanceStatus": "confirmed"
+  },
+  {
+    "rikishiId": "4121",
+    "shikona": "Wakanosho",
+    "heya": "Minatogawa",
+    "birthDate": "2003-08-22",
+    "nationality": "Japan",
+    "heightCm": 178.0,
+    "weightKg": 141.0,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA Rikishi Profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4121/"
+      }
+    ],
+    "notes": "Batch F: Haru 2026 Juryo. JSA-verified profile. Full shikona: Wakanosho Eido.",
+    "division": "Juryo",
+    "batchRef": "juryo-roster",
+    "lastVerifiedBasho": "202603",
+    "provenanceStatus": "confirmed"
+  }
+]
