@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   Menu, X, Home, Trophy, BarChart3, Calendar, Users,
-  Swords, Clock, Search, TrendingUp, Compass
+  Swords, Clock, Search, TrendingUp, Compass, Building2
 } from 'lucide-react';
 
 const navItems = [
@@ -11,6 +11,7 @@ const navItems = [
   { name: 'Search', path: '/search', icon: Search },
   { name: 'Tournament Hub', path: '/basho', icon: Calendar },
   { name: 'Rikishi Directory', path: '/rikishi', icon: Users },
+  { name: 'Stables', path: '/stables', icon: Building2 },
   { name: 'Rivalries', path: '/rivalries', icon: Swords },
   { name: 'Timeline', path: '/timeline', icon: Clock },
   { name: 'Global Analytics', path: '/analytics', icon: BarChart3 },

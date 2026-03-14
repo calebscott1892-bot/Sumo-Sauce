@@ -1,84 +1,15 @@
 import { memo, useMemo } from 'react';
 import { Flame, TrendingDown, Activity } from 'lucide-react';
 import { bashoLabel } from '@/utils/basho';
+import { computeProgressionStreaks, type BashoStreak } from '@/utils/careerProgression';
 import type { RankProgressionItem } from '@/pages/rikishi/types';
 
 type Props = {
   rankProgression: RankProgressionItem[];
 };
 
-type Streak = {
-  type: 'win' | 'loss';
-  length: number;
-  startBasho: string;
-  endBasho: string;
-};
-
-function computeStreaks(progression: RankProgressionItem[]) {
-  if (!progression.length) {
-    return { longestWin: null, longestLoss: null, current: null };
-  }
-
-  const sorted = [...progression].sort((a, b) => a.bashoId.localeCompare(b.bashoId));
-
-  let longestWin: Streak | null = null;
-  let longestLoss: Streak | null = null;
-  let currentStreak: Streak | null = null;
-
-  let activeType: 'win' | 'loss' | null = null;
-  let activeStart = '';
-  let activeLength = 0;
-
-  for (const entry of sorted) {
-    const isWin = entry.kachiKoshi;
-    const type: 'win' | 'loss' = isWin ? 'win' : 'loss';
-
-    if (type === activeType) {
-      activeLength++;
-    } else {
-      // Close previous streak
-      if (activeType && activeLength > 0) {
-        const streak: Streak = {
-          type: activeType,
-          length: activeLength,
-          startBasho: activeStart,
-          endBasho: sorted[sorted.indexOf(entry) - 1]?.bashoId ?? activeStart,
-        };
-        if (activeType === 'win' && (!longestWin || streak.length > longestWin.length)) {
-          longestWin = streak;
-        }
-        if (activeType === 'loss' && (!longestLoss || streak.length > longestLoss.length)) {
-          longestLoss = streak;
-        }
-      }
-      activeType = type;
-      activeStart = entry.bashoId;
-      activeLength = 1;
-    }
-  }
-
-  // Close final streak
-  if (activeType && activeLength > 0) {
-    const streak: Streak = {
-      type: activeType,
-      length: activeLength,
-      startBasho: activeStart,
-      endBasho: sorted[sorted.length - 1].bashoId,
-    };
-    if (activeType === 'win' && (!longestWin || streak.length > longestWin.length)) {
-      longestWin = streak;
-    }
-    if (activeType === 'loss' && (!longestLoss || streak.length > longestLoss.length)) {
-      longestLoss = streak;
-    }
-    currentStreak = streak;
-  }
-
-  return { longestWin, longestLoss, current: currentStreak };
-}
-
 function StreakBadge({ streak, label, icon: Icon, color }: {
-  streak: Streak | null;
+  streak: BashoStreak | null;
   label: string;
   icon: React.ComponentType<{ className?: string }>;
   color: string;
@@ -110,7 +41,7 @@ function StreakBadge({ streak, label, icon: Icon, color }: {
 }
 
 function StreakCard({ rankProgression }: Props) {
-  const streaks = useMemo(() => computeStreaks(rankProgression), [rankProgression]);
+  const streaks = useMemo(() => computeProgressionStreaks(rankProgression), [rankProgression]);
 
   if (!rankProgression.length) return null;
 

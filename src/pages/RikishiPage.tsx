@@ -12,7 +12,9 @@ import ConsistencyScore from '@/components/rikishi/ConsistencyScore';
 import StreakCard from '@/components/rikishi/StreakCard';
 import PerformanceVsField from '@/components/rikishi/PerformanceVsField';
 import RikishiSectionNav from '@/components/rikishi/RikishiSectionNav';
+import RecordsMilestonesPanel from '@/components/rikishi/RecordsMilestonesPanel';
 import VerifiedProfileCard from '@/components/rikishi/VerifiedProfileCard';
+import RikishiDiscoveryRow from '@/components/search/RikishiDiscoveryRow';
 import { isFavoriteRikishi, toggleFavoriteRikishi } from '@/utils/favorites';
 import { trackRikishiView } from '@/utils/recentlyViewed';
 import {
@@ -22,6 +24,7 @@ import {
   getDivisionStandings,
   getHeadToHead,
   getKimariteStats,
+  getRikishiDirectory,
   getRankProgression,
 } from '@/pages/rikishi/api';
 import RikishiProfileSkeleton from '@/components/ui/skeletons/RikishiProfileSkeleton';
@@ -30,6 +33,7 @@ import PageMeta from '@/components/ui/PageMeta';
 import { trackRikishiPageView } from '@/utils/analytics';
 import { PremiumPageHeader, PremiumSectionShell, PremiumBadge } from '@/components/ui/premium';
 import { buildRivalryInsight, getRivalryStateVariant } from '@/utils/rivalry';
+import { getStablemates, stableSlug } from '@/utils/rosterBrowsing';
 import type { Division, TimelineItem } from '@/pages/rikishi/types';
 
 const RikishiRankChart = lazy(() => import('@/components/rikishi/RikishiRankChart'));
@@ -46,6 +50,7 @@ const SECTION_ITEMS = [
   { id: 'overview', label: 'Overview', subtitle: 'Identity, trust, and summary' },
   { id: 'performance', label: 'Performance', subtitle: 'Form, consistency, and recent basho' },
   { id: 'ranking', label: 'Ranking', subtitle: 'Progression and historical trajectory' },
+  { id: 'records', label: 'Records', subtitle: 'Achievements and milestone context' },
   { id: 'career', label: 'Career', subtitle: 'Career table, heatmap, and kimarite' },
   { id: 'matchups', label: 'Matchups', subtitle: 'Rivalries and head-to-head view' },
   { id: 'bouts', label: 'Recent bouts', subtitle: 'Timeline and data completeness' },
@@ -111,6 +116,13 @@ export default function RikishiPage() {
   const kimariteQuery = useQuery({
     queryKey: ['rikishi-kimarite', rikishiId],
     queryFn: () => getKimariteStats(rikishiId),
+    enabled: Boolean(rikishiId),
+  });
+
+  const directoryQuery = useQuery({
+    queryKey: ['rikishi-directory'],
+    queryFn: getRikishiDirectory,
+    staleTime: 10 * 60 * 1000,
     enabled: Boolean(rikishiId),
   });
 
@@ -197,6 +209,12 @@ export default function RikishiPage() {
   }, [h2hPreviewQuery.data]);
 
   const primaryCompareTarget = h2hPreviewTop3[0] ?? null;
+  const stableName = summaryQuery.data?.heya ?? null;
+  const stableHref = stableName ? `/stables/${encodeURIComponent(stableSlug(stableName))}` : null;
+  const stablemates = useMemo(() => {
+    if (!stableName || !directoryQuery.data?.length) return [];
+    return getStablemates(directoryQuery.data, stableName, rikishiId, 6);
+  }, [directoryQuery.data, rikishiId, stableName]);
 
   const isLoading = summaryQuery.isLoading || timelineQuery.isLoading || progressionQuery.isLoading || kimariteQuery.isLoading;
 
@@ -284,25 +302,36 @@ export default function RikishiPage() {
           onToggle: () => { toggleFavoriteRikishi(rikishiId); setIsFav(!isFav); },
         }}
         actions={
-          primaryCompareTarget ? (
-            <Link
-              to={`/compare/${encodeURIComponent(rikishiId)}/${encodeURIComponent(primaryCompareTarget.opponentId)}`}
-              className="rounded-lg border border-white/[0.06] bg-white/[0.03] px-3 py-1.5 text-xs font-medium text-zinc-300 transition-colors hover:border-red-600 hover:text-white"
-            >
-              Compare vs {primaryCompareTarget.opponentShikona} →
-            </Link>
-          ) : h2hPreviewQuery.isLoading ? (
-            <span className="rounded-lg border border-white/[0.06] bg-white/[0.03] px-3 py-1.5 text-xs font-medium text-zinc-500">
-              Finding rival…
-            </span>
-          ) : (
-            <Link
-              to="/rivalries"
-              className="rounded-lg border border-white/[0.06] bg-white/[0.03] px-3 py-1.5 text-xs font-medium text-zinc-300 transition-colors hover:border-red-600 hover:text-white"
-            >
-              Browse rivalries →
-            </Link>
-          )
+          <>
+            {stableHref ? (
+              <Link
+                to={stableHref}
+                className="rounded-lg border border-white/[0.06] bg-white/[0.03] px-3 py-1.5 text-xs font-medium text-zinc-300 transition-colors hover:border-red-600 hover:text-white"
+              >
+                {stableName} stable →
+              </Link>
+            ) : null}
+
+            {primaryCompareTarget ? (
+              <Link
+                to={`/compare/${encodeURIComponent(rikishiId)}/${encodeURIComponent(primaryCompareTarget.opponentId)}`}
+                className="rounded-lg border border-white/[0.06] bg-white/[0.03] px-3 py-1.5 text-xs font-medium text-zinc-300 transition-colors hover:border-red-600 hover:text-white"
+              >
+                Compare vs {primaryCompareTarget.opponentShikona} →
+              </Link>
+            ) : h2hPreviewQuery.isLoading ? (
+              <span className="rounded-lg border border-white/[0.06] bg-white/[0.03] px-3 py-1.5 text-xs font-medium text-zinc-500">
+                Finding rival…
+              </span>
+            ) : (
+              <Link
+                to="/rivalries"
+                className="rounded-lg border border-white/[0.06] bg-white/[0.03] px-3 py-1.5 text-xs font-medium text-zinc-300 transition-colors hover:border-red-600 hover:text-white"
+              >
+                Browse rivalries →
+              </Link>
+            )}
+          </>
         }
       />
 
@@ -328,6 +357,49 @@ export default function RikishiPage() {
                 rankProgression={progressionQuery.data || []}
               />
             </div>
+
+            <PremiumSectionShell
+              title="Stable roster context"
+              subtitle={stableName
+                ? `Move from ${shikona}'s individual profile into ${stableName} stable depth, active roster context, and related stablemates.`
+                : 'Stable browsing becomes available when a heya is published for this rikishi.'}
+              trailing={stableHref ? (
+                <Link
+                  to={stableHref}
+                  className="rounded-lg border border-white/[0.08] bg-white/[0.03] px-3 py-1.5 text-xs font-medium text-zinc-300 transition-colors hover:border-red-600/40 hover:text-white"
+                >
+                  Open stable page
+                </Link>
+              ) : undefined}
+            >
+              {!stableName ? (
+                <div className="rounded-xl border border-white/[0.06] bg-black/20 p-4 text-sm leading-relaxed text-zinc-400">
+                  Stable information is not published for this profile yet, so SumoWatch cannot safely connect this rikishi into the stable layer.
+                </div>
+              ) : directoryQuery.isLoading ? (
+                <div className="grid gap-2">
+                  {Array.from({ length: 3 }).map((_, index) => (
+                    <div key={index} className="h-20 animate-pulse rounded-xl border border-white/[0.06] bg-white/[0.02]" />
+                  ))}
+                </div>
+              ) : stablemates.length === 0 ? (
+                <div className="rounded-xl border border-white/[0.06] bg-black/20 p-4 text-sm leading-relaxed text-zinc-400">
+                  No additional routeable stablemates are currently published for {stableName}.
+                </div>
+              ) : (
+                <div className="space-y-3">
+                  <div className="flex flex-wrap items-center gap-2 text-xs text-zinc-500">
+                    <PremiumBadge variant="zinc">{stablemates.length} stablemates shown</PremiumBadge>
+                    <span>Roster depth is derived from the routeable directory and current verified roster context where published.</span>
+                  </div>
+                  <div className="grid gap-2">
+                    {stablemates.map((entry) => (
+                      <RikishiDiscoveryRow key={entry.rikishiId} entry={entry} compact />
+                    ))}
+                  </div>
+                </div>
+              )}
+            </PremiumSectionShell>
           </ProfileSectionGroup>
 
           <ProfileSectionGroup
@@ -388,7 +460,7 @@ export default function RikishiPage() {
           <ProfileSectionGroup
             id="ranking"
             title="Ranking"
-            subtitle="Track promotion, demotion, and historical ceiling through rank progression and historical context."
+            subtitle="Track promotion, demotion, milestones, and the key basho that shaped this rikishi's climb or slide."
           >
             <Suspense
               fallback={
@@ -408,9 +480,23 @@ export default function RikishiPage() {
           </ProfileSectionGroup>
 
           <ProfileSectionGroup
+            id="records"
+            title="Records & Milestones"
+            subtitle="Surface championship markers, standout basho, and achievement context the current wrestler feed actually supports."
+          >
+            <RecordsMilestonesPanel
+              shikona={shikona}
+              rikishiId={rikishiId}
+              timeline={timelineChrono}
+              rankProgression={progressionQuery.data || []}
+              highestRank={summaryQuery.data.highestRank}
+            />
+          </ProfileSectionGroup>
+
+          <ProfileSectionGroup
             id="career"
             title="Career Record"
-            subtitle="Scan the full timeline, identify career arcs, and see how winning techniques shape the record."
+            subtitle="Scan basho by basho, follow the shape of the career, and jump directly into the tournaments behind each step."
           >
             <CareerTable rows={timelineChrono} />
             <CareerHeatmap timeline={timelineChrono} />

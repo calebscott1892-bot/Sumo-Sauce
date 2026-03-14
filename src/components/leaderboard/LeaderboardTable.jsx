@@ -91,6 +91,8 @@ export default function LeaderboardTable({ wrestlers, onSelect }) {
         const losses = Number(item.losses ?? 0);
         const winPct = Number.isFinite(item.winPct) ? item.winPct : 0;
         const overallRating = Number(item.overallRating ?? 0);
+        const topDivisionYusho = Number(record?.yusho_top_div);
+        const specialPrizes = Number(record?.special_prizes);
 
         const profile = getVerifiedProfileForIdentity(rid, shikona);
         const trustMeta = getTrustMeta(profile);
@@ -152,6 +154,16 @@ export default function LeaderboardTable({ wrestlers, onSelect }) {
                       <TrustIcon className="h-3.5 w-3.5" />
                       {trustMeta.label}
                     </PremiumBadge>
+                    {Number.isFinite(topDivisionYusho) && topDivisionYusho > 0 ? (
+                      <PremiumBadge variant="amber">
+                        {topDivisionYusho} top-division yusho
+                      </PremiumBadge>
+                    ) : null}
+                    {Number.isFinite(specialPrizes) && specialPrizes > 0 ? (
+                      <PremiumBadge variant="blue">
+                        {specialPrizes} special prizes
+                      </PremiumBadge>
+                    ) : null}
                     {provenanceMeta ? (
                       <PremiumBadge variant={provenanceMeta.variant}>{provenanceMeta.label}</PremiumBadge>
                     ) : null}

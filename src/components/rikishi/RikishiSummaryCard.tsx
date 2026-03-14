@@ -1,5 +1,7 @@
 import { useMemo } from 'react';
 import type { CareerSummary, RankProgressionItem, TimelineItem } from '@/pages/rikishi/types';
+import { bashoLabel, divisionLabel } from '@/utils/basho';
+import { describeCareerMovement, sortCareerRowsChronologically } from '@/utils/careerProgression';
 
 type Props = {
   summary: CareerSummary;
@@ -46,6 +48,15 @@ export default function RikishiSummaryCard({ summary, timeline, rankProgression 
     return { totalBasho, wins, losses, winPct, yushoCount };
   }, [summary, timeline, rankProgression]);
 
+  const timelineChrono = useMemo(() => sortCareerRowsChronologically(timeline), [timeline]);
+  const latestEntry = timelineChrono.at(-1) ?? null;
+  const previousEntry = timelineChrono.at(-2) ?? null;
+  const latestMovement = latestEntry ? describeCareerMovement(previousEntry, latestEntry) : null;
+  const sekitoriDebut = useMemo(
+    () => timelineChrono.find((item) => item.division === 'makuuchi' || item.division === 'juryo') ?? null,
+    [timelineChrono],
+  );
+
   return (
     <section className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5">
       <h2 className="font-display text-xl font-bold tracking-tight text-white">Career Summary</h2>
@@ -66,6 +77,32 @@ export default function RikishiSummaryCard({ summary, timeline, rankProgression 
           <StatItem label="Yusho" value={String(stats.yushoCount)} highlight />
         )}
       </div>
+
+      {(latestEntry || sekitoriDebut) && (
+        <div className="mt-4 grid gap-3 lg:grid-cols-2">
+          {latestEntry && latestMovement ? (
+            <div className="rounded-lg border border-white/[0.06] bg-black/20 p-3">
+              <div className="text-xs text-zinc-400">Latest published movement</div>
+              <div className="mt-1 font-semibold text-zinc-100">
+                {divisionLabel(latestEntry.division)} {latestEntry.rank} · {bashoLabel(latestEntry.bashoId)}
+              </div>
+              <div className="mt-1 text-xs leading-relaxed text-zinc-500">{latestMovement.detail}</div>
+            </div>
+          ) : null}
+
+          {sekitoriDebut ? (
+            <div className="rounded-lg border border-white/[0.06] bg-black/20 p-3">
+              <div className="text-xs text-zinc-400">Sekitori milestone</div>
+              <div className="mt-1 font-semibold text-zinc-100">
+                {divisionLabel(sekitoriDebut.division)} debut at {sekitoriDebut.rank}
+              </div>
+              <div className="mt-1 text-xs leading-relaxed text-zinc-500">
+                First salaried-division appearance in {bashoLabel(sekitoriDebut.bashoId)}.
+              </div>
+            </div>
+          ) : null}
+        </div>
+      )}
     </section>
   );
 }

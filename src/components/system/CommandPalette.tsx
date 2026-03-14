@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
-import { Search, Calendar, Users, User, BarChart3, Dice5, Shuffle, Swords, Clock } from 'lucide-react';
+import { Search, Calendar, Users, User, BarChart3, Dice5, Shuffle, Swords, Clock, Building2 } from 'lucide-react';
 import {
   CommandDialog,
   CommandInput,
@@ -11,11 +11,13 @@ import {
   CommandSeparator,
 } from '@/components/ui/command';
 import { getRikishiDirectory } from '@/pages/rikishi/api';
+import { buildStableSummaries } from '@/utils/rosterBrowsing';
 import type { RikishiDirectoryEntry } from '../../../shared/api/v1';
 import { recentBashoIds } from '@/utils/basho';
 
 const MAX_SUGGESTED_RESULTS = 12;
 const MAX_SEARCH_RESULTS = 60;
+const MAX_STABLE_RESULTS = 20;
 
 function scoreEntry(entry: RikishiDirectoryEntry, query: string): number {
   const shikona = entry.shikona.toLowerCase();
@@ -56,6 +58,7 @@ export default function CommandPalette() {
     staleTime: 10 * 60 * 1000,
     gcTime: 30 * 60 * 1000,
   });
+  const stableSummaries = useMemo(() => buildStableSummaries(directory), [directory]);
 
   const recentIds = useMemo(() => recentBashoIds(20), []);
 
@@ -86,6 +89,7 @@ export default function CommandPalette() {
     { key: 'home', label: 'Go to home', keywords: 'home start', icon: Search, run: () => navigate('/') },
     { key: 'search', label: 'Full search page', keywords: 'search find discover', icon: Search, run: () => navigate('/search') },
     { key: 'rikishi', label: 'Browse rikishi directory', keywords: 'rikishi wrestlers directory', icon: Users, run: () => navigate('/rikishi') },
+    { key: 'stables', label: 'Browse stable directory', keywords: 'stables heya stable directory roster', icon: Building2, run: () => navigate('/stables') },
     { key: 'basho', label: 'Browse basho history', keywords: 'basho tournament history', icon: Calendar, run: () => navigate('/basho') },
     { key: 'analytics', label: 'Open analytics', keywords: 'analytics stats dashboard', icon: BarChart3, run: () => navigate('/analytics') },
     { key: 'kimarite', label: 'Open kimarite analytics', keywords: 'kimarite analytics techniques', icon: BarChart3, run: () => navigate('/analytics/kimarite') },
@@ -114,8 +118,22 @@ export default function CommandPalette() {
       .map((result) => result.entry);
   }, [directory, normalizedQuery]);
 
-  const showEmptyState = filteredActions.length === 0 && filteredDirectory.length === 0;
+  const filteredStables = useMemo(() => {
+    if (!normalizedQuery) {
+      return stableSummaries.slice(0, 6);
+    }
+
+    return stableSummaries
+      .filter((stable) => {
+        const haystack = `${stable.name} ${stable.divisions.join(' ')} ${stable.activeCount} ${stable.sekitoriCount}`.toLowerCase();
+        return haystack.includes(normalizedQuery);
+      })
+      .slice(0, MAX_STABLE_RESULTS);
+  }, [normalizedQuery, stableSummaries]);
+
+  const showEmptyState = filteredActions.length === 0 && filteredDirectory.length === 0 && filteredStables.length === 0;
   const rikishiHeading = normalizedQuery ? `Rikishi (${filteredDirectory.length})` : 'Suggested rikishi';
+  const stableHeading = normalizedQuery ? `Stables (${filteredStables.length})` : 'Featured stables';
 
   const handleOpenChange = useCallback((nextOpen: boolean) => {
     setOpen(nextOpen);
@@ -167,16 +185,41 @@ export default function CommandPalette() {
           </CommandGroup>
         )}
 
+        {filteredDirectory.length > 0 && filteredStables.length > 0 && <CommandSeparator />}
+
+        {filteredStables.length > 0 && (
+          <CommandGroup heading={stableHeading}>
+            {filteredStables.map((stable) => (
+              <CommandItem
+                key={stable.slug}
+                value={`${stable.name} ${stable.divisions.join(' ')} stable heya`}
+                onSelect={() =>
+                  runCommand(() =>
+                    navigate(`/stables/${encodeURIComponent(stable.slug)}`),
+                  )
+                }
+              >
+                <Building2 className="mr-2 h-4 w-4" />
+                <span>{stable.name}</span>
+                <span className="ml-2 text-xs text-zinc-500">
+                  {stable.activeCount} active
+                  {stable.sekitoriCount > 0 ? ` · ${stable.sekitoriCount} sekitori` : ''}
+                </span>
+              </CommandItem>
+            ))}
+          </CommandGroup>
+        )}
+
         {showEmptyState && (
           <div className="px-4 py-6 text-center text-sm text-zinc-500">
             No results found.
           </div>
         )}
-        {!normalizedQuery && filteredDirectory.length > 0 && (
+        {!normalizedQuery && (filteredDirectory.length > 0 || filteredStables.length > 0) && (
           <>
             <CommandSeparator />
             <div className="px-4 py-3 text-xs text-zinc-500">
-              Start typing to search the full rikishi directory.
+              Start typing to search the full rikishi directory and stable layer.
             </div>
           </>
         )}

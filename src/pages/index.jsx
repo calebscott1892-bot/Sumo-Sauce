@@ -22,6 +22,8 @@ const GlobalStatsPage = lazy(() => import('./GlobalStatsPage'));
 const KimariteAnalyticsPage = lazy(() => import('./KimariteAnalyticsPage'));
 const BashoBrowserPage = lazy(() => import('./BashoBrowserPage'));
 const RikishiDirectoryPage = lazy(() => import('./RikishiDirectoryPage'));
+const StablesPage = lazy(() => import('./StablesPage'));
+const StablePage = lazy(() => import('./StablePage'));
 const BashoComparePage = lazy(() => import('./BashoComparePage'));
 const RivalryExplorerPage = lazy(() => import('./RivalryExplorerPage'));
 const EraAnalyticsPage = lazy(() => import('./EraAnalyticsPage'));
@@ -482,6 +484,8 @@ export default function Pages() {
           <Route path="/basho/:bashoId" element={<Suspense fallback={<BashoStandingsSkeleton />}><BashoOverviewPage /></Suspense>} />
           <Route path="/basho" element={<Suspense fallback={<BashoStandingsSkeleton />}><BashoBrowserPage /></Suspense>} />
           <Route path="/rikishi" element={<Suspense fallback={<BashoStandingsSkeleton />}><RikishiDirectoryPage /></Suspense>} />
+          <Route path="/stables" element={<Suspense fallback={<BashoStandingsSkeleton />}><StablesPage /></Suspense>} />
+          <Route path="/stables/:slug" element={<Suspense fallback={<BashoStandingsSkeleton />}><StablePage /></Suspense>} />
           <Route path="/compare/basho/:a/:b" element={<Suspense fallback={<BashoStandingsSkeleton />}><BashoComparePage /></Suspense>} />
           <Route path="/analytics" element={<Suspense fallback={<BashoStandingsSkeleton />}><GlobalStatsPage /></Suspense>} />
           <Route path="/analytics/kimarite" element={<Suspense fallback={<BashoStandingsSkeleton />}><KimariteAnalyticsPage /></Suspense>} />

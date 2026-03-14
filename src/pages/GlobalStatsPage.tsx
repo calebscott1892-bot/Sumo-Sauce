@@ -5,7 +5,7 @@ import { trackGlobalStatsView } from '@/utils/analytics';
 import { useQuery } from '@tanstack/react-query';
 import PageMeta from '@/components/ui/PageMeta';
 import ErrorCard from '@/components/ui/ErrorCard';
-import { PremiumPageHeader, PremiumSectionShell } from '@/components/ui/premium';
+import { PremiumBadge, PremiumPageHeader, PremiumSectionShell } from '@/components/ui/premium';
 import AnalyticsNav from '@/components/analytics/AnalyticsNav';
 import AnalyticsTakeawayCard from '@/components/analytics/AnalyticsTakeawayCard';
 import {
@@ -93,6 +93,7 @@ export default function GlobalStatsPage() {
       avgWins: number;
       championWins: number;
       championShikona: string;
+      championRikishiId: string;
       upsetCount: number;
     }> = [];
     const wrestlerWins = new Map<string, {
@@ -102,11 +103,18 @@ export default function GlobalStatsPage() {
       bashoCount: number;
       winPcts: number[];
     }>();
+    const championCounts = new Map<string, {
+      shikona: string;
+      titles: number;
+      totalChampionWins: number;
+      bashoIds: string[];
+    }>();
 
     for (const basho of bashoData) {
       let bashoTotalUpsets = 0;
       let bestWins = 0;
       let bestShikona = '';
+      let bestRikishiId = '';
 
       for (const row of basho.rows) {
         totalBouts += row.wins + row.losses;
@@ -137,6 +145,7 @@ export default function GlobalStatsPage() {
         if (row.wins > bestWins) {
           bestWins = row.wins;
           bestShikona = row.shikona;
+          bestRikishiId = row.rikishiId;
         }
 
         const banzukeIdx = basho.rows.indexOf(row);
@@ -155,8 +164,23 @@ export default function GlobalStatsPage() {
         avgWins: avg,
         championWins: bestWins,
         championShikona: bestShikona,
+        championRikishiId: bestRikishiId,
         upsetCount: bashoTotalUpsets,
       });
+
+      if (bestRikishiId) {
+        const existingChampion = championCounts.get(bestRikishiId) ?? {
+          shikona: bestShikona,
+          titles: 0,
+          totalChampionWins: 0,
+          bashoIds: [],
+        };
+        existingChampion.shikona = bestShikona;
+        existingChampion.titles += 1;
+        existingChampion.totalChampionWins += bestWins;
+        existingChampion.bashoIds.push(basho.bashoId);
+        championCounts.set(bestRikishiId, existingChampion);
+      }
     }
 
     const uniqueBouts = Math.round(totalBouts / 2);
@@ -211,7 +235,7 @@ export default function GlobalStatsPage() {
       .slice(0, 5);
 
     const mostDominant = [...bashoMetrics]
-      .filter((basho) => basho.championWins > 0)
+      .filter((basho) => basho.championWins > 0 && basho.championRikishiId)
       .sort((a, b) => b.championWins - a.championWins)
       .slice(0, 5);
 
@@ -222,6 +246,24 @@ export default function GlobalStatsPage() {
 
     const highestAvgBasho = [...bashoChart].sort((a, b) => b.avgWins - a.avgWins)[0] ?? null;
     const lowestAvgBasho = [...bashoChart].sort((a, b) => a.avgWins - b.avgWins)[0] ?? null;
+    const championTrail = [...bashoMetrics]
+      .filter((basho) => basho.championWins > 0 && basho.championRikishiId)
+      .sort((a, b) => b.bashoId.localeCompare(a.bashoId))
+      .slice(0, 6);
+    const sampleTitleLeaders = Array.from(championCounts.entries())
+      .map(([rikishiId, value]) => ({
+        rikishiId,
+        shikona: value.shikona,
+        titles: value.titles,
+        totalChampionWins: value.totalChampionWins,
+        latestBashoId: [...value.bashoIds].sort().at(-1) ?? null,
+      }))
+      .sort((a, b) =>
+        b.titles - a.titles ||
+        b.totalChampionWins - a.totalChampionWins ||
+        a.shikona.localeCompare(b.shikona),
+      )
+      .slice(0, 5);
 
     return {
       totalRikishi,
@@ -237,6 +279,8 @@ export default function GlobalStatsPage() {
       upsetHeavy,
       highestAvgBasho,
       lowestAvgBasho,
+      championTrail,
+      sampleTitleLeaders,
     };
   }, [directoryQuery.data, standingsQuery.data, recentIds]);
 
@@ -250,6 +294,8 @@ export default function GlobalStatsPage() {
   const topPerformer = stats.topSuccessful[0] ?? null;
   const dominantBasho = stats.mostDominant[0] ?? null;
   const upsetBasho = stats.upsetHeavy[0] ?? null;
+  const sampleTitleLeader = stats.sampleTitleLeaders[0] ?? null;
+  const latestChampion = stats.championTrail[0] ?? null;
 
   if (directoryQuery.error || standingsQuery.error) {
     return <ErrorCard code="FETCH_ERROR" message="Failed to load data. Please try again." backTo="/" backLabel="← Home" />;
@@ -417,6 +463,86 @@ export default function GlobalStatsPage() {
           {(standingsQuery.data ?? []).length >= 2 && (
             <DivisionStrengthChart bashoData={standingsQuery.data ?? []} />
           )}
+
+          <PremiumSectionShell
+            title="Championship Trail In The Sample"
+            subtitle="Use this when you want to browse recent title signals directly: who lifted the most recent yusho, who keeps reappearing, and which basho are worth opening next."
+          >
+            <div className="grid gap-3 md:grid-cols-3">
+              <AnalyticsTakeawayCard
+                eyebrow="Sample title leader"
+                value={sampleTitleLeader?.shikona ?? '—'}
+                title={sampleTitleLeader ? `${sampleTitleLeader.titles} sampled championships` : 'No repeat champion yet'}
+                detail="This counts only the recent Makuuchi champions in the loaded analytics sample, not an all-career title table."
+                variant="amber"
+                to={sampleTitleLeader ? `/rikishi/${encodeURIComponent(sampleTitleLeader.rikishiId)}` : undefined}
+                cta={sampleTitleLeader ? 'Open profile' : undefined}
+              />
+              <AnalyticsTakeawayCard
+                eyebrow="Latest champion"
+                value={latestChampion?.championShikona ?? '—'}
+                title={latestChampion ? `${latestChampion.championWins} wins in ${bashoDisplayName(latestChampion.bashoId)}` : 'No latest champion loaded'}
+                detail="This is the most recent championship result visible in the current analytics sample."
+                variant="green"
+                to={latestChampion ? `/basho/${encodeURIComponent(latestChampion.bashoId)}` : undefined}
+                cta={latestChampion ? 'Open basho overview' : undefined}
+              />
+              <AnalyticsTakeawayCard
+                eyebrow="Broader achievements"
+                value="Leaderboard"
+                title="Browse imported yusho and prize context"
+                detail="When you want legacy entity counts like top-division yusho and special prizes, use the leaderboard as a browse surface rather than assuming that data exists in every modern profile feed."
+                variant="blue"
+                to="/leaderboard"
+                cta="Open leaderboard"
+              />
+            </div>
+
+            {stats.championTrail.length === 0 ? (
+              <div className="mt-5 rounded-xl border border-white/[0.06] bg-white/[0.02] p-4 text-sm leading-relaxed text-zinc-400">
+                No championship trail is available in the currently loaded analytics sample yet.
+              </div>
+            ) : (
+              <div className="mt-5 grid gap-3 md:grid-cols-2 xl:grid-cols-3">
+                {stats.championTrail.map((basho) => (
+                  <div
+                    key={basho.bashoId}
+                    className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-4"
+                  >
+                    <div className="flex flex-wrap items-center gap-2">
+                      <PremiumBadge variant="amber">Yusho</PremiumBadge>
+                      <PremiumBadge variant="zinc">{bashoDisplayName(basho.bashoId)}</PremiumBadge>
+                    </div>
+                    <div className="mt-3 font-semibold text-white">
+                      <Link
+                        to={`/rikishi/${encodeURIComponent(basho.championRikishiId)}`}
+                        className="transition-colors hover:text-red-300"
+                      >
+                        {basho.championShikona}
+                      </Link>
+                    </div>
+                    <p className="mt-2 text-sm leading-relaxed text-zinc-500">
+                      Won the sampled Makuuchi basho with {basho.championWins} wins.
+                    </p>
+                    <div className="mt-4 flex flex-wrap gap-2 text-xs">
+                      <Link
+                        to={`/basho/${encodeURIComponent(basho.bashoId)}`}
+                        className="inline-flex items-center rounded-full border border-white/[0.08] bg-white/[0.03] px-3 py-1 text-zinc-300 transition-colors hover:border-red-600/40 hover:text-white"
+                      >
+                        Basho overview
+                      </Link>
+                      <Link
+                        to={`/basho/${encodeURIComponent(basho.bashoId)}/makuuchi`}
+                        className="inline-flex items-center rounded-full border border-white/[0.08] bg-white/[0.03] px-3 py-1 text-zinc-300 transition-colors hover:border-red-600/40 hover:text-white"
+                      >
+                        Division page
+                      </Link>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+          </PremiumSectionShell>
 
           <PremiumSectionShell
             title="Standout Rikishi In The Sample"

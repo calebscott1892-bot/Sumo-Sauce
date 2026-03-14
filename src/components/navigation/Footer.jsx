@@ -75,6 +75,11 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link to="/stables" className="transition-colors hover:text-zinc-300">
+                  Stables
+                </Link>
+              </li>
+              <li>
                 <Link to="/search" className="transition-colors hover:text-zinc-300">
                   Search
                 </Link>
