@@ -1,0 +1,49 @@
+{
+  "_meta": {
+    "description": "Batch F FINAL — historical Juryo exception apply snapshot",
+    "generatedDate": "2026-03-13",
+    "authorityStatus": "historical-workflow-artifact",
+    "retiredAsRosterTruth": "2026-03-13",
+    "banzukeBasho": "202603 (Haru 2026)",
+    "targetDivision": "Juryo",
+    "currentJuryoProfilesInDataset": 25,
+    "resolvedCasesApplied": 21,
+    "remainingCases": 0,
+    "breakdown": {
+      "identityUnresolved": 0,
+      "statusConflict": 0,
+      "unidentifiedSlot": 0
+    },
+    "notes": "Historical exception-pass snapshot only. Do not treat this file as the authoritative March 2026 Juryo roster definition; later official evidence restored additional valid Juryo-context wrestlers that were excluded when the old Batch F target list was treated as roster truth."
+  },
+  "cases": [],
+  "resolvedCases": [
+    {
+      "caseType": "MANUAL_IDENTITY_REVIEW",
+      "rank": "J13e/J2w discrepancy",
+      "shikona": "Asakoryu",
+      "status": "resolved",
+      "resolution": "No separate Juryo identity; same wrestler as existing Asakoryu Takuma.",
+      "rikishiId": "4101",
+      "applyMode": "Kept existing canonical profile in Makuuchi context; excluded from current Juryo roster."
+    },
+    {
+      "caseType": "MANUAL_STATUS_REVIEW",
+      "rank": "J1e target slot",
+      "shikona": "Onosho",
+      "status": "resolved",
+      "resolution": "Retired status confirmed in repo-local evidence; excluded from current Juryo roster.",
+      "rikishiId": "3434",
+      "applyMode": "Kept as non-Juryo retired record; no duplicate profile created."
+    },
+    {
+      "caseType": "IDENTIFY_AND_CREATE",
+      "rank": "J14w",
+      "shikona": "Kotokuzan",
+      "status": "resolved",
+      "resolution": "J14w slot resolved to existing Kotokuzan profile.",
+      "rikishiId": "3218",
+      "applyMode": "Confirmed existing profile already present and complete; no duplicate created."
+    }
+  ]
+}

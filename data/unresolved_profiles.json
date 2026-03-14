@@ -1,0 +1,2853 @@
+{
+  "_meta": {
+    "exportDate": "2026-03-11T18:18:08.167Z",
+    "sourceFile": "data/makuuchi_verified_profiles.json",
+    "description": "Profiles requiring external research to resolve division, batchRef, and/or verify identity. Return researched rows in the same schema to merge via: node scripts/merge-research.mjs --file <returned.json>",
+    "counts": {
+      "total": 100,
+      "unresolved": 99,
+      "quarantined": 1
+    },
+    "identityFields": [
+      "rikishiId",
+      "shikona"
+    ],
+    "researchTargetFields": [
+      "division",
+      "batchRef",
+      "officialImageUrl",
+      "imageSource",
+      "imageConfidence",
+      "heya",
+      "nationality",
+      "heightCm",
+      "weightKg"
+    ],
+    "instructions": [
+      "For each profile, research the correct current division and any missing fields.",
+      "Set provenanceStatus to \"confirmed\" when you have verified the data.",
+      "Add or append to sourceRefs with the source you used.",
+      "Append research notes to the notes field (pipe-delimited: \" | <your note>\").",
+      "Do NOT change rikishiId — it is the primary match key.",
+      "Do NOT downgrade profileConfidence or imageConfidence.",
+      "Return the full array of researched profiles in the same schema."
+    ]
+  },
+  "profiles": [
+    {
+      "rikishiId": "3163",
+      "shikona": "Tochinobori Minoru",
+      "heya": "Kasugano",
+      "birthDate": "1993-09-01",
+      "nationality": "Japan",
+      "heightCm": 183,
+      "weightKg": 133.6,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "verified",
+      "division": null,
+      "batchRef": null,
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "unresolved",
+      "sourceRefs": [
+        {
+          "label": "JSA Profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3163/"
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "rikishiId": "4057",
+      "shikona": "Gououshou Taizou",
+      "heya": "Naruto",
+      "birthDate": "2002-06-06",
+      "nationality": "Japan",
+      "heightCm": 169,
+      "weightKg": 129,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "verified",
+      "division": null,
+      "batchRef": null,
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "unresolved",
+      "sourceRefs": [
+        {
+          "label": "JSA Profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4057/"
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "rikishiId": "3946",
+      "shikona": "Kiyota Junpei",
+      "heya": "Dewanoumi",
+      "birthDate": "2003-08-04",
+      "nationality": "Japan",
+      "heightCm": 179,
+      "weightKg": 122.8,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "verified",
+      "division": null,
+      "batchRef": null,
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "unresolved",
+      "sourceRefs": [
+        {
+          "label": "JSA Profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3946/"
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "rikishiId": null,
+      "shikona": "Tsushimanada Masamitsu",
+      "heya": null,
+      "birthDate": "1993-06-27",
+      "nationality": "Japan",
+      "heightCm": null,
+      "weightKg": null,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "unverified",
+      "division": null,
+      "batchRef": null,
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "quarantined",
+      "sourceRefs": [],
+      "notes": "Official profile inaccessible; fields not confirmed. | [Quarantined: no sourceRefs, profile unverified, official profile inaccessible. Requires manual re-verification before trust upgrade.]"
+    },
+    {
+      "rikishiId": "3978",
+      "shikona": "Oshoryu Kenta",
+      "heya": "Naruto",
+      "birthDate": "1996-04-22",
+      "nationality": "Japan",
+      "heightCm": 178.6,
+      "weightKg": 164.1,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "verified",
+      "division": null,
+      "batchRef": null,
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "unresolved",
+      "sourceRefs": [
+        {
+          "label": "JSA Profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3978/"
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "rikishiId": "4115",
+      "shikona": "Kotokenryu Takeaki",
+      "heya": "Sadogatake",
+      "birthDate": "1995-09-06",
+      "nationality": "Mongolia",
+      "heightCm": 185.7,
+      "weightKg": 153.6,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "verified",
+      "division": null,
+      "batchRef": null,
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "unresolved",
+      "sourceRefs": [
+        {
+          "label": "JSA Profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4115/"
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "rikishiId": "3654",
+      "shikona": "Tosamidori Kiyota",
+      "heya": "Onoumi",
+      "birthDate": "1996-05-11",
+      "nationality": "Japan",
+      "heightCm": 181,
+      "weightKg": 138.7,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "verified",
+      "division": null,
+      "batchRef": null,
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "unresolved",
+      "sourceRefs": [
+        {
+          "label": "JSA Profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3654/"
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "rikishiId": "4235",
+      "shikona": "Anhiki Kaoto",
+      "heya": "Anjigawa",
+      "birthDate": "2005-11-25",
+      "nationality": "Japan",
+      "heightCm": 184.5,
+      "weightKg": 145.2,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "verified",
+      "division": null,
+      "batchRef": null,
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "unresolved",
+      "sourceRefs": [
+        {
+          "label": "JSA Profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4235/"
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "rikishiId": "3925",
+      "shikona": "Fujinoyama Yuto",
+      "heya": "Fujishima",
+      "birthDate": "2000-07-26",
+      "nationality": "Japan",
+      "heightCm": 182.7,
+      "weightKg": 121.9,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "verified",
+      "division": null,
+      "batchRef": null,
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "unresolved",
+      "sourceRefs": [
+        {
+          "label": "JSA Profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3925/"
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "rikishiId": "4356",
+      "shikona": "Ryuho Kazuma",
+      "heya": "Otowayama",
+      "birthDate": "2007-06-12",
+      "nationality": "Japan",
+      "heightCm": 175.2,
+      "weightKg": 156,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "verified",
+      "division": null,
+      "batchRef": null,
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "unresolved",
+      "sourceRefs": [
+        {
+          "label": "JSA Profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4356/"
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "rikishiId": "4351",
+      "shikona": "Yabugasaki Akihito",
+      "heya": "Yamahibiki",
+      "birthDate": "2006-10-10",
+      "nationality": "Japan",
+      "heightCm": 180,
+      "weightKg": 167.8,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "verified",
+      "division": null,
+      "batchRef": null,
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "unresolved",
+      "sourceRefs": [
+        {
+          "label": "JSA Profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4351/"
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "rikishiId": "4135",
+      "shikona": "Yamato Yuji",
+      "heya": "Dewanoumi",
+      "birthDate": "2003-08-13",
+      "nationality": "Japan",
+      "heightCm": 177.5,
+      "weightKg": 76.3,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "verified",
+      "division": null,
+      "batchRef": null,
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "unresolved",
+      "sourceRefs": [
+        {
+          "label": "JSA Profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4135/"
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "rikishiId": "4295",
+      "shikona": "Okada Ryotaro",
+      "heya": "Takadagawa",
+      "birthDate": "2002-05-11",
+      "nationality": "Japan",
+      "heightCm": 172,
+      "weightKg": 162,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "verified",
+      "division": null,
+      "batchRef": null,
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "unresolved",
+      "sourceRefs": [
+        {
+          "label": "JSA Profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4295/"
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "rikishiId": "4380",
+      "shikona": "Kaida",
+      "heya": "Kasugano",
+      "birthDate": "2007-08-03",
+      "nationality": "Japan",
+      "heightCm": 192,
+      "weightKg": 158,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "verified",
+      "division": null,
+      "batchRef": null,
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "unresolved",
+      "sourceRefs": [
+        {
+          "label": "JSA Profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4380/"
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "rikishiId": "4019",
+      "shikona": "Takano Ryu",
+      "heya": "Tagonoura",
+      "birthDate": "2004-09-03",
+      "nationality": "Japan",
+      "heightCm": 171.8,
+      "weightKg": 149.2,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "verified",
+      "division": null,
+      "batchRef": null,
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "unresolved",
+      "sourceRefs": [
+        {
+          "label": "JSA Profile",
+          "url": "https://www.sumo.or.jp/ResultRikishiData/profile/4019/"
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "rikishiId": "3030",
+      "shikona": "Ryuseizan Ryuuzaburo",
+      "heya": "Dewanoumi",
+      "birthDate": "1991-12-12",
+      "nationality": "Japan",
+      "heightCm": 172.5,
+      "weightKg": 141.1,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "verified",
+      "division": null,
+      "batchRef": null,
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "unresolved",
+      "sourceRefs": [
+        {
+          "label": "JSA Profile",
+          "url": "https://www.sumo.or.jp/ResultRikishiData/profile/3030/"
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "rikishiId": "3779",
+      "shikona": "Chiyotaiho",
+      "heya": "Kokonoe",
+      "birthDate": "2001-08-01",
+      "nationality": "Japan",
+      "heightCm": 174,
+      "weightKg": 160,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "verified",
+      "division": null,
+      "batchRef": null,
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "unresolved",
+      "sourceRefs": [
+        {
+          "label": "JSA Profile",
+          "url": "https://www.sumo.or.jp/ResultRikishiData/profile/3779/"
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "rikishiId": "4080",
+      "shikona": "Kumanoryu",
+      "heya": "Takasago",
+      "birthDate": "2003-03-18",
+      "nationality": "Japan",
+      "heightCm": 177.2,
+      "weightKg": 107.2,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "verified",
+      "division": null,
+      "batchRef": null,
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "unresolved",
+      "sourceRefs": [
+        {
+          "label": "JSA Profile",
+          "url": "https://www.sumo.or.jp/ResultRikishiData/profile/4080/"
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "rikishiId": "4201",
+      "shikona": "Fujimune",
+      "heya": "Nishonoseki",
+      "birthDate": "2004-10-14",
+      "nationality": "Japan",
+      "heightCm": 187.2,
+      "weightKg": 137.1,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "verified",
+      "division": null,
+      "batchRef": null,
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "unresolved",
+      "sourceRefs": [
+        {
+          "label": "JSA Profile",
+          "url": "https://www.sumo.or.jp/ResultRikishiData/profile/4201/"
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "rikishiId": "3383",
+      "shikona": "Tsugarumi Denzou",
+      "heya": "Tamanoi",
+      "birthDate": "1996-04-06",
+      "nationality": "Japan",
+      "heightCm": 175.1,
+      "weightKg": 103.9,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "verified",
+      "division": null,
+      "batchRef": null,
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "unresolved",
+      "sourceRefs": [
+        {
+          "label": "JSA Profile",
+          "url": "https://www.sumo.or.jp/ResultRikishiData/profile/3383/"
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "rikishiId": "3580",
+      "shikona": "Shohoryu",
+      "heya": "Tokitsukaze",
+      "birthDate": "1996-10-12",
+      "nationality": null,
+      "heightCm": 171.5,
+      "weightKg": 154.7,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "likely",
+      "division": null,
+      "batchRef": null,
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "unresolved",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3580/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "Nationality left null because JSA profile gives birthplace, not explicit nationality; image omitted pending separate verification."
+    },
+    {
+      "rikishiId": "4001",
+      "shikona": "Fukai",
+      "heya": "Takasago",
+      "birthDate": "1997-09-10",
+      "nationality": null,
+      "heightCm": 181.3,
+      "weightKg": 131.1,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "likely",
+      "division": null,
+      "batchRef": null,
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "unresolved",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4001/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "Nationality left null because JSA profile gives birthplace, not explicit nationality; image omitted pending separate verification."
+    },
+    {
+      "rikishiId": "4026",
+      "shikona": "Mikazuchiyama",
+      "heya": "Shikoroyama",
+      "birthDate": "2005-02-04",
+      "nationality": null,
+      "heightCm": 173.7,
+      "weightKg": 151.5,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "likely",
+      "division": null,
+      "batchRef": null,
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "unresolved",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4026/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "Nationality left null because JSA profile gives birthplace, not explicit nationality; image omitted pending separate verification."
+    },
+    {
+      "rikishiId": "3224",
+      "shikona": "Wakatakamoto",
+      "heya": "Arashio",
+      "birthDate": "1991-12-29",
+      "nationality": null,
+      "heightCm": 183,
+      "weightKg": 125.1,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "likely",
+      "division": null,
+      "batchRef": null,
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "unresolved",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3224/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "Nationality left null because JSA profile gives birthplace, not explicit nationality; image omitted pending separate verification."
+    },
+    {
+      "rikishiId": "4184",
+      "shikona": "Satorufuji",
+      "heya": "Isegahama",
+      "birthDate": "2004-05-29",
+      "nationality": null,
+      "heightCm": 178,
+      "weightKg": 167.1,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "likely",
+      "division": null,
+      "batchRef": null,
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "unresolved",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4184/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "Nationality left null because JSA profile gives birthplace, not explicit nationality; image omitted pending separate verification."
+    },
+    {
+      "rikishiId": "4128",
+      "shikona": "Kyokumizuno",
+      "heya": "Oshima",
+      "birthDate": "2004-03-12",
+      "nationality": null,
+      "heightCm": 171.5,
+      "weightKg": 155.2,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "likely",
+      "division": null,
+      "batchRef": null,
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "unresolved",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4128/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "Nationality left null because JSA profile gives birthplace, not explicit nationality; image omitted pending separate verification."
+    },
+    {
+      "rikishiId": "3950",
+      "shikona": "Aratakayama",
+      "heya": "Minatogawa",
+      "birthDate": "2003-10-23",
+      "nationality": null,
+      "heightCm": 177,
+      "weightKg": 163.4,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "likely",
+      "division": null,
+      "batchRef": null,
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "unresolved",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3950/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "Nationality left null because JSA profile gives birthplace, not explicit nationality; image omitted pending separate verification."
+    },
+    {
+      "rikishiId": "4361",
+      "shikona": "Wakanofuji",
+      "heya": "Kasugano",
+      "birthDate": "2001-04-15",
+      "nationality": "Mongolia",
+      "heightCm": 185,
+      "weightKg": 130,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "verified",
+      "division": null,
+      "batchRef": null,
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "unresolved",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4361/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "Nationality taken from JSA birthplace field; image omitted pending separate verification."
+    },
+    {
+      "rikishiId": "4122",
+      "shikona": "Toseiryu",
+      "heya": "Tamanoi",
+      "birthDate": "1999-07-05",
+      "nationality": null,
+      "heightCm": 184.5,
+      "weightKg": 144.6,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "likely",
+      "division": null,
+      "batchRef": null,
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "unresolved",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4122/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "Nationality left null because JSA profile gives birthplace, not explicit nationality; image omitted pending separate verification."
+    },
+    {
+      "rikishiId": "3807",
+      "shikona": "Kamito",
+      "heya": "Tatsunami",
+      "birthDate": "1995-08-19",
+      "nationality": null,
+      "heightCm": 178,
+      "weightKg": 156.4,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "likely",
+      "division": null,
+      "batchRef": null,
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "unresolved",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3807/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "Nationality left null because JSA profile gives birthplace, not explicit nationality; image omitted pending separate verification."
+    },
+    {
+      "rikishiId": "4104",
+      "shikona": "Miyanokaze",
+      "heya": "Nakamura",
+      "birthDate": "1999-01-30",
+      "nationality": null,
+      "heightCm": 172,
+      "weightKg": 116.8,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "likely",
+      "division": null,
+      "batchRef": null,
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "unresolved",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4104/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "Nationality left null because JSA profile gives birthplace, not explicit nationality; image omitted pending separate verification."
+    },
+    {
+      "rikishiId": "4253",
+      "shikona": "Uzumasa",
+      "heya": "Isenoumi",
+      "birthDate": "2008-10-29",
+      "nationality": null,
+      "heightCm": 187,
+      "weightKg": 138,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "likely",
+      "division": null,
+      "batchRef": null,
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "unresolved",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4253/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "Nationality left null because JSA profile gives birthplace, not explicit nationality; image omitted pending separate verification."
+    },
+    {
+      "rikishiId": "3508",
+      "shikona": "Bushozan",
+      "heya": "Fujishima",
+      "birthDate": "1995-12-06",
+      "nationality": null,
+      "heightCm": 171.5,
+      "weightKg": 171.2,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "likely",
+      "division": null,
+      "batchRef": null,
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "unresolved",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3508/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "Nationality left null because JSA profile gives birthplace, not explicit nationality; image omitted pending separate verification."
+    },
+    {
+      "rikishiId": "4302",
+      "shikona": "Ikarigata",
+      "heya": "Isenoumi",
+      "birthDate": "2007-02-24",
+      "nationality": null,
+      "heightCm": 174,
+      "weightKg": 126.3,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "likely",
+      "division": null,
+      "batchRef": null,
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "unresolved",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4302/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "Nationality left null because JSA profile gives birthplace, not explicit nationality; image omitted pending separate verification."
+    },
+    {
+      "rikishiId": "4278",
+      "shikona": "Yonezawaryu",
+      "heya": "Sakaigawa",
+      "birthDate": "2005-03-28",
+      "nationality": null,
+      "heightCm": 190,
+      "weightKg": 131.9,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "likely",
+      "division": null,
+      "batchRef": null,
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "unresolved",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4278/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "Nationality left null because JSA profile gives birthplace, not explicit nationality; image omitted pending separate verification."
+    },
+    {
+      "rikishiId": "3557",
+      "shikona": "Sadanohikari",
+      "heya": "Sakaigawa",
+      "birthDate": "1995-12-31",
+      "nationality": "Mongolia",
+      "heightCm": 187,
+      "weightKg": 141.6,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "verified",
+      "division": null,
+      "batchRef": null,
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "unresolved",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3557/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "Nationality taken from JSA birthplace field; image omitted pending separate verification."
+    },
+    {
+      "rikishiId": "4118",
+      "shikona": "Hananoumi",
+      "heya": "Nishonoseki",
+      "birthDate": "2003-04-15",
+      "nationality": null,
+      "heightCm": 173,
+      "weightKg": 147.1,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "likely",
+      "division": null,
+      "batchRef": null,
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "unresolved",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4118/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "Nationality left null because JSA profile gives birthplace, not explicit nationality; image omitted pending separate verification."
+    },
+    {
+      "rikishiId": "4130",
+      "shikona": "Gyokuozan",
+      "heya": "Naruto",
+      "birthDate": "2003-06-20",
+      "nationality": null,
+      "heightCm": 184,
+      "weightKg": 187.6,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "likely",
+      "division": null,
+      "batchRef": null,
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "unresolved",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4130/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "Nationality left null because JSA profile gives birthplace, not explicit nationality; image omitted pending separate verification."
+    },
+    {
+      "rikishiId": "3733",
+      "shikona": "Tsushimanada",
+      "heya": "Sakaigawa",
+      "birthDate": "1993-06-27",
+      "nationality": null,
+      "heightCm": 185.3,
+      "weightKg": 140.2,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "likely",
+      "division": null,
+      "batchRef": null,
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "unresolved",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3733/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "Nationality left null because JSA profile gives birthplace, not explicit nationality; image omitted pending separate verification."
+    },
+    {
+      "rikishiId": "3454",
+      "shikona": "Chiyonokatsu",
+      "heya": "Kokonoe",
+      "birthDate": "1994-04-13",
+      "nationality": null,
+      "heightCm": 177.2,
+      "weightKg": 127.2,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "likely",
+      "division": null,
+      "batchRef": null,
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "unresolved",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3454/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "Nationality left null because JSA profile gives birthplace, not explicit nationality; image omitted pending separate verification."
+    },
+    {
+      "rikishiId": "4225",
+      "shikona": "Anosho",
+      "heya": "Ajigawa",
+      "birthDate": "2005-03-02",
+      "nationality": null,
+      "heightCm": 175,
+      "weightKg": 163.8,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "likely",
+      "division": null,
+      "batchRef": null,
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "unresolved",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4225/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "Nationality left null because JSA profile gives birthplace, not explicit nationality; image omitted pending separate verification."
+    },
+    {
+      "rikishiId": "4219",
+      "shikona": "Ryuji",
+      "heya": "Onomatsu",
+      "birthDate": "2004-11-26",
+      "nationality": null,
+      "heightCm": 187.7,
+      "weightKg": 117.8,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "likely",
+      "division": null,
+      "batchRef": null,
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "unresolved",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4219/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "Nationality left null because JSA profile gives birthplace, not explicit nationality; image omitted pending separate verification."
+    },
+    {
+      "rikishiId": "4144",
+      "shikona": "Tatsuosho",
+      "heya": "Tatsunami",
+      "birthDate": "2003-09-01",
+      "nationality": null,
+      "heightCm": 184.5,
+      "weightKg": 158,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "likely",
+      "division": null,
+      "batchRef": null,
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "unresolved",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4144/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "Nationality left null because JSA profile gives birthplace, not explicit nationality; image omitted pending separate verification."
+    },
+    {
+      "rikishiId": "3070",
+      "shikona": "Akinoyama",
+      "heya": "Takadagawa",
+      "birthDate": "1992-11-30",
+      "nationality": null,
+      "heightCm": 177.1,
+      "weightKg": 199,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "likely",
+      "division": null,
+      "batchRef": null,
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "unresolved",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3070/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "Nationality left null because JSA profile gives birthplace, not explicit nationality; image omitted pending separate verification."
+    },
+    {
+      "rikishiId": "4208",
+      "shikona": "Soma",
+      "heya": "Futagoyama",
+      "birthDate": "2004-09-03",
+      "nationality": null,
+      "heightCm": 179,
+      "weightKg": 148.8,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "likely",
+      "division": null,
+      "batchRef": null,
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "unresolved",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4208/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "Nationality left null because JSA profile gives birthplace, not explicit nationality; image omitted pending separate verification."
+    },
+    {
+      "rikishiId": "4182",
+      "shikona": "Gohakuun",
+      "heya": "Takekuma",
+      "birthDate": "2005-03-22",
+      "nationality": null,
+      "heightCm": 173.5,
+      "weightKg": 135,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "likely",
+      "division": null,
+      "batchRef": null,
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "unresolved",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4182/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "Nationality left null because JSA profile gives birthplace, not explicit nationality; image omitted pending separate verification."
+    },
+    {
+      "rikishiId": "4168",
+      "shikona": "Sachinofuji",
+      "heya": "Isegahama",
+      "birthDate": "2006-03-06",
+      "nationality": null,
+      "heightCm": 169,
+      "weightKg": 84,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "likely",
+      "division": null,
+      "batchRef": null,
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "unresolved",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4168/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "Nationality left null because JSA profile provides birthplace, not explicit nationality; image omitted pending separate verification."
+    },
+    {
+      "rikishiId": "4320",
+      "shikona": "Kazekodai",
+      "heya": "Oshiogawa",
+      "birthDate": "2007-03-16",
+      "nationality": null,
+      "heightCm": 173,
+      "weightKg": 130,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "likely",
+      "division": null,
+      "batchRef": null,
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "unresolved",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4320/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "Nationality left null because JSA profile provides birthplace, not explicit nationality; image omitted pending separate verification."
+    },
+    {
+      "rikishiId": "3823",
+      "shikona": "Shoji",
+      "heya": "Musashigawa",
+      "birthDate": "1994-08-25",
+      "nationality": null,
+      "heightCm": 191,
+      "weightKg": 139,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "likely",
+      "division": null,
+      "batchRef": null,
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "unresolved",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3823/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "JSA snippet included stale-rank text but the official profile identity is correct. Nationality left null; image omitted pending separate verification."
+    },
+    {
+      "rikishiId": "3886",
+      "shikona": "Hokutosakae",
+      "heya": "Hakkaku",
+      "birthDate": "1999-10-24",
+      "nationality": null,
+      "heightCm": 189,
+      "weightKg": 129,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "likely",
+      "division": null,
+      "batchRef": null,
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "unresolved",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3886/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "Official JSA profile confirmed identity even where snippets were tournament-record heavy. Nationality left null; image omitted pending separate verification."
+    },
+    {
+      "rikishiId": "4332",
+      "shikona": "Uchima",
+      "heya": "Nishonoseki",
+      "birthDate": "2009-09-17",
+      "nationality": null,
+      "heightCm": 183,
+      "weightKg": 158,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "likely",
+      "division": null,
+      "batchRef": null,
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "unresolved",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4332/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "Nationality left null because JSA profile provides birthplace, not explicit nationality; image omitted pending separate verification."
+    },
+    {
+      "rikishiId": "3555",
+      "shikona": "Kaishinmaru",
+      "heya": "Asakayama",
+      "birthDate": "1998-09-14",
+      "nationality": null,
+      "heightCm": 170,
+      "weightKg": 149,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "likely",
+      "division": null,
+      "batchRef": null,
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "unresolved",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3555/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "JSA snippet included stale-rank text but the official profile identity is correct. Nationality left null; image omitted pending separate verification."
+    },
+    {
+      "rikishiId": "4359",
+      "shikona": "Kazemitsuki",
+      "heya": "Oshiogawa",
+      "birthDate": "2006-09-27",
+      "nationality": null,
+      "heightCm": 175,
+      "weightKg": 125,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "likely",
+      "division": null,
+      "batchRef": null,
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "unresolved",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4359/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "JSA snippet included stale-rank text but the official profile identity is correct. Nationality left null; image omitted pending separate verification."
+    },
+    {
+      "rikishiId": "4134",
+      "shikona": "Takaarashi",
+      "heya": "Tagonoura",
+      "birthDate": "2006-12-28",
+      "nationality": null,
+      "heightCm": 175,
+      "weightKg": 134,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "likely",
+      "division": null,
+      "batchRef": null,
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "unresolved",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4134/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "JSA snippet included stale-rank text but the official profile identity is correct. Nationality left null; image omitted pending separate verification."
+    },
+    {
+      "rikishiId": "4045",
+      "shikona": "Chiyoyamato",
+      "heya": "Kokonoe",
+      "birthDate": "2001-02-16",
+      "nationality": null,
+      "heightCm": 181,
+      "weightKg": 156,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "likely",
+      "division": null,
+      "batchRef": null,
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "unresolved",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4045/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "JSA snippet included stale-rank text but the official profile identity is correct. Nationality left null; image omitted pending separate verification."
+    },
+    {
+      "rikishiId": "3809",
+      "shikona": "Taranami",
+      "heya": "Tatsunami",
+      "birthDate": "2002-02-19",
+      "nationality": null,
+      "heightCm": 178,
+      "weightKg": 153,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "likely",
+      "division": null,
+      "batchRef": null,
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "unresolved",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3809/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "Nationality left null because JSA profile provides birthplace, not explicit nationality; image omitted pending separate verification."
+    },
+    {
+      "rikishiId": "3953",
+      "shikona": "Tokazan",
+      "heya": "Tamanoi",
+      "birthDate": "2004-01-15",
+      "nationality": null,
+      "heightCm": 183,
+      "weightKg": 132,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "likely",
+      "division": null,
+      "batchRef": null,
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "unresolved",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3953/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "JSA snippet included stale-rank text but the official profile identity is correct. Nationality left null; image omitted pending separate verification."
+    },
+    {
+      "rikishiId": "3727",
+      "shikona": "Kaiyuma",
+      "heya": "Asakayama",
+      "birthDate": "2000-04-26",
+      "nationality": null,
+      "heightCm": 172,
+      "weightKg": 174,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "likely",
+      "division": null,
+      "batchRef": null,
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "unresolved",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3727/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "Nationality left null because JSA profile provides birthplace, not explicit nationality; image omitted pending separate verification."
+    },
+    {
+      "rikishiId": "4183",
+      "shikona": "Gonowaka",
+      "heya": "Takekuma",
+      "birthDate": "2004-11-15",
+      "nationality": null,
+      "heightCm": 177,
+      "weightKg": 126,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "likely",
+      "division": null,
+      "batchRef": null,
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "unresolved",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4183/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "Official JSA profile confirmed identity even where snippets were tournament-record heavy. Nationality left null; image omitted pending separate verification."
+    },
+    {
+      "rikishiId": "3564",
+      "shikona": "Ryuma",
+      "heya": "Hanaregoma",
+      "birthDate": "1998-07-24",
+      "nationality": null,
+      "heightCm": 181,
+      "weightKg": 147,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "likely",
+      "division": null,
+      "batchRef": null,
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "unresolved",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3564/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "Nationality left null because JSA profile provides birthplace, not explicit nationality; image omitted pending separate verification."
+    },
+    {
+      "rikishiId": "2983",
+      "shikona": "Kayatoiwa",
+      "heya": "Minato",
+      "birthDate": "1991-07-13",
+      "nationality": null,
+      "heightCm": 177,
+      "weightKg": 112,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "likely",
+      "division": null,
+      "batchRef": null,
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "unresolved",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/2983/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "Nationality left null because JSA profile provides birthplace, not explicit nationality; image omitted pending separate verification."
+    },
+    {
+      "rikishiId": "3542",
+      "shikona": "Toukiryu",
+      "heya": "Tamanoi",
+      "birthDate": "1998-06-25",
+      "nationality": null,
+      "heightCm": 174,
+      "weightKg": 120,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "likely",
+      "division": null,
+      "batchRef": null,
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "unresolved",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3542/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "Official JSA profile uses the transliteration 'Toukiryu' while SumoDB roster text renders the same rikishi as 'Tokiryu'. Final dataset follows the JSA profile spelling. Nationality left null; image omitted pending separate verification."
+    },
+    {
+      "rikishiId": "3002",
+      "shikona": "Amakaze",
+      "heya": "Oshiogawa",
+      "birthDate": "1991-07-07",
+      "nationality": null,
+      "heightCm": 184,
+      "weightKg": 162,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "likely",
+      "division": null,
+      "batchRef": null,
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "unresolved",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3002/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "Nationality left null because JSA profile provides birthplace, not explicit nationality; image omitted pending separate verification."
+    },
+    {
+      "rikishiId": "4233",
+      "shikona": "Daigoyama",
+      "heya": "Isenoumi",
+      "birthDate": "2006-08-17",
+      "nationality": null,
+      "heightCm": 181,
+      "weightKg": 129,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "likely",
+      "division": null,
+      "batchRef": null,
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "unresolved",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4233/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "JSA snippet included stale-rank text but the official profile identity is correct. Nationality left null; image omitted pending separate verification."
+    },
+    {
+      "rikishiId": "2522",
+      "shikona": "Katsunofuji",
+      "heya": "Sakaigawa",
+      "birthDate": "1984-05-04",
+      "nationality": null,
+      "heightCm": 181,
+      "weightKg": 144,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "likely",
+      "division": null,
+      "batchRef": null,
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "unresolved",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/2522/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "Nationality left null because JSA profile provides birthplace, not explicit nationality; image omitted pending separate verification."
+    },
+    {
+      "rikishiId": "4290",
+      "shikona": "Hikarumusashi",
+      "heya": "Musashigawa",
+      "birthDate": "2005-11-07",
+      "nationality": null,
+      "heightCm": 182,
+      "weightKg": 131,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "likely",
+      "division": null,
+      "batchRef": null,
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "unresolved",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4290/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "Birthplace is listed as America on the JSA profile, but nationality is still left null because the profile does not explicitly state nationality. Image omitted pending separate verification."
+    },
+    {
+      "rikishiId": "3859",
+      "shikona": "Kotakiyama",
+      "heya": "Futagoyama",
+      "birthDate": "2003-01-09",
+      "nationality": null,
+      "heightCm": 184,
+      "weightKg": 138,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "likely",
+      "division": null,
+      "batchRef": null,
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "unresolved",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3859/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "Nationality left null because JSA profile provides birthplace, not explicit nationality; image omitted pending separate verification."
+    },
+    {
+      "rikishiId": "4322",
+      "shikona": "Tsurunosato",
+      "heya": "Nishiiwa",
+      "birthDate": "2007-01-25",
+      "nationality": null,
+      "heightCm": 173,
+      "weightKg": 108,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "likely",
+      "division": null,
+      "batchRef": null,
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "unresolved",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4322/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "Nationality left null because JSA profile provides birthplace, not explicit nationality; image omitted pending separate verification."
+    },
+    {
+      "rikishiId": "2637",
+      "shikona": "Asanojo",
+      "heya": "Takasago",
+      "birthDate": "1986-09-03",
+      "nationality": null,
+      "heightCm": 174,
+      "weightKg": 117,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "likely",
+      "division": null,
+      "batchRef": null,
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "unresolved",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/2637/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "Official JSA profile confirmed identity even where snippets were tournament-record heavy. Nationality left null; image omitted pending separate verification."
+    },
+    {
+      "rikishiId": "4300",
+      "shikona": "Sunasaka",
+      "heya": "Takasago",
+      "birthDate": "2006-10-13",
+      "nationality": null,
+      "heightCm": 175,
+      "weightKg": 137,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "likely",
+      "division": null,
+      "batchRef": null,
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "unresolved",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4300/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "JSA snippet included stale-rank text but the official profile identity is correct. Nationality left null; image omitted pending separate verification."
+    },
+    {
+      "rikishiId": "3685",
+      "shikona": "Asashinjo",
+      "heya": "Takasago",
+      "birthDate": "1998-02-12",
+      "nationality": null,
+      "heightCm": 170,
+      "weightKg": 128,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "likely",
+      "division": null,
+      "batchRef": null,
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "unresolved",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3685/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "JSA snippet included stale-rank text but the official profile identity is correct. Nationality left null; image omitted pending separate verification."
+    },
+    {
+      "rikishiId": "3780",
+      "shikona": "Suio",
+      "heya": "Dewanoumi",
+      "birthDate": "2001-07-03",
+      "nationality": null,
+      "heightCm": 180,
+      "weightKg": 109,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "likely",
+      "division": null,
+      "batchRef": null,
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "unresolved",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3780/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "Nationality left null because JSA profile provides birthplace, not explicit nationality; image omitted pending separate verification."
+    },
+    {
+      "rikishiId": "4247",
+      "shikona": "Ayanofuji",
+      "heya": "Isegahama",
+      "birthDate": "2005-08-07",
+      "nationality": null,
+      "heightCm": 184,
+      "weightKg": 167,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "likely",
+      "division": null,
+      "batchRef": null,
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "unresolved",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4247/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "Nationality left null because JSA profile provides birthplace, not explicit nationality; image omitted pending separate verification."
+    },
+    {
+      "rikishiId": "3718",
+      "shikona": "Oshozan",
+      "heya": "Naruto",
+      "birthDate": "2000-05-11",
+      "nationality": null,
+      "heightCm": 168,
+      "weightKg": 131,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "likely",
+      "division": null,
+      "batchRef": null,
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "unresolved",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3718/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "Nationality left null because JSA profile provides birthplace, not explicit nationality; image omitted pending separate verification."
+    },
+    {
+      "rikishiId": "3645",
+      "shikona": "Tosashimizu",
+      "heya": "Tokitsukaze",
+      "birthDate": "1997-02-25",
+      "nationality": null,
+      "heightCm": 169,
+      "weightKg": 191,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "likely",
+      "division": null,
+      "batchRef": null,
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "unresolved",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3645/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "JSA snippet included stale-rank text but the official profile identity is correct. Nationality left null; image omitted pending separate verification."
+    },
+    {
+      "rikishiId": "4114",
+      "shikona": "Masakifuji",
+      "heya": "Isegahama",
+      "birthDate": "2003-11-12",
+      "nationality": null,
+      "heightCm": 172,
+      "weightKg": 113,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "likely",
+      "division": null,
+      "batchRef": null,
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "unresolved",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4114/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "JSA snippet included stale-rank text but the official profile identity is correct. Nationality left null; image omitted pending separate verification."
+    },
+    {
+      "rikishiId": "4083",
+      "shikona": "Takashoki",
+      "heya": "Minatogawa",
+      "birthDate": "2005-12-09",
+      "nationality": null,
+      "heightCm": 192,
+      "weightKg": 153,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "likely",
+      "division": null,
+      "batchRef": null,
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "unresolved",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4083/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "Official JSA profile confirmed identity even where snippets were tournament-record heavy. Nationality left null; image omitted pending separate verification."
+    },
+    {
+      "rikishiId": "3663",
+      "shikona": "Buomaru",
+      "heya": "Musashigawa",
+      "birthDate": "1998-09-20",
+      "nationality": null,
+      "heightCm": 178,
+      "weightKg": 204,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "likely",
+      "division": null,
+      "batchRef": null,
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "unresolved",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3663/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "Nationality left null because JSA profile provides birthplace, not explicit nationality; image omitted pending separate verification."
+    },
+    {
+      "rikishiId": "3897",
+      "shikona": "Tokinohira",
+      "heya": "Tokitsukaze",
+      "birthDate": "1999-04-08",
+      "nationality": null,
+      "heightCm": 180,
+      "weightKg": 155,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "likely",
+      "division": null,
+      "batchRef": null,
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "unresolved",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3897/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "JSA snippet included stale-rank text but the official profile identity is correct. Nationality left null; image omitted pending separate verification."
+    },
+    {
+      "rikishiId": "4082",
+      "shikona": "Zuitenryu",
+      "heya": "Sakaigawa",
+      "birthDate": "2005-12-02",
+      "nationality": null,
+      "heightCm": 178,
+      "weightKg": 131,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "likely",
+      "division": null,
+      "batchRef": null,
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "unresolved",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4082/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "Nationality left null because JSA profile provides birthplace, not explicit nationality; image omitted pending separate verification."
+    },
+    {
+      "rikishiId": "4052",
+      "shikona": "Minorufuji",
+      "heya": "Isegahama",
+      "birthDate": "2002-05-08",
+      "nationality": null,
+      "heightCm": 174,
+      "weightKg": 118,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "likely",
+      "division": null,
+      "batchRef": null,
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "unresolved",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4052/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "Nationality left null because JSA profile provides birthplace, not explicit nationality; image omitted pending separate verification."
+    },
+    {
+      "rikishiId": "3019",
+      "shikona": "Ebisumaru",
+      "heya": "Takadagawa",
+      "birthDate": "1991-05-31",
+      "nationality": null,
+      "heightCm": 180,
+      "weightKg": 134,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "likely",
+      "division": null,
+      "batchRef": null,
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "unresolved",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3019/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "Nationality left null because JSA profile provides birthplace, not explicit nationality; image omitted pending separate verification."
+    },
+    {
+      "rikishiId": "3717",
+      "shikona": "Tsugunohana",
+      "heya": "Onomatsu",
+      "birthDate": "1997-10-20",
+      "nationality": null,
+      "heightCm": 186,
+      "weightKg": 135,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "likely",
+      "division": null,
+      "batchRef": null,
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "unresolved",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3717/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "JSA snippet included stale-rank text but the official profile identity is correct. Nationality left null; image omitted pending separate verification."
+    },
+    {
+      "rikishiId": "3930",
+      "shikona": "Inaba",
+      "heya": "Onomatsu",
+      "birthDate": "2000-05-18",
+      "nationality": null,
+      "heightCm": 173,
+      "weightKg": 136,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "likely",
+      "division": null,
+      "batchRef": null,
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "unresolved",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3930/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "Nationality left null because JSA profile provides birthplace, not explicit nationality; image omitted pending separate verification."
+    },
+    {
+      "rikishiId": "3789",
+      "shikona": "Chiyotaiko",
+      "heya": "Kokonoe",
+      "birthDate": "2001-12-26",
+      "nationality": null,
+      "heightCm": 179,
+      "weightKg": 122,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "likely",
+      "division": null,
+      "batchRef": null,
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "unresolved",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3789/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "JSA snippet included stale-rank text but the official profile identity is correct. Nationality left null; image omitted pending separate verification."
+    },
+    {
+      "rikishiId": "2647",
+      "shikona": "Hitachigo",
+      "heya": "Fujishima",
+      "birthDate": "1985-06-17",
+      "nationality": null,
+      "heightCm": 182,
+      "weightKg": 143,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "likely",
+      "division": null,
+      "batchRef": null,
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "unresolved",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/2647/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "Official JSA profile confirmed identity even where snippets were tournament-record heavy. Nationality left null; image omitted pending separate verification."
+    },
+    {
+      "rikishiId": "3525",
+      "shikona": "Tochimitsuru",
+      "heya": "Kasugano",
+      "birthDate": "1995-06-08",
+      "nationality": null,
+      "heightCm": 171,
+      "weightKg": 118,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "likely",
+      "division": null,
+      "batchRef": null,
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "unresolved",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3525/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "JSA snippet included stale-rank text but the official profile identity is correct. Nationality left null; image omitted pending separate verification."
+    },
+    {
+      "rikishiId": "3837",
+      "shikona": "Tenei",
+      "heya": "Takadagawa",
+      "birthDate": "1999-10-11",
+      "nationality": null,
+      "heightCm": 177,
+      "weightKg": 147,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "likely",
+      "division": null,
+      "batchRef": null,
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "unresolved",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3837/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "Official JSA profile confirmed identity even where snippets were tournament-record heavy. Nationality left null; image omitted pending separate verification."
+    },
+    {
+      "rikishiId": "3875",
+      "shikona": "Asazenshin",
+      "heya": "Takasago",
+      "birthDate": "1995-06-22",
+      "nationality": null,
+      "heightCm": 183,
+      "weightKg": 117,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "likely",
+      "division": null,
+      "batchRef": null,
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "unresolved",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3875/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "Nationality left null because JSA profile provides birthplace, not explicit nationality; image omitted pending separate verification."
+    },
+    {
+      "rikishiId": "4238",
+      "shikona": "Kyokutairyu",
+      "heya": "Oshima",
+      "birthDate": "2006-01-22",
+      "nationality": null,
+      "heightCm": 176,
+      "weightKg": 137,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "likely",
+      "division": null,
+      "batchRef": null,
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "unresolved",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4238/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "Official JSA profile confirmed identity even where snippets were tournament-record heavy. Nationality left null; image omitted pending separate verification."
+    },
+    {
+      "rikishiId": "3854",
+      "shikona": "Kinotsukasa",
+      "heya": "Ikazuchi",
+      "birthDate": "2000-01-19",
+      "nationality": null,
+      "heightCm": 173,
+      "weightKg": 121,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "likely",
+      "division": null,
+      "batchRef": null,
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "unresolved",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3854/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "JSA snippet included stale-rank text but the official profile identity is correct. Nationality left null; image omitted pending separate verification."
+    },
+    {
+      "rikishiId": "3769",
+      "shikona": "Amane",
+      "heya": "Shikoroyama",
+      "birthDate": "1998-11-21",
+      "nationality": null,
+      "heightCm": 182,
+      "weightKg": 158,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "likely",
+      "division": null,
+      "batchRef": null,
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "unresolved",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3769/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "JSA snippet included stale-rank text but the official profile identity is correct. Nationality left null; image omitted pending separate verification."
+    },
+    {
+      "rikishiId": "4254",
+      "shikona": "Hakuryu",
+      "heya": "Otowayama",
+      "birthDate": "2005-11-06",
+      "nationality": null,
+      "heightCm": 182,
+      "weightKg": 145,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "likely",
+      "division": null,
+      "batchRef": null,
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "unresolved",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4254/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "JSA snippet included stale-rank text but the official profile identity is correct. Nationality left null; image omitted pending separate verification."
+    },
+    {
+      "rikishiId": "3776",
+      "shikona": "Kototaiga",
+      "heya": "Sadogatake",
+      "birthDate": "2001-04-21",
+      "nationality": null,
+      "heightCm": 182,
+      "weightKg": 121,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "likely",
+      "division": null,
+      "batchRef": null,
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "unresolved",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3776/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "JSA snippet included stale-rank text but the official profile identity is correct. Nationality left null; image omitted pending separate verification."
+    },
+    {
+      "rikishiId": "4140",
+      "shikona": "Shoran",
+      "heya": "Hanaregoma",
+      "birthDate": "2003-12-06",
+      "nationality": null,
+      "heightCm": 176,
+      "weightKg": 106,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "likely",
+      "division": null,
+      "batchRef": null,
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "unresolved",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4140/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "JSA snippet included stale-rank text but the official profile identity is correct. Nationality left null; image omitted pending separate verification."
+    },
+    {
+      "rikishiId": "3714",
+      "shikona": "Takabayama",
+      "heya": "Onoe",
+      "birthDate": "2000-10-02",
+      "nationality": null,
+      "heightCm": 174,
+      "weightKg": 108,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "likely",
+      "division": null,
+      "batchRef": null,
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "unresolved",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3714/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "Nationality left null because JSA profile provides birthplace, not explicit nationality; image omitted pending separate verification."
+    },
+    {
+      "rikishiId": "4159",
+      "shikona": "Najima",
+      "heya": "Minato",
+      "birthDate": "2006-04-18",
+      "nationality": null,
+      "heightCm": 179,
+      "weightKg": 102,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "likely",
+      "division": null,
+      "batchRef": null,
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "unresolved",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4159/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "Nationality left null because JSA profile provides birthplace, not explicit nationality; image omitted pending separate verification."
+    },
+    {
+      "rikishiId": "3551",
+      "shikona": "Takakurayama",
+      "heya": "Onoe",
+      "birthDate": "1998-08-11",
+      "nationality": null,
+      "heightCm": 181,
+      "weightKg": 135,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "likely",
+      "division": null,
+      "batchRef": null,
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "unresolved",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3551/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "Nationality left null because JSA profile provides birthplace, not explicit nationality; image omitted pending separate verification."
+    },
+    {
+      "rikishiId": "4228",
+      "shikona": "Kikunoshiro",
+      "heya": "Hidenoyama",
+      "birthDate": "2008-02-04",
+      "nationality": null,
+      "heightCm": 180,
+      "weightKg": 146,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "likely",
+      "division": null,
+      "batchRef": null,
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "unresolved",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4228/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "JSA snippet included stale-rank text but the official profile identity is correct. Nationality left null; image omitted pending separate verification."
+    },
+    {
+      "rikishiId": "3847",
+      "shikona": "Sakabayashi",
+      "heya": "Onoe",
+      "birthDate": "1999-11-28",
+      "nationality": null,
+      "heightCm": 176,
+      "weightKg": 129,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "likely",
+      "division": null,
+      "batchRef": null,
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "unresolved",
+      "sourceRefs": [
+        {
+          "label": "JSA rikishi profile",
+          "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3847/"
+        },
+        {
+          "label": "SumoDB Haru 2026 text banzuke",
+          "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
+        }
+      ],
+      "notes": "Nationality left null because JSA profile provides birthplace, not explicit nationality; image omitted pending separate verification."
+    }
+  ]
+}

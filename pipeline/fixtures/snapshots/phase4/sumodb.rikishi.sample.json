@@ -1,0 +1,12 @@
+{
+  "rikishi": [
+    {"rikishiId":"rks_0001","shikona":"Onosato","heya":"Nishonoseki","heightCm":192,"weightKg":187,"nationality":"Japan"},
+    {"rikishiId":"rks_0002","shikona":"Hoshoryu","heya":"Tatsunami","heightCm":188,"weightKg":149,"nationality":"Mongolia"},
+    {"rikishiId":"rks_0003","shikona":"Kotozakura","heya":"Sadogatake","heightCm":189,"weightKg":161,"nationality":"Japan"},
+    {"rikishiId":"rks_0004","shikona":"Aonishiki","heya":"Ajigawa","heightCm":182,"weightKg":136,"nationality":"Ukraine"},
+    {"rikishiId":"rks_0005","shikona":"Tomokaze","heya":"Oguruma","heightCm":184,"weightKg":168,"nationality":"Japan"},
+    {"rikishiId":"rks_0006","shikona":"Shishi","heya":"Isegahama","heightCm":193,"weightKg":171,"nationality":"Ukraine"},
+    {"rikishiId":"rks_0007","shikona":"Tamashoho","heya":"Kataonami","heightCm":178,"weightKg":160,"nationality":"Mongolia"},
+    {"rikishiId":"rks_0008","shikona":"Daiamami","heya":"Oitekaze","heightCm":185,"weightKg":178,"nationality":"Japan"}
+  ]
+}

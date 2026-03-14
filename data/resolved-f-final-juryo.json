@@ -1,0 +1,402 @@
+[
+  {
+    "rikishiId": "3158",
+    "shikona": "Chiyosakae",
+    "heya": "Kokonoe",
+    "birthDate": "1990-07-12",
+    "nationality": "Japan",
+    "heightCm": 179.9,
+    "weightKg": 148.2,
+    "status": "active",
+    "officialImageUrl": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20090012.jpg",
+    "imageSource": "Nihon Sumo Kyokai official profile",
+    "imageConfidence": "verified",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3158/"
+      }
+    ],
+    "notes": "Currently ranked Sandanme, was Juryo; nationality inferred from Japanese birthplace.",
+    "division": "Juryo",
+    "batchRef": "juryo-roster",
+    "lastVerifiedBasho": "202603",
+    "provenanceStatus": "confirmed"
+  },
+  {
+    "rikishiId": "3040",
+    "shikona": "Chiyomaru",
+    "heya": "Kokonoe",
+    "birthDate": "1991-04-17",
+    "nationality": "Japan",
+    "heightCm": 178.8,
+    "weightKg": 171.4,
+    "status": "active",
+    "officialImageUrl": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20070085.jpg",
+    "imageSource": "Nihon Sumo Kyokai official profile",
+    "imageConfidence": "verified",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3040/"
+      }
+    ],
+    "notes": "Nationality (Japan) inferred from birthplace Kagoshima (Japan).",
+    "division": "Juryo",
+    "batchRef": "juryo-roster",
+    "lastVerifiedBasho": "202603",
+    "provenanceStatus": "confirmed"
+  },
+  {
+    "rikishiId": "3312",
+    "shikona": "Akua",
+    "heya": "Tatsunami",
+    "birthDate": "1990-11-06",
+    "nationality": "Japan",
+    "heightCm": 185,
+    "weightKg": 168.4,
+    "status": "active",
+    "officialImageUrl": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20100090.jpg",
+    "imageSource": "Nihon Sumo Kyokai official profile",
+    "imageConfidence": "verified",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3312/"
+      }
+    ],
+    "notes": "Nationality (Japan) inferred from birthplace Ibaraki (Japan).",
+    "division": "Juryo",
+    "batchRef": "juryo-roster",
+    "lastVerifiedBasho": "202603",
+    "provenanceStatus": "confirmed"
+  },
+  {
+    "rikishiId": "3177",
+    "shikona": "Tsurubayashi",
+    "heya": "Kise",
+    "birthDate": "1993-12-31",
+    "nationality": "Japan",
+    "heightCm": 180,
+    "weightKg": 139.4,
+    "status": "active",
+    "officialImageUrl": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20110068.jpg",
+    "imageSource": "Nihon Sumo Kyokai official profile",
+    "imageConfidence": "verified",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3177/"
+      }
+    ],
+    "notes": "Nationality (Japan) inferred from birthplace Kumamoto (Japan).",
+    "division": "Juryo",
+    "batchRef": "juryo-roster",
+    "lastVerifiedBasho": "202603",
+    "provenanceStatus": "confirmed"
+  },
+  {
+    "rikishiId": "3434",
+    "shikona": "Onosho",
+    "heya": "Onomatsu",
+    "birthDate": "1996-07-04",
+    "nationality": "Japan",
+    "heightCm": 176,
+    "weightKg": 165,
+    "status": "retired",
+    "officialImageUrl": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20130005.jpg",
+    "imageSource": "Nihon Sumo Kyokai official profile",
+    "imageConfidence": "verified",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA profile (retired)",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3434/"
+      }
+    ],
+    "notes": "Retired Jan 2025 (per JSA data); highest rank Komusubi.",
+    "division": "Juryo",
+    "batchRef": "juryo-roster",
+    "lastVerifiedBasho": "202603",
+    "provenanceStatus": "confirmed"
+  },
+  {
+    "rikishiId": "3504",
+    "shikona": "Tsurugisho",
+    "heya": "Oitekaze",
+    "birthDate": "1991-07-27",
+    "nationality": "Japan",
+    "heightCm": 185,
+    "weightKg": 200,
+    "status": "active",
+    "officialImageUrl": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20140002.jpg",
+    "imageSource": "Nihon Sumo Kyokai official profile",
+    "imageConfidence": "verified",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3504/"
+      }
+    ],
+    "notes": "",
+    "division": "Juryo",
+    "batchRef": "juryo-roster",
+    "lastVerifiedBasho": "202603",
+    "provenanceStatus": "confirmed"
+  },
+  {
+    "rikishiId": "4116",
+    "shikona": "Daiseizan",
+    "heya": "Arashio",
+    "birthDate": "2000-05-22",
+    "nationality": "China",
+    "heightCm": 192,
+    "weightKg": 166,
+    "status": "active",
+    "officialImageUrl": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20210061.jpg",
+    "imageSource": "Nihon Sumo Kyokai official profile",
+    "imageConfidence": "verified",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4116/"
+      }
+    ],
+    "notes": "Chinese by birthplace (Mongol, per official profile birthplace: China).",
+    "division": "Juryo",
+    "batchRef": "juryo-roster",
+    "lastVerifiedBasho": "202603",
+    "provenanceStatus": "confirmed"
+  },
+  {
+    "rikishiId": "4285",
+    "shikona": "Asasuiryu",
+    "heya": "Takasago",
+    "birthDate": "2000-08-09",
+    "nationality": "Japan",
+    "heightCm": 174,
+    "weightKg": 117,
+    "status": "active",
+    "officialImageUrl": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20240052.jpg",
+    "imageSource": "Nihon Sumo Kyokai official profile",
+    "imageConfidence": "verified",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4285/"
+      }
+    ],
+    "notes": "",
+    "division": "Juryo",
+    "batchRef": "juryo-roster",
+    "lastVerifiedBasho": "202603",
+    "provenanceStatus": "confirmed"
+  },
+  {
+    "rikishiId": "3914",
+    "shikona": "Nishinoryu",
+    "heya": "Sakaigawa",
+    "birthDate": "2000-08-20",
+    "nationality": "Japan",
+    "heightCm": 182,
+    "weightKg": 141,
+    "status": "active",
+    "officialImageUrl": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20180075.jpg",
+    "imageSource": "Nihon Sumo Kyokai official profile",
+    "imageConfidence": "verified",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3914/"
+      }
+    ],
+    "notes": "",
+    "division": "Juryo",
+    "batchRef": "juryo-roster",
+    "lastVerifiedBasho": "202603",
+    "provenanceStatus": "confirmed"
+  },
+  {
+    "rikishiId": "4171",
+    "shikona": "Takerufuji",
+    "heya": "Isegahama",
+    "birthDate": "1999-04-09",
+    "nationality": "Japan",
+    "heightCm": 187,
+    "weightKg": 148,
+    "status": "active",
+    "officialImageUrl": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20220059.jpg",
+    "imageSource": "Nihon Sumo Kyokai official profile",
+    "imageConfidence": "verified",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4171/"
+      }
+    ],
+    "notes": "",
+    "division": "Juryo",
+    "batchRef": "juryo-roster",
+    "lastVerifiedBasho": "202603",
+    "provenanceStatus": "confirmed"
+  },
+  {
+    "rikishiId": "4158",
+    "shikona": "Kazekeno",
+    "heya": "Oshiogawa",
+    "birthDate": "1999-06-04",
+    "nationality": "Japan",
+    "heightCm": 185,
+    "weightKg": 154,
+    "status": "active",
+    "officialImageUrl": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20220043.jpg",
+    "imageSource": "Nihon Sumo Kyokai official profile",
+    "imageConfidence": "verified",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4158/"
+      }
+    ],
+    "notes": "",
+    "division": "Juryo",
+    "batchRef": "juryo-roster",
+    "lastVerifiedBasho": "202603",
+    "provenanceStatus": "confirmed"
+  },
+  {
+    "rikishiId": "3218",
+    "shikona": "Kotokuzan",
+    "heya": "Arashio",
+    "birthDate": "1994-03-11",
+    "nationality": "Japan",
+    "heightCm": 181,
+    "weightKg": 178,
+    "status": "active",
+    "officialImageUrl": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20090080.jpg",
+    "imageSource": "Nihon Sumo Kyokai official profile",
+    "imageConfidence": "verified",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3218/"
+      }
+    ],
+    "notes": "",
+    "division": "Juryo",
+    "batchRef": "juryo-roster",
+    "lastVerifiedBasho": "202603",
+    "provenanceStatus": "confirmed"
+  },
+  {
+    "rikishiId": "3337",
+    "shikona": "Meisei",
+    "heya": "Tatsunami",
+    "birthDate": "1995-07-24",
+    "nationality": "Japan",
+    "heightCm": 180,
+    "weightKg": 150,
+    "status": "active",
+    "officialImageUrl": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20130041.jpg",
+    "imageSource": "Nihon Sumo Kyokai official profile",
+    "imageConfidence": "verified",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3337/"
+      }
+    ],
+    "notes": "",
+    "division": "Juryo",
+    "batchRef": "juryo-roster",
+    "lastVerifiedBasho": "202603",
+    "provenanceStatus": "confirmed"
+  },
+  {
+    "rikishiId": "3939",
+    "shikona": "Kitanowaka",
+    "heya": "Hakkaku",
+    "birthDate": "2000-11-12",
+    "nationality": "Japan",
+    "heightCm": 191,
+    "weightKg": 161,
+    "status": "active",
+    "officialImageUrl": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20190026.jpg",
+    "imageSource": "Nihon Sumo Kyokai official profile",
+    "imageConfidence": "verified",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3939/"
+      }
+    ],
+    "notes": "",
+    "division": "Juryo",
+    "batchRef": "juryo-roster",
+    "lastVerifiedBasho": "202603",
+    "provenanceStatus": "confirmed"
+  },
+  {
+    "rikishiId": "3983",
+    "shikona": "Dewanoryu",
+    "heya": "Dewanoumi",
+    "birthDate": "2001-03-07",
+    "nationality": "Mongolia",
+    "heightCm": 180,
+    "weightKg": 154,
+    "status": "active",
+    "officialImageUrl": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20190073.jpg",
+    "imageSource": "Nihon Sumo Kyokai official profile",
+    "imageConfidence": "verified",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3983/"
+      }
+    ],
+    "notes": "",
+    "division": "Juryo",
+    "batchRef": "juryo-roster",
+    "lastVerifiedBasho": "202603",
+    "provenanceStatus": "confirmed"
+  },
+  {
+    "rikishiId": "4096",
+    "shikona": "Daitensho",
+    "heya": "Oitekaze",
+    "birthDate": "2006-01-11",
+    "nationality": "Japan",
+    "heightCm": 172,
+    "weightKg": 124,
+    "status": "active",
+    "officialImageUrl": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20210041.jpg",
+    "imageSource": "Nihon Sumo Kyokai official profile",
+    "imageConfidence": "verified",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4096/"
+      }
+    ],
+    "notes": "",
+    "division": "Juryo",
+    "batchRef": "juryo-roster",
+    "lastVerifiedBasho": "202603",
+    "provenanceStatus": "confirmed"
+  }
+]

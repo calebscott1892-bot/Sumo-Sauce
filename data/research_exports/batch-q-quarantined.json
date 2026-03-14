@@ -1,0 +1,69 @@
+{
+  "_meta": {
+    "batchId": "Q",
+    "exportDate": "2026-03-11T18:34:45.385Z",
+    "sourceFile": "data/makuuchi_verified_profiles.json",
+    "description": "Quarantined singleton — requires identity re-verification",
+    "researchNotes": [
+      "This profile has no sourceRefs, unverified confidence, and no rikishiId.",
+      "The official JSA profile was previously inaccessible.",
+      "Research task: determine if this wrestler exists and is currently active.",
+      "If confirmed, provide rikishiId, division, heya, and set provenanceStatus to \"confirmed\".",
+      "If the wrestler cannot be found, leave provenanceStatus as \"quarantined\"."
+    ],
+    "priority": 1,
+    "counts": {
+      "total": 1,
+      "unresolved": 0,
+      "quarantined": 1
+    },
+    "mergeCommand": "node scripts/merge-research.mjs --file data/research_exports/batch-q-quarantined.json",
+    "instructions": [
+      "For each profile, research the correct current division and any missing fields.",
+      "Set provenanceStatus to \"confirmed\" when you have verified the data.",
+      "Add or append to sourceRefs with the source you used.",
+      "Append research notes to the notes field (pipe-delimited: \" | <your note>\").",
+      "Do NOT change rikishiId — it is the primary match key.",
+      "Do NOT downgrade profileConfidence or imageConfidence.",
+      "The _researchContext field is for reference only — ignored during merge.",
+      "Return the full profiles array in the same schema."
+    ]
+  },
+  "profiles": [
+    {
+      "_researchContext": {
+        "canonicalIndex": 230,
+        "neighborBefore": {
+          "shikona": "Kirinryu Yuto",
+          "division": "Makushita",
+          "batchRef": "makushita",
+          "provenanceStatus": "confirmed"
+        },
+        "neighborAfter": {
+          "shikona": "Oshoryu Kenta",
+          "division": null,
+          "batchRef": null,
+          "provenanceStatus": "unresolved"
+        }
+      },
+      "rikishiId": null,
+      "shikona": "Tsushimanada Masamitsu",
+      "heya": null,
+      "birthDate": "1993-06-27",
+      "nationality": "Japan",
+      "heightCm": null,
+      "weightKg": null,
+      "status": "active",
+      "officialImageUrl": null,
+      "imageSource": null,
+      "imageConfidence": "missing",
+      "profileConfidence": "unverified",
+      "division": null,
+      "batchRef": null,
+      "lastVerifiedBasho": "202603",
+      "provenanceStatus": "quarantined",
+      "sourceRefs": [],
+      "notes": "Official profile inaccessible; fields not confirmed. | [Quarantined: no sourceRefs, profile unverified, official profile inaccessible. Requires manual re-verification before trust upgrade.]"
+    }
+  ]
+}

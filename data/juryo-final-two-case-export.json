@@ -1,0 +1,97 @@
+{
+  "_meta": {
+    "description": "Final two-case Juryo close-out export (sanity reconciled)",
+    "generatedDate": "2026-03-13",
+    "banzukeBasho": "202603 (Haru 2026)",
+    "targetDivision": "Juryo",
+    "purpose": "Authoritative tracking record after final exception apply pass.",
+    "canonicalDataset": "data/makuuchi_verified_profiles.json",
+    "currentJuryoCount": 25,
+    "constraints": [
+      "Do not ingest speculative identities.",
+      "Do not map unresolved records to nearest-name matches.",
+      "Only ingest once official identity evidence is explicit and attributable."
+    ]
+  },
+  "cases": [
+    {
+      "caseId": "ASAKORYU_IDENTITY_CONFLICT",
+      "caseType": "MANUAL_IDENTITY_REVIEW",
+      "rankContext": "J13e/J2w discrepancy in prior recovery artifacts",
+      "targetShikona": "Asakoryu",
+      "status": "resolved",
+      "canonicalContext": {
+        "currentAsakoryuInDataset": {
+          "shikona": "Asakoryu Takuma",
+          "rikishiId": "4101",
+          "division": "Makuuchi",
+          "heya": "Takasago"
+        },
+        "juryoRecordPresent": false,
+        "knownRisk": "Incorrectly remapping Makuuchi Asakoryu Takuma into Juryo slot."
+      },
+      "resolution": {
+        "determination": "No separate Juryo identity exists for this case.",
+        "rikishiId": "4101",
+        "applyMode": "Excluded from Juryo; existing Asakoryu Takuma record remains Makuuchi.",
+        "sourceRefs": [
+          {
+            "label": "JSA profile (Asakoryu Takuma)",
+            "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4101/"
+          }
+        ]
+      }
+    },
+    {
+      "caseId": "ONOSHO_STATUS_EXCEPTION",
+      "caseType": "MANUAL_STATUS_REVIEW",
+      "rankContext": "J1e target-slot exception",
+      "targetShikona": "Onosho",
+      "status": "resolved",
+      "canonicalContext": {
+        "currentOnoshoInDataset": {
+          "shikona": "Onosho",
+          "rikishiId": "3434",
+          "division": "Historical",
+          "status": "retired"
+        },
+        "juryoRecordPresent": false,
+        "knownRisk": "Incorrectly counting retired rikishi in current Juryo roster."
+      },
+      "resolution": {
+        "determination": "Retired in 2025; excluded from current Juryo roster.",
+        "rikishiId": "3434",
+        "applyMode": "Kept as non-Juryo retired record; no duplicate profile created.",
+        "sourceRefs": [
+          {
+            "label": "JSA profile (Onosho)",
+            "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3434/"
+          }
+        ]
+      }
+    },
+    {
+      "caseId": "J14W_UNIDENTIFIED_SLOT",
+      "caseType": "IDENTIFY_AND_CREATE",
+      "rankContext": "Juryo 14 West, Haru 2026",
+      "targetShikona": "Kotokuzan",
+      "status": "resolved",
+      "canonicalContext": {
+        "slotIdentified": true,
+        "juryoRecordPresent": true,
+        "knownRisk": "Duplicate profile creation for existing rikishiId 3218."
+      },
+      "resolution": {
+        "identifiedShikona": "Kotokuzan",
+        "rikishiId": "3218",
+        "applyMode": "Confirmed existing canonical profile; no new profile created",
+        "sourceRefs": [
+          {
+            "label": "JSA profile",
+            "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3218/"
+          }
+        ]
+      }
+    }
+  ]
+}

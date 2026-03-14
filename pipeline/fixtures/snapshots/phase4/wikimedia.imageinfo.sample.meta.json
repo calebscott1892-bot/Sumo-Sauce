@@ -1,0 +1,10 @@
+{
+  "source": "wikimedia",
+  "url": "https://fixtures.local/wikimedia/imageinfo/query",
+  "fetchedAt": "2025-02-01T00:00:00.000Z",
+  "contentSha256": "6e0119ef058ded03240a502b89d7c63638c84b4884db3f1f133aaf7d662bb299",
+  "bytes": 951,
+  "contentType": "application/json",
+  "httpStatus": 200,
+  "etag": "phase4-wikimedia-imageinfo-v1"
+}

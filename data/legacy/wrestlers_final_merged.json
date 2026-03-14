@@ -1,0 +1,4744 @@
+[
+  {
+    "id": "abi",
+    "shikona": "Abi",
+    "rank": "Komusubi",
+    "rank_number": 1,
+    "side": "East",
+    "stable": "Shikoroyama",
+    "is_active": true,
+    "rid": "abi",
+    "external_id": "abi"
+  },
+  {
+    "rid": "akatora",
+    "shikona": "Akatora",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Jonidan",
+    "current_rank": "",
+    "current_rank_number": 12,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "rid": "akihide",
+    "shikona": "Akihide",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Makushita",
+    "current_rank": "",
+    "current_rank_number": 2,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "rid": "akua",
+    "shikona": "Akua",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Juryo",
+    "current_rank": "Juryo",
+    "current_rank_number": 6,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "rid": "anryukai",
+    "shikona": "Anryukai",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Jonidan",
+    "current_rank": "",
+    "current_rank_number": 13,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "id": "ajigawa_aonishiki_2023",
+    "shikona": "Aonishiki",
+    "real_name": "",
+    "status": {
+      "is_active": true,
+      "is_retired": false
+    },
+    "identity": {
+      "birthplace": "",
+      "nationality": "Ukraine",
+      "birth_date": ""
+    },
+    "physical": {
+      "height_cm": null,
+      "weight_kg": null
+    },
+    "heya": {
+      "name": "Ajigawa",
+      "ichimon": ""
+    },
+    "career": {
+      "debut_year": null,
+      "highest_rank": {
+        "division": "Makuuchi",
+        "rank": "Sekiwake",
+        "rank_number": 1,
+        "side": "East"
+      }
+    },
+    "current_rank": {
+      "division": "Makuuchi",
+      "rank": "Sekiwake",
+      "rank_number": 1,
+      "side": "East"
+    },
+    "records": {
+      "latest_basho": {
+        "basho": "2025-11",
+        "wins": 12,
+        "losses": 3,
+        "win_percentage": 80
+      },
+      "career_total": {
+        "wins": null,
+        "losses": null,
+        "win_percentage": null
+      }
+    },
+    "titles": {
+      "yusho": {
+        "makuuchi": 1,
+        "juryo": 0,
+        "lower_divisions": 0
+      },
+      "special_prizes": {
+        "shukunsho": 0,
+        "kantosho": 0,
+        "ginosho": 0,
+        "total": 0
+      }
+    },
+    "media": {
+      "official_image_url": "",
+      "image_source": ""
+    },
+    "rid": "aonishiki",
+    "external_id": "ajigawa_aonishiki_2023"
+  },
+  {
+    "rid": "arashio",
+    "shikona": "Arashio",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Makushita",
+    "current_rank": "",
+    "current_rank_number": 31,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "rid": "arata",
+    "shikona": "Arata",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Makushita",
+    "current_rank": "",
+    "current_rank_number": 52,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "rid": "asabenkei",
+    "shikona": "Asabenkei",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Sandanme",
+    "current_rank": "",
+    "current_rank_number": 41,
+    "current_side": "W",
+    "official_image_url": ""
+  },
+  {
+    "rid": "asagiyama",
+    "shikona": "Asagiyama",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Jonidan",
+    "current_rank": "",
+    "current_rank_number": 58,
+    "current_side": "W",
+    "official_image_url": ""
+  },
+  {
+    "rid": "asagyokusei",
+    "shikona": "Asagyokusei",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Makushita",
+    "current_rank": "",
+    "current_rank_number": 35,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "rid": "asahabataki",
+    "shikona": "Asahabataki",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Jonidan",
+    "current_rank": "",
+    "current_rank_number": 15,
+    "current_side": "W",
+    "official_image_url": ""
+  },
+  {
+    "rid": "asahakuryu",
+    "shikona": "Asahakuryu",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Juryo",
+    "current_rank": "Juryo",
+    "current_rank_number": 2,
+    "current_side": "W",
+    "official_image_url": ""
+  },
+  {
+    "rid": "asahikaze",
+    "shikona": "Asahikaze",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Jonidan",
+    "current_rank": "",
+    "current_rank_number": 55,
+    "current_side": "W",
+    "official_image_url": ""
+  },
+  {
+    "rid": "asahiryuden",
+    "shikona": "Asahiryuden",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Jonidan",
+    "current_rank": "",
+    "current_rank_number": 46,
+    "current_side": "W",
+    "official_image_url": ""
+  },
+  {
+    "rid": "asahisho",
+    "shikona": "Asahisho",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Jonidan",
+    "current_rank": "",
+    "current_rank_number": 43,
+    "current_side": "W",
+    "official_image_url": ""
+  },
+  {
+    "rid": "asahoryu",
+    "shikona": "Asahoryu",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Makushita",
+    "current_rank": "",
+    "current_rank_number": 62,
+    "current_side": "W",
+    "official_image_url": ""
+  },
+  {
+    "rid": "asahosho",
+    "shikona": "Asahosho",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Sandanme",
+    "current_rank": "",
+    "current_rank_number": 19,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "rid": "asahozan",
+    "shikona": "Asahozan",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Jonidan",
+    "current_rank": "",
+    "current_rank_number": 50,
+    "current_side": "W",
+    "official_image_url": ""
+  },
+  {
+    "rid": "asakayama",
+    "shikona": "Asakayama",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Jonidan",
+    "current_rank": "",
+    "current_rank_number": 40,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "id": "asakoryu",
+    "shikona": "Asakoryu",
+    "rank": "Maegashira",
+    "rank_number": 8,
+    "side": "West",
+    "stable": "Takasago",
+    "is_active": true,
+    "real_name": "Takahiro Ishibashi",
+    "birthplace": "Toyama, Japan",
+    "height_cm": 174,
+    "weight_kg": 150,
+    "debut_year": 2017,
+    "rid": "asakoryu",
+    "external_id": "asakoryu"
+  },
+  {
+    "rid": "asanishiki",
+    "shikona": "Asanishiki",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Sandanme",
+    "current_rank": "",
+    "current_rank_number": 44,
+    "current_side": "W",
+    "official_image_url": ""
+  },
+  {
+    "id": "asano-yama",
+    "shikona": "Asanoyama",
+    "real_name": "Hiroki Ishibashi",
+    "birthplace": "Toyama, Japan",
+    "height_cm": 188,
+    "weight_kg": 165,
+    "stable": "Takasago",
+    "debut_year": 2016,
+    "is_active": true,
+    "rid": "asanoyama",
+    "external_id": "asano-yama"
+  },
+  {
+    "rid": "asaryu",
+    "shikona": "Asaryu",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Jonidan",
+    "current_rank": "",
+    "current_rank_number": 60,
+    "current_side": "W",
+    "official_image_url": ""
+  },
+  {
+    "rid": "asashio",
+    "shikona": "Asashio",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Sandanme",
+    "current_rank": "",
+    "current_rank_number": 39,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "rid": "asashiyu",
+    "shikona": "Asashiyu",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Makushita",
+    "current_rank": "",
+    "current_rank_number": 27,
+    "current_side": "W",
+    "official_image_url": ""
+  },
+  {
+    "rid": "asashoryu",
+    "shikona": "Asashoryu",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Jonidan",
+    "current_rank": "",
+    "current_rank_number": 24,
+    "current_side": "W",
+    "official_image_url": ""
+  },
+  {
+    "rid": "asataisho",
+    "shikona": "Asataisho",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Makushita",
+    "current_rank": "",
+    "current_rank_number": 60,
+    "current_side": "W",
+    "official_image_url": ""
+  },
+  {
+    "rid": "asatenmai",
+    "shikona": "Asatenmai",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Jonidan",
+    "current_rank": "",
+    "current_rank_number": 16,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "id": "atakayama",
+    "shikona": "Atamifuji",
+    "rank": "Maegashira",
+    "rank_number": 2,
+    "side": "West",
+    "stable": "Isegahama",
+    "is_active": true,
+    "rid": "atamifuji",
+    "external_id": "atakayama"
+  },
+  {
+    "id": "takasago_awakaze_2012",
+    "shikona": "Awakaze",
+    "real_name": "",
+    "status": {
+      "is_active": true,
+      "is_retired": false
+    },
+    "identity": {
+      "birthplace": "",
+      "nationality": "Japan",
+      "birth_date": ""
+    },
+    "physical": {
+      "height_cm": null,
+      "weight_kg": null
+    },
+    "heya": {
+      "name": "Takasago",
+      "ichimon": ""
+    },
+    "career": {
+      "debut_year": null,
+      "highest_rank": {
+        "division": "Makuuchi",
+        "rank": "Maegashira 3",
+        "rank_number": 3,
+        "side": "East"
+      }
+    },
+    "current_rank": {
+      "division": "Makuuchi",
+      "rank": "Maegashira 5",
+      "rank_number": 5,
+      "side": "East"
+    },
+    "records": {
+      "latest_basho": {
+        "basho": "2025-11",
+        "wins": 5,
+        "losses": 10,
+        "win_percentage": 33.3
+      },
+      "career_total": {
+        "wins": null,
+        "losses": null,
+        "win_percentage": null
+      }
+    },
+    "titles": {
+      "yusho": {
+        "makuuchi": 0,
+        "juryo": 0,
+        "lower_divisions": 0
+      },
+      "special_prizes": {
+        "shukunsho": 0,
+        "kantosho": 0,
+        "ginosho": 0,
+        "total": 0
+      }
+    },
+    "media": {
+      "official_image_url": "",
+      "image_source": ""
+    },
+    "rid": "awakaze",
+    "external_id": "takasago_awakaze_2012"
+  },
+  {
+    "id": "bushozan",
+    "shikona": "Bushozan",
+    "rank": "Maegashira",
+    "rank_number": 10,
+    "side": "East",
+    "stable": "Fujishima",
+    "is_active": true,
+    "rid": "bushozan",
+    "external_id": "bushozan"
+  },
+  {
+    "rid": "chiyodaigo",
+    "shikona": "Chiyodaigo",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Makushita",
+    "current_rank": "",
+    "current_rank_number": 61,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "rid": "chiyodairyu",
+    "shikona": "Chiyodairyu",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Makushita",
+    "current_rank": "",
+    "current_rank_number": 32,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "rid": "chiyokaze",
+    "shikona": "Chiyokaze",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Jonidan",
+    "current_rank": "",
+    "current_rank_number": 57,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "rid": "chiyomaru",
+    "shikona": "Chiyomaru",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Makushita",
+    "current_rank": "",
+    "current_rank_number": 65,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "rid": "chiyomizuki",
+    "shikona": "Chiyomizuki",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Sandanme",
+    "current_rank": "",
+    "current_rank_number": 57,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "rid": "chiyonofuji",
+    "shikona": "Chiyonofuji",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Sandanme",
+    "current_rank": "",
+    "current_rank_number": 29,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "rid": "chiyonokuni",
+    "shikona": "Chiyonokuni",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Makushita",
+    "current_rank": "",
+    "current_rank_number": 45,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "rid": "chiyonoryu",
+    "shikona": "Chiyonoryu",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Jonidan",
+    "current_rank": "",
+    "current_rank_number": 52,
+    "current_side": "W",
+    "official_image_url": ""
+  },
+  {
+    "rid": "chiyonosato",
+    "shikona": "Chiyonosato",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Sandanme",
+    "current_rank": "",
+    "current_rank_number": 59,
+    "current_side": "W",
+    "official_image_url": ""
+  },
+  {
+    "rid": "chiyonoujo",
+    "shikona": "Chiyonoujo",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Sandanme",
+    "current_rank": "",
+    "current_rank_number": 21,
+    "current_side": "W",
+    "official_image_url": ""
+  },
+  {
+    "rid": "chiyonoumi",
+    "shikona": "Chiyonoumi",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Sandanme",
+    "current_rank": "",
+    "current_rank_number": 12,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "rid": "chiyooga",
+    "shikona": "Chiyooga",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Sandanme",
+    "current_rank": "",
+    "current_rank_number": 6,
+    "current_side": "W",
+    "official_image_url": ""
+  },
+  {
+    "rid": "chiyoryu",
+    "shikona": "Chiyoryu",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Jonidan",
+    "current_rank": "",
+    "current_rank_number": 59,
+    "current_side": "W",
+    "official_image_url": ""
+  },
+  {
+    "rid": "chiyosakae",
+    "shikona": "Chiyosakae",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Juryo",
+    "current_rank": "Juryo",
+    "current_rank_number": 9,
+    "current_side": "W",
+    "official_image_url": ""
+  },
+  {
+    "rid": "chiyosato",
+    "shikona": "Chiyosato",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Jonidan",
+    "current_rank": "",
+    "current_rank_number": 22,
+    "current_side": "W",
+    "official_image_url": ""
+  },
+  {
+    "rid": "chiyoshoma",
+    "shikona": "Chiyoshoma",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Makuuchi",
+    "current_rank": "Maegashira",
+    "current_rank_number": 17,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "rid": "chiyoshuho",
+    "shikona": "Chiyoshuho",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Jonidan",
+    "current_rank": "",
+    "current_rank_number": 45,
+    "current_side": "W",
+    "official_image_url": ""
+  },
+  {
+    "id": "churanoumi",
+    "shikona": "Churanoumi",
+    "rank": "Maegashira",
+    "rank_number": 11,
+    "side": "East",
+    "stable": "Kise",
+    "is_active": true,
+    "rid": "churanoumi",
+    "external_id": "churanoumi"
+  },
+  {
+    "id": "daieisho",
+    "shikona": "Daieisho",
+    "rank": "Sekiwake",
+    "rank_number": 2,
+    "side": "West",
+    "stable": "Oitekaze",
+    "is_active": true,
+    "real_name": "Daiki Shibano",
+    "birthplace": "Saitama, Japan",
+    "height_cm": 182,
+    "weight_kg": 160,
+    "debut_year": 2012,
+    "rid": "daieisho",
+    "external_id": "daieisho"
+  },
+  {
+    "rid": "daifuku",
+    "shikona": "Daifuku",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Sandanme",
+    "current_rank": "",
+    "current_rank_number": 43,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "rid": "daigoro",
+    "shikona": "Daigoro",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Makushita",
+    "current_rank": "",
+    "current_rank_number": 1,
+    "current_side": "W",
+    "official_image_url": ""
+  },
+  {
+    "rid": "daiki",
+    "shikona": "Daiki",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Jonidan",
+    "current_rank": "",
+    "current_rank_number": 44,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "rid": "daikiho",
+    "shikona": "Daikiho",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Sandanme",
+    "current_rank": "",
+    "current_rank_number": 60,
+    "current_side": "W",
+    "official_image_url": ""
+  },
+  {
+    "rid": "daikosho",
+    "shikona": "Daikosho",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Makushita",
+    "current_rank": "",
+    "current_rank_number": 24,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "rid": "daionami",
+    "shikona": "Daionami",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Sandanme",
+    "current_rank": "",
+    "current_rank_number": 53,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "rid": "dairinzan",
+    "shikona": "Dairinzan",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Sandanme",
+    "current_rank": "",
+    "current_rank_number": 7,
+    "current_side": "W",
+    "official_image_url": ""
+  },
+  {
+    "rid": "daiseizan",
+    "shikona": "Daiseizan",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Juryo",
+    "current_rank": "Juryo",
+    "current_rank_number": 3,
+    "current_side": "W",
+    "official_image_url": ""
+  },
+  {
+    "id": "daishoho",
+    "shikona": "Daishoho",
+    "rank": "Maegashira",
+    "rank_number": 13,
+    "side": "East",
+    "stable": "Oitekaze",
+    "is_active": true,
+    "rid": "daishoho",
+    "external_id": "daishoho"
+  },
+  {
+    "rid": "daishomaru",
+    "shikona": "Daishomaru",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Makushita",
+    "current_rank": "",
+    "current_rank_number": 66,
+    "current_side": "W",
+    "official_image_url": ""
+  },
+  {
+    "rid": "daishoryu",
+    "shikona": "Daishoryu",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Makushita",
+    "current_rank": "",
+    "current_rank_number": 49,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "rid": "daiyusho",
+    "shikona": "Daiyusho",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Makushita",
+    "current_rank": "",
+    "current_rank_number": 21,
+    "current_side": "W",
+    "official_image_url": ""
+  },
+  {
+    "rid": "dewataikai",
+    "shikona": "Dewataikai",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Makushita",
+    "current_rank": "",
+    "current_rank_number": 28,
+    "current_side": "W",
+    "official_image_url": ""
+  },
+  {
+    "id": "endo",
+    "shikona": "Endo",
+    "rank": "Maegashira",
+    "rank_number": 6,
+    "side": "West",
+    "stable": "Oitekaze",
+    "is_active": true,
+    "rid": "endo",
+    "external_id": "endo"
+  },
+  {
+    "rid": "fujiazuma",
+    "shikona": "Fujiazuma",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Sandanme",
+    "current_rank": "",
+    "current_rank_number": 24,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "rid": "fujiizumi",
+    "shikona": "Fujiizumi",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Jonidan",
+    "current_rank": "",
+    "current_rank_number": 13,
+    "current_side": "W",
+    "official_image_url": ""
+  },
+  {
+    "rid": "fujimaru",
+    "shikona": "Fujimaru",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Jonidan",
+    "current_rank": "",
+    "current_rank_number": 53,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "rid": "fujimotoyama",
+    "shikona": "Fujimotoyama",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Sandanme",
+    "current_rank": "",
+    "current_rank_number": 42,
+    "current_side": "W",
+    "official_image_url": ""
+  },
+  {
+    "rid": "fujimusashi",
+    "shikona": "Fujimusashi",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Jonidan",
+    "current_rank": "",
+    "current_rank_number": 15,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "rid": "fujinojo",
+    "shikona": "Fujinojo",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Sandanme",
+    "current_rank": "",
+    "current_rank_number": 38,
+    "current_side": "W",
+    "official_image_url": ""
+  },
+  {
+    "rid": "fujinokawa",
+    "shikona": "Fujinokawa",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Makuuchi",
+    "current_rank": "Maegashira",
+    "current_rank_number": 12,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "rid": "fujinosato",
+    "shikona": "Fujinosato",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Jonidan",
+    "current_rank": "",
+    "current_rank_number": 39,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "rid": "fujinoshin",
+    "shikona": "Fujinoshin",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Makushita",
+    "current_rank": "",
+    "current_rank_number": 63,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "rid": "fujisato",
+    "shikona": "Fujisato",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Jonidan",
+    "current_rank": "",
+    "current_rank_number": 46,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "rid": "fujiseiun",
+    "shikona": "Fujiseiun",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Juryo",
+    "current_rank": "Juryo",
+    "current_rank_number": 1,
+    "current_side": "W",
+    "official_image_url": ""
+  },
+  {
+    "rid": "fujitaisho",
+    "shikona": "Fujitaisho",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Sandanme",
+    "current_rank": "",
+    "current_rank_number": 32,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "rid": "fujitensho",
+    "shikona": "Fujitensho",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Makushita",
+    "current_rank": "",
+    "current_rank_number": 55,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "rid": "fujitora",
+    "shikona": "Fujitora",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Jonidan",
+    "current_rank": "",
+    "current_rank_number": 54,
+    "current_side": "W",
+    "official_image_url": ""
+  },
+  {
+    "rid": "fujiyama",
+    "shikona": "Fujiyama",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Jonidan",
+    "current_rank": "",
+    "current_rank_number": 17,
+    "current_side": "W",
+    "official_image_url": ""
+  },
+  {
+    "rid": "fujizakura",
+    "shikona": "Fujizakura",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Makushita",
+    "current_rank": "",
+    "current_rank_number": 47,
+    "current_side": "W",
+    "official_image_url": ""
+  },
+  {
+    "rid": "fukugoryu",
+    "shikona": "Fukugoryu",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Sandanme",
+    "current_rank": "",
+    "current_rank_number": 17,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "id": "gonoyama",
+    "shikona": "Gonoyama",
+    "rank": "Maegashira",
+    "rank_number": 12,
+    "side": "West",
+    "stable": "Takekuma",
+    "is_active": true,
+    "rid": "gonoyama",
+    "external_id": "gonoyama"
+  },
+  {
+    "rid": "goseimaru",
+    "shikona": "Goseimaru",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Jonidan",
+    "current_rank": "",
+    "current_rank_number": 16,
+    "current_side": "W",
+    "official_image_url": ""
+  },
+  {
+    "rid": "goseizan",
+    "shikona": "Goseizan",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Sandanme",
+    "current_rank": "",
+    "current_rank_number": 6,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "id": "hakuoho",
+    "shikona": "Hakuoho",
+    "rank": "Maegashira",
+    "rank_number": 17,
+    "side": "East",
+    "stable": "Miyagino",
+    "is_active": true,
+    "rid": "hakuoho",
+    "external_id": "hakuoho"
+  },
+  {
+    "rid": "hakuyozan",
+    "shikona": "Hakuyozan",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Makushita",
+    "current_rank": "",
+    "current_rank_number": 31,
+    "current_side": "W",
+    "official_image_url": ""
+  },
+  {
+    "rid": "hamayutaka",
+    "shikona": "Hamayutaka",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Sandanme",
+    "current_rank": "",
+    "current_rank_number": 4,
+    "current_side": "W",
+    "official_image_url": ""
+  },
+  {
+    "rid": "harunishiki",
+    "shikona": "Harunishiki",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Sandanme",
+    "current_rank": "",
+    "current_rank_number": 1,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "rid": "hattorizakura",
+    "shikona": "Hattorizakura",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Sandanme",
+    "current_rank": "",
+    "current_rank_number": 10,
+    "current_side": "W",
+    "official_image_url": ""
+  },
+  {
+    "rid": "hayate",
+    "shikona": "Hayate",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Sandanme",
+    "current_rank": "",
+    "current_rank_number": 23,
+    "current_side": "W",
+    "official_image_url": ""
+  },
+  {
+    "rid": "hayatefuji",
+    "shikona": "Hayatefuji",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Makushita",
+    "current_rank": "",
+    "current_rank_number": 48,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "rid": "hidano",
+    "shikona": "Hidano",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Jonidan",
+    "current_rank": "",
+    "current_rank_number": 14,
+    "current_side": "W",
+    "official_image_url": ""
+  },
+  {
+    "rid": "hidenoumi",
+    "shikona": "Hidenoumi",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Sandanme",
+    "current_rank": "",
+    "current_rank_number": 9,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "rid": "hidenoyama",
+    "shikona": "Hidenoyama",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Sandanme",
+    "current_rank": "",
+    "current_rank_number": 50,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "rid": "higonoumi",
+    "shikona": "Higonoumi",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Makushita",
+    "current_rank": "",
+    "current_rank_number": 25,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "rid": "hikarimusashi",
+    "shikona": "Hikarimusashi",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Makushita",
+    "current_rank": "",
+    "current_rank_number": 48,
+    "current_side": "W",
+    "official_image_url": ""
+  },
+  {
+    "rid": "hinataryu",
+    "shikona": "Hinataryu",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Makushita",
+    "current_rank": "",
+    "current_rank_number": 23,
+    "current_side": "W",
+    "official_image_url": ""
+  },
+  {
+    "rid": "hiradoumi",
+    "shikona": "Hiradoumi",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Makuuchi",
+    "current_rank": "Maegashira",
+    "current_rank_number": 3,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "rid": "hitoshi",
+    "shikona": "Hitoshi",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Juryo",
+    "current_rank": "Juryo",
+    "current_rank_number": 1,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "rid": "hokuseiho",
+    "shikona": "Hokuseiho",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Makushita",
+    "current_rank": "",
+    "current_rank_number": 35,
+    "current_side": "W",
+    "official_image_url": ""
+  },
+  {
+    "id": "kise_hokutofuji_2016",
+    "shikona": "Hokutofuji",
+    "real_name": "Daiki Nakamura",
+    "status": {
+      "is_active": true,
+      "is_retired": false
+    },
+    "identity": {
+      "birthplace": "",
+      "nationality": "Japan",
+      "birth_date": ""
+    },
+    "physical": {
+      "height_cm": null,
+      "weight_kg": null
+    },
+    "heya": {
+      "name": "Kise",
+      "ichimon": ""
+    },
+    "career": {
+      "debut_year": null,
+      "highest_rank": {
+        "division": "Makuuchi",
+        "rank": "Sekiwake",
+        "rank_number": 1,
+        "side": "West"
+      }
+    },
+    "current_rank": {
+      "division": "Makuuchi",
+      "rank": "Komusubi",
+      "rank_number": 3,
+      "side": "East"
+    },
+    "records": {
+      "latest_basho": {
+        "basho": "2025-11",
+        "wins": 6,
+        "losses": 9,
+        "win_percentage": 40
+      },
+      "career_total": {
+        "wins": null,
+        "losses": null,
+        "win_percentage": null
+      }
+    },
+    "titles": {
+      "yusho": {
+        "makuuchi": 0,
+        "juryo": 0,
+        "lower_divisions": 0
+      },
+      "special_prizes": {
+        "shukunsho": 0,
+        "kantosho": 1,
+        "ginosho": 0,
+        "total": 1
+      }
+    },
+    "media": {
+      "official_image_url": "",
+      "image_source": ""
+    },
+    "rank": "Maegashira",
+    "rank_number": 5,
+    "side": "East",
+    "stable": "Hakkaku",
+    "is_active": true,
+    "birthplace": "Aomori, Japan",
+    "height_cm": 171,
+    "weight_kg": 160,
+    "debut_year": 2014,
+    "rid": "hokutofuji",
+    "alias_ids": [
+      "hokutofuji"
+    ],
+    "external_id": "kise_hokutofuji_2016"
+  },
+  {
+    "rid": "hoshiyama",
+    "shikona": "Hoshiyama",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Makushita",
+    "current_rank": "",
+    "current_rank_number": 53,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "id": "tatsunami_hoshoryu_2018",
+    "shikona": "Hoshoryu",
+    "real_name": "Sugarragchaagiin Byambasuren",
+    "status": {
+      "is_active": true,
+      "is_retired": false
+    },
+    "identity": {
+      "birthplace": "Ulaanbaatar, Mongolia",
+      "nationality": "Mongolia",
+      "birth_date": "1999-05-22"
+    },
+    "physical": {
+      "height_cm": 188,
+      "weight_kg": 149
+    },
+    "heya": {
+      "name": "Tatsunami",
+      "ichimon": ""
+    },
+    "career": {
+      "debut_year": 2018,
+      "highest_rank": {
+        "division": "Makuuchi",
+        "rank": "Yokozuna",
+        "rank_number": 1,
+        "side": "West"
+      }
+    },
+    "current_rank": {
+      "division": "Makuuchi",
+      "rank": "Yokozuna",
+      "rank_number": 1,
+      "side": "West"
+    },
+    "records": {
+      "latest_basho": {
+        "basho": "2025-11",
+        "wins": 12,
+        "losses": 3,
+        "win_percentage": 80
+      },
+      "career_total": {
+        "wins": 373,
+        "losses": 217,
+        "win_percentage": 63.1
+      }
+    },
+    "titles": {
+      "yusho": {
+        "makuuchi": 0,
+        "juryo": 0,
+        "lower_divisions": 0
+      },
+      "special_prizes": {
+        "shukunsho": 0,
+        "kantosho": 0,
+        "ginosho": 0,
+        "total": 0
+      }
+    },
+    "media": {
+      "official_image_url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3842/photo",
+      "image_source": "Japan Sumo Association"
+    },
+    "rank": "Ozeki",
+    "rank_number": 2,
+    "side": "West",
+    "stable": "Tatsunami",
+    "is_active": true,
+    "rid": "hoshoryu",
+    "alias_ids": [
+      "hoshoryu"
+    ],
+    "external_id": "tatsunami_hoshoryu_2018"
+  },
+  {
+    "id": "ichinojo",
+    "shikona": "Ichinojō",
+    "real_name": "Ichinnorovyn Anarbayar",
+    "birthplace": "Ulaanbaatar, Mongolia",
+    "height_cm": 192,
+    "weight_kg": 212,
+    "stable": "Minato",
+    "debut_year": 2013,
+    "is_active": false,
+    "rid": "ichinoj",
+    "external_id": "ichinojo"
+  },
+  {
+    "id": "ichiyamamoto",
+    "shikona": "Ichiyamamoto",
+    "rank": "Maegashira",
+    "rank_number": 14,
+    "side": "East",
+    "stable": "Nishonoseki",
+    "is_active": true,
+    "rid": "ichiyamamoto",
+    "external_id": "ichiyamamoto"
+  },
+  {
+    "rid": "ieshima",
+    "shikona": "Ieshima",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Sandanme",
+    "current_rank": "",
+    "current_rank_number": 1,
+    "current_side": "W",
+    "official_image_url": ""
+  },
+  {
+    "rid": "ikazuchiarashi",
+    "shikona": "Ikazuchiarashi",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Jonidan",
+    "current_rank": "",
+    "current_rank_number": 9,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "rid": "ikazuchido",
+    "shikona": "Ikazuchido",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Sandanme",
+    "current_rank": "",
+    "current_rank_number": 8,
+    "current_side": "W",
+    "official_image_url": ""
+  },
+  {
+    "rid": "ishibashi",
+    "shikona": "Ishibashi",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Sandanme",
+    "current_rank": "",
+    "current_rank_number": 23,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "rid": "ishizaki",
+    "shikona": "Ishizaki",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Makushita",
+    "current_rank": "",
+    "current_rank_number": 32,
+    "current_side": "W",
+    "official_image_url": ""
+  },
+  {
+    "rid": "iwakiyama",
+    "shikona": "Iwakiyama",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Sandanme",
+    "current_rank": "",
+    "current_rank_number": 56,
+    "current_side": "W",
+    "official_image_url": ""
+  },
+  {
+    "rid": "kagamiishi",
+    "shikona": "Kagamiishi",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Sandanme",
+    "current_rank": "",
+    "current_rank_number": 58,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "rid": "kagamio",
+    "shikona": "Kagamio",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Sandanme",
+    "current_rank": "",
+    "current_rank_number": 18,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "id": "kagayaki",
+    "shikona": "Kagayaki",
+    "rank": "Maegashira",
+    "rank_number": 16,
+    "side": "East",
+    "stable": "Takadagawa",
+    "is_active": true,
+    "rid": "kagayaki",
+    "external_id": "kagayaki"
+  },
+  {
+    "rid": "kaiga",
+    "shikona": "Kaiga",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Makushita",
+    "current_rank": "",
+    "current_rank_number": 54,
+    "current_side": "W",
+    "official_image_url": ""
+  },
+  {
+    "rid": "kairyuko",
+    "shikona": "Kairyuko",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Sandanme",
+    "current_rank": "",
+    "current_rank_number": 30,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "rid": "kaisei",
+    "shikona": "Kaisei",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Juryo",
+    "current_rank": "Juryo",
+    "current_rank_number": 8,
+    "current_side": "W",
+    "official_image_url": ""
+  },
+  {
+    "rid": "kaisho",
+    "shikona": "Kaisho",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Makushita",
+    "current_rank": "",
+    "current_rank_number": 30,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "rid": "kakueizan",
+    "shikona": "Kakueizan",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Jonidan",
+    "current_rank": "",
+    "current_rank_number": 12,
+    "current_side": "W",
+    "official_image_url": ""
+  },
+  {
+    "id": "kakuryu",
+    "shikona": "Kakuryū",
+    "real_name": "Khaltmaagiin Battulga",
+    "birthplace": "Ulaanbaatar, Mongolia",
+    "height_cm": 192,
+    "weight_kg": 158,
+    "stable": "Miyagino",
+    "debut_year": 2001,
+    "is_active": false,
+    "rid": "kakury",
+    "external_id": "kakuryu"
+  },
+  {
+    "rid": "kakuta",
+    "shikona": "Kakuta",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Sandanme",
+    "current_rank": "",
+    "current_rank_number": 22,
+    "current_side": "W",
+    "official_image_url": ""
+  },
+  {
+    "rid": "kanda",
+    "shikona": "Kanda",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Makushita",
+    "current_rank": "",
+    "current_rank_number": 56,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "rid": "katsunoryu",
+    "shikona": "Katsunoryu",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Makushita",
+    "current_rank": "",
+    "current_rank_number": 68,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "rid": "kawakita",
+    "shikona": "Kawakita",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Sandanme",
+    "current_rank": "",
+    "current_rank_number": 15,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "rid": "kawazoe",
+    "shikona": "Kawazoe",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Sandanme",
+    "current_rank": "",
+    "current_rank_number": 45,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "rid": "kazenoumi",
+    "shikona": "Kazenoumi",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Makushita",
+    "current_rank": "",
+    "current_rank_number": 21,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "rid": "kazunofuji",
+    "shikona": "Kazunofuji",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Jonidan",
+    "current_rank": "",
+    "current_rank_number": 9,
+    "current_side": "W",
+    "official_image_url": ""
+  },
+  {
+    "id": "kinbozan",
+    "shikona": "Kinbozan",
+    "rank": "Maegashira",
+    "rank_number": 10,
+    "side": "West",
+    "stable": "Kise",
+    "is_active": true,
+    "real_name": "Barsbold Enkhbold",
+    "birthplace": "Ulaanbaatar, Mongolia",
+    "height_cm": 189,
+    "weight_kg": 175,
+    "debut_year": 2021,
+    "rid": "kinbozan",
+    "external_id": "kinbozan"
+  },
+  {
+    "rid": "kinkaiyama",
+    "shikona": "Kinkaiyama",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Makushita",
+    "current_rank": "",
+    "current_rank_number": 1,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "rid": "kirinryu",
+    "shikona": "Kirinryu",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Makushita",
+    "current_rank": "",
+    "current_rank_number": 29,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "id": "naruto_kirishima_2015",
+    "shikona": "Kirishima",
+    "real_name": "Byambadorj Bilegt",
+    "status": {
+      "is_active": true,
+      "is_retired": false
+    },
+    "identity": {
+      "birthplace": "",
+      "nationality": "Mongolia",
+      "birth_date": ""
+    },
+    "physical": {
+      "height_cm": null,
+      "weight_kg": null
+    },
+    "heya": {
+      "name": "Naruto",
+      "ichimon": ""
+    },
+    "career": {
+      "debut_year": null,
+      "highest_rank": {
+        "division": "Makuuchi",
+        "rank": "Ozeki",
+        "rank_number": 1,
+        "side": "West"
+      }
+    },
+    "current_rank": {
+      "division": "Makuuchi",
+      "rank": "Sekiwake",
+      "rank_number": 1,
+      "side": "West"
+    },
+    "records": {
+      "latest_basho": {
+        "basho": "2025-11",
+        "wins": 10,
+        "losses": 5,
+        "win_percentage": 66.7
+      },
+      "career_total": {
+        "wins": null,
+        "losses": null,
+        "win_percentage": null
+      }
+    },
+    "titles": {
+      "yusho": {
+        "makuuchi": 1,
+        "juryo": 0,
+        "lower_divisions": 0
+      },
+      "special_prizes": {
+        "shukunsho": 0,
+        "kantosho": 1,
+        "ginosho": 0,
+        "total": 1
+      }
+    },
+    "media": {
+      "official_image_url": "",
+      "image_source": ""
+    },
+    "rank": "Sekiwake",
+    "rank_number": 1,
+    "side": "East",
+    "stable": "Michinoku",
+    "is_active": true,
+    "birthplace": "Ulaanbaatar, Mongolia",
+    "height_cm": 186,
+    "weight_kg": 138,
+    "debut_year": 2015,
+    "rid": "kirishima",
+    "alias_ids": [
+      "kirishima"
+    ],
+    "external_id": "naruto_kirishima_2015"
+  },
+  {
+    "rid": "kiryu",
+    "shikona": "Kiryu",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Makushita",
+    "current_rank": "",
+    "current_rank_number": 51,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "rid": "kiryuko",
+    "shikona": "Kiryuko",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Makushita",
+    "current_rank": "",
+    "current_rank_number": 45,
+    "current_side": "W",
+    "official_image_url": ""
+  },
+  {
+    "rid": "kitadaichi",
+    "shikona": "Kitadaichi",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Sandanme",
+    "current_rank": "",
+    "current_rank_number": 14,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "rid": "kitaharima",
+    "shikona": "Kitaharima",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Sandanme",
+    "current_rank": "",
+    "current_rank_number": 33,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "rid": "kitanofuji",
+    "shikona": "Kitanofuji",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Makushita",
+    "current_rank": "",
+    "current_rank_number": 63,
+    "current_side": "W",
+    "official_image_url": ""
+  },
+  {
+    "rid": "kitanoryu",
+    "shikona": "Kitanoryu",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Jonidan",
+    "current_rank": "",
+    "current_rank_number": 41,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "rid": "kitanosato",
+    "shikona": "Kitanosato",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Sandanme",
+    "current_rank": "",
+    "current_rank_number": 28,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "rid": "kitanosho",
+    "shikona": "Kitanosho",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Jonidan",
+    "current_rank": "",
+    "current_rank_number": 51,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "rid": "kitanoumi",
+    "shikona": "Kitanoumi",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Sandanme",
+    "current_rank": "",
+    "current_rank_number": 54,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "rid": "kitanowaka",
+    "shikona": "Kitanowaka",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Juryo",
+    "current_rank": "Juryo",
+    "current_rank_number": 5,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "rid": "kiyonoumi",
+    "shikona": "Kiyonoumi",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Sandanme",
+    "current_rank": "",
+    "current_rank_number": 4,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "rid": "kizakiumi",
+    "shikona": "Kizakiumi",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Makushita",
+    "current_rank": "",
+    "current_rank_number": 66,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "rid": "kobayashi",
+    "shikona": "Kobayashi",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Sandanme",
+    "current_rank": "",
+    "current_rank_number": 5,
+    "current_side": "W",
+    "official_image_url": ""
+  },
+  {
+    "rid": "koga",
+    "shikona": "Koga",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Makushita",
+    "current_rank": "",
+    "current_rank_number": 33,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "rid": "kotodaigo",
+    "shikona": "Kotodaigo",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Sandanme",
+    "current_rank": "",
+    "current_rank_number": 36,
+    "current_side": "W",
+    "official_image_url": ""
+  },
+  {
+    "rid": "kotoeiho",
+    "shikona": "Kotoeiho",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Juryo",
+    "current_rank": "Juryo",
+    "current_rank_number": 2,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "id": "kotoeko",
+    "shikona": "Kotoeko",
+    "real_name": "Tomoaki Ishikawa",
+    "birthplace": "Miyazaki, Japan",
+    "height_cm": 176,
+    "weight_kg": 140,
+    "stable": "Sadogatake",
+    "debut_year": 2014,
+    "is_active": true,
+    "rid": "kotoeko",
+    "external_id": "kotoeko"
+  },
+  {
+    "rid": "kotohaguro",
+    "shikona": "Kotohaguro",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Jonidan",
+    "current_rank": "",
+    "current_rank_number": 49,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "id": "oguruma_kotokasuga_2015",
+    "shikona": "Kotokasuga",
+    "real_name": "",
+    "status": {
+      "is_active": true,
+      "is_retired": false
+    },
+    "identity": {
+      "birthplace": "",
+      "nationality": "Japan",
+      "birth_date": ""
+    },
+    "physical": {
+      "height_cm": null,
+      "weight_kg": null
+    },
+    "heya": {
+      "name": "Oguruma",
+      "ichimon": ""
+    },
+    "career": {
+      "debut_year": null,
+      "highest_rank": {
+        "division": "Makuuchi",
+        "rank": "Maegashira 2",
+        "rank_number": 2,
+        "side": "East"
+      }
+    },
+    "current_rank": {
+      "division": "Makuuchi",
+      "rank": "Maegashira 4",
+      "rank_number": 4,
+      "side": "West"
+    },
+    "records": {
+      "latest_basho": {
+        "basho": "2025-11",
+        "wins": 6,
+        "losses": 9,
+        "win_percentage": 40
+      },
+      "career_total": {
+        "wins": null,
+        "losses": null,
+        "win_percentage": null
+      }
+    },
+    "titles": {
+      "yusho": {
+        "makuuchi": 0,
+        "juryo": 0,
+        "lower_divisions": 0
+      },
+      "special_prizes": {
+        "shukunsho": 0,
+        "kantosho": 0,
+        "ginosho": 0,
+        "total": 0
+      }
+    },
+    "media": {
+      "official_image_url": "",
+      "image_source": ""
+    },
+    "rid": "kotokasuga",
+    "external_id": "oguruma_kotokasuga_2015"
+  },
+  {
+    "rid": "kotonami",
+    "shikona": "Kotonami",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Jonidan",
+    "current_rank": "",
+    "current_rank_number": 31,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "rid": "kotonofuji",
+    "shikona": "Kotonofuji",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Sandanme",
+    "current_rank": "",
+    "current_rank_number": 2,
+    "current_side": "W",
+    "official_image_url": ""
+  },
+  {
+    "rid": "kotonokuni",
+    "shikona": "Kotonokuni",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Jonidan",
+    "current_rank": "",
+    "current_rank_number": 58,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "rid": "kotononami",
+    "shikona": "Kotononami",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Jonidan",
+    "current_rank": "",
+    "current_rank_number": 19,
+    "current_side": "W",
+    "official_image_url": ""
+  },
+  {
+    "id": "hata_kotonowaka_????",
+    "shikona": "Kotonowaka",
+    "real_name": "Kota Kamatani",
+    "status": {
+      "is_active": true,
+      "is_retired": false
+    },
+    "identity": {
+      "birthplace": "",
+      "nationality": "",
+      "birth_date": ""
+    },
+    "physical": {
+      "height_cm": null,
+      "weight_kg": null
+    },
+    "heya": {
+      "name": "",
+      "ichimon": ""
+    },
+    "career": {
+      "debut_year": null,
+      "highest_rank": {
+        "division": "Makuuchi",
+        "rank": "Ozeki",
+        "rank_number": 1,
+        "side": "East"
+      }
+    },
+    "current_rank": {
+      "division": "Makuuchi",
+      "rank": "Ozeki",
+      "rank_number": 1,
+      "side": "East"
+    },
+    "records": {
+      "latest_basho": {
+        "basho": "2025-11",
+        "wins": 8,
+        "losses": 7,
+        "win_percentage": 53.3
+      },
+      "career_total": {
+        "wins": null,
+        "losses": null,
+        "win_percentage": null
+      }
+    },
+    "titles": {
+      "yusho": {
+        "makuuchi": 0,
+        "juryo": 0,
+        "lower_divisions": 0
+      },
+      "special_prizes": {
+        "shukunsho": 0,
+        "kantosho": 0,
+        "ginosho": 0,
+        "total": 0
+      }
+    },
+    "media": {
+      "official_image_url": "",
+      "image_source": ""
+    },
+    "rank": "Maegashira",
+    "rank_number": 4,
+    "side": "East",
+    "stable": "Sadogatake",
+    "is_active": true,
+    "birthplace": "Chiba, Japan",
+    "height_cm": 189,
+    "weight_kg": 161,
+    "debut_year": 2017,
+    "rid": "kotonowaka",
+    "alias_ids": [
+      "kotonowaka"
+    ],
+    "external_id": "hata_kotonowaka_????"
+  },
+  {
+    "rid": "kotoryu",
+    "shikona": "Kotoryu",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Jonidan",
+    "current_rank": "",
+    "current_rank_number": 23,
+    "current_side": "W",
+    "official_image_url": ""
+  },
+  {
+    "id": "shikoroyama_kotoshoho_2013",
+    "shikona": "Kotoshoho",
+    "real_name": "Toshiki Kato",
+    "status": {
+      "is_active": true,
+      "is_retired": false
+    },
+    "identity": {
+      "birthplace": "",
+      "nationality": "Japan",
+      "birth_date": ""
+    },
+    "physical": {
+      "height_cm": null,
+      "weight_kg": null
+    },
+    "heya": {
+      "name": "Shikoroyama",
+      "ichimon": ""
+    },
+    "career": {
+      "debut_year": null,
+      "highest_rank": {
+        "division": "Makuuchi",
+        "rank": "Maegashira 1",
+        "rank_number": 1,
+        "side": "West"
+      }
+    },
+    "current_rank": {
+      "division": "Makuuchi",
+      "rank": "Maegashira 3",
+      "rank_number": 3,
+      "side": "East"
+    },
+    "records": {
+      "latest_basho": {
+        "basho": "2025-11",
+        "wins": 5,
+        "losses": 10,
+        "win_percentage": 33.3
+      },
+      "career_total": {
+        "wins": null,
+        "losses": null,
+        "win_percentage": null
+      }
+    },
+    "titles": {
+      "yusho": {
+        "makuuchi": 0,
+        "juryo": 0,
+        "lower_divisions": 0
+      },
+      "special_prizes": {
+        "shukunsho": 0,
+        "kantosho": 0,
+        "ginosho": 0,
+        "total": 0
+      }
+    },
+    "media": {
+      "official_image_url": "",
+      "image_source": ""
+    },
+    "rank": "Maegashira",
+    "rank_number": 9,
+    "side": "East",
+    "stable": "Sadogatake",
+    "is_active": true,
+    "birthplace": "Chiba, Japan",
+    "height_cm": 187,
+    "weight_kg": 165,
+    "debut_year": 2018,
+    "rid": "kotoshoho",
+    "alias_ids": [
+      "kotoshoho"
+    ],
+    "external_id": "shikoroyama_kotoshoho_2013"
+  },
+  {
+    "rid": "kototebakari",
+    "shikona": "Kototebakari",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Sandanme",
+    "current_rank": "",
+    "current_rank_number": 45,
+    "current_side": "W",
+    "official_image_url": ""
+  },
+  {
+    "rid": "kototora",
+    "shikona": "Kototora",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Jonidan",
+    "current_rank": "",
+    "current_rank_number": 39,
+    "current_side": "W",
+    "official_image_url": ""
+  },
+  {
+    "rid": "kotoyuki",
+    "shikona": "Kotoyuki",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Sandanme",
+    "current_rank": "",
+    "current_rank_number": 31,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "id": "kotozakura",
+    "shikona": "Kotozakura",
+    "rank": "Ozeki",
+    "rank_number": 1,
+    "side": "East",
+    "stable": "Sadogatake",
+    "is_active": true,
+    "rid": "kotozakura",
+    "external_id": "kotozakura"
+  },
+  {
+    "rid": "kurohimeyama",
+    "shikona": "Kurohimeyama",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Makushita",
+    "current_rank": "",
+    "current_rank_number": 22,
+    "current_side": "W",
+    "official_image_url": ""
+  },
+  {
+    "rid": "kyoho",
+    "shikona": "Kyoho",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Makushita",
+    "current_rank": "",
+    "current_rank_number": 67,
+    "current_side": "W",
+    "official_image_url": ""
+  },
+  {
+    "rid": "kyokutaisei",
+    "shikona": "Kyokutaisei",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Makushita",
+    "current_rank": "",
+    "current_rank_number": 52,
+    "current_side": "W",
+    "official_image_url": ""
+  },
+  {
+    "rid": "kyokutenho",
+    "shikona": "Kyokutenho",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Sandanme",
+    "current_rank": "",
+    "current_rank_number": 52,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "rid": "masutoo",
+    "shikona": "Masutoo",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Makushita",
+    "current_rank": "",
+    "current_rank_number": 34,
+    "current_side": "W",
+    "official_image_url": ""
+  },
+  {
+    "rid": "matsunaga",
+    "shikona": "Matsunaga",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Jonidan",
+    "current_rank": "",
+    "current_rank_number": 41,
+    "current_side": "W",
+    "official_image_url": ""
+  },
+  {
+    "id": "meisei",
+    "shikona": "Meisei",
+    "rank": "Maegashira",
+    "rank_number": 6,
+    "side": "East",
+    "stable": "Tatsunami",
+    "is_active": true,
+    "real_name": "Chikara Sato",
+    "birthplace": "Kagoshima, Japan",
+    "height_cm": 177,
+    "weight_kg": 155,
+    "debut_year": 2016,
+    "rid": "meisei",
+    "external_id": "meisei"
+  },
+  {
+    "id": "midori",
+    "shikona": "Midori",
+    "rank": "Maegashira",
+    "rank_number": 12,
+    "side": "East",
+    "stable": "Takasago",
+    "is_active": true,
+    "rid": "midori",
+    "external_id": "midori"
+  },
+  {
+    "id": "midori_fuji",
+    "shikona": "Midori Fuji",
+    "real_name": "Yūya Yamaguchi",
+    "birthplace": "Shizuoka, Japan",
+    "height_cm": 171,
+    "weight_kg": 116,
+    "stable": "Isegahama",
+    "debut_year": 2016,
+    "is_active": true,
+    "rid": "midori_fuji",
+    "external_id": "midori_fuji"
+  },
+  {
+    "rid": "midorifuji",
+    "shikona": "Midorifuji",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Makuuchi",
+    "current_rank": "Maegashira",
+    "current_rank_number": 9,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "rid": "midorikaze",
+    "shikona": "Midorikaze",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Sandanme",
+    "current_rank": "",
+    "current_rank_number": 38,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "rid": "midorino",
+    "shikona": "Midorino",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Sandanme",
+    "current_rank": "",
+    "current_rank_number": 59,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "rid": "minato",
+    "shikona": "Minato",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Sandanme",
+    "current_rank": "",
+    "current_rank_number": 20,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "rid": "minatogawa",
+    "shikona": "Minatogawa",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Makushita",
+    "current_rank": "",
+    "current_rank_number": 59,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "rid": "mineyaiba",
+    "shikona": "Mineyaiba",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Makushita",
+    "current_rank": "",
+    "current_rank_number": 30,
+    "current_side": "W",
+    "official_image_url": ""
+  },
+  {
+    "rid": "mita",
+    "shikona": "Mita",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Juryo",
+    "current_rank": "Juryo",
+    "current_rank_number": 3,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "id": "arashio_mitakeumi_2015",
+    "shikona": "Mitakeumi",
+    "real_name": "Hisashi Ōmi",
+    "status": {
+      "is_active": true,
+      "is_retired": false
+    },
+    "identity": {
+      "birthplace": "",
+      "nationality": "Japan",
+      "birth_date": ""
+    },
+    "physical": {
+      "height_cm": null,
+      "weight_kg": null
+    },
+    "heya": {
+      "name": "Arashio",
+      "ichimon": ""
+    },
+    "career": {
+      "debut_year": null,
+      "highest_rank": {
+        "division": "Makuuchi",
+        "rank": "Ozeki",
+        "rank_number": 1,
+        "side": "East"
+      }
+    },
+    "current_rank": {
+      "division": "Makuuchi",
+      "rank": "Sekiwake",
+      "rank_number": 3,
+      "side": "East"
+    },
+    "records": {
+      "latest_basho": {
+        "basho": "2025-11",
+        "wins": 8,
+        "losses": 7,
+        "win_percentage": 53.3
+      },
+      "career_total": {
+        "wins": null,
+        "losses": null,
+        "win_percentage": null
+      }
+    },
+    "titles": {
+      "yusho": {
+        "makuuchi": 3,
+        "juryo": 0,
+        "lower_divisions": 0
+      },
+      "special_prizes": {
+        "shukunsho": 1,
+        "kantosho": 2,
+        "ginosho": 0,
+        "total": 3
+      }
+    },
+    "media": {
+      "official_image_url": "",
+      "image_source": ""
+    },
+    "rank": "Maegashira",
+    "rank_number": 4,
+    "side": "West",
+    "stable": "Dewanoumi",
+    "is_active": true,
+    "birthplace": "Nagano, Japan",
+    "height_cm": 179,
+    "weight_kg": 161,
+    "debut_year": 2015,
+    "rid": "mitakeumi",
+    "alias_ids": [
+      "mitakeumi"
+    ],
+    "external_id": "arashio_mitakeumi_2015"
+  },
+  {
+    "id": "mitoryu",
+    "shikona": "Mitoryu",
+    "rank": "Maegashira",
+    "rank_number": 17,
+    "side": "West",
+    "stable": "Nishonoseki",
+    "is_active": true,
+    "rid": "mitoryu",
+    "external_id": "mitoryu"
+  },
+  {
+    "rid": "miyagi",
+    "shikona": "Miyagi",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Makushita",
+    "current_rank": "",
+    "current_rank_number": 54,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "rid": "nabatame",
+    "shikona": "Nabatame",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Juryo",
+    "current_rank": "Juryo",
+    "current_rank_number": 8,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "rid": "nihonyanagi",
+    "shikona": "Nihonyanagi",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Makushita",
+    "current_rank": "",
+    "current_rank_number": 23,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "rid": "nishikawa",
+    "shikona": "Nishikawa",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Makushita",
+    "current_rank": "",
+    "current_rank_number": 47,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "rid": "nishikaze",
+    "shikona": "Nishikaze",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Jonidan",
+    "current_rank": "",
+    "current_rank_number": 20,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "id": "nishikifuji",
+    "shikona": "Nishikifuji",
+    "rank": "Maegashira",
+    "rank_number": 14,
+    "side": "West",
+    "stable": "Isegahama",
+    "is_active": true,
+    "rid": "nishikifuji",
+    "external_id": "nishikifuji"
+  },
+  {
+    "id": "nishikigi",
+    "shikona": "Nishikigi",
+    "rank": "Maegashira",
+    "rank_number": 3,
+    "side": "East",
+    "stable": "Isenoumi",
+    "is_active": true,
+    "real_name": "Ryūsei Naya",
+    "birthplace": "Iwate, Japan",
+    "height_cm": 184,
+    "weight_kg": 170,
+    "debut_year": 2013,
+    "rid": "nishikigi",
+    "external_id": "nishikigi"
+  },
+  {
+    "rid": "nishinoryu",
+    "shikona": "Nishinoryu",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Sandanme",
+    "current_rank": "",
+    "current_rank_number": 52,
+    "current_side": "W",
+    "official_image_url": ""
+  },
+  {
+    "rid": "nishinoumi",
+    "shikona": "Nishinoumi",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Sandanme",
+    "current_rank": "",
+    "current_rank_number": 55,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "rid": "nishiomoto",
+    "shikona": "Nishiomoto",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Sandanme",
+    "current_rank": "",
+    "current_rank_number": 3,
+    "current_side": "W",
+    "official_image_url": ""
+  },
+  {
+    "rid": "obara",
+    "shikona": "Obara",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Makushita",
+    "current_rank": "",
+    "current_rank_number": 26,
+    "current_side": "W",
+    "official_image_url": ""
+  },
+  {
+    "rid": "ochiai",
+    "shikona": "Ochiai",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Juryo",
+    "current_rank": "Juryo",
+    "current_rank_number": 5,
+    "current_side": "W",
+    "official_image_url": ""
+  },
+  {
+    "rid": "oho",
+    "shikona": "Oho",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Makuuchi",
+    "current_rank": "Sekiwake",
+    "current_rank_number": 1,
+    "current_side": "W",
+    "official_image_url": ""
+  },
+  {
+    "rid": "okanishi",
+    "shikona": "Okanishi",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Sandanme",
+    "current_rank": "",
+    "current_rank_number": 21,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "rid": "onami",
+    "shikona": "Onami",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Sandanme",
+    "current_rank": "",
+    "current_rank_number": 29,
+    "current_side": "W",
+    "official_image_url": ""
+  },
+  {
+    "id": "onokatsu",
+    "shikona": "Onokatsu",
+    "rank": "Maegashira",
+    "rank_number": 16,
+    "side": "West",
+    "stable": "Naruto",
+    "is_active": true,
+    "rid": "onokatsu",
+    "external_id": "onokatsu"
+  },
+  {
+    "id": "nishonoseki_onosato_2023",
+    "shikona": "Onosato",
+    "real_name": "Ōnosato Daiki",
+    "status": {
+      "is_active": true,
+      "is_retired": false
+    },
+    "identity": {
+      "birthplace": "Ishikawa, Japan",
+      "nationality": "Japan",
+      "birth_date": "2000-06-07"
+    },
+    "physical": {
+      "height_cm": 192,
+      "weight_kg": 187
+    },
+    "heya": {
+      "name": "Nishonoseki",
+      "ichimon": ""
+    },
+    "career": {
+      "debut_year": 2023,
+      "highest_rank": {
+        "division": "Makuuchi",
+        "rank": "Yokozuna",
+        "rank_number": 1,
+        "side": "East"
+      }
+    },
+    "current_rank": {
+      "division": "Makuuchi",
+      "rank": "Yokozuna",
+      "rank_number": 1,
+      "side": "East"
+    },
+    "records": {
+      "latest_basho": {
+        "basho": "2025-11",
+        "wins": 11,
+        "losses": 4,
+        "win_percentage": 73.3
+      },
+      "career_total": {
+        "wins": 170,
+        "losses": 54,
+        "win_percentage": 75.9
+      }
+    },
+    "titles": {
+      "yusho": {
+        "makuuchi": 0,
+        "juryo": 0,
+        "lower_divisions": 0
+      },
+      "special_prizes": {
+        "shukunsho": 0,
+        "kantosho": 0,
+        "ginosho": 0,
+        "total": 0
+      }
+    },
+    "media": {
+      "official_image_url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4227/photo",
+      "image_source": "Japan Sumo Association"
+    },
+    "rank": "Maegashira",
+    "rank_number": 1,
+    "side": "East",
+    "stable": "Nishonoseki",
+    "is_active": true,
+    "rid": "onosato",
+    "alias_ids": [
+      "onoshato"
+    ],
+    "external_id": "nishonoseki_onosato_2023"
+  },
+  {
+    "rid": "osanai",
+    "shikona": "Osanai",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Makushita",
+    "current_rank": "",
+    "current_rank_number": 27,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "id": "oshoma",
+    "shikona": "Oshoma",
+    "rank": "Maegashira",
+    "rank_number": 11,
+    "side": "West",
+    "stable": "Naruto",
+    "is_active": true,
+    "rid": "oshoma",
+    "external_id": "oshoma"
+  },
+  {
+    "rid": "oshoumi",
+    "shikona": "Oshoumi",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Makuuchi",
+    "current_rank": "Maegashira",
+    "current_rank_number": 16,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "rid": "roga",
+    "shikona": "Roga",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Makuuchi",
+    "current_rank": "Maegashira",
+    "current_rank_number": 11,
+    "current_side": "W",
+    "official_image_url": ""
+  },
+  {
+    "rid": "ryoga",
+    "shikona": "Ryoga",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Sandanme",
+    "current_rank": "",
+    "current_rank_number": 46,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "rid": "ryokakuho",
+    "shikona": "Ryokakuho",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Jonidan",
+    "current_rank": "",
+    "current_rank_number": 44,
+    "current_side": "W",
+    "official_image_url": ""
+  },
+  {
+    "rid": "ryubumaru",
+    "shikona": "Ryubumaru",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Jonidan",
+    "current_rank": "",
+    "current_rank_number": 11,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "id": "ryuden",
+    "shikona": "Ryuden",
+    "rank": "Maegashira",
+    "rank_number": 9,
+    "side": "West",
+    "stable": "Takadagawa",
+    "is_active": true,
+    "real_name": "Toshihiro Aoyagi",
+    "birthplace": "Yamanashi, Japan",
+    "height_cm": 188,
+    "weight_kg": 160,
+    "debut_year": 2012,
+    "rid": "ryuden",
+    "external_id": "ryuden"
+  },
+  {
+    "rid": "ryudenmaru",
+    "shikona": "Ryudenmaru",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Makushita",
+    "current_rank": "",
+    "current_rank_number": 55,
+    "current_side": "W",
+    "official_image_url": ""
+  },
+  {
+    "rid": "ryuko",
+    "shikona": "Ryuko",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Sandanme",
+    "current_rank": "",
+    "current_rank_number": 10,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "rid": "ryuoga",
+    "shikona": "Ryuoga",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Makushita",
+    "current_rank": "",
+    "current_rank_number": 37,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "rid": "ryuoh",
+    "shikona": "Ryuoh",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Sandanme",
+    "current_rank": "",
+    "current_rank_number": 43,
+    "current_side": "W",
+    "official_image_url": ""
+  },
+  {
+    "rid": "ryusei",
+    "shikona": "Ryusei",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Jonidan",
+    "current_rank": "",
+    "current_rank_number": 60,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "rid": "ryusho",
+    "shikona": "Ryusho",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Makushita",
+    "current_rank": "",
+    "current_rank_number": 24,
+    "current_side": "W",
+    "official_image_url": ""
+  },
+  {
+    "rid": "ryuzaki",
+    "shikona": "Ryuzaki",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Jonidan",
+    "current_rank": "",
+    "current_rank_number": 50,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "id": "sadanoumi",
+    "shikona": "Sadanoumi",
+    "rank": "Maegashira",
+    "rank_number": 13,
+    "side": "West",
+    "stable": "Sakaigawa",
+    "is_active": true,
+    "real_name": "Keiichi Tanaka",
+    "birthplace": "Fukuoka, Japan",
+    "height_cm": 177,
+    "weight_kg": 165,
+    "debut_year": 2005,
+    "rid": "sadanoumi",
+    "external_id": "sadanoumi"
+  },
+  {
+    "rid": "sakaeho",
+    "shikona": "Sakaeho",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Sandanme",
+    "current_rank": "",
+    "current_rank_number": 48,
+    "current_side": "W",
+    "official_image_url": ""
+  },
+  {
+    "rid": "sakaigawa",
+    "shikona": "Sakaigawa",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Makushita",
+    "current_rank": "",
+    "current_rank_number": 62,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "rid": "sakigake",
+    "shikona": "Sakigake",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Sandanme",
+    "current_rank": "",
+    "current_rank_number": 47,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "rid": "satsumasho",
+    "shikona": "Satsumasho",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Jonidan",
+    "current_rank": "",
+    "current_rank_number": 14,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "rid": "seihakuho",
+    "shikona": "Seihakuho",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Makushita",
+    "current_rank": "",
+    "current_rank_number": 57,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "rid": "seiryu",
+    "shikona": "Seiryu",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Jonidan",
+    "current_rank": "",
+    "current_rank_number": 26,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "rid": "seiyu",
+    "shikona": "Seiyu",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Sandanme",
+    "current_rank": "",
+    "current_rank_number": 3,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "rid": "sekiwakefuji",
+    "shikona": "Sekiwakefuji",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Sandanme",
+    "current_rank": "",
+    "current_rank_number": 44,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "rid": "sengaku",
+    "shikona": "Sengaku",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Sandanme",
+    "current_rank": "",
+    "current_rank_number": 8,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "rid": "shichisato",
+    "shikona": "Shichisato",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Sandanme",
+    "current_rank": "",
+    "current_rank_number": 48,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "rid": "shiden",
+    "shikona": "Shiden",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Makushita",
+    "current_rank": "",
+    "current_rank_number": 51,
+    "current_side": "W",
+    "official_image_url": ""
+  },
+  {
+    "id": "shimanoumi",
+    "shikona": "Shimanoumi",
+    "real_name": "Manabu Saito",
+    "birthplace": "Kumamoto, Japan",
+    "height_cm": 186,
+    "weight_kg": 170,
+    "stable": "Shikoroyama",
+    "debut_year": 2012,
+    "is_active": true,
+    "rid": "shimanoumi",
+    "external_id": "shimanoumi"
+  },
+  {
+    "rid": "shimazuumi",
+    "shikona": "Shimazuumi",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Makushita",
+    "current_rank": "",
+    "current_rank_number": 56,
+    "current_side": "W",
+    "official_image_url": ""
+  },
+  {
+    "rid": "shimizuumi",
+    "shikona": "Shimizuumi",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Makushita",
+    "current_rank": "",
+    "current_rank_number": 28,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "rid": "shiraishi",
+    "shikona": "Shiraishi",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Jonidan",
+    "current_rank": "",
+    "current_rank_number": 31,
+    "current_side": "W",
+    "official_image_url": ""
+  },
+  {
+    "rid": "shirokuma",
+    "shikona": "Shirokuma",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Sandanme",
+    "current_rank": "",
+    "current_rank_number": 15,
+    "current_side": "W",
+    "official_image_url": ""
+  },
+  {
+    "rid": "shishi",
+    "shikona": "Shishi",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Makuuchi",
+    "current_rank": "Maegashira",
+    "current_rank_number": 11,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "rid": "shishimaru",
+    "shikona": "Shishimaru",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Jonidan",
+    "current_rank": "",
+    "current_rank_number": 59,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "id": "takadagawa_shodai_2014",
+    "shikona": "Shodai",
+    "real_name": "Naoya Shōda",
+    "status": {
+      "is_active": true,
+      "is_retired": false
+    },
+    "identity": {
+      "birthplace": "",
+      "nationality": "Japan",
+      "birth_date": ""
+    },
+    "physical": {
+      "height_cm": null,
+      "weight_kg": null
+    },
+    "heya": {
+      "name": "Takadagawa",
+      "ichimon": ""
+    },
+    "career": {
+      "debut_year": null,
+      "highest_rank": {
+        "division": "Makuuchi",
+        "rank": "Sekiwake",
+        "rank_number": 1,
+        "side": "West"
+      }
+    },
+    "current_rank": {
+      "division": "Makuuchi",
+      "rank": "Maegashira",
+      "rank_number": 1,
+      "side": "East"
+    },
+    "records": {
+      "latest_basho": {
+        "basho": "2025-11",
+        "wins": 5,
+        "losses": 10,
+        "win_percentage": 33.3
+      },
+      "career_total": {
+        "wins": null,
+        "losses": null,
+        "win_percentage": null
+      }
+    },
+    "titles": {
+      "yusho": {
+        "makuuchi": 0,
+        "juryo": 0,
+        "lower_divisions": 0
+      },
+      "special_prizes": {
+        "shukunsho": 0,
+        "kantosho": 0,
+        "ginosho": 0,
+        "total": 0
+      }
+    },
+    "media": {
+      "official_image_url": "",
+      "image_source": ""
+    },
+    "rank": "Maegashira",
+    "rank_number": 7,
+    "side": "East",
+    "stable": "Tokitsukaze",
+    "is_active": true,
+    "birthplace": "Kumamoto, Japan",
+    "height_cm": 183,
+    "weight_kg": 165,
+    "debut_year": 2014,
+    "rid": "shodai",
+    "alias_ids": [
+      "oguruma_shodai_2013",
+      "shodai"
+    ],
+    "external_id": "takadagawa_shodai_2014"
+  },
+  {
+    "id": "tokitsukaze_shohozan_2007",
+    "shikona": "Shohozan",
+    "real_name": "",
+    "status": {
+      "is_active": true,
+      "is_retired": false
+    },
+    "identity": {
+      "birthplace": "",
+      "nationality": "Japan",
+      "birth_date": ""
+    },
+    "physical": {
+      "height_cm": null,
+      "weight_kg": null
+    },
+    "heya": {
+      "name": "Tokitsukaze",
+      "ichimon": ""
+    },
+    "career": {
+      "debut_year": null,
+      "highest_rank": {
+        "division": "Makuuchi",
+        "rank": "Sekiwake",
+        "rank_number": 1,
+        "side": "East"
+      }
+    },
+    "current_rank": {
+      "division": "Makuuchi",
+      "rank": "Komusubi",
+      "rank_number": 2,
+      "side": "West"
+    },
+    "records": {
+      "latest_basho": {
+        "basho": "2025-11",
+        "wins": 7,
+        "losses": 8,
+        "win_percentage": 46.7
+      },
+      "career_total": {
+        "wins": null,
+        "losses": null,
+        "win_percentage": null
+      }
+    },
+    "titles": {
+      "yusho": {
+        "makuuchi": 0,
+        "juryo": 0,
+        "lower_divisions": 0
+      },
+      "special_prizes": {
+        "shukunsho": 0,
+        "kantosho": 1,
+        "ginosho": 1,
+        "total": 2
+      }
+    },
+    "media": {
+      "official_image_url": "",
+      "image_source": ""
+    },
+    "rid": "shohozan",
+    "alias_ids": [
+      "koto_shohozan_2011"
+    ],
+    "external_id": "tokitsukaze_shohozan_2007"
+  },
+  {
+    "id": "shonannoumi",
+    "shikona": "Shonannoumi",
+    "rank": "Maegashira",
+    "rank_number": 15,
+    "side": "West",
+    "stable": "Takasago",
+    "is_active": true,
+    "rid": "shonannoumi",
+    "external_id": "shonannoumi"
+  },
+  {
+    "rid": "shonanoumi",
+    "shikona": "Shonanoumi",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Sandanme",
+    "current_rank": "",
+    "current_rank_number": 9,
+    "current_side": "W",
+    "official_image_url": ""
+  },
+  {
+    "rid": "shoryu",
+    "shikona": "Shoryu",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Sandanme",
+    "current_rank": "",
+    "current_rank_number": 25,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "rid": "shunrai",
+    "shikona": "Shunrai",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Sandanme",
+    "current_rank": "",
+    "current_rank_number": 51,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "rid": "sokokurai",
+    "shikona": "Sokokurai",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Sandanme",
+    "current_rank": "",
+    "current_rank_number": 53,
+    "current_side": "W",
+    "official_image_url": ""
+  },
+  {
+    "rid": "suzunofuji",
+    "shikona": "Suzunofuji",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Makushita",
+    "current_rank": "",
+    "current_rank_number": 60,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "rid": "tairyu",
+    "shikona": "Tairyu",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Jonidan",
+    "current_rank": "",
+    "current_rank_number": 17,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "rid": "taiseiryu",
+    "shikona": "Taiseiryu",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Makushita",
+    "current_rank": "",
+    "current_rank_number": 58,
+    "current_side": "W",
+    "official_image_url": ""
+  },
+  {
+    "id": "asakayama_takakeisho_2014",
+    "shikona": "Takakeisho",
+    "real_name": "Takanobu Satō",
+    "status": {
+      "is_active": true,
+      "is_retired": false
+    },
+    "identity": {
+      "birthplace": "",
+      "nationality": "Japan",
+      "birth_date": ""
+    },
+    "physical": {
+      "height_cm": null,
+      "weight_kg": null
+    },
+    "heya": {
+      "name": "Tokiwayama",
+      "ichimon": ""
+    },
+    "career": {
+      "debut_year": null,
+      "highest_rank": {
+        "division": "Makuuchi",
+        "rank": "Ozeki",
+        "rank_number": 1,
+        "side": "East"
+      }
+    },
+    "current_rank": {
+      "division": "Makuuchi",
+      "rank": "Ozeki",
+      "rank_number": 2,
+      "side": "West"
+    },
+    "records": {
+      "latest_basho": {
+        "basho": "2025-11",
+        "wins": 9,
+        "losses": 6,
+        "win_percentage": 60
+      },
+      "career_total": {
+        "wins": null,
+        "losses": null,
+        "win_percentage": null
+      }
+    },
+    "titles": {
+      "yusho": {
+        "makuuchi": 4,
+        "juryo": 0,
+        "lower_divisions": 0
+      },
+      "special_prizes": {
+        "shukunsho": 0,
+        "kantosho": 1,
+        "ginosho": 0,
+        "total": 1
+      }
+    },
+    "media": {
+      "official_image_url": "",
+      "image_source": ""
+    },
+    "rank": "Maegashira",
+    "rank_number": 7,
+    "side": "West",
+    "stable": "Tokiwayama",
+    "is_active": true,
+    "birthplace": "Hyogo, Japan",
+    "height_cm": 175,
+    "weight_kg": 165,
+    "debut_year": 2014,
+    "rid": "takakeisho",
+    "alias_ids": [
+      "takakeisho"
+    ],
+    "external_id": "asakayama_takakeisho_2014"
+  },
+  {
+    "rid": "takakento",
+    "shikona": "Takakento",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Sandanme",
+    "current_rank": "",
+    "current_rank_number": 32,
+    "current_side": "W",
+    "official_image_url": ""
+  },
+  {
+    "rid": "takanofuji",
+    "shikona": "Takanofuji",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Sandanme",
+    "current_rank": "",
+    "current_rank_number": 22,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "rid": "takanoiwa",
+    "shikona": "Takanoiwa",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Sandanme",
+    "current_rank": "",
+    "current_rank_number": 50,
+    "current_side": "W",
+    "official_image_url": ""
+  },
+  {
+    "rid": "takanoryu",
+    "shikona": "Takanoryu",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Jonidan",
+    "current_rank": "",
+    "current_rank_number": 23,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "id": "someone_takanosho_????",
+    "shikona": "Takanosho",
+    "real_name": "Yoshiki Tsuchiya",
+    "status": {
+      "is_active": true,
+      "is_retired": false
+    },
+    "identity": {
+      "birthplace": "",
+      "nationality": "",
+      "birth_date": ""
+    },
+    "physical": {
+      "height_cm": null,
+      "weight_kg": null
+    },
+    "heya": {
+      "name": "",
+      "ichimon": ""
+    },
+    "career": {
+      "debut_year": null,
+      "highest_rank": {
+        "division": "Makuuchi",
+        "rank": "Komusubi",
+        "rank_number": 1,
+        "side": "East"
+      }
+    },
+    "current_rank": {
+      "division": "Makuuchi",
+      "rank": "Komusubi",
+      "rank_number": 1,
+      "side": "East"
+    },
+    "records": {
+      "latest_basho": {
+        "basho": "2025-11",
+        "wins": 5,
+        "losses": 10,
+        "win_percentage": 33.3
+      },
+      "career_total": {
+        "wins": null,
+        "losses": null,
+        "win_percentage": null
+      }
+    },
+    "titles": {
+      "yusho": {
+        "makuuchi": 0,
+        "juryo": 0,
+        "lower_divisions": 0
+      },
+      "special_prizes": {
+        "shukunsho": 0,
+        "kantosho": 0,
+        "ginosho": 0,
+        "total": 0
+      }
+    },
+    "media": {
+      "official_image_url": "",
+      "image_source": ""
+    },
+    "rank": "Maegashira",
+    "rank_number": 15,
+    "side": "East",
+    "stable": "Tokitsukaze",
+    "is_active": true,
+    "birthplace": "Hyogo, Japan",
+    "height_cm": 181,
+    "weight_kg": 166,
+    "debut_year": 2014,
+    "rid": "takanosho",
+    "alias_ids": [
+      "takanosho"
+    ],
+    "external_id": "someone_takanosho_????"
+  },
+  {
+    "rid": "takarafuji",
+    "shikona": "Takarafuji",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Sandanme",
+    "current_rank": "",
+    "current_rank_number": 16,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "rid": "takaryu",
+    "shikona": "Takaryu",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Sandanme",
+    "current_rank": "",
+    "current_rank_number": 37,
+    "current_side": "W",
+    "official_image_url": ""
+  },
+  {
+    "rid": "takashozan",
+    "shikona": "Takashozan",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Sandanme",
+    "current_rank": "",
+    "current_rank_number": 57,
+    "current_side": "W",
+    "official_image_url": ""
+  },
+  {
+    "id": "takayasu",
+    "shikona": "Takayasu",
+    "rank": "Maegashira",
+    "rank_number": 2,
+    "side": "East",
+    "stable": "Tagonoura",
+    "is_active": true,
+    "rid": "takayasu",
+    "external_id": "takayasu"
+  },
+  {
+    "id": "takerufuji",
+    "shikona": "Takerufuji",
+    "rank": "Maegashira",
+    "rank_number": 1,
+    "side": "West",
+    "stable": "Isegahama",
+    "is_active": true,
+    "rid": "takerufuji",
+    "external_id": "takerufuji"
+  },
+  {
+    "rid": "tamashoho",
+    "shikona": "Tamashoho",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Makushita",
+    "current_rank": "",
+    "current_rank_number": 53,
+    "current_side": "W",
+    "official_image_url": ""
+  },
+  {
+    "id": "tamanoi_tamawashi_2004",
+    "shikona": "Tamawashi",
+    "real_name": "Batjargal Munkhbat",
+    "status": {
+      "is_active": true,
+      "is_retired": false
+    },
+    "identity": {
+      "birthplace": "",
+      "nationality": "Mongolia",
+      "birth_date": ""
+    },
+    "physical": {
+      "height_cm": null,
+      "weight_kg": null
+    },
+    "heya": {
+      "name": "Tamanoi",
+      "ichimon": ""
+    },
+    "career": {
+      "debut_year": null,
+      "highest_rank": {
+        "division": "Makuuchi",
+        "rank": "Sekiwake",
+        "rank_number": 1,
+        "side": "East"
+      }
+    },
+    "current_rank": {
+      "division": "Makuuchi",
+      "rank": "Maegashira",
+      "rank_number": 2,
+      "side": "West"
+    },
+    "records": {
+      "latest_basho": {
+        "basho": "2025-11",
+        "wins": 8,
+        "losses": 7,
+        "win_percentage": 53.3
+      },
+      "career_total": {
+        "wins": null,
+        "losses": null,
+        "win_percentage": null
+      }
+    },
+    "titles": {
+      "yusho": {
+        "makuuchi": 2,
+        "juryo": 0,
+        "lower_divisions": 0
+      },
+      "special_prizes": {
+        "shukunsho": 0,
+        "kantosho": 1,
+        "ginosho": 1,
+        "total": 2
+      }
+    },
+    "media": {
+      "official_image_url": "",
+      "image_source": ""
+    },
+    "rank": "Maegashira",
+    "rank_number": 8,
+    "side": "East",
+    "stable": "Kataonami",
+    "is_active": true,
+    "birthplace": "Ulaanbaatar, Mongolia",
+    "height_cm": 186,
+    "weight_kg": 176,
+    "debut_year": 2004,
+    "rid": "tamawashi",
+    "alias_ids": [
+      "nakagawa_tamawashi_2008",
+      "tamawashi"
+    ],
+    "external_id": "tamanoi_tamawashi_2004"
+  },
+  {
+    "rid": "tanaka",
+    "shikona": "Tanaka",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Jonidan",
+    "current_rank": "",
+    "current_rank_number": 10,
+    "current_side": "W",
+    "official_image_url": ""
+  },
+  {
+    "rid": "tanji",
+    "shikona": "Tanji",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Makushita",
+    "current_rank": "",
+    "current_rank_number": 50,
+    "current_side": "W",
+    "official_image_url": ""
+  },
+  {
+    "rid": "tatsubayama",
+    "shikona": "Tatsubayama",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Jonidan",
+    "current_rank": "",
+    "current_rank_number": 11,
+    "current_side": "W",
+    "official_image_url": ""
+  },
+  {
+    "rid": "tatsunami",
+    "shikona": "Tatsunami",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Jonidan",
+    "current_rank": "",
+    "current_rank_number": 37,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "rid": "tenrosei",
+    "shikona": "Tenrosei",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Sandanme",
+    "current_rank": "",
+    "current_rank_number": 5,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "rid": "tenshoho",
+    "shikona": "Tenshoho",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Sandanme",
+    "current_rank": "",
+    "current_rank_number": 20,
+    "current_side": "W",
+    "official_image_url": ""
+  },
+  {
+    "id": "isegahama_terunofuji_2011",
+    "shikona": "Terunofuji",
+    "real_name": "Gantulgyn Gan-Erdene",
+    "status": {
+      "is_active": true,
+      "is_retired": false
+    },
+    "identity": {
+      "birthplace": "",
+      "nationality": "Mongolia",
+      "birth_date": ""
+    },
+    "physical": {
+      "height_cm": null,
+      "weight_kg": null
+    },
+    "heya": {
+      "name": "Isegahama",
+      "ichimon": ""
+    },
+    "career": {
+      "debut_year": null,
+      "highest_rank": {
+        "division": "Makuuchi",
+        "rank": "Yokozuna",
+        "rank_number": 1,
+        "side": "East"
+      }
+    },
+    "current_rank": {
+      "division": "Makuuchi",
+      "rank": "Yokozuna",
+      "rank_number": 2,
+      "side": "East"
+    },
+    "records": {
+      "latest_basho": {
+        "basho": "2025-11",
+        "wins": 7,
+        "losses": 8,
+        "win_percentage": 46.7
+      },
+      "career_total": {
+        "wins": null,
+        "losses": null,
+        "win_percentage": null
+      }
+    },
+    "titles": {
+      "yusho": {
+        "makuuchi": 10,
+        "juryo": 1,
+        "lower_divisions": 0
+      },
+      "special_prizes": {
+        "shukunsho": 2,
+        "kantosho": 0,
+        "ginosho": 1,
+        "total": 3
+      }
+    },
+    "media": {
+      "official_image_url": "",
+      "image_source": ""
+    },
+    "rank": "Yokozuna",
+    "side": "East",
+    "active": true,
+    "rank_number": 1,
+    "stable": "Isegahama",
+    "is_active": true,
+    "birthplace": "Ulaanbaatar, Mongolia",
+    "height_cm": 192,
+    "weight_kg": 178,
+    "debut_year": 2011,
+    "rid": "terunofuji",
+    "alias_ids": [
+      "terunofuji"
+    ],
+    "external_id": "isegahama_terunofuji_2011"
+  },
+  {
+    "id": "tobizaru",
+    "shikona": "Tobizaru",
+    "rank": "Maegashira",
+    "rank_number": 5,
+    "side": "West",
+    "stable": "Oitekaze",
+    "is_active": true,
+    "real_name": "Masaya Ishiura",
+    "birthplace": "Ishikawa, Japan",
+    "height_cm": 173,
+    "weight_kg": 135,
+    "debut_year": 2014,
+    "rid": "tobizaru",
+    "external_id": "tobizaru"
+  },
+  {
+    "rid": "tochidai",
+    "shikona": "Tochidai",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Jonidan",
+    "current_rank": "",
+    "current_rank_number": 52,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "rid": "tochikamiyama",
+    "shikona": "Tochikamiyama",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Sandanme",
+    "current_rank": "",
+    "current_rank_number": 41,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "rid": "tochimaru",
+    "shikona": "Tochimaru",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Makushita",
+    "current_rank": "",
+    "current_rank_number": 26,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "rid": "tochimusashi",
+    "shikona": "Tochimusashi",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Makushita",
+    "current_rank": "",
+    "current_rank_number": 38,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "id": "kasugano_tochinoshin_2013",
+    "shikona": "Tochinoshin",
+    "real_name": "",
+    "status": {
+      "is_active": true,
+      "is_retired": false
+    },
+    "identity": {
+      "birthplace": "",
+      "nationality": "Georgia",
+      "birth_date": ""
+    },
+    "physical": {
+      "height_cm": null,
+      "weight_kg": null
+    },
+    "heya": {
+      "name": "Kasugano",
+      "ichimon": ""
+    },
+    "career": {
+      "debut_year": null,
+      "highest_rank": {
+        "division": "Makuuchi",
+        "rank": "Ozeki",
+        "rank_number": 1,
+        "side": "East"
+      }
+    },
+    "current_rank": {
+      "division": "Makuuchi",
+      "rank": "Maegashira",
+      "rank_number": 3,
+      "side": "East"
+    },
+    "records": {
+      "latest_basho": {
+        "basho": "2025-11",
+        "wins": 6,
+        "losses": 9,
+        "win_percentage": 40
+      },
+      "career_total": {
+        "wins": null,
+        "losses": null,
+        "win_percentage": null
+      }
+    },
+    "titles": {
+      "yusho": {
+        "makuuchi": 1,
+        "juryo": 0,
+        "lower_divisions": 0
+      },
+      "special_prizes": {
+        "shukunsho": 1,
+        "kantosho": 0,
+        "ginosho": 0,
+        "total": 1
+      }
+    },
+    "media": {
+      "official_image_url": "",
+      "image_source": ""
+    },
+    "rid": "tochinoshin",
+    "external_id": "kasugano_tochinoshin_2013"
+  },
+  {
+    "rid": "tokihayate",
+    "shikona": "Tokihayate",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Makuuchi",
+    "current_rank": "Maegashira",
+    "current_rank_number": 14,
+    "current_side": "W",
+    "official_image_url": ""
+  },
+  {
+    "rid": "tokunomusashi",
+    "shikona": "Tokunomusashi",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Makushita",
+    "current_rank": "",
+    "current_rank_number": 25,
+    "current_side": "W",
+    "official_image_url": ""
+  },
+  {
+    "rid": "tomoefuji",
+    "shikona": "Tomoefuji",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Juryo",
+    "current_rank": "Juryo",
+    "current_rank_number": 7,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "rid": "tomokaze",
+    "shikona": "Tomokaze",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Makuuchi",
+    "current_rank": "Maegashira",
+    "current_rank_number": 12,
+    "current_side": "W",
+    "official_image_url": ""
+  },
+  {
+    "rid": "toryu",
+    "shikona": "Toryu",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Makushita",
+    "current_rank": "",
+    "current_rank_number": 46,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "rid": "tosaoumi",
+    "shikona": "Tosaoumi",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Sandanme",
+    "current_rank": "",
+    "current_rank_number": 14,
+    "current_side": "W",
+    "official_image_url": ""
+  },
+  {
+    "rid": "toshoryu",
+    "shikona": "Toshoryu",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Makushita",
+    "current_rank": "",
+    "current_rank_number": 68,
+    "current_side": "W",
+    "official_image_url": ""
+  },
+  {
+    "rid": "toyonoshima",
+    "shikona": "Toyonoshima",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Sandanme",
+    "current_rank": "",
+    "current_rank_number": 56,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "rid": "tsubakiyama",
+    "shikona": "Tsubakiyama",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Sandanme",
+    "current_rank": "",
+    "current_rank_number": 30,
+    "current_side": "W",
+    "official_image_url": ""
+  },
+  {
+    "rid": "tsukahara",
+    "shikona": "Tsukahara",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Sandanme",
+    "current_rank": "",
+    "current_rank_number": 60,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "rid": "tsuneyoshi",
+    "shikona": "Tsuneyoshi",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Sandanme",
+    "current_rank": "",
+    "current_rank_number": 36,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "rid": "tsurugisho",
+    "shikona": "Tsurugisho",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Sandanme",
+    "current_rank": "",
+    "current_rank_number": 24,
+    "current_side": "W",
+    "official_image_url": ""
+  },
+  {
+    "id": "ura",
+    "shikona": "Ura",
+    "real_name": "Kazuki Watanabe",
+    "birthplace": "Osaka, Japan",
+    "height_cm": 172,
+    "weight_kg": 140,
+    "stable": "Kise",
+    "debut_year": 2015,
+    "is_active": true,
+    "rank": "Maegashira",
+    "rank_number": 3,
+    "side": "West",
+    "rid": "ura",
+    "alias_ids": [
+      "uozumifuji"
+    ],
+    "external_id": "ura"
+  },
+  {
+    "rid": "wakakirishima",
+    "shikona": "Wakakirishima",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Jonidan",
+    "current_rank": "",
+    "current_rank_number": 47,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "rid": "wakakoma",
+    "shikona": "Wakakoma",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Jonidan",
+    "current_rank": "",
+    "current_rank_number": 57,
+    "current_side": "W",
+    "official_image_url": ""
+  },
+  {
+    "rid": "wakamiyabi",
+    "shikona": "Wakamiyabi",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Makushita",
+    "current_rank": "",
+    "current_rank_number": 29,
+    "current_side": "W",
+    "official_image_url": ""
+  },
+  {
+    "id": "wakamotoharu",
+    "shikona": "Wakamotoharu",
+    "rank": "Komusubi",
+    "rank_number": 2,
+    "side": "West",
+    "stable": "Arashio",
+    "is_active": true,
+    "real_name": "Minato Oami",
+    "birthplace": "Fukushima, Japan",
+    "height_cm": 187,
+    "weight_kg": 150,
+    "debut_year": 2016,
+    "rid": "wakamotoharu",
+    "external_id": "wakamotoharu"
+  },
+  {
+    "rid": "wakanoho",
+    "shikona": "Wakanoho",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Jonidan",
+    "current_rank": "",
+    "current_rank_number": 53,
+    "current_side": "W",
+    "official_image_url": ""
+  },
+  {
+    "rid": "wakanosho",
+    "shikona": "Wakanosho",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Makushita",
+    "current_rank": "",
+    "current_rank_number": 59,
+    "current_side": "W",
+    "official_image_url": ""
+  },
+  {
+    "id": "wakatakakage",
+    "shikona": "Wakatakakage",
+    "real_name": "Atsushi Ōnami",
+    "birthplace": "Fukushima, Japan",
+    "height_cm": 180,
+    "weight_kg": 135,
+    "stable": "Arashio",
+    "debut_year": 2017,
+    "is_active": true,
+    "rid": "wakatakakage",
+    "external_id": "wakatakakage"
+  },
+  {
+    "rid": "wakatenro",
+    "shikona": "Wakatenro",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Jonidan",
+    "current_rank": "",
+    "current_rank_number": 19,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "rid": "wakatsubasa",
+    "shikona": "Wakatsubasa",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Makushita",
+    "current_rank": "",
+    "current_rank_number": 64,
+    "current_side": "W",
+    "official_image_url": ""
+  },
+  {
+    "rid": "wakayama",
+    "shikona": "Wakayama",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Jonidan",
+    "current_rank": "",
+    "current_rank_number": 24,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "rid": "wakazakura",
+    "shikona": "Wakazakura",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Makushita",
+    "current_rank": "",
+    "current_rank_number": 57,
+    "current_side": "W",
+    "official_image_url": ""
+  },
+  {
+    "rid": "wakazono",
+    "shikona": "Wakazono",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Sandanme",
+    "current_rank": "",
+    "current_rank_number": 42,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "rid": "yago",
+    "shikona": "Yago",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Makushita",
+    "current_rank": "",
+    "current_rank_number": 22,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "rid": "yoshii",
+    "shikona": "Yoshii",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Makushita",
+    "current_rank": "",
+    "current_rank_number": 64,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "rid": "yoshinofuji",
+    "shikona": "Yoshinofuji",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Makuuchi",
+    "current_rank": "Maegashira",
+    "current_rank_number": 5,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "rid": "yoshinosato",
+    "shikona": "Yoshinosato",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Sandanme",
+    "current_rank": "",
+    "current_rank_number": 49,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "rid": "yoshiyasu",
+    "shikona": "Yoshiyasu",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Sandanme",
+    "current_rank": "",
+    "current_rank_number": 2,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "rid": "yuma",
+    "shikona": "Yuma",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Makushita",
+    "current_rank": "",
+    "current_rank_number": 49,
+    "current_side": "W",
+    "official_image_url": ""
+  },
+  {
+    "rid": "yumenofuji",
+    "shikona": "Yumenofuji",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Sandanme",
+    "current_rank": "",
+    "current_rank_number": 7,
+    "current_side": "E",
+    "official_image_url": ""
+  },
+  {
+    "rid": "yutakayama",
+    "shikona": "Yutakayama",
+    "status_is_active": true,
+    "status_is_retired": false,
+    "external_id": "",
+    "current_division": "Sandanme",
+    "current_rank": "",
+    "current_rank_number": 11,
+    "current_side": "W",
+    "official_image_url": ""
+  }
+]

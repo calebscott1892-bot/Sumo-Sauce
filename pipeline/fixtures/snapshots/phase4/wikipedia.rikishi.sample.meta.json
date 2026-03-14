@@ -1,0 +1,10 @@
+{
+  "source": "wikipedia",
+  "url": "https://fixtures.local/wikipedia/rikishi/query",
+  "fetchedAt": "2025-02-01T00:00:00.000Z",
+  "contentSha256": "37006c8ea898cb7cbe48a0d693dc2472b037e9da238740953c38b61de024c054",
+  "bytes": 924,
+  "contentType": "application/json",
+  "httpStatus": 200,
+  "etag": "phase4-wikipedia-rikishi-v1"
+}

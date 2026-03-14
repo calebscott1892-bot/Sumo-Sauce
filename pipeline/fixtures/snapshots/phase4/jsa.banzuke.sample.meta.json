@@ -1,0 +1,10 @@
+{
+  "source": "jsa",
+  "url": "https://fixtures.local/jsa/banzuke/202501",
+  "fetchedAt": "2025-02-01T00:00:00.000Z",
+  "contentSha256": "b419109473a5b64be739fa8db114ae4fc262dcc6bdbeddced8ce2ad7f472caa9",
+  "bytes": 1548,
+  "contentType": "text/html",
+  "httpStatus": 200,
+  "etag": "phase4-jsa-banzuke-v1"
+}

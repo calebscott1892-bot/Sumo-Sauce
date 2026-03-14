@@ -1,0 +1,27 @@
+[
+  {
+    "rikishiId": "3733",
+    "shikona": "Tsushimanada Masamitsu",
+    "heya": "Sakaigawa",
+    "birthDate": "1993-06-27",
+    "nationality": "Japan",
+    "heightCm": 185.3,
+    "weightKg": 140.2,
+    "status": "active",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
+    "profileConfidence": "verified",
+    "sourceRefs": [
+      {
+        "label": "JSA rikishi profile",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3733/"
+      }
+    ],
+    "notes": "JSA-verified 2025: Tsushimanada Masamitsu (real name Masamitsu Umeno), Sakaigawa stable, born 1993-06-27 in Nagasaki. Current rank W-Makushita #44 (Haru 2026). Highest rank Juryo #9. Debut May 2016. Career 234-203-23. Shikona history: Umeno → Tsushimanada. DUPLICATE: quarantined idx 230 is a ghost duplicate — removed via dedup script.",
+    "division": "Makushita",
+    "batchRef": "q-quarantined",
+    "lastVerifiedBasho": "202603",
+    "provenanceStatus": "confirmed"
+  }
+]

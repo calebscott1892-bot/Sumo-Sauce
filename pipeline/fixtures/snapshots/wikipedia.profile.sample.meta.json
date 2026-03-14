@@ -1,0 +1,10 @@
+{
+  "source": "wikipedia",
+  "url": "https://en.wikipedia.org/wiki/Onosato",
+  "fetchedAt": "2025-01-01T00:00:00.000Z",
+  "contentSha256": "347fa4d4fcbb098b7ef34b2674367051f4a1e3b459181e6d955de9ac7bb59867",
+  "bytes": 87,
+  "contentType": "application/json",
+  "httpStatus": 200,
+  "etag": "fixture-wikipedia-profile-v1"
+}

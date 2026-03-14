@@ -1,0 +1,1780 @@
+[
+  {
+    "id": "nishonoseki_onosato_2023",
+    "shikona": "Onosato",
+    "real_name": "Ōnosato Daiki",
+    "status": {
+      "is_active": true,
+      "is_retired": false
+    },
+    "identity": {
+      "birthplace": "Ishikawa, Japan",
+      "nationality": "Japan",
+      "birth_date": "2000-06-07"
+    },
+    "physical": {
+      "height_cm": 192.0,
+      "weight_kg": 187.0
+    },
+    "heya": {
+      "name": "Nishonoseki",
+      "ichimon": ""
+    },
+    "career": {
+      "debut_year": 2023,
+      "highest_rank": {
+        "division": "Makuuchi",
+        "rank": "Yokozuna",
+        "rank_number": 1,
+        "side": "East"
+      }
+    },
+    "current_rank": {
+      "division": "Makuuchi",
+      "rank": "Yokozuna",
+      "rank_number": 1,
+      "side": "East"
+    },
+    "records": {
+      "latest_basho": {
+        "basho": "2025-11",
+        "wins": 11,
+        "losses": 4,
+        "win_percentage": 73.3
+      },
+      "career_total": {
+        "wins": 170,
+        "losses": 54,
+        "win_percentage": 75.9
+      }
+    },
+    "titles": {
+      "yusho": {
+        "makuuchi": 0,
+        "juryo": 0,
+        "lower_divisions": 0
+      },
+      "special_prizes": {
+        "shukunsho": 0,
+        "kantosho": 0,
+        "ginosho": 0,
+        "total": 0
+      }
+    },
+    "media": {
+      "official_image_url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4227/photo",
+      "image_source": "Japan Sumo Association"
+    },
+    "rank": "Maegashira",
+    "rank_number": 1,
+    "side": "East",
+    "stable": "Nishonoseki",
+    "is_active": true,
+    "rid": "onosato",
+    "alias_ids": [
+      "onoshato"
+    ],
+    "external_id": "nishonoseki_onosato_2023"
+  },
+  {
+    "id": "tatsunami_hoshoryu_2018",
+    "shikona": "Hoshoryu",
+    "real_name": "Sugarragchaagiin Byambasuren",
+    "status": {
+      "is_active": true,
+      "is_retired": false
+    },
+    "identity": {
+      "birthplace": "Ulaanbaatar, Mongolia",
+      "nationality": "Mongolia",
+      "birth_date": "1999-05-22"
+    },
+    "physical": {
+      "height_cm": 188.0,
+      "weight_kg": 149.0
+    },
+    "heya": {
+      "name": "Tatsunami",
+      "ichimon": ""
+    },
+    "career": {
+      "debut_year": 2018,
+      "highest_rank": {
+        "division": "Makuuchi",
+        "rank": "Yokozuna",
+        "rank_number": 1,
+        "side": "West"
+      }
+    },
+    "current_rank": {
+      "division": "Makuuchi",
+      "rank": "Yokozuna",
+      "rank_number": 1,
+      "side": "West"
+    },
+    "records": {
+      "latest_basho": {
+        "basho": "2025-11",
+        "wins": 12,
+        "losses": 3,
+        "win_percentage": 80.0
+      },
+      "career_total": {
+        "wins": 373,
+        "losses": 217,
+        "win_percentage": 63.1
+      }
+    },
+    "titles": {
+      "yusho": {
+        "makuuchi": 0,
+        "juryo": 0,
+        "lower_divisions": 0
+      },
+      "special_prizes": {
+        "shukunsho": 0,
+        "kantosho": 0,
+        "ginosho": 0,
+        "total": 0
+      }
+    },
+    "media": {
+      "official_image_url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3842/photo",
+      "image_source": "Japan Sumo Association"
+    },
+    "rank": "Ozeki",
+    "rank_number": 2,
+    "side": "West",
+    "stable": "Tatsunami",
+    "is_active": true,
+    "rid": "hoshoryu",
+    "alias_ids": [
+      "hoshoryu"
+    ],
+    "external_id": "tatsunami_hoshoryu_2018"
+  },
+  {
+    "id": "hata_kotonowaka_????",
+    "shikona": "Kotonowaka",
+    "real_name": "Kota Kamatani",
+    "status": {
+      "is_active": true,
+      "is_retired": false
+    },
+    "identity": {
+      "birthplace": "",
+      "nationality": "",
+      "birth_date": ""
+    },
+    "physical": {
+      "height_cm": null,
+      "weight_kg": null
+    },
+    "heya": {
+      "name": "",
+      "ichimon": ""
+    },
+    "career": {
+      "debut_year": null,
+      "highest_rank": {
+        "division": "Makuuchi",
+        "rank": "Ozeki",
+        "rank_number": 1,
+        "side": "East"
+      }
+    },
+    "current_rank": {
+      "division": "Makuuchi",
+      "rank": "Ozeki",
+      "rank_number": 1,
+      "side": "East"
+    },
+    "records": {
+      "latest_basho": {
+        "basho": "2025-11",
+        "wins": 8,
+        "losses": 7,
+        "win_percentage": 53.3
+      },
+      "career_total": {
+        "wins": null,
+        "losses": null,
+        "win_percentage": null
+      }
+    },
+    "titles": {
+      "yusho": {
+        "makuuchi": 0,
+        "juryo": 0,
+        "lower_divisions": 0
+      },
+      "special_prizes": {
+        "shukunsho": 0,
+        "kantosho": 0,
+        "ginosho": 0,
+        "total": 0
+      }
+    },
+    "media": {
+      "official_image_url": "",
+      "image_source": ""
+    },
+    "rank": "Maegashira",
+    "rank_number": 4,
+    "side": "East",
+    "stable": "Sadogatake",
+    "is_active": true,
+    "birthplace": "Chiba, Japan",
+    "height_cm": 189,
+    "weight_kg": 161,
+    "debut_year": 2017,
+    "rid": "kotonowaka",
+    "alias_ids": [
+      "kotonowaka"
+    ],
+    "external_id": "hata_kotonowaka_????"
+  },
+  {
+    "id": "ajigawa_aonishiki_2023",
+    "shikona": "Aonishiki",
+    "real_name": "",
+    "status": {
+      "is_active": true,
+      "is_retired": false
+    },
+    "identity": {
+      "birthplace": "",
+      "nationality": "Ukraine",
+      "birth_date": ""
+    },
+    "physical": {
+      "height_cm": null,
+      "weight_kg": null
+    },
+    "heya": {
+      "name": "Ajigawa",
+      "ichimon": ""
+    },
+    "career": {
+      "debut_year": null,
+      "highest_rank": {
+        "division": "Makuuchi",
+        "rank": "Sekiwake",
+        "rank_number": 1,
+        "side": "East"
+      }
+    },
+    "current_rank": {
+      "division": "Makuuchi",
+      "rank": "Sekiwake",
+      "rank_number": 1,
+      "side": "East"
+    },
+    "records": {
+      "latest_basho": {
+        "basho": "2025-11",
+        "wins": 12,
+        "losses": 3,
+        "win_percentage": 80.0
+      },
+      "career_total": {
+        "wins": null,
+        "losses": null,
+        "win_percentage": null
+      }
+    },
+    "titles": {
+      "yusho": {
+        "makuuchi": 1,
+        "juryo": 0,
+        "lower_divisions": 0
+      },
+      "special_prizes": {
+        "shukunsho": 0,
+        "kantosho": 0,
+        "ginosho": 0,
+        "total": 0
+      }
+    },
+    "media": {
+      "official_image_url": "",
+      "image_source": ""
+    },
+    "rid": "aonishiki",
+    "external_id": "ajigawa_aonishiki_2023"
+  },
+  {
+    "id": "someone_takanosho_????",
+    "shikona": "Takanosho",
+    "real_name": "Yoshiki Tsuchiya",
+    "status": {
+      "is_active": true,
+      "is_retired": false
+    },
+    "identity": {
+      "birthplace": "",
+      "nationality": "",
+      "birth_date": ""
+    },
+    "physical": {
+      "height_cm": null,
+      "weight_kg": null
+    },
+    "heya": {
+      "name": "",
+      "ichimon": ""
+    },
+    "career": {
+      "debut_year": null,
+      "highest_rank": {
+        "division": "Makuuchi",
+        "rank": "Komusubi",
+        "rank_number": 1,
+        "side": "East"
+      }
+    },
+    "current_rank": {
+      "division": "Makuuchi",
+      "rank": "Komusubi",
+      "rank_number": 1,
+      "side": "East"
+    },
+    "records": {
+      "latest_basho": {
+        "basho": "2025-11",
+        "wins": 5,
+        "losses": 10,
+        "win_percentage": 33.3
+      },
+      "career_total": {
+        "wins": null,
+        "losses": null,
+        "win_percentage": null
+      }
+    },
+    "titles": {
+      "yusho": {
+        "makuuchi": 0,
+        "juryo": 0,
+        "lower_divisions": 0
+      },
+      "special_prizes": {
+        "shukunsho": 0,
+        "kantosho": 0,
+        "ginosho": 0,
+        "total": 0
+      }
+    },
+    "media": {
+      "official_image_url": "",
+      "image_source": ""
+    },
+    "rank": "Maegashira",
+    "rank_number": 15,
+    "side": "East",
+    "stable": "Tokitsukaze",
+    "is_active": true,
+    "birthplace": "Hyogo, Japan",
+    "height_cm": 181,
+    "weight_kg": 166,
+    "debut_year": 2014,
+    "rid": "takanosho",
+    "alias_ids": [
+      "takanosho"
+    ],
+    "external_id": "someone_takanosho_????"
+  },
+  {
+    "id": "asakayama_takakeisho_2014",
+    "shikona": "Takakeisho",
+    "real_name": "Takanobu Satō",
+    "status": {
+      "is_active": true,
+      "is_retired": false
+    },
+    "identity": {
+      "birthplace": "",
+      "nationality": "Japan",
+      "birth_date": ""
+    },
+    "physical": {
+      "height_cm": null,
+      "weight_kg": null
+    },
+    "heya": {
+      "name": "Tokiwayama",
+      "ichimon": ""
+    },
+    "career": {
+      "debut_year": null,
+      "highest_rank": {
+        "division": "Makuuchi",
+        "rank": "Ozeki",
+        "rank_number": 1,
+        "side": "East"
+      }
+    },
+    "current_rank": {
+      "division": "Makuuchi",
+      "rank": "Ozeki",
+      "rank_number": 2,
+      "side": "West"
+    },
+    "records": {
+      "latest_basho": {
+        "basho": "2025-11",
+        "wins": 9,
+        "losses": 6,
+        "win_percentage": 60.0
+      },
+      "career_total": {
+        "wins": null,
+        "losses": null,
+        "win_percentage": null
+      }
+    },
+    "titles": {
+      "yusho": {
+        "makuuchi": 4,
+        "juryo": 0,
+        "lower_divisions": 0
+      },
+      "special_prizes": {
+        "shukunsho": 0,
+        "kantosho": 1,
+        "ginosho": 0,
+        "total": 1
+      }
+    },
+    "media": {
+      "official_image_url": "",
+      "image_source": ""
+    },
+    "rank": "Maegashira",
+    "rank_number": 7,
+    "side": "West",
+    "stable": "Tokiwayama",
+    "is_active": true,
+    "birthplace": "Hyogo, Japan",
+    "height_cm": 175,
+    "weight_kg": 165,
+    "debut_year": 2014,
+    "rid": "takakeisho",
+    "alias_ids": [
+      "takakeisho"
+    ],
+    "external_id": "asakayama_takakeisho_2014"
+  },
+  {
+    "id": "isegahama_terunofuji_2011",
+    "shikona": "Terunofuji",
+    "real_name": "Gantulgyn Gan-Erdene",
+    "status": {
+      "is_active": true,
+      "is_retired": false
+    },
+    "identity": {
+      "birthplace": "",
+      "nationality": "Mongolia",
+      "birth_date": ""
+    },
+    "physical": {
+      "height_cm": null,
+      "weight_kg": null
+    },
+    "heya": {
+      "name": "Isegahama",
+      "ichimon": ""
+    },
+    "career": {
+      "debut_year": null,
+      "highest_rank": {
+        "division": "Makuuchi",
+        "rank": "Yokozuna",
+        "rank_number": 1,
+        "side": "East"
+      }
+    },
+    "current_rank": {
+      "division": "Makuuchi",
+      "rank": "Yokozuna",
+      "rank_number": 2,
+      "side": "East"
+    },
+    "records": {
+      "latest_basho": {
+        "basho": "2025-11",
+        "wins": 7,
+        "losses": 8,
+        "win_percentage": 46.7
+      },
+      "career_total": {
+        "wins": null,
+        "losses": null,
+        "win_percentage": null
+      }
+    },
+    "titles": {
+      "yusho": {
+        "makuuchi": 10,
+        "juryo": 1,
+        "lower_divisions": 0
+      },
+      "special_prizes": {
+        "shukunsho": 2,
+        "kantosho": 0,
+        "ginosho": 1,
+        "total": 3
+      }
+    },
+    "media": {
+      "official_image_url": "",
+      "image_source": ""
+    },
+    "rank": "Yokozuna",
+    "side": "East",
+    "active": true,
+    "rank_number": 1,
+    "stable": "Isegahama",
+    "is_active": true,
+    "birthplace": "Ulaanbaatar, Mongolia",
+    "height_cm": 192,
+    "weight_kg": 178,
+    "debut_year": 2011,
+    "rid": "terunofuji",
+    "alias_ids": [
+      "terunofuji"
+    ],
+    "external_id": "isegahama_terunofuji_2011"
+  },
+  {
+    "id": "naruto_kirishima_2015",
+    "shikona": "Kirishima",
+    "real_name": "Byambadorj Bilegt",
+    "status": {
+      "is_active": true,
+      "is_retired": false
+    },
+    "identity": {
+      "birthplace": "",
+      "nationality": "Mongolia",
+      "birth_date": ""
+    },
+    "physical": {
+      "height_cm": null,
+      "weight_kg": null
+    },
+    "heya": {
+      "name": "Naruto",
+      "ichimon": ""
+    },
+    "career": {
+      "debut_year": null,
+      "highest_rank": {
+        "division": "Makuuchi",
+        "rank": "Ozeki",
+        "rank_number": 1,
+        "side": "West"
+      }
+    },
+    "current_rank": {
+      "division": "Makuuchi",
+      "rank": "Sekiwake",
+      "rank_number": 1,
+      "side": "West"
+    },
+    "records": {
+      "latest_basho": {
+        "basho": "2025-11",
+        "wins": 10,
+        "losses": 5,
+        "win_percentage": 66.7
+      },
+      "career_total": {
+        "wins": null,
+        "losses": null,
+        "win_percentage": null
+      }
+    },
+    "titles": {
+      "yusho": {
+        "makuuchi": 1,
+        "juryo": 0,
+        "lower_divisions": 0
+      },
+      "special_prizes": {
+        "shukunsho": 0,
+        "kantosho": 1,
+        "ginosho": 0,
+        "total": 1
+      }
+    },
+    "media": {
+      "official_image_url": "",
+      "image_source": ""
+    },
+    "rank": "Sekiwake",
+    "rank_number": 1,
+    "side": "East",
+    "stable": "Michinoku",
+    "is_active": true,
+    "birthplace": "Ulaanbaatar, Mongolia",
+    "height_cm": 186,
+    "weight_kg": 138,
+    "debut_year": 2015,
+    "rid": "kirishima",
+    "alias_ids": [
+      "kirishima"
+    ],
+    "external_id": "naruto_kirishima_2015"
+  },
+  {
+    "id": "kasugano_tochinoshin_2013",
+    "shikona": "Tochinoshin",
+    "real_name": "",
+    "status": {
+      "is_active": true,
+      "is_retired": false
+    },
+    "identity": {
+      "birthplace": "",
+      "nationality": "Georgia",
+      "birth_date": ""
+    },
+    "physical": {
+      "height_cm": null,
+      "weight_kg": null
+    },
+    "heya": {
+      "name": "Kasugano",
+      "ichimon": ""
+    },
+    "career": {
+      "debut_year": null,
+      "highest_rank": {
+        "division": "Makuuchi",
+        "rank": "Ozeki",
+        "rank_number": 1,
+        "side": "East"
+      }
+    },
+    "current_rank": {
+      "division": "Makuuchi",
+      "rank": "Maegashira",
+      "rank_number": 3,
+      "side": "East"
+    },
+    "records": {
+      "latest_basho": {
+        "basho": "2025-11",
+        "wins": 6,
+        "losses": 9,
+        "win_percentage": 40.0
+      },
+      "career_total": {
+        "wins": null,
+        "losses": null,
+        "win_percentage": null
+      }
+    },
+    "titles": {
+      "yusho": {
+        "makuuchi": 1,
+        "juryo": 0,
+        "lower_divisions": 0
+      },
+      "special_prizes": {
+        "shukunsho": 1,
+        "kantosho": 0,
+        "ginosho": 0,
+        "total": 1
+      }
+    },
+    "media": {
+      "official_image_url": "",
+      "image_source": ""
+    },
+    "rid": "tochinoshin",
+    "external_id": "kasugano_tochinoshin_2013"
+  },
+  {
+    "id": "tamanoi_tamawashi_2004",
+    "shikona": "Tamawashi",
+    "real_name": "Batjargal Munkhbat",
+    "status": {
+      "is_active": true,
+      "is_retired": false
+    },
+    "identity": {
+      "birthplace": "",
+      "nationality": "Mongolia",
+      "birth_date": ""
+    },
+    "physical": {
+      "height_cm": null,
+      "weight_kg": null
+    },
+    "heya": {
+      "name": "Tamanoi",
+      "ichimon": ""
+    },
+    "career": {
+      "debut_year": null,
+      "highest_rank": {
+        "division": "Makuuchi",
+        "rank": "Sekiwake",
+        "rank_number": 1,
+        "side": "East"
+      }
+    },
+    "current_rank": {
+      "division": "Makuuchi",
+      "rank": "Maegashira",
+      "rank_number": 2,
+      "side": "West"
+    },
+    "records": {
+      "latest_basho": {
+        "basho": "2025-11",
+        "wins": 8,
+        "losses": 7,
+        "win_percentage": 53.3
+      },
+      "career_total": {
+        "wins": null,
+        "losses": null,
+        "win_percentage": null
+      }
+    },
+    "titles": {
+      "yusho": {
+        "makuuchi": 2,
+        "juryo": 0,
+        "lower_divisions": 0
+      },
+      "special_prizes": {
+        "shukunsho": 0,
+        "kantosho": 1,
+        "ginosho": 1,
+        "total": 2
+      }
+    },
+    "media": {
+      "official_image_url": "",
+      "image_source": ""
+    },
+    "rank": "Maegashira",
+    "rank_number": 8,
+    "side": "East",
+    "stable": "Kataonami",
+    "is_active": true,
+    "birthplace": "Ulaanbaatar, Mongolia",
+    "height_cm": 186,
+    "weight_kg": 176,
+    "debut_year": 2004,
+    "rid": "tamawashi",
+    "alias_ids": [
+      "nakagawa_tamawashi_2008",
+      "tamawashi"
+    ],
+    "external_id": "tamanoi_tamawashi_2004"
+  },
+  {
+    "id": "takadagawa_shodai_2014",
+    "shikona": "Shodai",
+    "real_name": "Naoya Shōda",
+    "status": {
+      "is_active": true,
+      "is_retired": false
+    },
+    "identity": {
+      "birthplace": "",
+      "nationality": "Japan",
+      "birth_date": ""
+    },
+    "physical": {
+      "height_cm": null,
+      "weight_kg": null
+    },
+    "heya": {
+      "name": "Takadagawa",
+      "ichimon": ""
+    },
+    "career": {
+      "debut_year": null,
+      "highest_rank": {
+        "division": "Makuuchi",
+        "rank": "Sekiwake",
+        "rank_number": 1,
+        "side": "West"
+      }
+    },
+    "current_rank": {
+      "division": "Makuuchi",
+      "rank": "Maegashira",
+      "rank_number": 1,
+      "side": "East"
+    },
+    "records": {
+      "latest_basho": {
+        "basho": "2025-11",
+        "wins": 5,
+        "losses": 10,
+        "win_percentage": 33.3
+      },
+      "career_total": {
+        "wins": null,
+        "losses": null,
+        "win_percentage": null
+      }
+    },
+    "titles": {
+      "yusho": {
+        "makuuchi": 0,
+        "juryo": 0,
+        "lower_divisions": 0
+      },
+      "special_prizes": {
+        "shukunsho": 0,
+        "kantosho": 0,
+        "ginosho": 0,
+        "total": 0
+      }
+    },
+    "media": {
+      "official_image_url": "",
+      "image_source": ""
+    },
+    "rank": "Maegashira",
+    "rank_number": 7,
+    "side": "East",
+    "stable": "Tokitsukaze",
+    "is_active": true,
+    "birthplace": "Kumamoto, Japan",
+    "height_cm": 183,
+    "weight_kg": 165,
+    "debut_year": 2014,
+    "rid": "shodai",
+    "alias_ids": [
+      "oguruma_shodai_2013",
+      "shodai"
+    ],
+    "external_id": "takadagawa_shodai_2014"
+  },
+  {
+    "id": "tokitsukaze_shohozan_2007",
+    "shikona": "Shohozan",
+    "real_name": "",
+    "status": {
+      "is_active": true,
+      "is_retired": false
+    },
+    "identity": {
+      "birthplace": "",
+      "nationality": "Japan",
+      "birth_date": ""
+    },
+    "physical": {
+      "height_cm": null,
+      "weight_kg": null
+    },
+    "heya": {
+      "name": "Tokitsukaze",
+      "ichimon": ""
+    },
+    "career": {
+      "debut_year": null,
+      "highest_rank": {
+        "division": "Makuuchi",
+        "rank": "Sekiwake",
+        "rank_number": 1,
+        "side": "East"
+      }
+    },
+    "current_rank": {
+      "division": "Makuuchi",
+      "rank": "Komusubi",
+      "rank_number": 2,
+      "side": "West"
+    },
+    "records": {
+      "latest_basho": {
+        "basho": "2025-11",
+        "wins": 7,
+        "losses": 8,
+        "win_percentage": 46.7
+      },
+      "career_total": {
+        "wins": null,
+        "losses": null,
+        "win_percentage": null
+      }
+    },
+    "titles": {
+      "yusho": {
+        "makuuchi": 0,
+        "juryo": 0,
+        "lower_divisions": 0
+      },
+      "special_prizes": {
+        "shukunsho": 0,
+        "kantosho": 1,
+        "ginosho": 1,
+        "total": 2
+      }
+    },
+    "media": {
+      "official_image_url": "",
+      "image_source": ""
+    },
+    "rid": "shohozan",
+    "alias_ids": [
+      "koto_shohozan_2011"
+    ],
+    "external_id": "tokitsukaze_shohozan_2007"
+  },
+  {
+    "id": "arashio_mitakeumi_2015",
+    "shikona": "Mitakeumi",
+    "real_name": "Hisashi Ōmi",
+    "status": {
+      "is_active": true,
+      "is_retired": false
+    },
+    "identity": {
+      "birthplace": "",
+      "nationality": "Japan",
+      "birth_date": ""
+    },
+    "physical": {
+      "height_cm": null,
+      "weight_kg": null
+    },
+    "heya": {
+      "name": "Arashio",
+      "ichimon": ""
+    },
+    "career": {
+      "debut_year": null,
+      "highest_rank": {
+        "division": "Makuuchi",
+        "rank": "Ozeki",
+        "rank_number": 1,
+        "side": "East"
+      }
+    },
+    "current_rank": {
+      "division": "Makuuchi",
+      "rank": "Sekiwake",
+      "rank_number": 3,
+      "side": "East"
+    },
+    "records": {
+      "latest_basho": {
+        "basho": "2025-11",
+        "wins": 8,
+        "losses": 7,
+        "win_percentage": 53.3
+      },
+      "career_total": {
+        "wins": null,
+        "losses": null,
+        "win_percentage": null
+      }
+    },
+    "titles": {
+      "yusho": {
+        "makuuchi": 3,
+        "juryo": 0,
+        "lower_divisions": 0
+      },
+      "special_prizes": {
+        "shukunsho": 1,
+        "kantosho": 2,
+        "ginosho": 0,
+        "total": 3
+      }
+    },
+    "media": {
+      "official_image_url": "",
+      "image_source": ""
+    },
+    "rank": "Maegashira",
+    "rank_number": 4,
+    "side": "West",
+    "stable": "Dewanoumi",
+    "is_active": true,
+    "birthplace": "Nagano, Japan",
+    "height_cm": 179,
+    "weight_kg": 161,
+    "debut_year": 2015,
+    "rid": "mitakeumi",
+    "alias_ids": [
+      "mitakeumi"
+    ],
+    "external_id": "arashio_mitakeumi_2015"
+  },
+  {
+    "id": "kise_hokutofuji_2016",
+    "shikona": "Hokutofuji",
+    "real_name": "Daiki Nakamura",
+    "status": {
+      "is_active": true,
+      "is_retired": false
+    },
+    "identity": {
+      "birthplace": "",
+      "nationality": "Japan",
+      "birth_date": ""
+    },
+    "physical": {
+      "height_cm": null,
+      "weight_kg": null
+    },
+    "heya": {
+      "name": "Kise",
+      "ichimon": ""
+    },
+    "career": {
+      "debut_year": null,
+      "highest_rank": {
+        "division": "Makuuchi",
+        "rank": "Sekiwake",
+        "rank_number": 1,
+        "side": "West"
+      }
+    },
+    "current_rank": {
+      "division": "Makuuchi",
+      "rank": "Komusubi",
+      "rank_number": 3,
+      "side": "East"
+    },
+    "records": {
+      "latest_basho": {
+        "basho": "2025-11",
+        "wins": 6,
+        "losses": 9,
+        "win_percentage": 40.0
+      },
+      "career_total": {
+        "wins": null,
+        "losses": null,
+        "win_percentage": null
+      }
+    },
+    "titles": {
+      "yusho": {
+        "makuuchi": 0,
+        "juryo": 0,
+        "lower_divisions": 0
+      },
+      "special_prizes": {
+        "shukunsho": 0,
+        "kantosho": 1,
+        "ginosho": 0,
+        "total": 1
+      }
+    },
+    "media": {
+      "official_image_url": "",
+      "image_source": ""
+    },
+    "rank": "Maegashira",
+    "rank_number": 5,
+    "side": "East",
+    "stable": "Hakkaku",
+    "is_active": true,
+    "birthplace": "Aomori, Japan",
+    "height_cm": 171,
+    "weight_kg": 160,
+    "debut_year": 2014,
+    "rid": "hokutofuji",
+    "alias_ids": [
+      "hokutofuji"
+    ],
+    "external_id": "kise_hokutofuji_2016"
+  },
+  {
+    "id": "shikoroyama_kotoshoho_2013",
+    "shikona": "Kotoshoho",
+    "real_name": "Toshiki Kato",
+    "status": {
+      "is_active": true,
+      "is_retired": false
+    },
+    "identity": {
+      "birthplace": "",
+      "nationality": "Japan",
+      "birth_date": ""
+    },
+    "physical": {
+      "height_cm": null,
+      "weight_kg": null
+    },
+    "heya": {
+      "name": "Shikoroyama",
+      "ichimon": ""
+    },
+    "career": {
+      "debut_year": null,
+      "highest_rank": {
+        "division": "Makuuchi",
+        "rank": "Maegashira 1",
+        "rank_number": 1,
+        "side": "West"
+      }
+    },
+    "current_rank": {
+      "division": "Makuuchi",
+      "rank": "Maegashira 3",
+      "rank_number": 3,
+      "side": "East"
+    },
+    "records": {
+      "latest_basho": {
+        "basho": "2025-11",
+        "wins": 5,
+        "losses": 10,
+        "win_percentage": 33.3
+      },
+      "career_total": {
+        "wins": null,
+        "losses": null,
+        "win_percentage": null
+      }
+    },
+    "titles": {
+      "yusho": {
+        "makuuchi": 0,
+        "juryo": 0,
+        "lower_divisions": 0
+      },
+      "special_prizes": {
+        "shukunsho": 0,
+        "kantosho": 0,
+        "ginosho": 0,
+        "total": 0
+      }
+    },
+    "media": {
+      "official_image_url": "",
+      "image_source": ""
+    },
+    "rank": "Maegashira",
+    "rank_number": 9,
+    "side": "East",
+    "stable": "Sadogatake",
+    "is_active": true,
+    "birthplace": "Chiba, Japan",
+    "height_cm": 187,
+    "weight_kg": 165,
+    "debut_year": 2018,
+    "rid": "kotoshoho",
+    "alias_ids": [
+      "kotoshoho"
+    ],
+    "external_id": "shikoroyama_kotoshoho_2013"
+  },
+  {
+    "id": "oguruma_kotokasuga_2015",
+    "shikona": "Kotokasuga",
+    "real_name": "",
+    "status": {
+      "is_active": true,
+      "is_retired": false
+    },
+    "identity": {
+      "birthplace": "",
+      "nationality": "Japan",
+      "birth_date": ""
+    },
+    "physical": {
+      "height_cm": null,
+      "weight_kg": null
+    },
+    "heya": {
+      "name": "Oguruma",
+      "ichimon": ""
+    },
+    "career": {
+      "debut_year": null,
+      "highest_rank": {
+        "division": "Makuuchi",
+        "rank": "Maegashira 2",
+        "rank_number": 2,
+        "side": "East"
+      }
+    },
+    "current_rank": {
+      "division": "Makuuchi",
+      "rank": "Maegashira 4",
+      "rank_number": 4,
+      "side": "West"
+    },
+    "records": {
+      "latest_basho": {
+        "basho": "2025-11",
+        "wins": 6,
+        "losses": 9,
+        "win_percentage": 40.0
+      },
+      "career_total": {
+        "wins": null,
+        "losses": null,
+        "win_percentage": null
+      }
+    },
+    "titles": {
+      "yusho": {
+        "makuuchi": 0,
+        "juryo": 0,
+        "lower_divisions": 0
+      },
+      "special_prizes": {
+        "shukunsho": 0,
+        "kantosho": 0,
+        "ginosho": 0,
+        "total": 0
+      }
+    },
+    "media": {
+      "official_image_url": "",
+      "image_source": ""
+    },
+    "rid": "kotokasuga",
+    "external_id": "oguruma_kotokasuga_2015"
+  },
+  {
+    "id": "takasago_awakaze_2012",
+    "shikona": "Awakaze",
+    "real_name": "",
+    "status": {
+      "is_active": true,
+      "is_retired": false
+    },
+    "identity": {
+      "birthplace": "",
+      "nationality": "Japan",
+      "birth_date": ""
+    },
+    "physical": {
+      "height_cm": null,
+      "weight_kg": null
+    },
+    "heya": {
+      "name": "Takasago",
+      "ichimon": ""
+    },
+    "career": {
+      "debut_year": null,
+      "highest_rank": {
+        "division": "Makuuchi",
+        "rank": "Maegashira 3",
+        "rank_number": 3,
+        "side": "East"
+      }
+    },
+    "current_rank": {
+      "division": "Makuuchi",
+      "rank": "Maegashira 5",
+      "rank_number": 5,
+      "side": "East"
+    },
+    "records": {
+      "latest_basho": {
+        "basho": "2025-11",
+        "wins": 5,
+        "losses": 10,
+        "win_percentage": 33.3
+      },
+      "career_total": {
+        "wins": null,
+        "losses": null,
+        "win_percentage": null
+      }
+    },
+    "titles": {
+      "yusho": {
+        "makuuchi": 0,
+        "juryo": 0,
+        "lower_divisions": 0
+      },
+      "special_prizes": {
+        "shukunsho": 0,
+        "kantosho": 0,
+        "ginosho": 0,
+        "total": 0
+      }
+    },
+    "media": {
+      "official_image_url": "",
+      "image_source": ""
+    },
+    "rid": "awakaze",
+    "external_id": "takasago_awakaze_2012"
+  },
+  {
+    "id": "kotozakura",
+    "shikona": "Kotozakura",
+    "rank": "Ozeki",
+    "rank_number": 1,
+    "side": "East",
+    "stable": "Sadogatake",
+    "is_active": true,
+    "rid": "kotozakura",
+    "external_id": "kotozakura"
+  },
+  {
+    "id": "daieisho",
+    "shikona": "Daieisho",
+    "rank": "Sekiwake",
+    "rank_number": 2,
+    "side": "West",
+    "stable": "Oitekaze",
+    "is_active": true,
+    "real_name": "Daiki Shibano",
+    "birthplace": "Saitama, Japan",
+    "height_cm": 182,
+    "weight_kg": 160,
+    "debut_year": 2012,
+    "rid": "daieisho",
+    "external_id": "daieisho"
+  },
+  {
+    "id": "abi",
+    "shikona": "Abi",
+    "rank": "Komusubi",
+    "rank_number": 1,
+    "side": "East",
+    "stable": "Shikoroyama",
+    "is_active": true,
+    "rid": "abi",
+    "external_id": "abi"
+  },
+  {
+    "id": "wakamotoharu",
+    "shikona": "Wakamotoharu",
+    "rank": "Komusubi",
+    "rank_number": 2,
+    "side": "West",
+    "stable": "Arashio",
+    "is_active": true,
+    "real_name": "Minato Oami",
+    "birthplace": "Fukushima, Japan",
+    "height_cm": 187,
+    "weight_kg": 150,
+    "debut_year": 2016,
+    "rid": "wakamotoharu",
+    "external_id": "wakamotoharu"
+  },
+  {
+    "id": "takerufuji",
+    "shikona": "Takerufuji",
+    "rank": "Maegashira",
+    "rank_number": 1,
+    "side": "West",
+    "stable": "Isegahama",
+    "is_active": true,
+    "rid": "takerufuji",
+    "external_id": "takerufuji"
+  },
+  {
+    "id": "takayasu",
+    "shikona": "Takayasu",
+    "rank": "Maegashira",
+    "rank_number": 2,
+    "side": "East",
+    "stable": "Tagonoura",
+    "is_active": true,
+    "rid": "takayasu",
+    "external_id": "takayasu"
+  },
+  {
+    "id": "atakayama",
+    "shikona": "Atamifuji",
+    "rank": "Maegashira",
+    "rank_number": 2,
+    "side": "West",
+    "stable": "Isegahama",
+    "is_active": true,
+    "rid": "atamifuji",
+    "external_id": "atakayama"
+  },
+  {
+    "id": "nishikigi",
+    "shikona": "Nishikigi",
+    "rank": "Maegashira",
+    "rank_number": 3,
+    "side": "East",
+    "stable": "Isenoumi",
+    "is_active": true,
+    "real_name": "Ryūsei Naya",
+    "birthplace": "Iwate, Japan",
+    "height_cm": 184,
+    "weight_kg": 170,
+    "debut_year": 2013,
+    "rid": "nishikigi",
+    "external_id": "nishikigi"
+  },
+  {
+    "id": "ura",
+    "shikona": "Ura",
+    "real_name": "Kazuki Watanabe",
+    "birthplace": "Osaka, Japan",
+    "height_cm": 172,
+    "weight_kg": 140,
+    "stable": "Kise",
+    "debut_year": 2015,
+    "is_active": true,
+    "rank": "Maegashira",
+    "rank_number": 3,
+    "side": "West",
+    "rid": "ura",
+    "alias_ids": [
+      "uozumifuji"
+    ],
+    "external_id": "ura"
+  },
+  {
+    "id": "tobizaru",
+    "shikona": "Tobizaru",
+    "rank": "Maegashira",
+    "rank_number": 5,
+    "side": "West",
+    "stable": "Oitekaze",
+    "is_active": true,
+    "real_name": "Masaya Ishiura",
+    "birthplace": "Ishikawa, Japan",
+    "height_cm": 173,
+    "weight_kg": 135,
+    "debut_year": 2014,
+    "rid": "tobizaru",
+    "external_id": "tobizaru"
+  },
+  {
+    "id": "meisei",
+    "shikona": "Meisei",
+    "rank": "Maegashira",
+    "rank_number": 6,
+    "side": "East",
+    "stable": "Tatsunami",
+    "is_active": true,
+    "real_name": "Chikara Sato",
+    "birthplace": "Kagoshima, Japan",
+    "height_cm": 177,
+    "weight_kg": 155,
+    "debut_year": 2016,
+    "rid": "meisei",
+    "external_id": "meisei"
+  },
+  {
+    "id": "endo",
+    "shikona": "Endo",
+    "rank": "Maegashira",
+    "rank_number": 6,
+    "side": "West",
+    "stable": "Oitekaze",
+    "is_active": true,
+    "rid": "endo",
+    "external_id": "endo"
+  },
+  {
+    "id": "asakoryu",
+    "shikona": "Asakoryu",
+    "rank": "Maegashira",
+    "rank_number": 8,
+    "side": "West",
+    "stable": "Takasago",
+    "is_active": true,
+    "real_name": "Takahiro Ishibashi",
+    "birthplace": "Toyama, Japan",
+    "height_cm": 174,
+    "weight_kg": 150,
+    "debut_year": 2017,
+    "rid": "asakoryu",
+    "external_id": "asakoryu"
+  },
+  {
+    "id": "ryuden",
+    "shikona": "Ryuden",
+    "rank": "Maegashira",
+    "rank_number": 9,
+    "side": "West",
+    "stable": "Takadagawa",
+    "is_active": true,
+    "real_name": "Toshihiro Aoyagi",
+    "birthplace": "Yamanashi, Japan",
+    "height_cm": 188,
+    "weight_kg": 160,
+    "debut_year": 2012,
+    "rid": "ryuden",
+    "external_id": "ryuden"
+  },
+  {
+    "id": "bushozan",
+    "shikona": "Bushozan",
+    "rank": "Maegashira",
+    "rank_number": 10,
+    "side": "East",
+    "stable": "Fujishima",
+    "is_active": true,
+    "rid": "bushozan",
+    "external_id": "bushozan"
+  },
+  {
+    "id": "kinbozan",
+    "shikona": "Kinbozan",
+    "rank": "Maegashira",
+    "rank_number": 10,
+    "side": "West",
+    "stable": "Kise",
+    "is_active": true,
+    "real_name": "Barsbold Enkhbold",
+    "birthplace": "Ulaanbaatar, Mongolia",
+    "height_cm": 189,
+    "weight_kg": 175,
+    "debut_year": 2021,
+    "rid": "kinbozan",
+    "external_id": "kinbozan"
+  },
+  {
+    "id": "churanoumi",
+    "shikona": "Churanoumi",
+    "rank": "Maegashira",
+    "rank_number": 11,
+    "side": "East",
+    "stable": "Kise",
+    "is_active": true,
+    "rid": "churanoumi",
+    "external_id": "churanoumi"
+  },
+  {
+    "id": "oshoma",
+    "shikona": "Oshoma",
+    "rank": "Maegashira",
+    "rank_number": 11,
+    "side": "West",
+    "stable": "Naruto",
+    "is_active": true,
+    "rid": "oshoma",
+    "external_id": "oshoma"
+  },
+  {
+    "id": "midori",
+    "shikona": "Midori",
+    "rank": "Maegashira",
+    "rank_number": 12,
+    "side": "East",
+    "stable": "Takasago",
+    "is_active": true,
+    "rid": "midori",
+    "external_id": "midori"
+  },
+  {
+    "id": "gonoyama",
+    "shikona": "Gonoyama",
+    "rank": "Maegashira",
+    "rank_number": 12,
+    "side": "West",
+    "stable": "Takekuma",
+    "is_active": true,
+    "rid": "gonoyama",
+    "external_id": "gonoyama"
+  },
+  {
+    "id": "daishoho",
+    "shikona": "Daishoho",
+    "rank": "Maegashira",
+    "rank_number": 13,
+    "side": "East",
+    "stable": "Oitekaze",
+    "is_active": true,
+    "rid": "daishoho",
+    "external_id": "daishoho"
+  },
+  {
+    "id": "sadanoumi",
+    "shikona": "Sadanoumi",
+    "rank": "Maegashira",
+    "rank_number": 13,
+    "side": "West",
+    "stable": "Sakaigawa",
+    "is_active": true,
+    "real_name": "Keiichi Tanaka",
+    "birthplace": "Fukuoka, Japan",
+    "height_cm": 177,
+    "weight_kg": 165,
+    "debut_year": 2005,
+    "rid": "sadanoumi",
+    "external_id": "sadanoumi"
+  },
+  {
+    "id": "ichiyamamoto",
+    "shikona": "Ichiyamamoto",
+    "rank": "Maegashira",
+    "rank_number": 14,
+    "side": "East",
+    "stable": "Nishonoseki",
+    "is_active": true,
+    "rid": "ichiyamamoto",
+    "external_id": "ichiyamamoto"
+  },
+  {
+    "id": "nishikifuji",
+    "shikona": "Nishikifuji",
+    "rank": "Maegashira",
+    "rank_number": 14,
+    "side": "West",
+    "stable": "Isegahama",
+    "is_active": true,
+    "rid": "nishikifuji",
+    "external_id": "nishikifuji"
+  },
+  {
+    "id": "shonannoumi",
+    "shikona": "Shonannoumi",
+    "rank": "Maegashira",
+    "rank_number": 15,
+    "side": "West",
+    "stable": "Takasago",
+    "is_active": true,
+    "rid": "shonannoumi",
+    "external_id": "shonannoumi"
+  },
+  {
+    "id": "kagayaki",
+    "shikona": "Kagayaki",
+    "rank": "Maegashira",
+    "rank_number": 16,
+    "side": "East",
+    "stable": "Takadagawa",
+    "is_active": true,
+    "rid": "kagayaki",
+    "external_id": "kagayaki"
+  },
+  {
+    "id": "onokatsu",
+    "shikona": "Onokatsu",
+    "rank": "Maegashira",
+    "rank_number": 16,
+    "side": "West",
+    "stable": "Naruto",
+    "is_active": true,
+    "rid": "onokatsu",
+    "external_id": "onokatsu"
+  },
+  {
+    "id": "hakuoho",
+    "shikona": "Hakuoho",
+    "rank": "Maegashira",
+    "rank_number": 17,
+    "side": "East",
+    "stable": "Miyagino",
+    "is_active": true,
+    "rid": "hakuoho",
+    "external_id": "hakuoho"
+  },
+  {
+    "id": "mitoryu",
+    "shikona": "Mitoryu",
+    "rank": "Maegashira",
+    "rank_number": 17,
+    "side": "West",
+    "stable": "Nishonoseki",
+    "is_active": true,
+    "rid": "mitoryu",
+    "external_id": "mitoryu"
+  },
+  {
+    "id": "asano-yama",
+    "shikona": "Asanoyama",
+    "real_name": "Hiroki Ishibashi",
+    "birthplace": "Toyama, Japan",
+    "height_cm": 188,
+    "weight_kg": 165,
+    "stable": "Takasago",
+    "debut_year": 2016,
+    "is_active": true,
+    "rid": "asanoyama",
+    "external_id": "asano-yama"
+  },
+  {
+    "id": "ichinojo",
+    "shikona": "Ichinojō",
+    "real_name": "Ichinnorovyn Anarbayar",
+    "birthplace": "Ulaanbaatar, Mongolia",
+    "height_cm": 192,
+    "weight_kg": 212,
+    "stable": "Minato",
+    "debut_year": 2013,
+    "is_active": false,
+    "rid": "ichinoj",
+    "external_id": "ichinojo"
+  },
+  {
+    "id": "wakatakakage",
+    "shikona": "Wakatakakage",
+    "real_name": "Atsushi Ōnami",
+    "birthplace": "Fukushima, Japan",
+    "height_cm": 180,
+    "weight_kg": 135,
+    "stable": "Arashio",
+    "debut_year": 2017,
+    "is_active": true,
+    "rid": "wakatakakage",
+    "external_id": "wakatakakage"
+  },
+  {
+    "id": "kotoeko",
+    "shikona": "Kotoeko",
+    "real_name": "Tomoaki Ishikawa",
+    "birthplace": "Miyazaki, Japan",
+    "height_cm": 176,
+    "weight_kg": 140,
+    "stable": "Sadogatake",
+    "debut_year": 2014,
+    "is_active": true,
+    "rid": "kotoeko",
+    "external_id": "kotoeko"
+  },
+  {
+    "id": "midori_fuji",
+    "shikona": "Midori Fuji",
+    "real_name": "Yūya Yamaguchi",
+    "birthplace": "Shizuoka, Japan",
+    "height_cm": 171,
+    "weight_kg": 116,
+    "stable": "Isegahama",
+    "debut_year": 2016,
+    "is_active": true,
+    "rid": "midori_fuji",
+    "external_id": "midori_fuji"
+  },
+  {
+    "id": "shimanoumi",
+    "shikona": "Shimanoumi",
+    "real_name": "Manabu Saito",
+    "birthplace": "Kumamoto, Japan",
+    "height_cm": 186,
+    "weight_kg": 170,
+    "stable": "Shikoroyama",
+    "debut_year": 2012,
+    "is_active": true,
+    "rid": "shimanoumi",
+    "external_id": "shimanoumi"
+  },
+  {
+    "id": "kakuryu",
+    "shikona": "Kakuryū",
+    "real_name": "Khaltmaagiin Battulga",
+    "birthplace": "Ulaanbaatar, Mongolia",
+    "height_cm": 192,
+    "weight_kg": 158,
+    "stable": "Miyagino",
+    "debut_year": 2001,
+    "is_active": false,
+    "rid": "kakury",
+    "external_id": "kakuryu"
+  }
+]

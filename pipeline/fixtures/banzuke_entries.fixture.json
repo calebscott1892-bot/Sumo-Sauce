@@ -1,0 +1,66 @@
+[
+  {
+    "bashoId": "202501",
+    "division": "makuuchi",
+    "rankValue": 1,
+    "side": "east",
+    "rikishiId": "rks_0001",
+    "rankLabel": "Y1e"
+  },
+  {
+    "bashoId": "202501",
+    "division": "makuuchi",
+    "rankValue": 1,
+    "side": "west",
+    "rikishiId": "rks_0002",
+    "rankLabel": "Y1w"
+  },
+  {
+    "bashoId": "202501",
+    "division": "makuuchi",
+    "rankValue": 2,
+    "side": "east",
+    "rikishiId": "rks_0003",
+    "rankLabel": "O1e"
+  },
+  {
+    "bashoId": "202501",
+    "division": "makuuchi",
+    "rankValue": 4,
+    "side": "west",
+    "rikishiId": "rks_0004",
+    "rankLabel": "S1w"
+  },
+  {
+    "bashoId": "202501",
+    "division": "juryo",
+    "rankValue": 1,
+    "side": "east",
+    "rikishiId": "rks_0005",
+    "rankLabel": "J1e"
+  },
+  {
+    "bashoId": "202501",
+    "division": "juryo",
+    "rankValue": 1,
+    "side": "west",
+    "rikishiId": "rks_0006",
+    "rankLabel": "J1w"
+  },
+  {
+    "bashoId": "202501",
+    "division": "juryo",
+    "rankValue": 2,
+    "side": "east",
+    "rikishiId": "rks_0007",
+    "rankLabel": "J2e"
+  },
+  {
+    "bashoId": "202501",
+    "division": "juryo",
+    "rankValue": 2,
+    "side": "west",
+    "rikishiId": "rks_0008",
+    "rankLabel": "J2w"
+  }
+]

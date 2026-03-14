@@ -1,0 +1,59 @@
+[
+  {
+    "shikona": "Shimazuumi",
+    "rikishiId": 3404,
+    "birthDate": "1996-05-18",
+    "nationality": "Japan",
+    "heightCm": 175,
+    "weightKg": 155,
+    "profileConfidence": "verified",
+    "provenanceStatus": "confirmed",
+    "lastVerifiedBasho": "202603",
+    "sourceRefs": [
+      {
+        "label": "JSA Profile #3404",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3404/"
+      },
+      {
+        "label": "SumoDB Rikishi #12013",
+        "url": "https://sumodb.sumogames.de/Rikishi.aspx?r=12013"
+      }
+    ],
+    "notes": "Batch E Juryo-backfill: rikishiId=3404 confirmed via JSA profile. Heya=Hanaregoma (was Matsugane → Nishonoseki → Hanaregoma). Real name Nakazono Sora. Highest rank Maegashira #12. Born Kagoshima (Nishinoomote)."
+  },
+  {
+    "shikona": "Toshinofuji",
+    "rikishiId": 4243,
+    "birthDate": "2000-08-24",
+    "heightCm": 195,
+    "weightKg": 145,
+    "profileConfidence": "verified",
+    "provenanceStatus": "confirmed",
+    "lastVerifiedBasho": "202603",
+    "sourceRefs": [
+      {
+        "label": "JSA Profile #4243",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4243/"
+      }
+    ],
+    "notes": "Batch E Juryo-backfill: rikishiId=4243 confirmed via JSA profile. Real name Usukhbayar Demidjamts. Former shikona Seihakuho. Debuted March 2024. Juryo debut March 2026. Signature: migi-yotsu, yori, uwatenage."
+  },
+  {
+    "shikona": "Fujitensei",
+    "rikishiId": 4337,
+    "birthDate": "2007-01-09",
+    "nationality": "Japan",
+    "heightCm": 172,
+    "weightKg": 139,
+    "profileConfidence": "verified",
+    "provenanceStatus": "confirmed",
+    "lastVerifiedBasho": "202603",
+    "sourceRefs": [
+      {
+        "label": "JSA Profile #4337",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4337/"
+      }
+    ],
+    "notes": "Batch E Juryo-backfill: rikishiId=4337 confirmed via JSA profile. Real name Maaru Fukuzaki. Former shikona Fukuzaki. Debuted March 2025 in Makushita. Juryo debut March 2026. Signature: oshi."
+  }
+]

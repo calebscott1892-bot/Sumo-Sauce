@@ -1,0 +1,1 @@
+{"bytes":497,"contentSha256":"9f7a11533cd252c142e19d28fc783b2e4635bcc45f5610bfb0ab511e323f2118","contentType":"application/json","etag":"ingest-200003-wikipedia","fetchedAt":"2000-03-01T00:00:00.000Z","httpStatus":200,"source":"wikipedia","url":"https://en.wikipedia.org/w/api.php?action=query&list=synthetic&basho=200003"}

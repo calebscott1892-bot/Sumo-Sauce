@@ -1,0 +1,14 @@
+{
+  "query": {
+    "pages": [
+      {"rikishiId":"rks_0001","shikona":"Onosato","title":"Onosato","wikimediaFile":"Onosato_sample.jpg"},
+      {"rikishiId":"rks_0002","shikona":"Hoshoryu","title":"Hoshoryu","wikimediaFile":"Hoshoryu_sample.jpg"},
+      {"rikishiId":"rks_0003","shikona":"Kotozakura","title":"Kotozakura","wikimediaFile":"Kotozakura_sample.jpg"},
+      {"rikishiId":"rks_0004","shikona":"Aonishiki","title":"Aonishiki","wikimediaFile":"Aonishiki_sample.jpg"},
+      {"rikishiId":"rks_0005","shikona":"Tomokaze","title":"Tomokaze","wikimediaFile":"Tomokaze_sample.jpg"},
+      {"rikishiId":"rks_0006","shikona":"Shishi","title":"Shishi","wikimediaFile":"Shishi_sample.jpg"},
+      {"rikishiId":"rks_0007","shikona":"Tamashoho","title":"Tamashoho","wikimediaFile":"Tamashoho_sample.jpg"},
+      {"rikishiId":"rks_0008","shikona":"Daiamami","title":"Daiamami","wikimediaFile":"Daiamami_sample.jpg"}
+    ]
+  }
+}
