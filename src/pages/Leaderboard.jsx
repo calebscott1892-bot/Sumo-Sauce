@@ -1,5 +1,9 @@
 import React, { useDeferredValue, useEffect, useMemo, useState } from 'react';
+<<<<<<< HEAD
 import { Link, useNavigate, useSearchParams } from 'react-router-dom';
+=======
+import { Link, useNavigate } from 'react-router-dom';
+>>>>>>> origin/main
 import {
   Database,
   RefreshCcw,
@@ -264,9 +268,14 @@ function inferGroupRecency(group) {
 
 export default function Leaderboard() {
   const navigate = useNavigate();
+<<<<<<< HEAD
   const [searchParams, setSearchParams] = useSearchParams();
 
   const [searchQuery, setSearchQuery] = useState(() => searchParams.get('q') ?? '');
+=======
+
+  const [searchQuery, setSearchQuery] = useState('');
+>>>>>>> origin/main
   const [selectedDivision, setSelectedDivision] = useState('all');
   const [sortMode, setSortMode] = useState('banzuke');
   const [hideStubs, setHideStubs] = useState(true);
@@ -288,6 +297,7 @@ export default function Leaderboard() {
   }, []);
 
   useEffect(() => {
+<<<<<<< HEAD
     const queryFromUrl = searchParams.get('q') ?? '';
     if (queryFromUrl !== searchQuery) {
       setSearchQuery(queryFromUrl);
@@ -305,6 +315,8 @@ export default function Leaderboard() {
   }, [searchParams, searchQuery, setSearchParams]);
 
   useEffect(() => {
+=======
+>>>>>>> origin/main
     let isMounted = true;
 
     async function loadData() {

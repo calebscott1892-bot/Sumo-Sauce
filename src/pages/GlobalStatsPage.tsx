@@ -367,6 +367,7 @@ export default function GlobalStatsPage() {
         </div>
       ) : (
         <>
+<<<<<<< HEAD
           <section id="sample-overview" className="scroll-mt-24">
             <PremiumSectionShell
               title="Current Sample At A Glance"
@@ -385,6 +386,24 @@ export default function GlobalStatsPage() {
               </div>
             </PremiumSectionShell>
           </section>
+=======
+          <PremiumSectionShell
+            title="Current Sample At A Glance"
+            subtitle="These summary cards tell you how large the loaded sample is before you interpret any leaderboard or chart as a broader statement about all of sumo."
+          >
+            <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+              <StatCard label="Directory size" value={stats.totalRikishi.toLocaleString()} sub="current rikishi directory entries" />
+              <StatCard label="Sampled basho" value={String(stats.totalBasho)} sub={sampleWindowLabel} />
+              <StatCard label="Estimated bouts" value={stats.uniqueBouts.toLocaleString()} sub="counted from sampled Makuuchi entries" />
+              <StatCard
+                label="Avg wins per entry"
+                value={stats.avgWinsPerBasho}
+                sub="average wins per rikishi per sampled basho"
+                highlight
+              />
+            </div>
+          </PremiumSectionShell>
+>>>>>>> origin/main
 
           <PremiumSectionShell
             title="Technique Baseline"
@@ -466,11 +485,18 @@ export default function GlobalStatsPage() {
             <DivisionStrengthChart bashoData={standingsQuery.data ?? []} />
           )}
 
+<<<<<<< HEAD
           <section id="championship-trail" className="scroll-mt-24">
             <PremiumSectionShell
               title="Championship Trail In The Sample"
               subtitle="Use this when you want to browse recent title signals directly: who lifted the most recent yusho, who keeps reappearing, and which basho are worth opening next."
             >
+=======
+          <PremiumSectionShell
+            title="Championship Trail In The Sample"
+            subtitle="Use this when you want to browse recent title signals directly: who lifted the most recent yusho, who keeps reappearing, and which basho are worth opening next."
+          >
+>>>>>>> origin/main
             <div className="grid gap-3 md:grid-cols-3">
               <AnalyticsTakeawayCard
                 eyebrow="Sample title leader"
@@ -478,8 +504,13 @@ export default function GlobalStatsPage() {
                 title={sampleTitleLeader ? `${sampleTitleLeader.titles} sampled championships` : 'No repeat champion yet'}
                 detail="This counts only the recent Makuuchi champions in the loaded analytics sample, not an all-career title table."
                 variant="amber"
+<<<<<<< HEAD
                 to={sampleTitleLeader ? `/rikishi/${encodeURIComponent(sampleTitleLeader.rikishiId)}#records` : undefined}
                 cta={sampleTitleLeader ? 'Open records' : undefined}
+=======
+                to={sampleTitleLeader ? `/rikishi/${encodeURIComponent(sampleTitleLeader.rikishiId)}` : undefined}
+                cta={sampleTitleLeader ? 'Open profile' : undefined}
+>>>>>>> origin/main
               />
               <AnalyticsTakeawayCard
                 eyebrow="Latest champion"
@@ -501,6 +532,7 @@ export default function GlobalStatsPage() {
               />
             </div>
 
+<<<<<<< HEAD
             {stats.sampleTitleLeaders.length > 0 ? (
               <div className="mt-5 grid gap-3 md:grid-cols-2 xl:grid-cols-5">
                 {stats.sampleTitleLeaders.map((leader, index) => (
@@ -546,6 +578,8 @@ export default function GlobalStatsPage() {
               </div>
             ) : null}
 
+=======
+>>>>>>> origin/main
             {stats.championTrail.length === 0 ? (
               <div className="mt-5 rounded-xl border border-white/[0.06] bg-white/[0.02] p-4 text-sm leading-relaxed text-zinc-400">
                 No championship trail is available in the currently loaded analytics sample yet.
@@ -563,7 +597,11 @@ export default function GlobalStatsPage() {
                     </div>
                     <div className="mt-3 font-semibold text-white">
                       <Link
+<<<<<<< HEAD
                         to={`/rikishi/${encodeURIComponent(basho.championRikishiId)}#records`}
+=======
+                        to={`/rikishi/${encodeURIComponent(basho.championRikishiId)}`}
+>>>>>>> origin/main
                         className="transition-colors hover:text-red-300"
                       >
                         {basho.championShikona}
@@ -574,12 +612,15 @@ export default function GlobalStatsPage() {
                     </p>
                     <div className="mt-4 flex flex-wrap gap-2 text-xs">
                       <Link
+<<<<<<< HEAD
                         to={`/rikishi/${encodeURIComponent(basho.championRikishiId)}#records`}
                         className="inline-flex items-center rounded-full border border-white/[0.08] bg-white/[0.03] px-3 py-1 text-zinc-300 transition-colors hover:border-red-600/40 hover:text-white"
                       >
                         Wrestler records
                       </Link>
                       <Link
+=======
+>>>>>>> origin/main
                         to={`/basho/${encodeURIComponent(basho.bashoId)}`}
                         className="inline-flex items-center rounded-full border border-white/[0.08] bg-white/[0.03] px-3 py-1 text-zinc-300 transition-colors hover:border-red-600/40 hover:text-white"
                       >
@@ -596,6 +637,7 @@ export default function GlobalStatsPage() {
                 ))}
               </div>
             )}
+<<<<<<< HEAD
             </PremiumSectionShell>
           </section>
 
@@ -604,6 +646,14 @@ export default function GlobalStatsPage() {
               title="Standout Rikishi In The Sample"
               subtitle="These rankings help you move from aggregate environment reads into individual rikishi pages that deserve a closer look."
             >
+=======
+          </PremiumSectionShell>
+
+          <PremiumSectionShell
+            title="Standout Rikishi In The Sample"
+            subtitle="These rankings help you move from aggregate environment reads into individual rikishi pages that deserve a closer look."
+          >
+>>>>>>> origin/main
             <div className="grid gap-6 xl:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)]">
               <div>
                 <div className="mb-3 text-sm font-semibold text-white">Most successful sampled rikishi</div>
@@ -654,8 +704,12 @@ export default function GlobalStatsPage() {
                 </div>
               </div>
             </div>
+<<<<<<< HEAD
             </PremiumSectionShell>
           </section>
+=======
+          </PremiumSectionShell>
+>>>>>>> origin/main
 
           <PremiumSectionShell
             title="Tournament Extremes"

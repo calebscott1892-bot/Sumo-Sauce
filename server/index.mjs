@@ -786,9 +786,12 @@ app.get('/api/entities/:entity', async (req, res, next) => {
     const sort = typeof req.query.sort === 'string' ? req.query.sort : undefined;
     const limitRaw = typeof req.query.limit === 'string' ? req.query.limit : undefined;
     const limit = limitRaw ? Number.parseInt(limitRaw, 10) : undefined;
+<<<<<<< HEAD
     const filters = Object.entries(req.query)
       .filter(([key, value]) => key !== 'sort' && key !== 'limit' && typeof value === 'string' && String(value).trim() !== '')
       .map(([key, value]) => [key, String(value).trim().toLowerCase()]);
+=======
+>>>>>>> origin/main
 
     const records = await prisma.entityRecord.findMany({
       where: { entity },
@@ -796,10 +799,14 @@ app.get('/api/entities/:entity', async (req, res, next) => {
     });
 
     const rows = records.map((r) => r.data);
+<<<<<<< HEAD
     const filtered = filters.length === 0
       ? rows
       : rows.filter((row) => filters.every(([key, value]) => String(row?.[key] ?? '').trim().toLowerCase() === value));
     const sorted = sortRows(filtered, sort);
+=======
+    const sorted = sortRows(rows, sort);
+>>>>>>> origin/main
     const out = Number.isFinite(limit) ? sorted.slice(0, limit) : sorted;
     res.json(out);
   } catch (e) {

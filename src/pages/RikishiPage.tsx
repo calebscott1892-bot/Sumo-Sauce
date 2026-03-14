@@ -24,7 +24,10 @@ import {
   getDivisionStandings,
   getHeadToHead,
   getKimariteStats,
+<<<<<<< HEAD
   getLegacyBashoRecords,
+=======
+>>>>>>> origin/main
   getRikishiDirectory,
   getRankProgression,
 } from '@/pages/rikishi/api';
@@ -127,6 +130,7 @@ export default function RikishiPage() {
     enabled: Boolean(rikishiId),
   });
 
+<<<<<<< HEAD
   const legacyAchievementsQuery = useQuery({
     queryKey: ['rikishi-legacy-achievements', rikishiId],
     queryFn: () => getLegacyBashoRecords(rikishiId),
@@ -134,6 +138,8 @@ export default function RikishiPage() {
     staleTime: 10 * 60 * 1000,
   });
 
+=======
+>>>>>>> origin/main
   const timelineChrono = useMemo(() => {
     const rows = Array.isArray(timelineQuery.data) ? [...timelineQuery.data] : [];
     return rows.sort((a, b) => a.bashoId.localeCompare(b.bashoId) || a.division.localeCompare(b.division));
@@ -498,8 +504,11 @@ export default function RikishiPage() {
               timeline={timelineChrono}
               rankProgression={progressionQuery.data || []}
               highestRank={summaryQuery.data.highestRank}
+<<<<<<< HEAD
               legacyRecords={legacyAchievementsQuery.data || []}
               legacyRecordsLoading={legacyAchievementsQuery.isLoading}
+=======
+>>>>>>> origin/main
             />
           </ProfileSectionGroup>
 

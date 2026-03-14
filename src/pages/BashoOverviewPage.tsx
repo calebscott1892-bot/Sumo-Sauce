@@ -265,6 +265,7 @@ function LowerDivisionCard({ bashoId, snapshot }: { bashoId: string; snapshot: D
   );
 }
 
+<<<<<<< HEAD
 function RecordsPathCard({ bashoId, snapshot }: { bashoId: string; snapshot: DivisionSnapshot }) {
   if (!snapshot.champion) return null;
 
@@ -306,6 +307,8 @@ function RecordsPathCard({ bashoId, snapshot }: { bashoId: string; snapshot: Div
   );
 }
 
+=======
+>>>>>>> origin/main
 export default function BashoOverviewPage() {
   const params = useParams();
   const bashoId = String(params.bashoId || '').trim();
@@ -446,6 +449,7 @@ export default function BashoOverviewPage() {
         </section>
       ) : null}
 
+<<<<<<< HEAD
       {(makuuchiData?.champion || juryoData?.champion) ? (
         <section id="records-context" className="scroll-mt-24">
           <PremiumSectionShell
@@ -492,6 +496,8 @@ export default function BashoOverviewPage() {
         </section>
       ) : null}
 
+=======
+>>>>>>> origin/main
       <PremiumSectionShell
         title="Upper-division races"
         subtitle="Makuuchi and Juryo are surfaced side by side so the overview does not collapse into a single-division page."
