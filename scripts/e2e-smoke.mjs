@@ -1,8 +1,11 @@
 #!/usr/bin/env node
 import { spawn } from 'node:child_process';
+import { dirname, resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { chromium } from 'playwright';
 
 const BACKEND_PORT = 8790;
+const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 function parsePortArg(argv) {
   const portFlagIndex = argv.indexOf('--port');
   if (portFlagIndex >= 0) {
@@ -82,7 +85,7 @@ async function main() {
     const backendAlreadyUp = await isUp(backendHealthUrl);
     if (!backendAlreadyUp) {
       backendChild = spawnLogged('npm', ['run', 'api:dev'], {
-        cwd: '/Users/belacttocs/Downloads/Sumo Sauce',
+        cwd: ROOT,
         env: {
           ...process.env,
           PORT: String(BACKEND_PORT),
@@ -99,7 +102,7 @@ async function main() {
     const frontendAlreadyUp = await isUp(frontendHealthUrl);
     if (!frontendAlreadyUp) {
       frontendChild = spawnLogged('npm', ['run', 'dev', '--', '--host', '127.0.0.1', '--port', String(FRONTEND_PORT), '--strictPort'], {
-        cwd: '/Users/belacttocs/Downloads/Sumo Sauce',
+        cwd: ROOT,
         env: {
           ...process.env,
         },
@@ -114,7 +117,7 @@ async function main() {
     if (!(await isUp(backendHealthUrl))) {
       if (!backendChild) {
         backendChild = spawnLogged('npm', ['run', 'api:dev'], {
-          cwd: '/Users/belacttocs/Downloads/Sumo Sauce',
+          cwd: ROOT,
           env: {
             ...process.env,
             PORT: String(BACKEND_PORT),
@@ -134,7 +137,7 @@ async function main() {
       if (!(await isUp(backendHealthUrl))) {
         if (!backendChild) {
           backendChild = spawnLogged('npm', ['run', 'api:dev'], {
-            cwd: '/Users/belacttocs/Downloads/Sumo Sauce',
+            cwd: ROOT,
             env: {
               ...process.env,
               PORT: String(BACKEND_PORT),
@@ -173,7 +176,7 @@ async function main() {
       if (!(await isUp(backendHealthUrl))) {
         if (!backendChild) {
           backendChild = spawnLogged('npm', ['run', 'api:dev'], {
-            cwd: '/Users/belacttocs/Downloads/Sumo Sauce',
+            cwd: ROOT,
             env: {
               ...process.env,
               PORT: String(BACKEND_PORT),

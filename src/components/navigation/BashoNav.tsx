@@ -1,10 +1,12 @@
 import { Link } from 'react-router-dom';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { prevBashoId, nextBashoId, bashoLabel } from '@/utils/basho';
+import type { Division } from '../../../shared/api/v1';
 
 type Props = {
   bashoId: string;
-  division: string;
+  division?: Division;
+  mode?: 'overview' | 'division';
 };
 
 /**
@@ -12,42 +14,46 @@ type Props = {
  * Renders as a compact bar with ← prev | current | next →.
  * Purely frontend — derives adjacent basho IDs from the bimonthly schedule.
  */
-export default function BashoNav({ bashoId, division }: Props) {
+export default function BashoNav({ bashoId, division, mode = 'division' }: Props) {
   const prev = prevBashoId(bashoId);
   const next = nextBashoId(bashoId);
+  const buildPath = (targetBashoId: string) =>
+    mode === 'overview' || !division
+      ? `/basho/${targetBashoId}`
+      : `/basho/${targetBashoId}/${encodeURIComponent(division)}`;
 
   return (
     <nav
       data-testid="basho-nav"
-      className="flex items-center justify-between rounded-xl border border-white/[0.06] bg-white/[0.02] px-4 py-3"
+      className="grid grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] items-center gap-2 rounded-2xl border border-white/[0.06] bg-white/[0.02] px-3 py-2.5 sm:px-4 sm:py-3"
     >
       {prev ? (
         <Link
-          to={`/basho/${prev}/${encodeURIComponent(division)}`}
-          className="flex items-center gap-1 text-sm text-red-400 hover:text-red-300 transition-colors"
+          to={buildPath(prev)}
+          className="flex min-w-0 items-center gap-1 text-xs text-red-400 transition-colors hover:text-red-300 sm:text-sm"
           data-testid="basho-nav-prev"
         >
-          <ChevronLeft className="h-4 w-4" />
-          <span className="hidden sm:inline">{bashoLabel(prev)}</span>
-          <span className="sm:hidden">{prev}</span>
+          <ChevronLeft className="h-4 w-4 shrink-0" />
+          <span className="hidden truncate sm:inline">{bashoLabel(prev)}</span>
+          <span className="truncate sm:hidden">{prev}</span>
         </Link>
       ) : (
         <span className="text-sm text-zinc-600">—</span>
       )}
 
-      <span className="font-display text-sm font-bold tracking-tight text-zinc-200" data-testid="basho-nav-current">
+      <span className="px-1 text-center font-display text-xs font-bold tracking-tight text-zinc-200 sm:text-sm" data-testid="basho-nav-current">
         {bashoLabel(bashoId)}
       </span>
 
       {next ? (
         <Link
-          to={`/basho/${next}/${encodeURIComponent(division)}`}
-          className="flex items-center gap-1 text-sm text-red-400 hover:text-red-300 transition-colors"
+          to={buildPath(next)}
+          className="flex min-w-0 items-center justify-end gap-1 text-right text-xs text-red-400 transition-colors hover:text-red-300 sm:text-sm"
           data-testid="basho-nav-next"
         >
-          <span className="hidden sm:inline">{bashoLabel(next)}</span>
-          <span className="sm:hidden">{next}</span>
-          <ChevronRight className="h-4 w-4" />
+          <span className="hidden truncate sm:inline">{bashoLabel(next)}</span>
+          <span className="truncate sm:hidden">{next}</span>
+          <ChevronRight className="h-4 w-4 shrink-0" />
         </Link>
       ) : (
         <span className="text-sm text-zinc-600">—</span>

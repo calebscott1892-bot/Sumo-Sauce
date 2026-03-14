@@ -70,6 +70,7 @@ export default function FallbackAvatar({
   stable,
   rank,
   size = 'sm',
+  showRankMarker = true,
   className = '',
   onImageError,
 }) {
@@ -111,12 +112,14 @@ export default function FallbackAvatar({
         </div>
       )}
 
-      <span
-        className={`absolute -bottom-0.5 -right-0.5 flex ${sizing.marker} items-center justify-center rounded-full border border-white/[0.08] bg-white/[0.03]`}
-        title={tier}
-      >
-        <RankMarker tier={tier} iconClass={sizing.markerIcon} />
-      </span>
+      {showRankMarker && (
+        <span
+          className={`absolute -bottom-0.5 -right-0.5 flex ${sizing.marker} items-center justify-center rounded-full border border-white/[0.08] bg-white/[0.03]`}
+          title={tier}
+        >
+          <RankMarker tier={tier} iconClass={sizing.markerIcon} />
+        </span>
+      )}
     </div>
   );
 }

@@ -20,6 +20,7 @@
  */
 
 import rawProfiles from '../../data/makuuchi_verified_profiles.json';
+import { bashoDisplayName } from '@/utils/basho';
 
 // ---------------------------------------------------------------------------
 // Types
@@ -57,11 +58,118 @@ export interface VerifiedProfile {
   provenanceStatus: ProvenanceStatus;
 }
 
+export interface VerifiedDatasetMetrics {
+  totalProfiles: number;
+  activeProfiles: number;
+  verifiedProfileCount: number;
+  verifiedImageCount: number;
+  confirmedProvenanceCount: number;
+  profilesWithSourceRefsCount: number;
+  divisionsCovered: string[];
+  latestVerifiedBasho: string | null;
+  latestVerifiedBashoLabel: string | null;
+}
+
+export interface TrustPresentation {
+  label: string;
+  detail: string;
+  variant: 'red' | 'gold' | 'green' | 'blue' | 'zinc' | 'amber';
+}
+
+const PROFILE_PRESENTATION: Record<ProfileConfidence, TrustPresentation> = {
+  verified: {
+    label: 'Profile verified',
+    detail: 'Core profile fields are verified in the structured trust layer.',
+    variant: 'green',
+  },
+  likely: {
+    label: 'Profile partially verified',
+    detail: 'Core profile fields are present, but some attributes still rely on secondary corroboration.',
+    variant: 'amber',
+  },
+  unverified: {
+    label: 'Profile unverified',
+    detail: 'Core profile data exists, but this record still needs stronger verification before it should be treated as fully trusted.',
+    variant: 'red',
+  },
+};
+
+const IMAGE_PRESENTATION: Record<ImageConfidence, TrustPresentation> = {
+  verified: {
+    label: 'Official image verified',
+    detail: 'An official image is shown because image verification is complete.',
+    variant: 'blue',
+  },
+  likely: {
+    label: 'Image withheld',
+    detail: 'A possible image exists, but it is intentionally withheld until image verification is complete.',
+    variant: 'amber',
+  },
+  unverified: {
+    label: 'Image withheld',
+    detail: 'Image provenance is too weak to publish safely, so the official image remains hidden.',
+    variant: 'red',
+  },
+  missing: {
+    label: 'No verified image',
+    detail: 'No verified official image is currently published for this profile.',
+    variant: 'zinc',
+  },
+};
+
+const PROVENANCE_PRESENTATION: Record<ProvenanceStatus, TrustPresentation> = {
+  confirmed: {
+    label: 'Provenance confirmed',
+    detail: 'Division and verification context are confirmed for this canonical record.',
+    variant: 'green',
+  },
+  inferred: {
+    label: 'Provenance inferred',
+    detail: 'The profile is usable, but roster or division context still depends on inference rather than direct final confirmation.',
+    variant: 'amber',
+  },
+  unresolved: {
+    label: 'Provenance unresolved',
+    detail: 'Context is still open and should be treated as provisional.',
+    variant: 'red',
+  },
+  quarantined: {
+    label: 'Provenance quarantined',
+    detail: 'This record is intentionally isolated until verification issues are resolved.',
+    variant: 'red',
+  },
+};
+
 // ---------------------------------------------------------------------------
 // Build lookup indexes (runs once at module load)
 // ---------------------------------------------------------------------------
 
 const profiles: VerifiedProfile[] = rawProfiles as VerifiedProfile[];
+
+function buildVerifiedDatasetMetrics(rows: readonly VerifiedProfile[]): VerifiedDatasetMetrics {
+  let latestVerifiedBasho: string | null = null;
+
+  for (const profile of rows) {
+    if (!profile.lastVerifiedBasho) continue;
+    if (!latestVerifiedBasho || profile.lastVerifiedBasho > latestVerifiedBasho) {
+      latestVerifiedBasho = profile.lastVerifiedBasho;
+    }
+  }
+
+  return {
+    totalProfiles: rows.length,
+    activeProfiles: rows.filter((profile) => profile.status === 'active').length,
+    verifiedProfileCount: rows.filter((profile) => profile.profileConfidence === 'verified').length,
+    verifiedImageCount: rows.filter((profile) => profile.imageConfidence === 'verified').length,
+    confirmedProvenanceCount: rows.filter((profile) => profile.provenanceStatus === 'confirmed').length,
+    profilesWithSourceRefsCount: rows.filter((profile) => Array.isArray(profile.sourceRefs) && profile.sourceRefs.length > 0).length,
+    divisionsCovered: Array.from(new Set(rows.map((profile) => profile.division).filter(Boolean) as string[])).sort(),
+    latestVerifiedBasho,
+    latestVerifiedBashoLabel: latestVerifiedBasho ? bashoDisplayName(latestVerifiedBasho) : null,
+  };
+}
+
+const datasetMetrics = buildVerifiedDatasetMetrics(profiles);
 
 /** Lookup by normalised shikona (short form preferred, full form also indexed) */
 const byShikona = new Map<string, VerifiedProfile>();
@@ -119,6 +227,24 @@ export function getVerifiedProfileByJsaId(jsaId: string): VerifiedProfile | null
 }
 
 /**
+ * Resolve the best available verified profile for a UI identity.
+ * Prefers deterministic JSA ID lookup, then falls back to shikona matching.
+ */
+export function getVerifiedProfileForIdentity(
+  jsaId?: string | null,
+  shikona?: string | null,
+): VerifiedProfile | null {
+  if (jsaId) {
+    const byId = getVerifiedProfileByJsaId(jsaId);
+    if (byId) return byId;
+  }
+  if (shikona) {
+    return getVerifiedProfile(shikona);
+  }
+  return null;
+}
+
+/**
  * Returns the official image URL only when confidence is "verified".
  * Returns '' otherwise (non-verified or null profile → placeholder).
  */
@@ -132,6 +258,33 @@ export function getVerifiedImageUrl(profile: VerifiedProfile | null): string {
     return profile.officialImageUrl.trim();
   }
   return '';
+}
+
+export function getVerifiedDatasetMetrics(): VerifiedDatasetMetrics {
+  return datasetMetrics;
+}
+
+export function formatVerifiedBasho(value: string | null | undefined): string {
+  if (!value) return 'Not published';
+  return bashoDisplayName(value);
+}
+
+export function getProfileConfidencePresentation(
+  confidence: ProfileConfidence | null | undefined,
+): TrustPresentation {
+  return PROFILE_PRESENTATION[confidence ?? 'unverified'] ?? PROFILE_PRESENTATION.unverified;
+}
+
+export function getImageConfidencePresentation(
+  confidence: ImageConfidence | null | undefined,
+): TrustPresentation {
+  return IMAGE_PRESENTATION[confidence ?? 'missing'] ?? IMAGE_PRESENTATION.missing;
+}
+
+export function getProvenanceStatusPresentation(
+  status: ProvenanceStatus | null | undefined,
+): TrustPresentation {
+  return PROVENANCE_PRESENTATION[status ?? 'unresolved'] ?? PROVENANCE_PRESENTATION.unresolved;
 }
 
 /**

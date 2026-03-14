@@ -1,12 +1,23 @@
-import React, { useEffect, useMemo, useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useDeferredValue, useEffect, useMemo, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import {
+  Database,
+  RefreshCcw,
+  ShieldCheck,
+  Image as ImageIcon,
+  Layers3,
+} from 'lucide-react';
 import { trackLeaderboardView } from '@/utils/analytics';
-import { ChevronRight, Crown, Star, Search } from 'lucide-react';
-import FallbackAvatar from '@/components/FallbackAvatar';
-import { resolvePhotoUrl } from '@/utils/photo';
+import PageMeta from '@/components/ui/PageMeta';
+import EmptyState from '@/components/ui/EmptyState';
+import { PremiumBadge, PremiumPageHeader, PremiumSectionShell } from '@/components/ui/premium';
+import SearchBar from '@/components/leaderboard/SearchBar';
+import LeaderboardTable from '@/components/leaderboard/LeaderboardTable';
 
-const WRESTLERS_URL = '/api/entities/Wrestler?limit=2000';
-const BASHO_RECORDS_URL = '/api/entities/BashoRecord?limit=5000';
+const WRESTLER_LIMIT = 2000;
+const BASHO_RECORD_LIMIT = 5000;
+const WRESTLERS_URL = `/api/entities/Wrestler?limit=${WRESTLER_LIMIT}`;
+const BASHO_RECORDS_URL = `/api/entities/BashoRecord?limit=${BASHO_RECORD_LIMIT}`;
 
 const TIER_ORDER = {
   Yokozuna: 1,
@@ -14,9 +25,12 @@ const TIER_ORDER = {
   Sekiwake: 3,
   Komusubi: 4,
   Maegashira: 5,
+  Juryo: 6,
+  Makushita: 7,
+  Sandanme: 8,
+  Jonidan: 9,
+  Jonokuchi: 10,
 };
-
-const MAKUUCHI_RANKS = new Set(['Yokozuna', 'Ozeki', 'Sekiwake', 'Komusubi', 'Maegashira']);
 
 const DIVISION_CODE_MAP = {
   1: 'Makuuchi',
@@ -27,23 +41,20 @@ const DIVISION_CODE_MAP = {
   6: 'Jonokuchi',
 };
 
-const RANK_KANJI_MAP = {
-  Yokozuna: '横綱',
-  Ozeki: '大関',
-  Sekiwake: '関脇',
-  Komusubi: '小結',
-  Maegashira: '前頭',
-  Juryo: '十両',
-  Makushita: '幕下',
-  Sandanme: '三段目',
-  Jonidan: '序二段',
-  Jonokuchi: '序ノ口',
+const DIVISION_OPTIONS = ['Makuuchi', 'Juryo', 'Makushita', 'Sandanme', 'Jonidan', 'Jonokuchi'];
+const BASHO_MONTHS = {
+  hatsu: '01',
+  haru: '03',
+  natsu: '05',
+  nagoya: '07',
+  aki: '09',
+  kyushu: '11',
 };
 
 function normalizeSide(side) {
-  const s = String(side || '').trim().toLowerCase();
-  if (s === 'e' || s === 'east') return 'East';
-  if (s === 'w' || s === 'west') return 'West';
+  const value = String(side || '').trim().toLowerCase();
+  if (value === 'e' || value === 'east') return 'East';
+  if (value === 'w' || value === 'west') return 'West';
   return '';
 }
 
@@ -89,8 +100,8 @@ function computeOverallRating({ careerWinPct, yusho, specialPrizes, rankTier }) 
   return Math.min(Math.max(Math.round(score), 50), 99);
 }
 
-function normalizeBashoText(s) {
-  return typeof s === 'string' ? s.trim() : '';
+function normalizeBashoText(value) {
+  return typeof value === 'string' ? value.trim() : '';
 }
 
 function inferBashoFromRecordId(recordId) {
@@ -127,13 +138,6 @@ function getRecordGroup(record) {
   return { key: 'unknown', label: 'Unknown', type: 'unknown' };
 }
 
-function isMakuuchiRecord(record) {
-  if (String(record?.division || '').trim() === 'Makuuchi') return true;
-  if (toSafeNumber(record?.division_code, -1) === 1) return true;
-  const rank = String(record?.rank || '').trim();
-  return MAKUUCHI_RANKS.has(rank);
-}
-
 function isStubWrestler(wrestler) {
   const rid = String(wrestler?.rid || '');
   const shikona = String(wrestler?.shikona || '');
@@ -149,10 +153,6 @@ function isStubWrestler(wrestler) {
   return false;
 }
 
-function getRecordBadge(record) {
-  return record?.is_stub === true ? 'Stub record' : 'Real record';
-}
-
 function getTier(record, wrestler) {
   const tier = String(record?.rank || wrestler?.current_rank || '').trim();
   return tier || 'Maegashira';
@@ -160,17 +160,6 @@ function getTier(record, wrestler) {
 
 function getRankNumber(record, wrestler) {
   return toSafeNumber(record?.rank_number ?? wrestler?.current_rank_number, 999);
-}
-
-function getRankLabel(record, wrestler) {
-  const tier = getTier(record, wrestler);
-  const rankNumber = getRankNumber(record, wrestler);
-  const side = normalizeSide(record?.side || wrestler?.current_side || '');
-  return `${tier} ${rankNumber} ${side}`.trim();
-}
-
-function getRankKanji(tier) {
-  return RANK_KANJI_MAP[String(tier || '').trim()] || '';
 }
 
 function getDivision(record, wrestler) {
@@ -185,22 +174,21 @@ function getDivision(record, wrestler) {
   return '';
 }
 
-function RankSignal({ tier }) {
-  if (tier === 'Yokozuna') {
-    return <Crown className="h-3.5 w-3.5 text-yellow-400" aria-hidden="true" />;
-  }
-  if (tier === 'Ozeki') {
-    return <Star className="h-3.5 w-3.5 text-amber-300" aria-hidden="true" />;
-  }
-  if (tier === 'Sekiwake' || tier === 'Komusubi') {
-    return <ChevronRight className="h-3.5 w-3.5 text-zinc-400" aria-hidden="true" />;
-  }
-  return null;
+function getRankLabel(record, wrestler) {
+  const tier = getTier(record, wrestler);
+  const rankNumber = getRankNumber(record, wrestler);
+  const side = normalizeSide(record?.side || wrestler?.current_side || '');
+
+  if (rankNumber === 999 && !side) return tier;
+  return `${tier} ${rankNumber !== 999 ? rankNumber : ''} ${side}`.trim();
 }
 
 function banzukeCompare(a, b) {
   const tierDelta = (TIER_ORDER[a.tier] ?? 99) - (TIER_ORDER[b.tier] ?? 99);
   if (tierDelta !== 0) return tierDelta;
+
+  const divisionDelta = DIVISION_OPTIONS.indexOf(a.division) - DIVISION_OPTIONS.indexOf(b.division);
+  if (divisionDelta !== 0 && a.division && b.division) return divisionDelta;
 
   const rankDelta = a.rankNumber - b.rankNumber;
   if (rankDelta !== 0) return rankDelta;
@@ -208,21 +196,95 @@ function banzukeCompare(a, b) {
   return sideOrder(a.side) - sideOrder(b.side);
 }
 
+function getSourceMeta(group) {
+  if (!group) {
+    return {
+      label: 'No source selected',
+      variant: 'zinc',
+      description: 'Choose a standings source to inspect the leaderboard.',
+    };
+  }
+
+  if (group.type === 'basho') {
+    return {
+      label: 'Imported basho record set',
+      variant: 'green',
+      description: 'Standings rows come from imported entity data with an explicit basho label. This page does not imply live tournament freshness.',
+    };
+  }
+
+  if (group.type === 'basho_inferred') {
+    return {
+      label: 'Inferred basho label',
+      variant: 'amber',
+      description: 'The tournament label was inferred from record naming because the row lacks an explicit basho field.',
+    };
+  }
+
+  if (group.type === 'snapshot') {
+    return {
+      label: 'Snapshot source',
+      variant: 'blue',
+      description: 'This view is based on dated snapshot rows rather than an explicit tournament label or guaranteed current standings feed.',
+    };
+  }
+
+  return {
+    label: 'Unknown source label',
+    variant: 'zinc',
+    description: 'Some rows do not carry a clear tournament label in the entity layer.',
+  };
+}
+
+function inferGroupRecency(group) {
+  const key = String(group?.key || '').trim();
+  if (/^\d{6}$/.test(key)) {
+    return Number(key);
+  }
+
+  if (key.startsWith('snapshot:')) {
+    const parsed = Date.parse(key.slice('snapshot:'.length));
+    return Number.isFinite(parsed) ? parsed : 0;
+  }
+
+  const label = String(group?.label || '').trim();
+  const named = label.match(/\b(Hatsu|Haru|Natsu|Nagoya|Aki|Kyushu)\s+(20\d{2})\b/i);
+  if (named) {
+    const month = BASHO_MONTHS[named[1].toLowerCase()] || '00';
+    return Number(`${named[2]}${month}`);
+  }
+
+  const compact = label.match(/\b(20\d{2})(0[1-9]|1[0-2])\b/);
+  if (compact) {
+    return Number(`${compact[1]}${compact[2]}`);
+  }
+
+  return 0;
+}
+
 export default function Leaderboard() {
+  const navigate = useNavigate();
+
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedDivision, setSelectedDivision] = useState('all');
   const [sortMode, setSortMode] = useState('banzuke');
   const [hideStubs, setHideStubs] = useState(true);
   const [selectedBasho, setSelectedBasho] = useState('');
   const [includeSnapshots, setIncludeSnapshots] = useState(false);
+  const [reloadKey, setReloadKey] = useState(0);
 
   const [wrestlersData, setWrestlersData] = useState([]);
   const [bashoRecordsData, setBashoRecordsData] = useState([]);
-
-  useEffect(() => { trackLeaderboardView(); }, []);
-
   const [loading, setLoading] = useState(true);
   const [loadError, setLoadError] = useState('');
+
+  const deferredSearchQuery = useDeferredValue(searchQuery);
+  const normalizedDeferredQuery = deferredSearchQuery.trim().toLowerCase();
+  const isRefiningSearch = searchQuery.trim() !== deferredSearchQuery.trim();
+
+  useEffect(() => {
+    trackLeaderboardView();
+  }, []);
 
   useEffect(() => {
     let isMounted = true;
@@ -270,7 +332,7 @@ export default function Leaderboard() {
     return () => {
       isMounted = false;
     };
-  }, []);
+  }, [reloadKey]);
 
   const groupOptions = useMemo(() => {
     const grouped = new Map();
@@ -286,7 +348,7 @@ export default function Leaderboard() {
       }
     });
 
-    const TYPE_ORDER = {
+    const typeOrder = {
       basho: 0,
       basho_inferred: 1,
       snapshot: 2,
@@ -294,8 +356,10 @@ export default function Leaderboard() {
     };
 
     return [...grouped.values()].sort((a, b) => {
-      const typeDelta = (TYPE_ORDER[a.type] ?? 99) - (TYPE_ORDER[b.type] ?? 99);
+      const typeDelta = (typeOrder[a.type] ?? 99) - (typeOrder[b.type] ?? 99);
       if (typeDelta !== 0) return typeDelta;
+      const recencyDelta = inferGroupRecency(b) - inferGroupRecency(a);
+      if (recencyDelta !== 0) return recencyDelta;
       return b.label.localeCompare(a.label);
     });
   }, [bashoRecordsData]);
@@ -318,12 +382,6 @@ export default function Leaderboard() {
     return filteredGroupOptions.find((option) => option.key === selectedBasho) || null;
   }, [filteredGroupOptions, selectedBasho]);
 
-  const selectedGroupLabel = selectedGroup?.label || '-';
-
-  const missingBashoCount = useMemo(() => {
-    return bashoRecordsData.filter((record) => !normalizeBashoText(record?.basho)).length;
-  }, [bashoRecordsData]);
-
   useEffect(() => {
     if (filteredGroupOptions.length === 0) {
       if (selectedBasho) setSelectedBasho('');
@@ -334,9 +392,13 @@ export default function Leaderboard() {
     if (!selectedBasho || !exists) {
       setSelectedBasho(filteredGroupOptions[0].key);
     }
-  }, [selectedBasho, filteredGroupOptions]);
+  }, [filteredGroupOptions, selectedBasho]);
 
-  const { rows, debugRows, recordsUsedCount } = useMemo(() => {
+  const missingBashoCount = useMemo(() => {
+    return bashoRecordsData.filter((record) => !normalizeBashoText(record?.basho)).length;
+  }, [bashoRecordsData]);
+
+  const { rows, recordsUsedCount, divisionCounts, baseRowCount } = useMemo(() => {
     const wrestlerByRid = new Map();
 
     wrestlersData.forEach((wrestler) => {
@@ -344,11 +406,11 @@ export default function Leaderboard() {
       if (ridKey) wrestlerByRid.set(ridKey, wrestler);
     });
 
-    const selectedRecords = bashoRecordsData
-      .filter((record) => getRecordGroup(record).key === String(selectedBasho || '').trim())
-      .filter((record) => isMakuuchiRecord(record));
+    const selectedRecords = bashoRecordsData.filter(
+      (record) => getRecordGroup(record).key === String(selectedBasho || '').trim(),
+    );
 
-    const computedRows = selectedRecords
+    const baseRows = selectedRecords
       .map((record) => {
         const recordRid = String(record?.rid || '').trim();
         const ridKey = recordRid.toLowerCase();
@@ -364,15 +426,19 @@ export default function Leaderboard() {
         };
 
         const tier = getTier(record, wrestler);
+        const division = getDivision(record, wrestler);
         const rankNumber = getRankNumber(record, wrestler);
         const side = normalizeSide(record?.side || wrestler?.current_side || '') || 'West';
+        const rid = String(wrestler?.rid || recordRid || '').trim();
+        const rankLabel = getRankLabel(record, wrestler);
 
         return {
           wrestler,
           record,
-          rid: String(wrestler?.rid || recordRid || '').trim(),
+          rid,
           tier,
-          division: getDivision(record, wrestler),
+          division,
+          rankLabel,
           rankNumber,
           side,
           wins: getWins(record),
@@ -386,16 +452,25 @@ export default function Leaderboard() {
           }),
         };
       })
-      .filter((item) => selectedDivision === 'all' || item.division === selectedDivision)
+      .filter((item) => item.division)
       .filter((item) => !hideStubs || !isStubWrestler(item.wrestler));
 
-    const q = searchQuery.trim().toLowerCase();
-    const filteredRows = computedRows.filter((item) => {
-      if (!q) return true;
+    const nextDivisionCounts = baseRows.reduce((acc, item) => {
+      acc[item.division] = (acc[item.division] || 0) + 1;
+      return acc;
+    }, {});
+
+    const searchedRows = baseRows.filter((item) => {
+      if (!normalizedDeferredQuery) return true;
 
       const shikona = String(item?.wrestler?.shikona || item?.record?.shikona || '').toLowerCase();
       const rid = String(item?.rid || '').toLowerCase();
-      return shikona.includes(q) || rid.includes(q);
+      const stable = String(item?.wrestler?.stable || '').toLowerCase();
+      return shikona.includes(normalizedDeferredQuery) || rid.includes(normalizedDeferredQuery) || stable.includes(normalizedDeferredQuery);
+    });
+
+    const filteredRows = searchedRows.filter((item) => {
+      return selectedDivision === 'all' || item.division === selectedDivision;
     });
 
     filteredRows.sort((a, b) => {
@@ -421,314 +496,313 @@ export default function Leaderboard() {
       return banzukeCompare(a, b);
     });
 
-    const firstFiveSortKeys = filteredRows.slice(0, 5).map((item) => ({
-      rid: item.rid || '-',
-      tier: item.tier || '-',
-      rankNumber: item.rankNumber,
-      side: item.side || '-',
-      wl: `${item.wins}-${item.losses}`,
-    }));
-
     return {
       rows: filteredRows,
-      debugRows: firstFiveSortKeys,
       recordsUsedCount: selectedRecords.length,
+      divisionCounts: nextDivisionCounts,
+      baseRowCount: baseRows.length,
     };
-  }, [bashoRecordsData, hideStubs, searchQuery, selectedBasho, selectedDivision, sortMode, wrestlersData]);
+  }, [
+    bashoRecordsData,
+    hideStubs,
+    normalizedDeferredQuery,
+    selectedBasho,
+    selectedDivision,
+    sortMode,
+    wrestlersData,
+  ]);
 
-  const latestBasho = filteredGroupOptions[0]?.label || '';
-  const showBackendStatus = Boolean(loadError) || !loading;
+  const selectedGroupLabel = selectedGroup?.label || 'No source selected';
+  const sourceMeta = getSourceMeta(selectedGroup);
+  const hasWrestlerCap = wrestlersData.length >= WRESTLER_LIMIT;
+  const hasRecordCap = bashoRecordsData.length >= BASHO_RECORD_LIMIT;
+  const hasEntityCap = hasWrestlerCap || hasRecordCap;
+  const hasActiveFilters = Boolean(
+    searchQuery.trim() ||
+    selectedDivision !== 'all' ||
+    sortMode !== 'banzuke' ||
+    !hideStubs ||
+    includeSnapshots,
+  );
+
+  const handleSelect = (item) => {
+    const rid = String(item?.rid || '').trim();
+    if (!rid) return;
+    navigate(`/rikishi/${encodeURIComponent(rid)}`);
+  };
+
+  const resetFilters = () => {
+    setSearchQuery('');
+    setSelectedDivision('all');
+    setSortMode('banzuke');
+    setHideStubs(true);
+    setIncludeSnapshots(false);
+  };
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-white">
-      <div className="mx-auto max-w-5xl px-4 pb-12 pt-6 sm:px-6 sm:pt-8">
-        {/* ── Premium Header ── */}
-        <header className="mb-2">
-          <div className="flex items-center gap-4">
-            <img src="/logo-64.png" alt="Sumo Sauce" className="h-14 w-14 drop-shadow-lg sm:h-16 sm:w-16" />
-            <div>
-              <span className="text-xs font-bold uppercase tracking-[0.25em] text-red-500">
-                Live Rankings
-              </span>
-              <h1 className="mt-1 font-display text-5xl font-bold uppercase tracking-tight text-white sm:text-6xl lg:text-7xl">
-                Banzuke
-              </h1>
-              <p className="mt-1 text-sm text-zinc-500">
-                相撲番付 • Japan Sumo Association
-              </p>
-            </div>
-          </div>
-        </header>
+    <div className="mx-auto max-w-6xl space-y-5 p-4 text-zinc-200 sm:space-y-6 sm:p-6">
+      <PageMeta
+        title="SumoWatch — Leaderboard"
+        description="Cross-division leaderboard standings with trust-aware wrestler context, safe image handling, and browsable tournament sources."
+      />
 
-        {/* Tournament badge + wrestler count */}
-        <div className="mt-4 flex items-center gap-4">
-          <div className="flex items-center gap-3">
-            <div className="h-10 w-1 rounded-full bg-red-600" />
-            <div>
-              <span className="font-display text-3xl font-bold text-white">{rows.length}</span>
-              <p className="text-[10px] font-semibold uppercase tracking-widest text-zinc-500">Wrestlers</p>
+      <PremiumPageHeader
+        accentLabel="LEADERBOARD"
+        title="Banzuke Leaderboard"
+        subtitle="Cross-division standings from imported entity rows, with verified profile context surfaced only when the trust layer can match it safely."
+        badge={selectedGroup ? selectedGroup.label : 'Standings'}
+        breadcrumbs={[
+          { label: 'Home', to: '/' },
+          { label: 'Leaderboard' },
+        ]}
+        actions={(
+          <>
+            <Link
+              to="/search"
+              className="rounded-lg border border-white/[0.08] bg-white/[0.03] px-3 py-1.5 text-sm text-zinc-300 transition-colors hover:border-red-600/40 hover:text-white"
+            >
+              Search
+            </Link>
+            <Link
+              to="/basho"
+              className="rounded-lg border border-white/[0.08] bg-white/[0.03] px-3 py-1.5 text-sm text-zinc-300 transition-colors hover:border-red-600/40 hover:text-white"
+            >
+              Browse Basho
+            </Link>
+          </>
+        )}
+      >
+        <div className="flex flex-col gap-2 text-sm text-zinc-400 sm:flex-row sm:flex-wrap sm:items-center sm:gap-3">
+          <PremiumBadge variant={sourceMeta.variant}>{sourceMeta.label}</PremiumBadge>
+          <span><span className="font-semibold text-white">{rows.length}</span> visible wrestlers</span>
+          <span><span className="font-semibold text-white">{recordsUsedCount}</span> source rows</span>
+          {hideStubs ? <span>Stub rows hidden</span> : <span>Stub rows visible</span>}
+          {isRefiningSearch ? <span>Refining search…</span> : null}
+        </div>
+      </PremiumPageHeader>
+
+      <div className="grid gap-4 xl:grid-cols-[minmax(0,1.55fr)_minmax(0,1fr)]">
+        <PremiumSectionShell
+          title="Search and Filters"
+          subtitle="Search by shikona, rikishi id, or stable, then refine by division, source, and sort mode."
+        >
+          <SearchBar
+            value={searchQuery}
+            onChange={setSearchQuery}
+            helperText={`Browsing ${baseRowCount} non-stub rows from ${selectedGroupLabel}.`}
+          />
+
+          <div className="mt-4 grid gap-3 md:grid-cols-2 xl:grid-cols-3">
+            <label className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-3 text-sm">
+              <span className="mb-2 block text-xs font-semibold uppercase tracking-[0.2em] text-zinc-500">Standings source</span>
+              <select
+                value={selectedBasho}
+                onChange={(event) => setSelectedBasho(event.target.value)}
+                className="w-full rounded-lg border border-white/[0.08] bg-white/[0.03] px-3 py-2 text-sm text-zinc-200 outline-none focus:border-red-600/50"
+              >
+                {filteredGroupOptions.map((option) => (
+                  <option key={option.key} value={option.key}>
+                    {option.label} ({option.count})
+                  </option>
+                ))}
+              </select>
+            </label>
+
+            <label className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-3 text-sm">
+              <span className="mb-2 block text-xs font-semibold uppercase tracking-[0.2em] text-zinc-500">Sort mode</span>
+              <select
+                value={sortMode}
+                onChange={(event) => setSortMode(event.target.value)}
+                className="w-full rounded-lg border border-white/[0.08] bg-white/[0.03] px-3 py-2 text-sm text-zinc-200 outline-none focus:border-red-600/50"
+              >
+                <option value="banzuke">Official Banzuke Order</option>
+                <option value="standings">Tournament Standings</option>
+                <option value="ovr">Overall Rating</option>
+              </select>
+            </label>
+
+            <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-3 text-sm">
+              <span className="mb-2 block text-xs font-semibold uppercase tracking-[0.2em] text-zinc-500">Visibility</span>
+              <div className="space-y-2">
+                <label className="flex items-center gap-2 text-zinc-300">
+                  <input
+                    type="checkbox"
+                    checked={hideStubs}
+                    onChange={(event) => setHideStubs(event.target.checked)}
+                    className="rounded border-white/[0.08] accent-red-500"
+                  />
+                  Hide stub wrestlers
+                </label>
+                <label className="flex items-center gap-2 text-zinc-300">
+                  <input
+                    type="checkbox"
+                    checked={includeSnapshots}
+                    onChange={(event) => setIncludeSnapshots(event.target.checked)}
+                    className="rounded border-white/[0.08] accent-red-500"
+                  />
+                  Include snapshot sources
+                </label>
+              </div>
             </div>
           </div>
-          <div className="ml-2">
-            <p className="text-sm font-bold text-white">Grand Sumo Tournament</p>
-            <p className="text-[10px] font-semibold uppercase tracking-widest text-zinc-500">Tournament</p>
-          </div>
-          {showBackendStatus && (
-            <span
-              className={`ml-auto inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[11px] font-medium ${
-                loadError
-                  ? 'bg-red-950/60 text-red-300 ring-1 ring-red-800/50'
-                  : 'bg-emerald-950/60 text-emerald-300 ring-1 ring-emerald-800/50'
+
+          <div className="-mx-1 mt-4 overflow-x-auto pb-1">
+            <div className="flex min-w-max gap-2 px-1">
+            <button
+              type="button"
+              onClick={() => setSelectedDivision('all')}
+              className={`rounded-full border px-3 py-1.5 text-xs font-medium transition-colors ${
+                selectedDivision === 'all'
+                  ? 'border-red-600/45 bg-red-950/18 text-red-100'
+                  : 'border-white/[0.08] bg-white/[0.03] text-zinc-300 hover:border-red-600/35 hover:text-white'
               }`}
             >
-              <span className={`h-1.5 w-1.5 rounded-full ${loadError ? 'bg-red-400' : 'bg-emerald-400'}`} />
-              {loadError ? 'Offline' : 'Live'}
-            </span>
-          )}
-        </div>
-
-        {/* Red accent bar */}
-        <div className="mt-5 h-1 w-full overflow-hidden rounded-full bg-white/[0.06]">
-          <div
-            className="h-full rounded-full bg-gradient-to-r from-red-600 to-red-500 transition-all duration-700"
-            style={{ width: loading ? '40%' : '100%' }}
-          />
-        </div>
-
-        {/* ── Loading / Error States ── */}
-        {loading && (
-          <div className="mt-6 flex items-center gap-3 rounded-xl border border-white/[0.06]/60 bg-white/[0.02] px-5 py-6 text-zinc-400">
-            <div className="h-5 w-5 animate-spin rounded-full border-2 border-white/[0.08] border-t-red-500" />
-            Loading banzuke data…
-          </div>
-        )}
-
-        {!loading && loadError && (
-          <div className="mt-6 rounded-xl border border-red-800/40 bg-red-950/30 px-5 py-5">
-            <div className="flex items-start gap-3">
-              <div className="mt-0.5 h-5 w-5 shrink-0 rounded-full bg-red-600/20 ring-2 ring-red-600/40" />
-              <div>
-                <p className="font-semibold text-red-200">Connection Error</p>
-                <p className="mt-1 text-sm text-red-300/70">{loadError}</p>
-              </div>
-            </div>
-          </div>
-        )}
-
-        {/* ── Search ── */}
-        <div className="mt-6">
-          <div className="relative">
-            <Search className="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-zinc-500" />
-            <input
-              type="text"
-              value={searchQuery}
-              onChange={(event) => setSearchQuery(event.target.value)}
-              placeholder="Search wrestlers..."
-              className="w-full rounded-xl border border-white/[0.06]/60 bg-white/[0.02] py-3.5 pl-12 pr-4 text-sm text-zinc-100 placeholder-zinc-600 outline-none transition-all focus:border-red-600/50 focus:ring-1 focus:ring-red-600/30"
-            />
-          </div>
-        </div>
-
-        {/* ── Advanced Filters ── */}
-        <details className="group mt-4">
-          <summary className="flex cursor-pointer items-center justify-between rounded-xl border border-white/[0.06]/60 bg-white/[0.02] px-5 py-3.5 text-sm font-medium text-zinc-300 transition-colors hover:border-white/[0.12]">
-            <div className="flex items-center gap-2.5">
-              <svg className="h-4 w-4 text-zinc-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 1 1-3 0m3 0a1.5 1.5 0 1 0-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-9.75 0h9.75" /></svg>
-              Advanced Filters
-            </div>
-            <svg className="h-4 w-4 text-zinc-500 transition-transform group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" /></svg>
-          </summary>
-          <div className="mt-3 flex flex-wrap items-center gap-3 rounded-xl border border-white/[0.06]/60 bg-white/[0.02] p-4">
-            <select
-              value={selectedBasho}
-              onChange={(event) => setSelectedBasho(event.target.value)}
-              className="rounded-lg border border-white/[0.08] bg-white/[0.04] px-3 py-2 text-sm text-zinc-200 outline-none focus:border-red-600/50"
-            >
-              {filteredGroupOptions.map((option) => (
-                <option key={option.key} value={option.key}>
-                  {option.label} ({option.count})
-                </option>
-              ))}
-            </select>
-
-            <select
-              value={selectedDivision}
-              onChange={(event) => setSelectedDivision(event.target.value)}
-              className="rounded-lg border border-white/[0.08] bg-white/[0.04] px-3 py-2 text-sm text-zinc-200 outline-none focus:border-red-600/50"
-            >
-              <option value="all">All Divisions</option>
-              <option value="Makuuchi">Makuuchi</option>
-              <option value="Juryo">Juryo</option>
-              <option value="Makushita">Makushita</option>
-              <option value="Sandanme">Sandanme</option>
-              <option value="Jonidan">Jonidan</option>
-              <option value="Jonokuchi">Jonokuchi</option>
-            </select>
-
-            <label className="flex items-center gap-2 rounded-lg border border-white/[0.08] bg-white/[0.04] px-3 py-2 text-xs font-medium text-zinc-300">
-              <input
-                type="checkbox"
-                checked={includeSnapshots}
-                onChange={(event) => setIncludeSnapshots(event.target.checked)}
-                className="rounded border-white/[0.08] accent-red-500"
-              />
-              Snapshots
-            </label>
-
-            <label className="flex items-center gap-2 rounded-lg border border-white/[0.08] bg-white/[0.04] px-3 py-2 text-xs font-medium text-zinc-300">
-              <input
-                type="checkbox"
-                checked={hideStubs}
-                onChange={(event) => setHideStubs(event.target.checked)}
-                className="rounded border-white/[0.08] accent-red-500"
-              />
-              Hide Stubs
-            </label>
-          </div>
-        </details>
-
-        {/* ── Understanding the Rankings — info card ── */}
-        <div className="mt-5 rounded-xl border border-blue-800/40 bg-blue-950/20 p-4">
-          <div className="flex items-start gap-3">
-            <div className="mt-0.5 h-5 w-5 shrink-0 rounded-full bg-blue-500/20 ring-2 ring-blue-500/40" />
-            <div>
-              <p className="text-sm font-semibold text-blue-300">Understanding the Rankings</p>
-              <p className="mt-1 text-xs leading-relaxed text-zinc-400">
-                <span className="font-semibold text-zinc-300">Official Banzuke Rank</span> shows traditional ranking position (Yokozuna, Ozeki, etc.) based on historical performance.
-                <span className="font-semibold text-zinc-300"> Tournament Standings</span> shows current basho performance (wins-losses).
-              </p>
-            </div>
-          </div>
-        </div>
-
-        {/* ── Rank Filter Tabs ── */}
-        <div className="mt-6 flex gap-2 overflow-x-auto pb-2 scrollbar-none">
-          <button
-            type="button"
-            onClick={() => setSelectedDivision('all')}
-            className={`tab-btn shrink-0 ${selectedDivision === 'all' ? 'tab-btn-active' : 'tab-btn-inactive'}`}
-          >
-            <span className="text-base">全</span>
-            <span className="text-[11px] uppercase tracking-wider">All Ranks</span>
-          </button>
-          {Object.entries(RANK_KANJI_MAP)
-            .filter(([key]) => MAKUUCHI_RANKS.has(key))
-            .map(([rank, kanji]) => (
+              All divisions ({baseRowCount})
+            </button>
+            {DIVISION_OPTIONS.map((division) => (
               <button
-                key={rank}
+                key={division}
                 type="button"
-                onClick={() => setSelectedDivision(rank === selectedDivision ? 'all' : 'Makuuchi')}
-                className={`tab-btn shrink-0 ${selectedDivision === rank ? 'tab-btn-active' : 'tab-btn-inactive'}`}
+                onClick={() => setSelectedDivision(division)}
+                className={`rounded-full border px-3 py-1.5 text-xs font-medium transition-colors ${
+                  selectedDivision === division
+                    ? 'border-red-600/45 bg-red-950/18 text-red-100'
+                    : 'border-white/[0.08] bg-white/[0.03] text-zinc-300 hover:border-red-600/35 hover:text-white'
+                }`}
               >
-                <span className="text-base">{kanji}</span>
-                <span className="text-[11px] uppercase tracking-wider">{rank}</span>
+                {division} ({divisionCounts[division] || 0})
               </button>
             ))}
-        </div>
-
-        {/* ── Sort Mode ── */}
-        <div className="mt-4 flex items-center gap-3">
-          <div className="flex items-center gap-2 text-xs text-zinc-500">
-            <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M3 7.5 7.5 3m0 0L12 7.5M7.5 3v13.5m13.5-4.5L16.5 16.5m0 0L12 12m4.5 4.5V3" /></svg>
+            </div>
           </div>
-          <select
-            value={sortMode}
-            onChange={(event) => setSortMode(event.target.value)}
-            className="rounded-lg border border-white/[0.06]/60 bg-white/[0.02] px-3 py-2 text-sm text-zinc-300 outline-none focus:border-red-600/50"
-          >
-            <option value="banzuke">Official Banzuke Rank</option>
-            <option value="standings">Tournament Standings</option>
-            <option value="ovr">Overall Rating</option>
-          </select>
-        </div>
 
-        {/* ── Wrestler List ── */}
-        {!loading && !loadError && (
-          <div className="mt-6 space-y-2">
-            {rows.map((item, index) => {
-              const wrestler = item.wrestler || {};
-              const record = item.record || {};
-              const rankKanji = getRankKanji(item.tier);
-
-              const rid = String(item.rid || wrestler?.rid || record?.rid || '').trim();
-              const shikona = String(wrestler?.shikona || record?.shikona || rid || 'Unknown').trim();
-
-              const photoUrl = resolvePhotoUrl(wrestler);
-              const stableName = String(wrestler?.stable || wrestler?.heya?.name || '').trim();
-
-              const ovrTone = item.overallRating >= 90
-                ? 'score-elite'
-                : item.overallRating >= 80
-                  ? 'score-high'
-                  : item.overallRating >= 70
-                    ? 'score-mid'
-                    : 'score-low';
-
-              return (
-                <Link
-                  key={rid || `${record?.record_id || 'row'}-${index}`}
-                  to={`/rikishi/${encodeURIComponent(rid)}`}
-                  className="group block rounded-xl border border-white/[0.06] bg-white/[0.02] px-4 py-3 transition-all duration-200 hover:border-red-600/40 hover:bg-white/[0.04] hover:shadow-lg hover:shadow-red-950/10 sm:px-5"
-                >
-                  <div className="flex items-center gap-3 sm:gap-4">
-                    {/* Rank number */}
-                    <div className="w-8 text-right font-display text-xl font-bold text-zinc-500 sm:w-10 sm:text-2xl">
-                      {index + 1}
-                    </div>
-
-                    {/* OVR badge */}
-                    <div className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full border text-xs font-black ${ovrTone}`}>
-                      {item.overallRating}
-                    </div>
-
-                    {/* Avatar */}
-                    <FallbackAvatar
-                      size="sm"
-                      photoUrl={photoUrl}
-                      shikona={shikona}
-                      rid={rid}
-                      stable={stableName}
-                      rank={item.tier}
-                    />
-
-                    {/* Name & rank */}
-                    <div className="min-w-0 flex-1">
-                      <div className="truncate font-display text-lg font-bold tracking-tight text-white group-hover:text-red-400 sm:text-xl">
-                        {shikona}
-                      </div>
-                      <div className="flex items-center gap-1.5 text-xs text-zinc-400 sm:text-sm">
-                        <RankSignal tier={item.tier} />
-                        <span className="font-semibold text-zinc-300">{item.tier}</span>
-                        {rankKanji && <span className="text-zinc-500">{rankKanji}</span>}
-                        <span className="text-zinc-700">·</span>
-                        <span className="hidden text-zinc-500 sm:inline">{getRankLabel(record, wrestler)}</span>
-                      </div>
-                    </div>
-
-                    {/* Win-Loss */}
-                    <div className="text-right">
-                      <div className="font-display text-lg font-bold tracking-tight sm:text-xl">
-                        <span className="text-white">{item.wins}</span>
-                        <span className="text-zinc-600">-</span>
-                        <span className="text-zinc-400">{item.losses}</span>
-                      </div>
-                      <div className="mt-0.5 text-[10px] font-medium uppercase tracking-wider text-zinc-600">
-                        {(item.winPct * 100).toFixed(0)}% Win
-                      </div>
-                    </div>
-                  </div>
-                </Link>
-              );
-            })}
-
-            {!rows.length && (
-              <div className="rounded-xl border border-white/[0.06]/60 bg-white/[0.02] px-5 py-8 text-center text-sm text-zinc-500">
-                No wrestlers match the current filters.
-              </div>
+          <div className="mt-4 flex flex-col gap-3 text-sm text-zinc-500 sm:flex-row sm:flex-wrap sm:items-center">
+            {hasActiveFilters ? (
+              <button
+                type="button"
+                onClick={resetFilters}
+                className="inline-flex items-center gap-2 rounded-lg border border-white/[0.08] bg-white/[0.03] px-3 py-1.5 text-zinc-300 transition-colors hover:border-red-600/40 hover:text-white"
+              >
+                <RefreshCcw className="h-4 w-4" />
+                Reset filters
+              </button>
+            ) : (
+              <span>Default leaderboard filters active.</span>
             )}
           </div>
-        )}
+        </PremiumSectionShell>
+
+        <PremiumSectionShell
+          title="Trust and Source Context"
+          subtitle="Legacy standings rows are shown with verified profile context only when the trust layer can match them safely."
+        >
+          <div className="space-y-3">
+            <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-4">
+              <div className="flex items-center gap-2">
+                <Database className="h-4 w-4 text-red-400" />
+                <span className="text-sm font-semibold text-white">{selectedGroupLabel}</span>
+              </div>
+              <p className="mt-2 text-sm leading-relaxed text-zinc-400">{sourceMeta.description}</p>
+            </div>
+
+            <div className="grid gap-3">
+              <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-4">
+                <div className="flex items-center gap-2 text-sm font-semibold text-white">
+                  <ShieldCheck className="h-4 w-4 text-red-400" />
+                  Verified context when available
+                </div>
+                <p className="mt-2 text-sm leading-relaxed text-zinc-400">
+                  Leaderboard rows now surface verified profile and provenance cues when a canonical rikishi profile can be matched by id or shikona.
+                </p>
+              </div>
+
+              <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-4">
+                <div className="flex items-center gap-2 text-sm font-semibold text-white">
+                  <ImageIcon className="h-4 w-4 text-red-400" />
+                  Verified image rule preserved
+                </div>
+                <p className="mt-2 text-sm leading-relaxed text-zinc-400">
+                  Official photos only render when the verified profile layer confirms them. Otherwise the leaderboard falls back to neutral avatars.
+                </p>
+              </div>
+
+              <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-4">
+                <div className="flex items-center gap-2 text-sm font-semibold text-white">
+                  <Layers3 className="h-4 w-4 text-red-400" />
+                  Legacy dataset caveat
+                </div>
+                <p className="mt-2 text-sm leading-relaxed text-zinc-400">
+                  {missingBashoCount > 0
+                    ? `${missingBashoCount} standings rows currently lack an explicit basho label in the entity layer, so some source labels are inferred or snapshot-based.`
+                    : 'Current imported rows all carry explicit basho labels.'}
+                </p>
+              </div>
+
+              <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-4">
+                <div className="flex items-center gap-2 text-sm font-semibold text-white">
+                  <Database className="h-4 w-4 text-red-400" />
+                  Entity response scope
+                </div>
+                <p className="mt-2 text-sm leading-relaxed text-zinc-400">
+                  {hasEntityCap
+                    ? `The current entity responses may have reached at least one API cap (${wrestlersData.length}/${WRESTLER_LIMIT} wrestler rows, ${bashoRecordsData.length}/${BASHO_RECORD_LIMIT} basho rows loaded). Treat this leaderboard as a browsable imported slice, not a guaranteed exhaustive live board.`
+                    : `Current entity responses stayed below the API caps (${wrestlersData.length}/${WRESTLER_LIMIT} wrestler rows, ${bashoRecordsData.length}/${BASHO_RECORD_LIMIT} basho rows loaded).`}
+                </p>
+              </div>
+            </div>
+          </div>
+        </PremiumSectionShell>
       </div>
+
+      <PremiumSectionShell
+        title="Leaderboard Standings"
+        subtitle="This surface now shares the same search, trust, and navigation vocabulary as the newer product pages."
+        trailing={
+          <div className="flex items-center gap-2 text-sm text-zinc-400">
+            {loading ? <span>Loading…</span> : <span>{rows.length} results</span>}
+            {loadError ? (
+              <PremiumBadge variant="amber">Unavailable</PremiumBadge>
+            ) : hasEntityCap ? (
+              <PremiumBadge variant="amber">Loaded slice</PremiumBadge>
+            ) : (
+              <PremiumBadge variant="green">Loaded</PremiumBadge>
+            )}
+          </div>
+        }
+      >
+        {loading ? (
+          <div className="space-y-2">
+            {Array.from({ length: 6 }).map((_, index) => (
+              <div
+                key={index}
+                className="h-24 animate-pulse rounded-xl border border-white/[0.06] bg-white/[0.02]"
+              />
+            ))}
+          </div>
+        ) : loadError ? (
+          <div className="rounded-xl border border-red-800/40 bg-red-950/25 p-5">
+            <p className="font-semibold text-red-200">Connection error</p>
+            <p className="mt-1 text-sm text-red-300/75">{loadError}</p>
+            <div className="mt-4">
+              <button
+                type="button"
+                onClick={() => setReloadKey((value) => value + 1)}
+                className="rounded-lg border border-red-700/40 bg-red-950/20 px-4 py-2 text-sm font-medium text-red-100 transition-colors hover:border-red-600/50"
+              >
+                Retry
+              </button>
+            </div>
+          </div>
+        ) : filteredGroupOptions.length === 0 ? (
+          <EmptyState
+            message="No standings sources are available"
+            description="Import wrestler and basho record entities to populate this leaderboard."
+            suggestions={[['Browse basho', '/basho']]}
+          />
+        ) : (
+          <LeaderboardTable wrestlers={rows} onSelect={handleSelect} />
+        )}
+      </PremiumSectionShell>
     </div>
   );
 }

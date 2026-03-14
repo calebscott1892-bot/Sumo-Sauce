@@ -3,11 +3,11 @@ import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   Menu, X, Home, Trophy, BarChart3, Calendar, Users,
-  Swords, Clock, Search, Bell, TrendingUp, Compass
+  Swords, Clock, Search, TrendingUp, Compass
 } from 'lucide-react';
 
 const navItems = [
-  { name: 'Leaderboard', path: '/leaderboard', icon: Home },
+  { name: 'Leaderboard', path: '/leaderboard', icon: Trophy },
   { name: 'Search', path: '/search', icon: Search },
   { name: 'Tournament Hub', path: '/basho', icon: Calendar },
   { name: 'Rikishi Directory', path: '/rikishi', icon: Users },
@@ -59,12 +59,13 @@ export default function FloatingNav() {
         >
           {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </button>
-        <button
+        <Link
+          to="/search"
           className="flex h-11 w-11 items-center justify-center rounded-full bg-black/90 text-zinc-300 shadow-lg shadow-black/40 ring-1 ring-white/10 backdrop-blur-sm transition-all hover:bg-white/[0.06] hover:text-white hover:ring-white/20"
-          aria-label="Notifications"
+          aria-label="Open search"
         >
-          <Bell className="h-5 w-5" />
-        </button>
+          <Search className="h-5 w-5" />
+        </Link>
       </div>
 
       {/* Overlay + Side Panel */}
@@ -94,7 +95,7 @@ export default function FloatingNav() {
               {/* Red header bar */}
               <div className="flex items-center justify-between border-b border-red-700/50 bg-gradient-to-r from-red-700 to-red-600 px-5 py-3">
                 <div className="flex items-center gap-2.5">
-                  <img src="/logo-64.png" alt="Sumo Sauce" className="h-8 w-8 drop-shadow-lg" />
+                  <img src="/logo-64.png" alt="SumoWatch" className="h-8 w-8 drop-shadow-lg" />
                   <span className="font-display text-sm font-semibold uppercase tracking-[0.2em] text-white">
                     Navigation
                   </span>
@@ -149,7 +150,7 @@ export default function FloatingNav() {
                   <span>Press <kbd className="ml-1 rounded border border-white/[0.08] bg-white/[0.04] px-1.5 py-0.5 font-mono text-[10px] text-zinc-400">⌘K</kbd></span>
                   <div className="flex items-center gap-1.5">
                     <img src="/logo-64.png" alt="" className="h-4 w-4" />
-                    <span className="font-display text-[10px] uppercase tracking-wider text-zinc-600">Sumo Sauce</span>
+                    <span className="font-display text-[10px] uppercase tracking-wider text-zinc-600">SumoWatch</span>
                   </div>
                 </div>
               </div>

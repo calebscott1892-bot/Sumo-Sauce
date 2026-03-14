@@ -3,25 +3,54 @@ import { Link, useNavigate, useParams, useSearchParams } from 'react-router-dom'
 import { useQuery } from '@tanstack/react-query';
 import { ApiError, getDivisionStandings } from '@/pages/basho/api';
 import type { Division } from '@/pages/basho/types';
+import BashoDivisionBrowseNav from '@/components/basho/BashoDivisionBrowseNav';
 import BashoNav from '@/components/navigation/BashoNav';
-import BashoStandingsSkeleton from '@/components/ui/skeletons/BashoStandingsSkeleton';
 import RankMovementIndicator from '@/components/basho/RankMovementIndicator';
 import PromotionPredictionBadge from '@/components/basho/PromotionPredictionBadge';
-import { bashoDisplayName, divisionLabel, prevBashoId, nextBashoId } from '@/utils/basho';
+import { bashoDisplayName, divisionLabel, prevBashoId, nextBashoId, latestBashoId } from '@/utils/basho';
 import { isValidBashoId } from '@/utils/security';
 import { trackBashoPageView } from '@/utils/analytics';
 import EmptyState from '@/components/ui/EmptyState';
 import PageMeta from '@/components/ui/PageMeta';
-import { PremiumPageHeader } from '@/components/ui/premium';
+import { PremiumBadge, PremiumPageHeader } from '@/components/ui/premium';
 
 type SortKey = 'rank' | 'wins' | 'losses' | 'winPct';
 type SortDir = 'asc' | 'desc';
 
 const VALID_DIVISIONS: Division[] = ['makuuchi', 'juryo', 'makushita', 'sandanme', 'jonidan', 'jonokuchi'];
-const BASHO_RE = /^\d{6}$/;
 
 function isDivision(value: string): value is Division {
   return VALID_DIVISIONS.includes(value as Division);
+}
+
+function DivisionStandingsContentSkeleton() {
+  return (
+    <div className="space-y-3" aria-hidden="true">
+      <div className="grid gap-3 sm:grid-cols-3">
+        {Array.from({ length: 3 }).map((_, index) => (
+          <div key={index} className="h-16 animate-pulse rounded-xl border border-white/[0.06] bg-white/[0.02]" />
+        ))}
+      </div>
+      <div className="overflow-x-auto rounded-xl border border-white/[0.06]">
+        <div className="min-w-full">
+          <div className="grid grid-cols-8 gap-2 border-b border-white/[0.04] bg-white/[0.03] px-3 py-3">
+            {Array.from({ length: 8 }).map((_, index) => (
+              <div key={index} className="h-4 animate-pulse rounded bg-white/[0.05]" />
+            ))}
+          </div>
+          <div className="space-y-2 px-3 py-3">
+            {Array.from({ length: 10 }).map((_, index) => (
+              <div key={index} className="grid grid-cols-8 gap-2 rounded-lg px-1 py-2">
+                {Array.from({ length: 8 }).map((__, cellIndex) => (
+                  <div key={cellIndex} className="h-4 animate-pulse rounded bg-white/[0.05]" />
+                ))}
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 }
 
 export default function BashoDivisionPage() {
@@ -44,6 +73,7 @@ export default function BashoDivisionPage() {
   const filterMode = (searchParams.get('filter') as 'all' | 'kk' | 'mk') || 'all';
   const minWins = Number(searchParams.get('minWins') ?? '0');
   const shikonaSearch = searchParams.get('q') ?? '';
+  const latestTournamentId = latestBashoId();
 
   function setFilterParam(key: string, value: string) {
     setSearchParams((prev) => {
@@ -89,7 +119,7 @@ export default function BashoDivisionPage() {
     const next = e.target.value as Division;
     setDraftDivision(next);
     // Navigate immediately when basho is valid
-    if (BASHO_RE.test(draftBasho)) {
+    if (isValidBashoId(draftBasho)) {
       navigateToStandings(draftBasho, next);
     }
   };
@@ -121,9 +151,9 @@ export default function BashoDivisionPage() {
 
   // --- Picker controls (always rendered) ---
   const picker = (
-    <section className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5">
-      <div className="flex flex-wrap items-end gap-3">
-        <div>
+    <section className="rounded-2xl border border-white/[0.06] bg-white/[0.02] p-4 sm:p-5">
+      <div className="grid gap-3 sm:flex sm:flex-wrap sm:items-end">
+        <div className="w-full sm:w-auto">
           <label htmlFor="basho-input" className="mb-1 block text-xs text-zinc-400">
             Basho (YYYYMM)
           </label>
@@ -139,12 +169,12 @@ export default function BashoDivisionPage() {
               setBashoError('');
             }}
             onKeyDown={handleKeyDown}
-            className="w-28 rounded-md border border-white/[0.08] bg-white/[0.04] px-2 py-1.5 text-sm text-zinc-100 placeholder-zinc-500 focus:border-red-500 focus:outline-none"
+            className="w-full rounded-md border border-white/[0.08] bg-white/[0.04] px-3 py-2 text-sm text-zinc-100 placeholder-zinc-500 focus:border-red-500 focus:outline-none sm:w-28"
             placeholder="202401"
           />
         </div>
 
-        <div>
+        <div className="w-full sm:w-auto">
           <label htmlFor="division-select" className="mb-1 block text-xs text-zinc-400">
             Division
           </label>
@@ -153,7 +183,7 @@ export default function BashoDivisionPage() {
             data-testid="division-select"
             value={draftDivision}
             onChange={handleDivisionChange}
-            className="rounded-md border border-white/[0.08] bg-white/[0.04] px-2 py-1.5 text-sm text-zinc-100 focus:border-red-500 focus:outline-none"
+            className="w-full rounded-md border border-white/[0.08] bg-white/[0.04] px-3 py-2 text-sm text-zinc-100 focus:border-red-500 focus:outline-none sm:w-auto"
           >
             {VALID_DIVISIONS.map((d) => (
               <option key={d} value={d}>
@@ -167,11 +197,40 @@ export default function BashoDivisionPage() {
           data-testid="basho-go"
           type="button"
           onClick={handleGo}
-          className="rounded-md bg-red-600 px-4 py-1.5 text-sm font-medium text-white hover:bg-red-500 focus:outline-none"
+          className="min-h-11 rounded-md bg-red-600 px-4 py-2 text-sm font-medium text-white hover:bg-red-500 focus:outline-none"
         >
           Go
         </button>
       </div>
+
+      <div className="mt-4 flex flex-wrap items-center gap-2">
+        {isValidBashoId(bashoId) && (
+          <Link
+            to={`/basho/${encodeURIComponent(bashoId)}`}
+            className="rounded-full border border-white/[0.08] bg-white/[0.03] px-3 py-1.5 text-xs font-medium text-zinc-300 transition-colors hover:border-red-600/40 hover:text-white"
+          >
+            Basho overview
+          </Link>
+        )}
+        {latestTournamentId && latestTournamentId !== bashoId && (
+          <Link
+            to={`/basho/${encodeURIComponent(latestTournamentId)}/${encodeURIComponent(draftDivision)}`}
+            className="rounded-full border border-white/[0.08] bg-white/[0.03] px-3 py-1.5 text-xs font-medium text-zinc-300 transition-colors hover:border-red-600/40 hover:text-white"
+          >
+            Latest {divisionLabel(draftDivision)}
+          </Link>
+        )}
+        <Link
+          to="/basho"
+          className="rounded-full border border-white/[0.08] bg-white/[0.03] px-3 py-1.5 text-xs font-medium text-zinc-300 transition-colors hover:border-red-600/40 hover:text-white"
+        >
+          Browse archive
+        </Link>
+      </div>
+
+      <p className="mt-3 hidden text-xs text-zinc-500 sm:block">
+        Tip: use the left and right arrow keys to move between basho while keeping this division selected.
+      </p>
 
       {bashoError && (
         <p className="mt-2 text-xs text-red-400" role="alert">
@@ -193,49 +252,19 @@ export default function BashoDivisionPage() {
     );
   }
 
-  if (standingsQuery.isLoading) {
-    return <BashoStandingsSkeleton />;
-  }
-
-  if (standingsQuery.error instanceof ApiError && standingsQuery.error.status === 404) {
-    return (
-      <div data-testid="division-page" className="mx-auto max-w-6xl space-y-6 p-6 text-zinc-200">
-        {picker}
-        <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-4">
-          Basho or division not found.
-          <div className="mt-2">
-            <Link className="text-red-400 hover:text-red-300" to="/leaderboard">
-              Back to leaderboard
-            </Link>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
-  if (standingsQuery.error || !standingsQuery.data) {
-    const err = standingsQuery.error;
-    const errCode = err instanceof ApiError ? err.code : 'UNKNOWN';
-    const errMsg = err instanceof ApiError ? err.message : 'An unexpected error occurred.';
-    return (
-      <div data-testid="division-page" className="mx-auto max-w-6xl space-y-6 p-6 text-zinc-200">
-        {picker}
-        <div className="rounded-xl border border-red-800 bg-red-950/20 p-4">
-          <div className="font-semibold text-red-300">{errCode}</div>
-          <div className="mt-1 text-sm text-zinc-300">{errMsg}</div>
-          <div className="mt-3">
-            <Link className="text-red-400 hover:text-red-300" to="/">
-              ← Home
-            </Link>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
-  const rows = standingsQuery.data;
+  const rows = standingsQuery.data ?? [];
+  const isLoadingStandings = standingsQuery.isLoading;
+  const standingsNotFound = standingsQuery.error instanceof ApiError && standingsQuery.error.status === 404;
+  const standingsError = standingsQuery.error && !standingsNotFound ? standingsQuery.error : null;
+  const filtersDisabled = isLoadingStandings || standingsNotFound || Boolean(standingsError);
   const maxWins = rows.reduce((max, row) => (row.wins > max ? row.wins : max), 0);
   const maxWinsInData = maxWins;
+  const leader = rows.reduce<(typeof rows)[number] | null>((best, row) => {
+    if (!best) return row;
+    if (row.wins > best.wins) return row;
+    if (row.wins === best.wins && row.losses < best.losses) return row;
+    return best;
+  }, null);
 
   const filteredRows = useMemo(() => {
     let result = [...rows];
@@ -357,57 +386,83 @@ export default function BashoDivisionPage() {
   }, [bashoId, division, navigate]);
 
   return (
-    <div data-testid="division-page" className="stagger-children mx-auto max-w-6xl space-y-6 p-6 text-zinc-200">
+    <div data-testid="division-page" className="stagger-children mx-auto max-w-6xl space-y-5 p-4 text-zinc-200 sm:space-y-6 sm:p-6">
       <PageMeta
-        title={`Sumo Sauce \u2014 ${bashoDisplayName(bashoId)} ${divisionLabel(division)}`}
-        description={`${bashoDisplayName(bashoId)} ${divisionLabel(division)} standings, results, and analytics on Sumo Sauce.`}
+        title={`SumoWatch \u2014 ${bashoDisplayName(bashoId)} ${divisionLabel(division)}`}
+        description={`${bashoDisplayName(bashoId)} ${divisionLabel(division)} standings, results, and analytics on SumoWatch.`}
       />
 
       <PremiumPageHeader
         accentLabel="TOURNAMENT STANDINGS"
         title={`${bashoDisplayName(bashoId)} — ${divisionLabel(division)}`}
+        subtitle="Browse one division in detail while keeping quick access to the full tournament and archive."
         breadcrumbs={[
           { label: 'Home', to: '/' },
           { label: 'Basho', to: '/basho' },
           { label: bashoId, to: `/basho/${encodeURIComponent(bashoId)}` },
           { label: divisionLabel(division as Division) },
         ]}
-      />
+      >
+        <div className="flex flex-col gap-2 text-sm text-zinc-400 sm:flex-row sm:flex-wrap sm:items-center sm:gap-3">
+          {isLoadingStandings ? (
+            <span>Loading standings…</span>
+          ) : (
+            <span><span className="font-semibold text-white">{rows.length}</span> rikishi listed</span>
+          )}
+          {!isLoadingStandings && leader && (
+            <span className="inline-flex items-center gap-2">
+              <span>Leader</span>
+              <Link
+                to={`/rikishi/${encodeURIComponent(leader.rikishiId)}`}
+                className="font-medium text-red-300 transition-colors hover:text-red-200"
+              >
+                {leader.shikona}
+              </Link>
+              <PremiumBadge variant="amber">{leader.wins}-{leader.losses}</PremiumBadge>
+            </span>
+          )}
+          <span>Filters stay in the URL for shareable division views.</span>
+        </div>
+      </PremiumPageHeader>
 
       {picker}
 
       <BashoNav bashoId={bashoId} division={division} />
 
+      <BashoDivisionBrowseNav bashoId={bashoId} active={division} />
+
       {/* Filters */}
-      <section className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-4">
-        <div className="flex flex-wrap items-end gap-4">
-          <div>
+      <section className="rounded-2xl border border-white/[0.06] bg-white/[0.02] p-4">
+        <div className="grid gap-3 sm:grid-cols-2 xl:flex xl:flex-wrap xl:items-end xl:gap-4">
+          <div className="min-w-0">
             <label htmlFor="filter-shikona" className="mb-1 block text-xs text-zinc-400">Search shikona</label>
             <input
               id="filter-shikona"
               data-testid="filter-shikona"
               type="text"
+              disabled={filtersDisabled}
               value={shikonaSearch}
               onChange={(e) => setFilterParam('q', e.target.value)}
               placeholder="Search…"
-              className="w-36 rounded-md border border-white/[0.08] bg-white/[0.04] px-2 py-1.5 text-sm text-zinc-100 placeholder-zinc-500 focus:border-red-500 focus:outline-none"
+              className="w-full rounded-md border border-white/[0.08] bg-white/[0.04] px-3 py-2 text-sm text-zinc-100 placeholder-zinc-500 focus:border-red-500 focus:outline-none sm:w-36"
             />
           </div>
-          <div>
+          <div className="min-w-0">
             <label htmlFor="filter-mode" className="mb-1 block text-xs text-zinc-400">Record</label>
             <select
               id="filter-mode"
               data-testid="filter-mode"
+              disabled={filtersDisabled}
               value={filterMode}
               onChange={(e) => setFilterParam('filter', e.target.value)}
-              className="rounded-md border border-white/[0.08] bg-white/[0.04] px-2 py-1.5 text-sm text-zinc-100 focus:border-red-500 focus:outline-none"
+              className="w-full rounded-md border border-white/[0.08] bg-white/[0.04] px-3 py-2 text-sm text-zinc-100 focus:border-red-500 focus:outline-none sm:w-auto"
             >
               <option value="all">All</option>
               <option value="kk">Kachi-koshi only</option>
               <option value="mk">Make-koshi only</option>
             </select>
           </div>
-          <div>
+          <div className="min-w-0">
             <label htmlFor="filter-min-wins" className="mb-1 block text-xs text-zinc-400">
               Min wins: {minWins}
             </label>
@@ -415,15 +470,16 @@ export default function BashoDivisionPage() {
               id="filter-min-wins"
               data-testid="filter-min-wins"
               type="range"
+              disabled={filtersDisabled}
               min={0}
               max={maxWinsInData}
               value={minWins}
               onChange={(e) => setFilterParam('minWins', e.target.value)}
-              className="w-32 accent-red-500"
+              className="w-full accent-red-500 sm:w-32"
             />
           </div>
           {(filterMode !== 'all' || minWins > 0 || shikonaSearch.trim()) && (
-            <div className="text-xs text-zinc-400">
+            <div className="text-xs leading-relaxed text-zinc-400">
               Showing {filteredRows.length} of {rows.length}
               <button
                 type="button"
@@ -437,8 +493,33 @@ export default function BashoDivisionPage() {
         </div>
       </section>
 
-      <section className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-3 sm:p-5">
-        {filteredRows.length === 0 ? (
+      <section className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-3 sm:p-5" aria-busy={isLoadingStandings}>
+        {isLoadingStandings ? (
+          <DivisionStandingsContentSkeleton />
+        ) : standingsNotFound ? (
+          <EmptyState
+            message="Basho or division not found"
+            description="This tournament/division combination is not available in the current standings layer."
+            suggestions={[
+              ['Basho overview', `/basho/${encodeURIComponent(bashoId)}`],
+              ['Browse archive', '/basho'],
+            ]}
+          />
+        ) : standingsError ? (
+          <div className="rounded-xl border border-red-800 bg-red-950/20 p-4">
+            <div className="font-semibold text-red-300">
+              {standingsError instanceof ApiError ? standingsError.code : 'UNKNOWN'}
+            </div>
+            <div className="mt-1 text-sm text-zinc-300">
+              {standingsError instanceof ApiError ? standingsError.message : 'An unexpected error occurred.'}
+            </div>
+            <div className="mt-3">
+              <Link className="text-red-400 hover:text-red-300" to="/">
+                ← Home
+              </Link>
+            </div>
+          </div>
+        ) : filteredRows.length === 0 ? (
           <EmptyState
             message="No wrestlers match your filters"
             description="Try adjusting the search, record filter, or minimum wins."

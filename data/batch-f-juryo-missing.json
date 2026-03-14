@@ -1,7 +1,10 @@
 {
   "_meta": {
-    "description": "Batch F: Full Juryo Population — missing wrestler handoff",
+    "description": "Batch F: Full Juryo Population — historical missing-wrestler handoff",
     "generatedDate": "2026-03-12",
+    "authorityStatus": "historical-workflow-artifact",
+    "retiredAsRosterTruth": "2026-03-13",
+    "retirementNote": "This target list is no longer authoritative for March 2026 Juryo membership. Later official evidence confirmed additional valid Juryo-context wrestlers that were omitted from this original handoff.",
     "sourceAudit": "docs/BATCH_E_AUDIT.md",
     "banzukeBasho": "202603 (Haru 2026)",
     "targetDivision": "Juryo",
@@ -10,7 +13,7 @@
     "needsRikishiIdOnly": 2,
     "fullyMissing": 19,
     "j14wUnidentified": 1,
-    "instructions": "For each entry below, research via SumoDB and JSA to populate rikishiId, heya, birthDate, nationality, heightCm, weightKg. Use the standard merge-research.mjs workflow with --file data/resolved-f-juryo-population.json --apply"
+    "instructions": "Historical handoff only. Do not treat this file as the authoritative March 2026 Juryo roster. Use canonical data plus current official evidence for reconciliation work."
   },
   "alreadyPresent_noActionNeeded": [
     { "rank": "J5w",  "shikona": "Toshinofuji", "rikishiId": "4243", "status": "✅ complete" },

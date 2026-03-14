@@ -1,15 +1,17 @@
 import { useMemo } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
-import { Search, Filter } from 'lucide-react';
+import { Search, Filter, Compass, ArrowRight } from 'lucide-react';
 import {
   recentBashoIds,
   bashoTournamentName,
   bashoLabel,
+  bashoDisplayName,
   parseBashoId,
+  divisionLabel,
 } from '@/utils/basho';
 import EmptyState from '@/components/ui/EmptyState';
 import PageMeta from '@/components/ui/PageMeta';
-import { PremiumPageHeader } from '@/components/ui/premium';
+import { PremiumBadge, PremiumPageHeader, PremiumSectionShell } from '@/components/ui/premium';
 
 type BashoEntry = {
   bashoId: string;
@@ -85,6 +87,8 @@ export default function BashoBrowserPage() {
   }, [allBasho, yearFilter, monthFilter, searchQuery]);
 
   const hasFilters = Boolean(yearFilter || monthFilter || searchQuery.trim());
+  const latestBasho = allBasho[0] ?? null;
+  const launchpadBasho = allBasho.slice(0, 4);
 
   function updateParam(key: string, value: string) {
     setSearchParams((prev) => {
@@ -116,19 +120,93 @@ export default function BashoBrowserPage() {
   return (
     <div data-testid="basho-browser-page" className="stagger-children mx-auto max-w-6xl space-y-6 p-6 text-zinc-200">
       <PageMeta
-        title="Sumo Sauce — Basho Browser"
+        title="SumoWatch — Basho Browser"
         description="Browse all historical sumo basho tournaments from 2000 to present. Search and filter by year, tournament name, or month."
       />
 
       <PremiumPageHeader
         accentLabel="TOURNAMENT BROWSER"
         title="Basho Browser"
-        subtitle={`${allBasho.length} tournaments from 2000 to present`}
+        subtitle={`${allBasho.length} tournaments from 2000 to present, with direct paths into the latest divisions`}
         breadcrumbs={[
           { label: 'Home', to: '/' },
           { label: 'Basho Browser' },
         ]}
       />
+
+      {latestBasho && (
+        <section className="grid gap-4 lg:grid-cols-[minmax(0,1.45fr)_minmax(0,1fr)]">
+          <article className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5">
+            <div className="flex flex-wrap items-start justify-between gap-3">
+              <div>
+                <div className="flex items-center gap-2">
+                  <Compass className="h-4 w-4 text-red-400" />
+                  <span className="text-xs font-semibold uppercase tracking-[0.2em] text-red-300">Latest launch</span>
+                </div>
+                <h2 className="mt-3 font-display text-2xl font-bold tracking-tight text-white">
+                  {bashoDisplayName(latestBasho.bashoId)}
+                </h2>
+                <p className="mt-2 max-w-2xl text-sm leading-relaxed text-zinc-400">
+                  Start with the overview for a balanced tournament picture, or jump straight into a division when you already know the layer you want to browse.
+                </p>
+              </div>
+              <PremiumBadge variant="green">Current archive entry</PremiumBadge>
+            </div>
+
+            <div className="mt-4 flex flex-wrap gap-2">
+              <Link
+                to={`/basho/${encodeURIComponent(latestBasho.bashoId)}`}
+                className="rounded-full border border-red-600/35 bg-red-950/18 px-3 py-1.5 text-xs font-medium text-red-100 transition-colors hover:border-red-500/45 hover:text-white"
+              >
+                Overview
+              </Link>
+              {(['makuuchi', 'juryo', 'makushita', 'sandanme', 'jonidan', 'jonokuchi'] as const).map((division) => (
+                <Link
+                  key={division}
+                  to={`/basho/${encodeURIComponent(latestBasho.bashoId)}/${encodeURIComponent(division)}`}
+                  className="rounded-full border border-white/[0.08] bg-white/[0.03] px-3 py-1.5 text-xs font-medium text-zinc-300 transition-colors hover:border-red-600/40 hover:text-white"
+                >
+                  {divisionLabel(division)}
+                </Link>
+              ))}
+            </div>
+          </article>
+
+          <article className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5">
+            <div className="flex items-center justify-between gap-3">
+              <div>
+                <h2 className="font-display text-lg font-bold tracking-tight text-white">Recent archive launchpad</h2>
+                <p className="mt-1 text-sm text-zinc-400">
+                  Jump into the most recent tournaments before dropping into the full archive.
+                </p>
+              </div>
+              <Link
+                to={`/basho/${encodeURIComponent(latestBasho.bashoId)}`}
+                className="inline-flex items-center gap-1 text-sm font-medium text-red-400 transition-colors hover:text-red-300"
+              >
+                Open latest
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
+
+            <div className="mt-4 space-y-2">
+              {launchpadBasho.map((basho) => (
+                <Link
+                  key={basho.bashoId}
+                  to={`/basho/${encodeURIComponent(basho.bashoId)}`}
+                  className="flex items-center justify-between rounded-lg border border-white/[0.06] bg-white/[0.02] px-3 py-3 transition-all hover:border-red-600/35 hover:bg-red-950/10"
+                >
+                  <div>
+                    <div className="text-sm font-semibold text-white">{bashoTournamentName(basho.bashoId)} {basho.year}</div>
+                    <div className="text-xs text-zinc-500">{basho.bashoId}</div>
+                  </div>
+                  <div className="text-xs text-red-300">Browse</div>
+                </Link>
+              ))}
+            </div>
+          </article>
+        </section>
+      )}
 
       {/* Filters */}
       <section className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-4">
@@ -195,36 +273,48 @@ export default function BashoBrowserPage() {
         </div>
       </section>
 
-      {/* Results */}
-      {filtered.length === 0 ? (
-        <EmptyState
-          message="No basho match your filters"
-          description="Try adjusting the year, tournament, or search query."
-          onReset={resetFilters}
-          suggestions={[['← Back to Home', '/']]}
-        />
-      ) : (
-        grouped.map(([year, bashos]) => (
-          <section key={year}>
-            <h2 className="mb-3 font-display text-lg font-bold text-white">{year}</h2>
-            <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
-              {bashos.map((b) => (
-                <Link
-                  key={b.bashoId}
-                  to={`/basho/${b.bashoId}`}
-                  className="group rounded-xl border border-white/[0.06] bg-white/[0.02] p-4 transition-all hover:border-red-600 hover:bg-red-950/10 hover:shadow-lg hover:shadow-red-950/10"
-                >
-                  <div className="text-base font-bold text-white transition-colors group-hover:text-red-300">
-                    {b.tournament}
-                  </div>
-                  <div className="mt-1 text-xs text-zinc-500">{b.label}</div>
-                  <div className="mt-0.5 font-mono text-[10px] text-zinc-600">{b.bashoId}</div>
-                </Link>
-              ))}
-            </div>
-          </section>
-        ))
-      )}
+      <PremiumSectionShell
+        title="Tournament archive"
+        subtitle="Browse every published basho by year, with search and filter state preserved in the URL."
+      >
+        {filtered.length === 0 ? (
+          <EmptyState
+            message="No basho match your filters"
+            description="Try adjusting the year, tournament, or search query."
+            onReset={resetFilters}
+            suggestions={[['← Back to Home', '/']]}
+          />
+        ) : (
+          <div className="space-y-6">
+            {grouped.map(([year, bashos]) => (
+              <section key={year}>
+                <div className="mb-3 flex items-center justify-between gap-3">
+                  <h2 className="font-display text-lg font-bold text-white">{year}</h2>
+                  <div className="text-xs text-zinc-500">{bashos.length} basho</div>
+                </div>
+                <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
+                  {bashos.map((b) => (
+                    <Link
+                      key={b.bashoId}
+                      to={`/basho/${b.bashoId}`}
+                      className="group rounded-xl border border-white/[0.06] bg-white/[0.02] p-4 transition-all hover:border-red-600 hover:bg-red-950/10 hover:shadow-lg hover:shadow-red-950/10"
+                    >
+                      <div className="text-base font-bold text-white transition-colors group-hover:text-red-300">
+                        {b.tournament}
+                      </div>
+                      <div className="mt-1 text-xs text-zinc-500">{b.label}</div>
+                      <div className="mt-0.5 font-mono text-[10px] text-zinc-600">{b.bashoId}</div>
+                      <div className="mt-3 text-[11px] font-medium uppercase tracking-[0.18em] text-zinc-500">
+                        Overview + divisions
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              </section>
+            ))}
+          </div>
+        )}
+      </PremiumSectionShell>
     </div>
   );
 }

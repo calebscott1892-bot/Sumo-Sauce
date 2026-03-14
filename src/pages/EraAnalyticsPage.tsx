@@ -1,14 +1,16 @@
 import { useMemo, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { Award, Clock, Compass, Swords } from 'lucide-react';
 import { trackEraAnalyticsView } from '@/utils/analytics';
 import { useQuery } from '@tanstack/react-query';
-import { Clock, TrendingUp, Award, BarChart3 } from 'lucide-react';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid, LineChart, Line } from 'recharts';
 import { getRikishiDirectory, getCareerTimeline } from '@/pages/rikishi/api';
-import { parseBashoId, bashoLabel } from '@/utils/basho';
+import { parseBashoId } from '@/utils/basho';
 import PageMeta from '@/components/ui/PageMeta';
 import ErrorCard from '@/components/ui/ErrorCard';
-import { PremiumPageHeader } from '@/components/ui/premium';
+import { PremiumPageHeader, PremiumSectionShell, PremiumBadge } from '@/components/ui/premium';
+import AnalyticsNav from '@/components/analytics/AnalyticsNav';
+import AnalyticsTakeawayCard from '@/components/analytics/AnalyticsTakeawayCard';
 import type { TimelineItem } from '../../shared/api/v1';
 
 type EraData = {
@@ -35,14 +37,13 @@ export default function EraAnalyticsPage() {
     staleTime: 10 * 60 * 1000,
   });
 
-  // Sample top rikishi for era analysis
   const sampleIds = useMemo(() => {
     if (!directoryQuery.data?.length) return [];
     return directoryQuery.data.slice(0, 50);
   }, [directoryQuery.data]);
 
   const timelinesQuery = useQuery({
-    queryKey: ['era-timelines', sampleIds.map((s) => s.rikishiId).join(',')],
+    queryKey: ['era-timelines', sampleIds.map((sample) => sample.rikishiId).join(',')],
     enabled: sampleIds.length > 0,
     staleTime: 10 * 60 * 1000,
     queryFn: async () => {
@@ -53,8 +54,8 @@ export default function EraAnalyticsPage() {
         const batchData = await Promise.all(
           batch.map(async (entry) => {
             try {
-              const tl = await getCareerTimeline(entry.rikishiId);
-              return { id: entry.rikishiId, shikona: entry.shikona, timeline: tl };
+              const timeline = await getCareerTimeline(entry.rikishiId);
+              return { id: entry.rikishiId, shikona: entry.shikona, timeline };
             } catch {
               return { id: entry.rikishiId, shikona: entry.shikona, timeline: [] };
             }
@@ -91,30 +92,31 @@ export default function EraAnalyticsPage() {
             performers: new Map(),
           });
         }
-        const d = byDecade.get(decade)!;
-        d.bashoIds.add(entry.bashoId);
-        d.rikishiIds.add(rikishi.id);
-        const bouts = entry.wins + entry.losses;
-        d.totalWins += entry.wins;
-        d.totalBouts += bouts;
 
-        const existing = d.performers.get(rikishi.id) ?? { shikona: rikishi.shikona, wins: 0, bouts: 0 };
+        const decadeData = byDecade.get(decade)!;
+        decadeData.bashoIds.add(entry.bashoId);
+        decadeData.rikishiIds.add(rikishi.id);
+        const bouts = entry.wins + entry.losses;
+        decadeData.totalWins += entry.wins;
+        decadeData.totalBouts += bouts;
+
+        const existing = decadeData.performers.get(rikishi.id) ?? { shikona: rikishi.shikona, wins: 0, bouts: 0 };
         existing.wins += entry.wins;
         existing.bouts += bouts;
-        d.performers.set(rikishi.id, existing);
+        decadeData.performers.set(rikishi.id, existing);
       }
     }
 
     return Array.from(byDecade.entries())
       .map(([decade, data]) => {
         const topPerformers = Array.from(data.performers.entries())
-          .map(([id, perf]) => ({
+          .map(([id, performer]) => ({
             id,
-            shikona: perf.shikona,
-            winRate: perf.bouts > 0 ? perf.wins / perf.bouts : 0,
-            bouts: perf.bouts,
+            shikona: performer.shikona,
+            winRate: performer.bouts > 0 ? performer.wins / performer.bouts : 0,
+            bouts: performer.bouts,
           }))
-          .filter((p) => p.bouts >= 30)
+          .filter((performer) => performer.bouts >= 30)
           .sort((a, b) => b.winRate - a.winRate)
           .slice(0, 5);
 
@@ -129,16 +131,22 @@ export default function EraAnalyticsPage() {
       .sort((a, b) => a.decade.localeCompare(b.decade));
   }, [timelinesQuery.data]);
 
-  const chartData = useMemo(() => {
-    return eraData.map((era) => ({
+  const chartData = useMemo(() => (
+    eraData.map((era) => ({
       decade: era.decade,
       wrestlers: era.uniqueRikishi,
       basho: era.bashoCount,
       winRate: Number((era.avgWinRate * 100).toFixed(1)),
-    }));
-  }, [eraData]);
+    }))
+  ), [eraData]);
 
   const isLoading = directoryQuery.isLoading || timelinesQuery.isLoading;
+  const loadedTimelineProfiles = timelinesQuery.data?.filter((entry) => entry.timeline.length > 0).length ?? 0;
+  const strongestEra = [...eraData].sort((a, b) => b.avgWinRate - a.avgWinRate)[0] ?? null;
+  const busiestEra = [...eraData].sort((a, b) => b.uniqueRikishi - a.uniqueRikishi)[0] ?? null;
+  const sampleStandout = eraData
+    .flatMap((era) => era.topPerformers.map((performer) => ({ ...performer, decade: era.decade })))
+    .sort((a, b) => b.winRate - a.winRate || b.bouts - a.bouts)[0] ?? null;
 
   if (directoryQuery.error || timelinesQuery.error) {
     return <ErrorCard code="FETCH_ERROR" message="Failed to load data. Please try again." backTo="/" backLabel="← Home" />;
@@ -147,67 +155,130 @@ export default function EraAnalyticsPage() {
   return (
     <div className="stagger-children mx-auto max-w-6xl space-y-6 p-6 text-zinc-200">
       <PageMeta
-        title="Sumo Sauce — Era Analytics"
-        description="Explore sumo performance across decades — win rates, top performers, and historical trends."
+        title="SumoWatch — Era Analytics"
+        description="Guided era analytics on SumoWatch — sampled decade trends, participation context, and standout performers."
       />
 
       <PremiumPageHeader
         accentLabel="ERA ANALYTICS"
         title="Era Analytics"
-        subtitle="Performance trends and top performers across decades of professional sumo."
+        subtitle="Use this page as a sampled decade-by-decade view of participation and performance. It is meant to show directional patterns from loaded timelines, not claim complete historical coverage."
         breadcrumbs={[
           { label: 'Home', to: '/' },
           { label: 'Analytics', to: '/analytics' },
           { label: 'Eras' },
         ]}
-      />
+      >
+        <AnalyticsNav current="eras" />
+
+        {!isLoading && (
+          <div className="mt-5 grid gap-3 md:grid-cols-2 xl:grid-cols-4">
+            <AnalyticsTakeawayCard
+              eyebrow="Sample scope"
+              value={String(loadedTimelineProfiles)}
+              title="Profiles with loaded timelines"
+              detail={`This era surface is built from the current sampled timeline set, currently drawn from ${sampleIds.length} directory entries with ${loadedTimelineProfiles} loaded timelines.`}
+              variant="blue"
+            />
+            <AnalyticsTakeawayCard
+              eyebrow="Highest sampled era"
+              value={strongestEra ? `${(strongestEra.avgWinRate * 100).toFixed(1)}%` : '—'}
+              title={strongestEra ? strongestEra.decade : 'No era data'}
+              detail="Read this as the strongest average win-rate decade inside the current sampled timeline set."
+              variant="green"
+            />
+            <AnalyticsTakeawayCard
+              eyebrow="Widest participation"
+              value={busiestEra ? String(busiestEra.uniqueRikishi) : '—'}
+              title={busiestEra ? `${busiestEra.decade} sampled rikishi` : 'No participation data'}
+              detail="This is the busiest decade in the current sample by unique loaded rikishi."
+              variant="amber"
+              to="/timeline"
+              cta="Open basho timeline"
+            />
+            <AnalyticsTakeawayCard
+              eyebrow="Sample standout"
+              value={sampleStandout?.shikona ?? '—'}
+              title={sampleStandout ? `${(sampleStandout.winRate * 100).toFixed(1)}% win rate in ${sampleStandout.decade}` : 'No standout performer'}
+              detail="Highest sampled performer by win rate among decade leaders with at least thirty published bouts."
+              variant="red"
+              to={sampleStandout ? `/rikishi/${encodeURIComponent(sampleStandout.id)}` : undefined}
+              cta={sampleStandout ? 'Open profile' : undefined}
+            />
+          </div>
+        )}
+      </PremiumPageHeader>
 
       {isLoading && (
         <div className="space-y-4">
-          {Array.from({ length: 4 }).map((_, i) => (
-            <div key={i} className="h-32 animate-pulse rounded-xl border border-white/[0.06] bg-white/[0.02]" />
+          {Array.from({ length: 4 }).map((_, index) => (
+            <div key={index} className="h-32 animate-pulse rounded-xl border border-white/[0.06] bg-white/[0.02]" />
           ))}
         </div>
       )}
 
       {!isLoading && eraData.length > 0 && (
         <>
-          {/* Overview stats */}
-          <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
-            <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-4 text-center">
-              <div className="text-2xl font-bold text-white">{eraData.length}</div>
-              <div className="text-xs text-zinc-500">Decades</div>
-            </div>
-            <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-4 text-center">
-              <div className="text-2xl font-bold text-amber-400">
-                {eraData.reduce((s, e) => s + e.bashoCount, 0)}
+          <PremiumSectionShell
+            title="How To Read This Page"
+            subtitle="Start with participation, then read win-rate trend, then use the decade cards to jump into actual rikishi profiles."
+          >
+            <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+              <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-4 text-center">
+                <div className="text-2xl font-bold text-white">{eraData.length}</div>
+                <div className="mt-1 text-xs uppercase tracking-[0.14em] text-zinc-500">Decades</div>
               </div>
-              <div className="text-xs text-zinc-500">Tournaments</div>
-            </div>
-            <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-4 text-center">
-              <div className="text-2xl font-bold text-emerald-400">
-                {new Set(eraData.flatMap((e) => e.topPerformers.map((p) => p.id))).size}
+              <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-4 text-center">
+                <div className="text-2xl font-bold text-amber-400">
+                  {eraData.reduce((sum, era) => sum + era.bashoCount, 0)}
+                </div>
+                <div className="mt-1 text-xs uppercase tracking-[0.14em] text-zinc-500">Sampled basho</div>
               </div>
-              <div className="text-xs text-zinc-500">Top Performers</div>
-            </div>
-            <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-4 text-center">
-              <div className="text-2xl font-bold text-red-400">
-                {eraData.length > 0
-                  ? `${(eraData[eraData.length - 1].avgWinRate * 100).toFixed(0)}%`
-                  : '—'}
+              <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-4 text-center">
+                <div className="text-2xl font-bold text-emerald-400">
+                  {new Set(eraData.flatMap((era) => era.topPerformers.map((performer) => performer.id))).size}
+                </div>
+                <div className="mt-1 text-xs uppercase tracking-[0.14em] text-zinc-500">Era leaders</div>
               </div>
-              <div className="text-xs text-zinc-500">Latest Win Rate</div>
+              <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-4 text-center">
+                <div className="text-2xl font-bold text-red-400">
+                  {eraData.length > 0 ? `${(eraData[eraData.length - 1].avgWinRate * 100).toFixed(0)}%` : '—'}
+                </div>
+                <div className="mt-1 text-xs uppercase tracking-[0.14em] text-zinc-500">Latest sampled era rate</div>
+              </div>
             </div>
-          </div>
+          </PremiumSectionShell>
 
-          {/* Participation chart */}
-          <section className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5">
-            <h2 className="font-display text-xl font-bold text-white flex items-center gap-2">
-              <BarChart3 className="h-5 w-5 text-blue-400" />
-              Participation by Era
-            </h2>
-            <p className="mt-1 text-xs text-zinc-500">Unique rikishi and tournaments per decade.</p>
-            <div className="mt-4 h-64">
+          <PremiumSectionShell
+            title="Participation By Era"
+            subtitle="Read this first if you want to know where the sample is densest before trusting any decade-level performance comparison."
+            trailing={(
+              <Link
+                to="/timeline"
+                className="rounded-lg border border-white/[0.08] bg-white/[0.03] px-3 py-1.5 text-xs font-medium text-zinc-300 transition-colors hover:border-red-600/40 hover:text-white"
+              >
+                Basho timeline
+              </Link>
+            )}
+          >
+            <div className="grid gap-3 md:grid-cols-2">
+              <AnalyticsTakeawayCard
+                eyebrow="Read this as"
+                title="Sample density, not universal coverage"
+                detail="A decade with more sampled rikishi and basho will naturally produce more stable-looking averages. Thin decades deserve more caution."
+                variant="blue"
+              />
+              <AnalyticsTakeawayCard
+                eyebrow="Go next"
+                title={busiestEra ? `${busiestEra.decade} stands out` : 'No busy era yet'}
+                detail="Use the basho timeline when you want a tournament-first browse after identifying a decade that looks especially dense."
+                variant="amber"
+                to="/timeline"
+                cta="Open timeline"
+              />
+            </div>
+
+            <div className="mt-5 h-64">
               <ResponsiveContainer width="100%" height="100%">
                 <BarChart data={chartData}>
                   <CartesianGrid strokeDasharray="3 3" stroke="#27272a" />
@@ -222,16 +293,31 @@ export default function EraAnalyticsPage() {
                 </BarChart>
               </ResponsiveContainer>
             </div>
-          </section>
+          </PremiumSectionShell>
 
-          {/* Win rate trend */}
-          <section className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5">
-            <h2 className="font-display text-xl font-bold text-white flex items-center gap-2">
-              <TrendingUp className="h-5 w-5 text-emerald-400" />
-              Win Rate Trend
-            </h2>
-            <p className="mt-1 text-xs text-zinc-500">Average win rate of top performers across decades.</p>
-            <div className="mt-4 h-48">
+          <PremiumSectionShell
+            title="Win-Rate Trend"
+            subtitle="Use this to compare direction and relative strength across decades, while remembering that the page is still bounded by its sampled timeline set."
+          >
+            <div className="grid gap-3 md:grid-cols-2">
+              <AnalyticsTakeawayCard
+                eyebrow="Highest sampled decade"
+                value={strongestEra ? `${(strongestEra.avgWinRate * 100).toFixed(1)}%` : '—'}
+                title={strongestEra ? strongestEra.decade : 'No strongest era'}
+                detail="This is the decade with the strongest sampled average win rate in the currently loaded dataset."
+                variant="green"
+              />
+              <AnalyticsTakeawayCard
+                eyebrow="Next question"
+                title={sampleStandout ? sampleStandout.shikona : 'Era leaders'}
+                detail="After spotting a strong era, move into the leading rikishi card below to inspect an actual profile instead of staying in the abstract trend view."
+                variant="red"
+                to={sampleStandout ? `/rikishi/${encodeURIComponent(sampleStandout.id)}` : '/rikishi'}
+                cta="Open profile"
+              />
+            </div>
+
+            <div className="mt-5 h-48">
               <ResponsiveContainer width="100%" height="100%">
                 <LineChart data={chartData}>
                   <CartesianGrid strokeDasharray="3 3" stroke="#27272a" />
@@ -252,52 +338,108 @@ export default function EraAnalyticsPage() {
                 </LineChart>
               </ResponsiveContainer>
             </div>
-          </section>
+          </PremiumSectionShell>
 
-          {/* Era breakdowns */}
-          <section className="space-y-4">
-            <h2 className="font-display text-xl font-bold text-white flex items-center gap-2">
-              <Award className="h-5 w-5 text-amber-400" />
-              Top Performers by Era
-            </h2>
-            {eraData.map((era) => (
-              <div
-                key={era.decade}
-                className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5 transition-colors duration-150 hover:border-white/[0.12]"
-              >
-                <div className="flex items-baseline justify-between">
-                  <h3 className="font-display text-lg font-bold text-white">{era.decade}</h3>
-                  <div className="flex gap-4 text-xs text-zinc-500">
-                    <span>{era.bashoCount} basho</span>
-                    <span>{era.uniqueRikishi} rikishi</span>
-                    <span>{(era.avgWinRate * 100).toFixed(1)}% avg</span>
-                  </div>
-                </div>
-                {era.topPerformers.length > 0 ? (
-                  <div className="mt-3 space-y-2">
-                    {era.topPerformers.map((perf, idx) => (
+          <PremiumSectionShell
+            title="Top Performers By Era"
+            subtitle="This is where the page becomes actionable: each decade card lets you leave the aggregate view and inspect the actual rikishi driving that sampled era."
+          >
+            <div className="space-y-4">
+              {eraData.map((era) => (
+                <div
+                  key={era.decade}
+                  className="rounded-2xl border border-white/[0.06] bg-white/[0.02] p-5 transition-colors duration-150 hover:border-white/[0.12]"
+                >
+                  <div className="flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
+                    <div>
+                      <h3 className="font-display text-lg font-bold text-white">{era.decade}</h3>
+                      <div className="mt-2 flex flex-wrap gap-2 text-xs text-zinc-500">
+                        <PremiumBadge variant="zinc">{era.bashoCount} basho</PremiumBadge>
+                        <PremiumBadge variant="zinc">{era.uniqueRikishi} sampled rikishi</PremiumBadge>
+                        <PremiumBadge variant="green">{(era.avgWinRate * 100).toFixed(1)}% avg win rate</PremiumBadge>
+                      </div>
+                    </div>
+
+                    {era.topPerformers.length >= 2 ? (
                       <Link
-                        key={perf.id}
-                        to={`/rikishi/${encodeURIComponent(perf.id)}`}
-                        className="flex items-center justify-between rounded-lg border border-white/[0.06] bg-white/[0.02] px-3 py-2 transition-colors hover:border-red-600"
+                        to={`/compare/${encodeURIComponent(era.topPerformers[0].id)}/${encodeURIComponent(era.topPerformers[1].id)}`}
+                        className="rounded-lg border border-white/[0.08] bg-white/[0.03] px-3 py-1.5 text-xs font-medium text-zinc-300 transition-colors hover:border-red-600/40 hover:text-white"
                       >
-                        <div className="flex items-center gap-3">
-                          <span className="text-xs text-zinc-600 w-5 text-right">#{idx + 1}</span>
-                          <span className="font-medium text-zinc-100">{perf.shikona}</span>
-                        </div>
-                        <div className="text-sm">
-                          <span className="text-emerald-400 font-medium">{(perf.winRate * 100).toFixed(1)}%</span>
-                          <span className="ml-2 text-xs text-zinc-500">{perf.bouts} bouts</span>
-                        </div>
+                        Compare #{1} vs #{2}
                       </Link>
-                    ))}
+                    ) : null}
                   </div>
-                ) : (
-                  <p className="mt-3 text-sm text-zinc-500">No qualifying performers in this era.</p>
-                )}
-              </div>
-            ))}
-          </section>
+
+                  {era.topPerformers.length > 0 ? (
+                    <div className="mt-4 space-y-2">
+                      {era.topPerformers.map((performer, index) => (
+                        <Link
+                          key={performer.id}
+                          to={`/rikishi/${encodeURIComponent(performer.id)}`}
+                          className="flex items-center justify-between rounded-lg border border-white/[0.06] bg-white/[0.02] px-3 py-2 transition-colors hover:border-red-600"
+                        >
+                          <div className="flex items-center gap-3">
+                            <span className="w-5 text-right text-xs text-zinc-600">#{index + 1}</span>
+                            <span className="font-medium text-zinc-100">{performer.shikona}</span>
+                          </div>
+                          <div className="text-sm">
+                            <span className="font-medium text-emerald-400">{(performer.winRate * 100).toFixed(1)}%</span>
+                            <span className="ml-2 text-xs text-zinc-500">{performer.bouts} bouts</span>
+                          </div>
+                        </Link>
+                      ))}
+                    </div>
+                  ) : (
+                    <p className="mt-3 text-sm text-zinc-500">No qualifying performers in this sampled era.</p>
+                  )}
+                </div>
+              ))}
+            </div>
+          </PremiumSectionShell>
+
+          <PremiumSectionShell
+            title="Go Next"
+            subtitle="Choose the next surface that turns the era-level pattern into a concrete follow-up."
+          >
+            <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
+              <AnalyticsTakeawayCard
+                eyebrow="Recent baseline"
+                title="Global analytics"
+                detail="Return to the recent-sample overview when you want current Makuuchi context instead of decade framing."
+                variant="blue"
+                to="/analytics"
+                cta="Open page"
+                icon={<Compass className="h-4 w-4" />}
+              />
+              <AnalyticsTakeawayCard
+                eyebrow="Tournament-first"
+                title="Basho timeline"
+                detail="Use the timeline when you want to browse tournament chronology rather than sampled decade averages."
+                variant="amber"
+                to="/timeline"
+                cta="Open timeline"
+                icon={<Clock className="h-4 w-4" />}
+              />
+              <AnalyticsTakeawayCard
+                eyebrow="Profiles"
+                title={sampleStandout?.shikona ?? 'Browse rikishi'}
+                detail="Move into a wrestler page when the sampled era trend points you toward one standout rikishi."
+                variant="green"
+                to={sampleStandout ? `/rikishi/${encodeURIComponent(sampleStandout.id)}` : '/rikishi'}
+                cta="Open profile"
+                icon={<Award className="h-4 w-4" />}
+              />
+              <AnalyticsTakeawayCard
+                eyebrow="Head to head"
+                title="Rivalry explorer"
+                detail="Switch to rivalries when your next question is about how strong rikishi relate to one another rather than how eras differ."
+                variant="red"
+                to="/rivalries"
+                cta="Open rivalries"
+                icon={<Swords className="h-4 w-4" />}
+              />
+            </div>
+          </PremiumSectionShell>
         </>
       )}
 

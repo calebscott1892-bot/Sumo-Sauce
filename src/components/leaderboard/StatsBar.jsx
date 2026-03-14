@@ -7,15 +7,15 @@ export default function StatsBar({ wins, losses, showNumbers = true }) {
   
   return (
     <div className="w-full">
-      <div className="flex justify-between text-xs mb-1.5">
+      <div className="mb-1.5 flex justify-between text-xs">
         {showNumbers && (
           <>
-            <span className="text-emerald-600 font-semibold">{wins}W</span>
-            <span className="text-rose-500 font-semibold">{losses}L</span>
+            <span className="font-semibold text-emerald-400">{wins}W</span>
+            <span className="font-semibold text-rose-400">{losses}L</span>
           </>
         )}
       </div>
-      <div className="h-2 bg-slate-200 rounded-full overflow-hidden flex">
+      <div className="flex h-2 overflow-hidden rounded-full bg-white/[0.08]">
         <motion.div
           initial={{ width: 0 }}
           animate={{ width: `${winPercentage}%` }}

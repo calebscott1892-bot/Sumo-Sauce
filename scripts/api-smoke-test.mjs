@@ -1,8 +1,12 @@
 #!/usr/bin/env node
 import { spawn } from 'node:child_process';
+import { dirname, resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 const PORT = 8790;
 const BASE = `http://127.0.0.1:${PORT}`;
+const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
+const SERVER_ENTRY = resolve(ROOT, 'server/index.mjs');
 
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -63,7 +67,7 @@ async function main() {
   const rateHeaders = { 'x-rate-limit-key': `${runKey}:rate` };
 
   if (!(await isHealthy())) {
-    child = spawn('node', ['/Users/belacttocs/Downloads/Sumo Sauce/server/index.mjs'], {
+    child = spawn('node', [SERVER_ENTRY], {
       env: {
         ...process.env,
         PORT: String(PORT),

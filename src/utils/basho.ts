@@ -132,3 +132,8 @@ export function recentBashoIds(count: number, before?: Date): string[] {
 
   return out;
 }
+
+/** Return the latest scheduled basho id relative to the current date. */
+export function latestBashoId(before?: Date): string | null {
+  return recentBashoIds(1, before)[0] ?? null;
+}

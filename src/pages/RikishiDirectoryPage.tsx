@@ -120,8 +120,8 @@ export default function RikishiDirectoryPage() {
   return (
     <div data-testid="rikishi-directory-page" className="stagger-children mx-auto max-w-6xl space-y-6 p-6 text-zinc-200">
       <PageMeta
-        title="Sumo Sauce — Rikishi Directory"
-        description={`Browse all ${directory.length.toLocaleString()} rikishi in the Sumo Sauce dataset. Search by name, filter by heya, and sort.`}
+        title="SumoWatch — Rikishi Directory"
+        description={`Browse all ${directory.length.toLocaleString()} rikishi in the SumoWatch dataset. Search by name, filter by heya, and sort.`}
       />
 
       <PremiumPageHeader

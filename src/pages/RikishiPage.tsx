@@ -1,7 +1,6 @@
 import { Link, useParams } from 'react-router-dom';
-import { lazy, Suspense, useCallback, useEffect, useMemo, useState } from 'react';
+import { lazy, Suspense, useEffect, useMemo, useState, type ReactNode } from 'react';
 import { useQuery } from '@tanstack/react-query';
-import { Heart } from 'lucide-react';
 import CareerTable from '@/components/rikishi/CareerTable';
 import KimariteChart from '@/components/rikishi/KimariteChart';
 import RikishiSummaryCard from '@/components/rikishi/RikishiSummaryCard';
@@ -12,6 +11,7 @@ import CareerHeatmap from '@/components/rikishi/CareerHeatmap';
 import ConsistencyScore from '@/components/rikishi/ConsistencyScore';
 import StreakCard from '@/components/rikishi/StreakCard';
 import PerformanceVsField from '@/components/rikishi/PerformanceVsField';
+import RikishiSectionNav from '@/components/rikishi/RikishiSectionNav';
 import VerifiedProfileCard from '@/components/rikishi/VerifiedProfileCard';
 import { isFavoriteRikishi, toggleFavoriteRikishi } from '@/utils/favorites';
 import { trackRikishiView } from '@/utils/recentlyViewed';
@@ -29,6 +29,7 @@ import ErrorCard from '@/components/ui/ErrorCard';
 import PageMeta from '@/components/ui/PageMeta';
 import { trackRikishiPageView } from '@/utils/analytics';
 import { PremiumPageHeader, PremiumSectionShell, PremiumBadge } from '@/components/ui/premium';
+import { buildRivalryInsight, getRivalryStateVariant } from '@/utils/rivalry';
 import type { Division, TimelineItem } from '@/pages/rikishi/types';
 
 const RikishiRankChart = lazy(() => import('@/components/rikishi/RikishiRankChart'));
@@ -41,6 +42,17 @@ type H2HPreviewItem = {
   losses: number;
 };
 
+const SECTION_ITEMS = [
+  { id: 'overview', label: 'Overview', subtitle: 'Identity, trust, and summary' },
+  { id: 'performance', label: 'Performance', subtitle: 'Form, consistency, and recent basho' },
+  { id: 'ranking', label: 'Ranking', subtitle: 'Progression and historical trajectory' },
+  { id: 'career', label: 'Career', subtitle: 'Career table, heatmap, and kimarite' },
+  { id: 'matchups', label: 'Matchups', subtitle: 'Rivalries and head-to-head view' },
+  { id: 'bouts', label: 'Recent bouts', subtitle: 'Timeline and data completeness' },
+] as const;
+
+type SectionId = (typeof SECTION_ITEMS)[number]['id'];
+
 function uniqueByBashoDivision(items: TimelineItem[]): TimelineItem[] {
   const byKey = new Map<string, TimelineItem>();
   for (const item of items) {
@@ -50,9 +62,33 @@ function uniqueByBashoDivision(items: TimelineItem[]): TimelineItem[] {
   return Array.from(byKey.values()).sort((a, b) => a.bashoId.localeCompare(b.bashoId) || a.division.localeCompare(b.division));
 }
 
+function ProfileSectionGroup({
+  id,
+  title,
+  subtitle,
+  children,
+}: {
+  id: SectionId;
+  title: string;
+  subtitle: string;
+  children: ReactNode;
+}) {
+  return (
+    <section id={id} className="scroll-mt-32 space-y-3 sm:scroll-mt-24 sm:space-y-4">
+      <div className="px-1">
+        <h2 className="font-display text-xl font-bold tracking-tight text-white sm:text-2xl">{title}</h2>
+        <p className="mt-1 max-w-3xl text-sm leading-relaxed text-zinc-500">{subtitle}</p>
+      </div>
+      <div className="space-y-6">{children}</div>
+    </section>
+  );
+}
+
 export default function RikishiPage() {
   const params = useParams();
   const rikishiId = String(params.id || '').trim();
+  const [isFav, setIsFav] = useState(() => isFavoriteRikishi(rikishiId));
+  const [activeSectionId, setActiveSectionId] = useState<SectionId>('overview');
 
   const summaryQuery = useQuery({
     queryKey: ['rikishi-summary', rikishiId],
@@ -160,10 +196,57 @@ export default function RikishiPage() {
     return (h2hPreviewQuery.data || []).slice(0, 3);
   }, [h2hPreviewQuery.data]);
 
+  const primaryCompareTarget = h2hPreviewTop3[0] ?? null;
+
   const isLoading = summaryQuery.isLoading || timelineQuery.isLoading || progressionQuery.isLoading || kimariteQuery.isLoading;
 
   const firstError = summaryQuery.error || timelineQuery.error || progressionQuery.error || kimariteQuery.error;
   const isNotFound = firstError instanceof ApiError && firstError.status === 404;
+  const shikona = summaryQuery.data?.shikona ?? rikishiId;
+  const pageTitle = `SumoWatch \u2014 ${shikona} (${rikishiId})`;
+  const pageDesc = `${shikona} career profile, rank progression, kimarite stats, and head-to-head matchups on SumoWatch.`;
+
+  useEffect(() => {
+    setIsFav(isFavoriteRikishi(rikishiId));
+  }, [rikishiId]);
+
+  useEffect(() => {
+    if (!rikishiId || !summaryQuery.data) return;
+    trackRikishiPageView(rikishiId);
+    trackRikishiView(rikishiId, summaryQuery.data.shikona ?? rikishiId);
+  }, [rikishiId, summaryQuery.data]);
+
+  useEffect(() => {
+    if (isLoading) return;
+
+    const elements = SECTION_ITEMS
+      .map((section) => document.getElementById(section.id))
+      .filter((element): element is HTMLElement => Boolean(element));
+
+    if (!elements.length) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio || a.boundingClientRect.top - b.boundingClientRect.top);
+
+        if (visible[0]?.target?.id) {
+          setActiveSectionId(visible[0].target.id as SectionId);
+        }
+      },
+      {
+        rootMargin: '-18% 0px -68% 0px',
+        threshold: [0.1, 0.3, 0.5, 0.75],
+      },
+    );
+
+    for (const element of elements) {
+      observer.observe(element);
+    }
+
+    return () => observer.disconnect();
+  }, [isLoading, rikishiId]);
 
   if (!rikishiId) {
     return <ErrorCard code="INVALID_INPUT" message="Invalid rikishi id." />;
@@ -183,19 +266,8 @@ export default function RikishiPage() {
     return <ErrorCard code={errCode} message={errMsg} />;
   }
 
-  const shikona = summaryQuery.data.shikona ?? rikishiId;
-  const [isFav, setIsFav] = useState(() => isFavoriteRikishi(rikishiId));
-
-  const pageTitle = `Sumo Sauce \u2014 ${shikona} (${rikishiId})`;
-  const pageDesc = `${shikona} career profile, rank progression, kimarite stats, and head-to-head matchups on Sumo Sauce.`;
-
-  useEffect(() => {
-    trackRikishiPageView(rikishiId);
-    trackRikishiView(rikishiId, shikona);
-  }, [shikona, rikishiId]);
-
   return (
-    <div data-testid="rikishi-page" className="mx-auto max-w-6xl space-y-6 p-6 text-zinc-200">
+    <div data-testid="rikishi-page" className="mx-auto max-w-7xl space-y-5 p-4 text-zinc-200 sm:space-y-6 sm:p-6">
       <PageMeta title={pageTitle} description={pageDesc} />
 
       <PremiumPageHeader
@@ -212,156 +284,240 @@ export default function RikishiPage() {
           onToggle: () => { toggleFavoriteRikishi(rikishiId); setIsFav(!isFav); },
         }}
         actions={
-          <Link
-            to={`/compare/${encodeURIComponent(rikishiId)}/`}
-            className="rounded-lg border border-white/[0.06] bg-white/[0.03] px-3 py-1.5 text-xs font-medium text-zinc-300 transition-colors hover:border-red-600 hover:text-white"
-          >
-            Compare →
-          </Link>
-        }
-      />
-
-      <VerifiedProfileCard
-        shikona={shikona}
-        heya={summaryQuery.data.heya}
-        rank={summaryQuery.data.highestRank?.rank}
-      />
-
-      <RikishiSummaryCard
-        summary={summaryQuery.data}
-        timeline={timelineChrono}
-        rankProgression={progressionQuery.data || []}
-      />
-
-      <ConsistencyScore
-        timeline={timelineChrono}
-        rankProgression={progressionQuery.data || []}
-      />
-
-      <StreakCard rankProgression={progressionQuery.data || []} />
-
-      {fieldStandingsQuery.data && (
-        <PerformanceVsField
-          timeline={timelineChrono}
-          standingsMap={fieldStandingsQuery.data}
-          rikishiId={rikishiId}
-        />
-      )}
-
-      <Suspense
-        fallback={
-          <PremiumSectionShell title="Rank Progression">
-            <div className="h-64 w-full skeleton-shimmer rounded-lg" />
-          </PremiumSectionShell>
-        }
-      >
-        <RikishiRankChart points={progressionQuery.data || []} />
-      </Suspense>
-
-      <HistoricalRankExplorer
-        timeline={timelineChrono}
-        rankProgression={progressionQuery.data || []}
-        highestRank={summaryQuery.data.highestRank}
-      />
-
-      <CareerTable rows={timelineChrono} />
-
-      <CareerHeatmap timeline={timelineChrono} />
-
-      <KimariteChart stats={kimariteQuery.data} />
-
-      <PremiumSectionShell title="Head-to-Head Preview" subtitle="Top rivals by recent matchups">
-        <div className="space-y-2">
-          {h2hPreviewTop3.map((row) => (
+          primaryCompareTarget ? (
             <Link
-              key={row.opponentId}
-              to={`/compare/${encodeURIComponent(rikishiId)}/${encodeURIComponent(row.opponentId)}`}
-              className="group block rounded-lg border border-white/[0.06] bg-white/[0.02] p-3.5 transition-all duration-200 hover:border-red-600/50 hover:bg-white/[0.04]"
+              to={`/compare/${encodeURIComponent(rikishiId)}/${encodeURIComponent(primaryCompareTarget.opponentId)}`}
+              className="rounded-lg border border-white/[0.06] bg-white/[0.03] px-3 py-1.5 text-xs font-medium text-zinc-300 transition-colors hover:border-red-600 hover:text-white"
             >
-              <div className="flex items-center justify-between">
-                <div>
-                  <div className="font-semibold text-white group-hover:text-red-300 transition-colors">{row.opponentShikona}</div>
-                  <div className="text-xs text-zinc-500">{row.opponentId}</div>
-                </div>
-                <div className="text-right">
-                  <div className="font-bold text-white">
-                    <span className="text-emerald-400">{row.wins}</span>
-                    <span className="text-zinc-600"> – </span>
-                    <span className="text-red-400">{row.losses}</span>
-                  </div>
-                  <div className="text-xs text-zinc-500">{row.totalMatches} bouts</div>
-                </div>
-              </div>
+              Compare vs {primaryCompareTarget.opponentShikona} →
             </Link>
-          ))}
-          {!h2hPreviewTop3.length && <div className="text-sm text-zinc-500">No head-to-head data available.</div>}
-        </div>
-      </PremiumSectionShell>
-
-      <RivalryList
-        rikishiId={rikishiId}
-        rivals={h2hPreviewQuery.data || []}
-        isLoading={h2hPreviewQuery.isLoading}
+          ) : h2hPreviewQuery.isLoading ? (
+            <span className="rounded-lg border border-white/[0.06] bg-white/[0.03] px-3 py-1.5 text-xs font-medium text-zinc-500">
+              Finding rival…
+            </span>
+          ) : (
+            <Link
+              to="/rivalries"
+              className="rounded-lg border border-white/[0.06] bg-white/[0.03] px-3 py-1.5 text-xs font-medium text-zinc-300 transition-colors hover:border-red-600 hover:text-white"
+            >
+              Browse rivalries →
+            </Link>
+          )
+        }
       />
 
-      <RikishiBoutTimeline timeline={timelineChrono} limit={20} />
+      <RikishiSectionNav sections={SECTION_ITEMS} activeId={activeSectionId} variant="mobile" />
 
-      <PremiumSectionShell title="Recent Basho Performance" subtitle="Last 6 tournaments">
-        <div className="grid grid-cols-1 gap-2 md:grid-cols-2">
-          {recentBasho.map((row) => {
-            const positive = row.wins > row.losses;
-            return (
-              <div
-                key={`${row.bashoId}-${row.division}`}
-                className={`rounded-lg border p-3.5 transition-all duration-200 ${
-                  positive
-                    ? 'border-emerald-700/40 bg-emerald-950/15 hover:border-emerald-600/50'
-                    : 'border-white/[0.06] bg-white/[0.02] hover:border-white/[0.12]'
-                }`}
-              >
-                <div className="flex items-center justify-between">
-                  <Link
-                    className="font-semibold text-red-400 hover:text-red-300 transition-colors"
-                    to={`/basho/${encodeURIComponent(row.bashoId)}/${encodeURIComponent(row.division)}`}
-                  >
-                    {row.bashoId}
-                  </Link>
-                  <PremiumBadge variant={positive ? 'green' : 'zinc'}>{row.division}</PremiumBadge>
-                </div>
-                <div className="mt-2 flex items-center gap-4 text-sm text-zinc-300">
-                  <span>Rank: <span className="font-medium text-white">{row.rank}</span></span>
-                  <span>Record: <span className={`font-bold ${positive ? 'text-emerald-300' : 'text-zinc-200'}`}>{row.wins}-{row.losses}</span></span>
-                </div>
+      <div className="lg:grid lg:grid-cols-[minmax(0,1fr)_18rem] lg:gap-8">
+        <div className="space-y-8 sm:space-y-10">
+          <ProfileSectionGroup
+            id="overview"
+            title="Overview"
+            subtitle="Identity, trust, and the fastest path to understanding this rikishi at a glance."
+          >
+            <div className="grid gap-6 xl:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] xl:items-start">
+              <VerifiedProfileCard
+                rikishiId={rikishiId}
+                shikona={shikona}
+                heya={summaryQuery.data.heya}
+                rank={summaryQuery.data.highestRank?.rank}
+              />
+              <RikishiSummaryCard
+                summary={summaryQuery.data}
+                timeline={timelineChrono}
+                rankProgression={progressionQuery.data || []}
+              />
+            </div>
+          </ProfileSectionGroup>
+
+          <ProfileSectionGroup
+            id="performance"
+            title="Performance"
+            subtitle="Recent form, consistency, and how this rikishi stacks up against the field."
+          >
+            <div className="grid gap-6 xl:grid-cols-2">
+              <ConsistencyScore
+                timeline={timelineChrono}
+                rankProgression={progressionQuery.data || []}
+              />
+              <StreakCard rankProgression={progressionQuery.data || []} />
+            </div>
+
+            {fieldStandingsQuery.data && (
+              <PerformanceVsField
+                timeline={timelineChrono}
+                standingsMap={fieldStandingsQuery.data}
+                rikishiId={rikishiId}
+              />
+            )}
+
+            <PremiumSectionShell title="Recent Basho Performance" subtitle="Last 6 tournaments">
+              <div className="grid grid-cols-1 gap-2 md:grid-cols-2">
+                {recentBasho.map((row) => {
+                  const positive = row.wins > row.losses;
+                  return (
+                    <div
+                      key={`${row.bashoId}-${row.division}`}
+                      className={`rounded-lg border p-3.5 transition-all duration-200 ${
+                        positive
+                          ? 'border-emerald-700/40 bg-emerald-950/15 hover:border-emerald-600/50'
+                          : 'border-white/[0.06] bg-white/[0.02] hover:border-white/[0.12]'
+                      }`}
+                    >
+                      <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+                        <Link
+                          className="font-semibold text-red-400 hover:text-red-300 transition-colors"
+                          to={`/basho/${encodeURIComponent(row.bashoId)}/${encodeURIComponent(row.division)}`}
+                        >
+                          {row.bashoId}
+                        </Link>
+                        <PremiumBadge variant={positive ? 'green' : 'zinc'}>{row.division}</PremiumBadge>
+                      </div>
+                      <div className="mt-2 flex flex-col gap-1 text-sm text-zinc-300 sm:flex-row sm:items-center sm:gap-4">
+                        <span>Rank: <span className="font-medium text-white">{row.rank}</span></span>
+                        <span>Record: <span className={`font-bold ${positive ? 'text-emerald-300' : 'text-zinc-200'}`}>{row.wins}-{row.losses}</span></span>
+                      </div>
+                    </div>
+                  );
+                })}
+                {!recentBasho.length && <div className="text-sm text-zinc-500">No recent basho data.</div>}
               </div>
-            );
-          })}
-          {!recentBasho.length && <div className="text-sm text-zinc-500">No recent basho data.</div>}
-        </div>
-      </PremiumSectionShell>
+            </PremiumSectionShell>
+          </ProfileSectionGroup>
 
-      {/* Data integrity indicator */}
-      <section className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-4">
-        <div className="flex items-center gap-2 text-sm">
-          {timelineChrono.length > 0 && kimariteQuery.data && progressionQuery.data ? (
-            <>
-              <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-emerald-950/40 text-xs text-emerald-400">✔</span>
-              <span className="text-zinc-400">
-                Verified — {timelineChrono.length} basho entries, kimarite and rank data loaded
-              </span>
-            </>
-          ) : (
-            <>
-              <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-amber-950/40 text-xs text-amber-400">⚠</span>
-              <span className="text-zinc-400">
-                Incomplete —
-                {!timelineChrono.length ? ' no timeline data' : ''}
-                {!kimariteQuery.data ? ' no kimarite data' : ''}
-                {!progressionQuery.data ? ' no rank progression' : ''}
-              </span>
-            </>
-          )}
+          <ProfileSectionGroup
+            id="ranking"
+            title="Ranking"
+            subtitle="Track promotion, demotion, and historical ceiling through rank progression and historical context."
+          >
+            <Suspense
+              fallback={
+                <PremiumSectionShell title="Rank Progression">
+                  <div className="h-64 w-full skeleton-shimmer rounded-lg" />
+                </PremiumSectionShell>
+              }
+            >
+              <RikishiRankChart points={progressionQuery.data || []} />
+            </Suspense>
+
+            <HistoricalRankExplorer
+              timeline={timelineChrono}
+              rankProgression={progressionQuery.data || []}
+              highestRank={summaryQuery.data.highestRank}
+            />
+          </ProfileSectionGroup>
+
+          <ProfileSectionGroup
+            id="career"
+            title="Career Record"
+            subtitle="Scan the full timeline, identify career arcs, and see how winning techniques shape the record."
+          >
+            <CareerTable rows={timelineChrono} />
+            <CareerHeatmap timeline={timelineChrono} />
+            <KimariteChart stats={kimariteQuery.data} />
+          </ProfileSectionGroup>
+
+          <ProfileSectionGroup
+            id="matchups"
+            title="Matchups"
+            subtitle="Move quickly from likely rivals to full comparison views and recent head-to-head context."
+          >
+            <PremiumSectionShell
+              title="Head-to-Head Preview"
+              subtitle="Top rivals by recent matchups"
+              trailing={(
+                <Link
+                  to={`/rivalries?q=${encodeURIComponent(shikona)}`}
+                  className="rounded-lg border border-white/[0.08] bg-white/[0.03] px-3 py-1.5 text-xs font-medium text-zinc-300 transition-colors hover:border-red-600/40 hover:text-white"
+                >
+                  Explore all rivalries
+                </Link>
+              )}
+            >
+              <div className="space-y-2">
+                {h2hPreviewTop3.map((row) => {
+                  const insight = buildRivalryInsight({
+                    winsA: row.wins,
+                    winsB: row.losses,
+                    totalMatches: row.totalMatches,
+                    labelA: shikona,
+                    labelB: row.opponentShikona,
+                  });
+
+                  return (
+                    <Link
+                      key={row.opponentId}
+                      to={`/compare/${encodeURIComponent(rikishiId)}/${encodeURIComponent(row.opponentId)}`}
+                      className="group block rounded-lg border border-white/[0.06] bg-white/[0.02] p-3.5 transition-all duration-200 hover:border-red-600/50 hover:bg-white/[0.04]"
+                    >
+                      <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+                        <div>
+                          <div className="font-semibold text-white transition-colors group-hover:text-red-300">{row.opponentShikona}</div>
+                          <div className="mt-1 flex flex-wrap items-center gap-2 text-xs text-zinc-500">
+                            <span>{row.opponentId}</span>
+                            <PremiumBadge variant={getRivalryStateVariant(insight.state)}>{insight.label}</PremiumBadge>
+                          </div>
+                        </div>
+                        <div className="text-left sm:text-right">
+                          <div className="font-bold text-white">
+                            <span className="text-emerald-400">{row.wins}</span>
+                            <span className="text-zinc-600"> – </span>
+                            <span className="text-red-400">{row.losses}</span>
+                          </div>
+                          <div className="text-xs text-zinc-500">{row.totalMatches} bouts</div>
+                        </div>
+                      </div>
+
+                      <p className="mt-2 text-xs leading-relaxed text-zinc-500">{insight.detail}</p>
+                    </Link>
+                  );
+                })}
+                {!h2hPreviewTop3.length && <div className="text-sm text-zinc-500">No head-to-head data available.</div>}
+              </div>
+            </PremiumSectionShell>
+
+            <RivalryList
+              rikishiId={rikishiId}
+              shikona={shikona}
+              rivals={h2hPreviewQuery.data || []}
+              isLoading={h2hPreviewQuery.isLoading}
+            />
+          </ProfileSectionGroup>
+
+          <ProfileSectionGroup
+            id="bouts"
+            title="Recent Bouts"
+            subtitle="Latest bout timeline and a final check on which data layers are loaded for this profile."
+          >
+            <RikishiBoutTimeline timeline={timelineChrono} limit={20} />
+
+            <section className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-4">
+              <div className="flex items-start gap-2 text-sm">
+                {timelineChrono.length > 0 && kimariteQuery.data && progressionQuery.data ? (
+                  <>
+                    <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-emerald-950/40 text-xs text-emerald-400">✔</span>
+                    <span className="text-zinc-400">
+                      Verified — {timelineChrono.length} basho entries, kimarite and rank data loaded
+                    </span>
+                  </>
+                ) : (
+                  <>
+                    <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-amber-950/40 text-xs text-amber-400">⚠</span>
+                    <span className="text-zinc-400">
+                      Incomplete —
+                      {!timelineChrono.length ? ' no timeline data' : ''}
+                      {!kimariteQuery.data ? ' no kimarite data' : ''}
+                      {!progressionQuery.data ? ' no rank progression' : ''}
+                    </span>
+                  </>
+                )}
+              </div>
+            </section>
+          </ProfileSectionGroup>
         </div>
-      </section>
+
+        <RikishiSectionNav sections={SECTION_ITEMS} activeId={activeSectionId} variant="desktop" />
+      </div>
     </div>
   );
 }

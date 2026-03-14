@@ -2,7 +2,7 @@
 /**
  * generate-sitemap.mjs
  *
- * Generates a static sitemap.xml for Sumo Sauce.
+ * Generates a static sitemap.xml for SumoWatch.
  * Run after build: node scripts/generate-sitemap.mjs
  *
  * Reads wrestler + basho data to enumerate all indexable routes.

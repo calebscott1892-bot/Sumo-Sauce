@@ -1,12 +1,14 @@
-import { useState, useMemo, useCallback, useEffect } from 'react';
+import { useState, useMemo, useCallback, useEffect, useDeferredValue } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
-import { Search, Users, Calendar, Swords, X } from 'lucide-react';
+import { Search, Users, Calendar, X } from 'lucide-react';
 import { getRikishiDirectory } from '@/pages/rikishi/api';
-import { recentBashoIds, bashoDisplayName, bashoTournamentName, parseBashoId } from '@/utils/basho';
+import { recentBashoIds, bashoDisplayName, bashoTournamentName } from '@/utils/basho';
+import { searchSortedRikishiDirectory, sortRikishiDirectory } from '@/utils/rikishiDiscovery';
 import PageMeta from '@/components/ui/PageMeta';
 import ErrorCard from '@/components/ui/ErrorCard';
 import EmptyState from '@/components/ui/EmptyState';
+import RikishiDiscoveryRow from '@/components/search/RikishiDiscoveryRow';
 import { PremiumPageHeader } from '@/components/ui/premium';
 
 type Tab = 'rikishi' | 'basho';
@@ -18,19 +20,33 @@ const TABS: { key: Tab; label: string; icon: typeof Users }[] = [
 
 export default function SearchPage() {
   const [searchParams, setSearchParams] = useSearchParams();
-  const initialQ = searchParams.get('q') ?? '';
-  const initialTab = (searchParams.get('tab') as Tab) || 'rikishi';
+  const urlQuery = searchParams.get('q') ?? '';
+  const urlTab = (searchParams.get('tab') as Tab) || 'rikishi';
+  const normalizedUrlTab = TABS.some((t) => t.key === urlTab) ? urlTab : 'rikishi';
 
-  const [query, setQuery] = useState(initialQ);
-  const [tab, setTab] = useState<Tab>(TABS.some((t) => t.key === initialTab) ? initialTab : 'rikishi');
+  const [query, setQuery] = useState(urlQuery);
+  const [tab, setTab] = useState<Tab>(normalizedUrlTab);
+  const deferredQuery = useDeferredValue(query);
 
-  // Sync URL params
+  useEffect(() => {
+    setQuery(urlQuery);
+  }, [urlQuery]);
+
+  useEffect(() => {
+    setTab(normalizedUrlTab);
+  }, [normalizedUrlTab]);
+
   useEffect(() => {
     const params: Record<string, string> = {};
-    if (query) params.q = query;
+    const nextQuery = deferredQuery.trim();
+    if (nextQuery) params.q = nextQuery;
     if (tab !== 'rikishi') params.tab = tab;
-    setSearchParams(params, { replace: true });
-  }, [query, tab, setSearchParams]);
+
+    const nextParams = new URLSearchParams(params);
+    if (nextParams.toString() !== searchParams.toString()) {
+      setSearchParams(nextParams, { replace: true });
+    }
+  }, [deferredQuery, tab, setSearchParams, searchParams]);
 
   const { data: directory = [], isLoading: dirLoading, error: dirError } = useQuery({
     queryKey: ['rikishi-directory'],
@@ -39,26 +55,22 @@ export default function SearchPage() {
   });
 
   const allBasho = useMemo(() => recentBashoIds(200), []);
+  const sortedDirectory = useMemo(() => sortRikishiDirectory(directory), [directory]);
 
-  const lowerQuery = query.toLowerCase().trim();
+  const lowerQuery = deferredQuery.toLowerCase().trim();
+  const isRefreshingResults = query !== deferredQuery;
 
   const rikishiResults = useMemo(() => {
-    if (!lowerQuery) return directory.slice(0, 50);
-    return directory.filter(
-      (r) =>
-        r.shikona.toLowerCase().includes(lowerQuery) ||
-        r.rikishiId.toLowerCase().includes(lowerQuery) ||
-        (r.heya ?? '').toLowerCase().includes(lowerQuery),
-    ).slice(0, 50);
-  }, [directory, lowerQuery]);
+    return searchSortedRikishiDirectory(sortedDirectory, lowerQuery, lowerQuery ? 40 : 24);
+  }, [sortedDirectory, lowerQuery]);
 
   const bashoResults = useMemo(() => {
-    if (!lowerQuery) return allBasho.slice(0, 50);
+    if (!lowerQuery) return allBasho.slice(0, 24);
     return allBasho.filter((id) => {
       const display = bashoDisplayName(id).toLowerCase();
       const tournament = bashoTournamentName(id).toLowerCase();
       return id.includes(lowerQuery) || display.includes(lowerQuery) || tournament.includes(lowerQuery);
-    }).slice(0, 50);
+    }).slice(0, 36);
   }, [allBasho, lowerQuery]);
 
   const resultCounts = {
@@ -75,28 +87,29 @@ export default function SearchPage() {
   }
 
   return (
-    <div className="stagger-children mx-auto max-w-6xl space-y-6 p-6 text-zinc-200">
+    <div className="stagger-children mx-auto max-w-6xl space-y-5 p-4 text-zinc-200 sm:space-y-6 sm:p-6">
       <PageMeta
-        title="Sumo Sauce — Search"
-        description="Search across rikishi, basho, and rivalries in the Sumo Sauce dataset."
+        title="SumoWatch — Search"
+        description="Search across rikishi, basho, and rivalries in the SumoWatch dataset."
       />
 
       <PremiumPageHeader
         accentLabel="SEARCH"
         title="Search"
+        subtitle="Find rikishi and basho quickly, with trust-aware context kept visible but readable on smaller screens."
         breadcrumbs={[
           { label: 'Home', to: '/' },
           { label: 'Search' },
         ]}
       >
-        <div className="relative max-w-lg">
+        <div className="relative w-full max-w-lg">
           <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-zinc-500" />
           <input
             type="text"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Search rikishi, basho, tournaments…"
-            className="w-full rounded-lg border border-white/[0.08] bg-white/[0.04] py-2.5 pl-10 pr-10 text-sm text-zinc-100 placeholder-zinc-500 focus:border-red-500 focus:outline-none"
+            className="h-12 w-full rounded-xl border border-white/[0.08] bg-white/[0.04] py-2.5 pl-10 pr-11 text-sm text-zinc-100 placeholder-zinc-500 focus:border-red-500 focus:outline-none"
             autoFocus
           />
           {query && (
@@ -112,17 +125,32 @@ export default function SearchPage() {
         </div>
       </PremiumPageHeader>
 
+      <section className="rounded-2xl border border-white/[0.06] bg-gradient-to-b from-white/[0.035] to-white/[0.015] p-4 sm:p-5">
+        <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-start sm:justify-between">
+          <div>
+            <h2 className="font-display text-base font-bold tracking-tight text-white">Universal discovery</h2>
+            <p className="mt-1 max-w-3xl text-sm leading-relaxed text-zinc-400">
+              Search by shikona, rikishi id, heya, basho id, or tournament name. Rikishi results include safe trust cues from the verified profile layer when that context exists.
+            </p>
+          </div>
+          <div className="text-left text-xs text-zinc-500 sm:text-right">
+            <div>{directory.length.toLocaleString()} rikishi indexed</div>
+            <div>{allBasho.length.toLocaleString()} basho available</div>
+          </div>
+        </div>
+      </section>
+
       {/* Tabs */}
-      <div className="flex gap-1 border-b border-white/[0.04]">
+      <div className="grid grid-cols-2 gap-2 sm:flex sm:gap-1 sm:border-b sm:border-white/[0.04]">
         {TABS.map((t) => (
           <button
             key={t.key}
             type="button"
             onClick={() => setTab(t.key)}
-            className={`flex items-center gap-1.5 border-b-2 px-4 py-2.5 text-sm font-medium transition-colors ${
+            className={`flex min-h-11 items-center justify-center gap-1.5 rounded-xl border px-4 py-2.5 text-sm font-medium transition-colors sm:justify-start sm:rounded-none sm:border-x-0 sm:border-t-0 sm:border-b-2 ${
               tab === t.key
-                ? 'border-red-500 text-white'
-                : 'border-transparent text-zinc-400 hover:text-zinc-200'
+                ? 'border-red-500 bg-red-950/18 text-white sm:bg-transparent'
+                : 'border-white/[0.08] text-zinc-400 hover:text-zinc-200 sm:border-transparent'
             }`}
           >
             <t.icon className="h-4 w-4" />
@@ -134,38 +162,35 @@ export default function SearchPage() {
         ))}
       </div>
 
+      <div className="flex flex-col gap-2 text-xs text-zinc-500 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between">
+        <span className="leading-relaxed">
+          {tab === 'rikishi'
+            ? 'Rikishi rows show division, heya, trust cues, and official photo availability when safely verified.'
+            : 'Browse basho by tournament name, calendar label, or raw YYYYMM id.'}
+        </span>
+        <span>{isRefreshingResults ? 'Refreshing results…' : `Showing ${resultCounts[tab]} result${resultCounts[tab] === 1 ? '' : 's'}`}</span>
+      </div>
+
       {/* Results */}
       {tab === 'rikishi' && (
-        <section>
+        <section aria-busy={dirLoading || isRefreshingResults}>
           {dirLoading ? (
             <div className="space-y-2">
-              {Array.from({ length: 8 }).map((_, i) => (
-                <div key={i} className="h-14 animate-pulse rounded-lg border border-white/[0.06] bg-white/[0.02]" />
+              {Array.from({ length: 6 }).map((_, i) => (
+                <div key={i} className="h-24 animate-pulse rounded-xl border border-white/[0.06] bg-white/[0.02]" />
               ))}
             </div>
           ) : rikishiResults.length === 0 ? (
             <EmptyState
               message="No rikishi found"
-              description={`No rikishi match "${query}".`}
+              description={query ? `No rikishi match "${query}". Try a different shikona, heya, or rikishi id.` : 'Search by shikona, rikishi id, or heya to start exploring the rikishi directory.'}
               onReset={handleClear}
+              suggestions={[['Browse full directory', '/rikishi']]}
             />
           ) : (
-            <div className="space-y-1">
+            <div className="space-y-2">
               {rikishiResults.map((r) => (
-                <Link
-                  key={r.rikishiId}
-                  to={`/rikishi/${encodeURIComponent(r.rikishiId)}`}
-                  className="flex items-center justify-between rounded-lg border border-white/[0.06] bg-white/[0.02] px-4 py-3 transition-colors hover:border-red-600 hover:bg-white/[0.06]/80"
-                >
-                  <div>
-                    <div className="font-semibold text-zinc-100">{r.shikona}</div>
-                    <div className="text-xs text-zinc-500">
-                      {r.rikishiId}
-                      {r.heya && <span className="ml-2">· {r.heya}</span>}
-                    </div>
-                  </div>
-                  <span className="text-xs text-zinc-600">→</span>
-                </Link>
+                <RikishiDiscoveryRow key={r.rikishiId} entry={r} />
               ))}
             </div>
           )}
@@ -183,12 +208,11 @@ export default function SearchPage() {
           ) : (
             <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3">
               {bashoResults.map((id) => {
-                const parsed = parseBashoId(id);
                 return (
                   <Link
                     key={id}
                     to={`/basho/${encodeURIComponent(id)}`}
-                    className="rounded-lg border border-white/[0.06] bg-white/[0.02] p-4 transition-colors hover:border-blue-600 hover:bg-white/[0.06]/80"
+                    className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-3.5 transition-colors hover:border-blue-600 hover:bg-white/[0.06]/80 sm:p-4"
                   >
                     <div className="font-semibold text-zinc-100">{bashoDisplayName(id)}</div>
                     <div className="mt-1 text-xs text-zinc-500">{id}</div>

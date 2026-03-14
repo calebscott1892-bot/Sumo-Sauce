@@ -1,4 +1,5 @@
 import { memo, useMemo } from 'react';
+import { Link } from 'react-router-dom';
 import {
   ResponsiveContainer,
   LineChart,
@@ -11,6 +12,8 @@ import {
 } from 'recharts';
 import type { DivisionStandingRow } from '../../../shared/api/v1';
 import { bashoTournamentName, parseBashoId } from '@/utils/basho';
+import { PremiumSectionShell } from '@/components/ui/premium';
+import AnalyticsTakeawayCard from '@/components/analytics/AnalyticsTakeawayCard';
 
 type BashoData = {
   bashoId: string;
@@ -83,12 +86,54 @@ function DivisionStrengthChart({ bashoData }: Props) {
 
   if (chartData.length < 2) return null;
 
+  const mostCompetitive = [...chartData]
+    .sort((a, b) => b.competitiveness - a.competitiveness || a.topScore - b.topScore)[0] ?? null;
+  const highestTopScore = [...chartData]
+    .sort((a, b) => b.topScore - a.topScore || b.avgWins - a.avgWins)[0] ?? null;
+  const latestPoint = chartData[chartData.length - 1] ?? null;
+
   return (
-    <section className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5">
-      <h2 className="font-display text-xl font-bold tracking-tight text-white">Division Strength Trends</h2>
-      <p className="mt-1 text-xs text-zinc-500">
-        Average wins and competitiveness per basho for Makuuchi over the last {chartData.length} tournaments.
-      </p>
+    <PremiumSectionShell
+      title="Division Strength Trends"
+      subtitle={`Use this as a tournament-by-tournament read of how open or top-heavy the recent Makuuchi sample looks across the last ${chartData.length} basho. Start with the takeaway cards, then use the lines to see whether a sharp result is isolated or part of a longer pattern.`}
+      trailing={(
+        <Link
+          to="/timeline"
+          className="rounded-lg border border-white/[0.08] bg-white/[0.03] px-3 py-1.5 text-xs font-medium text-zinc-300 transition-colors hover:border-red-600/40 hover:text-white"
+        >
+          Basho timeline
+        </Link>
+      )}
+    >
+      <div className="grid gap-3 md:grid-cols-3">
+        <AnalyticsTakeawayCard
+          eyebrow="Most balanced basho"
+          value={mostCompetitive ? String(mostCompetitive.competitiveness) : '—'}
+          title={mostCompetitive ? mostCompetitive.label : 'No balance signal'}
+          detail="This is the strongest balance signal in the current sample. Open the basho when you want to inspect whether the standings actually look crowded from top to bottom."
+          variant="amber"
+          to={mostCompetitive ? `/basho/${encodeURIComponent(mostCompetitive.bashoId)}` : undefined}
+          cta={mostCompetitive ? 'Open basho overview' : undefined}
+        />
+        <AnalyticsTakeawayCard
+          eyebrow="Strongest top score"
+          value={highestTopScore ? `${highestTopScore.topScore}W` : '—'}
+          title={highestTopScore ? highestTopScore.label : 'No standout leader'}
+          detail="Read this as the tournament with the strongest single top-end score in the sample, not proof that the whole basho was dominant from start to finish."
+          variant="green"
+          to={highestTopScore ? `/basho/${encodeURIComponent(highestTopScore.bashoId)}` : undefined}
+          cta={highestTopScore ? 'Open basho overview' : undefined}
+        />
+        <AnalyticsTakeawayCard
+          eyebrow="Latest sampled basho"
+          value={latestPoint ? latestPoint.label : '—'}
+          title={latestPoint ? `${latestPoint.avgWins.toFixed(1)} avg wins, ${latestPoint.competitiveness} competitiveness` : 'No current sample'}
+          detail="Use the latest point as your bridge from this trend view into the current tournament browse when you want named rikishi and standings context."
+          variant="blue"
+          to={latestPoint ? `/basho/${encodeURIComponent(latestPoint.bashoId)}` : '/basho'}
+          cta="Open basho overview"
+        />
+      </div>
 
       <div className="mt-4 h-72">
         <ResponsiveContainer width="100%" height="100%">
@@ -147,7 +192,13 @@ function DivisionStrengthChart({ bashoData }: Props) {
           </LineChart>
         </ResponsiveContainer>
       </div>
-    </section>
+
+      <div className="mt-4 flex flex-wrap gap-2 text-xs leading-relaxed text-zinc-500">
+        <span className="rounded-full border border-white/[0.08] bg-white/[0.02] px-3 py-1">Avg wins tracks the overall scoring environment.</span>
+        <span className="rounded-full border border-white/[0.08] bg-white/[0.02] px-3 py-1">Competitiveness is a simple spread-based signal inside the sampled standings.</span>
+        <span className="rounded-full border border-white/[0.08] bg-white/[0.02] px-3 py-1">Both lines describe recent Makuuchi samples only.</span>
+      </div>
+    </PremiumSectionShell>
   );
 }
 

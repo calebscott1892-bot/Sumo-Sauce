@@ -14,13 +14,13 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <Link to="/" className="inline-flex items-center gap-3 transition-opacity hover:opacity-80">
-              <img src="/logo-64.png" alt="Sumo Sauce" className="h-10 w-10 drop-shadow-lg" />
+              <img src="/logo-64.png" alt="SumoWatch" className="h-10 w-10 drop-shadow-lg" />
               <span className="font-display text-xl font-bold uppercase tracking-tight text-white">
-                Sumo Sauce
+                SumoWatch
               </span>
             </Link>
             <p className="mt-3 text-xs leading-relaxed text-zinc-500">
-              The premium analytics platform for professional sumo wrestling.
+              Professional sumo browsing and analytics backed by a structured wrestler trust layer.
             </p>
             <p className="mt-2 text-[10px] font-medium uppercase tracking-wider text-zinc-700">
               v{VERSION}
@@ -33,23 +33,19 @@ export default function Footer() {
             <ul className="mt-3 space-y-2 text-xs text-zinc-500">
               <li className="flex items-center gap-2">
                 <span className="h-1 w-1 rounded-full bg-red-500" />
-                Coverage: {YEAR_RANGE}
+                Coverage derived from the current verified profile dataset
               </li>
               <li className="flex items-center gap-2">
                 <span className="h-1 w-1 rounded-full bg-red-500" />
-                Source:{' '}
-                <a
-                  href="https://sumodb.sumogames.de/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-red-400/80 transition-colors hover:text-red-300"
-                >
-                  SumoDB
-                </a>
+                Source model: JSA profiles, SumoDB, and corroborating references
               </li>
               <li className="flex items-center gap-2">
                 <span className="h-1 w-1 rounded-full bg-red-500" />
-                Updated per basho
+                Official images shown only when image verification is complete
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="h-1 w-1 rounded-full bg-red-500" />
+                Verification depth varies by profile
               </li>
             </ul>
           </div>
@@ -79,21 +75,16 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <a
-                  href="https://github.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="transition-colors hover:text-zinc-300"
-                >
-                  GitHub
-                </a>
+                <Link to="/search" className="transition-colors hover:text-zinc-300">
+                  Search
+                </Link>
               </li>
             </ul>
           </div>
         </div>
 
         <div className="mt-10 border-t border-white/[0.06] pt-5 text-center text-[11px] text-zinc-600">
-          © {new Date().getFullYear()} Sumo Sauce. All data sourced from{' '}
+          © {new Date().getFullYear()} SumoWatch. Source attribution may include{' '}
           <a
             href="https://sumodb.sumogames.de/"
             target="_blank"
@@ -102,7 +93,7 @@ export default function Footer() {
           >
             SumoDB
           </a>
-          .
+          , JSA profile data, and other corroborating references where published.
         </div>
       </div>
     </footer>

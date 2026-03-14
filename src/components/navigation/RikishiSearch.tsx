@@ -1,7 +1,9 @@
-import { useState, useCallback, useRef, useEffect, useMemo } from 'react';
+import { useState, useCallback, useRef, useEffect, useMemo, useDeferredValue } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
-import { Search, User, Loader2 } from 'lucide-react';
+import { Loader2 } from 'lucide-react';
+import FallbackAvatar from '@/components/FallbackAvatar';
+import PremiumBadge from '@/components/ui/premium/PremiumBadge';
 import {
   Command,
   CommandInput,
@@ -10,7 +12,13 @@ import {
   CommandGroup,
   CommandItem,
 } from '@/components/ui/command';
+import {
+  getProfileConfidencePresentation,
+  getVerifiedImageUrl,
+  getVerifiedProfileForIdentity,
+} from '@/data/verifiedProfiles';
 import { getRikishiDirectory } from '@/pages/rikishi/api';
+import { searchSortedRikishiDirectory, sortRikishiDirectory } from '@/utils/rikishiDiscovery';
 import { trackSearchUsage } from '@/utils/analytics';
 import type { RikishiDirectoryEntry } from '../../../shared/api/v1';
 
@@ -20,6 +28,7 @@ export default function RikishiSearch() {
   const navigate = useNavigate();
   const [open, setOpen] = useState(false);
   const [search, setSearch] = useState('');
+  const deferredSearch = useDeferredValue(search);
   const containerRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -30,21 +39,11 @@ export default function RikishiSearch() {
     gcTime: 30 * 60 * 1000,
   });
 
-  const filtered = useMemo(() => {
-    const q = search.trim().toLowerCase();
-    if (!q) return [];
-
-    const results: RikishiDirectoryEntry[] = [];
-    for (const entry of directory) {
-      if (results.length >= MAX_RESULTS) break;
-      const shikonaLower = entry.shikona.toLowerCase();
-      const heyaLower = (entry.heya ?? '').toLowerCase();
-      if (shikonaLower.includes(q) || heyaLower.includes(q) || entry.rikishiId.toLowerCase().includes(q)) {
-        results.push(entry);
-      }
-    }
-    return results;
-  }, [directory, search]);
+  const sortedDirectory = useMemo(() => sortRikishiDirectory(directory), [directory]);
+  const filtered = useMemo(
+    () => searchSortedRikishiDirectory(sortedDirectory, deferredSearch, MAX_RESULTS),
+    [deferredSearch, sortedDirectory],
+  );
 
   const handleSelect = useCallback(
     (rikishiId: string) => {
@@ -104,7 +103,7 @@ export default function RikishiSearch() {
   return (
     <div ref={containerRef} className="relative w-full">
       <Command
-        className="rounded-xl border border-white/[0.08] bg-white/[0.04]"
+        className="rounded-2xl border border-white/[0.08] bg-white/[0.04]"
         shouldFilter={false}
       >
         <CommandInput
@@ -116,11 +115,11 @@ export default function RikishiSearch() {
             setOpen(true);
           }}
           onFocus={() => { if (search.trim()) setOpen(true); }}
-          className="text-zinc-100 placeholder-zinc-500"
+          className="min-h-12 text-zinc-100 placeholder-zinc-500"
         />
 
         {open && search.trim().length > 0 && (
-          <CommandList className="absolute top-full left-0 right-0 z-50 mt-1 max-h-72 rounded-xl border border-white/[0.08] bg-white/[0.03] shadow-2xl">
+          <CommandList className="absolute left-0 right-0 top-full z-50 mt-1 max-h-[min(60vh,24rem)] rounded-2xl border border-white/[0.08] bg-white/[0.03] shadow-2xl">
             {isLoading ? (
               <div className="flex items-center justify-center gap-2 py-6 text-sm text-zinc-400">
                 <Loader2 className="h-4 w-4 animate-spin" />
@@ -133,21 +132,7 @@ export default function RikishiSearch() {
             ) : (
               <CommandGroup>
                 {filtered.map((entry) => (
-                  <CommandItem
-                    key={entry.rikishiId}
-                    value={entry.rikishiId}
-                    onSelect={handleSelect}
-                    className="flex cursor-pointer items-center gap-3 px-3 py-2.5 text-zinc-200 hover:bg-white/[0.06] data-[selected=true]:bg-white/[0.06]"
-                  >
-                    <User className="h-4 w-4 shrink-0 text-red-500" />
-                    <div className="min-w-0 flex-1">
-                      <span className="font-medium text-white">{entry.shikona}</span>
-                      {entry.heya && (
-                        <span className="ml-2 text-xs text-zinc-500">{entry.heya}</span>
-                      )}
-                    </div>
-                    <span className="shrink-0 text-xs font-mono text-zinc-600">{entry.rikishiId}</span>
-                  </CommandItem>
+                  <CompactResultItem key={entry.rikishiId} entry={entry} onSelect={handleSelect} />
                 ))}
               </CommandGroup>
             )}
@@ -155,5 +140,53 @@ export default function RikishiSearch() {
         )}
       </Command>
     </div>
+  );
+}
+
+function CompactResultItem({
+  entry,
+  onSelect,
+}: {
+  entry: RikishiDirectoryEntry;
+  onSelect: (rikishiId: string) => void;
+}) {
+  const profile = useMemo(
+    () => getVerifiedProfileForIdentity(entry.rikishiId, entry.shikona),
+    [entry.rikishiId, entry.shikona],
+  );
+  const imageUrl = useMemo(() => getVerifiedImageUrl(profile), [profile]);
+  const trustMeta = profile
+    ? getProfileConfidencePresentation(profile.profileConfidence)
+    : { label: 'Trust metadata unavailable', detail: '', variant: 'zinc' as const };
+  const divisionLabel = profile?.division ?? 'Division unpublished';
+  const stableLabel = profile?.heya ?? entry.heya ?? 'Heya unpublished';
+
+  return (
+    <CommandItem
+      value={`${entry.shikona} ${entry.rikishiId} ${entry.heya || ''}`}
+      onSelect={() => onSelect(entry.rikishiId)}
+      className="flex cursor-pointer items-start gap-3 px-3 py-3 text-zinc-200 hover:bg-white/[0.06] data-[selected=true]:bg-white/[0.06] sm:items-center sm:py-2.5"
+    >
+      <FallbackAvatar
+        photoUrl={imageUrl}
+        shikona={entry.shikona}
+        rid={entry.rikishiId}
+        stable={stableLabel}
+        size="sm"
+        showRankMarker={false}
+      />
+      <div className="min-w-0 flex-1">
+        <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
+          <span className="font-medium text-white">{entry.shikona}</span>
+          <PremiumBadge variant="zinc">{divisionLabel}</PremiumBadge>
+          <PremiumBadge variant={trustMeta.variant} className="hidden sm:inline-flex">{trustMeta.label}</PremiumBadge>
+        </div>
+        <div className="mt-1 flex flex-wrap items-center gap-x-3 gap-y-1 text-[11px] text-zinc-500">
+          <span>{stableLabel}</span>
+          <span className="font-mono text-zinc-600">{entry.rikishiId}</span>
+        </div>
+        <div className="mt-1 text-[11px] text-zinc-500 sm:hidden">{trustMeta.label}</div>
+      </div>
+    </CommandItem>
   );
 }

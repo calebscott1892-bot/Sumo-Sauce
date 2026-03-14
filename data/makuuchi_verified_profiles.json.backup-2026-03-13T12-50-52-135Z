@@ -994,7 +994,7 @@
     "shikona": "Asakoryu Takuma",
     "heya": "Takasago",
     "birthDate": "1998-09-24",
-    "nationality": "Japan",
+    "nationality": "Osaka",
     "heightCm": 178,
     "weightKg": 125,
     "status": "active",
@@ -1004,6 +1004,10 @@
     "profileConfidence": "verified",
     "sourceRefs": [
       {
+        "label": "JSA Find Rikishi (makuuchi roster)",
+        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/search/"
+      },
+      {
         "label": "JSA rikishi profile",
         "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4101/"
       },
@@ -1012,7 +1016,7 @@
         "url": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20210046.jpg"
       }
     ],
-    "notes": "Identity reconciliation note: no duplicate profile created during Juryo close-out review. Official 202603 context for this record is Makuuchi.",
+    "notes": "On the confirmed JSA makuuchi roster.",
     "division": "Makuuchi",
     "batchRef": "makuuchi-roster",
     "lastVerifiedBasho": "202603",
@@ -3224,13 +3228,13 @@
     "provenanceStatus": "confirmed"
   },
   {
-    "rikishiId": "3040",
+    "rikishiId": null,
     "shikona": "Chiyomaru",
     "heya": "Kise",
-    "birthDate": "1991-04-17",
-    "nationality": "Japan",
-    "heightCm": 178.8,
-    "weightKg": 171.4,
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
     "status": "active",
     "officialImageUrl": null,
     "imageSource": null,
@@ -4525,26 +4529,26 @@
   },
   {
     "rikishiId": "3334",
-    "shikona": "Hakuyozan",
+    "shikona": "Shiratakeyama",
     "heya": "Takadagawa",
     "birthDate": "1995-04-13",
-    "nationality": "Japan",
+    "nationality": null,
     "heightCm": 187.9,
     "weightKg": 180.8,
     "status": "active",
-    "officialImageUrl": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20110026.jpg",
-    "imageSource": "Nihon Sumo Kyokai official profile",
-    "imageConfidence": "verified",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
     "profileConfidence": "verified",
     "sourceRefs": [
       {
-        "label": "JSA profile",
-        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3334/"
+        "label": "JSA profile – Shiratakeyama",
+        "url": "https://www.sumo.or.jp/ResultRikishiData/profile/3334"
       }
     ],
-    "notes": "Batch F final: Haru 2026 Juryo. JSA-verified profile.",
-    "division": "Juryo",
-    "batchRef": "juryo-roster",
+    "notes": "Haru 2026 Makushita 2E.",
+    "division": "Makushita",
+    "batchRef": "makushita-1-20",
     "lastVerifiedBasho": "202603",
     "provenanceStatus": "confirmed"
   },
@@ -4675,26 +4679,26 @@
   },
   {
     "rikishiId": "3415",
-    "shikona": "Shimanoumi",
-    "heya": "Kise",
+    "shikona": "Shimano Umi",
+    "heya": "Isegahama",
     "birthDate": "1989-07-11",
-    "nationality": "Japan",
+    "nationality": null,
     "heightCm": 179,
     "weightKg": 160.9,
     "status": "active",
-    "officialImageUrl": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20120047.jpg",
-    "imageSource": "Nihon Sumo Kyokai official profile",
-    "imageConfidence": "verified",
+    "officialImageUrl": null,
+    "imageSource": null,
+    "imageConfidence": "missing",
     "profileConfidence": "verified",
     "sourceRefs": [
       {
-        "label": "JSA profile",
-        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3415/"
+        "label": "JSA profile – Shimano Umi",
+        "url": "https://www.sumo.or.jp/ResultRikishiData/profile/3415"
       }
     ],
-    "notes": "Batch F final: Haru 2026 Juryo. JSA-verified profile.",
-    "division": "Juryo",
-    "batchRef": "juryo-roster",
+    "notes": "Haru 2026 Makushita 5E.",
+    "division": "Makushita",
+    "batchRef": "makushita-1-20",
     "lastVerifiedBasho": "202603",
     "provenanceStatus": "confirmed"
   },
@@ -5488,15 +5492,15 @@
     "profileConfidence": "verified",
     "sourceRefs": [
       {
-        "label": "JSA profile (Mita Taiki)",
-        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4289/"
+        "label": "JSA Profile",
+        "url": "https://www.sumo.or.jp/Profile/rikishi/4289/"
       }
     ],
-    "notes": "Official JSA profile shows current rank Makushita #41; removed from the live 202603 Juryo set during final provenance close-out.",
-    "division": "Makushita",
-    "batchRef": "makushita-41-60",
+    "notes": "[Provenance inferred: legacy cross-ref — data/legacy/wrestlers_final_merged.json lists Juryo #3E]",
+    "division": "Juryo",
+    "batchRef": "juryo-roster",
     "lastVerifiedBasho": "202603",
-    "provenanceStatus": "confirmed"
+    "provenanceStatus": "inferred"
   },
   {
     "rikishiId": "4057",
@@ -6198,13 +6202,13 @@
     "provenanceStatus": "confirmed"
   },
   {
-    "rikishiId": "3158",
+    "rikishiId": null,
     "shikona": "Chiyosakae",
     "heya": "Kokonoe",
-    "birthDate": "1990-07-12",
-    "nationality": "Japan",
-    "heightCm": 179.9,
-    "weightKg": 148.2,
+    "birthDate": null,
+    "nationality": null,
+    "heightCm": null,
+    "weightKg": null,
     "status": "active",
     "officialImageUrl": null,
     "imageSource": null,
@@ -9437,25 +9441,29 @@
     "shikona": "Akua",
     "heya": "Tatsunami",
     "birthDate": "1990-11-06",
-    "nationality": "Japan",
+    "nationality": null,
     "heightCm": 185,
     "weightKg": 168.4,
     "status": "active",
     "officialImageUrl": null,
     "imageSource": null,
     "imageConfidence": "missing",
-    "profileConfidence": "verified",
+    "profileConfidence": "likely",
     "sourceRefs": [
       {
-        "label": "JSA profile (Akua Shoma)",
+        "label": "JSA rikishi profile",
         "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3312/"
+      },
+      {
+        "label": "SumoDB Haru 2026 text banzuke",
+        "url": "https://sumodb.sumogames.de/Banzuke_text.aspx?b=202603&heya=-1&shusshin=-1"
       }
     ],
-    "notes": "Official JSA profile shows current rank Makushita #39; removed from the live 202603 Juryo set during final provenance close-out.",
-    "division": "Makushita",
-    "batchRef": "makushita-21-40",
+    "notes": "Nationality left null because JSA profile gives birthplace, not explicit nationality; image omitted pending separate verification. | [Provenance inferred: legacy cross-ref — data/legacy/wrestlers_final_merged.json lists Juryo #6E]",
+    "division": "Juryo",
+    "batchRef": "juryo-roster",
     "lastVerifiedBasho": "202603",
-    "provenanceStatus": "confirmed"
+    "provenanceStatus": "inferred"
   },
   {
     "rikishiId": "4118",
@@ -9665,7 +9673,7 @@
     "shikona": "Tsurubayashi",
     "heya": "Kise",
     "birthDate": "1993-12-31",
-    "nationality": "Japan",
+    "nationality": null,
     "heightCm": 180,
     "weightKg": 139.4,
     "status": "active",
@@ -13243,306 +13251,6 @@
       }
     ],
     "notes": "Batch F final: Haru 2026 Juryo. JSA-verified profile. Full shikona: Shonannoumi Momotaro.",
-    "division": "Juryo",
-    "batchRef": "juryo-roster",
-    "lastVerifiedBasho": "202603",
-    "provenanceStatus": "confirmed"
-  },
-  {
-    "rikishiId": "3434",
-    "shikona": "Onosho",
-    "heya": "Onomatsu",
-    "birthDate": "1996-07-04",
-    "nationality": "Japan",
-    "heightCm": 176,
-    "weightKg": 165,
-    "status": "retired",
-    "officialImageUrl": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20130005.jpg",
-    "imageSource": "Nihon Sumo Kyokai official profile",
-    "imageConfidence": "verified",
-    "profileConfidence": "verified",
-    "sourceRefs": [
-      {
-        "label": "JSA profile (retired)",
-        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3434/"
-      }
-    ],
-    "notes": "Retired Jan 2025 (per JSA data); highest rank Komusubi. Removed from Juryo during strict reconciliation because retired status conflicts with current 202603 premium-division roster inclusion.",
-    "division": "Historical",
-    "batchRef": "juryo-reconciliation-202603",
-    "lastVerifiedBasho": "202603",
-    "provenanceStatus": "confirmed"
-  },
-  {
-    "rikishiId": "3504",
-    "shikona": "Tsurugisho",
-    "heya": "Oitekaze",
-    "birthDate": "1991-07-27",
-    "nationality": "Japan",
-    "heightCm": 185,
-    "weightKg": 200,
-    "status": "active",
-    "officialImageUrl": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20140002.jpg",
-    "imageSource": "Nihon Sumo Kyokai official profile",
-    "imageConfidence": "verified",
-    "profileConfidence": "verified",
-    "sourceRefs": [
-      {
-        "label": "JSA profile",
-        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3504/"
-      }
-    ],
-    "notes": "Batch F final: Haru 2026 Juryo. JSA-verified profile.",
-    "division": "Juryo",
-    "batchRef": "juryo-roster",
-    "lastVerifiedBasho": "202603",
-    "provenanceStatus": "confirmed"
-  },
-  {
-    "rikishiId": "4116",
-    "shikona": "Daiseizan",
-    "heya": "Arashio",
-    "birthDate": "2000-05-22",
-    "nationality": "China",
-    "heightCm": 192,
-    "weightKg": 166,
-    "status": "active",
-    "officialImageUrl": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20210061.jpg",
-    "imageSource": "Nihon Sumo Kyokai official profile",
-    "imageConfidence": "verified",
-    "profileConfidence": "verified",
-    "sourceRefs": [
-      {
-        "label": "JSA profile",
-        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4116/"
-      }
-    ],
-    "notes": "Chinese by birthplace (Mongol, per official profile birthplace: China).",
-    "division": "Juryo",
-    "batchRef": "juryo-roster",
-    "lastVerifiedBasho": "202603",
-    "provenanceStatus": "confirmed"
-  },
-  {
-    "rikishiId": "4285",
-    "shikona": "Asasuiryu",
-    "heya": "Takasago",
-    "birthDate": "2000-08-09",
-    "nationality": "Japan",
-    "heightCm": 174,
-    "weightKg": 117,
-    "status": "active",
-    "officialImageUrl": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20240052.jpg",
-    "imageSource": "Nihon Sumo Kyokai official profile",
-    "imageConfidence": "verified",
-    "profileConfidence": "verified",
-    "sourceRefs": [
-      {
-        "label": "JSA profile",
-        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4285/"
-      }
-    ],
-    "notes": "Batch F final: Haru 2026 Juryo. JSA-verified profile.",
-    "division": "Juryo",
-    "batchRef": "juryo-roster",
-    "lastVerifiedBasho": "202603",
-    "provenanceStatus": "confirmed"
-  },
-  {
-    "rikishiId": "3914",
-    "shikona": "Nishinoryu",
-    "heya": "Sakaigawa",
-    "birthDate": "2000-08-20",
-    "nationality": "Japan",
-    "heightCm": 182,
-    "weightKg": 141,
-    "status": "active",
-    "officialImageUrl": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20180075.jpg",
-    "imageSource": "Nihon Sumo Kyokai official profile",
-    "imageConfidence": "verified",
-    "profileConfidence": "verified",
-    "sourceRefs": [
-      {
-        "label": "JSA profile",
-        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3914/"
-      }
-    ],
-    "notes": "Batch F final: Haru 2026 Juryo. JSA-verified profile.",
-    "division": "Juryo",
-    "batchRef": "juryo-roster",
-    "lastVerifiedBasho": "202603",
-    "provenanceStatus": "confirmed"
-  },
-  {
-    "rikishiId": "4171",
-    "shikona": "Takerufuji",
-    "heya": "Isegahama",
-    "birthDate": "1999-04-09",
-    "nationality": "Japan",
-    "heightCm": 187,
-    "weightKg": 148,
-    "status": "active",
-    "officialImageUrl": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20220059.jpg",
-    "imageSource": "Nihon Sumo Kyokai official profile",
-    "imageConfidence": "verified",
-    "profileConfidence": "verified",
-    "sourceRefs": [
-      {
-        "label": "JSA profile",
-        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4171/"
-      }
-    ],
-    "notes": "Batch F final: Haru 2026 Juryo. JSA-verified profile.",
-    "division": "Juryo",
-    "batchRef": "juryo-roster",
-    "lastVerifiedBasho": "202603",
-    "provenanceStatus": "confirmed"
-  },
-  {
-    "rikishiId": "4158",
-    "shikona": "Kazekeno",
-    "heya": "Oshiogawa",
-    "birthDate": "1999-06-04",
-    "nationality": "Japan",
-    "heightCm": 185,
-    "weightKg": 154,
-    "status": "active",
-    "officialImageUrl": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20220043.jpg",
-    "imageSource": "Nihon Sumo Kyokai official profile",
-    "imageConfidence": "verified",
-    "profileConfidence": "verified",
-    "sourceRefs": [
-      {
-        "label": "JSA profile",
-        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4158/"
-      }
-    ],
-    "notes": "Batch F final: Haru 2026 Juryo. JSA-verified profile.",
-    "division": "Juryo",
-    "batchRef": "juryo-roster",
-    "lastVerifiedBasho": "202603",
-    "provenanceStatus": "confirmed"
-  },
-  {
-    "rikishiId": "3218",
-    "shikona": "Kotokuzan",
-    "heya": "Arashio",
-    "birthDate": "1994-03-11",
-    "nationality": "Japan",
-    "heightCm": 181,
-    "weightKg": 178,
-    "status": "active",
-    "officialImageUrl": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20090080.jpg",
-    "imageSource": "Nihon Sumo Kyokai official profile",
-    "imageConfidence": "verified",
-    "profileConfidence": "verified",
-    "sourceRefs": [
-      {
-        "label": "JSA profile",
-        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3218/"
-      }
-    ],
-    "notes": "Batch F final: Haru 2026 Juryo. JSA-verified profile.",
-    "division": "Juryo",
-    "batchRef": "juryo-roster",
-    "lastVerifiedBasho": "202603",
-    "provenanceStatus": "confirmed"
-  },
-  {
-    "rikishiId": "3337",
-    "shikona": "Meisei",
-    "heya": "Tatsunami",
-    "birthDate": "1995-07-24",
-    "nationality": "Japan",
-    "heightCm": 180,
-    "weightKg": 150,
-    "status": "active",
-    "officialImageUrl": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20130041.jpg",
-    "imageSource": "Nihon Sumo Kyokai official profile",
-    "imageConfidence": "verified",
-    "profileConfidence": "verified",
-    "sourceRefs": [
-      {
-        "label": "JSA profile",
-        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3337/"
-      }
-    ],
-    "notes": "Batch F final: Haru 2026 Juryo. JSA-verified profile.",
-    "division": "Juryo",
-    "batchRef": "juryo-roster",
-    "lastVerifiedBasho": "202603",
-    "provenanceStatus": "confirmed"
-  },
-  {
-    "rikishiId": "3939",
-    "shikona": "Kitanowaka",
-    "heya": "Hakkaku",
-    "birthDate": "2000-11-12",
-    "nationality": "Japan",
-    "heightCm": 191,
-    "weightKg": 161,
-    "status": "active",
-    "officialImageUrl": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20190026.jpg",
-    "imageSource": "Nihon Sumo Kyokai official profile",
-    "imageConfidence": "verified",
-    "profileConfidence": "verified",
-    "sourceRefs": [
-      {
-        "label": "JSA profile",
-        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3939/"
-      }
-    ],
-    "notes": "Batch F final: Haru 2026 Juryo. JSA-verified profile.",
-    "division": "Juryo",
-    "batchRef": "juryo-roster",
-    "lastVerifiedBasho": "202603",
-    "provenanceStatus": "confirmed"
-  },
-  {
-    "rikishiId": "3983",
-    "shikona": "Dewanoryu",
-    "heya": "Dewanoumi",
-    "birthDate": "2001-03-07",
-    "nationality": "Mongolia",
-    "heightCm": 180,
-    "weightKg": 154,
-    "status": "active",
-    "officialImageUrl": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20190073.jpg",
-    "imageSource": "Nihon Sumo Kyokai official profile",
-    "imageConfidence": "verified",
-    "profileConfidence": "verified",
-    "sourceRefs": [
-      {
-        "label": "JSA profile",
-        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/3983/"
-      }
-    ],
-    "notes": "Batch F final: Haru 2026 Juryo. JSA-verified profile.",
-    "division": "Juryo",
-    "batchRef": "juryo-roster",
-    "lastVerifiedBasho": "202603",
-    "provenanceStatus": "confirmed"
-  },
-  {
-    "rikishiId": "4096",
-    "shikona": "Daitensho",
-    "heya": "Oitekaze",
-    "birthDate": "2006-01-11",
-    "nationality": "Japan",
-    "heightCm": 172,
-    "weightKg": 124,
-    "status": "active",
-    "officialImageUrl": "https://www.sumo.or.jp/img/sumo_data/rikishi/270x474/20210041.jpg",
-    "imageSource": "Nihon Sumo Kyokai official profile",
-    "imageConfidence": "verified",
-    "profileConfidence": "verified",
-    "sourceRefs": [
-      {
-        "label": "JSA profile",
-        "url": "https://www.sumo.or.jp/EnSumoDataRikishi/profile/4096/"
-      }
-    ],
-    "notes": "Batch F final: Haru 2026 Juryo. JSA-verified profile.",
     "division": "Juryo",
     "batchRef": "juryo-roster",
     "lastVerifiedBasho": "202603",

@@ -1,199 +1,49 @@
 {
   "_meta": {
-    "description": "Batch F FINAL — every remaining Juryo recovery case needed to close the division",
-    "generatedDate": "2026-03-12",
+    "description": "Batch F FINAL — historical Juryo exception apply snapshot",
+    "generatedDate": "2026-03-13",
+    "authorityStatus": "historical-workflow-artifact",
+    "retiredAsRosterTruth": "2026-03-13",
     "banzukeBasho": "202603 (Haru 2026)",
     "targetDivision": "Juryo",
-    "totalBanzukeSlots": 28,
-    "currentlyPresent": 14,
-    "remainingCases": 19,
+    "currentJuryoProfilesInDataset": 25,
+    "resolvedCasesApplied": 21,
+    "remainingCases": 0,
     "breakdown": {
-      "enrichExisting": 2,
-      "nationalityOnly": 2,
-      "newProfiles": 14,
-      "unidentifiedSlot": 1
+      "identityUnresolved": 0,
+      "statusConflict": 0,
+      "unidentifiedSlot": 0
     },
-    "instructions": "A research agent must return a JSON array of objects. For ENRICH cases, return objects keyed by shikona with the missing fields. For NEW cases, return full profile objects matching the VERIFIED_PROFILES_FORMAT.md schema. For the IDENTIFY case, return the wrestler's identity first, then full profile. Once returned, ingest via the standard merge-research.mjs workflow or direct script insertion. After ingestion, Juryo should reach 28 profiles — every banzuke slot filled.",
-    "excludedToshiyori": "22 toshiyori/elder names removed in Batch E are archived at data/_quarantine_batch_e_removed.json. They are NOT wrestlers. Do NOT re-add them."
+    "notes": "Historical exception-pass snapshot only. Do not treat this file as the authoritative March 2026 Juryo roster definition; later official evidence restored additional valid Juryo-context wrestlers that were excluded when the old Batch F target list was treated as roster truth."
   },
-  "cases": [
+  "cases": [],
+  "resolvedCases": [
     {
-      "caseType": "ENRICH",
-      "rank": "J3e",
-      "shikona": "Chiyosakae",
-      "currentHeya": "Kokonoe",
-      "currentDivision": "Juryo",
-      "existsInDataset": true,
-      "missingFields": ["rikishiId", "birthDate", "nationality", "heightCm", "weightKg"],
-      "action": "Look up JSA profile for Chiyosakae (Kokonoe stable). Return rikishiId, birthDate, nationality, heightCm, weightKg."
-    },
-    {
-      "caseType": "ENRICH",
-      "rank": "J6w",
-      "shikona": "Chiyomaru",
-      "currentHeya": "Kise",
-      "currentDivision": "Juryo",
-      "existsInDataset": true,
-      "missingFields": ["rikishiId", "birthDate", "nationality", "heightCm", "weightKg"],
-      "action": "Look up JSA profile for Chiyomaru (Kise stable). Return rikishiId, birthDate, nationality, heightCm, weightKg."
-    },
-    {
-      "caseType": "ENRICH_NATIONALITY",
-      "rank": "J14e",
-      "shikona": "Akua",
-      "currentRikishiId": "3312",
-      "currentHeya": "Tatsunami",
-      "currentDivision": "Juryo",
-      "existsInDataset": true,
-      "missingFields": ["nationality"],
-      "action": "Confirm nationality for Akua (rikishiId 3312, Tatsunami stable). Return nationality string."
-    },
-    {
-      "caseType": "ENRICH_NATIONALITY",
-      "rank": "J11e",
-      "shikona": "Tsurubayashi",
-      "currentRikishiId": "3177",
-      "currentHeya": "Kise",
-      "currentDivision": "Juryo",
-      "existsInDataset": true,
-      "missingFields": ["nationality"],
-      "action": "Confirm nationality for Tsurubayashi (rikishiId 3177, Kise stable). Return nationality string."
-    },
-    {
-      "caseType": "NEW",
-      "rank": "J1e",
-      "shikona": "Onosho",
-      "existsInDataset": false,
-      "requiredFields": ["rikishiId", "shikona", "heya", "birthDate", "nationality", "heightCm", "weightKg"],
-      "action": "Create full profile via JSA + SumoDB."
-    },
-    {
-      "caseType": "NEW",
-      "rank": "J2e",
-      "shikona": "Tsurugisho",
-      "existsInDataset": false,
-      "requiredFields": ["rikishiId", "shikona", "heya", "birthDate", "nationality", "heightCm", "weightKg"],
-      "action": "Create full profile via JSA + SumoDB."
-    },
-    {
-      "caseType": "NEW",
-      "rank": "J3w",
-      "shikona": "Daiseizan",
-      "existsInDataset": false,
-      "requiredFields": ["rikishiId", "shikona", "heya", "birthDate", "nationality", "heightCm", "weightKg"],
-      "action": "Create full profile via JSA + SumoDB."
-    },
-    {
-      "caseType": "NEW",
-      "rank": "J4e",
-      "shikona": "Asasuiryu",
-      "existsInDataset": false,
-      "requiredFields": ["rikishiId", "shikona", "heya", "birthDate", "nationality", "heightCm", "weightKg"],
-      "action": "Create full profile via JSA + SumoDB."
-    },
-    {
-      "caseType": "NEW",
-      "rank": "J4w",
-      "shikona": "Nishinoryu",
-      "existsInDataset": false,
-      "requiredFields": ["rikishiId", "shikona", "heya", "birthDate", "nationality", "heightCm", "weightKg"],
-      "action": "Create full profile via JSA + SumoDB."
-    },
-    {
-      "caseType": "NEW",
-      "rank": "J5e",
-      "shikona": "Takerufuji",
-      "existsInDataset": false,
-      "requiredFields": ["rikishiId", "shikona", "heya", "birthDate", "nationality", "heightCm", "weightKg"],
-      "action": "Create full profile via JSA + SumoDB."
-    },
-    {
-      "caseType": "NEW",
-      "rank": "J6e",
-      "shikona": "Hakuyozan",
-      "existsInDataset": false,
-      "requiredFields": ["rikishiId", "shikona", "heya", "birthDate", "nationality", "heightCm", "weightKg"],
-      "action": "Create full profile via JSA + SumoDB."
-    },
-    {
-      "caseType": "NEW",
-      "rank": "J7w",
-      "shikona": "Kazekeno",
-      "existsInDataset": false,
-      "requiredFields": ["rikishiId", "shikona", "heya", "birthDate", "nationality", "heightCm", "weightKg"],
-      "action": "Create full profile via JSA + SumoDB."
-    },
-    {
-      "caseType": "NEW",
-      "rank": "J8e",
-      "shikona": "Kotokuzan",
-      "existsInDataset": false,
-      "requiredFields": ["rikishiId", "shikona", "heya", "birthDate", "nationality", "heightCm", "weightKg"],
-      "action": "Create full profile via JSA + SumoDB."
-    },
-    {
-      "caseType": "NEW",
-      "rank": "J8w",
-      "shikona": "Meisei",
-      "existsInDataset": false,
-      "requiredFields": ["rikishiId", "shikona", "heya", "birthDate", "nationality", "heightCm", "weightKg"],
-      "action": "Create full profile via JSA + SumoDB."
-    },
-    {
-      "caseType": "NEW",
-      "rank": "J9e",
-      "shikona": "Kyokukaiyu",
-      "existsInDataset": false,
-      "requiredFields": ["rikishiId", "shikona", "heya", "birthDate", "nationality", "heightCm", "weightKg"],
-      "action": "Create full profile via JSA + SumoDB."
-    },
-    {
-      "caseType": "NEW",
-      "rank": "J10e",
-      "shikona": "Kitanowaka",
-      "existsInDataset": false,
-      "requiredFields": ["rikishiId", "shikona", "heya", "birthDate", "nationality", "heightCm", "weightKg"],
-      "action": "Create full profile via JSA + SumoDB."
-    },
-    {
-      "caseType": "NEW",
-      "rank": "J10w",
-      "shikona": "Dewanoryu",
-      "existsInDataset": false,
-      "requiredFields": ["rikishiId", "shikona", "heya", "birthDate", "nationality", "heightCm", "weightKg"],
-      "action": "Create full profile via JSA + SumoDB."
-    },
-    {
-      "caseType": "NEW",
-      "rank": "J12e",
-      "shikona": "Shimanoumi",
-      "existsInDataset": false,
-      "requiredFields": ["rikishiId", "shikona", "heya", "birthDate", "nationality", "heightCm", "weightKg"],
-      "action": "Create full profile via JSA + SumoDB."
-    },
-    {
-      "caseType": "NEW",
-      "rank": "J13e",
+      "caseType": "MANUAL_IDENTITY_REVIEW",
+      "rank": "J13e/J2w discrepancy",
       "shikona": "Asakoryu",
-      "existsInDataset": false,
-      "requiredFields": ["rikishiId", "shikona", "heya", "birthDate", "nationality", "heightCm", "weightKg"],
-      "action": "Create full profile via JSA + SumoDB. WARNING: Asakoryu Takuma (rikishiId 4101) already exists as Makuuchi. The Juryo J13e Asakoryu is a DIFFERENT wrestler. Verify identity carefully and use the correct rikishiId."
+      "status": "resolved",
+      "resolution": "No separate Juryo identity; same wrestler as existing Asakoryu Takuma.",
+      "rikishiId": "4101",
+      "applyMode": "Kept existing canonical profile in Makuuchi context; excluded from current Juryo roster."
     },
     {
-      "caseType": "NEW",
-      "rank": "J13w",
-      "shikona": "Daitensho",
-      "existsInDataset": false,
-      "requiredFields": ["rikishiId", "shikona", "heya", "birthDate", "nationality", "heightCm", "weightKg"],
-      "action": "Create full profile via JSA + SumoDB."
+      "caseType": "MANUAL_STATUS_REVIEW",
+      "rank": "J1e target slot",
+      "shikona": "Onosho",
+      "status": "resolved",
+      "resolution": "Retired status confirmed in repo-local evidence; excluded from current Juryo roster.",
+      "rikishiId": "3434",
+      "applyMode": "Kept as non-Juryo retired record; no duplicate profile created."
     },
     {
       "caseType": "IDENTIFY_AND_CREATE",
       "rank": "J14w",
-      "shikona": null,
-      "existsInDataset": false,
-      "requiredFields": ["rikishiId", "shikona", "heya", "birthDate", "nationality", "heightCm", "weightKg"],
-      "action": "First IDENTIFY which wrestler holds the J14w position on the official Haru 2026 Juryo banzuke. Then create full profile. Check the JSA official banzuke at sumo.or.jp for the West side of Juryo rank 14."
+      "shikona": "Kotokuzan",
+      "status": "resolved",
+      "resolution": "J14w slot resolved to existing Kotokuzan profile.",
+      "rikishiId": "3218",
+      "applyMode": "Confirmed existing profile already present and complete; no duplicate created."
     }
   ]
 }

@@ -62,6 +62,11 @@ declare module '@/components/rikishi/RikishiBoutTimeline' {
   export default RikishiBoutTimeline;
 }
 
+declare module '@/components/FallbackAvatar' {
+  const FallbackAvatar: React.ComponentType<any>;
+  export default FallbackAvatar;
+}
+
 declare module '@/components/compare/StatBar' {
   const StatBar: React.ComponentType<any>;
   export default StatBar;

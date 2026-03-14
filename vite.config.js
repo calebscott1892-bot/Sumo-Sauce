@@ -22,11 +22,38 @@ export default defineConfig({
   build: {
     rollupOptions: {
       output: {
-        manualChunks: {
-          'vendor-react': ['react', 'react-dom', 'react-router-dom'],
-          'vendor-query': ['@tanstack/react-query'],
-          'vendor-recharts': ['recharts'],
-          'vendor-motion': ['framer-motion'],
+        manualChunks(id) {
+          if (!id.includes('node_modules')) return undefined
+
+          if (id.includes('/react/') || id.includes('/react-dom/') || id.includes('react-router-dom')) {
+            return 'vendor-react'
+          }
+
+          if (id.includes('@tanstack/react-query')) {
+            return 'vendor-query'
+          }
+
+          if (id.includes('recharts')) {
+            return 'vendor-recharts'
+          }
+
+          if (id.includes('framer-motion')) {
+            return 'vendor-motion'
+          }
+
+          if (id.includes('@radix-ui/')) {
+            return 'vendor-radix'
+          }
+
+          if (id.includes('lucide-react')) {
+            return 'vendor-icons'
+          }
+
+          if (id.includes('cmdk') || id.includes('sonner') || id.includes('vaul')) {
+            return 'vendor-ui'
+          }
+
+          return undefined
         },
       },
     },
