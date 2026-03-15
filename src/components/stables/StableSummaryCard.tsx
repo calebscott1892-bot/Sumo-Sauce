@@ -2,10 +2,21 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, ShieldCheck, Users } from 'lucide-react';
 import { formatVerifiedBasho } from '@/data/verifiedProfiles';
 import PremiumBadge from '@/components/ui/premium/PremiumBadge';
-import type { StableSummary } from '@/utils/rosterBrowsing';
+
+type StableSummaryCardData = {
+  name: string;
+  slug: string;
+  activeCount: number;
+  totalTrackedCount: number;
+  sekitoriCount: number;
+  divisions: string[];
+  divisionCounts: Record<string, number>;
+  latestVerifiedBasho: string | null;
+  verifiedCount: number;
+};
 
 type Props = {
-  stable: StableSummary;
+  stable: StableSummaryCardData;
   compact?: boolean;
 };
 

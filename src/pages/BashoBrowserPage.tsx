@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { useEffect, useMemo } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { Search, Filter, Compass, ArrowRight } from 'lucide-react';
 import {
@@ -12,6 +12,7 @@ import {
 import EmptyState from '@/components/ui/EmptyState';
 import PageMeta from '@/components/ui/PageMeta';
 import { PremiumBadge, PremiumPageHeader, PremiumSectionShell } from '@/components/ui/premium';
+import { trackBashoBrowserView } from '@/utils/analytics';
 
 type BashoEntry = {
   bashoId: string;
@@ -36,6 +37,10 @@ const TOURNAMENT_MONTHS: Record<number, string> = {
  */
 export default function BashoBrowserPage() {
   const [searchParams, setSearchParams] = useSearchParams();
+
+  useEffect(() => {
+    trackBashoBrowserView();
+  }, []);
 
   const yearFilter = searchParams.get('year') ?? '';
   const monthFilter = searchParams.get('month') ?? '';
@@ -132,6 +137,14 @@ export default function BashoBrowserPage() {
           { label: 'Home', to: '/' },
           { label: 'Basho Browser' },
         ]}
+        actions={(
+          <Link
+            to="/watchlist"
+            className="rounded-lg border border-white/[0.08] bg-white/[0.03] px-3 py-1.5 text-sm text-zinc-300 transition-colors hover:border-red-600/40 hover:text-white"
+          >
+            Watchlist
+          </Link>
+        )}
       />
 
       {latestBasho && (

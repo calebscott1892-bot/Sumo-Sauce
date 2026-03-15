@@ -1,9 +1,5 @@
 import React, { useDeferredValue, useEffect, useMemo, useState } from 'react';
-<<<<<<< HEAD
 import { Link, useNavigate, useSearchParams } from 'react-router-dom';
-=======
-import { Link, useNavigate } from 'react-router-dom';
->>>>>>> origin/main
 import {
   Database,
   RefreshCcw,
@@ -12,6 +8,7 @@ import {
   Layers3,
 } from 'lucide-react';
 import { trackLeaderboardView } from '@/utils/analytics';
+import { resolveApiUrl } from '@/utils/apiBase';
 import PageMeta from '@/components/ui/PageMeta';
 import EmptyState from '@/components/ui/EmptyState';
 import { PremiumBadge, PremiumPageHeader, PremiumSectionShell } from '@/components/ui/premium';
@@ -20,8 +17,8 @@ import LeaderboardTable from '@/components/leaderboard/LeaderboardTable';
 
 const WRESTLER_LIMIT = 2000;
 const BASHO_RECORD_LIMIT = 5000;
-const WRESTLERS_URL = `/api/entities/Wrestler?limit=${WRESTLER_LIMIT}`;
-const BASHO_RECORDS_URL = `/api/entities/BashoRecord?limit=${BASHO_RECORD_LIMIT}`;
+const WRESTLERS_URL = resolveApiUrl(`/entities/Wrestler?limit=${WRESTLER_LIMIT}`);
+const BASHO_RECORDS_URL = resolveApiUrl(`/entities/BashoRecord?limit=${BASHO_RECORD_LIMIT}`);
 
 const TIER_ORDER = {
   Yokozuna: 1,
@@ -268,14 +265,9 @@ function inferGroupRecency(group) {
 
 export default function Leaderboard() {
   const navigate = useNavigate();
-<<<<<<< HEAD
   const [searchParams, setSearchParams] = useSearchParams();
 
   const [searchQuery, setSearchQuery] = useState(() => searchParams.get('q') ?? '');
-=======
-
-  const [searchQuery, setSearchQuery] = useState('');
->>>>>>> origin/main
   const [selectedDivision, setSelectedDivision] = useState('all');
   const [sortMode, setSortMode] = useState('banzuke');
   const [hideStubs, setHideStubs] = useState(true);
@@ -297,7 +289,6 @@ export default function Leaderboard() {
   }, []);
 
   useEffect(() => {
-<<<<<<< HEAD
     const queryFromUrl = searchParams.get('q') ?? '';
     if (queryFromUrl !== searchQuery) {
       setSearchQuery(queryFromUrl);
@@ -315,8 +306,6 @@ export default function Leaderboard() {
   }, [searchParams, searchQuery, setSearchParams]);
 
   useEffect(() => {
-=======
->>>>>>> origin/main
     let isMounted = true;
 
     async function loadData() {

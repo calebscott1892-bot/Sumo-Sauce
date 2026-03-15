@@ -17,7 +17,7 @@ type Props = {
   badge?: string;
   /** Breadcrumb trail — last crumb is always plain text */
   breadcrumbs?: Crumb[];
-  /** Favorite toggle */
+  /** Save/watchlist toggle */
   favorite?: { active: boolean; onToggle: () => void; ariaLabel?: string };
   /** Additional action buttons rendered in the top-right bar */
   actions?: ReactNode;
@@ -74,7 +74,7 @@ export default function PremiumPageHeader({
                 type="button"
                 onClick={favorite.onToggle}
                 className="rounded-lg border border-white/[0.06] bg-white/[0.03] p-2 transition-colors hover:border-red-600"
-                aria-label={favorite.ariaLabel ?? (favorite.active ? 'Remove from favorites' : 'Add to favorites')}
+                aria-label={favorite.ariaLabel ?? (favorite.active ? 'Remove from watchlist' : 'Add to watchlist')}
               >
                 <Heart className={`h-4 w-4 transition-colors ${favorite.active ? 'fill-red-500 text-red-500' : 'text-zinc-400'}`} />
               </button>

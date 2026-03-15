@@ -10,12 +10,18 @@ const prisma = new PrismaClient();
 const app = express();
 app.use(express.json({ limit: '2mb' }));
 
+const HOST = String(process.env.HOST || '0.0.0.0').trim() || '0.0.0.0';
 const PORT = Number.parseInt(process.env.PORT || '8787', 10);
 const ADMIN_TOKEN = process.env.ADMIN_TOKEN;
 const IMPORT_WRITE_CHUNK_SIZE = 200;
 const SUPABASE_URL = process.env.SUPABASE_URL;
 const SUPABASE_ANON_KEY = process.env.SUPABASE_ANON_KEY;
 const SUPABASE_SERVICE_ROLE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY;
+const DATABASE_URL = String(process.env.DATABASE_URL || '').trim();
+const CORS_ALLOWED_ORIGINS = String(process.env.CORS_ALLOWED_ORIGINS || '')
+  .split(',')
+  .map((value) => value.trim())
+  .filter(Boolean);
 
 const authClient =
   SUPABASE_URL && SUPABASE_ANON_KEY
@@ -42,11 +48,14 @@ app.use(
     origin(origin, cb) {
       // Allow same-origin (no Origin header), and local Vite dev.
       if (!origin) return cb(null, true);
-      const ok =
-        origin === 'http://127.0.0.1:5173' ||
-        origin === 'http://localhost:5173' ||
-        origin === `http://127.0.0.1:${PORT}` ||
-        origin === `http://localhost:${PORT}`;
+      const allowedOrigins = new Set([
+        'http://127.0.0.1:5173',
+        'http://localhost:5173',
+        `http://127.0.0.1:${PORT}`,
+        `http://localhost:${PORT}`,
+        ...CORS_ALLOWED_ORIGINS,
+      ]);
+      const ok = allowedOrigins.has(origin);
       return cb(ok ? null : new Error('Not allowed by CORS'), ok);
     },
     credentials: false,
@@ -69,11 +78,29 @@ function logStartupEnv() {
   // eslint-disable-next-line no-console
   console.log('[startup][env]');
   // eslint-disable-next-line no-console
+  console.log(`HOST=${HOST}`);
+  // eslint-disable-next-line no-console
+  console.log(`PORT=${PORT}`);
+  // eslint-disable-next-line no-console
+  console.log(`DATABASE_URL=${Boolean(DATABASE_URL)}`);
+  // eslint-disable-next-line no-console
+  console.log(`ADMIN_TOKEN=${Boolean(ADMIN_TOKEN)}`);
+  // eslint-disable-next-line no-console
   console.log(`SUPABASE_URL=${Boolean(SUPABASE_URL)}`);
   // eslint-disable-next-line no-console
   console.log(`SUPABASE_ANON_KEY=${Boolean(SUPABASE_ANON_KEY)}`);
   // eslint-disable-next-line no-console
   console.log(`SUPABASE_SERVICE_ROLE_KEY=${Boolean(SUPABASE_SERVICE_ROLE_KEY)}`);
+}
+
+function isHostedRuntime() {
+  return Boolean(process.env.RENDER || process.env.RAILWAY_ENVIRONMENT || process.env.RAILWAY_PROJECT_ID);
+}
+
+function requireRuntimeConfig() {
+  if (!DATABASE_URL) {
+    throw new Error('DATABASE_URL is required for the backend runtime');
+  }
 }
 
 function extractBearerToken(req) {
@@ -341,8 +368,23 @@ async function getLatestSuccessBuildId() {
   return latest?.buildId || null;
 }
 
-app.get('/api/health', (_req, res) => {
-  res.json({ ok: true });
+app.get('/api/health', async (_req, res) => {
+  try {
+    await prisma.$queryRawUnsafe('SELECT 1');
+    res.json({
+      ok: true,
+      db: 'up',
+      adminTokenConfigured: Boolean(ADMIN_TOKEN),
+      supabaseAuthConfigured: Boolean(authClient),
+      supabaseAdminConfigured: Boolean(adminClient),
+    });
+  } catch (err) {
+    res.status(500).json({
+      ok: false,
+      db: 'down',
+      error: String(err?.message || err || 'Database unavailable'),
+    });
+  }
 });
 
 app.use('/api/v1', apiV1Router);
@@ -786,12 +828,9 @@ app.get('/api/entities/:entity', async (req, res, next) => {
     const sort = typeof req.query.sort === 'string' ? req.query.sort : undefined;
     const limitRaw = typeof req.query.limit === 'string' ? req.query.limit : undefined;
     const limit = limitRaw ? Number.parseInt(limitRaw, 10) : undefined;
-<<<<<<< HEAD
     const filters = Object.entries(req.query)
       .filter(([key, value]) => key !== 'sort' && key !== 'limit' && typeof value === 'string' && String(value).trim() !== '')
       .map(([key, value]) => [key, String(value).trim().toLowerCase()]);
-=======
->>>>>>> origin/main
 
     const records = await prisma.entityRecord.findMany({
       where: { entity },
@@ -799,14 +838,10 @@ app.get('/api/entities/:entity', async (req, res, next) => {
     });
 
     const rows = records.map((r) => r.data);
-<<<<<<< HEAD
     const filtered = filters.length === 0
       ? rows
       : rows.filter((row) => filters.every(([key, value]) => String(row?.[key] ?? '').trim().toLowerCase() === value));
     const sorted = sortRows(filtered, sort);
-=======
-    const sorted = sortRows(rows, sort);
->>>>>>> origin/main
     const out = Number.isFinite(limit) ? sorted.slice(0, limit) : sorted;
     res.json(out);
   } catch (e) {
@@ -946,13 +981,50 @@ app.use((err, _req, res, _next) => {
   res.status(500).json({ error: 'Internal server error' });
 });
 
-app.listen(PORT, async () => {
-  logStartupEnv();
+let shuttingDown = false;
+
+async function shutdown(signal, server) {
+  if (shuttingDown) return;
+  shuttingDown = true;
 
   // eslint-disable-next-line no-console
-  console.log(`[server] listening on http://127.0.0.1:${PORT}`);
+  console.log(`[server] shutting down (${signal})`);
 
-  // Ensure schema exists (no migrations required for dev).
+  await new Promise((resolve) => {
+    server.close(() => resolve());
+  }).catch(() => null);
+
+  await prisma.$disconnect().catch(() => null);
+  process.exit(0);
+}
+
+try {
+  requireRuntimeConfig();
+
+  const server = app.listen(PORT, HOST, async () => {
+    logStartupEnv();
+
+    // eslint-disable-next-line no-console
+    console.log(`[server] listening on http://${HOST}:${PORT}`);
+
+    if (isHostedRuntime()) {
+      // eslint-disable-next-line no-console
+      console.log('[server] hosted runtime detected; health check path is /api/health');
+    } else {
+      // eslint-disable-next-line no-console
+      console.log('[server] tip: run `npm --prefix server run db:push` and optionally `npm --prefix server run bootstrap` to initialize local data');
+    }
+  });
+
+  process.on('SIGINT', () => {
+    shutdown('SIGINT', server);
+  });
+  process.on('SIGTERM', () => {
+    shutdown('SIGTERM', server);
+  });
+} catch (err) {
   // eslint-disable-next-line no-console
-  console.log('[server] tip: run `npm --prefix server run db:push` and optionally `npm --prefix server run bootstrap` to initialize local data');
-});
+  console.error(`[server][startup] ${String(err?.message || err)}`);
+  await prisma.$disconnect().catch(() => null);
+  process.exit(1);
+}

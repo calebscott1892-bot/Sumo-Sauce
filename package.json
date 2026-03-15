@@ -4,8 +4,9 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "dev:all": "concurrently -k -n server,web \"npm run server:dev\" \"npm run dev\"",
+    "dev": "concurrently -k -n server,web \"npm run server:dev\" \"npm run dev:web\"",
+    "dev:web": "vite",
+    "dev:all": "npm run dev",
     "build": "vite build && node scripts/generate-sitemap.mjs",
     "build:only": "vite build",
     "sitemap": "node scripts/generate-sitemap.mjs",
@@ -13,8 +14,8 @@
     "preview": "vite preview",
     "bootstrap": "npm run server:db:push && npm run server:bootstrap",
     "api:dev": "node -e \"console.log('API base URL: http://127.0.0.1:8790')\" && npm run server:dev",
-    "server:dev": "PORT=8790 ADMIN_TOKEN=dev-token npm --prefix server run dev",
-    "server:dev:8787": "PORT=8787 ADMIN_TOKEN=dev-token npm --prefix server run dev",
+    "server:dev": "node scripts/run-server-dev.mjs 8790",
+    "server:dev:8787": "node scripts/run-server-dev.mjs 8787",
     "server:db:push": "npm --prefix server run db:push",
     "server:bootstrap": "npm --prefix server run bootstrap",
     "verify:backend-contract": "node scripts/verify-backend-contract.mjs",
@@ -44,6 +45,7 @@
     "verify:domain-api": "node scripts/verify-domain-api.mjs",
     "test:basho-range": "node --experimental-strip-types scripts/test-basho-range.mjs",
     "ingest": "node --experimental-strip-types scripts/ingest-range.mjs",
+    "verify:release-candidate": "npm run typecheck && node scripts/validate-profiles.mjs && npm run build",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {

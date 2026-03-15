@@ -387,6 +387,14 @@ export default function RivalryExplorerPage() {
           { label: 'Home', to: '/' },
           { label: 'Rivalries' },
         ]}
+        actions={(
+          <Link
+            to="/watchlist"
+            className="rounded-lg border border-white/[0.08] bg-white/[0.03] px-3 py-1.5 text-sm text-zinc-300 transition-colors hover:border-red-600/40 hover:text-white"
+          >
+            Watchlist
+          </Link>
+        )}
       >
         {!h2hQuery.isLoading && allRivalries.length > 0 && (
           <div className="grid gap-3 md:grid-cols-3">

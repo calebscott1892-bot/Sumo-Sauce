@@ -2,7 +2,7 @@
 /**
  * generate-sitemap.mjs
  *
- * Generates a static sitemap.xml for SumoWatch.
+ * Generates a static sitemap.xml for Sumo Sauce.
  * Run after build: node scripts/generate-sitemap.mjs
  *
  * Reads wrestler + basho data to enumerate all indexable routes.
@@ -16,9 +16,19 @@ import { fileURLToPath } from 'url';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '..');
 
-const SITE_URL = process.env.SITE_URL || 'https://sumosauce.app';
+function normalizeSiteUrl(value) {
+  const raw = String(value || '').trim();
+  if (!raw) return 'https://sumosauce.app';
+  const withProtocol = /^https?:\/\//i.test(raw) ? raw : `https://${raw}`;
+  return withProtocol.replace(/\/+$/, '');
+}
 
-// Static routes with their priorities and change frequencies
+const SITE_URL = normalizeSiteUrl(
+  process.env.SITE_URL ||
+  process.env.VERCEL_PROJECT_PRODUCTION_URL ||
+  process.env.VERCEL_URL
+);
+
 const STATIC_ROUTES = [
   { path: '/', priority: '1.0', changefreq: 'daily' },
   { path: '/basho', priority: '0.9', changefreq: 'daily' },
@@ -58,12 +68,10 @@ function urlEntry(loc, priority = '0.5', changefreq = 'weekly') {
 function generate() {
   const entries = [];
 
-  // Static routes
   for (const route of STATIC_ROUTES) {
     entries.push(urlEntry(`${SITE_URL}${route.path}`, route.priority, route.changefreq));
   }
 
-  // Dynamic rikishi routes
   const wrestlers = loadJson('src/data/wrestlers.json');
   if (Array.isArray(wrestlers)) {
     for (const w of wrestlers) {
@@ -74,7 +82,6 @@ function generate() {
     }
   }
 
-  // Dynamic basho routes
   const bashoRecords = loadJson('src/data/basho_records.json');
   const bashoIds = new Set();
   if (Array.isArray(bashoRecords)) {
@@ -92,12 +99,11 @@ function generate() {
 ${entries.join('\n')}
 </urlset>`;
 
-  // Write to dist/ if it exists (post-build), otherwise public/
   const distDir = resolve(ROOT, 'dist');
   const outDir = existsSync(distDir) ? distDir : resolve(ROOT, 'public');
   const outPath = resolve(outDir, 'sitemap.xml');
   writeFileSync(outPath, xml, 'utf-8');
-  console.log(`[sitemap] Generated ${entries.length} URLs → ${outPath}`);
+  console.log(`[sitemap] Generated ${entries.length} URLs -> ${outPath}`);
 }
 
 generate();

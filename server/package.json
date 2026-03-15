@@ -5,8 +5,12 @@
   "type": "module",
   "scripts": {
     "dev": "node index.mjs",
+    "start": "node index.mjs",
+    "build": "prisma generate",
+    "start:hosted": "node scripts/start-hosted.mjs",
     "db:generate": "prisma generate",
     "db:push": "prisma db push",
+    "db:deploy": "prisma migrate deploy",
     "db:migrate": "prisma migrate dev --name init",
     "bootstrap": "node prisma/bootstrap.mjs"
   },
@@ -14,9 +18,7 @@
     "@supabase/supabase-js": "^2.50.5",
     "@prisma/client": "^6.3.1",
     "cors": "^2.8.5",
-    "express": "^4.19.2"
-  },
-  "devDependencies": {
+    "express": "^4.19.2",
     "prisma": "^6.3.1"
   }
 }

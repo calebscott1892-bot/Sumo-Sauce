@@ -1,25 +1,32 @@
-import { useMemo } from 'react';
+import { useEffect, useMemo } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
-import { useQuery } from '@tanstack/react-query';
 import { ArrowRight, ArrowUpDown, Building2, Layers3, Search, Users } from 'lucide-react';
-import { getRikishiDirectory } from '@/pages/rikishi/api';
 import StableSummaryCard from '@/components/stables/StableSummaryCard';
 import RikishiDiscoveryRow from '@/components/search/RikishiDiscoveryRow';
 import EmptyState from '@/components/ui/EmptyState';
 import PageMeta from '@/components/ui/PageMeta';
-import ErrorCard from '@/components/ui/ErrorCard';
 import { PremiumBadge, PremiumPageHeader, PremiumSectionShell } from '@/components/ui/premium';
+import { trackDirectoryView } from '@/utils/analytics';
 import {
-  buildDivisionRosterSummaries,
-  buildRosterEntries,
-  buildStableSummaries,
-} from '@/utils/rosterBrowsing';
+  buildPublishedDivisionSummaries,
+  buildPublishedStableSummaries,
+  getPublishedProfileEntries,
+  type PublishedProfileEntry,
+} from '@/utils/publishedProfileBrowsing';
 
 type SortKey = 'shikona' | 'heya' | 'id';
 type SortDir = 'asc' | 'desc';
 
 export default function RikishiDirectoryPage() {
   const [searchParams, setSearchParams] = useSearchParams();
+
+  useEffect(() => {
+    trackDirectoryView();
+  }, []);
+
+  const directory = useMemo(() => getPublishedProfileEntries(), []);
+  const stableSummaries = useMemo(() => buildPublishedStableSummaries(directory), [directory]);
+  const divisionSummaries = useMemo(() => buildPublishedDivisionSummaries(directory), [directory]);
 
   const shikonaFilter = searchParams.get('q') ?? '';
   const heyaFilter = searchParams.get('heya') ?? '';
@@ -28,21 +35,15 @@ export default function RikishiDirectoryPage() {
   const sortKey = (searchParams.get('sort') as SortKey) || 'shikona';
   const sortDir = (searchParams.get('dir') as SortDir) || 'asc';
 
-  const { data: directory = [], isLoading, error } = useQuery({
-    queryKey: ['rikishi-directory'],
-    queryFn: getRikishiDirectory,
-    staleTime: 10 * 60 * 1000,
-  });
-
-  const rosterEntries = useMemo(() => buildRosterEntries(directory), [directory]);
-  const stableSummaries = useMemo(() => buildStableSummaries(directory), [directory]);
-  const divisionSummaries = useMemo(() => buildDivisionRosterSummaries(directory), [directory]);
-
   const heyaOptions = useMemo(() => stableSummaries.map((stable) => stable.name), [stableSummaries]);
   const featuredStables = useMemo(() => stableSummaries.slice(0, 4), [stableSummaries]);
   const activeRosterCount = useMemo(
     () => divisionSummaries.reduce((sum, division) => sum + division.activeCount, 0),
     [divisionSummaries],
+  );
+  const routeableCount = useMemo(
+    () => directory.filter((entry) => entry.routeable).length,
+    [directory],
   );
 
   function updateParam(key: string, value: string) {
@@ -61,21 +62,22 @@ export default function RikishiDirectoryPage() {
   const filtered = useMemo(() => {
     const normalizedQuery = shikonaFilter.trim().toLowerCase();
 
-    return rosterEntries.filter((entry) => {
+    return directory.filter((entry) => {
       if (normalizedQuery) {
         const matchesQuery =
           entry.shikona.toLowerCase().includes(normalizedQuery) ||
-          entry.rikishiId.toLowerCase().includes(normalizedQuery) ||
-          (entry.heyaName ?? '').toLowerCase().includes(normalizedQuery);
+          String(entry.rikishiId ?? '').toLowerCase().includes(normalizedQuery) ||
+          String(entry.heya ?? '').toLowerCase().includes(normalizedQuery) ||
+          String(entry.division ?? '').toLowerCase().includes(normalizedQuery);
         if (!matchesQuery) return false;
       }
 
-      if (heyaFilter && entry.heyaName !== heyaFilter) return false;
+      if (heyaFilter && entry.heya !== heyaFilter) return false;
       if (divisionFilter && entry.division !== divisionFilter) return false;
-      if (rosterFilter === 'active' && !entry.activeRoster) return false;
+      if (rosterFilter === 'active' && entry.status !== 'active') return false;
       return true;
     });
-  }, [divisionFilter, heyaFilter, rosterEntries, rosterFilter, shikonaFilter]);
+  }, [directory, divisionFilter, heyaFilter, rosterFilter, shikonaFilter]);
 
   const sorted = useMemo(() => {
     const copy = [...filtered];
@@ -84,10 +86,10 @@ export default function RikishiDirectoryPage() {
 
       switch (sortKey) {
         case 'heya':
-          comparison = (a.heyaName ?? '').localeCompare(b.heyaName ?? '');
+          comparison = String(a.heya ?? '').localeCompare(String(b.heya ?? ''));
           break;
         case 'id':
-          comparison = a.rikishiId.localeCompare(b.rikishiId);
+          comparison = String(a.rikishiId ?? '').localeCompare(String(b.rikishiId ?? ''));
           break;
         case 'shikona':
         default:
@@ -111,21 +113,17 @@ export default function RikishiDirectoryPage() {
     rosterFilter !== 'all',
   );
 
-  if (error) {
-    return <ErrorCard code="FETCH_ERROR" message="Failed to load data. Please try again." backTo="/" backLabel="← Home" />;
-  }
-
   return (
     <div data-testid="rikishi-directory-page" className="mx-auto max-w-6xl space-y-5 p-4 text-zinc-200 sm:space-y-6 sm:p-6">
       <PageMeta
-        title="SumoWatch — Rikishi Directory"
-        description={`Browse ${directory.length.toLocaleString()} routeable rikishi in SumoWatch, with stable, division, and active-roster browsing.`}
+        title="Sumo Sauce - Rikishi Directory"
+        description={`Browse ${directory.length.toLocaleString()} published rikishi profiles in Sumo Sauce, including profile-only entries that do not yet have a routeable career page.`}
       />
 
       <PremiumPageHeader
         accentLabel="RIKISHI DIRECTORY"
         title="Rikishi Directory"
-        subtitle="Roster browsing across rikishi, divisions, and stables."
+        subtitle="Browse the full published profile layer, then open routeable career pages where they exist."
         breadcrumbs={[
           { label: 'Home', to: '/' },
           { label: 'Rikishi Directory' },
@@ -135,12 +133,13 @@ export default function RikishiDirectoryPage() {
             to="/stables"
             className="rounded-lg border border-white/[0.08] bg-white/[0.03] px-3 py-1.5 text-sm text-zinc-300 transition-colors hover:border-red-600/40 hover:text-white"
           >
-            Browse stables →
+            Browse stables -&gt;
           </Link>
         )}
       >
         <div className="flex flex-col gap-2 text-sm text-zinc-400 sm:flex-row sm:flex-wrap sm:gap-4">
-          <span><span className="font-semibold text-white">{directory.length.toLocaleString()}</span> routeable rikishi</span>
+          <span><span className="font-semibold text-white">{directory.length.toLocaleString()}</span> published profiles</span>
+          <span><span className="font-semibold text-white">{routeableCount.toLocaleString()}</span> routeable rikishi pages</span>
           <span><span className="font-semibold text-white">{activeRosterCount}</span> active roster entries</span>
           <span><span className="font-semibold text-white">{stableSummaries.length}</span> stables tracked</span>
         </div>
@@ -148,7 +147,7 @@ export default function RikishiDirectoryPage() {
 
       <PremiumSectionShell
         title="Roster entry points"
-        subtitle="Start from a division layer, a stable cluster, or the full active roster instead of relying on name search alone."
+        subtitle="Start from a division, a stable cluster, or the full active roster without losing sight of profile-only entries."
       >
         <div className="grid gap-3 xl:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]">
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
@@ -166,11 +165,11 @@ export default function RikishiDirectoryPage() {
                   <PremiumBadge variant={division.division === 'Makuuchi' ? 'red' : division.division === 'Juryo' ? 'blue' : division.division === 'Makushita' ? 'amber' : 'zinc'}>
                     {division.division}
                   </PremiumBadge>
-                  <span className="text-xs text-zinc-500">{division.stableCount} stables</span>
+                  <span className="text-xs text-zinc-500">{division.routeableCount} routeable</span>
                 </div>
                 <div className="mt-3 font-display text-2xl font-bold tracking-tight text-white">{division.activeCount}</div>
                 <p className="mt-1 text-sm leading-relaxed text-zinc-500">
-                  Active roster entries in the current published {division.division} context.
+                  Active published profiles in the current {division.division} layer.
                 </p>
               </button>
             ))}
@@ -180,17 +179,17 @@ export default function RikishiDirectoryPage() {
             <div className="rounded-xl border border-white/[0.06] bg-black/20 p-4">
               <div className="flex items-center gap-2 text-sm font-semibold text-white">
                 <Users className="h-4 w-4 text-red-400" />
-                Active roster lens
+                Published profile lens
               </div>
               <p className="mt-2 text-sm leading-relaxed text-zinc-400">
-                Toggle the directory into active-roster mode to browse the currently published division set rather than the full routeable directory.
+                This directory now shows the full published profile dataset. Routeable rikishi pages still open when a matching rikishi id exists.
               </p>
               <button
                 type="button"
                 onClick={() => updateParam('roster', rosterFilter === 'active' ? '' : 'active')}
                 className="mt-4 rounded-full border border-white/[0.08] bg-white/[0.03] px-3 py-1.5 text-xs font-medium text-zinc-300 transition-colors hover:border-red-600/40 hover:text-white"
               >
-                {rosterFilter === 'active' ? 'Show full directory' : 'Browse active roster'}
+                {rosterFilter === 'active' ? 'Show full published directory' : 'Browse active roster only'}
               </button>
             </div>
 
@@ -205,7 +204,7 @@ export default function RikishiDirectoryPage() {
 
       <PremiumSectionShell
         title="Filter the directory"
-        subtitle="Search by shikona, rikishi id, or heya, then refine by stable, division, and roster context."
+        subtitle="Search by shikona, rikishi id, heya, or division, then narrow by stable and active-roster context."
       >
         <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-5">
           <label className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-3 text-sm xl:col-span-2">
@@ -284,7 +283,7 @@ export default function RikishiDirectoryPage() {
 
         <div className="mt-4 flex flex-wrap items-center gap-2 text-xs text-zinc-500">
           <PremiumBadge variant={rosterFilter === 'active' ? 'amber' : 'zinc'}>
-            {rosterFilter === 'active' ? 'Active roster context' : 'Full routeable directory'}
+            {rosterFilter === 'active' ? 'Active roster context' : 'Full published directory'}
           </PremiumBadge>
           <button
             type="button"
@@ -307,38 +306,32 @@ export default function RikishiDirectoryPage() {
 
       <PremiumSectionShell
         title="Roster results"
-        subtitle="Each result keeps stable, division, and trust cues visible so the directory feels like a browse surface, not just a search dump."
+        subtitle="Published profiles render here directly, even when a routeable career page is not yet available."
         trailing={<PremiumBadge variant="zinc">{sorted.length} shown</PremiumBadge>}
       >
-        {isLoading ? (
-          <div className="space-y-2">
-            {Array.from({ length: 8 }).map((_, index) => (
-              <div key={index} className="h-24 animate-pulse rounded-xl border border-white/[0.06] bg-white/[0.02]" />
-            ))}
-          </div>
-        ) : sorted.length === 0 ? (
+        {sorted.length === 0 ? (
           <EmptyState
-            message="No rikishi match the current roster filters"
-            description="Try a different shikona, heya, or division filter, or switch back to the full routeable directory."
+            message="No rikishi match the current filters"
+            description="Try a different shikona, heya, or division filter, or switch back to the full published directory."
             onReset={resetFilters}
             suggestions={[['Browse stables', '/stables'], ['Browse basho', '/basho']]}
           />
         ) : (
           <div className="space-y-2">
-            {sorted.map((entry) => (
-              <RikishiDiscoveryRow key={entry.rikishiId} entry={entry} />
+            {sorted.map((entry: PublishedProfileEntry) => (
+              <RikishiDiscoveryRow key={entry.key} entry={entry} />
             ))}
           </div>
         )}
       </PremiumSectionShell>
 
-      {!isLoading && featuredStables.length > 0 && (
+      {featuredStables.length > 0 && (
         <section className="rounded-2xl border border-white/[0.06] bg-white/[0.02] p-4">
           <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
             <div>
-              <div className="text-sm font-semibold text-white">Stable browsing is now first-class</div>
+              <div className="text-sm font-semibold text-white">Stable browsing stays connected</div>
               <p className="mt-1 text-sm leading-relaxed text-zinc-500">
-                Use the stable directory when you want roster depth, division mix, and related clusters without starting from a single rikishi page.
+                Use the stable directory when you want roster depth and heya context after finding a published profile here.
               </p>
             </div>
             <Link

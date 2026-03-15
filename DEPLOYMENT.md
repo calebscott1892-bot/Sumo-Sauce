@@ -42,7 +42,7 @@ Copy `.env.example` to `.env` and configure production values:
 | `SITE_URL` | No | `https://sumosauce.app` | Public URL for sitemap & canonical links. |
 | `PORT` | No | `8790` | Express server port. |
 | `ADMIN_TOKEN` | Yes | — | Token for admin/ingestion endpoints. **Must change in prod.** |
-| `DATABASE_URL` | No | `file:./prisma/sumo.db` | Prisma database connection string. |
+| `DATABASE_URL` | No | `file:./sumo.db` | Prisma SQLite connection string. Relative paths resolve from `server/prisma/schema.prisma`. |
 
 ### 2. Build Frontend
 

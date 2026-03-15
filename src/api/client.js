@@ -1,4 +1,6 @@
-const API_BASE = import.meta.env?.VITE_API_BASE_URL || '/api';
+import { getApiBaseUrl } from '@/utils/apiBase';
+
+const API_BASE = getApiBaseUrl();
 
 const REQUEST_TIMEOUT_MS = 8000;
 const MAX_RETRIES = 2;

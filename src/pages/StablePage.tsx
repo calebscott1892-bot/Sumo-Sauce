@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 import { ArrowRight, Layers3, ShieldCheck, Users } from 'lucide-react';
@@ -10,11 +10,13 @@ import PageMeta from '@/components/ui/PageMeta';
 import { PremiumBadge, PremiumPageHeader, PremiumSectionShell } from '@/components/ui/premium';
 import { getRikishiDirectory } from '@/pages/rikishi/api';
 import { latestBashoId } from '@/utils/basho';
+import { isFavoriteStable, toggleFavoriteStable } from '@/utils/favorites';
 import { findStableSummaryBySlug, type EnrichedRosterEntry } from '@/utils/rosterBrowsing';
 
 export default function StablePage() {
   const params = useParams();
   const slug = String(params.slug || '').trim();
+  const [isSaved, setIsSaved] = useState(() => isFavoriteStable(slug));
 
   const { data: directory = [], isLoading, error } = useQuery({
     queryKey: ['rikishi-directory'],
@@ -44,6 +46,10 @@ export default function StablePage() {
     () => stable?.members.filter((entry) => !entry.activeRoster) ?? [],
     [stable],
   );
+
+  useEffect(() => {
+    setIsSaved(isFavoriteStable(slug));
+  }, [slug]);
 
   if (error) {
     return <ErrorCard code="FETCH_ERROR" message="Failed to load stable data. Please try again." backTo="/stables" backLabel="← Stable directory" />;
@@ -90,6 +96,12 @@ export default function StablePage() {
         actions={(
           <>
             <Link
+              to="/watchlist"
+              className="rounded-lg border border-white/[0.08] bg-white/[0.03] px-3 py-1.5 text-sm text-zinc-300 transition-colors hover:border-red-600/40 hover:text-white"
+            >
+              Watchlist
+            </Link>
+            <Link
               to={`/rikishi?heya=${encodeURIComponent(stable.name)}&roster=active`}
               className="rounded-lg border border-white/[0.08] bg-white/[0.03] px-3 py-1.5 text-sm text-zinc-300 transition-colors hover:border-red-600/40 hover:text-white"
             >
@@ -103,6 +115,14 @@ export default function StablePage() {
             </Link>
           </>
         )}
+        favorite={{
+          active: isSaved,
+          onToggle: () => {
+            toggleFavoriteStable(slug, `${stable.name} stable`);
+            setIsSaved(!isSaved);
+          },
+          ariaLabel: isSaved ? `Remove ${stable.name} stable from watchlist` : `Save ${stable.name} stable to watchlist`,
+        }}
       >
         <div className="flex flex-col gap-2 text-sm text-zinc-400 sm:flex-row sm:flex-wrap sm:gap-4">
           <span><span className="font-semibold text-white">{stable.totalTrackedCount}</span> tracked rikishi</span>

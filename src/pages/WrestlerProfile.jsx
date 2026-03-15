@@ -3,9 +3,10 @@ import { Link, useParams } from 'react-router-dom';
 import FallbackAvatar from '@/components/FallbackAvatar';
 import { resolvePhotoUrl } from '@/utils/photo';
 import { getVerifiedProfile } from '@/data/verifiedProfiles';
+import { resolveApiUrl } from '@/utils/apiBase';
 
-const WRESTLERS_URL = '/api/entities/Wrestler?limit=2000';
-const BASHO_RECORDS_URL = '/api/entities/BashoRecord?limit=5000';
+const WRESTLERS_URL = resolveApiUrl('/entities/Wrestler?limit=2000');
+const BASHO_RECORDS_URL = resolveApiUrl('/entities/BashoRecord?limit=5000');
 
 function normalizeSide(side) {
   const s = String(side || '').trim().toLowerCase();

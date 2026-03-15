@@ -3,26 +3,53 @@ import { useEffect } from 'react';
 type Props = {
   title: string;
   description: string;
-  /** Canonical URL for this page (absolute). */
+  /** Canonical URL for this page. Falls back to the current location. */
   canonicalUrl?: string;
-  /** OG image URL (absolute). Falls back to site default. */
+  /** OG image URL. Relative paths are resolved against the current origin. */
   image?: string;
-  /** og:type override — defaults to "website". */
+  /** og:type override - defaults to "website". */
   ogType?: string;
+  /** Mark a page as noindex, useful for utility/admin/local-only surfaces. */
+  noIndex?: boolean;
 };
 
-const SITE_NAME = 'SumoWatch';
-const DEFAULT_IMAGE = '/favicon.svg';
+const SITE_NAME = 'Sumo Sauce';
+const DEFAULT_IMAGE = '/logo-192.png';
+
+function normalizeBrandCopy(value: string): string {
+  return String(value || '')
+    .replace(/SUMO WATCH/g, 'SUMO SAUCE')
+    .replace(/Sumo Watch/g, 'Sumo Sauce')
+    .replace(/SumoWatch/g, 'Sumo Sauce');
+}
+
+function resolveAbsoluteUrl(url: string): string {
+  if (typeof window === 'undefined') return url;
+
+  try {
+    return new URL(url, window.location.origin).toString();
+  } catch {
+    return url;
+  }
+}
 
 /**
  * Declarative document metadata manager.
- * Sets document.title, meta description, OpenGraph tags, Twitter card tags,
- * and canonical link. Cleans up on unmount.
+ * Sets document.title, description, OpenGraph/Twitter tags, robots, and a
+ * canonical link with safe defaults for route-level sharing.
  */
-export default function PageMeta({ title, description, canonicalUrl, image, ogType = 'website' }: Props) {
+export default function PageMeta({
+  title,
+  description,
+  canonicalUrl,
+  image,
+  ogType = 'website',
+  noIndex = false,
+}: Props) {
   useEffect(() => {
     const prev = document.title;
-    document.title = title;
+    const normalizedTitle = normalizeBrandCopy(title);
+    const normalizedDescription = normalizeBrandCopy(description);
 
     function upsertMeta(attr: string, key: string, content: string): HTMLMetaElement {
       let el = document.querySelector(`meta[${attr}="${key}"]`) as HTMLMetaElement | null;
@@ -46,44 +73,46 @@ export default function PageMeta({ title, description, canonicalUrl, image, ogTy
       return el;
     }
 
-    const resolvedImage = image || DEFAULT_IMAGE;
+    const currentUrl = `${window.location.origin}${window.location.pathname}${window.location.search}`;
+    const resolvedCanonicalUrl = resolveAbsoluteUrl(canonicalUrl ?? currentUrl);
+    const resolvedImage = resolveAbsoluteUrl(image ?? DEFAULT_IMAGE);
 
-    // Standard meta
-    const desc = upsertMeta('name', 'description', description);
+    document.title = normalizedTitle;
 
-    // OpenGraph
-    const ogTitleEl = upsertMeta('property', 'og:title', title);
-    const ogDescEl = upsertMeta('property', 'og:description', description);
+    const desc = upsertMeta('name', 'description', normalizedDescription);
+    const robots = upsertMeta('name', 'robots', noIndex ? 'noindex,nofollow' : 'index,follow');
+
+    const ogTitleEl = upsertMeta('property', 'og:title', normalizedTitle);
+    const ogDescEl = upsertMeta('property', 'og:description', normalizedDescription);
     const ogTypeEl = upsertMeta('property', 'og:type', ogType);
     const ogSiteName = upsertMeta('property', 'og:site_name', SITE_NAME);
     const ogImage = upsertMeta('property', 'og:image', resolvedImage);
-    const ogUrlEl = canonicalUrl ? upsertMeta('property', 'og:url', canonicalUrl) : null;
+    const ogUrlEl = upsertMeta('property', 'og:url', resolvedCanonicalUrl);
 
-    // Twitter Card
     const twCard = upsertMeta('name', 'twitter:card', 'summary');
-    const twTitle = upsertMeta('name', 'twitter:title', title);
-    const twDesc = upsertMeta('name', 'twitter:description', description);
+    const twTitle = upsertMeta('name', 'twitter:title', normalizedTitle);
+    const twDesc = upsertMeta('name', 'twitter:description', normalizedDescription);
     const twImage = upsertMeta('name', 'twitter:image', resolvedImage);
 
-    // Canonical link
-    const canonicalLink = canonicalUrl ? upsertLink('canonical', canonicalUrl) : null;
+    const canonicalLink = upsertLink('canonical', resolvedCanonicalUrl);
 
     return () => {
       document.title = prev;
       desc.content = '';
+      robots.content = 'index,follow';
       ogTitleEl.content = SITE_NAME;
       ogDescEl.content = '';
       ogTypeEl.content = 'website';
       ogSiteName.content = SITE_NAME;
-      ogImage.content = DEFAULT_IMAGE;
-      if (ogUrlEl) ogUrlEl.content = '';
+      ogImage.content = resolveAbsoluteUrl(DEFAULT_IMAGE);
+      ogUrlEl.content = '';
       twCard.content = 'summary';
       twTitle.content = SITE_NAME;
       twDesc.content = '';
-      twImage.content = DEFAULT_IMAGE;
-      if (canonicalLink) canonicalLink.href = '';
+      twImage.content = resolveAbsoluteUrl(DEFAULT_IMAGE);
+      canonicalLink.href = '';
     };
-  }, [title, description, canonicalUrl, image, ogType]);
+  }, [title, description, canonicalUrl, image, ogType, noIndex]);
 
   return null;
 }

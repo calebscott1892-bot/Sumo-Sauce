@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
-import { Search, Calendar, Users, User, BarChart3, Dice5, Shuffle, Swords, Clock, Building2 } from 'lucide-react';
+import { Search, Calendar, Users, User, BarChart3, Dice5, Shuffle, Swords, Clock, Building2, Bookmark } from 'lucide-react';
 import {
   CommandDialog,
   CommandInput,
@@ -40,7 +40,6 @@ export default function CommandPalette() {
   const [query, setQuery] = useState('');
   const navigate = useNavigate();
 
-  // Ctrl/Cmd+K to open
   useEffect(() => {
     function onKeyDown(e: KeyboardEvent) {
       if (e.key === 'k' && (e.metaKey || e.ctrlKey)) {
@@ -48,18 +47,23 @@ export default function CommandPalette() {
         setOpen((prev) => !prev);
       }
     }
+
     document.addEventListener('keydown', onKeyDown);
     return () => document.removeEventListener('keydown', onKeyDown);
   }, []);
 
-  const { data: directory = [] } = useQuery({
+  const {
+    data: directory = [],
+    isLoading: directoryLoading,
+    isError: directoryError,
+  } = useQuery({
     queryKey: ['rikishi-directory'],
     queryFn: getRikishiDirectory,
     staleTime: 10 * 60 * 1000,
     gcTime: 30 * 60 * 1000,
   });
-  const stableSummaries = useMemo(() => buildStableSummaries(directory), [directory]);
 
+  const stableSummaries = useMemo(() => buildStableSummaries(directory), [directory]);
   const recentIds = useMemo(() => recentBashoIds(20), []);
 
   const randomRikishi = useCallback(() => {
@@ -74,31 +78,32 @@ export default function CommandPalette() {
     navigate(`/basho/${encodeURIComponent(id)}`);
   }, [recentIds, navigate]);
 
-  const runCommand = useCallback(
-    (callback: () => void) => {
-      setOpen(false);
-      setQuery('');
-      callback();
-    },
-    [],
-  );
+  const runCommand = useCallback((callback: () => void) => {
+    setOpen(false);
+    setQuery('');
+    callback();
+  }, []);
 
   const normalizedQuery = query.trim().toLowerCase();
 
-  const actionItems = useMemo(() => ([
-    { key: 'home', label: 'Go to home', keywords: 'home start', icon: Search, run: () => navigate('/') },
-    { key: 'search', label: 'Full search page', keywords: 'search find discover', icon: Search, run: () => navigate('/search') },
-    { key: 'rikishi', label: 'Browse rikishi directory', keywords: 'rikishi wrestlers directory', icon: Users, run: () => navigate('/rikishi') },
-    { key: 'stables', label: 'Browse stable directory', keywords: 'stables heya stable directory roster', icon: Building2, run: () => navigate('/stables') },
-    { key: 'basho', label: 'Browse basho history', keywords: 'basho tournament history', icon: Calendar, run: () => navigate('/basho') },
-    { key: 'analytics', label: 'Open analytics', keywords: 'analytics stats dashboard', icon: BarChart3, run: () => navigate('/analytics') },
-    { key: 'kimarite', label: 'Open kimarite analytics', keywords: 'kimarite analytics techniques', icon: BarChart3, run: () => navigate('/analytics/kimarite') },
-    { key: 'rivalries', label: 'Explore rivalries', keywords: 'rivalries compare head to head', icon: Swords, run: () => navigate('/rivalries') },
-    { key: 'eras', label: 'Era analytics', keywords: 'eras history analytics timeline', icon: Clock, run: () => navigate('/analytics/eras') },
-    { key: 'timeline', label: 'Basho timeline', keywords: 'timeline basho calendar history', icon: Calendar, run: () => navigate('/timeline') },
-    { key: 'random-rikishi', label: 'Random rikishi', keywords: 'random rikishi wrestler surprise', icon: Shuffle, run: randomRikishi },
-    { key: 'random-basho', label: 'Random basho', keywords: 'random basho tournament surprise', icon: Dice5, run: randomBasho },
-  ]), [navigate, randomBasho, randomRikishi]);
+  const actionItems = useMemo(
+    () => [
+      { key: 'home', label: 'Go to home', keywords: 'home start', icon: Search, run: () => navigate('/') },
+      { key: 'search', label: 'Full search page', keywords: 'search find discover', icon: Search, run: () => navigate('/search') },
+      { key: 'watchlist', label: 'Open watchlist', keywords: 'watchlist saved collections bookmarks', icon: Bookmark, run: () => navigate('/watchlist') },
+      { key: 'rikishi', label: 'Browse rikishi directory', keywords: 'rikishi wrestlers directory', icon: Users, run: () => navigate('/rikishi') },
+      { key: 'stables', label: 'Browse stable directory', keywords: 'stables heya stable directory roster', icon: Building2, run: () => navigate('/stables') },
+      { key: 'basho', label: 'Browse basho history', keywords: 'basho tournament history', icon: Calendar, run: () => navigate('/basho') },
+      { key: 'analytics', label: 'Open analytics', keywords: 'analytics stats dashboard', icon: BarChart3, run: () => navigate('/analytics') },
+      { key: 'kimarite', label: 'Open kimarite analytics', keywords: 'kimarite analytics techniques', icon: BarChart3, run: () => navigate('/analytics/kimarite') },
+      { key: 'rivalries', label: 'Explore rivalries', keywords: 'rivalries compare head to head', icon: Swords, run: () => navigate('/rivalries') },
+      { key: 'eras', label: 'Era analytics', keywords: 'eras history analytics timeline', icon: Clock, run: () => navigate('/analytics/eras') },
+      { key: 'timeline', label: 'Basho timeline', keywords: 'timeline basho calendar history', icon: Calendar, run: () => navigate('/timeline') },
+      { key: 'random-rikishi', label: 'Random rikishi', keywords: 'random rikishi wrestler surprise', icon: Shuffle, run: randomRikishi },
+      { key: 'random-basho', label: 'Random basho', keywords: 'random basho tournament surprise', icon: Dice5, run: randomBasho },
+    ],
+    [navigate, randomBasho, randomRikishi],
+  );
 
   const filteredActions = useMemo(() => {
     if (!normalizedQuery) return actionItems;
@@ -131,7 +136,8 @@ export default function CommandPalette() {
       .slice(0, MAX_STABLE_RESULTS);
   }, [normalizedQuery, stableSummaries]);
 
-  const showEmptyState = filteredActions.length === 0 && filteredDirectory.length === 0 && filteredStables.length === 0;
+  const showLoadingState = Boolean(normalizedQuery) && directoryLoading;
+  const showEmptyState = !showLoadingState && filteredActions.length === 0 && filteredDirectory.length === 0 && filteredStables.length === 0;
   const rikishiHeading = normalizedQuery ? `Rikishi (${filteredDirectory.length})` : 'Suggested rikishi';
   const stableHeading = normalizedQuery ? `Stables (${filteredStables.length})` : 'Featured stables';
 
@@ -145,7 +151,7 @@ export default function CommandPalette() {
   return (
     <CommandDialog open={open} onOpenChange={handleOpenChange} commandProps={{ shouldFilter: false }}>
       <CommandInput
-        placeholder="Type a command or search rikishi… (⌘K)"
+        placeholder="Type a command, rikishi id, or stable... (Cmd/Ctrl+K)"
         value={query}
         onValueChange={setQuery}
       />
@@ -169,11 +175,7 @@ export default function CommandPalette() {
               <CommandItem
                 key={entry.rikishiId}
                 value={`${entry.shikona} ${entry.rikishiId} ${entry.heya || ''}`}
-                onSelect={() =>
-                  runCommand(() =>
-                    navigate(`/rikishi/${encodeURIComponent(entry.rikishiId)}`),
-                  )
-                }
+                onSelect={() => runCommand(() => navigate(`/rikishi/${encodeURIComponent(entry.rikishiId)}`))}
               >
                 <User className="mr-2 h-4 w-4" />
                 <span>{entry.shikona}</span>
@@ -193,11 +195,7 @@ export default function CommandPalette() {
               <CommandItem
                 key={stable.slug}
                 value={`${stable.name} ${stable.divisions.join(' ')} stable heya`}
-                onSelect={() =>
-                  runCommand(() =>
-                    navigate(`/stables/${encodeURIComponent(stable.slug)}`),
-                  )
-                }
+                onSelect={() => runCommand(() => navigate(`/stables/${encodeURIComponent(stable.slug)}`))}
               >
                 <Building2 className="mr-2 h-4 w-4" />
                 <span>{stable.name}</span>
@@ -210,12 +208,28 @@ export default function CommandPalette() {
           </CommandGroup>
         )}
 
-        {showEmptyState && (
+        {showLoadingState && (
           <div className="px-4 py-6 text-center text-sm text-zinc-500">
-            No results found.
+            Loading the rikishi and stable index...
           </div>
         )}
-        {!normalizedQuery && (filteredDirectory.length > 0 || filteredStables.length > 0) && (
+
+        {showEmptyState && (
+          <div className="px-4 py-6 text-center text-sm text-zinc-500">
+            No results for "{query.trim()}". Try a shikona, rikishi id, stable name, or one of the actions above.
+          </div>
+        )}
+
+        {directoryError && !normalizedQuery && (
+          <>
+            <CommandSeparator />
+            <div className="px-4 py-3 text-xs text-amber-300">
+              The quick-search index is unavailable right now. You can still open the full Search page from the actions list.
+            </div>
+          </>
+        )}
+
+        {!normalizedQuery && !directoryError && (filteredDirectory.length > 0 || filteredStables.length > 0) && (
           <>
             <CommandSeparator />
             <div className="px-4 py-3 text-xs text-zinc-500">

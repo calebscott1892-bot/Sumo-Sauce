@@ -1,9 +1,11 @@
+/// <reference types="vite/client" />
+
 /**
  * Lightweight interaction tracking (local only).
  *
- * All events are logged to the console and stored in an in-memory array.
- * The structure is designed for easy future integration with a real analytics
- * service — simply replace the `track` implementation.
+ * Events are stored in memory for release diagnostics. Console logging is
+ * quiet by default and can be enabled explicitly with local storage or the
+ * window helper installed by `initAnalyticsDiagnostics()`.
  */
 
 export type AnalyticsEvent = {
@@ -13,6 +15,58 @@ export type AnalyticsEvent = {
 };
 
 const eventLog: AnalyticsEvent[] = [];
+const DEBUG_STORAGE_KEY = 'sumowatch:debug-analytics';
+
+declare global {
+  interface Window {
+    __SUMOWATCH_ANALYTICS__?: {
+      getEventLog: () => ReadonlyArray<AnalyticsEvent>;
+      clearEventLog: () => void;
+      enableDebug: () => void;
+      disableDebug: () => void;
+      isDebugEnabled: () => boolean;
+    };
+  }
+}
+
+function isDebugEnabled(): boolean {
+  if (import.meta.env.DEV) return true;
+  if (typeof window === 'undefined') return false;
+
+  try {
+    return window.localStorage.getItem(DEBUG_STORAGE_KEY) === '1';
+  } catch {
+    return false;
+  }
+}
+
+export function clearEventLog(): void {
+  eventLog.length = 0;
+}
+
+export function initAnalyticsDiagnostics(): void {
+  if (typeof window === 'undefined' || window.__SUMOWATCH_ANALYTICS__) return;
+
+  window.__SUMOWATCH_ANALYTICS__ = {
+    getEventLog: () => [...eventLog],
+    clearEventLog,
+    enableDebug: () => {
+      try {
+        window.localStorage.setItem(DEBUG_STORAGE_KEY, '1');
+      } catch {
+        // ignore storage failures
+      }
+    },
+    disableDebug: () => {
+      try {
+        window.localStorage.removeItem(DEBUG_STORAGE_KEY);
+      } catch {
+        // ignore storage failures
+      }
+    },
+    isDebugEnabled,
+  };
+}
 
 function track(type: string, properties: Record<string, string | number | boolean> = {}): void {
   const event: AnalyticsEvent = {
@@ -21,8 +75,11 @@ function track(type: string, properties: Record<string, string | number | boolea
     timestamp: Date.now(),
   };
   eventLog.push(event);
-  // eslint-disable-next-line no-console
-  console.log('[SumoWatch Analytics]', type, properties);
+
+  if (isDebugEnabled()) {
+    // eslint-disable-next-line no-console
+    console.log('[Sumo Sauce Analytics]', type, properties);
+  }
 }
 
 /** Track a rikishi profile page view. */
@@ -56,8 +113,22 @@ export function trackBashoCompareView(bashoA: string, bashoB: string): void {
 }
 
 /** Track a search query. */
-export function trackSearchUsage(query: string, resultCount: number): void {
-  track('search_usage', { query, resultCount });
+export function trackSearchUsage(
+  query: string,
+  resultCount: number,
+  context: { surface?: string; tab?: string } = {},
+): void {
+  track('search_usage', {
+    query,
+    resultCount,
+    ...(context.surface ? { surface: context.surface } : {}),
+    ...(context.tab ? { tab: context.tab } : {}),
+  });
+}
+
+/** Track a search page view. */
+export function trackSearchPageView(): void {
+  track('search_page_view', {});
 }
 
 /** Track a rikishi comparison page view. */

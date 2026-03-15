@@ -1,4 +1,5 @@
 import type { ApiErrorResponse, GetRikishiComparisonResponse } from '../../../shared/api/v1';
+import { resolveApiUrl } from '@/utils/apiBase';
 
 export class ApiError extends Error {
   status: number;
@@ -22,7 +23,7 @@ function isApiErrorResponse(value: unknown): value is ApiErrorResponse {
 }
 
 async function fetchApi<T>(path: string): Promise<T> {
-  const res = await fetch(`/api/v1${path}`);
+  const res = await fetch(resolveApiUrl(`/v1${path}`));
   const body: unknown = await res.json().catch(() => null);
 
   if (isApiErrorResponse(body)) {

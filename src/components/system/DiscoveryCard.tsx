@@ -87,10 +87,10 @@ export default function DiscoveryCard() {
     <section className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5">
       <div className="flex items-center gap-2">
         <Shuffle className="h-5 w-5 text-red-400" />
-        <h2 className="font-display text-lg font-bold tracking-tight text-white">Discover</h2>
+        <h2 className="font-display text-lg font-bold tracking-tight text-white">Wildcard discovery</h2>
       </div>
       <p className="mt-1 text-sm text-zinc-400">
-        Feeling adventurous? Jump to a random page.
+        Use this after the curated homepage picks when you want the database to surprise you.
       </p>
 
       <div className="mt-4 grid grid-cols-1 gap-2 sm:grid-cols-3">

@@ -1,12 +1,6 @@
-<<<<<<< HEAD
 import { useMemo, type ComponentType, type ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Flame, Layers3, Medal, Sparkles, Star, Trophy } from 'lucide-react';
-=======
-import { useMemo } from 'react';
-import { Link } from 'react-router-dom';
-import { ArrowRight, Flame, Medal, Sparkles, Trophy } from 'lucide-react';
->>>>>>> origin/main
 import { PremiumBadge, PremiumSectionShell } from '@/components/ui/premium';
 import { bashoLabel, divisionLabel } from '@/utils/basho';
 import {
@@ -14,7 +8,6 @@ import {
   countDoubleDigitBasho,
   countWinningBasho,
   findBestBashoEntry,
-<<<<<<< HEAD
   findFirstDivisionEntry,
   getYushoEntries,
 } from '@/utils/careerProgression';
@@ -25,10 +18,6 @@ import {
   summarizeLegacyAchievements,
   type LegacyBashoRecord,
 } from '@/utils/recordsMilestones';
-=======
-  getYushoEntries,
-} from '@/utils/careerProgression';
->>>>>>> origin/main
 import type { CareerSummary, RankProgressionItem, TimelineItem } from '@/pages/rikishi/types';
 
 type Props = {
@@ -37,7 +26,6 @@ type Props = {
   timeline: TimelineItem[];
   rankProgression: RankProgressionItem[];
   highestRank: CareerSummary['highestRank'];
-<<<<<<< HEAD
   legacyRecords?: LegacyBashoRecord[];
   legacyRecordsLoading?: boolean;
 };
@@ -59,10 +47,6 @@ function divisionVariant(division: string): Variant {
   return 'zinc';
 }
 
-=======
-};
-
->>>>>>> origin/main
 function SummaryCard({
   label,
   value,
@@ -73,28 +57,11 @@ function SummaryCard({
   label: string;
   value: string;
   detail: string;
-<<<<<<< HEAD
   icon: ComponentType<{ className?: string }>;
   variant?: Variant;
 }) {
   return (
     <div className={`rounded-xl border p-4 ${toneClasses(variant)}`}>
-=======
-  icon: React.ComponentType<{ className?: string }>;
-  variant?: 'zinc' | 'amber' | 'green' | 'blue';
-}) {
-  const tone =
-    variant === 'amber'
-      ? 'border-amber-700/30 bg-amber-950/15'
-      : variant === 'green'
-        ? 'border-emerald-700/30 bg-emerald-950/15'
-        : variant === 'blue'
-          ? 'border-blue-700/30 bg-blue-950/15'
-          : 'border-white/[0.06] bg-white/[0.02]';
-
-  return (
-    <div className={`rounded-xl border p-4 ${tone}`}>
->>>>>>> origin/main
       <div className="flex items-center gap-2 text-xs uppercase tracking-[0.16em] text-zinc-500">
         <Icon className="h-3.5 w-3.5" />
         {label}
@@ -116,36 +83,16 @@ function TrailCard({
   title: string;
   detail: string;
   to?: string;
-<<<<<<< HEAD
   variant?: Variant;
 }) {
   const body = (
     <div className={`rounded-xl border p-4 transition-colors hover:border-red-600/35 ${toneClasses(variant)}`}>
-=======
-  variant?: 'zinc' | 'amber' | 'green' | 'blue';
-}) {
-  const tone =
-    variant === 'amber'
-      ? 'border-amber-700/30 bg-amber-950/15'
-      : variant === 'green'
-        ? 'border-emerald-700/30 bg-emerald-950/15'
-        : variant === 'blue'
-          ? 'border-blue-700/30 bg-blue-950/15'
-          : 'border-white/[0.06] bg-white/[0.02]';
-
-  const body = (
-    <div className={`rounded-xl border p-4 transition-colors hover:border-red-600/35 ${tone}`}>
->>>>>>> origin/main
       <PremiumBadge variant={variant}>{label}</PremiumBadge>
       <div className="mt-3 font-semibold text-white">{title}</div>
       <p className="mt-2 text-sm leading-relaxed text-zinc-500">{detail}</p>
       {to ? (
         <div className="mt-4 inline-flex items-center gap-1 text-xs font-medium text-red-300">
-<<<<<<< HEAD
           Open context
-=======
-          Open basho
->>>>>>> origin/main
           <ArrowRight className="h-3.5 w-3.5" />
         </div>
       ) : null}
@@ -161,7 +108,6 @@ function TrailCard({
   );
 }
 
-<<<<<<< HEAD
 function BrowseChip({ to, children }: { to: string; children: ReactNode }) {
   return (
     <Link
@@ -177,15 +123,12 @@ function pluralize(count: number, noun: string): string {
   return `${count} ${noun}${count === 1 ? '' : 's'}`;
 }
 
-=======
->>>>>>> origin/main
 export default function RecordsMilestonesPanel({
   shikona,
   rikishiId,
   timeline,
   rankProgression,
   highestRank,
-<<<<<<< HEAD
   legacyRecords = [],
   legacyRecordsLoading = false,
 }: Props) {
@@ -193,16 +136,10 @@ export default function RecordsMilestonesPanel({
   const latestYusho = yushoEntries.at(-1) ?? null;
   const bestBasho = useMemo(() => findBestBashoEntry(rankProgression), [rankProgression]);
   const bestNonYusho = useMemo(() => findBestNonYushoEntry(rankProgression), [rankProgression]);
-=======
-}: Props) {
-  const yushoEntries = useMemo(() => getYushoEntries(rankProgression), [rankProgression]);
-  const bestBasho = useMemo(() => findBestBashoEntry(rankProgression), [rankProgression]);
->>>>>>> origin/main
   const streaks = useMemo(() => computeProgressionStreaks(rankProgression), [rankProgression]);
   const winningBashoCount = useMemo(() => countWinningBasho(rankProgression), [rankProgression]);
   const doubleDigitBashoCount = useMemo(() => countDoubleDigitBasho(rankProgression), [rankProgression]);
   const distinctBashoCount = useMemo(() => new Set(timeline.map((item) => item.bashoId)).size, [timeline]);
-<<<<<<< HEAD
   const divisionChampionships = useMemo(() => getDivisionChampionshipSummaries(rankProgression), [rankProgression]);
   const sekitoriDebut = useMemo(() => findFirstSekitoriEntry(timeline), [timeline]);
   const makuuchiDebut = useMemo(() => findFirstDivisionEntry(timeline, 'makuuchi'), [timeline]);
@@ -257,18 +194,6 @@ export default function RecordsMilestonesPanel({
     const scope = legacySummary.latestSnapshotDate ? ` as of the ${legacySummary.latestSnapshotDate} imported snapshot` : ' in the imported entity layer';
     return `Imported achievement rows also credit ${parts.join(' and ')}${scope}. Jun-yusho totals are not part of the current routeable profile feed, so this page does not fabricate them.`;
   }, [legacyRecordsLoading, legacySummary]);
-=======
-
-  const titleMix = useMemo(() => {
-    const counts = new Map<string, number>();
-    for (const row of yushoEntries) {
-      counts.set(row.division, (counts.get(row.division) ?? 0) + 1);
-    }
-    return [...counts.entries()];
-  }, [yushoEntries]);
-
-  const latestYusho = yushoEntries.at(-1) ?? null;
->>>>>>> origin/main
 
   const trailCards = useMemo(() => {
     const cards: Array<{
@@ -277,7 +202,6 @@ export default function RecordsMilestonesPanel({
       title: string;
       detail: string;
       to?: string;
-<<<<<<< HEAD
       variant?: Variant;
     }> = [];
 
@@ -301,11 +225,6 @@ export default function RecordsMilestonesPanel({
       });
     }
 
-=======
-      variant?: 'zinc' | 'amber' | 'green' | 'blue';
-    }> = [];
-
->>>>>>> origin/main
     if (bestBasho) {
       cards.push({
         key: `best-${bestBasho.bashoId}-${bestBasho.division}`,
@@ -317,7 +236,6 @@ export default function RecordsMilestonesPanel({
       });
     }
 
-<<<<<<< HEAD
     if (bestNonYusho) {
       cards.push({
         key: `best-non-yusho-${bestNonYusho.bashoId}-${bestNonYusho.division}`,
@@ -325,39 +243,10 @@ export default function RecordsMilestonesPanel({
         title: `${bestNonYusho.wins}-${bestNonYusho.losses} from ${bestNonYusho.rank}`,
         detail: `Strongest published non-yusho basho in ${divisionLabel(bestNonYusho.division)} at ${bashoLabel(bestNonYusho.bashoId)}.`,
         to: `/basho/${encodeURIComponent(bestNonYusho.bashoId)}/${encodeURIComponent(bestNonYusho.division)}`,
-=======
-    cards.push({
-      key: `peak-${highestRank.bashoId}-${highestRank.division}`,
-      label: 'Peak rank',
-      title: `${highestRank.rank} in ${divisionLabel(highestRank.division)}`,
-      detail: `Highest published rank marker at ${bashoLabel(highestRank.bashoId)}.`,
-      to: `/basho/${encodeURIComponent(highestRank.bashoId)}/${encodeURIComponent(highestRank.division)}`,
-      variant: 'amber',
-    });
-
-    if (latestYusho) {
-      cards.push({
-        key: `yusho-${latestYusho.bashoId}-${latestYusho.division}`,
-        label: 'Latest yusho',
-        title: `${divisionLabel(latestYusho.division)} ${latestYusho.rank}`,
-        detail: `Championship marker at ${bashoLabel(latestYusho.bashoId)} with a ${latestYusho.wins}-${latestYusho.losses} record.`,
-        to: `/basho/${encodeURIComponent(latestYusho.bashoId)}/${encodeURIComponent(latestYusho.division)}`,
-        variant: 'amber',
-      });
-    }
-
-    if (streaks.longestWin) {
-      cards.push({
-        key: `streak-${streaks.longestWin.startBasho}-${streaks.longestWin.endBasho}`,
-        label: 'Longest win streak',
-        title: `${streaks.longestWin.length} straight winning basho`,
-        detail: `${bashoLabel(streaks.longestWin.startBasho)} → ${bashoLabel(streaks.longestWin.endBasho)}.`,
->>>>>>> origin/main
         variant: 'blue',
       });
     }
 
-<<<<<<< HEAD
     if (sekitoriDebut) {
       cards.push({
         key: `sekitori-${sekitoriDebut.bashoId}-${sekitoriDebut.division}`,
@@ -382,15 +271,10 @@ export default function RecordsMilestonesPanel({
 
     return cards.slice(0, 6);
   }, [bestBasho, bestNonYusho, highestRank.bashoId, highestRank.division, highestRank.rank, latestYusho, makuuchiDebut, sekitoriDebut]);
-=======
-    return cards.slice(0, 4);
-  }, [bestBasho, highestRank, latestYusho, streaks.longestWin]);
->>>>>>> origin/main
 
   return (
     <div className="space-y-6">
       <PremiumSectionShell
-<<<<<<< HEAD
         title="Milestone snapshot"
         subtitle={`Use this panel to separate routeable career milestones from imported achievement counts, then jump straight into the basho and analytics surfaces that explain them.`}
         trailing={(
@@ -406,28 +290,10 @@ export default function RecordsMilestonesPanel({
               className="rounded-lg border border-white/[0.08] bg-white/[0.03] px-3 py-1.5 text-xs font-medium text-zinc-300 transition-colors hover:border-red-600/40 hover:text-white"
             >
               Leaderboard slice
-=======
-        title="Records & milestones"
-        subtitle={`This section only uses achievement signals the current rikishi feed actually publishes for ${shikona}: championship markers, basho records, streaks, and rank milestones.`}
-        trailing={(
-          <div className="flex gap-2">
-            <Link
-              to="/analytics"
-              className="rounded-lg border border-white/[0.08] bg-white/[0.03] px-3 py-1.5 text-xs font-medium text-zinc-300 transition-colors hover:border-red-600/40 hover:text-white"
-            >
-              Analytics
-            </Link>
-            <Link
-              to="/leaderboard"
-              className="rounded-lg border border-white/[0.08] bg-white/[0.03] px-3 py-1.5 text-xs font-medium text-zinc-300 transition-colors hover:border-red-600/40 hover:text-white"
-            >
-              Leaderboard
->>>>>>> origin/main
             </Link>
           </div>
         )}
       >
-<<<<<<< HEAD
         <div className="grid gap-3 xl:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]">
           <div className="rounded-xl border border-white/[0.06] bg-black/20 p-4">
             <div className="flex flex-wrap items-center gap-2">
@@ -465,20 +331,10 @@ export default function RecordsMilestonesPanel({
             detail={latestYusho
               ? `Latest published championship marker: ${bashoLabel(latestYusho.bashoId)}.`
               : 'No championship marker is currently published in the routeable progression feed.'}
-=======
-        <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
-          <SummaryCard
-            label="Championship markers"
-            value={String(yushoEntries.length)}
-            detail={latestYusho
-              ? `Latest published yusho marker: ${bashoLabel(latestYusho.bashoId)}.`
-              : 'No yusho marker is published in the current progression feed.'}
->>>>>>> origin/main
             icon={Trophy}
             variant="amber"
           />
           <SummaryCard
-<<<<<<< HEAD
             label="Divisions won"
             value={String(divisionChampionships.length)}
             detail={divisionChampionships.length > 0
@@ -504,19 +360,11 @@ export default function RecordsMilestonesPanel({
               : 'Special-prize totals are not published in the current routeable feed for this profile.'}
             icon={Star}
             variant="blue"
-=======
-            label="Winning basho"
-            value={String(winningBashoCount)}
-            detail={`${winningBashoCount} kachi-koshi or yusho-marked basho out of ${distinctBashoCount} published appearances.`}
-            icon={Medal}
-            variant="green"
->>>>>>> origin/main
           />
           <SummaryCard
             label="10+ win basho"
             value={String(doubleDigitBashoCount)}
             detail={doubleDigitBashoCount > 0
-<<<<<<< HEAD
               ? `${doubleDigitBashoCount} strong-win tournaments in ${distinctBashoCount} published basho appearances.`
               : 'No double-digit basho are currently published in the routeable progression feed.'}
             icon={Sparkles}
@@ -530,26 +378,11 @@ export default function RecordsMilestonesPanel({
               : 'No multi-basho winning streak is published in the current progression feed.'}
             icon={Flame}
             variant="zinc"
-=======
-              ? 'High-win tournaments help separate a solid career from a truly notable peak.'
-              : 'No double-digit basho are published in the current progression feed.'}
-            icon={Sparkles}
-            variant="blue"
-          />
-          <SummaryCard
-            label="Longest win streak"
-            value={streaks.longestWin ? `${streaks.longestWin.length}` : '0'}
-            detail={streaks.longestWin
-              ? `${bashoLabel(streaks.longestWin.startBasho)} → ${bashoLabel(streaks.longestWin.endBasho)}.`
-              : 'No multi-basho winning streak is published in the current progression feed.'}
-            icon={Flame}
->>>>>>> origin/main
           />
         </div>
 
         <div className="mt-5 rounded-xl border border-white/[0.06] bg-black/20 p-4">
           <div className="flex flex-wrap items-center gap-2">
-<<<<<<< HEAD
             <PremiumBadge variant="amber">Career achievement summary</PremiumBadge>
             <PremiumBadge variant="zinc">{winningBashoCount} winning basho</PremiumBadge>
             <PremiumBadge variant="zinc">{distinctBashoCount} published basho</PremiumBadge>
@@ -558,25 +391,10 @@ export default function RecordsMilestonesPanel({
             {routeableSummary.charAt(0).toUpperCase() + routeableSummary.slice(1)}.
           </p>
           <p className="mt-2 text-sm leading-relaxed text-zinc-500">{importedSummary}</p>
-=======
-            <PremiumBadge variant={titleMix.length > 0 ? 'amber' : 'zinc'}>
-              {titleMix.length > 0 ? 'Championship mix' : 'Achievement coverage note'}
-            </PremiumBadge>
-            {titleMix.map(([division, count]) => (
-              <PremiumBadge key={division} variant={division === 'makuuchi' ? 'red' : division === 'juryo' ? 'blue' : 'amber'}>
-                {divisionLabel(division)} {count}
-              </PremiumBadge>
-            ))}
-          </div>
-          <p className="mt-3 text-sm leading-relaxed text-zinc-400">
-            Jun-yusho and special-prize counts are not part of the current routeable rikishi profile API, so this records view does not fabricate them. When those signals exist elsewhere, use the linked leaderboard or basho surfaces as corroborating browse paths rather than treating them as part of this canonical profile feed.
-          </p>
->>>>>>> origin/main
         </div>
       </PremiumSectionShell>
 
       <PremiumSectionShell
-<<<<<<< HEAD
         title="Division championship breakdown"
         subtitle="Browse the title mix by division so championships feel explorable, not just collapsed into one number."
       >
@@ -615,12 +433,6 @@ export default function RecordsMilestonesPanel({
         subtitle="Open the basho behind the headline: peak rank, championships, major debuts, and the strongest non-title tournaments."
       >
         <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
-=======
-        title="Achievement trail"
-        subtitle="These are the most useful record and milestone entries to open next when you want the basho behind the headline."
-      >
-        <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
->>>>>>> origin/main
           {trailCards.map((card) => (
             <TrailCard
               key={card.key}
@@ -632,7 +444,6 @@ export default function RecordsMilestonesPanel({
             />
           ))}
         </div>
-<<<<<<< HEAD
       </PremiumSectionShell>
 
       <PremiumSectionShell
@@ -658,34 +469,6 @@ export default function RecordsMilestonesPanel({
               Latest imported basho
             </BrowseChip>
           ) : null}
-=======
-
-        <div className="mt-5 flex flex-wrap gap-2 text-xs text-zinc-500">
-          <Link
-            to={`/rikishi/${encodeURIComponent(rikishiId)}#career`}
-            className="inline-flex items-center gap-1 rounded-full border border-white/[0.08] bg-white/[0.03] px-3 py-1 text-zinc-300 transition-colors hover:border-red-600/40 hover:text-white"
-          >
-            Back to career ledger
-          </Link>
-          <Link
-            to="/timeline"
-            className="inline-flex items-center gap-1 rounded-full border border-white/[0.08] bg-white/[0.03] px-3 py-1 text-zinc-300 transition-colors hover:border-red-600/40 hover:text-white"
-          >
-            Global basho timeline
-          </Link>
-          <Link
-            to="/analytics/eras"
-            className="inline-flex items-center gap-1 rounded-full border border-white/[0.08] bg-white/[0.03] px-3 py-1 text-zinc-300 transition-colors hover:border-red-600/40 hover:text-white"
-          >
-            Era analytics
-          </Link>
-          <Link
-            to={`/basho/${encodeURIComponent(highestRank.bashoId)}/${encodeURIComponent(highestRank.division)}`}
-            className="inline-flex items-center gap-1 rounded-full border border-white/[0.08] bg-white/[0.03] px-3 py-1 text-zinc-300 transition-colors hover:border-red-600/40 hover:text-white"
-          >
-            Peak-rank basho
-          </Link>
->>>>>>> origin/main
         </div>
       </PremiumSectionShell>
     </div>

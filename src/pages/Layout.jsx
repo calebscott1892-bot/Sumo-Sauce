@@ -1,11 +1,12 @@
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import FloatingNav from './components/navigation/FloatingNav';
 import Footer from '@/components/navigation/Footer';
 import CommandPalette from '@/components/system/CommandPalette';
 import RouteScrollManager from '@/components/system/RouteScrollManager';
+import { initAnalyticsDiagnostics } from '@/utils/analytics';
 
 const pageVariants = {
   initial: { opacity: 0, y: 6 },
@@ -15,6 +16,10 @@ const pageVariants = {
 
 export default function Layout({ children }) {
   const location = useLocation();
+
+  useEffect(() => {
+    initAnalyticsDiagnostics();
+  }, []);
 
   return (
     <div className="relative flex min-h-screen flex-col bg-[#0a0a0a]">

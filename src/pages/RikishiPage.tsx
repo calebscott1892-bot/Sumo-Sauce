@@ -24,10 +24,7 @@ import {
   getDivisionStandings,
   getHeadToHead,
   getKimariteStats,
-<<<<<<< HEAD
   getLegacyBashoRecords,
-=======
->>>>>>> origin/main
   getRikishiDirectory,
   getRankProgression,
 } from '@/pages/rikishi/api';
@@ -130,7 +127,6 @@ export default function RikishiPage() {
     enabled: Boolean(rikishiId),
   });
 
-<<<<<<< HEAD
   const legacyAchievementsQuery = useQuery({
     queryKey: ['rikishi-legacy-achievements', rikishiId],
     queryFn: () => getLegacyBashoRecords(rikishiId),
@@ -138,8 +134,6 @@ export default function RikishiPage() {
     staleTime: 10 * 60 * 1000,
   });
 
-=======
->>>>>>> origin/main
   const timelineChrono = useMemo(() => {
     const rows = Array.isArray(timelineQuery.data) ? [...timelineQuery.data] : [];
     return rows.sort((a, b) => a.bashoId.localeCompare(b.bashoId) || a.division.localeCompare(b.division));
@@ -313,10 +307,18 @@ export default function RikishiPage() {
         ]}
         favorite={{
           active: isFav,
-          onToggle: () => { toggleFavoriteRikishi(rikishiId); setIsFav(!isFav); },
+          onToggle: () => { toggleFavoriteRikishi(rikishiId, shikona); setIsFav(!isFav); },
+          ariaLabel: isFav ? `Remove ${shikona} from watchlist` : `Save ${shikona} to watchlist`,
         }}
         actions={
           <>
+            <Link
+              to="/watchlist"
+              className="rounded-lg border border-white/[0.06] bg-white/[0.03] px-3 py-1.5 text-xs font-medium text-zinc-300 transition-colors hover:border-red-600 hover:text-white"
+            >
+              Watchlist
+            </Link>
+
             {stableHref ? (
               <Link
                 to={stableHref}
@@ -504,11 +506,8 @@ export default function RikishiPage() {
               timeline={timelineChrono}
               rankProgression={progressionQuery.data || []}
               highestRank={summaryQuery.data.highestRank}
-<<<<<<< HEAD
               legacyRecords={legacyAchievementsQuery.data || []}
               legacyRecordsLoading={legacyAchievementsQuery.isLoading}
-=======
->>>>>>> origin/main
             />
           </ProfileSectionGroup>
 

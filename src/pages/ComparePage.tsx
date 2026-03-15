@@ -1,5 +1,5 @@
 import { Link, useParams } from 'react-router-dom';
-import { useEffect, useMemo } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { Compass, Layers3, MoveRight, Swords, TrendingUp } from 'lucide-react';
 import { useQuery } from '@tanstack/react-query';
 import { ApiError, getRikishiComparison } from '@/pages/compare/api';
@@ -11,6 +11,7 @@ import StatBar from '@/components/compare/StatBar';
 import ComparisonIdentityCard from '@/components/compare/ComparisonIdentityCard';
 import PageMeta from '@/components/ui/PageMeta';
 import { trackCompareUsage } from '@/utils/analytics';
+import { isFavoriteRivalry, toggleFavoriteRivalry } from '@/utils/favorites';
 import { trackRivalryView } from '@/utils/recentlyViewed';
 import { bashoLabel } from '@/utils/basho';
 import {
@@ -63,6 +64,7 @@ export default function ComparePage() {
   const params = useParams();
   const a = String(params.a || '').trim();
   const b = String(params.b || '').trim();
+  const [isSaved, setIsSaved] = useState(() => isFavoriteRivalry(a, b));
 
   const comparisonQuery = useQuery({
     queryKey: ['rikishi-compare', a, b],
@@ -187,6 +189,10 @@ export default function ComparePage() {
     trackRivalryView(`${a}/${b}`, `${shikonaA} vs ${shikonaB}`);
   }, [a, b, model, shikonaA, shikonaB]);
 
+  useEffect(() => {
+    setIsSaved(isFavoriteRivalry(a, b));
+  }, [a, b]);
+
   if (!a || !b) {
     return (
       <div className="mx-auto max-w-6xl p-6 text-zinc-200">
@@ -269,13 +275,29 @@ export default function ComparePage() {
           { label: `${shikonaA} vs ${shikonaB}` },
         ]}
         actions={(
-          <Link
-            to="/rivalries"
-            className="rounded-lg border border-white/[0.06] bg-white/[0.03] px-3 py-1.5 text-xs font-medium text-zinc-300 transition-colors hover:border-red-600 hover:text-white"
-          >
-            Rivalry Explorer
-          </Link>
+          <>
+            <Link
+              to="/watchlist"
+              className="rounded-lg border border-white/[0.06] bg-white/[0.03] px-3 py-1.5 text-xs font-medium text-zinc-300 transition-colors hover:border-red-600 hover:text-white"
+            >
+              Watchlist
+            </Link>
+            <Link
+              to="/rivalries"
+              className="rounded-lg border border-white/[0.06] bg-white/[0.03] px-3 py-1.5 text-xs font-medium text-zinc-300 transition-colors hover:border-red-600 hover:text-white"
+            >
+              Rivalry Explorer
+            </Link>
+          </>
         )}
+        favorite={{
+          active: isSaved,
+          onToggle: () => {
+            toggleFavoriteRivalry(a, b, `${shikonaA} vs ${shikonaB}`);
+            setIsSaved(!isSaved);
+          },
+          ariaLabel: isSaved ? `Remove ${shikonaA} vs ${shikonaB} from watchlist` : `Save ${shikonaA} vs ${shikonaB} to watchlist`,
+        }}
       >
         <div className="grid gap-4 xl:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_minmax(300px,0.95fr)]">
           <ComparisonIdentityCard

@@ -1,18 +1,21 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { Link, useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
+import { Trophy, Swords, TrendingUp } from 'lucide-react';
 import { ApiError, getDivisionStandings } from '@/pages/basho/api';
 import type { Division } from '@/pages/basho/types';
+import BashoStoryCard from '@/components/basho/BashoStoryCard';
 import BashoDivisionBrowseNav from '@/components/basho/BashoDivisionBrowseNav';
 import BashoNav from '@/components/navigation/BashoNav';
 import RankMovementIndicator from '@/components/basho/RankMovementIndicator';
 import PromotionPredictionBadge from '@/components/basho/PromotionPredictionBadge';
 import { bashoDisplayName, divisionLabel, prevBashoId, nextBashoId, latestBashoId } from '@/utils/basho';
+import { buildDivisionStorySnapshot } from '@/utils/bashoStorytelling';
 import { isValidBashoId } from '@/utils/security';
 import { trackBashoPageView } from '@/utils/analytics';
 import EmptyState from '@/components/ui/EmptyState';
 import PageMeta from '@/components/ui/PageMeta';
-import { PremiumBadge, PremiumPageHeader } from '@/components/ui/premium';
+import { PremiumBadge, PremiumPageHeader, PremiumSectionShell, PremiumStatCard } from '@/components/ui/premium';
 
 type SortKey = 'rank' | 'wins' | 'losses' | 'winPct';
 type SortDir = 'asc' | 'desc';
@@ -51,6 +54,38 @@ function DivisionStandingsContentSkeleton() {
       </div>
     </div>
   );
+}
+
+function joinNames(names: string[]): string {
+  if (names.length === 0) return '';
+  if (names.length === 1) return names[0];
+  if (names.length === 2) return `${names[0]} and ${names[1]}`;
+  return `${names[0]}, ${names[1]}, and ${names[2]}`;
+}
+
+function buildRaceSummary({
+  leaderName,
+  leaderRecord,
+  runnerUpName,
+  runnerUpRecord,
+  leaderGap,
+}: {
+  leaderName: string;
+  leaderRecord: string;
+  runnerUpName?: string | null;
+  runnerUpRecord?: string | null;
+  leaderGap?: number | null;
+}): string {
+  if (leaderGap === 0 && runnerUpName && runnerUpRecord) {
+    return `${leaderName} share the best published record at ${leaderRecord}, so the top of the division is still open.`;
+  }
+  if (leaderGap === 1 && runnerUpName && runnerUpRecord) {
+    return `${leaderName} lead at ${leaderRecord}, with ${runnerUpName} one win back at ${runnerUpRecord}.`;
+  }
+  if (typeof leaderGap === 'number' && leaderGap >= 2 && runnerUpName && runnerUpRecord) {
+    return `${leaderName} lead at ${leaderRecord}, ${leaderGap} wins clear of ${runnerUpName} at ${runnerUpRecord}.`;
+  }
+  return `${leaderName} hold the best published record at ${leaderRecord}.`;
 }
 
 export default function BashoDivisionPage() {
@@ -265,6 +300,9 @@ export default function BashoDivisionPage() {
     if (row.wins === best.wins && row.losses < best.losses) return row;
     return best;
   }, null);
+  const isLatestDivision = latestTournamentId === bashoId;
+  const divisionSnapshotLabel = isLatestDivision ? 'latest published' : 'loaded';
+  const divisionStory = useMemo(() => buildDivisionStorySnapshot(rows), [rows]);
 
   const filteredRows = useMemo(() => {
     let result = [...rows];
@@ -385,6 +423,25 @@ export default function BashoDivisionPage() {
     return () => document.removeEventListener('keydown', onKeyDown);
   }, [bashoId, division, navigate]);
 
+  const tiedLeaderNames = joinNames(divisionStory.tiedLeaders.map((row) => row.shikona));
+  const leaderSummary = divisionStory.leader
+    ? `${buildRaceSummary({
+      leaderName: tiedLeaderNames || divisionStory.leader.shikona,
+      leaderRecord: `${divisionStory.leader.wins}-${divisionStory.leader.losses}`,
+      runnerUpName: divisionStory.runnerUp?.shikona,
+      runnerUpRecord: divisionStory.runnerUp ? `${divisionStory.runnerUp.wins}-${divisionStory.runnerUp.losses}` : null,
+      leaderGap: divisionStory.tiedLeaders.length > 1 ? 0 : divisionStory.leaderGap,
+    })} This is the clearest first read inside ${divisionLabel(division)}.`
+    : `${divisionLabel(division)} standings have not loaded yet.`;
+  const chaseSummary = divisionStory.runnerUp
+    ? divisionStory.closeRace
+      ? `${divisionStory.runnerUp.shikona} keeps the race tight at ${divisionStory.runnerUp.wins}-${divisionStory.runnerUp.losses}. Use compare if you want to turn the table into a contender matchup.`
+      : `${divisionStory.runnerUp.shikona} owns the next-best visible record at ${divisionStory.runnerUp.wins}-${divisionStory.runnerUp.losses}, making him the clearest chase profile behind the leader.`
+    : 'Once standings load, this card will point you to the most meaningful chase path behind the leader.';
+  const standoutSummary = divisionStory.standout && divisionStory.standout.rikishiId !== divisionStory.leader?.rikishiId
+    ? `${divisionStory.standout.shikona} stands out from ${divisionStory.standout.rank} with a ${divisionStory.standout.wins}-${divisionStory.standout.losses} record. That makes him a strong second profile to open from this ${divisionSnapshotLabel} division snapshot.`
+    : `This table currently shows ${divisionStory.winningRecordCount} winning records, with ${divisionStory.doubleDigitWinCount} at double digits. Use the filters below when you want to isolate the strongest records quickly.`;
+
   return (
     <div data-testid="division-page" className="stagger-children mx-auto max-w-6xl space-y-5 p-4 text-zinc-200 sm:space-y-6 sm:p-6">
       <PageMeta
@@ -395,7 +452,11 @@ export default function BashoDivisionPage() {
       <PremiumPageHeader
         accentLabel="TOURNAMENT STANDINGS"
         title={`${bashoDisplayName(bashoId)} — ${divisionLabel(division)}`}
-        subtitle="Browse one division in detail while keeping quick access to the full tournament and archive."
+        subtitle={
+          isLatestDivision
+            ? 'Latest published division standings with current-race framing, contender paths, and fast movement back into the full basho.'
+            : 'Browse one division in detail while keeping quick access to the full tournament and archive.'
+        }
         breadcrumbs={[
           { label: 'Home', to: '/' },
           { label: 'Basho', to: '/basho' },
@@ -404,6 +465,12 @@ export default function BashoDivisionPage() {
         ]}
       >
         <div className="flex flex-col gap-2 text-sm text-zinc-400 sm:flex-row sm:flex-wrap sm:items-center sm:gap-3">
+          {isLatestDivision && (
+            <span className="inline-flex items-center gap-2">
+              <PremiumBadge variant="green">Latest basho</PremiumBadge>
+              <span>This division is part of the current tournament front door.</span>
+            </span>
+          )}
           {isLoadingStandings ? (
             <span>Loading standings…</span>
           ) : (
@@ -430,6 +497,105 @@ export default function BashoDivisionPage() {
       <BashoNav bashoId={bashoId} division={division} />
 
       <BashoDivisionBrowseNav bashoId={bashoId} active={division} />
+
+      <PremiumSectionShell
+        title={isLatestDivision ? `What matters now in ${divisionLabel(division)}` : `How to read ${divisionLabel(division)}`}
+        subtitle={
+          isLatestDivision
+            ? `Use this ${divisionSnapshotLabel} standings snapshot to find the leader, the chase, and the strongest next clicks into compare, wrestler, and records views.`
+            : `This archived division still works best when you read the leader first, then open the chase and standout profiles instead of treating the table as a dead end.`
+        }
+      >
+        <div className="grid gap-3 sm:grid-cols-3">
+          <PremiumStatCard
+            label="Leader"
+            value={divisionStory.leader ? `${divisionStory.leader.wins}-${divisionStory.leader.losses}` : 'No data'}
+            sub={divisionStory.leader ? divisionStory.leader.shikona : 'Standings unavailable'}
+            variant="gold"
+            icon={<Trophy className="h-3.5 w-3.5 text-amber-400" />}
+          />
+          <PremiumStatCard
+            label="Chase pack"
+            value={divisionStory.runnerUp ? `${divisionStory.runnerUp.wins}-${divisionStory.runnerUp.losses}` : 'Open'}
+            sub={
+              divisionStory.runnerUp
+                ? `${divisionStory.runnerUp.shikona}${divisionStory.closeRace ? ' keeps it close' : ' is next in line'}`
+                : 'Waiting on the next strongest record'
+            }
+            variant={divisionStory.closeRace ? 'red' : 'default'}
+            icon={<Swords className="h-3.5 w-3.5 text-red-400" />}
+          />
+          <PremiumStatCard
+            label="Winning records"
+            value={String(divisionStory.winningRecordCount)}
+            sub={`${divisionStory.doubleDigitWinCount} at double digits`}
+            variant="green"
+            icon={<TrendingUp className="h-3.5 w-3.5 text-emerald-400" />}
+          />
+        </div>
+
+        <div className="mt-4 grid gap-4 md:grid-cols-3">
+          <BashoStoryCard
+            eyebrow="Leader read"
+            icon={Trophy}
+            tone="red"
+            title={divisionStory.leader ? `${divisionStory.leader.shikona} leads ${divisionLabel(division)}` : `${divisionLabel(division)} leader`}
+            summary={leaderSummary}
+            nextStep="Open the leader profile first, then come back to the table if you want the full chase pack around him."
+            badges={[
+              divisionStory.leader ? { label: divisionStory.leader.rank, variant: 'zinc' as const } : null,
+              divisionStory.closeRace ? { label: 'Close race', variant: 'red' as const } : null,
+            ].filter(Boolean)}
+            actions={[
+              ...(divisionStory.leader ? [{ label: 'Open profile', to: `/rikishi/${encodeURIComponent(divisionStory.leader.rikishiId)}` }] : []),
+              ...(divisionStory.leader ? [{ label: 'Leader records', to: `/rikishi/${encodeURIComponent(divisionStory.leader.rikishiId)}#records` }] : []),
+              { label: 'Basho overview', to: `/basho/${encodeURIComponent(bashoId)}` },
+            ]}
+          />
+
+          <BashoStoryCard
+            eyebrow="Contender path"
+            icon={Swords}
+            tone="blue"
+            title={divisionStory.runnerUp ? `${divisionStory.runnerUp.shikona} is the clearest chase` : 'Chase path'}
+            summary={chaseSummary}
+            nextStep={
+              divisionStory.leader && divisionStory.runnerUp
+                ? 'Use compare if you want matchup context, then jump back to the full table for everyone within striking distance.'
+                : 'Once a chase profile is visible, compare and wrestler pages are the fastest ways to deepen the read.'
+            }
+            badges={[
+              divisionStory.runnerUp ? { label: divisionStory.runnerUp.rank, variant: 'zinc' as const } : null,
+              divisionStory.chasePack.length > 1 ? { label: `${divisionStory.chasePack.length} in the chase`, variant: 'amber' as const } : null,
+            ].filter(Boolean)}
+            actions={[
+              ...(divisionStory.leader && divisionStory.runnerUp
+                ? [{ label: 'Compare top two', to: `/compare/${encodeURIComponent(divisionStory.leader.rikishiId)}/${encodeURIComponent(divisionStory.runnerUp.rikishiId)}` }]
+                : []),
+              ...(divisionStory.runnerUp ? [{ label: 'Open chase profile', to: `/rikishi/${encodeURIComponent(divisionStory.runnerUp.rikishiId)}` }] : []),
+              { label: 'Overview context', to: `/basho/${encodeURIComponent(bashoId)}` },
+            ]}
+          />
+
+          <BashoStoryCard
+            eyebrow="Standout"
+            icon={TrendingUp}
+            tone="amber"
+            title={divisionStory.standout ? `${divisionStory.standout.shikona} is worth opening` : 'Standout performance'}
+            summary={standoutSummary}
+            nextStep="After the standout profile, use the filters below or the leaderboard slice if you want to narrow the division to a smaller record band."
+            badges={[
+              divisionStory.standout ? { label: divisionStory.standout.rank, variant: 'zinc' as const } : null,
+              divisionStory.doubleDigitWinCount > 0 ? { label: `${divisionStory.doubleDigitWinCount} double-digit`, variant: 'amber' as const } : null,
+            ].filter(Boolean)}
+            actions={[
+              ...(divisionStory.standout ? [{ label: 'Open standout', to: `/rikishi/${encodeURIComponent(divisionStory.standout.rikishiId)}` }] : []),
+              ...(divisionStory.leader ? [{ label: 'Leaderboard slice', to: `/leaderboard?q=${encodeURIComponent(divisionStory.leader.rikishiId)}` }] : []),
+              { label: 'Analytics trail', to: '/analytics#championship-trail' },
+            ]}
+          />
+        </div>
+      </PremiumSectionShell>
 
       {/* Filters */}
       <section className="rounded-2xl border border-white/[0.06] bg-white/[0.02] p-4">

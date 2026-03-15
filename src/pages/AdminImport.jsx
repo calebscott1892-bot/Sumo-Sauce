@@ -1,12 +1,13 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { resolveApiUrl } from '@/utils/apiBase';
 
 const ENTITY_STORAGE_KEY = 'admin_import_entity';
 
 function routeForEntity(entity) {
   return entity === 'Wrestler'
-    ? '/api/admin/import/wrestlers'
-    : '/api/admin/import/basho-records';
+    ? resolveApiUrl('/admin/import/wrestlers')
+    : resolveApiUrl('/admin/import/basho-records');
 }
 
 function parseJsonArray(rawText) {
@@ -159,12 +160,20 @@ export default function AdminImport() {
           )}
         </div>
 
-        <Link
-          to="/leaderboard"
-          className="inline-flex items-center rounded-md bg-red-600 px-4 py-2 font-bold hover:bg-red-700"
-        >
-          Back to Leaderboard
-        </Link>
+        <div className="flex flex-wrap gap-3">
+          <Link
+            to="/admin/data-confidence"
+            className="inline-flex items-center rounded-md border border-white/[0.08] bg-white/[0.03] px-4 py-2 font-bold text-zinc-200 hover:border-red-600/40 hover:text-white"
+          >
+            Open Data Confidence Review
+          </Link>
+          <Link
+            to="/leaderboard"
+            className="inline-flex items-center rounded-md bg-red-600 px-4 py-2 font-bold hover:bg-red-700"
+          >
+            Back to Leaderboard
+          </Link>
+        </div>
       </div>
     </div>
   );

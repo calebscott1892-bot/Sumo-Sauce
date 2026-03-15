@@ -17,9 +17,11 @@
  *   node scripts/validate-profiles.mjs                    # validate canonical file
  *   node scripts/validate-profiles.mjs --merge batch.json # preview merge with candidate
  *   node scripts/validate-profiles.mjs --strict           # exit 1 on any warning
+ *   node scripts/validate-profiles.mjs --report-json out.json
+ *                                                    # write a structured review report
  */
 
-import { readFileSync, existsSync } from 'fs';
+import { readFileSync, existsSync, writeFileSync } from 'fs';
 
 // ---------------------------------------------------------------------------
 // CLI args
@@ -28,8 +30,15 @@ import { readFileSync, existsSync } from 'fs';
 const args = process.argv.slice(2);
 const STRICT     = args.includes('--strict');
 const mergeIdx   = args.indexOf('--merge');
+const reportIdx  = args.indexOf('--report-json');
 const MERGE_FILE = mergeIdx !== -1 ? args[mergeIdx + 1] : null;
+const REPORT_FILE = reportIdx !== -1 ? args[reportIdx + 1] : null;
 const CANONICAL  = 'data/makuuchi_verified_profiles.json';
+
+if (reportIdx !== -1 && !REPORT_FILE) {
+  console.error('ERROR: --report-json requires an output file path');
+  process.exit(1);
+}
 
 // ---------------------------------------------------------------------------
 // Schema definitions
@@ -53,6 +62,10 @@ const NULLABLE_STRING_FIELDS = [
   'officialImageUrl', 'imageSource', 'division', 'batchRef', 'lastVerifiedBasho',
 ];
 const NULLABLE_NUMBER_FIELDS = ['heightCm', 'weightKg'];
+const REVIEW_METADATA_FIELDS = [
+  'rikishiId', 'heya', 'birthDate', 'nationality',
+  'heightCm', 'weightKg', 'division', 'batchRef', 'lastVerifiedBasho',
+];
 
 // ---------------------------------------------------------------------------
 // Validation engine
@@ -182,6 +195,150 @@ function validateProfile(p, idx, seenShikona, seenRikishiId) {
   }
 }
 
+function hasValue(value) {
+  if (value === null || value === undefined) return false;
+  if (typeof value === 'string') return value.trim().length > 0;
+  return true;
+}
+
+function buildReviewRows(rows) {
+  return rows.map((profile, idx) => {
+    const sourceRefs = Array.isArray(profile.sourceRefs) ? profile.sourceRefs : [];
+    const missingFields = REVIEW_METADATA_FIELDS.filter((field) => !hasValue(profile[field]));
+    const nonHttpsSourceCount = sourceRefs.filter((ref) => {
+      const url = typeof ref?.url === 'string' ? ref.url.trim() : '';
+      return Boolean(url) && !url.startsWith('https://');
+    }).length;
+
+    return {
+      index: idx,
+      shikona: profile.shikona || `(index ${idx})`,
+      rikishiId: profile.rikishiId || null,
+      division: profile.division || null,
+      batchRef: profile.batchRef || null,
+      lastVerifiedBasho: profile.lastVerifiedBasho || null,
+      profileConfidence: profile.profileConfidence || 'unverified',
+      imageConfidence: profile.imageConfidence || 'missing',
+      provenanceStatus: profile.provenanceStatus || 'unresolved',
+      sourceRefCount: sourceRefs.length,
+      nonHttpsSourceCount,
+      missingFields,
+      metadataGapCount: missingFields.length,
+    };
+  });
+}
+
+function withQueueReason(rows, nextStep, reasonBuilder) {
+  return rows.map((row) => ({
+    ...row,
+    nextStep,
+    reason: reasonBuilder(row),
+  }));
+}
+
+function sortQueueRows(rows) {
+  return [...rows].sort((a, b) => {
+    const gapDelta = b.metadataGapCount - a.metadataGapCount;
+    if (gapDelta !== 0) return gapDelta;
+
+    const sourceDelta = a.sourceRefCount - b.sourceRefCount;
+    if (sourceDelta !== 0) return sourceDelta;
+
+    return a.shikona.localeCompare(b.shikona);
+  });
+}
+
+function buildReviewQueues(rows) {
+  const reviewRows = buildReviewRows(rows);
+
+  return [
+    {
+      key: 'unverified-profiles',
+      title: 'Unverified profiles',
+      description: 'Profiles still below the trusted identity threshold.',
+      nextStep: 'Verify core identity and provenance fields before treating the profile as trusted.',
+      items: sortQueueRows(withQueueReason(
+        reviewRows.filter((row) => row.profileConfidence === 'unverified'),
+        'Verify core identity and provenance fields before treating the profile as trusted.',
+        (row) => `profileConfidence=unverified with ${row.sourceRefCount} source ref${row.sourceRefCount === 1 ? '' : 's'}`,
+      )),
+    },
+    {
+      key: 'inferred-provenance',
+      title: 'Inferred provenance',
+      description: 'Profiles whose lineage still depends on inference.',
+      nextStep: 'Confirm division and batch lineage so the profile can move out of inferred status.',
+      items: sortQueueRows(withQueueReason(
+        reviewRows.filter((row) => row.provenanceStatus === 'inferred'),
+        'Confirm division and batch lineage so the profile can move out of inferred status.',
+        (row) => `provenanceStatus=inferred${row.batchRef ? '' : ' and batchRef is still missing'}`,
+      )),
+    },
+    {
+      key: 'provenance-hotspots',
+      title: 'Batch / provenance gaps',
+      description: 'Profiles missing batchRef, division, or lastVerifiedBasho context.',
+      nextStep: 'Backfill the missing provenance field before wider enrichment work.',
+      items: sortQueueRows(withQueueReason(
+        reviewRows.filter((row) => (!row.batchRef || !row.division || !row.lastVerifiedBasho) && row.provenanceStatus !== 'quarantined'),
+        'Backfill the missing provenance field before wider enrichment work.',
+        (row) => `missing provenance fields: ${row.missingFields.filter((field) => field === 'division' || field === 'batchRef' || field === 'lastVerifiedBasho').join(', ')}`,
+      )),
+    },
+    {
+      key: 'missing-images',
+      title: 'Missing or withheld images',
+      description: 'Profiles that still need image verification or image coverage work.',
+      nextStep: 'Keep image safety rules intact and research publishable official imagery separately from identity cleanup.',
+      items: sortQueueRows(withQueueReason(
+        reviewRows.filter((row) => row.imageConfidence === 'missing' || row.imageConfidence === 'unverified'),
+        'Keep image safety rules intact and research publishable official imagery separately from identity cleanup.',
+        (row) => row.imageConfidence === 'missing' ? 'no verified official image is published' : 'image exists but remains below publishable confidence',
+      )),
+    },
+    {
+      key: 'weak-source-coverage',
+      title: 'Missing or thin source coverage',
+      description: 'Profiles with zero or one published source ref, or non-HTTPS source URLs.',
+      nextStep: 'Add corroborating refs or normalize URLs before raising confidence.',
+      items: sortQueueRows(withQueueReason(
+        reviewRows.filter((row) => row.sourceRefCount <= 1 || row.nonHttpsSourceCount > 0),
+        'Add corroborating refs or normalize URLs before raising confidence.',
+        (row) => {
+          if (row.sourceRefCount === 0) return 'no source refs are published';
+          if (row.nonHttpsSourceCount > 0) return `${row.nonHttpsSourceCount} source URL${row.nonHttpsSourceCount === 1 ? '' : 's'} are not HTTPS`;
+          return 'only one source ref is published';
+        },
+      )),
+    },
+    {
+      key: 'metadata-hotspots',
+      title: 'Null metadata hotspots',
+      description: 'Profiles missing multiple core metadata fields at once.',
+      nextStep: 'Use this queue for multi-field cleanup before the next dataset expansion.',
+      items: sortQueueRows(withQueueReason(
+        reviewRows.filter((row) => row.metadataGapCount >= 3),
+        'Use this queue for multi-field cleanup before the next dataset expansion.',
+        (row) => `missing ${row.metadataGapCount} core fields: ${row.missingFields.join(', ')}`,
+      )),
+    },
+  ];
+}
+
+function printQueuePreview(queue, previewCount = 5) {
+  if (!queue.items.length) return;
+
+  console.log(`\n  ${queue.title}: ${queue.items.length}`);
+  console.log(`    Next step: ${queue.nextStep}`);
+  for (const item of queue.items.slice(0, previewCount)) {
+    const rid = item.rikishiId ? ` (RID ${item.rikishiId})` : '';
+    console.log(`    - ${item.shikona}${rid}: ${item.reason}`);
+  }
+  if (queue.items.length > previewCount) {
+    console.log(`    ... +${queue.items.length - previewCount} more`);
+  }
+}
+
 // ---------------------------------------------------------------------------
 // Run validation on canonical file
 // ---------------------------------------------------------------------------
@@ -255,6 +412,42 @@ for (const [k, v] of Object.entries(imgCounts)) {
 console.log('\n  Provenance status:');
 for (const [k, v] of Object.entries(provCounts)) {
   if (v) console.log(`    ${k.padEnd(14)} ${v}`);
+}
+
+const reviewQueues = buildReviewQueues(profiles);
+
+console.log('\n  Action queues:');
+for (const queue of reviewQueues) {
+  console.log(`    ${queue.title.padEnd(28)} ${queue.items.length}`);
+}
+
+console.log('\n  Queue previews:');
+for (const queue of reviewQueues) {
+  printQueuePreview(queue);
+}
+
+if (REPORT_FILE) {
+  const report = {
+    generatedAt: new Date().toISOString(),
+    canonicalFile: CANONICAL,
+    validation: {
+      errors,
+      warnings,
+      totalProfiles: profiles.length,
+      emptySourceRefs: emptyRefs,
+      nullDivision: nullDiv,
+      nullBatchRef: nullBatch,
+      nullLastVerifiedBasho: nullBasho,
+      divisions: divCounts,
+      profileConfidence: confCounts,
+      imageConfidence: imgCounts,
+      provenanceStatus: provCounts,
+    },
+    reviewQueues,
+  };
+
+  writeFileSync(REPORT_FILE, `${JSON.stringify(report, null, 2)}\n`, 'utf8');
+  console.log(`\n  Review report written to ${REPORT_FILE}`);
 }
 
 // ---------------------------------------------------------------------------

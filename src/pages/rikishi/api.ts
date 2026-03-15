@@ -9,10 +9,8 @@ import type {
   GetRikishiResponse,
   GetRikishiTimelineResponse,
 } from '../../../shared/api/v1';
-<<<<<<< HEAD
 import type { LegacyBashoRecord } from '@/utils/recordsMilestones';
-=======
->>>>>>> origin/main
+import { resolveApiUrl } from '@/utils/apiBase';
 
 export class ApiError extends Error {
   status: number;
@@ -36,7 +34,7 @@ function isApiErrorResponse(value: unknown): value is ApiErrorResponse {
 }
 
 async function fetchApi<T>(path: string): Promise<T> {
-  const res = await fetch(`/api/v1${path}`);
+  const res = await fetch(resolveApiUrl(`/v1${path}`));
   const body: unknown = await res.json().catch(() => null);
 
   if (isApiErrorResponse(body)) {
@@ -50,7 +48,6 @@ async function fetchApi<T>(path: string): Promise<T> {
   return body as T;
 }
 
-<<<<<<< HEAD
 async function fetchRootApi<T>(path: string): Promise<T> {
   const res = await fetch(path);
   const body: unknown = await res.json().catch(() => null);
@@ -66,8 +63,6 @@ async function fetchRootApi<T>(path: string): Promise<T> {
   return body as T;
 }
 
-=======
->>>>>>> origin/main
 export function getCareerSummary(id: string): Promise<GetRikishiResponse> {
   return fetchApi<GetRikishiResponse>(`/rikishi/${encodeURIComponent(id)}`);
 }
@@ -95,10 +90,9 @@ export function getHeadToHead(a: string, b: string): Promise<GetHeadToHeadRespon
 export function getDivisionStandings(bashoId: string, division: Division): Promise<GetDivisionStandingsResponse> {
   return fetchApi<GetDivisionStandingsResponse>(`/basho/${encodeURIComponent(bashoId)}/${encodeURIComponent(division)}`);
 }
-<<<<<<< HEAD
 
 export function getLegacyBashoRecords(rikishiId: string): Promise<LegacyBashoRecord[]> {
-  return fetchRootApi<LegacyBashoRecord[]>(`/api/entities/BashoRecord?rid=${encodeURIComponent(rikishiId)}&sort=-snapshot_date`);
+  return fetchRootApi<LegacyBashoRecord[]>(
+    resolveApiUrl(`/entities/BashoRecord?rid=${encodeURIComponent(rikishiId)}&sort=-snapshot_date`)
+  );
 }
-=======
->>>>>>> origin/main

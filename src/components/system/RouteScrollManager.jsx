@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { useLocation, useNavigationType } from 'react-router-dom';
+import { trackNavigation } from '@/utils/analytics';
 
 const scrollPositions = new Map();
 
@@ -24,6 +25,15 @@ export default function RouteScrollManager() {
   const location = useLocation();
   const navigationType = useNavigationType();
   const previousPathnameRef = useRef(location.pathname);
+  const previousRouteRef = useRef(`${location.pathname}${location.search}${location.hash}`);
+
+  useEffect(() => {
+    const nextRoute = `${location.pathname}${location.search}${location.hash}`;
+    if (previousRouteRef.current !== nextRoute) {
+      trackNavigation(previousRouteRef.current, nextRoute);
+      previousRouteRef.current = nextRoute;
+    }
+  }, [location.hash, location.pathname, location.search]);
 
   useEffect(() => {
     const locationKey = buildLocationKey(location);

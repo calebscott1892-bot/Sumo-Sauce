@@ -1,5 +1,6 @@
 import { useState, useCallback } from 'react';
 import { Link2, Check } from 'lucide-react';
+import { trackShareAction } from '@/utils/analytics';
 
 type Props = {
   /** Optional custom URL. Defaults to current window.location.href */
@@ -14,6 +15,7 @@ export default function CopyLinkButton({ url, className = '' }: Props) {
     const target = url ?? window.location.href;
     try {
       await navigator.clipboard.writeText(target);
+      trackShareAction(window.location.pathname, target);
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     } catch {
@@ -26,6 +28,7 @@ export default function CopyLinkButton({ url, className = '' }: Props) {
       ta.select();
       document.execCommand('copy');
       document.body.removeChild(ta);
+      trackShareAction(window.location.pathname, target);
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     }
@@ -36,7 +39,7 @@ export default function CopyLinkButton({ url, className = '' }: Props) {
       type="button"
       onClick={handleCopy}
       className={`inline-flex items-center gap-1.5 rounded-lg border border-white/[0.08] bg-white/[0.04] px-3 py-1.5 text-xs text-zinc-300 transition-colors hover:border-red-600 hover:text-white ${className}`}
-      aria-label={copied ? 'Link copied' : 'Copy link'}
+      aria-label={copied ? 'Link copied to clipboard' : 'Copy share link'}
     >
       {copied ? (
         <>
