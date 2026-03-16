@@ -74,6 +74,9 @@ function coerceComparable(v) {
   return s.toLowerCase();
 }
 
+// Safety cap for entity queries to avoid loading very large result sets into memory
+const MAX_ENTITY_FETCH = Number.parseInt(String(process.env.MAX_ENTITY_FETCH || '5000'), 10) || 5000;
+
 function logStartupEnv() {
   // eslint-disable-next-line no-console
   console.log('[startup][env]');
@@ -832,9 +835,11 @@ app.get('/api/entities/:entity', async (req, res, next) => {
       .filter(([key, value]) => key !== 'sort' && key !== 'limit' && typeof value === 'string' && String(value).trim() !== '')
       .map(([key, value]) => [key, String(value).trim().toLowerCase()]);
 
+    const dbTake = Number.isFinite(limit) ? Number(limit) : MAX_ENTITY_FETCH;
     const records = await prisma.entityRecord.findMany({
       where: { entity },
       select: { data: true },
+      take: dbTake,
     });
 
     const rows = records.map((r) => r.data);
