@@ -1,5 +1,6 @@
 import { readFile } from 'node:fs/promises';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 import { runDiff } from './diff.ts';
 import { sha256Hex } from '../hash.ts';
@@ -23,10 +24,12 @@ type LoadSummary = {
 
 type BuildStatus = 'PENDING' | 'SUCCESS' | 'FAILED';
 
-const ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname), '..', '..');
+const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
 const BUILDS_DIR = path.join(ROOT, 'data', 'builds');
 const SERVER_ENV = path.join(ROOT, 'server', '.env');
 const ROOT_ENV = path.join(ROOT, '.env');
+const TX_OPTIONS = { maxWait: 120_000, timeout: 120_000 } as const;
+const BATCH_SIZE = 500;
 
 function parseJsonl(text: string): DiffRow[] {
   return text
@@ -87,6 +90,14 @@ function asLowerString(value: unknown, field: string): string {
 
 function banzukeSyntheticId(entityId: string): string {
   return `bzk_${sha256Hex(entityId).slice(0, 24)}`;
+}
+
+function chunk<T>(rows: T[], size: number): T[][] {
+  const out: T[][] = [];
+  for (let i = 0; i < rows.length; i += size) {
+    out.push(rows.slice(i, i + size));
+  }
+  return out;
 }
 
 function groupRows(rows: DiffRow[]): Record<EntityType, DiffRow[]> {
@@ -357,21 +368,21 @@ export async function runLoad(input: {
       });
 
       await tx.buildSnapshot.deleteMany({ where: { buildId: input.buildId } });
-
-      await tx.buildSnapshot.deleteMany({ where: { buildId: input.buildId } });
-      for (const snap of uniqueBuildSnapshots([...manifest.inputs.snapshots])) {
-        await tx.buildSnapshot.create({
-          data: {
+      for (const snaps of chunk(uniqueBuildSnapshots([...manifest.inputs.snapshots]), BATCH_SIZE)) {
+        await tx.buildSnapshot.createMany({
+          data: snaps.map((snap) => ({
             buildId: input.buildId,
             source: requiredString(snap.source, 'snapshot.source'),
             sha256: requiredString(snap.sha256, 'snapshot.sha256'),
             url: requiredString(snap.url, 'snapshot.url'),
             bytes: Number(snap.bytes),
-          },
+          })),
         });
       }
-      maybeFail('after-build-snapshots');
+    }, TX_OPTIONS);
+    maybeFail('after-build-snapshots');
 
+    await prisma.$transaction(async (tx: any) => {
       for (const row of upsertsByEntity.rikishi) {
         const after = row.after ?? {};
         await tx.rikishi.upsert({
@@ -402,8 +413,10 @@ export async function runLoad(input: {
         });
       }
       await applyTombstones(tx, 'rikishi', removalsByEntity.rikishi);
-      maybeFail('after-rikishi');
+    }, TX_OPTIONS);
+    maybeFail('after-rikishi');
 
+    await prisma.$transaction(async (tx: any) => {
       for (const row of upsertsByEntity.basho) {
         const after = row.after ?? {};
         await tx.basho.upsert({
@@ -420,7 +433,9 @@ export async function runLoad(input: {
         });
       }
       await applyTombstones(tx, 'basho', removalsByEntity.basho);
+    }, TX_OPTIONS);
 
+    await prisma.$transaction(async (tx: any) => {
       for (const row of upsertsByEntity.kimarite) {
         const after = row.after ?? {};
         await tx.kimarite.upsert({
@@ -437,7 +452,9 @@ export async function runLoad(input: {
         });
       }
       await applyTombstones(tx, 'kimarite', removalsByEntity.kimarite);
+    }, TX_OPTIONS);
 
+    await prisma.$transaction(async (tx: any) => {
       for (const row of upsertsByEntity.banzuke) {
         const after = row.after ?? {};
         const entityId = row.entityId;
@@ -465,7 +482,9 @@ export async function runLoad(input: {
         });
       }
       await applyTombstones(tx, 'banzuke', removalsByEntity.banzuke);
+    }, TX_OPTIONS);
 
+    await prisma.$transaction(async (tx: any) => {
       for (const row of upsertsByEntity.bout) {
         const after = row.after ?? {};
         await tx.bout.upsert({
@@ -496,18 +515,23 @@ export async function runLoad(input: {
         });
       }
       await applyTombstones(tx, 'bout', removalsByEntity.bout);
-      maybeFail('after-bout');
+    }, TX_OPTIONS);
+    maybeFail('after-bout');
 
+    await prisma.$transaction(async (tx: any) => {
       await tx.sourceRef.deleteMany({ where: { buildId: input.buildId } });
-      for (const row of sourceRefs) {
-        await tx.sourceRef.create({ data: row });
+      for (const rows of chunk(sourceRefs, BATCH_SIZE)) {
+        await tx.sourceRef.createMany({ data: rows });
       }
+    }, TX_OPTIONS);
+    maybeFail('after-source-refs');
 
+    await prisma.$transaction(async (tx: any) => {
       await tx.build.update({
         where: { buildId: input.buildId },
         data: { status: 'SUCCESS' satisfies BuildStatus },
       });
-    }, { maxWait: 120_000, timeout: 120_000 });
+    }, TX_OPTIONS);
 
     return {
       buildId: input.buildId,
@@ -535,7 +559,7 @@ export async function runLoad(input: {
   }
 }
 
-if (import.meta.url === new URL(process.argv[1], 'file:').href) {
+if (process.argv[1] && path.resolve(fileURLToPath(import.meta.url)) === path.resolve(process.argv[1])) {
   const buildId = parseArg('build-id');
   if (!buildId) throw new Error('Missing --build-id');
   const previousBuildId = parseArg('previous-build-id');

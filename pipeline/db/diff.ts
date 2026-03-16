@@ -1,5 +1,6 @@
 import { mkdir, readFile, rename, writeFile } from 'node:fs/promises';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 import { hashStableJson, stableStringify } from '../hash.ts';
 
@@ -24,7 +25,7 @@ type DiffResult = {
   diffDir: string;
 };
 
-const ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname), '..', '..');
+const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
 const BUILDS_DIR = path.join(ROOT, 'data', 'builds');
 const SERVER_ENV = path.join(ROOT, 'server', '.env');
 const ROOT_ENV = path.join(ROOT, '.env');
@@ -241,7 +242,7 @@ export async function runDiff(input: {
   };
 }
 
-if (import.meta.url === new URL(process.argv[1], 'file:').href) {
+if (process.argv[1] && path.resolve(fileURLToPath(import.meta.url)) === path.resolve(process.argv[1])) {
   const buildId = parseArg('build-id');
   if (!buildId) {
     throw new Error('Missing --build-id argument');
