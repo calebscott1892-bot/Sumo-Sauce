@@ -1,4 +1,5 @@
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 export type IngestMode = 'offline' | 'live';
 
@@ -11,7 +12,7 @@ export type IngestConfig = {
   timeoutMs: number;
 };
 
-const ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname), '..', '..');
+const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
 
 function parsePositiveInt(value: string | undefined, fallback: number): number {
   const n = Number.parseInt(String(value || '').trim(), 10);

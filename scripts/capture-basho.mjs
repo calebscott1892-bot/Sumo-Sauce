@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import { mkdir, readFile, unlink, writeFile } from 'node:fs/promises';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 import { sha256Hex, stableStringify } from '../pipeline/hash.ts';
 import { fetchSnapshot } from '../pipeline/ingest/fetcher.ts';
@@ -8,7 +9,7 @@ import { ingestConfig } from '../pipeline/ingest/ingestConfig.ts';
 import { requiredSnapshotsForBasho } from '../pipeline/ingest/sources.ts';
 import { CaptureSnapshotMetaSchema } from '../pipeline/snapshots/snapshotTypes.ts';
 
-const ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname), '..');
+const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const PHASE8_FIXTURES_DIR = path.join(ROOT, 'pipeline', 'fixtures', 'snapshots', 'phase8');
 
 function parseArgs(argv) {

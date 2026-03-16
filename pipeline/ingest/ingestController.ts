@@ -1,5 +1,6 @@
 import { readFile } from 'node:fs/promises';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 import { generateBashoRange } from './bashoRange.ts';
 import { isCancelledBasho } from './cancelledBasho.ts';
@@ -27,7 +28,7 @@ type IngestRangeResult = {
   results: BashoIngestionResult[];
 };
 
-const ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname), '..', '..');
+const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
 const SERVER_ENV = path.join(ROOT, 'server', '.env');
 const ROOT_ENV = path.join(ROOT, '.env');
 
@@ -67,6 +68,46 @@ export async function ingestRange(input: {
   const mode = input.mode || ingestConfig.mode;
   const force = Boolean(input.force);
   const bashoIds = generateBashoRange(input.from, input.to);
+
+  // Offline canonical generation should not depend on Prisma or DATABASE_URL.
+  if (mode === 'offline') {
+    const results: BashoIngestionResult[] = [];
+
+    for (const bashoId of bashoIds) {
+      if (isCancelledBasho(bashoId)) {
+        results.push({ bashoId, status: 'COMPLETE', skipped: true });
+        continue;
+      }
+
+      try {
+        const summary = await ingestSingleBasho(bashoId, { mode });
+        results.push({
+          bashoId,
+          status: 'COMPLETE',
+          skipped: false,
+          summary,
+        });
+      } catch (err) {
+        results.push({
+          bashoId,
+          status: 'FAILED',
+          skipped: false,
+          errorMessage: toCompactIngestError(err),
+        });
+      }
+    }
+
+    return {
+      from: input.from,
+      to: input.to,
+      total: bashoIds.length,
+      complete: results.filter((r) => r.status === 'COMPLETE').length,
+      failed: results.filter((r) => r.status === 'FAILED').length,
+      skipped: results.filter((r) => r.skipped).length,
+      results,
+    };
+  }
+
   const prisma = await createPrismaClient();
 
   try {

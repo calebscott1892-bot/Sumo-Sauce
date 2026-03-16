@@ -1,5 +1,6 @@
 import { mkdir, readFile, rename, stat, writeFile } from 'node:fs/promises';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 import { sha256Hex, stableStringify } from '../hash.ts';
 import { snapshotStoreError } from './errors.ts';
@@ -23,7 +24,7 @@ type ReadSnapshotInput = {
   sha256: string;
 };
 
-const ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname), '..', '..');
+const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
 const SNAPSHOT_ROOT = path.join(ROOT, 'data', 'snapshots');
 
 function extFromContentType(contentType: string): '.json' | '.html' | '.txt' {
