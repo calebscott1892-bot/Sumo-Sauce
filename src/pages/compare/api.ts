@@ -1,5 +1,5 @@
-import type { ApiErrorResponse, GetRikishiComparisonResponse } from '../../../shared/api/v1';
-import { resolveApiUrl } from '@/utils/apiBase';
+import type { GetRikishiComparisonResponse } from '../../../shared/api/v1';
+import { requestApiJson } from '@/utils/apiRequest';
 
 export class ApiError extends Error {
   status: number;
@@ -13,28 +13,8 @@ export class ApiError extends Error {
   }
 }
 
-function isObject(value: unknown): value is Record<string, unknown> {
-  return typeof value === 'object' && value !== null;
-}
-
-function isApiErrorResponse(value: unknown): value is ApiErrorResponse {
-  if (!isObject(value) || !isObject(value.error)) return false;
-  return typeof value.error.code === 'string' && typeof value.error.message === 'string';
-}
-
 async function fetchApi<T>(path: string): Promise<T> {
-  const res = await fetch(resolveApiUrl(`/v1${path}`));
-  const body: unknown = await res.json().catch(() => null);
-
-  if (isApiErrorResponse(body)) {
-    throw new ApiError(body.error.message, res.status || 500, body.error.code);
-  }
-
-  if (!res.ok) {
-    throw new ApiError(`${res.status} ${res.statusText}`, res.status);
-  }
-
-  return body as T;
+  return requestApiJson<T, ApiError>(`/v1${path}`, (message, status, code) => new ApiError(message, status, code));
 }
 
 export function getRikishiComparison(a: string, b: string): Promise<GetRikishiComparisonResponse> {

@@ -8,7 +8,8 @@ import {
   Layers3,
 } from 'lucide-react';
 import { trackLeaderboardView } from '@/utils/analytics';
-import { resolveApiUrl } from '@/utils/apiBase';
+import { getApiUnavailableMessage, resolveApiUrl } from '@/utils/apiBase';
+import DataUnavailableState from '@/components/ui/DataUnavailableState';
 import PageMeta from '@/components/ui/PageMeta';
 import EmptyState from '@/components/ui/EmptyState';
 import { PremiumBadge, PremiumPageHeader, PremiumSectionShell } from '@/components/ui/premium';
@@ -17,8 +18,6 @@ import LeaderboardTable from '@/components/leaderboard/LeaderboardTable';
 
 const WRESTLER_LIMIT = 2000;
 const BASHO_RECORD_LIMIT = 5000;
-const WRESTLERS_URL = resolveApiUrl(`/entities/Wrestler?limit=${WRESTLER_LIMIT}`);
-const BASHO_RECORDS_URL = resolveApiUrl(`/entities/BashoRecord?limit=${BASHO_RECORD_LIMIT}`);
 
 const TIER_ORDER = {
   Yokozuna: 1,
@@ -279,6 +278,7 @@ export default function Leaderboard() {
   const [bashoRecordsData, setBashoRecordsData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [loadError, setLoadError] = useState('');
+  const [loadErrorCode, setLoadErrorCode] = useState('');
 
   const deferredSearchQuery = useDeferredValue(searchQuery);
   const normalizedDeferredQuery = deferredSearchQuery.trim().toLowerCase();
@@ -311,14 +311,37 @@ export default function Leaderboard() {
     async function loadData() {
       setLoading(true);
       setLoadError('');
+      setLoadErrorCode('');
 
       try {
+        const wrestlersUrl = resolveApiUrl(`/entities/Wrestler?limit=${WRESTLER_LIMIT}`);
+        const recordsUrl = resolveApiUrl(`/entities/BashoRecord?limit=${BASHO_RECORD_LIMIT}`);
+
+        if (!wrestlersUrl || !recordsUrl) {
+          setWrestlersData([]);
+          setBashoRecordsData([]);
+          setLoadErrorCode('API_UNAVAILABLE');
+          setLoadError(getApiUnavailableMessage());
+          return;
+        }
+
         const [wrestlersRes, recordsRes] = await Promise.all([
-          fetch(WRESTLERS_URL),
-          fetch(BASHO_RECORDS_URL),
+          fetch(wrestlersUrl),
+          fetch(recordsUrl),
         ]);
 
         if (!wrestlersRes.ok || !recordsRes.ok) {
+          if (
+            wrestlersRes.status === 404 ||
+            recordsRes.status === 404 ||
+            wrestlersRes.status >= 500 ||
+            recordsRes.status >= 500
+          ) {
+            const unavailableError = new Error(getApiUnavailableMessage());
+            unavailableError.code = 'API_UNAVAILABLE';
+            throw unavailableError;
+          }
+
           throw new Error(`API request failed (${wrestlersRes.status}/${recordsRes.status})`);
         }
 
@@ -340,6 +363,7 @@ export default function Leaderboard() {
         if (!isMounted) return;
         setWrestlersData([]);
         setBashoRecordsData([]);
+        setLoadErrorCode(String(error?.code || 'FETCH_ERROR'));
         setLoadError(String(error?.message || error || 'Unknown API error'));
       } finally {
         if (isMounted) setLoading(false);
@@ -559,7 +583,7 @@ export default function Leaderboard() {
   };
 
   return (
-    <div className="mx-auto max-w-6xl space-y-5 p-4 text-zinc-200 sm:space-y-6 sm:p-6">
+    <div className="mx-auto max-w-6xl space-y-6 p-4 text-zinc-200 sm:space-y-7 sm:p-6">
       <PageMeta
         title="SumoWatch — Leaderboard"
         description="Cross-division leaderboard standings with trust-aware wrestler context, safe image handling, and browsable tournament sources."
@@ -713,7 +737,7 @@ export default function Leaderboard() {
 
         <PremiumSectionShell
           title="Trust and Source Context"
-          subtitle="Legacy standings rows are shown with verified profile context only when the trust layer can match them safely."
+          subtitle="Legacy standings rows only pick up verified profile context when the trust layer can match them safely."
         >
           <div className="space-y-3">
             <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-4">
@@ -775,7 +799,7 @@ export default function Leaderboard() {
 
       <PremiumSectionShell
         title="Leaderboard Standings"
-        subtitle="This surface now shares the same search, trust, and navigation vocabulary as the newer product pages."
+        subtitle="This surface shares the same search, trust, and navigation vocabulary as the newer product pages."
         trailing={
           <div className="flex items-center gap-2 text-sm text-zinc-400">
             {loading ? <span>Loading…</span> : <span>{rows.length} results</span>}
@@ -798,6 +822,17 @@ export default function Leaderboard() {
               />
             ))}
           </div>
+        ) : loadErrorCode === 'API_UNAVAILABLE' ? (
+          <DataUnavailableState
+            title="Imported standings are unavailable"
+            description={loadError}
+            detail="This leaderboard depends on the hosted entity API. The route is still valid, but the imported standings layer did not load for this deployment."
+            actions={[
+              { label: 'Browse rikishi', to: '/rikishi' },
+              { label: 'Search profiles', to: '/search' },
+              { label: 'Open basho browser', to: '/basho' },
+            ]}
+          />
         ) : loadError ? (
           <div className="rounded-xl border border-red-800/40 bg-red-950/25 p-5">
             <p className="font-semibold text-red-200">Connection error</p>

@@ -1,0 +1,25 @@
+{
+  "mode": "desktop",
+  "name": "leaderboard",
+  "url": "https://sumo-sauce.vercel.app/leaderboard",
+  "finalUrl": "https://sumo-sauce.vercel.app/leaderboard",
+  "title": "Sumo Sauce — Leaderboard",
+  "h1": "Banzuke Leaderboard",
+  "ms": 4261,
+  "consoleMessages": [
+    "[error] Failed to load resource: the server responded with a status of 404 ()",
+    "[error] Failed to load resource: the server responded with a status of 404 ()",
+    "[error] Failed to load resource: the server responded with a status of 404 ()",
+    "[error] Failed to load resource: the server responded with a status of 404 ()",
+    "[error] Failed to load resource: the server responded with a status of 404 ()"
+  ],
+  "pageErrors": [],
+  "badResponses": [
+    "404 https://sumo-sauce.vercel.app/api/v1/rikishi",
+    "404 https://sumo-sauce.vercel.app/api/entities/BashoRecord?limit=5000",
+    "404 https://sumo-sauce.vercel.app/api/entities/Wrestler?limit=2000",
+    "404 https://sumo-sauce.vercel.app/api/v1/rikishi",
+    "404 https://sumo-sauce.vercel.app/api/v1/rikishi"
+  ],
+  "textSnippet": "Skip to main content\nHome\n/\nLeaderboard\nShare\nSearch\nBrowse Basho\nLEADERBOARD\nBANZUKE LEADERBOARD\nStandings\n\nCross-division standings from imported entity rows, with verified profile context surfaced only when the trust layer can match it safely.\n\nNo source selected\n0 visible wrestlers\n0 source rows\nStub rows hidden\nSearch and Filters\n\nSearch by shikona, rikishi id, or stable, then refine by division, source, and sort mode.\n\nSEARCH\n\nBrowsing 0 non-stub rows from No source selected.\n\nSTANDINGS SOURCE\nSORT MODE\nOfficial Banzuke Order\nTournament Standings\nOverall Rating\nVISIBILITY\nHide stub wrestlers\nInclude snapshot sources\nAll divisions (0)\nMakuuchi (0)\nJuryo (0)\nMakushita (0)\nSandanme (0)\nJonidan (0)\nJonokuchi (0)\nDefault leaderboard filters active.\nTrust and Source Context\n\nLegacy standings rows are shown with verified profile context only when the trust layer can match them safely.\n\nNo source selected\n\nChoose a standings source to inspect the leaderboard.\n\nVerified context when available\n\nLeaderboard rows now surface verified profile and provenance cues when a canonical rikishi profile can be matched by id or shikona.\n\nVerified image rule preserved\n\nOfficial photos only render when the verified profile layer confirms them. Otherwise the leaderboard falls back to neutral avatars.\n\nLegacy dataset caveat\n\nCurrent imported rows all carry explicit basho labels.\n\nEntity response scope\n\nCurrent entity responses stayed below the API caps (0/2000 wrestler rows, 0/5000 basho rows loaded).\n\nLeaderboard Standings\n\nThis surface now shares the same search, trust, and navigation vocabulary as the newer product pages.\n\n0 results\nUnavailable\n\nConnection error\n\nAPI request failed (404/404)\n\nRetry\nSUMO SAUCE\n\nProfessional sumo browsing and analytics backed by a structured published profile layer.\n\nV1.0.0 · 2000-PRESENT\n\nDATA COVERAGE\nCoverage derived from the published profile dataset\nSource model: JSA profiles, SumoDB, and corroborating references\nOfficial images shown only when im"
+}

@@ -24,7 +24,7 @@ export default function StableSummaryCard({ stable, compact = false }: Props) {
   return (
     <Link
       to={`/stables/${encodeURIComponent(stable.slug)}`}
-      className={`group rounded-2xl border border-white/[0.06] bg-white/[0.02] transition-all hover:border-red-600/40 hover:bg-white/[0.04] ${
+      className={`group rounded-[24px] border border-white/[0.08] bg-[linear-gradient(180deg,rgba(255,255,255,0.04),rgba(255,255,255,0.018))] shadow-[0_18px_48px_rgba(0,0,0,0.16)] transition-all hover:border-red-600/40 hover:bg-white/[0.05] ${
         compact ? 'p-4' : 'p-5'
       }`}
     >
@@ -36,17 +36,17 @@ export default function StableSummaryCard({ stable, compact = false }: Props) {
               <PremiumBadge variant="amber">{stable.sekitoriCount} sekitori</PremiumBadge>
             ) : null}
           </div>
-          <h3 className={`mt-3 font-display font-bold tracking-tight text-white transition-colors group-hover:text-red-300 ${compact ? 'text-lg' : 'text-2xl'}`}>
+          <h3 className={`mt-3 font-display font-bold tracking-tight text-white transition-colors group-hover:text-red-300 ${compact ? 'text-xl' : 'text-[1.75rem]'}`}>
             {stable.name}
           </h3>
-          <p className="mt-1 text-sm leading-relaxed text-zinc-500">
+          <p className="mt-2 max-w-xl text-sm leading-relaxed text-zinc-400">
             {stable.activeCount > 0
               ? `${stable.activeCount} active rikishi across ${Math.max(stable.divisions.length, 1)} roster layer${stable.divisions.length === 1 ? '' : 's'}.`
               : `${stable.totalTrackedCount} tracked rikishi in the current directory.`}
           </p>
         </div>
 
-        <div className="text-right text-xs text-zinc-500">
+        <div className="rounded-2xl border border-white/[0.06] bg-black/20 px-3 py-2 text-right text-xs text-zinc-500">
           <div className="inline-flex items-center gap-1">
             <Users className="h-3.5 w-3.5" />
             {stable.totalTrackedCount} tracked
@@ -75,7 +75,7 @@ export default function StableSummaryCard({ stable, compact = false }: Props) {
         ) : null}
       </div>
 
-      <div className="mt-4 inline-flex items-center gap-1 text-xs font-medium text-red-300 transition-colors group-hover:text-red-200">
+      <div className="mt-5 inline-flex items-center gap-1 text-xs font-medium text-red-300 transition-colors group-hover:text-red-200">
         Open stable
         <ArrowRight className="h-3.5 w-3.5" />
       </div>

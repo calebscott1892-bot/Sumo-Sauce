@@ -29,10 +29,17 @@ import {
   getRankProgression,
 } from '@/pages/rikishi/api';
 import RikishiProfileSkeleton from '@/components/ui/skeletons/RikishiProfileSkeleton';
+import DataUnavailableState from '@/components/ui/DataUnavailableState';
 import ErrorCard from '@/components/ui/ErrorCard';
 import PageMeta from '@/components/ui/PageMeta';
 import { trackRikishiPageView } from '@/utils/analytics';
 import { PremiumPageHeader, PremiumSectionShell, PremiumBadge } from '@/components/ui/premium';
+import { getApiFailureMessage, isApiUnavailableError, isResourceNotFoundError } from '@/utils/apiFailure';
+import {
+  buildPublishedStableSummaries,
+  findPublishedProfileEntryByRikishiId,
+  getPublishedProfileEntries,
+} from '@/utils/publishedProfileBrowsing';
 import { buildRivalryInsight, getRivalryStateVariant } from '@/utils/rivalry';
 import { getStablemates, stableSlug } from '@/utils/rosterBrowsing';
 import type { Division, TimelineItem } from '@/pages/rikishi/types';
@@ -80,10 +87,10 @@ function ProfileSectionGroup({
   children: ReactNode;
 }) {
   return (
-    <section id={id} className="scroll-mt-32 space-y-3 sm:scroll-mt-24 sm:space-y-4">
+    <section id={id} className="scroll-mt-32 space-y-4 sm:scroll-mt-24 sm:space-y-5">
       <div className="px-1">
         <h2 className="font-display text-xl font-bold tracking-tight text-white sm:text-2xl">{title}</h2>
-        <p className="mt-1 max-w-3xl text-sm leading-relaxed text-zinc-500">{subtitle}</p>
+        <p className="mt-1.5 max-w-2xl text-sm leading-relaxed text-zinc-500">{subtitle}</p>
       </div>
       <div className="space-y-6">{children}</div>
     </section>
@@ -95,6 +102,7 @@ export default function RikishiPage() {
   const rikishiId = String(params.id || '').trim();
   const [isFav, setIsFav] = useState(() => isFavoriteRikishi(rikishiId));
   const [activeSectionId, setActiveSectionId] = useState<SectionId>('overview');
+  const publishedEntries = useMemo(() => getPublishedProfileEntries(), []);
 
   const summaryQuery = useQuery({
     queryKey: ['rikishi-summary', rikishiId],
@@ -141,6 +149,10 @@ export default function RikishiPage() {
 
   const recentBasho = useMemo(() => {
     return [...timelineChrono].slice(-6).reverse();
+  }, [timelineChrono]);
+
+  const distinctBashoCount = useMemo(() => {
+    return new Set(timelineChrono.map((item) => item.bashoId)).size;
   }, [timelineChrono]);
 
   // Fetch division standings for recent basho to compute "vs field" metrics
@@ -216,21 +228,54 @@ export default function RikishiPage() {
     return (h2hPreviewQuery.data || []).slice(0, 3);
   }, [h2hPreviewQuery.data]);
 
+  const publishedEntry = useMemo(
+    () => findPublishedProfileEntryByRikishiId(rikishiId, publishedEntries),
+    [publishedEntries, rikishiId],
+  );
+  const publishedStableSummaries = useMemo(
+    () => buildPublishedStableSummaries(publishedEntries),
+    [publishedEntries],
+  );
+  const publishedStable = useMemo(() => {
+    if (!publishedEntry?.heya) return null;
+    return publishedStableSummaries.find((stable) => stable.name === publishedEntry.heya) ?? null;
+  }, [publishedEntry?.heya, publishedStableSummaries]);
+
   const primaryCompareTarget = h2hPreviewTop3[0] ?? null;
-  const stableName = summaryQuery.data?.heya ?? null;
+  const stableName = summaryQuery.data?.heya ?? publishedEntry?.heya ?? null;
   const stableHref = stableName ? `/stables/${encodeURIComponent(stableSlug(stableName))}` : null;
   const stablemates = useMemo(() => {
     if (!stableName || !directoryQuery.data?.length) return [];
     return getStablemates(directoryQuery.data, stableName, rikishiId, 6);
   }, [directoryQuery.data, rikishiId, stableName]);
+  const publishedStablemates = useMemo(() => {
+    if (!publishedStable) return [];
+    return publishedStable.members
+      .filter((entry) => entry.rikishiId !== rikishiId)
+      .slice(0, 6);
+  }, [publishedStable, rikishiId]);
+  const stableContextEntries = stablemates.length > 0 ? stablemates : publishedStablemates;
+  const stableContextSource = stablemates.length > 0
+    ? 'Routeable directory'
+    : publishedStablemates.length > 0
+      ? 'Published stable snapshot'
+      : null;
 
   const isLoading = summaryQuery.isLoading || timelineQuery.isLoading || progressionQuery.isLoading || kimariteQuery.isLoading;
 
   const firstError = summaryQuery.error || timelineQuery.error || progressionQuery.error || kimariteQuery.error;
-  const isNotFound = firstError instanceof ApiError && firstError.status === 404;
-  const shikona = summaryQuery.data?.shikona ?? rikishiId;
-  const pageTitle = `SumoWatch \u2014 ${shikona} (${rikishiId})`;
-  const pageDesc = `${shikona} career profile, rank progression, kimarite stats, and head-to-head matchups on SumoWatch.`;
+  const isNotFound = isResourceNotFoundError(firstError);
+  const isLiveDataUnavailable = isApiUnavailableError(firstError);
+  const isNumericId = /^\d+$/.test(rikishiId);
+  const shikona = summaryQuery.data?.shikona ?? publishedEntry?.shikona ?? rikishiId;
+  const pageTitle = `Sumo Sauce - ${shikona} (${rikishiId})`;
+  const pageDesc = `${shikona} career profile, rank progression, kimarite stats, and head-to-head matchups on Sumo Sauce.`;
+  const suggestedDomainProfile = useMemo(() => {
+    if (!publishedEntry || !directoryQuery.data?.length) return null;
+    const publishedName = String(publishedEntry.shikona || '').trim().toLowerCase();
+    if (!publishedName) return null;
+    return directoryQuery.data.find((entry) => String(entry.shikona || '').trim().toLowerCase() === publishedName) ?? null;
+  }, [publishedEntry, directoryQuery.data]);
 
   useEffect(() => {
     setIsFav(isFavoriteRikishi(rikishiId));
@@ -283,23 +328,202 @@ export default function RikishiPage() {
   }
 
   if (isNotFound) {
-    return <ErrorCard code="NOT_FOUND" message="Rikishi not found." backTo="/rikishi" backLabel="← Browse rikishi" />;
+    return (
+      <div data-testid="rikishi-page-not-found" className="mx-auto max-w-6xl space-y-6 p-4 text-zinc-200 sm:space-y-7 sm:p-6">
+        <PageMeta title={pageTitle} description={pageDesc} />
+
+        <PremiumPageHeader
+          accentLabel="PROFILE FALLBACK"
+          title={publishedEntry?.shikona ?? rikishiId}
+          subtitle={isNumericId
+            ? 'This numeric wrestler id is not a routable domain rikishi id in the currently loaded backend build.'
+            : 'This rikishi id is not present in the currently loaded domain build.'}
+          badge={publishedEntry?.division ?? (isNumericId ? 'Entity/profile id' : 'Domain id not loaded')}
+          breadcrumbs={[
+            { label: 'Home', to: '/' },
+            { label: 'Rikishi', to: '/rikishi' },
+            { label: rikishiId },
+          ]}
+          favorite={{
+            active: isFav,
+            onToggle: () => { toggleFavoriteRikishi(rikishiId, shikona); setIsFav(!isFav); },
+            ariaLabel: isFav ? `Remove ${shikona} from watchlist` : `Save ${shikona} to watchlist`,
+          }}
+        />
+
+        <PremiumSectionShell
+          title="Rikishi domain page unavailable"
+          subtitle="The profile is not treated as missing. This route currently cannot resolve in the loaded domain dataset."
+        >
+          <DataUnavailableState
+            title="Published profile and search paths remain available"
+            description={getApiFailureMessage(firstError, 'This rikishi route could not be resolved in the current domain build.')}
+            detail={isNumericId
+              ? 'Numeric/entity ids are not guaranteed to match domain rikishi ids. Use the profile layer and routeable directory links while domain coverage is incomplete.'
+              : 'This is likely a backend build-coverage gap for this rikishi id. Use profile/search routes until domain data is loaded.'}
+            actions={[
+              ...(isNumericId ? [{ label: 'Open wrestler profile layer', to: `/wrestler/${encodeURIComponent(rikishiId)}` }] : []),
+              ...(suggestedDomainProfile ? [{ label: `Open routeable profile: ${suggestedDomainProfile.shikona}`, to: `/rikishi/${encodeURIComponent(suggestedDomainProfile.rikishiId)}` }] : []),
+              { label: 'Browse rikishi', to: '/rikishi' },
+              { label: 'Search profiles', to: '/search' },
+            ]}
+          />
+        </PremiumSectionShell>
+
+        {publishedEntry ? (
+          <VerifiedProfileCard
+            rikishiId={rikishiId}
+            shikona={publishedEntry.shikona}
+            heya={publishedEntry.heya}
+          />
+        ) : null}
+      </div>
+    );
+  }
+
+  if (isLiveDataUnavailable && publishedEntry) {
+    return (
+      <div data-testid="rikishi-page-partial" className="mx-auto max-w-6xl space-y-6 p-4 text-zinc-200 sm:space-y-7 sm:p-6">
+        <PageMeta title={pageTitle} description={pageDesc} />
+
+        <PremiumPageHeader
+          accentLabel="PUBLISHED PROFILE"
+          title={publishedEntry.shikona}
+          subtitle="The canonical published profile is still available, but live career, basho, and rivalry services are unavailable on this deployment right now."
+          badge={publishedEntry.division ?? rikishiId}
+          breadcrumbs={[
+            { label: 'Home', to: '/' },
+            { label: 'Rikishi', to: '/rikishi' },
+            { label: rikishiId },
+          ]}
+          favorite={{
+            active: isFav,
+            onToggle: () => { toggleFavoriteRikishi(rikishiId, shikona); setIsFav(!isFav); },
+            ariaLabel: isFav ? `Remove ${shikona} from watchlist` : `Save ${shikona} to watchlist`,
+          }}
+          actions={
+            <>
+              <Link
+                to="/search"
+                className="rounded-lg border border-white/[0.06] bg-white/[0.03] px-3 py-1.5 text-xs font-medium text-zinc-300 transition-colors hover:border-red-600 hover:text-white"
+              >
+                Search profiles
+              </Link>
+              {stableHref ? (
+                <Link
+                  to={stableHref}
+                  className="rounded-lg border border-white/[0.06] bg-white/[0.03] px-3 py-1.5 text-xs font-medium text-zinc-300 transition-colors hover:border-red-600 hover:text-white"
+                >
+                  {stableName} stable →
+                </Link>
+              ) : null}
+            </>
+          }
+        >
+          <div className="flex flex-wrap gap-2 text-xs text-zinc-400">
+            <span className="rounded-full border border-white/[0.08] bg-white/[0.04] px-3 py-1">
+              Published profile available
+            </span>
+            {publishedEntry.lastVerifiedBasho ? (
+              <span className="rounded-full border border-white/[0.08] bg-white/[0.04] px-3 py-1">
+                Verified through {publishedEntry.lastVerifiedBasho}
+              </span>
+            ) : null}
+            {!publishedEntry.routeable ? (
+              <span className="rounded-full border border-amber-700/30 bg-amber-950/18 px-3 py-1 text-amber-100">
+                Routeable career page not published yet
+              </span>
+            ) : null}
+          </div>
+        </PremiumPageHeader>
+
+        <PremiumSectionShell
+          title="Live career data is unavailable"
+          subtitle="This page can still show the published trust/profile layer, but timeline, kimarite, rivalry, and tournament-linked records modules need the hosted backend."
+        >
+          <DataUnavailableState
+            title="Published profile still available"
+            description={getApiFailureMessage(firstError, 'Live rikishi services are unavailable right now.')}
+            detail="This is not the same as the wrestler being missing. The published profile exists, but the live rikishi API needed for the deeper career page is unavailable."
+            actions={[
+              { label: 'Browse rikishi', to: '/rikishi' },
+              { label: 'Search profiles', to: '/search' },
+              ...(stableHref ? [{ label: 'Open stable page', to: stableHref }] : []),
+            ]}
+          />
+        </PremiumSectionShell>
+
+        <div className="grid gap-6 xl:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] xl:items-start">
+          <VerifiedProfileCard
+            rikishiId={rikishiId}
+            shikona={publishedEntry.shikona}
+            heya={publishedEntry.heya}
+          />
+
+          <PremiumSectionShell
+            title="What is still available"
+            subtitle="Use the published profile layer for identity, trust, and safe next clicks while the live data service is offline."
+          >
+            <div className="grid gap-3 sm:grid-cols-2">
+              <div className="rounded-xl border border-white/[0.06] bg-black/20 p-4">
+                <div className="text-[11px] font-semibold uppercase tracking-[0.16em] text-zinc-500">Profile trust</div>
+                <div className="mt-2 text-lg font-semibold text-white">{publishedEntry.profile.profileConfidence}</div>
+                <p className="mt-1 text-sm leading-relaxed text-zinc-500">
+                  Verified image and provenance rules still come from the canonical published profile layer.
+                </p>
+              </div>
+              <div className="rounded-xl border border-white/[0.06] bg-black/20 p-4">
+                <div className="text-[11px] font-semibold uppercase tracking-[0.16em] text-zinc-500">Published roster layer</div>
+                <div className="mt-2 text-lg font-semibold text-white">{publishedEntry.division ?? 'Unpublished'}</div>
+                <p className="mt-1 text-sm leading-relaxed text-zinc-500">
+                  Stable and division context remain browseable from the published roster snapshot.
+                </p>
+              </div>
+            </div>
+          </PremiumSectionShell>
+        </div>
+
+        {stableContextEntries.length > 0 ? (
+          <PremiumSectionShell
+            title="Stable context still available"
+            subtitle="Even without the live career API, the published profile layer can still connect this rikishi to stable browsing."
+          >
+            <div className="flex flex-wrap items-center gap-2 text-xs text-zinc-500">
+              {stableContextSource ? <PremiumBadge variant="zinc">{stableContextSource}</PremiumBadge> : null}
+              {stableName ? <span>{stableName} stable</span> : null}
+            </div>
+            <div className="mt-4 grid gap-2">
+              {stableContextEntries.map((entry) => (
+                <RikishiDiscoveryRow
+                  key={('key' in entry ? entry.key : entry.rikishiId) ?? entry.shikona}
+                  entry={entry}
+                  compact
+                />
+              ))}
+            </div>
+          </PremiumSectionShell>
+        ) : null}
+      </div>
+    );
   }
 
   if (firstError || !summaryQuery.data || !kimariteQuery.data) {
     const errCode = firstError instanceof ApiError ? firstError.code : 'UNKNOWN';
-    const errMsg = firstError instanceof ApiError ? firstError.message : 'An unexpected error occurred.';
+    const errMsg = firstError instanceof ApiError
+      ? getApiFailureMessage(firstError, 'An unexpected error occurred.')
+      : 'An unexpected error occurred.';
     return <ErrorCard code={errCode} message={errMsg} />;
   }
 
   return (
-    <div data-testid="rikishi-page" className="mx-auto max-w-7xl space-y-5 p-4 text-zinc-200 sm:space-y-6 sm:p-6">
+    <div data-testid="rikishi-page" className="mx-auto max-w-7xl space-y-6 p-4 text-zinc-200 sm:space-y-7 sm:p-6">
       <PageMeta title={pageTitle} description={pageDesc} />
 
       <PremiumPageHeader
         accentLabel="RIKISHI PROFILE"
         title={shikona}
-        subtitle={summaryQuery.data.heya ?? 'Unknown heya'}
+        subtitle={summaryQuery.data.heya ? `${summaryQuery.data.heya} stable, with published career, rivalry, and records context.` : 'Published career, rivalry, and records context.'}
+        badge={summaryQuery.data.highestRank?.rank ? `Peak ${summaryQuery.data.highestRank.rank}` : rikishiId}
         breadcrumbs={[
           { label: 'Home', to: '/' },
           { label: 'Rikishi', to: '/rikishi' },
@@ -349,7 +573,21 @@ export default function RikishiPage() {
             )}
           </>
         }
-      />
+      >
+        <div className="flex flex-wrap gap-2 text-xs text-zinc-400">
+          <span className="rounded-full border border-white/[0.08] bg-white/[0.04] px-3 py-1">
+            <span className="font-semibold text-white">{distinctBashoCount}</span> basho in the loaded career
+          </span>
+          <span className="rounded-full border border-white/[0.08] bg-white/[0.04] px-3 py-1">
+            <span className="font-semibold text-white">{summaryQuery.data.highestRank.rank}</span> peak rank
+          </span>
+          {stableName ? (
+            <span className="rounded-full border border-white/[0.08] bg-white/[0.04] px-3 py-1">
+              Stable context available
+            </span>
+          ) : null}
+        </div>
+      </PremiumPageHeader>
 
       <RikishiSectionNav sections={SECTION_ITEMS} activeId={activeSectionId} variant="mobile" />
 
@@ -358,7 +596,7 @@ export default function RikishiPage() {
           <ProfileSectionGroup
             id="overview"
             title="Overview"
-            subtitle="Identity, trust, and the fastest path to understanding this rikishi at a glance."
+            subtitle="Identity, trust, and the fastest read on this rikishi."
           >
             <div className="grid gap-6 xl:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] xl:items-start">
               <VerifiedProfileCard
@@ -377,7 +615,7 @@ export default function RikishiPage() {
             <PremiumSectionShell
               title="Stable roster context"
               subtitle={stableName
-                ? `Move from ${shikona}'s individual profile into ${stableName} stable depth, active roster context, and related stablemates.`
+                ? `Move from ${shikona}'s profile into ${stableName} stable depth and routeable stablemates.`
                 : 'Stable browsing becomes available when a heya is published for this rikishi.'}
               trailing={stableHref ? (
                 <Link
@@ -390,27 +628,34 @@ export default function RikishiPage() {
             >
               {!stableName ? (
                 <div className="rounded-xl border border-white/[0.06] bg-black/20 p-4 text-sm leading-relaxed text-zinc-400">
-                  Stable information is not published for this profile yet, so SumoWatch cannot safely connect this rikishi into the stable layer.
+                  Stable information is not published for this profile yet, so Sumo Sauce cannot safely connect this rikishi into the stable layer.
                 </div>
-              ) : directoryQuery.isLoading ? (
+              ) : directoryQuery.isLoading && stableContextEntries.length === 0 ? (
                 <div className="grid gap-2">
                   {Array.from({ length: 3 }).map((_, index) => (
                     <div key={index} className="h-20 animate-pulse rounded-xl border border-white/[0.06] bg-white/[0.02]" />
                   ))}
                 </div>
-              ) : stablemates.length === 0 ? (
+              ) : stableContextEntries.length === 0 ? (
                 <div className="rounded-xl border border-white/[0.06] bg-black/20 p-4 text-sm leading-relaxed text-zinc-400">
-                  No additional routeable stablemates are currently published for {stableName}.
+                  {directoryQuery.error
+                    ? `Live stable roster data is unavailable right now, and no published stablemates are currently visible for ${stableName}.`
+                    : `No additional routeable stablemates are currently published for ${stableName}.`}
                 </div>
               ) : (
                 <div className="space-y-3">
                   <div className="flex flex-wrap items-center gap-2 text-xs text-zinc-500">
-                    <PremiumBadge variant="zinc">{stablemates.length} stablemates shown</PremiumBadge>
-                    <span>Roster depth is derived from the routeable directory and current verified roster context where published.</span>
+                    <PremiumBadge variant="zinc">{stableContextEntries.length} stablemates shown</PremiumBadge>
+                    {stableContextSource ? <PremiumBadge variant="zinc">{stableContextSource}</PremiumBadge> : null}
+                    <span>
+                      {stableContextSource === 'Published stable snapshot'
+                        ? 'This stable context is coming from the published profile layer because the live routeable roster feed is unavailable.'
+                        : 'Roster depth is derived from the routeable directory and current verified roster context where published.'}
+                    </span>
                   </div>
                   <div className="grid gap-2">
-                    {stablemates.map((entry) => (
-                      <RikishiDiscoveryRow key={entry.rikishiId} entry={entry} compact />
+                    {stableContextEntries.map((entry) => (
+                      <RikishiDiscoveryRow key={('key' in entry ? entry.key : entry.rikishiId) ?? entry.shikona} entry={entry} compact />
                     ))}
                   </div>
                 </div>
@@ -421,7 +666,7 @@ export default function RikishiPage() {
           <ProfileSectionGroup
             id="performance"
             title="Performance"
-            subtitle="Recent form, consistency, and how this rikishi stacks up against the field."
+            subtitle="Recent form, consistency, and field context."
           >
             <div className="grid gap-6 xl:grid-cols-2">
               <ConsistencyScore
@@ -476,7 +721,7 @@ export default function RikishiPage() {
           <ProfileSectionGroup
             id="ranking"
             title="Ranking"
-            subtitle="Track promotion, demotion, milestones, and the key basho that shaped this rikishi's climb or slide."
+            subtitle="Promotion, demotion, and the key basho behind the climb or slide."
           >
             <Suspense
               fallback={
@@ -498,7 +743,7 @@ export default function RikishiPage() {
           <ProfileSectionGroup
             id="records"
             title="Records & Milestones"
-            subtitle="Surface championship markers, standout basho, and achievement context the current wrestler feed actually supports."
+            subtitle="Championship markers, standout basho, and achievement context the current feed supports."
           >
             <RecordsMilestonesPanel
               shikona={shikona}
@@ -514,7 +759,7 @@ export default function RikishiPage() {
           <ProfileSectionGroup
             id="career"
             title="Career Record"
-            subtitle="Scan basho by basho, follow the shape of the career, and jump directly into the tournaments behind each step."
+            subtitle="Scan the career basho by basho and jump into the tournaments behind each step."
           >
             <CareerTable rows={timelineChrono} />
             <CareerHeatmap timeline={timelineChrono} />
@@ -524,7 +769,7 @@ export default function RikishiPage() {
           <ProfileSectionGroup
             id="matchups"
             title="Matchups"
-            subtitle="Move quickly from likely rivals to full comparison views and recent head-to-head context."
+            subtitle="Likely rivals, comparison views, and recent head-to-head context."
           >
             <PremiumSectionShell
               title="Head-to-Head Preview"
@@ -591,7 +836,7 @@ export default function RikishiPage() {
           <ProfileSectionGroup
             id="bouts"
             title="Recent Bouts"
-            subtitle="Latest bout timeline and a final check on which data layers are loaded for this profile."
+            subtitle="Latest bout timeline and a final check on loaded data layers."
           >
             <RikishiBoutTimeline timeline={timelineChrono} limit={20} />
 

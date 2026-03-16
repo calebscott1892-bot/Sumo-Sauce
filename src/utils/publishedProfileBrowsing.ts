@@ -98,6 +98,15 @@ export function getPublishedProfileEntries(): readonly PublishedProfileEntry[] {
   return publishedEntries;
 }
 
+export function findPublishedProfileEntryByRikishiId(
+  rikishiId: string | null | undefined,
+  entries: readonly PublishedProfileEntry[] = publishedEntries,
+): PublishedProfileEntry | null {
+  const normalizedId = String(rikishiId || '').trim();
+  if (!normalizedId) return null;
+  return entries.find((entry) => entry.rikishiId === normalizedId) ?? null;
+}
+
 export function searchPublishedProfileEntries(
   entries: readonly PublishedProfileEntry[],
   rawQuery: string,
@@ -197,4 +206,12 @@ export function buildPublishedStableSummaries(
       b.sekitoriCount - a.sekitoriCount ||
       a.name.localeCompare(b.name),
     );
+}
+
+export function findPublishedStableSummaryBySlug(
+  slug: string,
+  entries: readonly PublishedProfileEntry[] = publishedEntries,
+): PublishedStableSummary | null {
+  const normalizedSlug = stableSlug(slug);
+  return buildPublishedStableSummaries(entries).find((stable) => stable.slug === normalizedSlug) ?? null;
 }

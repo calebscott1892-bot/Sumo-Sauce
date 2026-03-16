@@ -1,6 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { useQuery } from '@tanstack/react-query';
 import { ArrowRight, Layers3, ShieldCheck, Users } from 'lucide-react';
 import { formatVerifiedBasho } from '@/data/verifiedProfiles';
 import RikishiDiscoveryRow from '@/components/search/RikishiDiscoveryRow';
@@ -8,30 +7,24 @@ import EmptyState from '@/components/ui/EmptyState';
 import ErrorCard from '@/components/ui/ErrorCard';
 import PageMeta from '@/components/ui/PageMeta';
 import { PremiumBadge, PremiumPageHeader, PremiumSectionShell } from '@/components/ui/premium';
-import { getRikishiDirectory } from '@/pages/rikishi/api';
 import { latestBashoId } from '@/utils/basho';
 import { isFavoriteStable, toggleFavoriteStable } from '@/utils/favorites';
-import { findStableSummaryBySlug, type EnrichedRosterEntry } from '@/utils/rosterBrowsing';
+import { findPublishedStableSummaryBySlug, getPublishedProfileEntries, type PublishedProfileEntry } from '@/utils/publishedProfileBrowsing';
 
 export default function StablePage() {
   const params = useParams();
   const slug = String(params.slug || '').trim();
   const [isSaved, setIsSaved] = useState(() => isFavoriteStable(slug));
 
-  const { data: directory = [], isLoading, error } = useQuery({
-    queryKey: ['rikishi-directory'],
-    queryFn: getRikishiDirectory,
-    staleTime: 10 * 60 * 1000,
-  });
-
+  const publishedEntries = useMemo(() => getPublishedProfileEntries(), []);
   const stable = useMemo(
-    () => (slug ? findStableSummaryBySlug(directory, slug) : null),
-    [directory, slug],
+    () => (slug ? findPublishedStableSummaryBySlug(slug, publishedEntries) : null),
+    [publishedEntries, slug],
   );
 
   const latestTournamentId = latestBashoId();
   const groupedRoster = useMemo(() => {
-    const grouped = new Map<string, EnrichedRosterEntry[]>();
+    const grouped = new Map<string, PublishedProfileEntry[]>();
     if (!stable) return grouped;
     for (const entry of stable.activeMembers) {
       const key = entry.division ?? 'Unpublished';
@@ -43,7 +36,7 @@ export default function StablePage() {
   }, [stable]);
 
   const otherTrackedMembers = useMemo(
-    () => stable?.members.filter((entry) => !entry.activeRoster) ?? [],
+    () => stable?.members.filter((entry) => entry.status !== 'active') ?? [],
     [stable],
   );
 
@@ -51,33 +44,16 @@ export default function StablePage() {
     setIsSaved(isFavoriteStable(slug));
   }, [slug]);
 
-  if (error) {
-    return <ErrorCard code="FETCH_ERROR" message="Failed to load stable data. Please try again." backTo="/stables" backLabel="← Stable directory" />;
-  }
-
   if (!slug) {
     return <ErrorCard code="INVALID_INPUT" message="Invalid stable slug." backTo="/stables" backLabel="← Stable directory" />;
   }
 
-  if (!isLoading && !stable) {
+  if (!stable) {
     return <ErrorCard code="NOT_FOUND" message="Stable not found." backTo="/stables" backLabel="← Stable directory" />;
   }
 
-  if (isLoading || !stable) {
-    return (
-      <div className="mx-auto max-w-6xl space-y-5 p-4 text-zinc-200 sm:space-y-6 sm:p-6">
-        <div className="h-32 animate-pulse rounded-2xl border border-white/[0.06] bg-white/[0.02]" />
-        <div className="grid gap-3 lg:grid-cols-2">
-          {Array.from({ length: 4 }).map((_, index) => (
-            <div key={index} className="h-40 animate-pulse rounded-2xl border border-white/[0.06] bg-white/[0.02]" />
-          ))}
-        </div>
-      </div>
-    );
-  }
-
   return (
-    <div className="mx-auto max-w-6xl space-y-5 p-4 text-zinc-200 sm:space-y-6 sm:p-6">
+    <div className="mx-auto max-w-6xl space-y-6 p-4 text-zinc-200 sm:space-y-7 sm:p-6">
       <PageMeta
         title={`SumoWatch — ${stable.name} stable`}
         description={`Browse ${stable.name} stable on SumoWatch: active roster depth, division mix, and stable-linked rikishi browsing.`}
@@ -126,6 +102,7 @@ export default function StablePage() {
       >
         <div className="flex flex-col gap-2 text-sm text-zinc-400 sm:flex-row sm:flex-wrap sm:gap-4">
           <span><span className="font-semibold text-white">{stable.totalTrackedCount}</span> tracked rikishi</span>
+          <span><span className="font-semibold text-white">{stable.routeableCount}</span> routeable rikishi pages</span>
           <span><span className="font-semibold text-white">{stable.divisions.length}</span> roster layers represented</span>
           {stable.latestVerifiedBasho ? (
             <span>Latest verified context <span className="font-semibold text-white">{formatVerifiedBasho(stable.latestVerifiedBasho)}</span></span>
@@ -135,7 +112,7 @@ export default function StablePage() {
 
       <PremiumSectionShell
         title="Stable overview"
-        subtitle="Stable pages are roster-first: they show the current active group where published, then connect back into rikishi and division browsing."
+        subtitle="A roster-first stable read, with the quickest paths back into rikishi and basho browsing."
       >
         <div className="grid gap-3 md:grid-cols-3">
           <div className="rounded-xl border border-white/[0.06] bg-black/20 p-4">
@@ -144,7 +121,7 @@ export default function StablePage() {
               Active roster
             </div>
             <p className="mt-2 text-2xl font-bold tracking-tight text-white">{stable.activeCount}</p>
-            <p className="mt-1 text-sm text-zinc-500">Routeable active rikishi matched to this stable.</p>
+            <p className="mt-1 text-sm text-zinc-500">Active rikishi published in the trust layer for this stable.</p>
           </div>
           <div className="rounded-xl border border-white/[0.06] bg-black/20 p-4">
             <div className="flex items-center gap-2 text-sm font-semibold text-white">
@@ -176,7 +153,7 @@ export default function StablePage() {
 
       <PremiumSectionShell
         title="Active stable roster"
-        subtitle="Grouped by current published division context so you can browse the stable as a roster, not just a list of names."
+        subtitle="Grouped by current published division so the stable reads like a roster, not a list of names."
       >
         {stable.activeMembers.length === 0 ? (
           <EmptyState
@@ -219,7 +196,7 @@ export default function StablePage() {
 
       <PremiumSectionShell
         title="Browse from this stable"
-        subtitle="Jump from the stable layer back into roster, division, and tournament pages without losing context."
+        subtitle="Jump back into roster, division, and tournament pages without losing context."
       >
         <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
           <Link
@@ -266,7 +243,7 @@ export default function StablePage() {
       {otherTrackedMembers.length > 0 && (
         <PremiumSectionShell
           title="Other tracked members"
-          subtitle="These rikishi are tied to the same stable in the routeable directory but do not currently carry active roster context in the trust layer."
+          subtitle="These rikishi are tied to the same stable in the published profile layer but do not currently carry active roster context in the active snapshot."
         >
           <div className="grid gap-2">
             {otherTrackedMembers.map((entry) => (

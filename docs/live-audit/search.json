@@ -1,0 +1,21 @@
+{
+  "mode": "desktop",
+  "name": "search",
+  "url": "https://sumo-sauce.vercel.app/search",
+  "finalUrl": "https://sumo-sauce.vercel.app/search",
+  "title": "Sumo Sauce - Search",
+  "h1": "Search",
+  "ms": 4609,
+  "consoleMessages": [
+    "[error] Failed to load resource: the server responded with a status of 404 ()",
+    "[error] Failed to load resource: the server responded with a status of 404 ()",
+    "[error] Failed to load resource: the server responded with a status of 404 ()"
+  ],
+  "pageErrors": [],
+  "badResponses": [
+    "404 https://sumo-sauce.vercel.app/api/v1/rikishi",
+    "404 https://sumo-sauce.vercel.app/api/v1/rikishi",
+    "404 https://sumo-sauce.vercel.app/api/v1/rikishi"
+  ],
+  "textSnippet": "Skip to main content\nHome\n/\nSearch\nShare\nSEARCH\nSEARCH\n\nSearch the published profile layer or jump into basho by tournament name or YYYYMM id.\n\nPublished search index\n\nRikishi results come from the published profile dataset, so this search can render the same profile layer the homepage counts describe.\n\n497 published profiles\n353 routeable rikishi pages\n200 basho available\nRikishi\n24\nBasho\n24\nRouteable results open wrestler pages. Profile-only results stay visible here and in the directory until routeable career data is available.\nShowing 24 results\nAbi Masatora\nMakuuchi\nProfile verified\nOfficial photo\n3485\nShikoroyama\nVerified Haru 2026 (March)\n->\nAonishiki Arata\nMakuuchi\nProfile verified\nOfficial photo\n4230\nAjigawa\nVerified Haru 2026 (March)\n->\nAsahakuryu Taro\nMakuuchi\nProfile verified\nOfficial photo\n4175\nTakasago\nVerified Haru 2026 (March)\n->\nAsakoryu Takuma\nMakuuchi\nProfile verified\nOfficial photo\n4101\nTakasago\nVerified Haru 2026 (March)\n->\nAsanoyama Hiroki\nMakuuchi\nProfile verified\nOfficial photo\n3682\nTakasago\nVerified Haru 2026 (March)\n->\nAtamifuji Sakutaro\nMakuuchi\nProfile verified\nOfficial photo\n4055\nIsegahama\nVerified Haru 2026 (March)\n->\nChiyoshoma Fujio\nMakuuchi\nProfile verified\nOfficial photo\n3207\nKokonoe\nVerified Haru 2026 (March)\n->\nChuranoumi Yoshihisa\nMakuuchi\nProfile verified\nOfficial photo\n3711\nKise\nVerified Haru 2026 (March)\n->\nDaieisho Hayato\nMakuuchi\nProfile verified\nOfficial photo\n3376\nOitekaze\nVerified Haru 2026 (March)\n->\nF\nFujinokawa Seigo\nMakuuchi\nProfile verified\n4191\nIsenoumi\nVerified Haru 2026 (March)\n->\nF\nFujiryoga Masaharu\nMakuuchi\nProfile verified\n4336\nFujishima\nVerified Haru 2026 (March)\n->\nF\nFujiseiun Tatsuki\nMakuuchi\nProfile verified\n4093\nFujishima\nVerified Haru 2026 (March)\n->\nGonoyama Toki\nMakuuchi\nProfile verified\nOfficial photo\n4079\nTakekuma\nVerified Haru 2026 (March)\n->\nHakunofuji Tetsuya\nMakuuchi\nProfile verified\nOfficial photo\n4187\nIsegahama\nVerified Haru 2026 (March)\n->\nHiradoumi Yuki\nMakuuchi\nProfile verified\nOfficial phot"
+}

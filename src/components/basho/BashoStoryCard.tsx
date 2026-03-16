@@ -45,9 +45,9 @@ export default function BashoStoryCard({
   const visibleBadges = badges.filter(Boolean) as Badge[];
 
   return (
-    <article className={`rounded-2xl border p-5 ${TONE_CLASSES[tone]}`.trim()}>
+    <article className={`rounded-[24px] border p-5 shadow-[0_14px_36px_rgba(0,0,0,0.14)] ${TONE_CLASSES[tone]}`.trim()}>
       <div className="flex flex-wrap items-start gap-3">
-        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-white/[0.08] bg-black/20">
+        <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl border border-white/[0.08] bg-black/20">
           <Icon className="h-4.5 w-4.5 text-zinc-100" />
         </div>
         <div className="min-w-0 flex-1">
@@ -59,11 +59,12 @@ export default function BashoStoryCard({
               </PremiumBadge>
             ))}
           </div>
-          <h3 className="mt-3 font-display text-xl font-bold tracking-tight text-white">{title}</h3>
+          <h3 className="mt-3 font-display text-[1.35rem] font-bold tracking-tight text-white">{title}</h3>
           <p className="mt-2 text-sm leading-relaxed text-zinc-300">{summary}</p>
-          <p className="mt-3 text-sm leading-relaxed text-zinc-400">
-            <span className="font-semibold text-white">Where to go next:</span> {nextStep}
-          </p>
+          <div className="mt-4 rounded-2xl border border-white/[0.06] bg-black/20 px-3.5 py-3">
+            <div className="text-[10px] font-semibold uppercase tracking-[0.16em] text-zinc-500">Next move</div>
+            <p className="mt-1.5 text-sm leading-relaxed text-zinc-400">{nextStep}</p>
+          </div>
         </div>
       </div>
 
@@ -73,7 +74,7 @@ export default function BashoStoryCard({
             <Link
               key={`${action.to}-${action.label}`}
               to={action.to}
-              className="inline-flex items-center gap-1 rounded-full border border-white/[0.08] bg-white/[0.03] px-3 py-1 text-xs text-zinc-300 transition-colors hover:border-red-600/40 hover:text-white"
+              className="inline-flex items-center gap-1 rounded-full border border-white/[0.08] bg-white/[0.03] px-3 py-1.5 text-xs text-zinc-300 transition-colors hover:border-red-600/40 hover:text-white"
             >
               {action.label}
               <ArrowRight className="h-3.5 w-3.5" />

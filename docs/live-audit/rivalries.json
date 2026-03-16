@@ -1,0 +1,21 @@
+{
+  "mode": "desktop",
+  "name": "rivalries",
+  "url": "https://sumo-sauce.vercel.app/rivalries",
+  "finalUrl": "https://sumo-sauce.vercel.app/rivalries",
+  "title": "Sumo Sauce — Rivalry Explorer",
+  "h1": "Rivalry Explorer",
+  "ms": 4269,
+  "consoleMessages": [
+    "[error] Failed to load resource: the server responded with a status of 404 ()",
+    "[error] Failed to load resource: the server responded with a status of 404 ()",
+    "[error] Failed to load resource: the server responded with a status of 404 ()"
+  ],
+  "pageErrors": [],
+  "badResponses": [
+    "404 https://sumo-sauce.vercel.app/api/v1/rikishi",
+    "404 https://sumo-sauce.vercel.app/api/v1/rikishi",
+    "404 https://sumo-sauce.vercel.app/api/v1/rikishi"
+  ],
+  "textSnippet": "Skip to main content\nHome\n/\nRivalries\nShare\nWatchlist\nHEAD TO HEAD\nRIVALRY EXPLORER\n\nBrowse a sampled discovery surface for published head-to-head series. Start with a featured rivalry or filter by shikona, rikishi id, or heya, then open compare pages for exact pair-level context.\n\nSampled rivalry coverage\n\nRivalry Explorer builds a high-signal sample from the current published rikishi directory, then loads head-to-head series from that sample. It is useful for discovery, but it should not be treated as an exhaustive historical rivalry index.\n\n0 rikishi sampled\n0 pair lookups attempted\nFind a rivalry worth opening\n\nThis explorer is built from current published head-to-head results across a sampled directory set. It is a browse surface, not a claim that every historical rivalry is already indexed.\n\nSort: Most matches\nAll rivalries\nBalanced\nDecisive\nAll sampled rivalries\n\nOpen a row to move into the full comparison view. The summary badge tells you whether the series is balanced, tilted, or firmly controlled by one side.\n\n0 shown\n\nNo rivalries match the current filters.\n\nTry a different shikona, clear the search term, or switch back to all rivalries in the current sample.\n\nBrowse rikishi\nOpen homepage\n\nNo rivalry data is visible yet.\n\nThe explorer could not build any 5+ bout rivalries from the current published head-to-head surface.\n\nBrowse rikishi\nGo home\nSUMO SAUCE\n\nProfessional sumo browsing and analytics backed by a structured published profile layer.\n\nV1.0.0 · 2000-PRESENT\n\nDATA COVERAGE\nCoverage derived from the published profile dataset\nSource model: JSA profiles, SumoDB, and corroborating references\nOfficial images shown only when image verification is complete\nVerification depth varies by profile\nEXPLORE\nHome\nBanzuke rankings\nTournaments\nRikishi directory\nStables\nSearch\n© 2026 Sumo Sauce. Source attribution may include SumoDB, JSA profile data, and other corroborating references where published."
+}

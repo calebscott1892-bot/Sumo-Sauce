@@ -1,0 +1,21 @@
+{
+  "mode": "desktop",
+  "name": "rikishi-directory",
+  "url": "https://sumo-sauce.vercel.app/rikishi",
+  "finalUrl": "https://sumo-sauce.vercel.app/rikishi",
+  "title": "Sumo Sauce - Rikishi Directory",
+  "h1": "Rikishi Directory",
+  "ms": 7134,
+  "consoleMessages": [
+    "[error] Failed to load resource: the server responded with a status of 404 ()",
+    "[error] Failed to load resource: the server responded with a status of 404 ()",
+    "[error] Failed to load resource: the server responded with a status of 404 ()"
+  ],
+  "pageErrors": [],
+  "badResponses": [
+    "404 https://sumo-sauce.vercel.app/api/v1/rikishi",
+    "404 https://sumo-sauce.vercel.app/api/v1/rikishi",
+    "404 https://sumo-sauce.vercel.app/api/v1/rikishi"
+  ],
+  "textSnippet": "Skip to main content\nHome\n/\nRikishi Directory\nShare\nBrowse stables ->\nRIKISHI DIRECTORY\nRIKISHI DIRECTORY\n\nBrowse the full published profile layer, then open routeable career pages where they exist.\n\n497 published profiles\n353 routeable rikishi pages\n479 active roster entries\n56 stables tracked\nRoster entry points\n\nStart from a division, a stable cluster, or the full active roster without losing sight of profile-only entries.\n\nMakuuchi\n42 routeable\n42\n\nActive published profiles in the current Makuuchi layer.\n\nJuryo\n31 routeable\n31\n\nActive published profiles in the current Juryo layer.\n\nMakushita\n108 routeable\n110\n\nActive published profiles in the current Makushita layer.\n\nSandanme\n70 routeable\n169\n\nActive published profiles in the current Sandanme layer.\n\nJonidan\n42 routeable\n85\n\nActive published profiles in the current Jonidan layer.\n\nJonokuchi\n42 routeable\n42\n\nActive published profiles in the current Jonokuchi layer.\n\nPublished profile lens\n\nThis directory now shows the full published profile dataset. Routeable rikishi pages still open when a matching rikishi id exists.\n\nBrowse active roster only\nStable\n7 sekitori\nIsegahama\n\n22 active rikishi across 6 roster layers.\n\n24 tracked\nVerified through Haru 2026 (March)\nMakuuchi 5\nJuryo 2\nMakushita 5\nSandanme 5\nJonidan 4\nJonokuchi 1\n19 verified profiles\nOpen stable\nStable\n4 sekitori\nTakasago\n\n17 active rikishi across 6 roster layers.\n\n18 tracked\nVerified through Haru 2026 (March)\nMakuuchi 3\nJuryo 1\nMakushita 4\nSandanme 4\nJonidan 3\nJonokuchi 2\n12 verified profiles\nOpen stable\nStable\n7 sekitori\nKise\n\n14 active rikishi across 5 roster layers.\n\n14 tracked\nVerified through Haru 2026 (March)\nMakuuchi 3\nJuryo 4\nMakushita 5\nSandanme 1\nJonokuchi 1\n8 verified profiles\nOpen stable\nStable\n2 sekitori\nKokonoe\n\n14 active rikishi across 6 roster layers.\n\n15 tracked\nVerified through Haru 2026 (March)\nMakuuchi 1\nJuryo 1\nMakushita 3\nSandanme 4\nJonidan 2\nJonokuchi 3\n9 verified profiles\nOpen stable\nFilter the directory\n\nSearch by shikona, rik"
+}

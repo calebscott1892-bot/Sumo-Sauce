@@ -1,0 +1,21 @@
+{
+  "mode": "desktop",
+  "name": "stables-directory",
+  "url": "https://sumo-sauce.vercel.app/stables",
+  "finalUrl": "https://sumo-sauce.vercel.app/stables",
+  "title": "Sumo Sauce — Stable Directory",
+  "h1": "Stable Directory",
+  "ms": 4248,
+  "consoleMessages": [
+    "[error] Failed to load resource: the server responded with a status of 404 ()",
+    "[error] Failed to load resource: the server responded with a status of 404 ()",
+    "[error] Failed to load resource: the server responded with a status of 404 ()"
+  ],
+  "pageErrors": [],
+  "badResponses": [
+    "404 https://sumo-sauce.vercel.app/api/v1/rikishi",
+    "404 https://sumo-sauce.vercel.app/api/v1/rikishi",
+    "404 https://sumo-sauce.vercel.app/api/v1/rikishi"
+  ],
+  "textSnippet": "Skip to main content\nHome\n/\nStables\nShare\nActive roster →\nHEYA DIRECTORY\nSTABLE DIRECTORY\n\nBrowse active roster depth by heya, then move into stable-level rosters and roster clusters.\n\n0 stables tracked\n0 active rikishi\n0 sekitori in stable view\nFind a stable\n\nStable pages use the routeable rikishi directory, then enrich roster depth with verified division and trust context when published.\n\nSTABLE SEARCH\nDIVISION\nAll roster layers\nAll tracked stables\n\nBrowse stable pages for active roster depth, division mix, and direct paths back into rikishi and basho browsing.\n\nSUMO SAUCE\n\nProfessional sumo browsing and analytics backed by a structured published profile layer.\n\nV1.0.0 · 2000-PRESENT\n\nDATA COVERAGE\nCoverage derived from the published profile dataset\nSource model: JSA profiles, SumoDB, and corroborating references\nOfficial images shown only when image verification is complete\nVerification depth varies by profile\nEXPLORE\nHome\nBanzuke rankings\nTournaments\nRikishi directory\nStables\nSearch\n© 2026 Sumo Sauce. Source attribution may include SumoDB, JSA profile data, and other corroborating references where published."
+}

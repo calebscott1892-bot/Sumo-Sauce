@@ -273,10 +273,10 @@ export default function RecordsMilestonesPanel({
   }, [bestBasho, bestNonYusho, highestRank.bashoId, highestRank.division, highestRank.rank, latestYusho, makuuchiDebut, sekitoriDebut]);
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-5">
       <PremiumSectionShell
         title="Milestone snapshot"
-        subtitle={`Use this panel to separate routeable career milestones from imported achievement counts, then jump straight into the basho and analytics surfaces that explain them.`}
+        subtitle="Separate routeable career milestones from imported achievement counts, then jump into the basho and analytics surfaces that explain them."
         trailing={(
           <div className="flex gap-2">
             <Link

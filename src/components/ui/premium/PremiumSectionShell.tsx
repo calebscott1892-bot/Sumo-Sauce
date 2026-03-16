@@ -27,18 +27,18 @@ export default function PremiumSectionShell({
   return (
     <section
       data-testid={testId}
-      className={`rounded-2xl border border-white/[0.06] bg-gradient-to-b from-white/[0.03] to-white/[0.015] p-5 sm:p-6 ${className}`.trim()}
+      className={`rounded-[26px] border border-white/[0.08] bg-[linear-gradient(180deg,rgba(255,255,255,0.04),rgba(255,255,255,0.018))] p-5 shadow-[0_18px_56px_rgba(0,0,0,0.18)] sm:p-6 lg:p-7 ${className}`.trim()}
     >
-      <div className="flex items-start justify-between gap-3">
-        <div>
-          <h2 className="font-display text-xl font-bold tracking-tight text-white">{title}</h2>
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+        <div className="min-w-0">
+          <h2 className="font-display text-[1.35rem] font-bold tracking-tight text-white sm:text-[1.5rem]">{title}</h2>
           {subtitle && (
-            <p className="mt-1 max-w-3xl text-sm leading-relaxed text-zinc-500">{subtitle}</p>
+            <p className="mt-1.5 max-w-3xl text-sm leading-relaxed text-zinc-500">{subtitle}</p>
           )}
         </div>
-        {trailing ? <div className="shrink-0">{trailing}</div> : null}
+        {trailing ? <div className="shrink-0 self-start">{trailing}</div> : null}
       </div>
-      <div className="mt-5">{children}</div>
+      <div className="mt-6">{children}</div>
     </section>
   );
 }

@@ -1,8 +1,8 @@
 import { Link, useParams } from 'react-router-dom';
 import { lazy, Suspense, useEffect, useMemo, useState } from 'react';
-import { useQueries } from '@tanstack/react-query';
+import { useQueries, useQuery } from '@tanstack/react-query';
 import { AlertTriangle, LineChart, ArrowRight, Trophy, TrendingUp, Layers3, Swords } from 'lucide-react';
-import { getDivisionStandings } from '@/pages/basho/api';
+import { getAvailableBashoIds, getDivisionStandings } from '@/pages/basho/api';
 import DivisionGrid from '@/components/basho/DivisionGrid';
 import BashoDivisionBrowseNav from '@/components/basho/BashoDivisionBrowseNav';
 import PromotionWatchlist from '@/components/basho/PromotionWatchlist';
@@ -11,10 +11,12 @@ import BashoStorylines from '@/components/basho/BashoStorylines';
 import BashoStoryCard from '@/components/basho/BashoStoryCard';
 import UpsetList from '@/components/basho/UpsetList';
 import BashoNav from '@/components/navigation/BashoNav';
-import { bashoDisplayName, bashoTournamentName, bashoLabel, divisionLabel, parseBashoId, latestBashoId } from '@/utils/basho';
+import { bashoDisplayName, bashoTournamentName, bashoLabel, divisionLabel, parseBashoId } from '@/utils/basho';
+import { getApiFailureMessage, isApiUnavailableError, isResourceNotFoundError } from '@/utils/apiFailure';
 import { buildDivisionStorySnapshot, detectDivisionLeader, sortDivisionStandings } from '@/utils/bashoStorytelling';
 import { isValidBashoId } from '@/utils/security';
 import { trackBashoPageView } from '@/utils/analytics';
+import DataUnavailableState from '@/components/ui/DataUnavailableState';
 import PageMeta from '@/components/ui/PageMeta';
 import ErrorCard from '@/components/ui/ErrorCard';
 import { isFavoriteBasho, toggleFavoriteBasho } from '@/utils/favorites';
@@ -420,7 +422,12 @@ export default function BashoOverviewPage() {
   const juryoData = divisionData.find((division) => division.division === 'juryo') ?? null;
   const upperDivisionData = divisionData.filter((division) => division.division === 'makuuchi' || division.division === 'juryo');
   const lowerDivisionData = divisionData.filter((division) => division.division !== 'makuuchi' && division.division !== 'juryo');
-  const latestId = latestBashoId();
+  const latestAvailableBashoQuery = useQuery({
+    queryKey: ['basho-available-ids', 'overview-page-latest'],
+    queryFn: () => getAvailableBashoIds(1, 28),
+    staleTime: 10 * 60 * 1000,
+  });
+  const latestId = latestAvailableBashoQuery.data?.[0] ?? null;
   const isLatestBasho = latestId === bashoId;
   const snapshotLabel = isLatestBasho ? 'latest published' : 'loaded';
   const makuuchiStory = useMemo(() => buildDivisionStorySnapshot(makuuchiData?.rows ?? []), [makuuchiData?.rows]);
@@ -435,6 +442,14 @@ export default function BashoOverviewPage() {
     () => buildDivisionStorySnapshot(featuredLowerDivision?.rows ?? []),
     [featuredLowerDivision?.rows],
   );
+  const overviewUnavailable = allSettled
+    && failedDivisions.length === DIVISIONS.length
+    && failedDivisions.every((division) => isApiUnavailableError(division.error));
+  const overviewNotFound = allSettled
+    && failedDivisions.length === DIVISIONS.length
+    && failedDivisions.every((division) => isResourceNotFoundError(division.error));
+  const tournamentName = bashoTournamentName(bashoId);
+  const label = bashoLabel(bashoId);
 
   useEffect(() => {
     setIsFav(isFavoriteBasho(bashoId));
@@ -460,12 +475,57 @@ export default function BashoOverviewPage() {
     );
   }
 
-  if (allSettled && failedDivisions.length === DIVISIONS.length) {
-    return <ErrorCard code="FETCH_ERROR" message="Failed to load data. Please try again." backTo="/" backLabel="← Home" />;
+  if (overviewNotFound) {
+    return <ErrorCard code="NOT_FOUND" message="Basho not found." backTo="/basho" backLabel="← Browse basho" />;
   }
 
-  const tournamentName = bashoTournamentName(bashoId);
-  const label = bashoLabel(bashoId);
+  if (overviewUnavailable) {
+    return (
+      <div data-testid="basho-overview-page" className="mx-auto max-w-6xl space-y-6 p-4 text-zinc-200 sm:space-y-7 sm:p-6">
+        <PageMeta
+          title={`Sumo Sauce — ${bashoDisplayName(bashoId)}`}
+          description={`${tournamentName} ${parsed?.year} basho overview on Sumo Sauce.`}
+        />
+
+        <PremiumPageHeader
+          accentLabel="TOURNAMENT OVERVIEW"
+          title={bashoDisplayName(bashoId)}
+          subtitle="The basho route is available, but live cross-division standings are unavailable on this deployment right now."
+          badge={label}
+          breadcrumbs={[
+            { label: 'Home', to: '/' },
+            { label: 'Basho', to: '/basho' },
+            { label: bashoId },
+          ]}
+        >
+          <div className="flex flex-wrap gap-2 text-xs text-zinc-400">
+            <PremiumBadge variant={isLatestBasho ? 'green' : 'zinc'}>{isLatestBasho ? 'Latest basho' : 'Archive basho'}</PremiumBadge>
+            <span>Cross-division standings unavailable</span>
+          </div>
+        </PremiumPageHeader>
+
+        <BashoNav bashoId={bashoId} mode="overview" />
+        <BashoDivisionBrowseNav bashoId={bashoId} active="overview" counts={countsByDivision} />
+
+        <PremiumSectionShell
+          title="Live basho overview is unavailable"
+          subtitle="This is not the same as the tournament being missing. The route exists, but the live standings service did not load."
+        >
+          <DataUnavailableState
+            title="Cross-division standings could not be loaded"
+            description={getApiFailureMessage(failedDivisions[0]?.error, 'The live basho API is unavailable for this deployment right now.')}
+            detail="Direct division pages may recover first once the hosted backend is connected again. Until then, treat this page as a navigation shell rather than a tournament snapshot."
+            actions={[
+              { label: 'Browse basho archive', to: '/basho' },
+              { label: 'Browse rikishi', to: '/rikishi' },
+              { label: 'Open leaderboard', to: '/leaderboard' },
+            ]}
+          />
+        </PremiumSectionShell>
+      </div>
+    );
+  }
+
   const makuuchiTitle = makuuchiStory.leader ? `Makuuchi: ${makuuchiStory.leader.shikona} on top` : 'Makuuchi headline race';
   const makuuchiSummary = makuuchiStory.leader
     ? `${buildRaceSummary(
@@ -497,7 +557,7 @@ export default function BashoOverviewPage() {
     : 'Once one division loads, move from its leader into the wrestler page, records panel, or compare surface instead of treating this basho as a dead-end archive node.';
 
   return (
-    <div data-testid="basho-overview-page" className="mx-auto max-w-6xl space-y-5 p-4 text-zinc-200 sm:space-y-6 sm:p-6">
+    <div data-testid="basho-overview-page" className="mx-auto max-w-6xl space-y-6 p-4 text-zinc-200 sm:space-y-7 sm:p-6">
       <PremiumPageHeader
         accentLabel="BASHO OVERVIEW"
         title={`${tournamentName} ${parsed?.year ?? ''}`}
@@ -579,8 +639,8 @@ export default function BashoOverviewPage() {
         title={isLatestBasho ? 'What matters now' : 'Tournament read'}
         subtitle={
           isLatestBasho
-            ? 'Use the latest published standings snapshot to understand the headline race, the second-division pressure points, and the clearest next clicks.'
-            : 'This archived basho still works best when you start from the strongest division race and branch outward into wrestler, compare, and records surfaces.'
+            ? 'Use the latest published standings snapshot to find the headline race, the second-division pressure points, and the cleanest next clicks.'
+            : 'Start from the strongest division race, then branch into wrestler, compare, and records context.'
         }
       >
         <div className="grid gap-4 md:grid-cols-2">
@@ -681,7 +741,7 @@ export default function BashoOverviewPage() {
         <section id="records-context" className="scroll-mt-24">
           <PremiumSectionShell
             title="Record & milestone paths"
-            subtitle="Move from this basho into the leader's wrestler records view, the relevant division standings, or the broader analytics championship trail."
+            subtitle="Move from this basho into the leader's records view, relevant division standings, or the broader championship trail."
           >
             <div className="grid gap-3 xl:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_minmax(0,0.9fr)]">
               {upperDivisionData.filter((division) => division.champion).map((division) => (
@@ -725,7 +785,7 @@ export default function BashoOverviewPage() {
 
       <PremiumSectionShell
         title="Upper-division races"
-        subtitle="Makuuchi and Juryo are surfaced side by side so the overview does not collapse into a single-division page."
+        subtitle="Makuuchi and Juryo stay side by side so the overview does not collapse into one division."
       >
         {isLoading && upperDivisionData.every((division) => !division.loaded) ? (
           <div className="grid gap-4 xl:grid-cols-2">
@@ -742,7 +802,7 @@ export default function BashoOverviewPage() {
         )}
       </PremiumSectionShell>
 
-      <PremiumSectionShell title="All divisions" subtitle="All six divisions at a glance, with context for what each layer covers.">
+      <PremiumSectionShell title="All divisions" subtitle="All six divisions at a glance, with quick context for each layer.">
         {isLoading && divisionData.every((division) => !division.loaded) ? (
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {Array.from({ length: 6 }).map((_, index) => (
@@ -772,7 +832,7 @@ export default function BashoOverviewPage() {
             <h2 className="font-display text-lg font-bold tracking-tight text-white">Makuuchi deep dive</h2>
           </div>
           <p className="mt-2 max-w-3xl text-sm leading-relaxed text-zinc-400">
-            Storylines, difficulty, upset tracking, and promotion-watch modules currently go deepest on Makuuchi. Juryo and the lower divisions remain fully browseable above through standings-led views.
+            Storylines, difficulty, upset tracking, and promotion-watch modules go deepest on Makuuchi. Juryo and the lower divisions remain browseable above through standings-led views.
           </p>
         </section>
       ) : null}

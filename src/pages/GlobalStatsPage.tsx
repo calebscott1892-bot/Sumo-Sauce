@@ -3,9 +3,10 @@ import { useMemo, useEffect } from 'react';
 import { BarChart3, Compass, Swords, TrendingUp } from 'lucide-react';
 import { trackGlobalStatsView } from '@/utils/analytics';
 import { useQuery } from '@tanstack/react-query';
+import DataUnavailableState from '@/components/ui/DataUnavailableState';
 import PageMeta from '@/components/ui/PageMeta';
-import ErrorCard from '@/components/ui/ErrorCard';
 import { PremiumBadge, PremiumPageHeader, PremiumSectionShell } from '@/components/ui/premium';
+import { getApiFailureMessage, isApiUnavailableError } from '@/utils/apiFailure';
 import AnalyticsNav from '@/components/analytics/AnalyticsNav';
 import AnalyticsTakeawayCard from '@/components/analytics/AnalyticsTakeawayCard';
 import {
@@ -18,7 +19,7 @@ import {
   CartesianGrid,
 } from 'recharts';
 import { getRikishiDirectory } from '@/pages/rikishi/api';
-import { getDivisionStandings } from '@/pages/basho/api';
+import { ApiError, getDivisionStandings } from '@/pages/basho/api';
 import { recentBashoIds, bashoTournamentName, bashoDisplayName, parseBashoId, latestBashoId } from '@/utils/basho';
 import DivisionStrengthChart from '@/components/analytics/DivisionStrengthChart';
 import type { Division, DivisionStandingRow } from '../../shared/api/v1';
@@ -69,9 +70,22 @@ export default function GlobalStatsPage() {
   const standingsQuery = useQuery({
     queryKey: ['global-stats-standings', recentIds.join(',')],
     queryFn: async () => {
+      let unavailableFailures = 0;
       const responses = await Promise.all(
-        recentIds.map((id) => getDivisionStandings(id, 'makuuchi' as Division).catch(() => [] as DivisionStandingRow[])),
+        recentIds.map(async (id) => {
+          try {
+            return await getDivisionStandings(id, 'makuuchi' as Division);
+          } catch (error) {
+            if (isApiUnavailableError(error)) {
+              unavailableFailures += 1;
+            }
+            return [] as DivisionStandingRow[];
+          }
+        }),
       );
+      if (unavailableFailures === recentIds.length) {
+        throw new ApiError('Live analytics standings are unavailable right now.', 503, 'API_UNAVAILABLE');
+      }
       return recentIds.map((id, i) => ({ bashoId: id, rows: responses[i] }));
     },
     staleTime: 5 * 60 * 1000,
@@ -298,7 +312,44 @@ export default function GlobalStatsPage() {
   const latestChampion = stats.championTrail[0] ?? null;
 
   if (directoryQuery.error || standingsQuery.error) {
-    return <ErrorCard code="FETCH_ERROR" message="Failed to load data. Please try again." backTo="/" backLabel="← Home" />;
+    const error = directoryQuery.error || standingsQuery.error;
+
+    return (
+      <div data-testid="global-stats-page" className="stagger-children mx-auto max-w-6xl space-y-6 p-6 text-zinc-200">
+        <PageMeta
+          title="Sumo Sauce — Global Analytics"
+          description="Guided overview of recent Makuuchi analytics on Sumo Sauce."
+        />
+
+        <PremiumPageHeader
+          accentLabel="GLOBAL ANALYTICS"
+          title="Global Analytics"
+          subtitle="This page needs live directory and standings data. The analytics route is available, but the backend sample could not be loaded."
+          breadcrumbs={[
+            { label: 'Home', to: '/' },
+            { label: 'Analytics' },
+          ]}
+        >
+          <AnalyticsNav current="global" />
+        </PremiumPageHeader>
+
+        <PremiumSectionShell
+          title="Live analytics sample is unavailable"
+          subtitle="This surface depends on recent Makuuchi standings and the routeable directory, so it should not pretend empty charts mean empty data."
+        >
+          <DataUnavailableState
+            title="Recent analytics could not load"
+            description={getApiFailureMessage(error, 'The live analytics service is unavailable right now.')}
+            detail="Treat this as a backend outage rather than a real zero-data sample. Once the hosted API is connected again, the charts and takeaways should repopulate."
+            actions={[
+              { label: 'Browse basho', to: '/basho' },
+              { label: 'Browse rikishi', to: '/rikishi' },
+              { label: 'Open leaderboard', to: '/leaderboard' },
+            ]}
+          />
+        </PremiumSectionShell>
+      </div>
+    );
   }
 
   return (

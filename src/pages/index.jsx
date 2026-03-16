@@ -1,6 +1,6 @@
 import { lazy, Suspense, useEffect, useMemo, useState } from 'react';
-import { BrowserRouter as Router, Link, Navigate, Route, Routes, useParams } from 'react-router-dom';
-import { ArrowRight, Calendar, Database, Layers3, Search, ShieldCheck, Swords, Trophy } from 'lucide-react';
+import { BrowserRouter as Router, Link, Route, Routes } from 'react-router-dom';
+import { ArrowRight, Calendar, ChevronDown, Database, Layers3, Search, ShieldCheck, Swords, Trophy } from 'lucide-react';
 import Layout from './Layout.jsx';
 import BashoQuickNav from '@/components/navigation/BashoQuickNav';
 import RikishiSearch from '@/components/navigation/RikishiSearch';
@@ -11,7 +11,6 @@ import PageMeta from '@/components/ui/PageMeta';
 import { getVerifiedDatasetMetrics } from '@/data/verifiedProfiles';
 import { getWatchlistEntries } from '@/utils/favorites';
 import { getAllRecent } from '@/utils/recentlyViewed';
-import { bashoDisplayName, latestBashoId } from '@/utils/basho';
 import { getPublishedProfileEntries } from '@/utils/publishedProfileBrowsing';
 import RikishiProfileSkeleton from '@/components/ui/skeletons/RikishiProfileSkeleton';
 import CompareSkeleton from '@/components/ui/skeletons/CompareSkeleton';
@@ -35,9 +34,114 @@ const SearchPage = lazy(() => import('./SearchPage'));
 const BashoDayResultsPage = lazy(() => import('./BashoDayResultsPage'));
 const Leaderboard = lazy(() => import('./Leaderboard.jsx'));
 const NotFoundPage = lazy(() => import('./NotFoundPage'));
+const WrestlerProfile = lazy(() => import('./WrestlerProfile.jsx'));
 const AdminImport = lazy(() => import('./AdminImport.jsx'));
 const AdminDataConfidencePage = lazy(() => import('./AdminDataConfidencePage'));
 const WatchlistPage = lazy(() => import('./WatchlistPage'));
+
+const HERO_TYPED_PHRASES = [
+  'Welcome to C4 Studios',
+  'How can we help today?',
+  'Need a site that actually feels premium?',
+  'Refreshing something outdated?',
+  'Building from scratch?',
+  'Looking for something cleaner?',
+  'Want work that feels considered?',
+  'Need something fast, polished, and custom?',
+  'Exploring ideas before committing?',
+  'Have a project in mind?',
+  'Want to see what we\'ve built?',
+  'Curious what working together looks like?',
+  'Still here?',
+  'Stop playing with the interactive background ^̮^',
+];
+
+const HERO_GUIDANCE_PROMPTS = [
+  'Browse recent work',
+  'View selected projects',
+  'Compare design directions',
+  'Explore studio services',
+  'Read client feedback',
+  'Start a project brief',
+  'See how we build',
+  'Looking for inspiration?',
+  'Need a redesign?',
+  'Need something launched quickly?',
+];
+
+function HomeHeroTypedTitle() {
+  const [phraseIndex, setPhraseIndex] = useState(0);
+  const [typedText, setTypedText] = useState('');
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  useEffect(() => {
+    const phrase = HERO_TYPED_PHRASES[phraseIndex];
+    const atFullPhrase = typedText.length === phrase.length;
+    const atEmpty = typedText.length === 0;
+
+    let delay = 70;
+    if (!isDeleting && !atFullPhrase) delay = 72;
+    if (isDeleting && !atEmpty) delay = 40;
+    if (!isDeleting && atFullPhrase) delay = 1700;
+    if (isDeleting && atEmpty) delay = 320;
+
+    const timer = window.setTimeout(() => {
+      if (!isDeleting && !atFullPhrase) {
+        setTypedText(phrase.slice(0, typedText.length + 1));
+        return;
+      }
+
+      if (!isDeleting && atFullPhrase) {
+        setIsDeleting(true);
+        return;
+      }
+
+      if (isDeleting && !atEmpty) {
+        setTypedText(phrase.slice(0, typedText.length - 1));
+        return;
+      }
+
+      setIsDeleting(false);
+      setPhraseIndex((prev) => (prev + 1) % HERO_TYPED_PHRASES.length);
+    }, delay);
+
+    return () => window.clearTimeout(timer);
+  }, [isDeleting, phraseIndex, typedText]);
+
+  return (
+    <h1 className="mt-5 max-w-3xl font-display text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl" aria-live="polite">
+      {typedText}
+      <span className="hero-cursor-underscore" aria-hidden="true">
+        _
+      </span>
+    </h1>
+  );
+}
+
+function HomeHeroGuidanceRail() {
+  const [promptIndex, setPromptIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = window.setInterval(() => {
+      setPromptIndex((prev) => (prev + 1) % HERO_GUIDANCE_PROMPTS.length);
+    }, 2800);
+    return () => window.clearInterval(timer);
+  }, []);
+
+  return (
+    <aside className="relative overflow-hidden rounded-2xl border border-black/10 bg-white/70 p-4 shadow-[0_16px_40px_rgba(20,20,20,0.14)] backdrop-blur-xl dark:border-white/[0.08] dark:bg-white/[0.05] dark:shadow-[0_20px_44px_rgba(0,0,0,0.28)]">
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.32),transparent_48%)] dark:bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.08),transparent_48%)]" />
+      <div className="relative">
+        <div className="text-[10px] font-semibold uppercase tracking-[0.2em] text-zinc-500 dark:text-zinc-400">
+          Guidance
+        </div>
+        <div key={promptIndex} className="mt-2 min-h-[1.7rem] text-sm font-medium text-zinc-800 animate-fade-in-up dark:text-zinc-200">
+          {HERO_GUIDANCE_PROMPTS[promptIndex]}
+        </div>
+      </div>
+    </aside>
+  );
+}
 
 function WatchlistPanel() {
   const [watchlist, setWatchlist] = useState(() => getWatchlistEntries());
@@ -50,7 +154,7 @@ function WatchlistPanel() {
 
   if (!watchlist.length) return null;
 
-  const preview = watchlist.slice(0, 6);
+  const preview = watchlist.slice(0, 4);
   const counts = watchlist.reduce((acc, entry) => {
     acc[entry.type] = (acc[entry.type] || 0) + 1;
     return acc;
@@ -60,31 +164,31 @@ function WatchlistPanel() {
     rikishi: {
       label: 'Rikishi',
       tone: 'border-red-800/30 bg-red-950/12 hover:border-red-600/40',
-      detail: 'Profile, records, and matchup context.',
+      detail: 'Profile and records context.',
     },
     basho: {
       label: 'Basho',
       tone: 'border-blue-800/30 bg-blue-950/12 hover:border-blue-500/40',
-      detail: 'Tournament overview and division paths.',
+      detail: 'Overview and division paths.',
     },
     rivalry: {
       label: 'Rivalry',
       tone: 'border-emerald-800/30 bg-emerald-950/12 hover:border-emerald-500/40',
-      detail: 'Pair-level compare pages worth revisiting.',
+      detail: 'Pair-level compare context.',
     },
     stable: {
       label: 'Stable',
       tone: 'border-amber-800/30 bg-amber-950/12 hover:border-amber-500/40',
-      detail: 'Heya depth and roster context.',
+      detail: 'Heya and roster depth.',
     },
   };
 
   return (
-    <section className="rounded-2xl border border-white/[0.06] bg-white/[0.02] p-4 sm:p-5" aria-label="Saved watchlist">
+    <section className="rounded-[24px] border border-white/[0.08] bg-[linear-gradient(180deg,rgba(255,255,255,0.04),rgba(255,255,255,0.018))] p-4 shadow-[0_16px_40px_rgba(0,0,0,0.14)] sm:p-5" aria-label="Saved watchlist">
       <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
         <div>
           <h2 className="font-display text-lg font-semibold text-white">Saved watchlist</h2>
-          <p className="mt-1 max-w-2xl text-xs leading-relaxed text-zinc-500">Local-first saves for pages you want to reopen quickly on this device.</p>
+          <p className="mt-1 max-w-2xl text-xs leading-relaxed text-zinc-500">Local saves for the pages you want back fast.</p>
         </div>
         <Link
           to="/watchlist"
@@ -119,7 +223,7 @@ function WatchlistPanel() {
             >
               <div className="text-[11px] font-semibold uppercase tracking-[0.16em] text-zinc-500">{meta.label}</div>
               <div className="mt-2 font-display text-lg font-bold tracking-tight text-white">{entry.label}</div>
-              <p className="mt-2 text-sm leading-relaxed text-zinc-400">{meta.detail}</p>
+              <p className="mt-2 text-xs leading-relaxed text-zinc-400">{meta.detail}</p>
             </Link>
           );
         })}
@@ -129,10 +233,10 @@ function WatchlistPanel() {
 }
 
 function ContinueExploringRow() {
-  const [recent, setRecent] = useState(() => getAllRecent(8));
+  const [recent, setRecent] = useState(() => getAllRecent(6));
 
   useEffect(() => {
-    const handler = () => setRecent(getAllRecent(8));
+    const handler = () => setRecent(getAllRecent(6));
     window.addEventListener('sumosauce:recently-viewed', handler);
     return () => window.removeEventListener('sumosauce:recently-viewed', handler);
   }, []);
@@ -158,9 +262,8 @@ function ContinueExploringRow() {
   };
 
   return (
-    <section className="rounded-2xl border border-white/[0.06] bg-white/[0.02] p-4 sm:p-5" aria-label="Continue exploring">
+    <section className="rounded-[24px] border border-white/[0.08] bg-[linear-gradient(180deg,rgba(255,255,255,0.04),rgba(255,255,255,0.018))] p-4 shadow-[0_16px_40px_rgba(0,0,0,0.14)] sm:p-5" aria-label="Continue exploring">
       <h2 className="font-display text-lg font-semibold text-white">Continue exploring</h2>
-      <p className="mt-1 text-xs text-zinc-500">Recent rikishi, basho, and rivalry pages.</p>
       <div className="mt-3 flex flex-wrap gap-2">
         {recent.map((item) => (
           <Link
@@ -179,10 +282,10 @@ function ContinueExploringRow() {
 
 function HomeSectionIntro({ eyebrow, title, description }) {
   return (
-    <div className="mb-4 max-w-3xl">
+    <div className="mb-4 max-w-3xl sm:mb-5">
       <div className="text-[10px] font-semibold uppercase tracking-[0.2em] text-red-400">{eyebrow}</div>
-      <h2 className="mt-2 font-display text-2xl font-bold tracking-tight text-white">{title}</h2>
-      {description ? <p className="mt-1 text-sm leading-relaxed text-zinc-500">{description}</p> : null}
+      <h2 className="mt-2 font-display text-[1.65rem] font-bold tracking-tight text-white sm:text-[1.85rem]">{title}</h2>
+      {description ? <p className="mt-1.5 max-w-xl text-sm leading-relaxed text-zinc-500">{description}</p> : null}
     </div>
   );
 }
@@ -198,10 +301,10 @@ function HomePathCard({ icon: Icon, title, description, to, cta, tone = 'zinc' }
   return (
     <Link
       to={to}
-      className={`group rounded-2xl border border-white/[0.06] bg-white/[0.02] p-5 transition-all ${toneStyles[tone] ?? toneStyles.zinc}`}
+      className={`group rounded-[24px] border border-white/[0.08] bg-[linear-gradient(180deg,rgba(255,255,255,0.04),rgba(255,255,255,0.018))] p-5 shadow-[0_16px_40px_rgba(0,0,0,0.14)] transition-all sm:p-6 ${toneStyles[tone] ?? toneStyles.zinc}`}
     >
       <div className="flex items-start justify-between gap-3">
-        <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-white/[0.06] bg-white/[0.03]">
+        <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-white/[0.06] bg-white/[0.03]">
           <Icon className="h-5 w-5 text-zinc-300 transition-colors group-hover:text-white" />
         </div>
         <span className="inline-flex items-center gap-1 text-xs font-medium text-zinc-500 transition-colors group-hover:text-zinc-300">
@@ -210,8 +313,8 @@ function HomePathCard({ icon: Icon, title, description, to, cta, tone = 'zinc' }
         </span>
       </div>
 
-      <h3 className="mt-4 font-display text-xl font-bold tracking-tight text-white">{title}</h3>
-      <p className="mt-2 text-sm leading-relaxed text-zinc-400">{description}</p>
+      <h3 className="mt-5 font-display text-[1.25rem] font-bold tracking-tight text-white sm:text-[1.35rem]">{title}</h3>
+      <p className="mt-2 max-w-sm text-sm leading-relaxed text-zinc-400">{description}</p>
     </Link>
   );
 }
@@ -221,34 +324,34 @@ function TrustMethodologyCard() {
   const latestVerified = metrics.latestVerifiedBashoLabel ?? 'where that context is published';
 
   return (
-    <section className="rounded-2xl border border-white/[0.06] bg-white/[0.02] p-5" aria-label="Verification methodology">
+    <section className="rounded-[24px] border border-white/[0.08] bg-[linear-gradient(180deg,rgba(255,255,255,0.04),rgba(255,255,255,0.018))] p-5 shadow-[0_16px_40px_rgba(0,0,0,0.14)]" aria-label="Verification methodology">
       <div className="flex items-center gap-2">
         <ShieldCheck className="h-5 w-5 text-red-400" />
-        <h2 className="font-display text-lg font-bold tracking-tight text-white">How the profile layer works</h2>
+        <h2 className="font-display text-lg font-bold tracking-tight text-white">Trust notes</h2>
       </div>
-      <p className="mt-2 max-w-3xl text-sm leading-relaxed text-zinc-400">Sumo Sauce publishes trust cues profile by profile, not as a fake sitewide badge.</p>
+      <p className="mt-2 max-w-2xl text-sm leading-relaxed text-zinc-400">Trust cues appear only where they are actually published.</p>
 
-      <div className="mt-4 grid gap-3">
-        <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-4">
+      <div className="mt-4 grid gap-3 lg:grid-cols-3">
+        <div className="rounded-2xl border border-white/[0.06] bg-black/20 p-4">
           <div className="flex items-center gap-2 text-sm font-semibold text-zinc-200">
             <ShieldCheck className="h-4 w-4 text-red-400" />
-            Profile-by-profile
+            Profile cues
           </div>
-          <p className="mt-2 text-sm leading-relaxed text-zinc-400">Confidence, provenance, image policy, and source refs appear only where they are actually published.</p>
+          <p className="mt-2 text-sm leading-relaxed text-zinc-400">Confidence, provenance, image policy, and source refs stay attached to each published profile.</p>
         </div>
-        <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-4">
+        <div className="rounded-2xl border border-white/[0.06] bg-black/20 p-4">
           <div className="flex items-center gap-2 text-sm font-semibold text-zinc-200">
             <Database className="h-4 w-4 text-red-400" />
-            Source model
+            Published sources
           </div>
-          <p className="mt-2 text-sm leading-relaxed text-zinc-400">JSA profiles, SumoDB, and corroborating references may all contribute to a published trust cue.</p>
+          <p className="mt-2 text-sm leading-relaxed text-zinc-400">Published trust cues only use sources already named in the product.</p>
         </div>
-        <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-4">
+        <div className="rounded-2xl border border-white/[0.06] bg-black/20 p-4">
           <div className="flex items-center gap-2 text-sm font-semibold text-zinc-200">
             <ShieldCheck className="h-4 w-4 text-red-400" />
-            Freshness and images
+            Images and freshness
           </div>
-          <p className="mt-2 text-sm leading-relaxed text-zinc-400">Latest verified basho currently reaches {latestVerified}, and official images only appear after image verification.</p>
+          <p className="mt-2 text-sm leading-relaxed text-zinc-400">Latest verified basho reaches {latestVerified}, and official images only appear after verification.</p>
         </div>
       </div>
     </section>
@@ -258,22 +361,20 @@ function TrustMethodologyCard() {
 function HomePage() {
   const metrics = useMemo(() => getVerifiedDatasetMetrics(), []);
   const publishedProfiles = useMemo(() => getPublishedProfileEntries(), []);
-  const latestTournamentId = latestBashoId();
-  const latestTournamentPath = latestTournamentId ? `/basho/${encodeURIComponent(latestTournamentId)}` : '/basho';
-  const latestTournamentLabel = latestTournamentId ? bashoDisplayName(latestTournamentId) : 'Latest basho';
+  const latestTournamentPath = '/basho';
+  const latestTournamentLabel = 'Basho browser';
   const routeableProfileCount = useMemo(
     () => publishedProfiles.filter((entry) => entry.routeable).length,
     [publishedProfiles],
   );
 
   const heroStats = [
-    { value: metrics.totalProfiles.toLocaleString(), label: 'Published profiles', sub: 'visible in the profile layer' },
-    { value: routeableProfileCount.toLocaleString(), label: 'Routeable pages', sub: 'open full wrestler pages' },
-    { value: metrics.profilesWithSourceRefsCount.toLocaleString(), label: 'Source-linked', sub: 'publish at least one source ref' },
+    { value: metrics.totalProfiles.toLocaleString(), label: 'Published', sub: 'profile layer' },
+    { value: routeableProfileCount.toLocaleString(), label: 'Full pages', sub: 'routeable detail' },
     {
       value: metrics.latestVerifiedBashoLabel ?? 'Varies',
-      label: 'Latest verified basho',
-      sub: 'shown where published',
+      label: 'Latest verified',
+      sub: 'when published',
     },
   ];
 
@@ -281,7 +382,7 @@ function HomePage() {
     {
       icon: Search,
       title: 'Search a wrestler',
-      description: 'Search the published profile layer by shikona, id, heya, or division.',
+      description: 'Find a rikishi by shikona, id, heya, or division.',
       to: '/search',
       cta: 'Search rikishi',
       tone: 'red',
@@ -289,15 +390,15 @@ function HomePage() {
     {
       icon: Calendar,
       title: `Open ${latestTournamentLabel}`,
-      description: 'See the latest tournament first, then move into any division from there.',
+      description: 'Open tournament coverage that is currently published in this deployment.',
       to: latestTournamentPath,
-      cta: 'Latest basho',
+      cta: 'Browse basho',
       tone: 'blue',
     },
     {
       icon: ShieldCheck,
       title: 'Browse profile coverage',
-      description: 'Open the full published profile directory, including profile-only entries without a routeable career page yet.',
+      description: 'See published profiles, including profile-only entries.',
       to: '/rikishi',
       cta: 'Profile directory',
       tone: 'emerald',
@@ -305,7 +406,7 @@ function HomePage() {
     {
       icon: Trophy,
       title: 'Check the rankings',
-      description: 'Use the leaderboard when you want a standings-led view across divisions.',
+      description: 'Open division-led standings and slices.',
       to: '/leaderboard',
       cta: 'Leaderboard',
       tone: 'zinc',
@@ -316,7 +417,7 @@ function HomePage() {
     {
       icon: Trophy,
       title: 'Records and milestones',
-      description: 'Open championship trails and records-linked wrestler pages without digging through metadata first.',
+      description: 'Move from titles into wrestler record pages fast.',
       to: '/analytics#championship-trail',
       cta: 'Championship trail',
       tone: 'emerald',
@@ -324,7 +425,7 @@ function HomePage() {
     {
       icon: Swords,
       title: 'Rivalries with context',
-      description: 'Use the rivalry explorer when one wrestler page is not enough.',
+      description: 'Open head-to-head context when one profile is not enough.',
       to: '/rivalries',
       cta: 'Rivalry explorer',
       tone: 'blue',
@@ -332,7 +433,7 @@ function HomePage() {
     {
       icon: Layers3,
       title: 'Stable rooms and heya depth',
-      description: 'Browse stables when you want roster context around the rikishi you are tracking.',
+      description: 'Add heya and roster context around any rikishi.',
       to: '/stables',
       cta: 'Browse stables',
       tone: 'zinc',
@@ -340,12 +441,18 @@ function HomePage() {
     {
       icon: Database,
       title: 'Analytics with a starting point',
-      description: 'Open the analytics front door for sample context, standout rikishi, and broader patterns.',
+      description: 'Use analytics when you want the broader picture quickly.',
       to: '/analytics#sample-overview',
       cta: 'Analytics overview',
       tone: 'red',
     },
   ];
+
+  const handleSeeSelectedWork = () => {
+    const target = document.getElementById('selected-work');
+    if (!target) return;
+    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
 
   return (
     <div className="min-h-screen bg-[#0a0a0a]">
@@ -358,91 +465,105 @@ function HomePage() {
         <div className="absolute inset-0 bg-gradient-to-b from-red-950/20 via-transparent to-transparent" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-red-950/10 via-transparent to-transparent" />
 
-        <div className="relative mx-auto max-w-6xl px-4 pb-10 pt-8 sm:px-6 sm:pt-12">
-          <div className="max-w-4xl">
-            <div className="flex flex-wrap items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-red-500 sm:text-xs">
-              <span>Sumo Sauce</span>
-              <span className="text-zinc-600">Published profile layer + basho browsing</span>
-            </div>
-
-            <div className="mt-4">
-              <img
-                src="/logo.png"
-                alt="Sumo Sauce mark"
-                className="h-auto w-[min(18rem,72vw)] max-w-full object-contain object-left drop-shadow-2xl sm:w-[20rem] lg:w-[22rem]"
-              />
-            </div>
-
-            <h1 className="mt-5 font-display text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
-              Find wrestlers, tournaments, and records fast.
-            </h1>
-            <p className="mt-3 max-w-3xl text-base leading-relaxed text-zinc-300">
-              Search the published profile directory, open the latest basho, or jump straight into rankings, rivalries, and milestone context.
-            </p>
-          </div>
-
-          <div className="mt-8 grid gap-5 xl:grid-cols-[minmax(0,1fr)_auto] xl:items-end">
-            <div className="max-w-xl">
-              <div className="mb-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-zinc-500">Search published profiles</div>
-              <RikishiSearch />
-              <p className="mt-2 text-xs leading-relaxed text-zinc-500">
-                {metrics.totalProfiles.toLocaleString()} published profiles are searchable here. {routeableProfileCount.toLocaleString()} currently open full wrestler pages.
-              </p>
-            </div>
-
-            <div className="flex flex-wrap gap-2 xl:justify-end">
-              <Link
-                to={latestTournamentPath}
-                className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-red-600 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-red-500"
-              >
-                <Calendar className="h-4 w-4" />
-                Open {latestTournamentLabel}
-              </Link>
-              <Link
-                to="/leaderboard"
-                className="inline-flex min-h-11 items-center gap-2 rounded-xl border border-white/[0.08] bg-white/[0.03] px-4 py-2 text-sm font-medium text-zinc-300 transition-all hover:border-red-600/40 hover:bg-white/[0.06] hover:text-white"
-              >
-                <Trophy className="h-4 w-4" />
-                Rankings
-              </Link>
-              <Link
-                to="/rikishi"
-                className="inline-flex min-h-11 items-center gap-2 rounded-xl border border-white/[0.08] bg-white/[0.03] px-4 py-2 text-sm font-medium text-zinc-300 transition-all hover:border-red-600/40 hover:bg-white/[0.06] hover:text-white"
-              >
-                <ShieldCheck className="h-4 w-4" />
-                Profiles
-              </Link>
-            </div>
-          </div>
-
-          <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4">
-            {heroStats.map(({ value, label, sub }) => (
-              <div key={label} className="rounded-xl border border-white/[0.06] bg-white/[0.02] px-3.5 py-3 text-left sm:px-4 sm:text-center">
-                <div className="font-display text-xl font-bold text-white sm:text-2xl">{value}</div>
-                <div className="mt-0.5 text-[10px] font-semibold uppercase tracking-widest text-zinc-500">{label}</div>
-                <div className="mt-1 text-[10px] leading-relaxed text-zinc-600">{sub}</div>
+        <div className="relative mx-auto max-w-6xl px-4 pb-12 pt-10 sm:px-6 sm:pb-14 sm:pt-14">
+          <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(320px,0.9fr)] lg:items-end lg:gap-10">
+            <div className="max-w-3xl">
+              <div className="flex flex-wrap items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-red-500 sm:text-xs">
+                <span>Sumo Sauce</span>
+                <span className="rounded-full border border-white/[0.08] bg-white/[0.03] px-2.5 py-1 text-zinc-400">Profiles, basho, rivalries</span>
               </div>
-            ))}
-          </div>
 
-          <p className="mt-4 max-w-3xl text-xs leading-relaxed text-zinc-500 sm:text-sm">
-            Homepage counts come from the same published profile dataset the search and directory surfaces now render directly.
-          </p>
+              <div className="mt-4">
+                <img
+                  src="/logo.png"
+                  alt="Sumo Sauce mark"
+                  className="h-auto w-[min(21rem,82vw)] max-w-full object-contain object-left drop-shadow-2xl sm:w-[23rem] lg:w-[26rem]"
+                />
+              </div>
+
+              <HomeHeroTypedTitle />
+              <p className="mt-3 max-w-xl text-base leading-relaxed text-zinc-300">
+                Search profiles, open published basho coverage, or follow records and rivalries.
+              </p>
+
+              <div className="mt-4 flex flex-wrap gap-2 text-xs text-zinc-500">
+                <span className="rounded-full border border-white/[0.08] bg-white/[0.03] px-3 py-1 text-zinc-300">
+                  {metrics.totalProfiles.toLocaleString()} published profiles
+                </span>
+                <span className="rounded-full border border-white/[0.08] bg-white/[0.03] px-3 py-1">
+                  {routeableProfileCount.toLocaleString()} full wrestler pages
+                </span>
+                <span className="rounded-full border border-white/[0.08] bg-white/[0.03] px-3 py-1">
+                  Trust cues only where published
+                </span>
+              </div>
+            </div>
+
+            <div className="rounded-[28px] border border-black/10 bg-white/70 p-4 shadow-[0_22px_60px_rgba(20,20,20,0.18)] backdrop-blur-2xl dark:border-white/[0.08] dark:bg-black/20 dark:shadow-[0_22px_60px_rgba(0,0,0,0.22)] sm:p-5">
+              <HomeHeroGuidanceRail />
+              <div className="text-[11px] font-semibold uppercase tracking-[0.18em] text-zinc-500">Search the published profile layer</div>
+              <div className="mt-3">
+                <RikishiSearch />
+              </div>
+
+              <div className="mt-4 flex flex-wrap gap-2">
+                <Link
+                  to={latestTournamentPath}
+                  className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-red-600 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-red-500"
+                >
+                  <Calendar className="h-4 w-4" />
+                  Open {latestTournamentLabel}
+                </Link>
+                <Link
+                  to="/rikishi"
+                  className="inline-flex min-h-11 items-center gap-2 rounded-xl border border-white/[0.08] bg-white/[0.03] px-4 py-2 text-sm font-medium text-zinc-300 transition-all hover:border-red-600/40 hover:bg-white/[0.06] hover:text-white"
+                >
+                  <ShieldCheck className="h-4 w-4" />
+                  Profiles
+                </Link>
+                <Link
+                  to="/leaderboard"
+                  className="inline-flex min-h-11 items-center gap-2 rounded-xl border border-white/[0.08] bg-white/[0.03] px-4 py-2 text-sm font-medium text-zinc-300 transition-all hover:border-red-600/40 hover:bg-white/[0.06] hover:text-white"
+                >
+                  <Trophy className="h-4 w-4" />
+                  Rankings
+                </Link>
+              </div>
+
+              <div className="mt-4 grid gap-3 sm:grid-cols-3">
+                {heroStats.map(({ value, label, sub }) => (
+                  <div key={label} className="rounded-2xl border border-white/[0.06] bg-white/[0.03] px-3.5 py-3 text-left">
+                    <div className="font-display text-lg font-bold text-white sm:text-xl">{value}</div>
+                    <div className="mt-0.5 text-[10px] font-semibold uppercase tracking-widest text-zinc-500">{label}</div>
+                    <div className="mt-1 text-[10px] leading-relaxed text-zinc-600">{sub}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="pointer-events-none absolute inset-x-0 bottom-4 z-10 flex justify-center px-4">
+          <button
+            type="button"
+            onClick={handleSeeSelectedWork}
+            className="pointer-events-auto inline-flex min-h-11 items-center gap-2 rounded-full border border-white/[0.14] bg-white/[0.06] px-4 py-2 text-sm font-medium text-zinc-200 shadow-[0_10px_28px_rgba(0,0,0,0.24)] backdrop-blur-md transition-all hover:border-red-500/40 hover:text-white"
+          >
+            <span>See selected work</span>
+            <span className="inline-flex h-6 w-6 items-center justify-center rounded-full border border-white/[0.16] bg-white/[0.03]">
+              <ChevronDown className="hero-next-cue-arrow h-3.5 w-3.5 text-zinc-300" />
+            </span>
+          </button>
         </div>
 
         <div className="h-1 w-full bg-gradient-to-r from-red-600 via-red-500 to-red-600" />
       </section>
 
-      <div className="mx-auto max-w-6xl px-4 py-6 sm:px-6 sm:py-8">
-        <section aria-label="Featured editorial entry points">
-          <FeaturedEditorialRail />
-        </section>
-
-        <section aria-label="First-run guidance">
+      <div className="mx-auto max-w-6xl space-y-10 px-4 py-6 sm:space-y-12 sm:px-6 sm:py-8">
+        <section id="selected-work" aria-label="First-run guidance">
           <HomeSectionIntro
             eyebrow="START HERE"
-            title="Choose the fastest first click"
-            description="The quickest routes into search, the latest basho, the profile directory, and the rankings."
+            title="Start in one click"
           />
           <div className="grid grid-cols-1 gap-3 md:grid-cols-2 xl:grid-cols-4">
             {startHereCards.map((card) => (
@@ -459,48 +580,22 @@ function HomePage() {
           </div>
         </section>
 
-        <section className="mt-10" aria-label="Latest basho guidance">
+        <section aria-label="Featured editorial entry points">
+          <FeaturedEditorialRail />
+        </section>
+
+        <section aria-label="Latest basho guidance">
           <HomeSectionIntro
             eyebrow="CURRENT TOURNAMENT"
-            title="Open the latest basho first"
-            description="Start with the overview, then drop into any division."
+            title="Latest basho"
           />
           <BashoQuickNav />
         </section>
 
-        <section id="trust" className="mt-10" aria-label="Trust and coverage">
-          <HomeSectionIntro
-            eyebrow="TRUST & COVERAGE"
-            title="Understand what is published"
-            description="Short, honest context for the profile layer and its coverage."
-          />
-          <div className="grid gap-4 xl:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)]">
-            <DatasetInfoPanel />
-            <TrustMethodologyCard />
-          </div>
-        </section>
-
-        <section className="mt-10" aria-label="Continue or discover">
-          <HomeSectionIntro
-            eyebrow="KEEP GOING"
-            title="Resume or discover"
-            description="Recent pages, saved items, and one wildcard entry point."
-          />
-          <section className="space-y-4">
-            <ContinueExploringRow />
-            <WatchlistPanel />
-          </section>
-
-          <section className="mt-4">
-            <DiscoveryCard />
-          </section>
-        </section>
-
-        <section className="mt-10">
+        <section aria-label="Curated browse paths">
           <HomeSectionIntro
             eyebrow="CURATED PATHS"
-            title="Browse the product with a point of view"
-            description="Records, analytics, rivalries, and stable context."
+            title="Browse with intent"
           />
           <div className="grid grid-cols-1 gap-3 md:grid-cols-2 xl:grid-cols-4">
             {curatedBrowseCards.map((card) => (
@@ -516,15 +611,36 @@ function HomePage() {
             ))}
           </div>
         </section>
+
+        <section aria-label="Continue or discover">
+          <HomeSectionIntro
+            eyebrow="KEEP GOING"
+            title="Resume or wander"
+          />
+          <div className="grid gap-4 xl:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)]">
+            <div className="space-y-4">
+              <ContinueExploringRow />
+              <WatchlistPanel />
+            </div>
+            <DiscoveryCard />
+          </div>
+        </section>
+
+        <section id="trust" aria-label="Trust and coverage">
+          <HomeSectionIntro
+            eyebrow="TRUST & COVERAGE"
+            title="Trust notes"
+            description="Short, honest context for coverage and verification."
+          />
+          <div className="grid gap-4 xl:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)]">
+            <DatasetInfoPanel />
+            <TrustMethodologyCard />
+          </div>
+        </section>
+
       </div>
     </div>
   );
-}
-
-function WrestlerRedirect() {
-  const { rid } = useParams();
-  const target = `/rikishi/${encodeURIComponent(String(rid || '').trim())}`;
-  return <Navigate to={target} replace />;
 }
 
 export default function Pages() {
@@ -551,7 +667,7 @@ export default function Pages() {
           <Route path="/search" element={<Suspense fallback={<BashoStandingsSkeleton />}><SearchPage /></Suspense>} />
           <Route path="/timeline" element={<Suspense fallback={<BashoStandingsSkeleton />}><BashoTimelinePage /></Suspense>} />
           <Route path="/watchlist" element={<Suspense fallback={<BashoStandingsSkeleton />}><WatchlistPage /></Suspense>} />
-          <Route path="/wrestler/:rid" element={<WrestlerRedirect />} />
+          <Route path="/wrestler/:rid" element={<Suspense fallback={<RikishiProfileSkeleton />}><WrestlerProfile /></Suspense>} />
           <Route path="/admin/import" element={<Suspense fallback={<BashoStandingsSkeleton />}><AdminImport /></Suspense>} />
           <Route path="/admin/data-confidence" element={<Suspense fallback={<BashoStandingsSkeleton />}><AdminDataConfidencePage /></Suspense>} />
           <Route path="*" element={<Suspense fallback={<BashoStandingsSkeleton />}><NotFoundPage /></Suspense>} />

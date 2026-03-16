@@ -1,0 +1,33 @@
+{
+  "mode": "desktop",
+  "name": "basho-202603-makuuchi",
+  "url": "https://sumo-sauce.vercel.app/basho/202603/makuuchi",
+  "finalUrl": "https://sumo-sauce.vercel.app/basho/202603/makuuchi",
+  "title": "Sumo Sauce — Haru 2026 (March) Makuuchi",
+  "h1": "Haru 2026 (March) — Makuuchi",
+  "ms": 4361,
+  "consoleMessages": [
+    "[error] Failed to load resource: the server responded with a status of 404 ()",
+    "[error] Failed to load resource: the server responded with a status of 404 ()",
+    "[error] Failed to load resource: the server responded with a status of 404 ()",
+    "[error] Failed to load resource: the server responded with a status of 404 ()",
+    "[error] Failed to load resource: the server responded with a status of 404 ()",
+    "[error] Failed to load resource: the server responded with a status of 404 ()",
+    "[error] Failed to load resource: the server responded with a status of 404 ()",
+    "[error] Failed to load resource: the server responded with a status of 404 ()",
+    "[error] Failed to load resource: the server responded with a status of 404 ()"
+  ],
+  "pageErrors": [],
+  "badResponses": [
+    "404 https://sumo-sauce.vercel.app/api/v1/rikishi",
+    "404 https://sumo-sauce.vercel.app/api/v1/basho/202601/makuuchi",
+    "404 https://sumo-sauce.vercel.app/api/v1/basho/202603/makuuchi",
+    "404 https://sumo-sauce.vercel.app/api/v1/rikishi",
+    "404 https://sumo-sauce.vercel.app/api/v1/basho/202603/makuuchi",
+    "404 https://sumo-sauce.vercel.app/api/v1/basho/202601/makuuchi",
+    "404 https://sumo-sauce.vercel.app/api/v1/rikishi",
+    "404 https://sumo-sauce.vercel.app/api/v1/basho/202601/makuuchi",
+    "404 https://sumo-sauce.vercel.app/api/v1/basho/202603/makuuchi"
+  ],
+  "textSnippet": "Skip to main content\nHome\n/\nBasho\n/\n202603\n/\nMakuuchi\nShare\nTOURNAMENT STANDINGS\nHARU 2026 (MARCH) — MAKUUCHI\n\nLatest published division standings with current-race framing, contender paths, and fast movement back into the full basho.\n\nLatest basho\nThis division is part of the current tournament front door.\nLoading standings…\nFilters stay in the URL for shareable division views.\nBasho (YYYYMM)\nDivision\nmakuuchi\njuryo\nmakushita\nsandanme\njonidan\njonokuchi\nGo\nBasho overview\nBrowse archive\n\nTip: use the left and right arrow keys to move between basho while keeping this division selected.\n\nJanuary 2026\nMarch 2026\nMay 2026\nBrowse this basho\n\nMove between the overview and all six divisions without re-entering the tournament ID.\n\nOverview\nArchive\nLatest basho\nMakuuchi\n\nTop-division headline race and detailed analytics.\n\nJuryo\n\nSecond-division promotion pressure and title race.\n\nMakushita\n\nPromotion ladder depth and rising prospects.\n\nSandanme\n\nDevelopmental standings and mid-ladder movement.\n\nJonidan\n\nBroad field results and early-career progress.\n\nJonokuchi\n\nEntry division starting point for new careers.\n\nWhat matters now in Makuuchi\n\nUse this latest published standings snapshot to find the leader, the chase, and the strongest next clicks into compare, wrestler, and records views.\n\nLeader\nNo data\nStandings unavailable\nChase pack\nOpen\nWaiting on the next strongest record\nWinning records\n0\n0 at double digits\nLeader read\nMakuuchi leader\n\nMakuuchi standings have not loaded yet.\n\nWhere to go next: Open the leader profile first, then come back to the table if you want the full chase pack around him.\n\nBasho overview\nContender path\nChase path\n\nOnce standings load, this card will point you to the most meaningful chase path behind the leader.\n\nWhere to go next: Once a chase profile is visible, compare and wrestler pages are the fastest ways to deepen the read.\n\nOverview context\nStandout\nStandout performance\n\nThis table currently shows 0 winning records, with 0 at double digits. Use "
+}

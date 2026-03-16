@@ -1,0 +1,21 @@
+{
+  "mode": "desktop",
+  "name": "basho-browser",
+  "url": "https://sumo-sauce.vercel.app/basho",
+  "finalUrl": "https://sumo-sauce.vercel.app/basho",
+  "title": "Sumo Sauce — Basho Browser",
+  "h1": "Basho Browser",
+  "ms": 4748,
+  "consoleMessages": [
+    "[error] Failed to load resource: the server responded with a status of 404 ()",
+    "[error] Failed to load resource: the server responded with a status of 404 ()",
+    "[error] Failed to load resource: the server responded with a status of 404 ()"
+  ],
+  "pageErrors": [],
+  "badResponses": [
+    "404 https://sumo-sauce.vercel.app/api/v1/rikishi",
+    "404 https://sumo-sauce.vercel.app/api/v1/rikishi",
+    "404 https://sumo-sauce.vercel.app/api/v1/rikishi"
+  ],
+  "textSnippet": "Skip to main content\nHome\n/\nBasho Browser\nShare\nWatchlist\nTOURNAMENT BROWSER\nBASHO BROWSER\n\n300 tournaments from 2000 to present, with direct paths into the latest divisions\n\nLATEST LAUNCH\nHaru 2026 (March)\n\nStart with the overview for a balanced tournament picture, or jump straight into a division when you already know the layer you want to browse.\n\nCurrent archive entry\nOverview\nMakuuchi\nJuryo\nMakushita\nSandanme\nJonidan\nJonokuchi\nRecent archive launchpad\n\nJump into the most recent tournaments before dropping into the full archive.\n\nOpen latest\nHaru 2026\n202603\nBrowse\nHatsu 2026\n202601\nBrowse\nKyushu 2025\n202511\nBrowse\nAki 2025\n202509\nBrowse\nSearch\nYear\nAll years\n2026\n2025\n2024\n2023\n2022\n2021\n2020\n2019\n2018\n2017\n2016\n2015\n2014\n2013\n2012\n2011\n2010\n2009\n2008\n2007\n2006\n2005\n2004\n2003\n2002\n2001\n2000\n1999\n1998\n1997\n1996\n1995\n1994\n1993\n1992\n1991\n1990\n1989\n1988\n1987\n1986\n1985\n1984\n1983\n1982\n1981\n1980\n1979\n1978\n1977\n1976\nTournament\nAll tournaments\nHatsu (January)\nHaru (March)\nNatsu (May)\nNagoya (July)\nAki (September)\nKyushu (November)\nTournament archive\n\nBrowse every published basho by year, with search and filter state preserved in the URL.\n\n2026\n2 basho\nHaru\nMarch 2026\n202603\nOVERVIEW + DIVISIONS\nHatsu\nJanuary 2026\n202601\nOVERVIEW + DIVISIONS\n2025\n6 basho\nKyushu\nNovember 2025\n202511\nOVERVIEW + DIVISIONS\nAki\nSeptember 2025\n202509\nOVERVIEW + DIVISIONS\nNagoya\nJuly 2025\n202507\nOVERVIEW + DIVISIONS\nNatsu\nMay 2025\n202505\nOVERVIEW + DIVISIONS\nHaru\nMarch 2025\n202503\nOVERVIEW + DIVISIONS\nHatsu\nJanuary 2025\n202501\nOVERVIEW + DIVISIONS\n2024\n6 basho\nKyushu\nNovember 2024\n202411\nOVERVIEW + DIVISIONS\nAki\nSeptember 2024\n202409\nOVERVIEW + DIVISIONS\nNagoya\nJuly 2024\n202407\nOVERVIEW + DIVISIONS\nNatsu\nMay 2024\n202405\nOVERVIEW + DIVISIONS\nHaru\nMarch 2024\n202403\nOVERVIEW + DIVISIONS\nHatsu\nJanuary 2024\n202401\nOVERVIEW + DIVISIONS\n2023\n6 basho\nKyushu\nNovember 2023\n202311\nOVERVIEW + DIVISIONS\nAki\nSeptember 2023\n202309\nOVERVIEW + DIVISIONS\nNagoya\nJuly 2023\n202307\nOVERVIEW + DIVISIONS\nNatsu\nMay 202"
+}

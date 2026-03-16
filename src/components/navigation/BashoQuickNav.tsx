@@ -1,13 +1,14 @@
 import { useState, useMemo } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Calendar, ArrowRight, Compass } from 'lucide-react';
+import { useQuery } from '@tanstack/react-query';
 import {
-  recentBashoIds,
   bashoTournamentName,
   divisionLabel,
   parseBashoId,
   bashoDisplayName,
 } from '@/utils/basho';
+import { getAvailableBashoIds } from '@/pages/basho/api';
 import { PremiumBadge } from '@/components/ui/premium';
 
 const DIVISIONS = ['makuuchi', 'juryo', 'makushita', 'sandanme', 'jonidan', 'jonokuchi'] as const;
@@ -24,7 +25,13 @@ export default function BashoQuickNav() {
   const [jumpDivision, setJumpDivision] = useState<string>('makuuchi');
   const [jumpError, setJumpError] = useState('');
 
-  const recentIds = useMemo(() => recentBashoIds(8), []);
+  const availabilityQuery = useQuery({
+    queryKey: ['basho-available-ids', 'quick-nav'],
+    queryFn: () => getAvailableBashoIds(8, 28),
+    staleTime: 10 * 60 * 1000,
+  });
+
+  const recentIds = useMemo(() => availabilityQuery.data ?? [], [availabilityQuery.data]);
   const latestId = recentIds[0] ?? '';
   const archiveIds = recentIds.slice(1, 7);
 
@@ -59,7 +66,7 @@ export default function BashoQuickNav() {
         </p>
       </div>
 
-      {latestId && (
+      {latestId ? (
         <div className="mb-5 rounded-xl border border-red-700/20 bg-red-950/10 p-4">
           <div className="flex flex-wrap items-start justify-between gap-3">
             <div>
@@ -106,6 +113,30 @@ export default function BashoQuickNav() {
             </div>
           </div>
         </div>
+      ) : (
+        <div className="mb-5 rounded-xl border border-amber-700/30 bg-amber-950/14 p-4">
+          <div className="flex flex-wrap items-start justify-between gap-3">
+            <div>
+              <div className="flex items-center gap-2">
+                <Compass className="h-4 w-4 text-amber-300" />
+                <p className="text-xs font-medium uppercase tracking-[0.2em] text-amber-200">Domain snapshot unavailable</p>
+              </div>
+              <h3 className="mt-2 font-display text-xl font-bold text-white">Latest basho route is not published yet</h3>
+              <p className="mt-1 text-sm text-zinc-400">
+                This deployment does not currently expose a routable latest tournament snapshot. Use the archive browser and profile/search paths while new basho domain data is pending.
+              </p>
+            </div>
+            <div className="flex w-full flex-wrap gap-2 sm:w-auto">
+              <PremiumBadge variant="amber">Honest fallback</PremiumBadge>
+              <Link
+                to="/basho"
+                className="inline-flex min-h-10 items-center justify-center rounded-full border border-white/[0.08] bg-white/[0.04] px-3 py-1.5 text-xs font-medium text-zinc-200 transition-colors hover:border-red-600/40 hover:text-white"
+              >
+                Open basho browser
+              </Link>
+            </div>
+          </div>
+        </div>
       )}
 
       <div className="grid gap-4 border-t border-white/[0.04] pt-4 xl:grid-cols-[minmax(0,1.1fr)_minmax(320px,0.9fr)]">
@@ -116,8 +147,9 @@ export default function BashoQuickNav() {
           <p className="mb-3 text-sm text-zinc-400">
             Open a recent basho when you want a tournament archive path but do not need to type an id manually.
           </p>
-          <div className="grid grid-cols-2 gap-2 sm:grid-cols-3">
-            {archiveIds.map((id) => {
+          {archiveIds.length > 0 ? (
+            <div className="grid grid-cols-2 gap-2 sm:grid-cols-3">
+              {archiveIds.map((id) => {
               const tournament = bashoTournamentName(id);
               const parsed = parseBashoId(id);
               return (
@@ -133,8 +165,13 @@ export default function BashoQuickNav() {
                   <span className="text-xs text-zinc-500 group-hover:text-zinc-400">{id}</span>
                 </Link>
               );
-            })}
-          </div>
+              })}
+            </div>
+          ) : (
+            <div className="rounded-lg border border-white/[0.06] bg-white/[0.02] px-3 py-3 text-sm text-zinc-500">
+              No archived basho routes are currently confirmed from the live domain API.
+            </div>
+          )}
         </div>
 
         <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-4">

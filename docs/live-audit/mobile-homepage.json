@@ -1,0 +1,41 @@
+{
+  "mode": "mobile",
+  "name": "mobile-homepage",
+  "url": "https://sumo-sauce.vercel.app/",
+  "finalUrl": "https://sumo-sauce.vercel.app/",
+  "title": "Sumo Sauce",
+  "h1": "Find wrestlers, tournaments, and records fast.",
+  "ms": 5622,
+  "consoleMessages": [
+    "[error] Failed to load resource: the server responded with a status of 404 ()",
+    "[error] Failed to load resource: the server responded with a status of 404 ()",
+    "[error] Failed to load resource: the server responded with a status of 404 ()",
+    "[error] Failed to load resource: the server responded with a status of 404 ()",
+    "[error] Failed to load resource: the server responded with a status of 404 ()",
+    "[error] Failed to load resource: the server responded with a status of 404 ()",
+    "[error] Failed to load resource: the server responded with a status of 404 ()",
+    "[error] Failed to load resource: the server responded with a status of 404 ()",
+    "[error] Failed to load resource: the server responded with a status of 404 ()",
+    "[error] Failed to load resource: the server responded with a status of 404 ()",
+    "[error] Failed to load resource: the server responded with a status of 404 ()",
+    "[error] Failed to load resource: the server responded with a status of 404 ()",
+    "[error] Failed to load resource: the server responded with a status of 404 ()"
+  ],
+  "pageErrors": [],
+  "badResponses": [
+    "404 https://sumo-sauce.vercel.app/api/v1/basho/202511/makuuchi",
+    "404 https://sumo-sauce.vercel.app/api/v1/basho/202601/juryo",
+    "404 https://sumo-sauce.vercel.app/api/v1/basho/202509/juryo",
+    "404 https://sumo-sauce.vercel.app/api/v1/basho/202603/juryo",
+    "404 https://sumo-sauce.vercel.app/api/v1/basho/202507/makuuchi",
+    "404 https://sumo-sauce.vercel.app/api/v1/basho/202507/juryo",
+    "404 https://sumo-sauce.vercel.app/api/v1/basho/202509/makuuchi",
+    "404 https://sumo-sauce.vercel.app/api/v1/basho/202511/juryo",
+    "404 https://sumo-sauce.vercel.app/api/v1/basho/202601/makuuchi",
+    "404 https://sumo-sauce.vercel.app/api/v1/basho/202603/makuuchi",
+    "404 https://sumo-sauce.vercel.app/api/v1/rikishi",
+    "404 https://sumo-sauce.vercel.app/api/v1/rikishi",
+    "404 https://sumo-sauce.vercel.app/api/v1/rikishi"
+  ],
+  "textSnippet": "Skip to main content\nSUMO SAUCE\nPUBLISHED PROFILE LAYER + BASHO BROWSING\nFind wrestlers, tournaments, and records fast.\n\nSearch the published profile directory, open the latest basho, or jump straight into rankings, rivalries, and milestone context.\n\nSEARCH PUBLISHED PROFILES\n\n497 published profiles are searchable here. 353 currently open full wrestler pages.\n\nOpen Haru 2026 (March)\nRankings\nProfiles\n497\nPUBLISHED PROFILES\nvisible in the profile layer\n353\nROUTEABLE PAGES\nopen full wrestler pages\n497\nSOURCE-LINKED\npublish at least one source ref\nHaru 2026 (March)\nLATEST VERIFIED BASHO\nshown where published\n\nHomepage counts come from the same published profile dataset the search and directory surfaces now render directly.\n\nWORTH EXPLORING NOW\nStart with a curated signal, not a cold directory page\n\nThese homepage picks are grounded in currently published standings, visible rivalry data, and the records layer already inside the product. They are editorial entry points, not invented live-storytelling.\n\nCurrent now\nWorth opening first: latest basho overview\n\nIf you want the most immediate tournament-first entry point, start with the latest basho overview and branch into a division from there.\n\nWhy this is worth exploring: This is the fastest database-first path into something that feels current without pretending the homepage is a live ticker.\n\nWhat to look at first: Start with the basho overview, then open the Makuuchi division table for the actual standings picture.\n\nWhere to go next: From the basho overview, jump into a featured wrestler page or the analytics championship trail.\n\nOpen basho browser\nBrowse basho\nAnalytics trail\nFeatured wrestler\nFeatured rikishi\n\nOpen a rikishi page when you want the cleanest combination of profile identity, career shape, rivalry links, and records context.\n\nWhy this is worth exploring: This is a strong front-door profile because it leads quickly into records, ranking context, and stable-level browsing without forcing you to decide betw"
+}

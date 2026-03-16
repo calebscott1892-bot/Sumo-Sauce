@@ -1,27 +1,21 @@
 import { useMemo } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
-import { useQuery } from '@tanstack/react-query';
 import { Building2, Layers3, Search, ShieldCheck, Users } from 'lucide-react';
-import { getRikishiDirectory } from '@/pages/rikishi/api';
 import StableSummaryCard from '@/components/stables/StableSummaryCard';
 import EmptyState from '@/components/ui/EmptyState';
-import ErrorCard from '@/components/ui/ErrorCard';
 import PageMeta from '@/components/ui/PageMeta';
 import { PremiumBadge, PremiumPageHeader, PremiumSectionShell } from '@/components/ui/premium';
-import { buildStableSummaries } from '@/utils/rosterBrowsing';
+import { buildPublishedStableSummaries, getPublishedProfileEntries } from '@/utils/publishedProfileBrowsing';
 
 export default function StablesPage() {
   const [searchParams, setSearchParams] = useSearchParams();
   const query = searchParams.get('q') ?? '';
   const divisionFilter = searchParams.get('division') ?? '';
 
-  const { data: directory = [], isLoading, error } = useQuery({
-    queryKey: ['rikishi-directory'],
-    queryFn: getRikishiDirectory,
-    staleTime: 10 * 60 * 1000,
-  });
-
-  const stableSummaries = useMemo(() => buildStableSummaries(directory), [directory]);
+  const stableSummaries = useMemo(
+    () => buildPublishedStableSummaries(getPublishedProfileEntries()),
+    [],
+  );
   const divisionOptions = useMemo(
     () => [...new Set(stableSummaries.flatMap((stable) => stable.divisions))],
     [stableSummaries],
@@ -63,12 +57,8 @@ export default function StablesPage() {
     setSearchParams({}, { replace: true });
   }
 
-  if (error) {
-    return <ErrorCard code="FETCH_ERROR" message="Failed to load stable data. Please try again." backTo="/" backLabel="← Home" />;
-  }
-
   return (
-    <div className="mx-auto max-w-6xl space-y-5 p-4 text-zinc-200 sm:space-y-6 sm:p-6">
+    <div className="mx-auto max-w-6xl space-y-6 p-4 text-zinc-200 sm:space-y-7 sm:p-6">
       <PageMeta
         title="SumoWatch — Stable Directory"
         description="Browse heya across the SumoWatch roster layer, compare active roster depth, and open stable pages."
@@ -100,7 +90,7 @@ export default function StablesPage() {
 
       <PremiumSectionShell
         title="Find a stable"
-        subtitle="Stable pages use the routeable rikishi directory, then enrich roster depth with verified division and trust context when published."
+        subtitle="Stable pages are built from the published profile layer, with active roster depth and trust context where that coverage is available."
       >
         <div className="grid gap-3 md:grid-cols-[minmax(0,1fr)_14rem]">
           <label className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-3 text-sm">
@@ -149,7 +139,7 @@ export default function StablesPage() {
         ) : null}
       </PremiumSectionShell>
 
-      {!isLoading && topCurrentStables.length > 0 && (
+      {topCurrentStables.length > 0 && (
         <PremiumSectionShell
           title="Largest active stables"
           subtitle="A fast way to start stable-level browsing from the deepest current rosters."
@@ -166,13 +156,7 @@ export default function StablesPage() {
         title="All tracked stables"
         subtitle="Browse stable pages for active roster depth, division mix, and direct paths back into rikishi and basho browsing."
       >
-        {isLoading ? (
-          <div className="grid gap-3 lg:grid-cols-2">
-            {Array.from({ length: 6 }).map((_, index) => (
-              <div key={index} className="h-48 animate-pulse rounded-2xl border border-white/[0.06] bg-white/[0.02]" />
-            ))}
-          </div>
-        ) : filteredStables.length === 0 ? (
+        {filteredStables.length === 0 ? (
           <EmptyState
             message="No stables match the current filters"
             description="Try a different heya name or clear the roster layer filter."
@@ -188,7 +172,7 @@ export default function StablesPage() {
         )}
       </PremiumSectionShell>
 
-      {!isLoading && stableSummaries.length > 0 && (
+      {stableSummaries.length > 0 && (
         <section className="rounded-2xl border border-white/[0.06] bg-white/[0.02] p-4">
           <div className="grid gap-3 md:grid-cols-3">
             <div className="rounded-xl border border-white/[0.06] bg-black/20 p-4">
@@ -215,7 +199,7 @@ export default function StablesPage() {
                 Trust-aware depth
               </div>
               <p className="mt-2 text-sm leading-relaxed text-zinc-400">
-                Stable browsing keeps the same verified image and trust rules used across the rest of SumoWatch.
+                Stable browsing keeps the same verified image and trust rules used across the rest of Sumo Sauce.
               </p>
             </div>
           </div>

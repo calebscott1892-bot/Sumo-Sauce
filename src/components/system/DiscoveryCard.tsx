@@ -84,14 +84,12 @@ export default function DiscoveryCard() {
   ];
 
   return (
-    <section className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5">
+    <section className="rounded-[24px] border border-white/[0.08] bg-[linear-gradient(180deg,rgba(255,255,255,0.04),rgba(255,255,255,0.018))] p-4 shadow-[0_16px_40px_rgba(0,0,0,0.14)] sm:p-5">
       <div className="flex items-center gap-2">
         <Shuffle className="h-5 w-5 text-red-400" />
         <h2 className="font-display text-lg font-bold tracking-tight text-white">Wildcard discovery</h2>
       </div>
-      <p className="mt-1 text-sm text-zinc-400">
-        Use this after the curated homepage picks when you want the database to surprise you.
-      </p>
+      <p className="mt-2 max-w-2xl text-sm leading-relaxed text-zinc-400">One fast detour after the curated routes.</p>
 
       <div className="mt-4 grid grid-cols-1 gap-2 sm:grid-cols-3">
         {buttons.map((btn) => (
@@ -100,10 +98,10 @@ export default function DiscoveryCard() {
             type="button"
             onClick={btn.action}
             disabled={btn.disabled}
-            className={`flex items-center justify-center gap-2 rounded-lg border px-4 py-3 text-sm font-medium transition-all
+            className={`flex min-h-12 items-center justify-center gap-2 rounded-xl border px-4 py-3 text-sm font-medium transition-all
               ${spinning === btn.key
                 ? 'animate-pulse border-red-600 bg-red-950/30 text-red-300'
-                : 'border-white/[0.06] bg-white/[0.04] text-zinc-200 hover:border-red-600 hover:bg-red-950/20 hover:text-white'}
+                : 'border-white/[0.08] bg-white/[0.04] text-zinc-200 hover:border-red-600/45 hover:bg-white/[0.06] hover:text-white'}
               disabled:cursor-not-allowed disabled:opacity-40`}
           >
             <btn.icon className={`h-4 w-4 ${spinning === btn.key ? 'animate-spin' : ''}`} />

@@ -1,0 +1,21 @@
+{
+  "mode": "desktop",
+  "name": "profile-only-search-oka",
+  "url": "https://sumo-sauce.vercel.app/search?q=Oka",
+  "finalUrl": "https://sumo-sauce.vercel.app/search?q=Oka",
+  "title": "Sumo Sauce - Search",
+  "h1": "Search",
+  "ms": 4299,
+  "consoleMessages": [
+    "[error] Failed to load resource: the server responded with a status of 404 ()",
+    "[error] Failed to load resource: the server responded with a status of 404 ()",
+    "[error] Failed to load resource: the server responded with a status of 404 ()"
+  ],
+  "pageErrors": [],
+  "badResponses": [
+    "404 https://sumo-sauce.vercel.app/api/v1/rikishi",
+    "404 https://sumo-sauce.vercel.app/api/v1/rikishi",
+    "404 https://sumo-sauce.vercel.app/api/v1/rikishi"
+  ],
+  "textSnippet": "Skip to main content\nHome\n/\nSearch\nShare\nSEARCH\nSEARCH\n\nSearch the published profile layer or jump into basho by tournament name or YYYYMM id.\n\nPublished search index\n\nRikishi results come from the published profile dataset, so this search can render the same profile layer the homepage counts describe.\n\n497 published profiles\n353 routeable rikishi pages\n200 basho available\nRikishi\n13\nBasho\n0\nRouteable results open wrestler pages. Profile-only results stay visible here and in the directory until routeable career data is available.\nShowing 13 results\nO\nOka\nSandanme\nProfile partially verified\nProfile only\nProfile only\nMinato\nVerified Haru 2026 (March)\nRouteable career page unavailable\nO\nOkada Ryotaro\nMakushita\nProfile verified\n4295\nTakadagawa\nVerified Haru 2026 (March)\n->\nO\nOkaryu\nMakushita\nProfile verified\n4275\nTatsunami\nVerified Haru 2026 (March)\n->\nF\nFujinokawa Seigo\nMakuuchi\nProfile verified\n4191\nIsenoumi\nVerified Haru 2026 (March)\n->\nHoshoryu Tomokatsu\nMakuuchi\nProfile verified\nOfficial photo\n3842\nTatsunami\nVerified Haru 2026 (March)\n->\nOnokatsu Kazuhiro\nMakuuchi\nProfile verified\nOfficial photo\n4231\nOnomatsu\nVerified Haru 2026 (March)\n->\nC\nChiyonokatsu\nMakushita\nProfile verified\n3454\nKokonoe\nVerified Haru 2026 (March)\n->\nH\nHanaoka\nMakushita\nProfile verified\n4347\nSakaigawa\nVerified Haru 2026 (March)\n->\nM\nMiyanokaze\nMakushita\nProfile verified\n4104\nNakamura\nVerified Haru 2026 (March)\n->\nW\nWakenokaze\nMakushita\nProfile partially verified\n3729\nNakamura\nVerified Haru 2026 (March)\n->\nT\nTokazan\nSandanme\nProfile verified\n3953\nTamanoi\nVerified Haru 2026 (March)\n->\nH\nHatooka\nSandanme\nProfile partially verified\nProfile only\nProfile only\nHeya unpublished\nVerified Haru 2026 (March)\nRouteable career page unavailable\nK\nKazeoka\nJonidan\nProfile partially verified\nProfile only\nProfile only\nOshiogawa\nVerified Haru 2026 (March)\nRouteable career page unavailable\nSUMO SAUCE\n\nProfessional sumo browsing and analytics backed by a structured published profile layer.\n\nV1.0.0 · 2000-PRESENT\n\nD"
+}

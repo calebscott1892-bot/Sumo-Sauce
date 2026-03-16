@@ -2,17 +2,19 @@ import { useCallback, useEffect, useMemo, useState } from 'react';
 import { Link, useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 import { Trophy, Swords, TrendingUp } from 'lucide-react';
-import { ApiError, getDivisionStandings } from '@/pages/basho/api';
+import { ApiError, getAvailableBashoIds, getDivisionStandings } from '@/pages/basho/api';
 import type { Division } from '@/pages/basho/types';
 import BashoStoryCard from '@/components/basho/BashoStoryCard';
 import BashoDivisionBrowseNav from '@/components/basho/BashoDivisionBrowseNav';
 import BashoNav from '@/components/navigation/BashoNav';
 import RankMovementIndicator from '@/components/basho/RankMovementIndicator';
 import PromotionPredictionBadge from '@/components/basho/PromotionPredictionBadge';
-import { bashoDisplayName, divisionLabel, prevBashoId, nextBashoId, latestBashoId } from '@/utils/basho';
+import { bashoDisplayName, divisionLabel, prevBashoId, nextBashoId } from '@/utils/basho';
 import { buildDivisionStorySnapshot } from '@/utils/bashoStorytelling';
 import { isValidBashoId } from '@/utils/security';
 import { trackBashoPageView } from '@/utils/analytics';
+import { getApiFailureMessage, isApiUnavailableError, isResourceNotFoundError } from '@/utils/apiFailure';
+import DataUnavailableState from '@/components/ui/DataUnavailableState';
 import EmptyState from '@/components/ui/EmptyState';
 import PageMeta from '@/components/ui/PageMeta';
 import { PremiumBadge, PremiumPageHeader, PremiumSectionShell, PremiumStatCard } from '@/components/ui/premium';
@@ -108,7 +110,12 @@ export default function BashoDivisionPage() {
   const filterMode = (searchParams.get('filter') as 'all' | 'kk' | 'mk') || 'all';
   const minWins = Number(searchParams.get('minWins') ?? '0');
   const shikonaSearch = searchParams.get('q') ?? '';
-  const latestTournamentId = latestBashoId();
+  const latestAvailableBashoQuery = useQuery({
+    queryKey: ['basho-available-ids', 'division-page-latest'],
+    queryFn: () => getAvailableBashoIds(1, 28),
+    staleTime: 10 * 60 * 1000,
+  });
+  const latestTournamentId = latestAvailableBashoQuery.data?.[0] ?? null;
 
   function setFilterParam(key: string, value: string) {
     setSearchParams((prev) => {
@@ -289,9 +296,10 @@ export default function BashoDivisionPage() {
 
   const rows = standingsQuery.data ?? [];
   const isLoadingStandings = standingsQuery.isLoading;
-  const standingsNotFound = standingsQuery.error instanceof ApiError && standingsQuery.error.status === 404;
-  const standingsError = standingsQuery.error && !standingsNotFound ? standingsQuery.error : null;
-  const filtersDisabled = isLoadingStandings || standingsNotFound || Boolean(standingsError);
+  const standingsNotFound = isResourceNotFoundError(standingsQuery.error);
+  const standingsUnavailable = isApiUnavailableError(standingsQuery.error);
+  const standingsError = standingsQuery.error && !standingsNotFound && !standingsUnavailable ? standingsQuery.error : null;
+  const filtersDisabled = isLoadingStandings || standingsNotFound || standingsUnavailable || Boolean(standingsError);
   const maxWins = rows.reduce((max, row) => (row.wins > max ? row.wins : max), 0);
   const maxWinsInData = maxWins;
   const leader = rows.reduce<(typeof rows)[number] | null>((best, row) => {
@@ -443,7 +451,7 @@ export default function BashoDivisionPage() {
     : `This table currently shows ${divisionStory.winningRecordCount} winning records, with ${divisionStory.doubleDigitWinCount} at double digits. Use the filters below when you want to isolate the strongest records quickly.`;
 
   return (
-    <div data-testid="division-page" className="stagger-children mx-auto max-w-6xl space-y-5 p-4 text-zinc-200 sm:space-y-6 sm:p-6">
+    <div data-testid="division-page" className="stagger-children mx-auto max-w-6xl space-y-6 p-4 text-zinc-200 sm:space-y-7 sm:p-6">
       <PageMeta
         title={`SumoWatch \u2014 ${bashoDisplayName(bashoId)} ${divisionLabel(division)}`}
         description={`${bashoDisplayName(bashoId)} ${divisionLabel(division)} standings, results, and analytics on SumoWatch.`}
@@ -454,7 +462,7 @@ export default function BashoDivisionPage() {
         title={`${bashoDisplayName(bashoId)} — ${divisionLabel(division)}`}
         subtitle={
           isLatestDivision
-            ? 'Latest published division standings with current-race framing, contender paths, and fast movement back into the full basho.'
+            ? 'Latest published division standings with current-race framing and quick movement back into the full basho.'
             : 'Browse one division in detail while keeping quick access to the full tournament and archive.'
         }
         breadcrumbs={[
@@ -502,8 +510,8 @@ export default function BashoDivisionPage() {
         title={isLatestDivision ? `What matters now in ${divisionLabel(division)}` : `How to read ${divisionLabel(division)}`}
         subtitle={
           isLatestDivision
-            ? `Use this ${divisionSnapshotLabel} standings snapshot to find the leader, the chase, and the strongest next clicks into compare, wrestler, and records views.`
-            : `This archived division still works best when you read the leader first, then open the chase and standout profiles instead of treating the table as a dead end.`
+            ? `Use this ${divisionSnapshotLabel} snapshot to find the leader, the chase, and the best next clicks into compare, wrestler, and records views.`
+            : `Read the leader first, then open the chase and standout profiles instead of treating the table as a dead end.`
         }
       >
         <div className="grid gap-3 sm:grid-cols-3">
@@ -671,13 +679,26 @@ export default function BashoDivisionPage() {
               ['Browse archive', '/basho'],
             ]}
           />
+        ) : standingsUnavailable ? (
+          <DataUnavailableState
+            title={`${divisionLabel(division)} standings are unavailable`}
+            description={getApiFailureMessage(standingsQuery.error, 'The live basho service is unavailable for this deployment right now.')}
+            detail="This is different from the basho not existing. The direct standings feed did not load, so this page cannot safely present the division table."
+            actions={[
+              { label: 'Basho overview', to: `/basho/${encodeURIComponent(bashoId)}` },
+              { label: 'Browse archive', to: '/basho' },
+              { label: 'Browse rikishi', to: '/rikishi' },
+            ]}
+          />
         ) : standingsError ? (
           <div className="rounded-xl border border-red-800 bg-red-950/20 p-4">
             <div className="font-semibold text-red-300">
               {standingsError instanceof ApiError ? standingsError.code : 'UNKNOWN'}
             </div>
             <div className="mt-1 text-sm text-zinc-300">
-              {standingsError instanceof ApiError ? standingsError.message : 'An unexpected error occurred.'}
+              {standingsError instanceof ApiError
+                ? getApiFailureMessage(standingsError, 'An unexpected error occurred.')
+                : 'An unexpected error occurred.'}
             </div>
             <div className="mt-3">
               <Link className="text-red-400 hover:text-red-300" to="/">

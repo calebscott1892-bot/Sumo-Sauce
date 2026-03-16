@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { resolveApiUrl } from '@/utils/apiBase';
+import { getApiUnavailableMessage, resolveApiUrl } from '@/utils/apiBase';
 
 const ENTITY_STORAGE_KEY = 'admin_import_entity';
 
@@ -54,6 +54,11 @@ export default function AdminImport() {
 
     if (!adminToken.trim()) {
       setError('Admin token is required.');
+      return;
+    }
+
+    if (!endpoint) {
+      setError(getApiUnavailableMessage());
       return;
     }
 
@@ -141,7 +146,7 @@ export default function AdminImport() {
             >
               {submitting ? 'Running...' : (dryRun ? 'Validate' : 'Import')}
             </button>
-            <div className="text-xs text-zinc-400">Endpoint: {endpoint}</div>
+            <div className="text-xs text-zinc-400">Endpoint: {endpoint ?? 'Live admin API unavailable'}</div>
           </div>
 
           {error && (

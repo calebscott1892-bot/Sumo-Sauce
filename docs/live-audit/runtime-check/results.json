@@ -1,0 +1,1497 @@
+{
+  "/": {
+    "url": "https://sumo-sauce.vercel.app/",
+    "requests": [
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/rikishi",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/basho/202603/makuuchi",
+        "method": "GET",
+        "status": 404,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/basho/202603/juryo",
+        "method": "GET",
+        "status": 404,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/basho/202601/makuuchi",
+        "method": "GET",
+        "status": 404,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/basho/202601/juryo",
+        "method": "GET",
+        "status": 404,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/basho/202511/makuuchi",
+        "method": "GET",
+        "status": 404,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/basho/202511/juryo",
+        "method": "GET",
+        "status": 404,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/basho/202509/makuuchi",
+        "method": "GET",
+        "status": 404,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/basho/202509/juryo",
+        "method": "GET",
+        "status": 404,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/basho/202507/makuuchi",
+        "method": "GET",
+        "status": 404,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/basho/202507/juryo",
+        "method": "GET",
+        "status": 404,
+        "statusText": null,
+        "resourceType": "fetch"
+      }
+    ],
+    "console": [
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 404 ()"
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 404 ()"
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 404 ()"
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 404 ()"
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 404 ()"
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 404 ()"
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 404 ()"
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 404 ()"
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 404 ()"
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 404 ()"
+      }
+    ],
+    "errors": [],
+    "screenshot": "C:\\Users\\belac\\OneDrive\\Documents\\GitHub\\Sumo-Sauce\\docs\\live-audit\\runtime-check\\home.png"
+  },
+  "/rikishi/3842": {
+    "url": "https://sumo-sauce.vercel.app/rikishi/3842",
+    "requests": [
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/rikishi",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/rikishi/3842",
+        "method": "GET",
+        "status": 404,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/rikishi/3842/timeline",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/rikishi/3842/rank-progression",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/rikishi/3842/kimarite",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/entities/BashoRecord?rid=3842&sort=-snapshot_date",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/rikishi/3842",
+        "method": "GET",
+        "status": 404,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/rikishi/3842",
+        "method": "GET",
+        "status": 404,
+        "statusText": null,
+        "resourceType": "fetch"
+      }
+    ],
+    "console": [
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 404 ()"
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 404 ()"
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 404 ()"
+      }
+    ],
+    "errors": [],
+    "screenshot": "C:\\Users\\belac\\OneDrive\\Documents\\GitHub\\Sumo-Sauce\\docs\\live-audit\\runtime-check\\rikishi_3842.png"
+  },
+  "/basho/202603": {
+    "url": "https://sumo-sauce.vercel.app/basho/202603",
+    "requests": [
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/rikishi",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/basho/202603/makuuchi",
+        "method": "GET",
+        "status": 404,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/basho/202603/juryo",
+        "method": "GET",
+        "status": 404,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/basho/202603/makushita",
+        "method": "GET",
+        "status": 404,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/basho/202603/sandanme",
+        "method": "GET",
+        "status": 404,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/basho/202603/jonidan",
+        "method": "GET",
+        "status": 404,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/basho/202603/jonokuchi",
+        "method": "GET",
+        "status": 404,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/basho/202603/jonidan",
+        "method": "GET",
+        "status": 404,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/basho/202603/makuuchi",
+        "method": "GET",
+        "status": 404,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/basho/202603/juryo",
+        "method": "GET",
+        "status": 404,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/basho/202603/makushita",
+        "method": "GET",
+        "status": 404,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/basho/202603/jonokuchi",
+        "method": "GET",
+        "status": 404,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/basho/202603/sandanme",
+        "method": "GET",
+        "status": 404,
+        "statusText": null,
+        "resourceType": "fetch"
+      }
+    ],
+    "console": [
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 404 ()"
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 404 ()"
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 404 ()"
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 404 ()"
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 404 ()"
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 404 ()"
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 404 ()"
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 404 ()"
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 404 ()"
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 404 ()"
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 404 ()"
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 404 ()"
+      }
+    ],
+    "errors": [],
+    "screenshot": "C:\\Users\\belac\\OneDrive\\Documents\\GitHub\\Sumo-Sauce\\docs\\live-audit\\runtime-check\\basho_202603.png"
+  },
+  "/basho/202603/makuuchi": {
+    "url": "https://sumo-sauce.vercel.app/basho/202603/makuuchi",
+    "requests": [
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/rikishi",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/basho/202603/makuuchi",
+        "method": "GET",
+        "status": 404,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/basho/202601/makuuchi",
+        "method": "GET",
+        "status": 404,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/basho/202603/makuuchi",
+        "method": "GET",
+        "status": 404,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/basho/202601/makuuchi",
+        "method": "GET",
+        "status": 404,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/basho/202601/makuuchi",
+        "method": "GET",
+        "status": 404,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/basho/202603/makuuchi",
+        "method": "GET",
+        "status": 404,
+        "statusText": null,
+        "resourceType": "fetch"
+      }
+    ],
+    "console": [
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 404 ()"
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 404 ()"
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 404 ()"
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 404 ()"
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 404 ()"
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 404 ()"
+      }
+    ],
+    "errors": [],
+    "screenshot": "C:\\Users\\belac\\OneDrive\\Documents\\GitHub\\Sumo-Sauce\\docs\\live-audit\\runtime-check\\basho_202603_makuuchi.png"
+  },
+  "/leaderboard": {
+    "url": "https://sumo-sauce.vercel.app/leaderboard",
+    "requests": [
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/rikishi",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/entities/Wrestler?limit=2000",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/entities/BashoRecord?limit=5000",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      }
+    ],
+    "console": [],
+    "errors": [],
+    "screenshot": "C:\\Users\\belac\\OneDrive\\Documents\\GitHub\\Sumo-Sauce\\docs\\live-audit\\runtime-check\\leaderboard.png"
+  },
+  "/rivalries": {
+    "url": "https://sumo-sauce.vercel.app/rivalries",
+    "requests": [
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/rikishi",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/89/179",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/89/237",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/89/243",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/89/271",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/89/296",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/89/300",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/89/335",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/89/383",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/89/399",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/89/493",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/89/497",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/89/504",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/89/523",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/89/550",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/89/641",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/89/673",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/89/677",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/89/695",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/89/800",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/89/870",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/89/916",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/89/927",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/89/943",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/89/946",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/89/986",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/89/1010",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/89/1046",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/89/1052",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/89/1053",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/89/1054",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/89/1055",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/89/1062",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/89/1123",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/89/1128",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/89/1156",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/89/1161",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/89/1167",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/89/1190",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/89/1209",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/89/1219",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/89/1226",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/89/1227",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/89/1235",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/89/1241",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/89/1260",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/89/1266",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/89/1284",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/89/1408",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/89/1412",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/89/2832",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/89/2836",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/89/2846",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/89/2851",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/89/2859",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/89/2869",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/89/2879",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/89/2881",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/89/2882",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/89/2892",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/89/2901",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/89/2904",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/89/2905",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/89/2909",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/89/2916",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/89/2919",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/89/2924",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/89/2926",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/89/2927",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/89/2929",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/89/4980",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/89/4981",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/89/5606",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/89/5932",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/89/5944",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/89/5954",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/89/5959",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/89/5964",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/89/5967",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/89/5978",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/179/237",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/179/243",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/179/271",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/179/296",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/179/300",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/179/335",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/179/383",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/179/399",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/179/493",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/179/497",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/179/504",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/179/523",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/179/550",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/179/641",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/179/673",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/179/677",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/179/695",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/179/800",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/179/870",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/179/916",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/179/927",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/179/943",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/179/946",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/179/986",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/179/1010",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/179/1046",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/179/1052",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/179/1053",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/179/1054",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/179/1055",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/179/1062",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/179/1123",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/179/1128",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/179/1156",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/179/1161",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/179/1167",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/179/1190",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/179/1209",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/179/1219",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/179/1226",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/179/1227",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      }
+    ],
+    "console": [],
+    "errors": [],
+    "screenshot": "C:\\Users\\belac\\OneDrive\\Documents\\GitHub\\Sumo-Sauce\\docs\\live-audit\\runtime-check\\rivalries.png"
+  },
+  "/analytics": {
+    "url": "https://sumo-sauce.vercel.app/analytics",
+    "requests": [
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/rikishi",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/basho/202603/makuuchi",
+        "method": "GET",
+        "status": 404,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/basho/202601/makuuchi",
+        "method": "GET",
+        "status": 404,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/basho/202511/makuuchi",
+        "method": "GET",
+        "status": 404,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/basho/202509/makuuchi",
+        "method": "GET",
+        "status": 404,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/basho/202507/makuuchi",
+        "method": "GET",
+        "status": 404,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/basho/202505/makuuchi",
+        "method": "GET",
+        "status": 404,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/basho/202503/makuuchi",
+        "method": "GET",
+        "status": 404,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/basho/202501/makuuchi",
+        "method": "GET",
+        "status": 404,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/basho/202411/makuuchi",
+        "method": "GET",
+        "status": 404,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/basho/202409/makuuchi",
+        "method": "GET",
+        "status": 404,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/basho/202407/makuuchi",
+        "method": "GET",
+        "status": 404,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/basho/202405/makuuchi",
+        "method": "GET",
+        "status": 404,
+        "statusText": null,
+        "resourceType": "fetch"
+      }
+    ],
+    "console": [
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 404 ()"
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 404 ()"
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 404 ()"
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 404 ()"
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 404 ()"
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 404 ()"
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 404 ()"
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 404 ()"
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 404 ()"
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 404 ()"
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 404 ()"
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 404 ()"
+      }
+    ],
+    "errors": [],
+    "screenshot": "C:\\Users\\belac\\OneDrive\\Documents\\GitHub\\Sumo-Sauce\\docs\\live-audit\\runtime-check\\analytics.png"
+  },
+  "/stables": {
+    "url": "https://sumo-sauce.vercel.app/stables",
+    "requests": [
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/rikishi",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      }
+    ],
+    "console": [],
+    "errors": [],
+    "screenshot": "C:\\Users\\belac\\OneDrive\\Documents\\GitHub\\Sumo-Sauce\\docs\\live-audit\\runtime-check\\stables.png"
+  },
+  "/stables/isegahama": {
+    "url": "https://sumo-sauce.vercel.app/stables/isegahama",
+    "requests": [
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/rikishi",
+        "method": "GET",
+        "status": 200,
+        "statusText": null,
+        "resourceType": "fetch"
+      }
+    ],
+    "console": [],
+    "errors": [],
+    "screenshot": "C:\\Users\\belac\\OneDrive\\Documents\\GitHub\\Sumo-Sauce\\docs\\live-audit\\runtime-check\\stables_isegahama.png"
+  }
+}

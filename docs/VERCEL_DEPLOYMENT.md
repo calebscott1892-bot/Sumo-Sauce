@@ -19,8 +19,8 @@ This repo's current API server is a separate Node + Express + Prisma service bac
 ## Required frontend env vars on Vercel
 
 - `VITE_API_BASE_URL`
-  - Required when the API is hosted outside the Vercel frontend origin.
-  - Example: `https://api.sumosauce.app/api`
+  - Required for production.
+  - Example: `https://sumo-sauce.onrender.com/api`
 - `SITE_URL`
   - Strongly recommended for production sitemap generation.
   - Example: `https://sumosauce.app`
@@ -37,5 +37,13 @@ This repo's current API server is a separate Node + Express + Prisma service bac
 
 ## Notes
 
-- If you leave `VITE_API_BASE_URL` unset, the frontend will default to `/api`, which only works if you provide a same-origin reverse proxy outside Vercel.
+- Local localhost development can still rely on the Vite `/api` proxy when `VITE_API_BASE_URL` is unset.
+- Production should not rely on same-origin `/api` unless you have intentionally added a real reverse proxy in front of Vercel.
 - The backend should be deployed on a platform that supports a persistent Node process and durable storage, or migrated to a different data/runtime model before attempting a full Vercel-only deployment.
+
+## Post-hookup checklist
+
+- Backend root URL (hosted): `https://sumo-sauce.onrender.com`
+- On Vercel, set `VITE_API_BASE_URL` to `https://sumo-sauce.onrender.com/api` in the Production environment, then trigger a production redeploy so the frontend is rebuilt with the correct API base.
+
+If you cannot use the Vercel CLI from this environment, use the Vercel Dashboard: Project → Settings → Environment Variables → add/update `VITE_API_BASE_URL` (Production) and click "Redeploy" or trigger a new deployment from the GitHub repo.

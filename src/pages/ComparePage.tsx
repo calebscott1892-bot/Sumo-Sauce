@@ -4,6 +4,7 @@ import { Compass, Layers3, MoveRight, Swords, TrendingUp } from 'lucide-react';
 import { useQuery } from '@tanstack/react-query';
 import { ApiError, getRikishiComparison } from '@/pages/compare/api';
 import { getCareerTimeline } from '@/pages/rikishi/api';
+import DataUnavailableState from '@/components/ui/DataUnavailableState';
 import CompareSkeleton from '@/components/ui/skeletons/CompareSkeleton';
 import ErrorCard from '@/components/ui/ErrorCard';
 import { PremiumBadge, PremiumPageHeader, PremiumSectionShell } from '@/components/ui/premium';
@@ -14,6 +15,8 @@ import { trackCompareUsage } from '@/utils/analytics';
 import { isFavoriteRivalry, toggleFavoriteRivalry } from '@/utils/favorites';
 import { trackRivalryView } from '@/utils/recentlyViewed';
 import { bashoLabel } from '@/utils/basho';
+import { getApiFailureMessage, isApiUnavailableError, isResourceNotFoundError } from '@/utils/apiFailure';
+import { findPublishedProfileEntryByRikishiId, getPublishedProfileEntries } from '@/utils/publishedProfileBrowsing';
 import {
   buildRecentFormInsight,
   buildRivalryInsight,
@@ -51,7 +54,7 @@ function InsightCard({
   };
 
   return (
-    <div className={`rounded-xl border p-4 ${toneStyles[variant]}`.trim()}>
+    <div className={`rounded-[22px] border p-4 shadow-[0_12px_28px_rgba(0,0,0,0.12)] ${toneStyles[variant]}`.trim()}>
       <div className="text-[11px] font-semibold uppercase tracking-[0.16em] text-zinc-500">{eyebrow}</div>
       <div className="mt-2 font-display text-2xl font-bold tracking-tight text-white">{value}</div>
       <div className="mt-1 text-sm font-medium text-zinc-200">{label}</div>
@@ -65,6 +68,7 @@ export default function ComparePage() {
   const a = String(params.a || '').trim();
   const b = String(params.b || '').trim();
   const [isSaved, setIsSaved] = useState(() => isFavoriteRivalry(a, b));
+  const publishedEntries = useMemo(() => getPublishedProfileEntries(), []);
 
   const comparisonQuery = useQuery({
     queryKey: ['rikishi-compare', a, b],
@@ -85,8 +89,10 @@ export default function ComparePage() {
   });
 
   const model = comparisonQuery.data ?? null;
-  const shikonaA = model?.rikishiA.shikona ?? a;
-  const shikonaB = model?.rikishiB.shikona ?? b;
+  const publishedA = useMemo(() => findPublishedProfileEntryByRikishiId(a, publishedEntries), [a, publishedEntries]);
+  const publishedB = useMemo(() => findPublishedProfileEntryByRikishiId(b, publishedEntries), [b, publishedEntries]);
+  const shikonaA = model?.rikishiA.shikona ?? publishedA?.shikona ?? a;
+  const shikonaB = model?.rikishiB.shikona ?? publishedB?.shikona ?? b;
 
   const eraComparison = useMemo(() => {
     const tlA = timelineAQuery.data ?? [];
@@ -230,14 +236,49 @@ export default function ComparePage() {
     return <CompareSkeleton />;
   }
 
-  if (comparisonQuery.error instanceof ApiError && comparisonQuery.error.status === 404) {
+  if (isResourceNotFoundError(comparisonQuery.error)) {
     return <ErrorCard code="NOT_FOUND" message="Rikishi not found." backTo="/rikishi" backLabel="← Browse rikishi" />;
+  }
+
+  if (isApiUnavailableError(comparisonQuery.error)) {
+    return (
+      <div className="stagger-children mx-auto max-w-6xl space-y-6 p-4 text-zinc-200 sm:p-6">
+        <PageMeta title={pageTitle} description={pageDesc} />
+
+        <PremiumPageHeader
+          accentLabel="HEAD TO HEAD"
+          title={`${shikonaA} vs ${shikonaB}`}
+          subtitle="The compare route is available, but live head-to-head and recent-form services are unavailable on this deployment right now."
+          breadcrumbs={[
+            { label: 'Home', to: '/' },
+            { label: 'Rivalries', to: '/rivalries' },
+            { label: `${shikonaA} vs ${shikonaB}` },
+          ]}
+        />
+
+        <PremiumSectionShell
+          title="Live comparison data is unavailable"
+          subtitle="This is not the same as either wrestler being missing. The pair exists in the published profile layer, but the live comparison API did not load."
+        >
+          <DataUnavailableState
+            title="Head-to-head comparison could not load"
+            description={getApiFailureMessage(comparisonQuery.error, 'The live comparison service is unavailable right now.')}
+            detail="Once the backend is connected again, this page should populate series totals, recent form, and kimarite context for the same pair."
+            actions={[
+              { label: `Open ${shikonaA}`, to: `/rikishi/${encodeURIComponent(a)}` },
+              { label: `Open ${shikonaB}`, to: `/rikishi/${encodeURIComponent(b)}` },
+              { label: 'Browse rivalries', to: '/rivalries' },
+            ]}
+          />
+        </PremiumSectionShell>
+      </div>
+    );
   }
 
   if (comparisonQuery.error || !model || !rivalryInsight || !recentFormInsight) {
     const err = comparisonQuery.error;
     const errCode = err instanceof ApiError ? err.code : 'UNKNOWN';
-    const errMsg = err instanceof ApiError ? err.message : 'An unexpected error occurred.';
+    const errMsg = err instanceof ApiError ? getApiFailureMessage(err, 'An unexpected error occurred.') : 'An unexpected error occurred.';
     return <ErrorCard code={errCode} message={errMsg} />;
   }
 
@@ -262,7 +303,7 @@ export default function ComparePage() {
   ];
 
   return (
-    <div className="stagger-children mx-auto max-w-6xl space-y-6 p-6 text-zinc-200">
+    <div className="stagger-children mx-auto max-w-6xl space-y-6 p-4 text-zinc-200 sm:p-6">
       <PageMeta title={pageTitle} description={pageDesc} />
 
       <PremiumPageHeader
@@ -348,9 +389,9 @@ export default function ComparePage() {
       </PremiumPageHeader>
 
       <section id="snapshot" className="scroll-mt-28">
-        <PremiumSectionShell
-          title="Head-to-Head Snapshot"
-          subtitle="Start here to understand the overall series before you move into current form or style differences."
+      <PremiumSectionShell
+        title="Head-to-Head Snapshot"
+        subtitle="Start here to understand the overall series before moving into current form or style differences."
           trailing={<PremiumBadge variant={getRivalryStateVariant(rivalryInsight.state)}>{rivalryInsight.label}</PremiumBadge>}
         >
           <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
@@ -465,9 +506,9 @@ export default function ComparePage() {
       </section>
 
       <section id="recent-form" className="scroll-mt-28">
-        <PremiumSectionShell
-          title="Recent Form Context"
-          subtitle="Check whether the latest loaded basho keep reinforcing the rivalry story or suggest that momentum is shifting."
+      <PremiumSectionShell
+        title="Recent Form Context"
+        subtitle="Check whether the latest loaded basho reinforce the rivalry story or suggest that momentum is shifting."
           trailing={<PremiumBadge variant={getRivalryStateVariant(recentFormInsight.state)}>{recentFormInsight.label}</PremiumBadge>}
         >
           <div className="grid gap-4 xl:grid-cols-[minmax(0,0.85fr)_minmax(0,1fr)_minmax(0,1fr)]">
@@ -679,7 +720,7 @@ export default function ComparePage() {
 
       <PremiumSectionShell
         title="Keep Browsing Rivalries"
-        subtitle="Use this comparison as a launch point into broader head-to-head work instead of treating it as a dead-end page."
+        subtitle="Use this comparison as a launch point into broader head-to-head work instead of treating it as a dead end."
       >
         <div className="grid gap-3 md:grid-cols-3">
           <Link

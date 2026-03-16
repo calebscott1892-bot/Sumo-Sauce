@@ -3,7 +3,7 @@ import { Link, useParams } from 'react-router-dom';
 import FallbackAvatar from '@/components/FallbackAvatar';
 import { resolvePhotoUrl } from '@/utils/photo';
 import { getVerifiedProfile } from '@/data/verifiedProfiles';
-import { resolveApiUrl } from '@/utils/apiBase';
+import { getApiUnavailableMessage, resolveApiUrl } from '@/utils/apiBase';
 
 const WRESTLERS_URL = resolveApiUrl('/entities/Wrestler?limit=2000');
 const BASHO_RECORDS_URL = resolveApiUrl('/entities/BashoRecord?limit=5000');
@@ -298,6 +298,10 @@ export default function WrestlerProfile() {
     async function loadData() {
       setLoading(true);
       try {
+        if (!WRESTLERS_URL || !BASHO_RECORDS_URL) {
+          throw new Error(getApiUnavailableMessage());
+        }
+
         const [wrestlersRes, recordsRes] = await Promise.all([
           fetch(WRESTLERS_URL),
           fetch(BASHO_RECORDS_URL),

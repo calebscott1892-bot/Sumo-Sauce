@@ -1,4 +1,4 @@
-import { getApiBaseUrl } from '@/utils/apiBase';
+import { getApiBaseUrl, getApiUnavailableMessage } from '@/utils/apiBase';
 
 const API_BASE = getApiBaseUrl();
 
@@ -41,6 +41,13 @@ function sleep(ms) {
 }
 
 async function requestJson(path, { method = 'GET', body } = {}) {
+	if (!API_BASE) {
+		throw Object.assign(
+			new Error(getApiUnavailableMessage()),
+			{ structured: makeStructuredError(getApiUnavailableMessage(), 503) }
+		);
+	}
+
 	// Check cache for GET requests
 	const cacheKey = method === 'GET' && body == null ? _cacheKey(method, path) : null;
 	if (cacheKey) {
@@ -70,15 +77,15 @@ async function requestJson(path, { method = 'GET', body } = {}) {
 
 			if (res.status === 404) {
 				throw Object.assign(
-					new Error(`Not found: ${path}`),
-					{ structured: makeStructuredError('The requested resource was not found.', 404) }
+					new Error(getApiUnavailableMessage()),
+					{ structured: makeStructuredError(getApiUnavailableMessage(), 503) }
 				);
 			}
 
 			if (res.status >= 500) {
 				lastError = Object.assign(
-					new Error(`Server error ${res.status}`),
-					{ structured: makeStructuredError('The server encountered an error. Please try again later.', res.status) }
+					new Error(getApiUnavailableMessage()),
+					{ structured: makeStructuredError(getApiUnavailableMessage(), 503) }
 				);
 				if (isRetryable(res.status) && attempt < MAX_RETRIES) continue;
 				throw lastError;
@@ -120,7 +127,7 @@ async function requestJson(path, { method = 'GET', body } = {}) {
 			// Network error
 			lastError = Object.assign(
 				err,
-				{ structured: makeStructuredError('API unavailable. Please check your connection.', 0) }
+				{ structured: makeStructuredError(getApiUnavailableMessage(), 503) }
 			);
 			if (attempt < MAX_RETRIES) continue;
 			throw lastError;

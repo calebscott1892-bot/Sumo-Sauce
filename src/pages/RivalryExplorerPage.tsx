@@ -3,11 +3,12 @@ import { Link, useSearchParams } from 'react-router-dom';
 import { trackRivalryExplorerView } from '@/utils/analytics';
 import { useQuery } from '@tanstack/react-query';
 import { ArrowUpDown, Flame, MoveRight, Scale, Search, Trophy } from 'lucide-react';
-import { getRikishiDirectory, getHeadToHead } from '@/pages/rikishi/api';
+import { ApiError, getRikishiDirectory, getHeadToHead } from '@/pages/rikishi/api';
 import PageMeta from '@/components/ui/PageMeta';
-import ErrorCard from '@/components/ui/ErrorCard';
+import DataUnavailableState from '@/components/ui/DataUnavailableState';
 import EmptyState from '@/components/ui/EmptyState';
 import { PremiumBadge, PremiumPageHeader, PremiumSectionShell } from '@/components/ui/premium';
+import { getApiFailureMessage, isApiUnavailableError } from '@/utils/apiFailure';
 import { buildRivalryInsight, getRivalryStateVariant } from '@/utils/rivalry';
 
 type RivalryEntry = {
@@ -72,7 +73,7 @@ function FeaturedRivalryCard({
   return (
     <Link
       to={`/compare/${encodeURIComponent(rivalry.rikishiA)}/${encodeURIComponent(rivalry.rikishiB)}`}
-      className="group rounded-2xl border border-white/[0.06] bg-white/[0.02] p-4 transition-colors hover:border-red-600/40 hover:bg-white/[0.04]"
+      className="group rounded-[24px] border border-white/[0.08] bg-[linear-gradient(180deg,rgba(255,255,255,0.04),rgba(255,255,255,0.018))] p-4 shadow-[0_16px_40px_rgba(0,0,0,0.14)] transition-colors hover:border-red-600/40 hover:bg-white/[0.04]"
     >
       <div className="text-[11px] font-semibold uppercase tracking-[0.16em] text-zinc-500">{title}</div>
       <div className="mt-2 font-display text-2xl font-bold tracking-tight text-white">
@@ -107,7 +108,7 @@ function RivalryRow({
   return (
     <Link
       to={`/compare/${encodeURIComponent(rivalry.rikishiA)}/${encodeURIComponent(rivalry.rikishiB)}`}
-      className="block rounded-2xl border border-white/[0.06] bg-white/[0.02] p-4 transition-all duration-200 hover:border-red-600 hover:bg-white/[0.04]"
+      className="block rounded-[24px] border border-white/[0.08] bg-[linear-gradient(180deg,rgba(255,255,255,0.04),rgba(255,255,255,0.018))] p-4 shadow-[0_16px_40px_rgba(0,0,0,0.14)] transition-all duration-200 hover:border-red-600 hover:bg-white/[0.04]"
     >
       <div className="flex flex-col gap-3 lg:flex-row lg:items-start lg:justify-between">
         <div className="grid min-w-0 flex-1 gap-3 sm:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] sm:items-start">
@@ -262,6 +263,7 @@ export default function RivalryExplorerPage() {
     staleTime: 10 * 60 * 1000,
     queryFn: async (): Promise<RivalryEntry[]> => {
       const results: RivalryEntry[] = [];
+      let unavailableFailures = 0;
       const batchSize = 15;
       for (let i = 0; i < candidatePairs.length; i += batchSize) {
         const batch = candidatePairs.slice(i, i + batchSize);
@@ -285,12 +287,18 @@ export default function RivalryExplorerPage() {
                 bWins: h2h.rikishiBWins,
                 closeness,
               } as RivalryEntry;
-            } catch {
+            } catch (error) {
+              if (isApiUnavailableError(error)) {
+                unavailableFailures += 1;
+              }
               return null;
             }
           }),
         );
         results.push(...batchResults.filter(Boolean) as RivalryEntry[]);
+      }
+      if (unavailableFailures > 0 && results.length === 0) {
+        throw new ApiError('Live rivalry data is unavailable right now.', 503, 'API_UNAVAILABLE');
       }
       return results;
     },
@@ -369,11 +377,46 @@ export default function RivalryExplorerPage() {
   }, []);
 
   if (directoryQuery.error || h2hQuery.error) {
-    return <ErrorCard code="FETCH_ERROR" message="Failed to load data. Please try again." backTo="/" backLabel="← Home" />;
+    const error = directoryQuery.error || h2hQuery.error;
+
+    return (
+      <div className="stagger-children mx-auto max-w-6xl space-y-6 p-4 text-zinc-200 sm:p-6">
+        <PageMeta
+          title="Sumo Sauce — Rivalry Explorer"
+          description="Browse sampled head-to-head rivalries in Sumo Sauce and jump into deeper rikishi comparisons."
+        />
+
+        <PremiumPageHeader
+          accentLabel="HEAD TO HEAD"
+          title="Rivalry Explorer"
+          subtitle="This discovery surface needs the live head-to-head backend. The route is available, but the rivalry service is not."
+          breadcrumbs={[
+            { label: 'Home', to: '/' },
+            { label: 'Rivalries' },
+          ]}
+        />
+
+        <PremiumSectionShell
+          title="Live rivalry data is unavailable"
+          subtitle="Rivalry Explorer depends on live head-to-head lookups, so it should pause honestly when that service is offline."
+        >
+          <DataUnavailableState
+            title="Head-to-head discovery could not load"
+            description={getApiFailureMessage(error, 'The live rivalry service is unavailable right now.')}
+            detail="This is a service outage, not proof that no rivalries exist. Browse rikishi or compare from a profile once the backend is connected again."
+            actions={[
+              { label: 'Browse rikishi', to: '/rikishi' },
+              { label: 'Search profiles', to: '/search' },
+              { label: 'Go home', to: '/' },
+            ]}
+          />
+        </PremiumSectionShell>
+      </div>
+    );
   }
 
   return (
-    <div className="stagger-children mx-auto max-w-6xl space-y-6 p-6 text-zinc-200">
+    <div className="stagger-children mx-auto max-w-6xl space-y-6 p-4 text-zinc-200 sm:p-6">
       <PageMeta
         title="SumoWatch — Rivalry Explorer"
         description="Browse sampled head-to-head rivalries in SumoWatch and jump into deeper rikishi comparisons."
@@ -382,7 +425,7 @@ export default function RivalryExplorerPage() {
       <PremiumPageHeader
         accentLabel="HEAD TO HEAD"
         title="Rivalry Explorer"
-        subtitle="Browse a sampled discovery surface for published head-to-head series. Start with a featured rivalry or filter by shikona, rikishi id, or heya, then open compare pages for exact pair-level context."
+        subtitle="Browse a sampled discovery surface for published head-to-head series, then open compare pages for exact pair-level context."
         breadcrumbs={[
           { label: 'Home', to: '/' },
           { label: 'Rivalries' },
@@ -431,7 +474,7 @@ export default function RivalryExplorerPage() {
             <h2 className="font-display text-lg font-bold tracking-tight text-white">Sampled rivalry coverage</h2>
             <p className="mt-2 text-sm leading-relaxed text-zinc-400">
               Rivalry Explorer builds a high-signal sample from the current published rikishi directory, then loads head-to-head
-              series from that sample. It is useful for discovery, but it should not be treated as an exhaustive historical rivalry index.
+              series from that sample. It is useful for discovery, but it is not an exhaustive historical rivalry index.
             </p>
           </div>
           <div className="text-sm text-zinc-500 lg:text-right">
@@ -443,7 +486,7 @@ export default function RivalryExplorerPage() {
 
       <PremiumSectionShell
         title="Find a rivalry worth opening"
-        subtitle="This explorer is built from current published head-to-head results across a sampled directory set. It is a browse surface, not a claim that every historical rivalry is already indexed."
+        subtitle="This explorer is built from current published head-to-head results across a sampled directory set."
       >
         <div className="flex flex-col gap-3 xl:flex-row xl:items-end xl:justify-between">
           <div className="relative w-full max-w-xl">
@@ -516,7 +559,7 @@ export default function RivalryExplorerPage() {
       {!h2hQuery.isLoading && allRivalries.length > 0 && (
         <PremiumSectionShell
           title="Featured rivalry entry points"
-          subtitle="These are good places to start if you want one high-volume series, one balanced matchup, and one clearly tilted head-to-head from the current sample."
+          subtitle="Start here for one high-volume series, one balanced matchup, and one clearly tilted head-to-head from the current sample."
         >
           <div className="grid gap-3 lg:grid-cols-3">
             <FeaturedRivalryCard title="Most contested" rivalry={featured.mostContested} />
@@ -529,7 +572,7 @@ export default function RivalryExplorerPage() {
       {!h2hQuery.isLoading && (
         <PremiumSectionShell
           title="All sampled rivalries"
-          subtitle="Open a row to move into the full comparison view. The summary badge tells you whether the series is balanced, tilted, or firmly controlled by one side."
+          subtitle="Open a row for the full comparison view. The summary badge tells you whether the series is balanced, tilted, or firmly controlled by one side."
           trailing={<PremiumBadge variant="zinc">{rivalries.length} shown</PremiumBadge>}
         >
           {rivalries.length === 0 ? (
@@ -561,7 +604,7 @@ export default function RivalryExplorerPage() {
       {!h2hQuery.isLoading && allRivalries.length > 0 && (
         <PremiumSectionShell
           title="How to use this feature well"
-          subtitle="Treat rivalry discovery as a browse-first database surface. Start with a series that looks interesting here, then open the comparison page to inspect head-to-head totals, recent form, and style context."
+          subtitle="Treat rivalry discovery as a browse-first database surface. Start with a series here, then open the comparison page for head-to-head totals, recent form, and style context."
         >
           <div className="grid gap-3 md:grid-cols-3">
             <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-4">

@@ -29,16 +29,16 @@ const VALUE_CLASSES: Record<string, string> = {
 export default function PremiumStatCard({ label, value, sub, variant = 'default', icon }: Props) {
   return (
     <div
-      className={`rounded-lg border p-3 transition-all duration-200 ${VARIANT_CLASSES[variant]}`}
+      className={`rounded-xl border p-4 transition-all duration-200 ${VARIANT_CLASSES[variant]}`}
     >
-      <div className="flex items-center gap-1.5 text-xs text-zinc-400">
+      <div className="flex items-center gap-1.5 text-[11px] font-medium uppercase tracking-[0.16em] text-zinc-500">
         {icon}
         <span>{label}</span>
       </div>
-      <div className={`mt-1 text-lg font-bold ${VALUE_CLASSES[variant]}`}>
+      <div className={`mt-3 font-display text-2xl font-bold tracking-tight ${VALUE_CLASSES[variant]}`}>
         {value}
       </div>
-      {sub && <div className="mt-0.5 text-xs text-zinc-500">{sub}</div>}
+      {sub ? <div className="mt-1.5 text-sm leading-relaxed text-zinc-500">{sub}</div> : null}
     </div>
   );
 }

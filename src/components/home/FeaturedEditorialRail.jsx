@@ -59,7 +59,7 @@ function ActionChip({ to, children }) {
   return (
     <Link
       to={to}
-      className="inline-flex items-center gap-1 rounded-full border border-white/[0.08] bg-white/[0.03] px-3 py-1 text-xs text-zinc-300 transition-colors hover:border-red-600/40 hover:text-white"
+      className="inline-flex items-center gap-1 rounded-full border border-white/[0.08] bg-white/[0.03] px-3 py-1.5 text-xs text-zinc-300 transition-colors hover:border-red-600/40 hover:text-white"
     >
       {children}
     </Link>
@@ -87,11 +87,11 @@ function EditorialCard({
   };
 
   return (
-    <article className={`rounded-2xl border p-5 ${toneClasses[tone] ?? toneClasses.zinc}`}>
+    <article className={`rounded-[24px] border p-4 shadow-[0_16px_40px_rgba(0,0,0,0.14)] sm:p-5 ${toneClasses[tone] ?? toneClasses.zinc}`}>
       <div className="flex flex-wrap items-start justify-between gap-3">
         <div className="min-w-0">
           <div className="flex flex-wrap items-center gap-2">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/[0.08] bg-black/20">
+            <div className="flex h-10 w-10 items-center justify-center rounded-2xl border border-white/[0.08] bg-black/20">
               <Icon className="h-4.5 w-4.5 text-zinc-200" />
             </div>
             <PremiumBadge variant={tone === 'green' ? 'green' : tone === 'blue' ? 'blue' : tone === 'amber' ? 'amber' : tone === 'red' ? 'red' : 'zinc'}>
@@ -103,21 +103,22 @@ function EditorialCard({
               </PremiumBadge>
             ))}
           </div>
-          <h3 className="mt-4 font-display text-2xl font-bold tracking-tight text-white">{title}</h3>
-          <p className="mt-2 text-sm leading-relaxed text-zinc-300">{summary}</p>
+          <h3 className="mt-4 font-display text-[1.55rem] font-bold tracking-tight text-white sm:text-[1.7rem]">{title}</h3>
+          <p className="mt-2 max-w-2xl text-sm leading-relaxed text-zinc-300">{summary}</p>
         </div>
       </div>
 
-      <div className="mt-4 space-y-2 text-sm leading-relaxed">
-        <p className="text-zinc-400">
-          <span className="font-semibold text-white">Why this is worth exploring:</span> {why}
-        </p>
-        <p className="text-zinc-400">
-          <span className="font-semibold text-white">What to look at first:</span> {lookFirst}
-        </p>
-        <p className="text-zinc-400">
-          <span className="font-semibold text-white">Where to go next:</span> {goNext}
-        </p>
+      <div className="mt-4 grid gap-2 md:grid-cols-3">
+        {[
+          { label: 'Why now', value: why },
+          { label: 'Open', value: lookFirst },
+          { label: 'Next', value: goNext },
+        ].map((item) => (
+          <div key={item.label} className="rounded-2xl border border-white/[0.06] bg-black/20 px-3.5 py-2.5">
+            <div className="text-[10px] font-semibold uppercase tracking-[0.16em] text-zinc-500">{item.label}</div>
+            <p className="mt-1.5 text-sm leading-relaxed text-zinc-400">{item.value}</p>
+          </div>
+        ))}
       </div>
 
       <div className="mt-4 flex flex-wrap gap-2">
@@ -132,7 +133,7 @@ function EditorialCard({
 }
 
 function LoadingCard() {
-  return <div className="h-72 animate-pulse rounded-2xl border border-white/[0.06] bg-white/[0.02]" />;
+  return <div className="h-64 animate-pulse rounded-[24px] border border-white/[0.06] bg-white/[0.02]" />;
 }
 
 export default function FeaturedEditorialRail() {
@@ -286,12 +287,12 @@ export default function FeaturedEditorialRail() {
     );
   }
 
-  const currentTitle = currentBashoId ? `Worth opening first: ${bashoDisplayName(currentBashoId)}` : 'Worth opening first: latest basho overview';
+  const currentTitle = currentBashoId ? `Start with ${bashoDisplayName(currentBashoId)}` : 'Start with the latest basho';
   const currentSummary = currentLeader
-    ? `The latest published Makuuchi snapshot currently shows ${currentLeader.shikona} at ${currentLeader.wins}-${currentLeader.losses}${currentChaser ? `, with ${currentChaser.shikona} next at ${currentChaser.wins}-${currentChaser.losses}.` : '.'}`
+    ? `${currentLeader.shikona} leads the latest visible Makuuchi snapshot at ${currentLeader.wins}-${currentLeader.losses}${currentChaser ? `, with ${currentChaser.shikona} next at ${currentChaser.wins}-${currentChaser.losses}.` : '.'}`
     : currentJuryoLeader
-      ? `Makuuchi is not currently loaded here, but the latest published Juryo snapshot shows ${currentJuryoLeader.shikona} at ${currentJuryoLeader.wins}-${currentJuryoLeader.losses}.`
-      : 'If you want the most immediate tournament-first entry point, start with the latest basho overview and branch into a division from there.';
+      ? `The latest visible Juryo snapshot shows ${currentJuryoLeader.shikona} at ${currentJuryoLeader.wins}-${currentJuryoLeader.losses}.`
+      : 'Start with the latest basho overview, then branch into the division that matters.';
 
   const currentActions = [
     currentBashoId ? { label: 'Open basho overview', to: `/basho/${encodeURIComponent(currentBashoId)}` } : { label: 'Open basho browser', to: '/basho' },
@@ -301,22 +302,22 @@ export default function FeaturedEditorialRail() {
 
   const wrestlerTitle = featuredSummary?.shikona ?? currentLeader?.shikona ?? sampleTitleLeader?.shikona ?? 'Featured rikishi';
   const wrestlerSummary = featuredSummary
-    ? `${featuredSummary.heya ? `${featuredSummary.heya} stable. ` : ''}Peak published rank ${featuredSummary.highestRank.rank} in ${divisionLabel(featuredSummary.highestRank.division)}.${currentLeader && featuredSummary.rikishiId === currentLeader.rikishiId ? ' He is also the current top visible Makuuchi entry point on the homepage.' : ''}`
+    ? `${featuredSummary.heya ? `${featuredSummary.heya} stable. ` : ''}Peak published rank ${featuredSummary.highestRank.rank} in ${divisionLabel(featuredSummary.highestRank.division)}.${currentLeader && featuredSummary.rikishiId === currentLeader.rikishiId ? ' He is also the clearest current Makuuchi profile to open next.' : ''}`
     : currentLeader
-      ? `${currentLeader.shikona} is the clearest current-profile entry point from the latest published Makuuchi snapshot.`
-      : 'Open a rikishi page when you want the cleanest combination of profile identity, career shape, rivalry links, and records context.';
+      ? `${currentLeader.shikona} is the clearest current-profile entry point from the latest Makuuchi snapshot.`
+      : 'Open a rikishi page for the cleanest mix of profile, rivalry, and records context.';
 
   const wrestlerWhy = currentLeader && featuredSummary?.rikishiId === currentLeader.rikishiId
-    ? 'This gives you a tournament-relevant profile to open first, then the page expands cleanly into records, ranking history, and rivalries.'
-    : 'This is a strong front-door profile because it leads quickly into records, ranking context, and stable-level browsing without forcing you to decide between pages first.';
+    ? 'Tournament relevance first, then records, ranking history, and rivalry links.'
+    : 'A strong front-door profile with fast paths into records, rank context, and heya browsing.';
 
   const wrestlerLookFirst = featuredSummary
-    ? 'Open the records section first, then jump to ranking if you want to understand how the career arc led there.'
-    : 'Open the profile summary first, then follow the records and rivalry links from inside the page.';
+    ? 'Open records first, then jump to ranking.'
+    : 'Open the profile summary, then follow records or rivalry links.';
 
   const wrestlerGoNext = stablePath
-    ? 'After the profile, check the stable page if you want roster depth and a broader heya context.'
-    : 'After the profile, use the rivalry or basho links to keep the same wrestler in context.';
+    ? 'Then open the stable page for roster depth.'
+    : 'Then use rivalry or basho links to keep the same wrestler in context.';
 
   const wrestlerBadges = [];
   if (currentLeader && featuredSummary?.rikishiId === currentLeader.rikishiId) {
@@ -339,20 +340,20 @@ export default function FeaturedEditorialRail() {
 
   const rivalryTitle = featuredRivalry ? `${featuredRivalry.shikonaA} vs ${featuredRivalry.shikonaB}` : 'Featured rivalry entry point';
   const rivalrySummary = featuredRivalry && featuredRivalryInsight
-    ? `${featuredRivalryInsight.detail}${currentBashoId ? ` This pair also sits inside the latest published Makuuchi mix from ${bashoDisplayName(currentBashoId)}.` : ''}`
-    : 'When one profile is not enough, the compare surface is the cleanest next step. Use it for head-to-head totals, recent form, and style context.';
+    ? `${featuredRivalryInsight.detail}${currentBashoId ? ` This pair also sits inside the latest Makuuchi mix from ${bashoDisplayName(currentBashoId)}.` : ''}`
+    : 'When one profile is not enough, the compare surface is the cleanest next step.';
 
   const rivalryWhy = featuredRivalry
-    ? 'This is worth opening because it turns a current-looking homepage signal into an actual pair-level story instead of two separate wrestler pages.'
-    : 'The rivalry explorer is the best editorial browse surface when you want the product to suggest a meaningful pair rather than a single profile.';
+    ? 'It turns a current homepage signal into an actual pair-level story.'
+    : 'The rivalry explorer is the best pair-first browse surface in the product.';
 
   const rivalryLookFirst = featuredRivalry
-    ? 'Start with the comparison overview and recent-form section before diving into kimarite or era context.'
-    : 'Start with the featured rivalry cards on the explorer, then open one comparison page in full.';
+    ? 'Start with the comparison overview and recent form.'
+    : 'Start with the featured rivalry cards, then open one comparison page.';
 
   const rivalryGoNext = currentBashoId
-    ? 'After the compare page, jump back to the current basho division page if you want to see where the pairing sits inside the latest tournament picture.'
-    : 'After the compare page, use the rivalry explorer for adjacent series or open the wrestler records panels for broader context.';
+    ? 'Then jump back to the current division page for standings context.'
+    : 'Then widen out into the explorer or the wrestler records panels.';
 
   const rivalryBadges = [];
   if (featuredRivalryInsight) {
@@ -384,28 +385,28 @@ export default function FeaturedEditorialRail() {
       : 'Records and milestones worth opening';
 
   const milestoneSummary = milestoneUsesImported && featuredSummary
-    ? `${featuredSummary.shikona} carries ${featuredLegacySummary.topDivisionYushoCount ?? 0} imported top-division yusho${featuredLegacySummary.specialPrizeCount ? ` and ${featuredLegacySummary.specialPrizeCount} imported special prizes` : ''}. That broader achievement context now sits beside the routeable profile milestones instead of hiding as incidental metadata.`
+    ? `${featuredSummary.shikona} carries ${featuredLegacySummary.topDivisionYushoCount ?? 0} imported top-division yusho${featuredLegacySummary.specialPrizeCount ? ` and ${featuredLegacySummary.specialPrizeCount} imported special prizes` : ''}. That context now sits beside the routeable milestone view instead of hiding in metadata.`
     : sampleTitleLeader
-      ? `Across the recent Makuuchi sample visible on the analytics surface, ${sampleTitleLeader.shikona} appears as champion ${sampleTitleLeader.titles} time${sampleTitleLeader.titles === 1 ? '' : 's'}. This is a recent sample signal, not an all-career title table.`
-      : 'The records layer now works best when you move between wrestler pages, the championship trail, and leaderboard slices instead of treating achievements as one isolated number.';
+      ? `${sampleTitleLeader.shikona} appears as champion ${sampleTitleLeader.titles} time${sampleTitleLeader.titles === 1 ? '' : 's'} in the recent visible sample. This is a sample signal, not an all-career title table.`
+      : 'The records layer works best when you move between wrestler pages, the championship trail, and leaderboard slices.';
 
   const milestoneWhy = milestoneUsesImported
-    ? 'This is the most direct example of the new records pass: routeable milestones stay separate from imported achievement totals, but both are now easy to browse.'
+    ? 'Routeable milestones stay separate from imported totals, but both are now easy to browse.'
     : sampleTitleLeader
-      ? 'This is worth opening when you want a high-signal milestone entry point that can branch into analytics and a wrestler records page immediately.'
-      : 'The records and milestone surfaces are now browseable enough to act as a homepage entry point, not just a detail panel.';
+      ? 'A fast milestone entry point that branches into analytics and a wrestler page immediately.'
+      : 'Records are now browseable enough to act as a real homepage entry point.';
 
   const milestoneLookFirst = milestoneUsesImported
-    ? 'Open the wrestler records section first and read the milestone snapshot before jumping to the supporting basho links.'
+    ? 'Open the wrestler records section first.'
     : sampleTitleLeader
-      ? 'Open the records section on the wrestler page first, then use the analytics championship trail for the broader sample view.'
-      : 'Start with the championship trail or a records panel, then widen out into leaderboard or basho context.';
+      ? 'Open the wrestler records section, then use the championship trail.'
+      : 'Start with the championship trail or a records panel.';
 
   const milestoneGoNext = milestoneUsesImported
-    ? 'After the records panel, use the leaderboard slice for imported context and analytics for the recent championship trail.'
+    ? 'Then use leaderboard or analytics for broader context.'
     : sampleTitleLeader
-      ? 'After the records panel, use the latest sampled basho or the analytics trail to see how the milestone appears in context.'
-      : 'After the first milestone surface, move into analytics or the leaderboard depending on whether you want sample context or imported totals.';
+      ? 'Then use the analytics trail or the latest sampled basho.'
+      : 'Then move into analytics or the leaderboard.';
 
   const milestoneBadges = [];
   if (milestoneUsesImported && featuredLegacySummary?.topDivisionYushoCount !== null) {
@@ -435,14 +436,14 @@ export default function FeaturedEditorialRail() {
 
   return (
     <section aria-label="Worth exploring now">
-      <div className="rounded-2xl border border-white/[0.06] bg-white/[0.02] p-5">
+      <div className="rounded-2xl border border-white/[0.06] bg-white/[0.02] p-4 sm:p-5">
         <div className="max-w-3xl">
           <div className="text-[11px] font-semibold uppercase tracking-[0.2em] text-red-400">WORTH EXPLORING NOW</div>
           <h2 className="mt-2 font-display text-2xl font-bold tracking-tight text-white sm:text-3xl">
-            Start with a curated signal, not a cold directory page
+            Four fast places to start
           </h2>
           <p className="mt-2 text-sm leading-relaxed text-zinc-400">
-            These homepage picks are grounded in currently published standings, visible rivalry data, and the records layer already inside the product. They are editorial entry points, not invented live-storytelling.
+            Editorial picks grounded in published standings, rivalry data, and the current records layer.
           </p>
         </div>
 
@@ -453,11 +454,11 @@ export default function FeaturedEditorialRail() {
             tone="red"
             title={currentTitle}
             summary={currentSummary}
-            why="This is the fastest database-first path into something that feels current without pretending the homepage is a live ticker."
-            lookFirst="Start with the basho overview, then open the Makuuchi division table for the actual standings picture."
+            why="The fastest database-first path into something current without pretending this is live coverage."
+            lookFirst="Open the overview, then Makuuchi."
             goNext={featuredRivalry
-              ? 'If the leading names feel like a real pairing, open the featured rivalry next for head-to-head context.'
-              : 'From the basho overview, jump into a featured wrestler page or the analytics championship trail.'}
+              ? 'Then open the featured rivalry for head-to-head context.'
+              : 'Then open the featured wrestler or championship trail.'}
             badges={[
               currentBashoId ? { label: bashoDisplayName(currentBashoId), variant: 'zinc' } : null,
               currentLeader ? { label: `${currentLeader.wins}-${currentLeader.losses}`, variant: 'amber' } : null,
@@ -517,17 +518,17 @@ export default function FeaturedEditorialRail() {
             <ArrowRight className="h-3.5 w-3.5" />
           </Link>
           <Link
-            to="/rivalries"
-            className="inline-flex items-center gap-1 rounded-full border border-white/[0.08] bg-white/[0.03] px-3 py-1 text-zinc-300 transition-colors hover:border-red-600/40 hover:text-white"
-          >
-            Browse rivalry explorer
-            <ArrowRight className="h-3.5 w-3.5" />
-          </Link>
-          <Link
             to="/stables"
             className="inline-flex items-center gap-1 rounded-full border border-white/[0.08] bg-white/[0.03] px-3 py-1 text-zinc-300 transition-colors hover:border-red-600/40 hover:text-white"
           >
             Browse stable rooms
+            <ArrowRight className="h-3.5 w-3.5" />
+          </Link>
+          <Link
+            to="/rivalries"
+            className="inline-flex items-center gap-1 rounded-full border border-white/[0.08] bg-white/[0.03] px-3 py-1 text-zinc-300 transition-colors hover:border-red-600/40 hover:text-white"
+          >
+            Browse rivalry explorer
             <ArrowRight className="h-3.5 w-3.5" />
           </Link>
         </div>

@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
-import { Layers3, Compass } from 'lucide-react';
-import { divisionLabel, latestBashoId, bashoLabel } from '@/utils/basho';
+import { Layers3 } from 'lucide-react';
+import { divisionLabel } from '@/utils/basho';
 import { PremiumBadge } from '@/components/ui/premium';
 import type { Division } from '../../../shared/api/v1';
 
@@ -23,9 +23,6 @@ const DIVISION_NOTES: Record<Division, string> = {
 };
 
 export default function BashoDivisionBrowseNav({ bashoId, active, counts, className = '' }: Props) {
-  const currentLatest = latestBashoId();
-  const isLatest = currentLatest === bashoId;
-
   return (
     <section
       className={`rounded-2xl border border-white/[0.06] bg-white/[0.02] p-4 sm:p-5 ${className}`.trim()}
@@ -58,17 +55,7 @@ export default function BashoDivisionBrowseNav({ bashoId, active, counts, classN
           >
             Archive
           </Link>
-          {isLatest ? (
-            <PremiumBadge variant="green">Latest basho</PremiumBadge>
-          ) : currentLatest ? (
-            <Link
-              to={`/basho/${encodeURIComponent(currentLatest)}`}
-              className="inline-flex items-center gap-1 rounded-full border border-white/[0.08] bg-white/[0.03] px-3 py-1.5 text-xs font-medium text-zinc-300 transition-colors hover:border-red-600/40 hover:text-white"
-            >
-              <Compass className="h-3.5 w-3.5" />
-              Latest: {bashoLabel(currentLatest)}
-            </Link>
-          ) : null}
+          <PremiumBadge variant="zinc">Loaded snapshot</PremiumBadge>
         </div>
       </div>
 
