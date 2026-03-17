@@ -386,6 +386,98 @@ Current live runtime evidence (after refresh):
 - `/rikishi/3842` still shows summary `404` with timeline/rank/kimarite `200` in this run.
 - This indicates the deployed frontend runtime being audited has not yet demonstrated the new redirect-recovery behavior on live for `/rikishi/3842`.
 
+## Post-legacy-rikishi-recovery live verification pass (2026-03-17)
+
+Verification scope:
+
+- Target commit behavior under verification: `bbdfc36f32d678d48e9c398192d20ddbef30f30c`
+- Runtime rerun: `node scripts/runtime-check-playwright.mjs`
+- Additional targeted browser probes for:
+  - `/rikishi/12451`
+  - `/rikishi/3842`
+  - search/directory queries: `Hoshoryu`, `Onosato`, `Aonishiki`
+
+Fresh runtime summary (`docs/live-audit/runtime-check/results.json`):
+
+- Healthy routes in this pass:
+  - `/rikishi/12451`
+  - `/basho/202603`
+  - `/leaderboard`
+  - `/rivalries`
+  - `/stables`
+  - `/stables/isegahama`
+- Degraded/failing in this pass:
+  - `/rikishi/3842`: summary endpoint still `404`.
+  - `/analytics`: many historical basho calls still `404`.
+  - `/` and `/basho/202603/makuuchi`: include historical follow-on `404` requests.
+
+Legacy recovery behavior evidence:
+
+- Direct probe to `/rikishi/3842` remained on `https://sumo-sauce.vercel.app/rikishi/3842` (no redirect observed).
+- API pattern on that page remained:
+  - `/api/v1/rikishi/3842` => `404`
+  - `/api/v1/rikishi/3842/timeline` => `200`
+  - `/api/v1/rikishi/3842/rank-progression` => `200`
+  - `/api/v1/rikishi/3842/kimarite` => `200`
+
+Resolver coverage evidence from live search/directory probes:
+
+- `/search?q=Hoshoryu` surfaced `/rikishi/12451`.
+- `/search?q=Onosato` surfaced `/rikishi/12836` (plus another matching result).
+- `/search?q=Aonishiki` surfaced `/rikishi/12839`.
+- `/rikishi?q=Hoshoryu` surfaced `/rikishi/12451`.
+- `/rikishi?q=Onosato` surfaced `/rikishi/12836` (plus another matching result).
+- `/rikishi?q=Aonishiki` surfaced `/rikishi/12839`.
+
+Interpretation:
+
+- Live frontend clearly reflects improved resolver coverage on search/directory surfaces for target wrestlers.
+- Live frontend does not yet show successful legacy route recovery for `/rikishi/3842` in this verification run.
+
+## Legacy rikishi route recovery debug pass (2026-03-17)
+
+Objective:
+
+- Determine why `/rikishi/3842` recovery was not firing.
+- Implement minimum safe fix so deterministic legacy->domain mappings redirect to canonical live routes.
+
+Root cause found in `RikishiPage` control flow:
+
+- Recovery redirect was previously gated on `isNotFound` only.
+- In live behavior for `/rikishi/3842`, the summary call `/api/v1/rikishi/3842` returned `404`, but the page flow still reached the live-unavailable/degraded path instead of the strict not-found branch.
+- That branch ordering/code-path mismatch prevented recovery from executing even when a deterministic mapping existed.
+
+Deterministic mapping evidence for `3842` (using current resolver key logic + live domain directory):
+
+- Published profile:
+  - `rikishiId=3842`
+  - shikona=`Hoshoryu Tomokatsu`
+  - heya=`Tatsunami`
+- Live directory key matches:
+  - full-shikona+heya: no match
+  - short-shikona+heya: unique match -> `12451:Hoshoryu:Tatsunami`
+  - short-shikona only: unique match count `1`
+
+Minimum safe fix applied:
+
+- `RikishiPage` now computes a deterministic recovery target when:
+  - current route id is not already a known live domain id,
+  - resolver produced a `routeableDomainId`, and
+  - that target exists in the live domain directory.
+- Redirect no longer depends exclusively on `isNotFound`; it now triggers once directory mapping is ready and deterministic.
+- Honest degraded fallback remains unchanged when no deterministic mapping exists.
+
+Validation after fix:
+
+- `npm run typecheck` -> PASS
+- `npm run build` -> PASS
+- `node scripts/runtime-check-playwright.mjs` -> completed; artifacts refreshed
+
+Current live runtime remains unchanged in this pass (expected until new frontend deploy):
+
+- `/rikishi/12451` healthy (`200` family).
+- `/rikishi/3842` still shows summary `404` on live runtime audit.
+
 ## Live rikishi id normalisation pass (2026-03-17)
 
 Production endpoint checks confirmed the live domain API expects numeric-string rikishi ids:

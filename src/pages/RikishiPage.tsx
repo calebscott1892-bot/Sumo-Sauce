@@ -276,12 +276,18 @@ export default function RikishiPage() {
   const shikona = summaryQuery.data?.shikona ?? publishedEntry?.shikona ?? rikishiId;
   const pageTitle = `Sumo Sauce - ${shikona} (${rikishiId})`;
   const pageDesc = `${shikona} career profile, rank progression, kimarite stats, and head-to-head matchups on Sumo Sauce.`;
+  const knownDomainIds = useMemo(
+    () => new Set((directoryQuery.data ?? []).map((entry) => entry.rikishiId)),
+    [directoryQuery.data],
+  );
+  const isKnownDomainId = knownDomainIds.has(rikishiId);
   const legacyRecoveryDomainId = useMemo(() => {
-    const domainId = publishedEntry?.routeableDomainId ?? null;
-    if (!domainId) return null;
-    if (domainId === rikishiId) return null;
+    if (isKnownDomainId) return null;
+    const domainId = String(publishedEntry?.routeableDomainId || '').trim();
+    if (!domainId || domainId === rikishiId) return null;
+    if (!knownDomainIds.has(domainId)) return null;
     return domainId;
-  }, [publishedEntry?.routeableDomainId, rikishiId]);
+  }, [isKnownDomainId, knownDomainIds, publishedEntry?.routeableDomainId, rikishiId]);
   const suggestedDomainProfile = useMemo(() => {
     if (!publishedEntry || !directoryQuery.data?.length) return null;
     if (publishedEntry.routeableDomainId) {
@@ -343,7 +349,8 @@ export default function RikishiPage() {
     return <RikishiProfileSkeleton />;
   }
 
-  if (isNotFound && legacyRecoveryDomainId) {
+  // Canonicalize legacy/profile IDs to live domain IDs whenever mapping is deterministic.
+  if (!directoryQuery.isLoading && legacyRecoveryDomainId) {
     return <Navigate to={`/rikishi/${encodeURIComponent(legacyRecoveryDomainId)}`} replace />;
   }
 
