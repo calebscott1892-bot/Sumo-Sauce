@@ -1,4 +1,5 @@
 import { getAllVerifiedProfiles, type VerifiedProfile } from '@/data/verifiedProfiles';
+import type { RikishiDirectoryEntry } from '../../shared/api/v1';
 
 const DIVISION_ORDER = [
   'Makuuchi',
@@ -22,6 +23,11 @@ export type PublishedProfileEntry = {
   lastVerifiedBasho: string | null;
   routeable: boolean;
   profile: VerifiedProfile;
+};
+
+export type ResolvedPublishedProfileEntry = PublishedProfileEntry & {
+  routeableDomainId: string | null;
+  routeable: boolean;
 };
 
 export type PublishedDivisionSummary = {
@@ -48,6 +54,14 @@ export type PublishedStableSummary = {
 
 function normalize(value: string | null | undefined): string {
   return String(value || '').trim().toLowerCase();
+}
+
+function normalizeShikonaKey(value: string | null | undefined): string {
+  return normalize(value).replace(/\s+/g, ' ').trim();
+}
+
+function normalizeHeyaKey(value: string | null | undefined): string {
+  return normalize(value).replace(/\s+/g, ' ').trim();
 }
 
 function stableSlug(value: string): string {
@@ -108,10 +122,10 @@ export function findPublishedProfileEntryByRikishiId(
 }
 
 export function searchPublishedProfileEntries(
-  entries: readonly PublishedProfileEntry[],
+  entries: readonly ResolvedPublishedProfileEntry[],
   rawQuery: string,
   limit: number,
-): PublishedProfileEntry[] {
+): ResolvedPublishedProfileEntry[] {
   const query = normalize(rawQuery);
   if (!query) return entries.slice(0, limit);
 
@@ -135,6 +149,88 @@ export function searchPublishedProfileEntries(
     )
     .slice(0, limit)
     .map((result) => result.entry);
+}
+
+type DomainResolverMaps = {
+  byDomainId: Map<string, RikishiDirectoryEntry>;
+  byNameAndHeya: Map<string, RikishiDirectoryEntry[]>;
+  byName: Map<string, RikishiDirectoryEntry[]>;
+};
+
+function buildDomainResolverMaps(domainDirectory: readonly RikishiDirectoryEntry[]): DomainResolverMaps {
+  const byDomainId = new Map<string, RikishiDirectoryEntry>();
+  const byNameAndHeya = new Map<string, RikishiDirectoryEntry[]>();
+  const byName = new Map<string, RikishiDirectoryEntry[]>();
+
+  for (const row of domainDirectory) {
+    const domainId = String(row.rikishiId || '').trim();
+    if (!domainId) continue;
+
+    byDomainId.set(domainId, row);
+
+    const nameKey = normalizeShikonaKey(row.shikona);
+    const heyaKey = normalizeHeyaKey(row.heya);
+    if (!nameKey) continue;
+
+    const nameBucket = byName.get(nameKey) ?? [];
+    nameBucket.push(row);
+    byName.set(nameKey, nameBucket);
+
+    if (heyaKey) {
+      const key = `${nameKey}::${heyaKey}`;
+      const nameHeyaBucket = byNameAndHeya.get(key) ?? [];
+      nameHeyaBucket.push(row);
+      byNameAndHeya.set(key, nameHeyaBucket);
+    }
+  }
+
+  return { byDomainId, byNameAndHeya, byName };
+}
+
+function resolveDomainIdForEntry(
+  entry: PublishedProfileEntry,
+  maps: DomainResolverMaps,
+): string | null {
+  const publishedId = String(entry.rikishiId || '').trim();
+  const shikonaKey = normalizeShikonaKey(entry.shikona);
+  const heyaKey = normalizeHeyaKey(entry.heya);
+
+  // If a published ID already exists in live domain IDs, use it directly.
+  if (publishedId && maps.byDomainId.has(publishedId)) {
+    return publishedId;
+  }
+
+  if (!shikonaKey) return null;
+
+  // Prefer shikona + heya exact matches when available.
+  if (heyaKey) {
+    const strictMatches = maps.byNameAndHeya.get(`${shikonaKey}::${heyaKey}`) ?? [];
+    if (strictMatches.length === 1) return strictMatches[0].rikishiId;
+  }
+
+  // Fallback to unique shikona-only match.
+  const nameMatches = maps.byName.get(shikonaKey) ?? [];
+  if (nameMatches.length === 1) {
+    return nameMatches[0].rikishiId;
+  }
+
+  return null;
+}
+
+export function resolvePublishedProfileEntries(
+  entries: readonly PublishedProfileEntry[],
+  domainDirectory: readonly RikishiDirectoryEntry[],
+): ResolvedPublishedProfileEntry[] {
+  const maps = buildDomainResolverMaps(domainDirectory);
+
+  return entries.map((entry) => {
+    const routeableDomainId = resolveDomainIdForEntry(entry, maps);
+    return {
+      ...entry,
+      routeableDomainId,
+      routeable: Boolean(routeableDomainId),
+    };
+  });
 }
 
 export function buildPublishedDivisionSummaries(

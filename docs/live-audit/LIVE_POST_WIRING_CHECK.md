@@ -276,3 +276,92 @@ Validation run in canonical repo:
 Important note:
 
 - Runtime Playwright results target the current deployed site. They confirm current live backend responses but do not by themselves prove this fallback code is live until the next frontend deploy includes these changes.
+
+## Domain rikishi id resolver implementation pass (2026-03-17)
+
+Scope completed:
+
+- Implemented a live-domain resolver so published-profile/search/directory flows no longer treat verified-profile IDs as routeable domain IDs.
+- Kept profile-only browsing intact when no deterministic live-domain match can be resolved.
+
+Implementation summary:
+
+- Canonical live source: `getRikishiDirectory()` (`/api/v1/rikishi`).
+- Resolver logic now lives in `src/utils/publishedProfileBrowsing.ts`:
+  - Added `resolvePublishedProfileEntries(...)` returning `routeableDomainId`.
+  - Matching strategy:
+    1. direct id equality if published id already exists in live domain directory,
+    2. preferred `normalized shikona + normalized heya` exact match,
+    3. fallback to unique `normalized shikona` match,
+    4. otherwise unresolved (`routeableDomainId = null`).
+- Link surfaces now navigate only when `routeableDomainId` is present:
+  - `src/components/navigation/RikishiSearch.tsx`
+  - `src/components/search/RikishiDiscoveryRow.tsx`
+  - `src/pages/SearchPage.tsx`
+  - `src/pages/RikishiDirectoryPage.tsx`
+
+Runtime audit seed update:
+
+- Updated `scripts/runtime-check-playwright.mjs` to include:
+  - positive route: `/rikishi/12451` (confirmed live-domain id),
+  - explicit degraded/legacy check: `/rikishi/3842`.
+
+Validation run:
+
+- `npm run typecheck` -> PASS
+- `npm run build` -> PASS
+- `node scripts/runtime-check-playwright.mjs` -> PASS (artifacts refreshed)
+
+Runtime highlights from refreshed `docs/live-audit/runtime-check/results.json`:
+
+- `/rikishi/12451`: all rikishi endpoints `200` (`summary`, `timeline`, `rank-progression`, `kimarite`).
+- `/rikishi/3842`: summary endpoint still `404`, while timeline/rank/kimarite are `200`.
+- Non-rikishi historical coverage behavior remains unchanged (`/analytics` and some `202601` lookups still return `404`).
+
+## Live rikishi id normalisation pass (2026-03-17)
+
+Production endpoint checks confirmed the live domain API expects numeric-string rikishi ids:
+
+- `GET /api/v1/rikishi/12451` -> `200`
+- `GET /api/v1/rikishi/12836` -> `200`
+- `GET /api/v1/rikishi/12839` -> `200`
+- `GET /api/v1/basho/202603` -> `200`
+- `GET /api/v1/basho/202603/makuuchi` -> `200`
+- `GET /api/entities/Wrestler?limit=5` -> `200`
+- `GET /api/entities/BashoRecord?limit=5` -> `200`
+
+Runtime audit rerun command:
+
+- `node scripts/runtime-check-playwright.mjs`
+
+Runtime route assessment (`docs/live-audit/runtime-check/results.json`):
+
+- `/`:
+  - Primary domain/data calls are healthy (`/api/v1/rikishi` and `/api/v1/rikishi/11980` both `200`).
+  - Additional historical basho lookups to `202601/202511/202509/202507` return `404` and surface console noise.
+- `/rikishi/3842`:
+  - Summary endpoint `/api/v1/rikishi/3842` returns `404`.
+  - Timeline/rank/kimarite for `3842` return `200`.
+  - Route remains degraded because this page still drives a non-live id into the summary call.
+- `/basho/202603`: healthy (`200` responses across requested divisions).
+- `/basho/202603/makuuchi`: page loads with primary `202603` call `200`, but follow-on `202601` lookups return `404`.
+- `/leaderboard`: healthy (`/api/entities/Wrestler` and `/api/entities/BashoRecord` both `200`).
+- `/rivalries`: healthy (head-to-head fanout requests all `200` in this run).
+- `/analytics`: degraded due to many historical `basho/*/makuuchi` `404` calls, not a rikishi-id-shape error.
+- `/stables` and `/stables/isegahama`: healthy in this run.
+
+Rikishi-id-shape diagnosis:
+
+- Route/API path shape is centralized through `src/pages/rikishi/api.ts` and always calls `/v1/rikishi/:id` with whatever `id` arrives from route/link state.
+- Wrong ids are still emitted where published-profile JSA ids are treated as routeable domain ids.
+  - `src/utils/publishedProfileBrowsing.ts` currently marks `routeable` as `Boolean(profile.rikishiId)` using verified-profile `rikishiId` (JSA/profile id).
+  - `src/components/navigation/RikishiSearch.tsx` navigates directly to `/rikishi/${entry.rikishiId}` for those published entries.
+  - `src/components/search/RikishiDiscoveryRow.tsx` does the same for any `PublishedProfileEntry` with `routeable=true`.
+  - `src/pages/RikishiDirectoryPage.tsx` and `src/pages/SearchPage.tsx` both render those published entries via `RikishiDiscoveryRow`, so they inherit this wrong-id link behavior.
+- The audit script itself still hardcodes `/rikishi/3842` (`scripts/runtime-check-playwright.mjs`), which is useful for regression visibility but confirms this legacy-id route remains in test coverage.
+
+Correct mapping source for live routeable ids:
+
+- `GET /api/v1/rikishi` (domain directory payload) is the canonical source of live routeable domain `rikishiId` values.
+- Division standings and other `/api/v1/*` domain payloads also carry domain `rikishiId` values and are safe for route generation.
+- Verified profile rows (`data/makuuchi_verified_profiles.json` via `src/data/verifiedProfiles.ts`) should be treated as profile metadata and matched to domain ids (for example by stable key such as shikona+heya) before generating routeable `/rikishi/:id` links.

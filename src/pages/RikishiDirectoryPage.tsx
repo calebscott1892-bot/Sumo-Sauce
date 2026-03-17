@@ -1,5 +1,6 @@
 import { useEffect, useMemo } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
+import { useQuery } from '@tanstack/react-query';
 import { ArrowRight, ArrowUpDown, Building2, Layers3, Search, Users } from 'lucide-react';
 import StableSummaryCard from '@/components/stables/StableSummaryCard';
 import RikishiDiscoveryRow from '@/components/search/RikishiDiscoveryRow';
@@ -11,8 +12,10 @@ import {
   buildPublishedDivisionSummaries,
   buildPublishedStableSummaries,
   getPublishedProfileEntries,
-  type PublishedProfileEntry,
+  resolvePublishedProfileEntries,
+  type ResolvedPublishedProfileEntry,
 } from '@/utils/publishedProfileBrowsing';
+import { getRikishiDirectory } from '@/pages/rikishi/api';
 
 type SortKey = 'shikona' | 'heya' | 'id';
 type SortDir = 'asc' | 'desc';
@@ -24,7 +27,16 @@ export default function RikishiDirectoryPage() {
     trackDirectoryView();
   }, []);
 
-  const directory = useMemo(() => getPublishedProfileEntries(), []);
+  const publishedEntries = useMemo(() => getPublishedProfileEntries(), []);
+  const domainDirectoryQuery = useQuery({
+    queryKey: ['domain-rikishi-directory-for-directory-page'],
+    queryFn: getRikishiDirectory,
+    staleTime: 5 * 60 * 1000,
+  });
+  const directory = useMemo(
+    () => resolvePublishedProfileEntries(publishedEntries, domainDirectoryQuery.data ?? []),
+    [publishedEntries, domainDirectoryQuery.data],
+  );
   const stableSummaries = useMemo(() => buildPublishedStableSummaries(directory), [directory]);
   const divisionSummaries = useMemo(() => buildPublishedDivisionSummaries(directory), [directory]);
 
@@ -318,7 +330,7 @@ export default function RikishiDirectoryPage() {
           />
         ) : (
           <div className="space-y-2">
-            {sorted.map((entry: PublishedProfileEntry) => (
+            {sorted.map((entry: ResolvedPublishedProfileEntry) => (
               <RikishiDiscoveryRow key={entry.key} entry={entry} />
             ))}
           </div>

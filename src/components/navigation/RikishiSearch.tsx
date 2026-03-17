@@ -1,10 +1,12 @@
 import { useState, useCallback, useRef, useEffect, useMemo, useDeferredValue } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useQuery } from '@tanstack/react-query';
 import FallbackAvatar from '@/components/FallbackAvatar';
 import PremiumBadge from '@/components/ui/premium/PremiumBadge';
 import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from '@/components/ui/command';
 import { getProfileConfidencePresentation, getVerifiedImageUrl } from '@/data/verifiedProfiles';
-import { searchPublishedProfileEntries, getPublishedProfileEntries, type PublishedProfileEntry } from '@/utils/publishedProfileBrowsing';
+import { searchPublishedProfileEntries, getPublishedProfileEntries, resolvePublishedProfileEntries, type ResolvedPublishedProfileEntry } from '@/utils/publishedProfileBrowsing';
+import { getRikishiDirectory } from '@/pages/rikishi/api';
 import { trackSearchUsage } from '@/utils/analytics';
 
 const MAX_RESULTS = 12;
@@ -16,20 +18,29 @@ export default function RikishiSearch() {
   const deferredSearch = useDeferredValue(search);
   const containerRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
-  const directory = useMemo(() => getPublishedProfileEntries(), []);
+  const publishedEntries = useMemo(() => getPublishedProfileEntries(), []);
+  const domainDirectoryQuery = useQuery({
+    queryKey: ['domain-rikishi-directory-for-search'],
+    queryFn: getRikishiDirectory,
+    staleTime: 5 * 60 * 1000,
+  });
+  const directory = useMemo(
+    () => resolvePublishedProfileEntries(publishedEntries, domainDirectoryQuery.data ?? []),
+    [publishedEntries, domainDirectoryQuery.data],
+  );
   const filtered = useMemo(
     () => searchPublishedProfileEntries(directory, deferredSearch, MAX_RESULTS),
     [deferredSearch, directory],
   );
 
   const handleSelect = useCallback(
-    (entry: PublishedProfileEntry) => {
+    (entry: ResolvedPublishedProfileEntry) => {
       trackSearchUsage(search, filtered.length, { surface: 'home_search', tab: 'rikishi' });
       setOpen(false);
       setSearch('');
 
-      if (entry.routeable && entry.rikishiId) {
-        navigate(`/rikishi/${encodeURIComponent(entry.rikishiId)}`);
+      if (entry.routeableDomainId) {
+        navigate(`/rikishi/${encodeURIComponent(entry.routeableDomainId)}`);
         return;
       }
 
@@ -120,8 +131,8 @@ function CompactResultItem({
   entry,
   onSelect,
 }: {
-  entry: PublishedProfileEntry;
-  onSelect: (entry: PublishedProfileEntry) => void;
+  entry: ResolvedPublishedProfileEntry;
+  onSelect: (entry: ResolvedPublishedProfileEntry) => void;
 }) {
   const imageUrl = useMemo(() => getVerifiedImageUrl(entry.profile), [entry.profile]);
   const trustMeta = getProfileConfidencePresentation(entry.profile.profileConfidence);

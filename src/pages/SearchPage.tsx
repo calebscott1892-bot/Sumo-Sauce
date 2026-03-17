@@ -1,8 +1,10 @@
 import { useState, useMemo, useCallback, useEffect, useDeferredValue, useRef } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
+import { useQuery } from '@tanstack/react-query';
 import { Calendar, Search, Users, X } from 'lucide-react';
 import { recentBashoIds, bashoDisplayName, bashoTournamentName } from '@/utils/basho';
-import { getPublishedProfileEntries, searchPublishedProfileEntries } from '@/utils/publishedProfileBrowsing';
+import { getPublishedProfileEntries, resolvePublishedProfileEntries, searchPublishedProfileEntries } from '@/utils/publishedProfileBrowsing';
+import { getRikishiDirectory } from '@/pages/rikishi/api';
 import { trackSearchPageView, trackSearchUsage } from '@/utils/analytics';
 import PageMeta from '@/components/ui/PageMeta';
 import EmptyState from '@/components/ui/EmptyState';
@@ -26,7 +28,16 @@ export default function SearchPage() {
   const [query, setQuery] = useState(urlQuery);
   const [tab, setTab] = useState<Tab>(normalizedUrlTab);
   const deferredQuery = useDeferredValue(query);
-  const directory = useMemo(() => getPublishedProfileEntries(), []);
+  const publishedEntries = useMemo(() => getPublishedProfileEntries(), []);
+  const domainDirectoryQuery = useQuery({
+    queryKey: ['domain-rikishi-directory-for-search-page'],
+    queryFn: getRikishiDirectory,
+    staleTime: 5 * 60 * 1000,
+  });
+  const directory = useMemo(
+    () => resolvePublishedProfileEntries(publishedEntries, domainDirectoryQuery.data ?? []),
+    [publishedEntries, domainDirectoryQuery.data],
+  );
 
   useEffect(() => {
     setQuery(urlQuery);

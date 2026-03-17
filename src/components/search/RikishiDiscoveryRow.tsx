@@ -9,10 +9,10 @@ import {
   getVerifiedImageUrl,
   getVerifiedProfileForIdentity,
 } from '@/data/verifiedProfiles';
-import type { PublishedProfileEntry } from '@/utils/publishedProfileBrowsing';
+import type { PublishedProfileEntry, ResolvedPublishedProfileEntry } from '@/utils/publishedProfileBrowsing';
 import type { RikishiDirectoryEntry } from '../../../shared/api/v1';
 
-type Entry = RikishiDirectoryEntry | PublishedProfileEntry;
+type Entry = RikishiDirectoryEntry | PublishedProfileEntry | ResolvedPublishedProfileEntry;
 
 type Props = {
   entry: Entry;
@@ -22,7 +22,10 @@ type Props = {
 
 function RikishiDiscoveryRow({ entry, compact = false, className = '' }: Props) {
   const rikishiId = entry.rikishiId ?? null;
-  const routeable = 'routeable' in entry ? entry.routeable : Boolean(rikishiId);
+  const routeableDomainId = 'routeableDomainId' in entry
+    ? entry.routeableDomainId
+    : rikishiId;
+  const routeable = Boolean(routeableDomainId);
 
   const profile = useMemo(
     () => ('profile' in entry ? entry.profile : getVerifiedProfileForIdentity(rikishiId, entry.shikona)),
@@ -130,10 +133,10 @@ function RikishiDiscoveryRow({ entry, compact = false, className = '' }: Props) 
     </>
   );
 
-  if (routeable && rikishiId) {
+  if (routeable && routeableDomainId) {
     return (
       <Link
-        to={`/rikishi/${encodeURIComponent(rikishiId)}`}
+        to={`/rikishi/${encodeURIComponent(routeableDomainId)}`}
         className={`group flex items-start gap-3 rounded-xl border border-white/[0.06] bg-white/[0.02] px-3.5 py-3 transition-all hover:border-red-600/50 hover:bg-white/[0.04] sm:items-center sm:px-4 ${className}`.trim()}
       >
         {content}

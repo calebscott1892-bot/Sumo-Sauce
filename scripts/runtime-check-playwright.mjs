@@ -5,6 +5,7 @@ import { chromium } from 'playwright';
 const base = 'https://sumo-sauce.vercel.app';
 const routes = [
   '/',
+  '/rikishi/12451',
   '/rikishi/3842',
   '/basho/202603',
   '/basho/202603/makuuchi',
