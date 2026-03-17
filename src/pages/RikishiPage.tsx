@@ -1,4 +1,4 @@
-import { Link, useParams } from 'react-router-dom';
+import { Link, Navigate, useParams } from 'react-router-dom';
 import { lazy, Suspense, useEffect, useMemo, useState, type ReactNode } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import CareerTable from '@/components/rikishi/CareerTable';
@@ -37,8 +37,9 @@ import { PremiumPageHeader, PremiumSectionShell, PremiumBadge } from '@/componen
 import { getApiFailureMessage, isApiUnavailableError, isResourceNotFoundError } from '@/utils/apiFailure';
 import {
   buildPublishedStableSummaries,
-  findPublishedProfileEntryByRikishiId,
+  findResolvedPublishedProfileEntryByAnyId,
   getPublishedProfileEntries,
+  resolvePublishedProfileEntries,
 } from '@/utils/publishedProfileBrowsing';
 import { buildRivalryInsight, getRivalryStateVariant } from '@/utils/rivalry';
 import { getStablemates, stableSlug } from '@/utils/rosterBrowsing';
@@ -228,9 +229,14 @@ export default function RikishiPage() {
     return (h2hPreviewQuery.data || []).slice(0, 3);
   }, [h2hPreviewQuery.data]);
 
+  const resolvedPublishedEntries = useMemo(
+    () => resolvePublishedProfileEntries(publishedEntries, directoryQuery.data ?? []),
+    [publishedEntries, directoryQuery.data],
+  );
+
   const publishedEntry = useMemo(
-    () => findPublishedProfileEntryByRikishiId(rikishiId, publishedEntries),
-    [publishedEntries, rikishiId],
+    () => findResolvedPublishedProfileEntryByAnyId(rikishiId, resolvedPublishedEntries),
+    [resolvedPublishedEntries, rikishiId],
   );
   const publishedStableSummaries = useMemo(
     () => buildPublishedStableSummaries(publishedEntries),
@@ -270,8 +276,18 @@ export default function RikishiPage() {
   const shikona = summaryQuery.data?.shikona ?? publishedEntry?.shikona ?? rikishiId;
   const pageTitle = `Sumo Sauce - ${shikona} (${rikishiId})`;
   const pageDesc = `${shikona} career profile, rank progression, kimarite stats, and head-to-head matchups on Sumo Sauce.`;
+  const legacyRecoveryDomainId = useMemo(() => {
+    const domainId = publishedEntry?.routeableDomainId ?? null;
+    if (!domainId) return null;
+    if (domainId === rikishiId) return null;
+    return domainId;
+  }, [publishedEntry?.routeableDomainId, rikishiId]);
   const suggestedDomainProfile = useMemo(() => {
     if (!publishedEntry || !directoryQuery.data?.length) return null;
+    if (publishedEntry.routeableDomainId) {
+      const byResolvedId = directoryQuery.data.find((entry) => entry.rikishiId === publishedEntry.routeableDomainId);
+      if (byResolvedId) return byResolvedId;
+    }
     const publishedName = String(publishedEntry.shikona || '').trim().toLowerCase();
     if (!publishedName) return null;
     return directoryQuery.data.find((entry) => String(entry.shikona || '').trim().toLowerCase() === publishedName) ?? null;
@@ -325,6 +341,10 @@ export default function RikishiPage() {
 
   if (isLoading) {
     return <RikishiProfileSkeleton />;
+  }
+
+  if (isNotFound && legacyRecoveryDomainId) {
+    return <Navigate to={`/rikishi/${encodeURIComponent(legacyRecoveryDomainId)}`} replace />;
   }
 
   if (isNotFound) {

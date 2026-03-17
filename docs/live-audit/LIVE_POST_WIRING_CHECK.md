@@ -318,6 +318,74 @@ Runtime highlights from refreshed `docs/live-audit/runtime-check/results.json`:
 - `/rikishi/3842`: summary endpoint still `404`, while timeline/rank/kimarite are `200`.
 - Non-rikishi historical coverage behavior remains unchanged (`/analytics` and some `202601` lookups still return `404`).
 
+## Post-frontend-id-resolver live verification pass (2026-03-17)
+
+Verification scope:
+
+- Commit under verification: `bff993e40fe0cede828c2563a61a274a5e1a59e7`
+- Live target: `https://sumo-sauce.vercel.app`
+- Runtime rerun command: `node scripts/runtime-check-playwright.mjs`
+
+Fresh runtime evidence (`docs/live-audit/runtime-check/results.json`):
+
+- `/rikishi/12451`: domain calls all `200` (`/api/v1/rikishi/12451`, timeline, rank-progression, kimarite).
+- `/rikishi/3842`: summary call remains `404` while timeline/rank/kimarite are `200` (expected degraded legacy-id path).
+- `/basho/202603`: healthy (`200` calls in this pass).
+- `/leaderboard`, `/rivalries`, `/stables`, `/stables/isegahama`: healthy in this pass.
+- `/analytics` and parts of `/` and `/basho/202603/makuuchi` still issue historical basho lookups returning `404` (coverage/selection issue, not rikishi-id normalization).
+
+Live discovery-surface routing verification:
+
+- Probed live `/rikishi` and `/search` pages via Playwright and sampled rendered rikishi links.
+- Sampled directory links were numeric (`/rikishi/1412`, `/rikishi/12794`, `/rikishi/12912`, etc.) and verified against live backend with `200` responses.
+- No `/rikishi/3842` links were found on key discovery surfaces checked (`/rikishi`, `/search`, `/search?q=Hoshoryu`, `/rikishi?q=Hoshoryu`).
+
+Interpretation:
+
+- Resolver behavior is live for mapped routeable entries (numeric domain ids are being emitted).
+- Residual UX gap remains for some expected lookups (for example Hoshoryu query returning no routeable card in these probes), indicating mapping coverage/search-discovery quality still needs follow-up.
+
+## Resolver coverage + legacy rikishi route recovery pass (2026-03-17)
+
+Scope of this pass:
+
+- Improve deterministic resolver hit-rate for published profile -> live domain id mapping.
+- Add legacy-route recovery for `/rikishi/:id` when the incoming id is a legacy/profile id and a deterministic domain-id mapping exists.
+
+Code-path updates applied:
+
+- `src/utils/publishedProfileBrowsing.ts`
+  - Strengthened normalization for deterministic matching (diacritic stripping + punctuation-safe keying).
+  - Added full-name and primary-shikona matching maps, each with optional heya-assisted disambiguation.
+  - Resolver now checks, in order:
+    1. direct id match against live domain directory,
+    2. unique full-shikona+heya match,
+    3. unique primary-shikona+heya match,
+    4. unique full-shikona match,
+    5. unique primary-shikona match.
+  - Extended search scoring to include primary shikona key and resolved `routeableDomainId`.
+  - Added `findResolvedPublishedProfileEntryByAnyId(...)` helper for looking up entries by either legacy/profile id or resolved domain id.
+
+- `src/pages/RikishiPage.tsx`
+  - Uses resolved published entries (joined with live `getRikishiDirectory()` data).
+  - Adds deterministic legacy-route recovery:
+    - if `/:id` is not found in domain summary endpoint,
+    - and the id maps deterministically to a different live `routeableDomainId`,
+    - route is recovered via redirect to `/rikishi/<routeableDomainId>`.
+  - Keeps honest degraded-state fallback when no deterministic mapping exists.
+
+Validation run in canonical repo:
+
+- `npm run typecheck` -> PASS
+- `npm run build` -> PASS
+- `node scripts/runtime-check-playwright.mjs` -> completed; artifacts refreshed
+
+Current live runtime evidence (after refresh):
+
+- `/rikishi/12451` remains healthy (`200` across summary/timeline/rank-progression/kimarite).
+- `/rikishi/3842` still shows summary `404` with timeline/rank/kimarite `200` in this run.
+- This indicates the deployed frontend runtime being audited has not yet demonstrated the new redirect-recovery behavior on live for `/rikishi/3842`.
+
 ## Live rikishi id normalisation pass (2026-03-17)
 
 Production endpoint checks confirmed the live domain API expects numeric-string rikishi ids:

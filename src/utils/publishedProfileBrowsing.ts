@@ -56,12 +56,28 @@ function normalize(value: string | null | undefined): string {
   return String(value || '').trim().toLowerCase();
 }
 
+function stripDiacritics(value: string): string {
+  return value.normalize('NFKD').replace(/[\u0300-\u036f]/g, '');
+}
+
 function normalizeShikonaKey(value: string | null | undefined): string {
-  return normalize(value).replace(/\s+/g, ' ').trim();
+  return stripDiacritics(normalize(value))
+    .replace(/[^a-z0-9\s-]/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
 }
 
 function normalizeHeyaKey(value: string | null | undefined): string {
-  return normalize(value).replace(/\s+/g, ' ').trim();
+  return stripDiacritics(normalize(value))
+    .replace(/[^a-z0-9\s-]/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function primaryShikonaKey(value: string | null | undefined): string {
+  const normalized = normalizeShikonaKey(value);
+  if (!normalized) return '';
+  return normalized.split(/[\s-]+/)[0] ?? '';
 }
 
 function stableSlug(value: string): string {
@@ -133,7 +149,9 @@ export function searchPublishedProfileEntries(
     .map((entry) => {
       const score = Math.min(
         scoreField(normalize(entry.shikona), query, 0, 1, 3),
+        scoreField(primaryShikonaKey(entry.shikona), query, 0, 1, 2),
         scoreField(normalize(entry.rikishiId), query, 0, 1, 2),
+        scoreField(normalize(entry.routeableDomainId), query, 0, 1, 2),
         scoreField(normalize(entry.heya), query, 2, 4, 5),
         scoreField(normalize(entry.division), query, 3, 5, 6),
       );
@@ -153,14 +171,18 @@ export function searchPublishedProfileEntries(
 
 type DomainResolverMaps = {
   byDomainId: Map<string, RikishiDirectoryEntry>;
-  byNameAndHeya: Map<string, RikishiDirectoryEntry[]>;
-  byName: Map<string, RikishiDirectoryEntry[]>;
+  byFullNameAndHeya: Map<string, RikishiDirectoryEntry[]>;
+  byShortNameAndHeya: Map<string, RikishiDirectoryEntry[]>;
+  byFullName: Map<string, RikishiDirectoryEntry[]>;
+  byShortName: Map<string, RikishiDirectoryEntry[]>;
 };
 
 function buildDomainResolverMaps(domainDirectory: readonly RikishiDirectoryEntry[]): DomainResolverMaps {
   const byDomainId = new Map<string, RikishiDirectoryEntry>();
-  const byNameAndHeya = new Map<string, RikishiDirectoryEntry[]>();
-  const byName = new Map<string, RikishiDirectoryEntry[]>();
+  const byFullNameAndHeya = new Map<string, RikishiDirectoryEntry[]>();
+  const byShortNameAndHeya = new Map<string, RikishiDirectoryEntry[]>();
+  const byFullName = new Map<string, RikishiDirectoryEntry[]>();
+  const byShortName = new Map<string, RikishiDirectoryEntry[]>();
 
   for (const row of domainDirectory) {
     const domainId = String(row.rikishiId || '').trim();
@@ -168,23 +190,43 @@ function buildDomainResolverMaps(domainDirectory: readonly RikishiDirectoryEntry
 
     byDomainId.set(domainId, row);
 
-    const nameKey = normalizeShikonaKey(row.shikona);
+    const fullNameKey = normalizeShikonaKey(row.shikona);
+    const shortNameKey = primaryShikonaKey(row.shikona);
     const heyaKey = normalizeHeyaKey(row.heya);
-    if (!nameKey) continue;
+    if (!fullNameKey) continue;
 
-    const nameBucket = byName.get(nameKey) ?? [];
-    nameBucket.push(row);
-    byName.set(nameKey, nameBucket);
+    const fullBucket = byFullName.get(fullNameKey) ?? [];
+    fullBucket.push(row);
+    byFullName.set(fullNameKey, fullBucket);
+
+    if (shortNameKey) {
+      const shortBucket = byShortName.get(shortNameKey) ?? [];
+      shortBucket.push(row);
+      byShortName.set(shortNameKey, shortBucket);
+    }
 
     if (heyaKey) {
-      const key = `${nameKey}::${heyaKey}`;
-      const nameHeyaBucket = byNameAndHeya.get(key) ?? [];
-      nameHeyaBucket.push(row);
-      byNameAndHeya.set(key, nameHeyaBucket);
+      const fullKey = `${fullNameKey}::${heyaKey}`;
+      const fullHeyaBucket = byFullNameAndHeya.get(fullKey) ?? [];
+      fullHeyaBucket.push(row);
+      byFullNameAndHeya.set(fullKey, fullHeyaBucket);
+
+      if (shortNameKey) {
+        const shortKey = `${shortNameKey}::${heyaKey}`;
+        const shortHeyaBucket = byShortNameAndHeya.get(shortKey) ?? [];
+        shortHeyaBucket.push(row);
+        byShortNameAndHeya.set(shortKey, shortHeyaBucket);
+      }
     }
   }
 
-  return { byDomainId, byNameAndHeya, byName };
+  return {
+    byDomainId,
+    byFullNameAndHeya,
+    byShortNameAndHeya,
+    byFullName,
+    byShortName,
+  };
 }
 
 function resolveDomainIdForEntry(
@@ -192,7 +234,8 @@ function resolveDomainIdForEntry(
   maps: DomainResolverMaps,
 ): string | null {
   const publishedId = String(entry.rikishiId || '').trim();
-  const shikonaKey = normalizeShikonaKey(entry.shikona);
+  const fullShikonaKey = normalizeShikonaKey(entry.shikona);
+  const shortShikonaKey = primaryShikonaKey(entry.shikona);
   const heyaKey = normalizeHeyaKey(entry.heya);
 
   // If a published ID already exists in live domain IDs, use it directly.
@@ -200,18 +243,31 @@ function resolveDomainIdForEntry(
     return publishedId;
   }
 
-  if (!shikonaKey) return null;
+  if (!fullShikonaKey) return null;
 
-  // Prefer shikona + heya exact matches when available.
+  // Prefer full shikona + heya exact matches when available.
   if (heyaKey) {
-    const strictMatches = maps.byNameAndHeya.get(`${shikonaKey}::${heyaKey}`) ?? [];
+    const strictMatches = maps.byFullNameAndHeya.get(`${fullShikonaKey}::${heyaKey}`) ?? [];
     if (strictMatches.length === 1) return strictMatches[0].rikishiId;
+
+    if (shortShikonaKey) {
+      const shortStrictMatches = maps.byShortNameAndHeya.get(`${shortShikonaKey}::${heyaKey}`) ?? [];
+      if (shortStrictMatches.length === 1) return shortStrictMatches[0].rikishiId;
+    }
   }
 
-  // Fallback to unique shikona-only match.
-  const nameMatches = maps.byName.get(shikonaKey) ?? [];
-  if (nameMatches.length === 1) {
-    return nameMatches[0].rikishiId;
+  // Fallback to unique full shikona-only match.
+  const fullNameMatches = maps.byFullName.get(fullShikonaKey) ?? [];
+  if (fullNameMatches.length === 1) {
+    return fullNameMatches[0].rikishiId;
+  }
+
+  // Final fallback: unique short shikona-only match.
+  if (shortShikonaKey) {
+    const shortNameMatches = maps.byShortName.get(shortShikonaKey) ?? [];
+    if (shortNameMatches.length === 1) {
+      return shortNameMatches[0].rikishiId;
+    }
   }
 
   return null;
@@ -231,6 +287,18 @@ export function resolvePublishedProfileEntries(
       routeable: Boolean(routeableDomainId),
     };
   });
+}
+
+export function findResolvedPublishedProfileEntryByAnyId(
+  id: string | null | undefined,
+  entries: readonly ResolvedPublishedProfileEntry[],
+): ResolvedPublishedProfileEntry | null {
+  const normalizedId = String(id || '').trim();
+  if (!normalizedId) return null;
+
+  return entries.find(
+    (entry) => entry.rikishiId === normalizedId || entry.routeableDomainId === normalizedId,
+  ) ?? null;
 }
 
 export function buildPublishedDivisionSummaries(
