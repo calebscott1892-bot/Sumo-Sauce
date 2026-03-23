@@ -40,33 +40,33 @@ const AdminDataConfidencePage = lazy(() => import('./AdminDataConfidencePage'));
 const WatchlistPage = lazy(() => import('./WatchlistPage'));
 
 const HERO_TYPED_PHRASES = [
-  'Welcome to C4 Studios',
-  'How can we help today?',
-  'Need a site that actually feels premium?',
-  'Refreshing something outdated?',
-  'Building from scratch?',
-  'Looking for something cleaner?',
-  'Want work that feels considered?',
-  'Need something fast, polished, and custom?',
-  'Exploring ideas before committing?',
-  'Have a project in mind?',
-  'Want to see what we\'ve built?',
-  'Curious what working together looks like?',
-  'Still here?',
-  'Stop playing with the interactive background ^̮^',
+  'Welcome to Sumo Sauce',
+  'Who leads the yūshō race?',
+  'Track every rikishi\'s rise',
+  'Explore the latest basho standings',
+  'Compare head-to-head rivalries',
+  'Search any wrestler by shikona',
+  'How is the Yokozuna performing?',
+  'Which heya dominates the banzuke?',
+  'Dive into kimarite analytics',
+  'Follow rank progression over time',
+  'See who\'s on a winning streak',
+  'Discover the next Ōzeki candidate',
+  'Ready for the dohyō?',
+  'The grand sumo reference — served fresh',
 ];
 
 const HERO_GUIDANCE_PROMPTS = [
-  'Browse recent work',
-  'View selected projects',
-  'Compare design directions',
-  'Explore studio services',
-  'Read client feedback',
-  'Start a project brief',
-  'See how we build',
-  'Looking for inspiration?',
-  'Need a redesign?',
-  'Need something launched quickly?',
+  'Search a rikishi by name',
+  'View the current basho standings',
+  'Compare two wrestlers head-to-head',
+  'Explore the full banzuke',
+  'Check the latest leaderboard',
+  'Browse rivalries and matchups',
+  'See kimarite technique stats',
+  'Find a wrestler\'s stable',
+  'Track promotion and demotion paths',
+  'Discover career milestones',
 ];
 
 function HomeHeroTypedTitle() {
@@ -549,7 +549,7 @@ function HomePage() {
             onClick={handleSeeSelectedWork}
             className="pointer-events-auto inline-flex min-h-11 items-center gap-2 rounded-full border border-white/[0.14] bg-white/[0.06] px-4 py-2 text-sm font-medium text-zinc-200 shadow-[0_10px_28px_rgba(0,0,0,0.24)] backdrop-blur-md transition-all hover:border-red-500/40 hover:text-white"
           >
-            <span>See selected work</span>
+            <span>Explore the dohyō</span>
             <span className="inline-flex h-6 w-6 items-center justify-center rounded-full border border-white/[0.16] bg-white/[0.03]">
               <ChevronDown className="hero-next-cue-arrow h-3.5 w-3.5 text-zinc-300" />
             </span>

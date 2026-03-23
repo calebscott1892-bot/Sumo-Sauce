@@ -578,3 +578,46 @@ All core endpoints healthy:
 2. **Rikishi 3842 not found** (`/rikishi/3842`): The domain API only knows rikishiId 12451 (Hoshoryu). Route `/rikishi/3842` uses a legacy/JSA profile ID that doesn't map to a domain entity. The page loads but summary data is missing.
 
 3. **No stale deployment detected** — both Vercel and Render are serving the correct commit.
+
+---
+
+## Toward Greatness Audit — 2026-03-24
+
+### P0 Issue Fixed
+
+**Homepage hero C4 Studios portfolio copy replaced with sumo-relevant content.**
+
+Before:
+- HERO_TYPED_PHRASES: "Welcome to C4 Studios", "Need a site that actually feels premium?", "Building from scratch?", etc.
+- HERO_GUIDANCE_PROMPTS: "Browse recent work", "Start a project brief", "View selected projects"
+- Button: "See selected work"
+
+After:
+- HERO_TYPED_PHRASES: "Welcome to Sumo Sauce", "Who leads the yūshō race?", "Track every rikishi's rise", etc.
+- HERO_GUIDANCE_PROMPTS: "Search a rikishi by name", "View the current basho standings", "Compare two wrestlers head-to-head"
+- Button: "Explore the dohyō"
+
+### Runtime Audit Summary (post-basho-fix deployment)
+
+| Route | OK | FAIL | Status |
+|-------|-----|------|--------|
+| `/` | 2 | 6* | *Render not yet redeployed with /basho endpoint |
+| `/rikishi/12451` | 31 | 0 | HEALTHY |
+| `/rikishi/3842` | 5 | 3 | DEGRADED (expected — legacy ID, fallback page shown) |
+| `/basho/202603` | 7 | 3* | *Same Render lag |
+| `/basho/202603/makuuchi` | 2 | 6* | *Same |
+| `/leaderboard` | 3 | 0 | HEALTHY |
+| `/rivalries` | 121 | 0 | HEALTHY |
+| `/analytics` | 1 | 3* | *Same |
+| `/stables` | 1 | 0 | HEALTHY |
+| `/stables/isegahama` | 1 | 0 | HEALTHY |
+
+*Frontend fallback probing is active until Render deploys the new `/api/v1/basho` endpoint.
+
+### Top P1 Issues for Next Passes
+
+1. Add persistent top navigation bar for first-visit discoverability
+2. Pre-compute rivalry data to eliminate 120-call sampling
+3. Clean up dead unrouted legacy pages (Forum, Games, old profiles)
+4. Add pagination to RikishiDirectoryPage
+5. Pre-compute analytics for offline-resilient baseline
