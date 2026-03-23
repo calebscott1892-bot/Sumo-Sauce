@@ -17,318 +17,49 @@
         "resourceType": "fetch"
       },
       {
-        "url": "https://sumo-sauce.onrender.com/api/v1/basho/202603/makuuchi",
-        "method": "GET",
-        "status": 200,
-        "statusText": null,
-        "resourceType": "fetch"
-      },
-      {
-        "url": "https://sumo-sauce.onrender.com/api/v1/basho/202603/juryo",
-        "method": "GET",
-        "status": 200,
-        "statusText": null,
-        "resourceType": "fetch"
-      },
-      {
-        "url": "https://sumo-sauce.onrender.com/api/v1/basho/202601/makuuchi",
+        "url": "https://sumo-sauce.onrender.com/api/v1/basho",
         "method": "GET",
         "status": 404,
         "statusText": null,
         "resourceType": "fetch"
       },
       {
-        "url": "https://sumo-sauce.onrender.com/api/v1/basho/202601/juryo",
+        "url": "https://sumo-sauce.onrender.com/api/v1/basho",
         "method": "GET",
         "status": 404,
         "statusText": null,
         "resourceType": "fetch"
       },
       {
-        "url": "https://sumo-sauce.onrender.com/api/v1/basho/202511/makuuchi",
+        "url": "https://sumo-sauce.onrender.com/api/v1/basho",
         "method": "GET",
         "status": 404,
         "statusText": null,
         "resourceType": "fetch"
       },
       {
-        "url": "https://sumo-sauce.onrender.com/api/v1/basho/202511/juryo",
+        "url": "https://sumo-sauce.onrender.com/api/v1/basho",
         "method": "GET",
         "status": 404,
         "statusText": null,
         "resourceType": "fetch"
       },
       {
-        "url": "https://sumo-sauce.onrender.com/api/v1/basho/202509/makuuchi",
+        "url": "https://sumo-sauce.onrender.com/api/v1/basho",
         "method": "GET",
         "status": 404,
         "statusText": null,
         "resourceType": "fetch"
       },
       {
-        "url": "https://sumo-sauce.onrender.com/api/v1/basho/202509/juryo",
+        "url": "https://sumo-sauce.onrender.com/api/v1/basho",
         "method": "GET",
         "status": 404,
-        "statusText": null,
-        "resourceType": "fetch"
-      },
-      {
-        "url": "https://sumo-sauce.onrender.com/api/v1/basho/202507/makuuchi",
-        "method": "GET",
-        "status": 404,
-        "statusText": null,
-        "resourceType": "fetch"
-      },
-      {
-        "url": "https://sumo-sauce.onrender.com/api/v1/basho/202507/juryo",
-        "method": "GET",
-        "status": 404,
-        "statusText": null,
-        "resourceType": "fetch"
-      },
-      {
-        "url": "https://sumo-sauce.onrender.com/api/v1/basho/202603/makuuchi",
-        "method": "GET",
-        "status": 200,
-        "statusText": null,
-        "resourceType": "fetch"
-      },
-      {
-        "url": "https://sumo-sauce.onrender.com/api/v1/rikishi/11980",
-        "method": "GET",
-        "status": 200,
-        "statusText": null,
-        "resourceType": "fetch"
-      },
-      {
-        "url": "https://sumo-sauce.onrender.com/api/entities/BashoRecord?rid=11980&sort=-snapshot_date",
-        "method": "GET",
-        "status": 200,
-        "statusText": null,
-        "resourceType": "fetch"
-      },
-      {
-        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/11980/12664",
-        "method": "GET",
-        "status": 200,
-        "statusText": null,
-        "resourceType": "fetch"
-      },
-      {
-        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/11980/12370",
-        "method": "GET",
-        "status": 200,
-        "statusText": null,
-        "resourceType": "fetch"
-      },
-      {
-        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/11980/12884",
-        "method": "GET",
-        "status": 200,
-        "statusText": null,
-        "resourceType": "fetch"
-      },
-      {
-        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/12664/12370",
-        "method": "GET",
-        "status": 200,
-        "statusText": null,
-        "resourceType": "fetch"
-      },
-      {
-        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/12664/12884",
-        "method": "GET",
-        "status": 200,
-        "statusText": null,
-        "resourceType": "fetch"
-      },
-      {
-        "url": "https://sumo-sauce.onrender.com/api/v1/head-to-head/12370/12884",
-        "method": "GET",
-        "status": 200,
-        "statusText": null,
-        "resourceType": "fetch"
-      },
-      {
-        "url": "https://sumo-sauce.onrender.com/api/v1/basho/202601/makuuchi",
-        "method": "GET",
-        "status": 404,
-        "statusText": null,
-        "resourceType": "fetch"
-      },
-      {
-        "url": "https://sumo-sauce.onrender.com/api/v1/basho/202511/makuuchi",
-        "method": "GET",
-        "status": 404,
-        "statusText": null,
-        "resourceType": "fetch"
-      },
-      {
-        "url": "https://sumo-sauce.onrender.com/api/v1/basho/202509/makuuchi",
-        "method": "GET",
-        "status": 404,
-        "statusText": null,
-        "resourceType": "fetch"
-      },
-      {
-        "url": "https://sumo-sauce.onrender.com/api/v1/basho/202507/makuuchi",
-        "method": "GET",
-        "status": 404,
-        "statusText": null,
-        "resourceType": "fetch"
-      },
-      {
-        "url": "https://sumo-sauce.onrender.com/api/v1/basho/202505/makuuchi",
-        "method": "GET",
-        "status": 404,
-        "statusText": null,
-        "resourceType": "fetch"
-      },
-      {
-        "url": "https://sumo-sauce.onrender.com/api/v1/basho/202503/makuuchi",
-        "method": "GET",
-        "status": 404,
-        "statusText": null,
-        "resourceType": "fetch"
-      },
-      {
-        "url": "https://sumo-sauce.onrender.com/api/v1/basho/202501/makuuchi",
-        "method": "GET",
-        "status": 404,
-        "statusText": null,
-        "resourceType": "fetch"
-      },
-      {
-        "url": "https://sumo-sauce.onrender.com/api/v1/basho/202411/makuuchi",
-        "method": "GET",
-        "status": 404,
-        "statusText": null,
-        "resourceType": "fetch"
-      },
-      {
-        "url": "https://sumo-sauce.onrender.com/api/v1/basho/202409/makuuchi",
-        "method": "GET",
-        "status": 404,
-        "statusText": null,
-        "resourceType": "fetch"
-      },
-      {
-        "url": "https://sumo-sauce.onrender.com/api/v1/basho/202407/makuuchi",
-        "method": "GET",
-        "status": 404,
-        "statusText": null,
-        "resourceType": "fetch"
-      },
-      {
-        "url": "https://sumo-sauce.onrender.com/api/v1/basho/202405/makuuchi",
-        "method": "GET",
-        "status": 404,
-        "statusText": null,
-        "resourceType": "fetch"
-      },
-      {
-        "url": "https://sumo-sauce.onrender.com/api/v1/basho/202403/makuuchi",
-        "method": "GET",
-        "status": 200,
-        "statusText": null,
-        "resourceType": "fetch"
-      },
-      {
-        "url": "https://sumo-sauce.onrender.com/api/v1/basho/202401/makuuchi",
-        "method": "GET",
-        "status": 200,
-        "statusText": null,
-        "resourceType": "fetch"
-      },
-      {
-        "url": "https://sumo-sauce.onrender.com/api/v1/basho/202311/makuuchi",
-        "method": "GET",
-        "status": 200,
-        "statusText": null,
-        "resourceType": "fetch"
-      },
-      {
-        "url": "https://sumo-sauce.onrender.com/api/v1/basho/202309/makuuchi",
-        "method": "GET",
-        "status": 200,
-        "statusText": null,
-        "resourceType": "fetch"
-      },
-      {
-        "url": "https://sumo-sauce.onrender.com/api/v1/basho/202307/makuuchi",
-        "method": "GET",
-        "status": 200,
-        "statusText": null,
-        "resourceType": "fetch"
-      },
-      {
-        "url": "https://sumo-sauce.onrender.com/api/v1/basho/202305/makuuchi",
-        "method": "GET",
-        "status": 200,
-        "statusText": null,
-        "resourceType": "fetch"
-      },
-      {
-        "url": "https://sumo-sauce.onrender.com/api/v1/basho/202303/makuuchi",
-        "method": "GET",
-        "status": 200,
         "statusText": null,
         "resourceType": "fetch"
       }
     ],
     "console": [
-      {
-        "type": "error",
-        "text": "Failed to load resource: the server responded with a status of 404 ()"
-      },
-      {
-        "type": "error",
-        "text": "Failed to load resource: the server responded with a status of 404 ()"
-      },
-      {
-        "type": "error",
-        "text": "Failed to load resource: the server responded with a status of 404 ()"
-      },
-      {
-        "type": "error",
-        "text": "Failed to load resource: the server responded with a status of 404 ()"
-      },
-      {
-        "type": "error",
-        "text": "Failed to load resource: the server responded with a status of 404 ()"
-      },
-      {
-        "type": "error",
-        "text": "Failed to load resource: the server responded with a status of 404 ()"
-      },
-      {
-        "type": "error",
-        "text": "Failed to load resource: the server responded with a status of 404 ()"
-      },
-      {
-        "type": "error",
-        "text": "Failed to load resource: the server responded with a status of 404 ()"
-      },
-      {
-        "type": "error",
-        "text": "Failed to load resource: the server responded with a status of 404 ()"
-      },
-      {
-        "type": "error",
-        "text": "Failed to load resource: the server responded with a status of 404 ()"
-      },
-      {
-        "type": "error",
-        "text": "Failed to load resource: the server responded with a status of 404 ()"
-      },
-      {
-        "type": "error",
-        "text": "Failed to load resource: the server responded with a status of 404 ()"
-      },
-      {
-        "type": "error",
-        "text": "Failed to load resource: the server responded with a status of 404 ()"
-      },
       {
         "type": "error",
         "text": "Failed to load resource: the server responded with a status of 404 ()"
@@ -712,14 +443,41 @@
         "resourceType": "fetch"
       },
       {
-        "url": "https://sumo-sauce.onrender.com/api/v1/basho/202603/makuuchi",
+        "url": "https://sumo-sauce.onrender.com/api/v1/basho",
         "method": "GET",
-        "status": 200,
+        "status": 404,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/basho",
+        "method": "GET",
+        "status": 404,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/basho",
+        "method": "GET",
+        "status": 404,
         "statusText": null,
         "resourceType": "fetch"
       }
     ],
-    "console": [],
+    "console": [
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 404 ()"
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 404 ()"
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 404 ()"
+      }
+    ],
     "errors": [],
     "screenshot": "/Users/belacttocs/Sumo-Sauce/docs/live-audit/runtime-check/basho_202603.png"
   },
@@ -734,9 +492,9 @@
         "resourceType": "fetch"
       },
       {
-        "url": "https://sumo-sauce.onrender.com/api/v1/basho/202603/makuuchi",
+        "url": "https://sumo-sauce.onrender.com/api/v1/basho",
         "method": "GET",
-        "status": 200,
+        "status": 404,
         "statusText": null,
         "resourceType": "fetch"
       },
@@ -756,6 +514,20 @@
       },
       {
         "url": "https://sumo-sauce.onrender.com/api/v1/basho/202601/makuuchi",
+        "method": "GET",
+        "status": 404,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/basho",
+        "method": "GET",
+        "status": 404,
+        "statusText": null,
+        "resourceType": "fetch"
+      },
+      {
+        "url": "https://sumo-sauce.onrender.com/api/v1/basho",
         "method": "GET",
         "status": 404,
         "statusText": null,
@@ -770,6 +542,18 @@
       }
     ],
     "console": [
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 404 ()"
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 404 ()"
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 404 ()"
+      },
       {
         "type": "error",
         "text": "Failed to load resource: the server responded with a status of 404 ()"
@@ -1681,84 +1465,21 @@
         "resourceType": "fetch"
       },
       {
-        "url": "https://sumo-sauce.onrender.com/api/v1/basho/202603/makuuchi",
-        "method": "GET",
-        "status": 200,
-        "statusText": null,
-        "resourceType": "fetch"
-      },
-      {
-        "url": "https://sumo-sauce.onrender.com/api/v1/basho/202601/makuuchi",
+        "url": "https://sumo-sauce.onrender.com/api/v1/basho",
         "method": "GET",
         "status": 404,
         "statusText": null,
         "resourceType": "fetch"
       },
       {
-        "url": "https://sumo-sauce.onrender.com/api/v1/basho/202511/makuuchi",
+        "url": "https://sumo-sauce.onrender.com/api/v1/basho",
         "method": "GET",
         "status": 404,
         "statusText": null,
         "resourceType": "fetch"
       },
       {
-        "url": "https://sumo-sauce.onrender.com/api/v1/basho/202509/makuuchi",
-        "method": "GET",
-        "status": 404,
-        "statusText": null,
-        "resourceType": "fetch"
-      },
-      {
-        "url": "https://sumo-sauce.onrender.com/api/v1/basho/202507/makuuchi",
-        "method": "GET",
-        "status": 404,
-        "statusText": null,
-        "resourceType": "fetch"
-      },
-      {
-        "url": "https://sumo-sauce.onrender.com/api/v1/basho/202505/makuuchi",
-        "method": "GET",
-        "status": 404,
-        "statusText": null,
-        "resourceType": "fetch"
-      },
-      {
-        "url": "https://sumo-sauce.onrender.com/api/v1/basho/202503/makuuchi",
-        "method": "GET",
-        "status": 404,
-        "statusText": null,
-        "resourceType": "fetch"
-      },
-      {
-        "url": "https://sumo-sauce.onrender.com/api/v1/basho/202501/makuuchi",
-        "method": "GET",
-        "status": 404,
-        "statusText": null,
-        "resourceType": "fetch"
-      },
-      {
-        "url": "https://sumo-sauce.onrender.com/api/v1/basho/202411/makuuchi",
-        "method": "GET",
-        "status": 404,
-        "statusText": null,
-        "resourceType": "fetch"
-      },
-      {
-        "url": "https://sumo-sauce.onrender.com/api/v1/basho/202409/makuuchi",
-        "method": "GET",
-        "status": 404,
-        "statusText": null,
-        "resourceType": "fetch"
-      },
-      {
-        "url": "https://sumo-sauce.onrender.com/api/v1/basho/202407/makuuchi",
-        "method": "GET",
-        "status": 404,
-        "statusText": null,
-        "resourceType": "fetch"
-      },
-      {
-        "url": "https://sumo-sauce.onrender.com/api/v1/basho/202405/makuuchi",
+        "url": "https://sumo-sauce.onrender.com/api/v1/basho",
         "method": "GET",
         "status": 404,
         "statusText": null,
@@ -1766,38 +1487,6 @@
       }
     ],
     "console": [
-      {
-        "type": "error",
-        "text": "Failed to load resource: the server responded with a status of 404 ()"
-      },
-      {
-        "type": "error",
-        "text": "Failed to load resource: the server responded with a status of 404 ()"
-      },
-      {
-        "type": "error",
-        "text": "Failed to load resource: the server responded with a status of 404 ()"
-      },
-      {
-        "type": "error",
-        "text": "Failed to load resource: the server responded with a status of 404 ()"
-      },
-      {
-        "type": "error",
-        "text": "Failed to load resource: the server responded with a status of 404 ()"
-      },
-      {
-        "type": "error",
-        "text": "Failed to load resource: the server responded with a status of 404 ()"
-      },
-      {
-        "type": "error",
-        "text": "Failed to load resource: the server responded with a status of 404 ()"
-      },
-      {
-        "type": "error",
-        "text": "Failed to load resource: the server responded with a status of 404 ()"
-      },
       {
         "type": "error",
         "text": "Failed to load resource: the server responded with a status of 404 ()"
