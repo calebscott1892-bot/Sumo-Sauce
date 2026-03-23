@@ -424,7 +424,7 @@ export default function BashoOverviewPage() {
   const lowerDivisionData = divisionData.filter((division) => division.division !== 'makuuchi' && division.division !== 'juryo');
   const latestAvailableBashoQuery = useQuery({
     queryKey: ['basho-available-ids', 'overview-page-latest'],
-    queryFn: () => getAvailableBashoIds(1, 28),
+    queryFn: () => getAvailableBashoIds(1),
     staleTime: 10 * 60 * 1000,
   });
   const latestId = latestAvailableBashoQuery.data?.[0] ?? null;

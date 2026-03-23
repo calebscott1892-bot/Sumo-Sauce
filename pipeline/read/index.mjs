@@ -2,6 +2,7 @@ export {
   listRikishiDirectory,
   getRikishiById,
   getBashoById,
+  listAvailableBasho,
   getBoutsByBashoAndDivision,
   getHeadToHead,
   getCareerTimeline,

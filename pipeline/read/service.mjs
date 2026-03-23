@@ -149,6 +149,16 @@ export async function getRikishiById(rikishiId) {
   };
 }
 
+/** Return all basho IDs that exist in the database, descending order. */
+export async function listAvailableBasho() {
+  const prisma = await getPrismaClient();
+  const rows = await prisma.basho.findMany({
+    select: { bashoId: true },
+    orderBy: { bashoId: 'desc' },
+  });
+  return rows.map((r) => r.bashoId);
+}
+
 export async function getBashoById(bashoId) {
   const id = assertBashoId(bashoId);
   const prisma = await getPrismaClient();

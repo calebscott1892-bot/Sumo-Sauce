@@ -355,7 +355,7 @@
       }
     ],
     "errors": [],
-    "screenshot": "C:\\Users\\belac\\OneDrive\\Documents\\GitHub\\Sumo-Sauce\\docs\\live-audit\\runtime-check\\home.png"
+    "screenshot": "/Users/belacttocs/Sumo-Sauce/docs/live-audit/runtime-check/home.png"
   },
   "/rikishi/12451": {
     "url": "https://sumo-sauce.vercel.app/rikishi/12451",
@@ -580,7 +580,7 @@
     ],
     "console": [],
     "errors": [],
-    "screenshot": "C:\\Users\\belac\\OneDrive\\Documents\\GitHub\\Sumo-Sauce\\docs\\live-audit\\runtime-check\\rikishi_12451.png"
+    "screenshot": "/Users/belacttocs/Sumo-Sauce/docs/live-audit/runtime-check/rikishi_12451.png"
   },
   "/rikishi/3842": {
     "url": "https://sumo-sauce.vercel.app/rikishi/3842",
@@ -657,7 +657,7 @@
       }
     ],
     "errors": [],
-    "screenshot": "C:\\Users\\belac\\OneDrive\\Documents\\GitHub\\Sumo-Sauce\\docs\\live-audit\\runtime-check\\rikishi_3842.png"
+    "screenshot": "/Users/belacttocs/Sumo-Sauce/docs/live-audit/runtime-check/rikishi_3842.png"
   },
   "/basho/202603": {
     "url": "https://sumo-sauce.vercel.app/basho/202603",
@@ -721,7 +721,7 @@
     ],
     "console": [],
     "errors": [],
-    "screenshot": "C:\\Users\\belac\\OneDrive\\Documents\\GitHub\\Sumo-Sauce\\docs\\live-audit\\runtime-check\\basho_202603.png"
+    "screenshot": "/Users/belacttocs/Sumo-Sauce/docs/live-audit/runtime-check/basho_202603.png"
   },
   "/basho/202603/makuuchi": {
     "url": "https://sumo-sauce.vercel.app/basho/202603/makuuchi",
@@ -784,7 +784,7 @@
       }
     ],
     "errors": [],
-    "screenshot": "C:\\Users\\belac\\OneDrive\\Documents\\GitHub\\Sumo-Sauce\\docs\\live-audit\\runtime-check\\basho_202603_makuuchi.png"
+    "screenshot": "/Users/belacttocs/Sumo-Sauce/docs/live-audit/runtime-check/basho_202603_makuuchi.png"
   },
   "/leaderboard": {
     "url": "https://sumo-sauce.vercel.app/leaderboard",
@@ -813,7 +813,7 @@
     ],
     "console": [],
     "errors": [],
-    "screenshot": "C:\\Users\\belac\\OneDrive\\Documents\\GitHub\\Sumo-Sauce\\docs\\live-audit\\runtime-check\\leaderboard.png"
+    "screenshot": "/Users/belacttocs/Sumo-Sauce/docs/live-audit/runtime-check/leaderboard.png"
   },
   "/rivalries": {
     "url": "https://sumo-sauce.vercel.app/rivalries",
@@ -1668,7 +1668,7 @@
     ],
     "console": [],
     "errors": [],
-    "screenshot": "C:\\Users\\belac\\OneDrive\\Documents\\GitHub\\Sumo-Sauce\\docs\\live-audit\\runtime-check\\rivalries.png"
+    "screenshot": "/Users/belacttocs/Sumo-Sauce/docs/live-audit/runtime-check/rivalries.png"
   },
   "/analytics": {
     "url": "https://sumo-sauce.vercel.app/analytics",
@@ -1812,7 +1812,7 @@
       }
     ],
     "errors": [],
-    "screenshot": "C:\\Users\\belac\\OneDrive\\Documents\\GitHub\\Sumo-Sauce\\docs\\live-audit\\runtime-check\\analytics.png"
+    "screenshot": "/Users/belacttocs/Sumo-Sauce/docs/live-audit/runtime-check/analytics.png"
   },
   "/stables": {
     "url": "https://sumo-sauce.vercel.app/stables",
@@ -1827,7 +1827,7 @@
     ],
     "console": [],
     "errors": [],
-    "screenshot": "C:\\Users\\belac\\OneDrive\\Documents\\GitHub\\Sumo-Sauce\\docs\\live-audit\\runtime-check\\stables.png"
+    "screenshot": "/Users/belacttocs/Sumo-Sauce/docs/live-audit/runtime-check/stables.png"
   },
   "/stables/isegahama": {
     "url": "https://sumo-sauce.vercel.app/stables/isegahama",
@@ -1842,6 +1842,6 @@
     ],
     "console": [],
     "errors": [],
-    "screenshot": "C:\\Users\\belac\\OneDrive\\Documents\\GitHub\\Sumo-Sauce\\docs\\live-audit\\runtime-check\\stables_isegahama.png"
+    "screenshot": "/Users/belacttocs/Sumo-Sauce/docs/live-audit/runtime-check/stables_isegahama.png"
   }
 }

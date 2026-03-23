@@ -9,9 +9,10 @@ import {
   getHeadToHead,
   getLegacyBashoRecords,
 } from '@/pages/rikishi/api';
+import { getAvailableBashoIds } from '@/pages/basho/api';
 import { buildRivalryInsight, getRivalryStateVariant } from '@/utils/rivalry';
 import { summarizeLegacyAchievements } from '@/utils/recordsMilestones';
-import { bashoDisplayName, divisionLabel, recentBashoIds } from '@/utils/basho';
+import { bashoDisplayName, divisionLabel } from '@/utils/basho';
 import { getVerifiedProfileForIdentity } from '@/data/verifiedProfiles';
 import { stableSlug } from '@/utils/rosterBrowsing';
 
@@ -137,11 +138,17 @@ function LoadingCard() {
 }
 
 export default function FeaturedEditorialRail() {
-  const recentIds = useMemo(() => recentBashoIds(5), []);
+  const availableQuery = useQuery({
+    queryKey: ['available-basho-ids'],
+    queryFn: () => getAvailableBashoIds(5),
+    staleTime: 10 * 60 * 1000,
+  });
+  const recentIds = availableQuery.data ?? [];
 
   const editorialQuery = useQuery({
     queryKey: ['home-editorial-snapshots', recentIds.join(',')],
     staleTime: 10 * 60 * 1000,
+    enabled: recentIds.length > 0,
     queryFn: async () => {
       const snapshots = await Promise.all(
         recentIds.map(async (bashoId) => {

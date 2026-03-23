@@ -525,3 +525,56 @@ Correct mapping source for live routeable ids:
 - `GET /api/v1/rikishi` (domain directory payload) is the canonical source of live routeable domain `rikishiId` values.
 - Division standings and other `/api/v1/*` domain payloads also carry domain `rikishiId` values and are safe for route generation.
 - Verified profile rows (`data/makuuchi_verified_profiles.json` via `src/data/verifiedProfiles.ts`) should be treated as profile metadata and matched to domain ids (for example by stable key such as shikona+heya) before generating routeable `/rikishi/:id` links.
+
+---
+
+## Restore & Deployment Parity Check — 2026-03-24
+
+### Git Alignment
+
+| Target          | Commit Hash                              |
+|-----------------|------------------------------------------|
+| LOCAL HEAD      | abeb875b426f343125d31777935248a2cd2ddfba |
+| origin/main     | abeb875b426f343125d31777935248a2cd2ddfba |
+| Remote (GitHub) | abeb875b426f343125d31777935248a2cd2ddfba |
+
+**Result: All three are identical. No divergence.**
+
+### Vercel Frontend
+
+- HTTP 200 on `/`, `/rikishi/12451`, `/basho/202603`
+- Production JS bundle contains `sumo-sauce.onrender.com/api` — correctly wired to Render backend
+- **Verdict: ON CORRECT COMMIT — YES**
+
+### Render Backend
+
+All core endpoints healthy:
+- `GET /api/v1/basho/202603` → 200 (divisions with bout counts)
+- `GET /api/v1/basho/202603/makuuchi` → 200 (full wrestler standings)
+- `GET /api/entities/Wrestler?limit=5` → 200
+- `GET /api/entities/BashoRecord?limit=5` → 200
+- `GET /api/v1/rikishi/12451` → 200 (Hoshoryu profile)
+- **Verdict: ON CORRECT COMMIT — YES**
+
+### Runtime Audit Summary (Playwright)
+
+| Route                  | OK Fetches | Failed Fetches | Page Errors | Console Errors | Status     |
+|------------------------|-----------|----------------|-------------|----------------|------------|
+| `/`                    | 20        | 19             | 0           | 19             | DEGRADED   |
+| `/rikishi/12451`       | 31        | 0              | 0           | 0              | HEALTHY    |
+| `/rikishi/3842`        | 5         | 3              | 0           | 3              | DEGRADED   |
+| `/basho/202603`        | 8         | 0              | 0           | 0              | HEALTHY    |
+| `/basho/202603/makuuchi` | 3       | 3              | 0           | 3              | DEGRADED   |
+| `/leaderboard`         | 3         | 0              | 0           | 0              | HEALTHY    |
+| `/rivalries`           | 121       | 0              | 0           | 0              | HEALTHY    |
+| `/analytics`           | 2         | 11             | 0           | 11             | DEGRADED   |
+| `/stables`             | 1         | 0              | 0           | 0              | HEALTHY    |
+| `/stables/isegahama`   | 1         | 0              | 0           | 0              | HEALTHY    |
+
+### Root Causes of Failures
+
+1. **Historical basho 404s** (`/`, `/analytics`, `/basho/202603/makuuchi`): Frontend requests data for basho tournaments that don't exist in the backend (202601, 202511, 202509, etc.). Only 202603 is populated. This creates console noise and degraded analytics/trend views.
+
+2. **Rikishi 3842 not found** (`/rikishi/3842`): The domain API only knows rikishiId 12451 (Hoshoryu). Route `/rikishi/3842` uses a legacy/JSA profile ID that doesn't map to a domain entity. The page loads but summary data is missing.
+
+3. **No stale deployment detected** — both Vercel and Render are serving the correct commit.

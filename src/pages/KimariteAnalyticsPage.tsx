@@ -21,8 +21,8 @@ import {
   Cell,
   Legend,
 } from 'recharts';
-import { getDivisionStandings } from '@/pages/basho/api';
-import { recentBashoIds, bashoDisplayName } from '@/utils/basho';
+import { getDivisionStandings, getAvailableBashoIds } from '@/pages/basho/api';
+import { bashoDisplayName } from '@/utils/basho';
 import type { DivisionStandingRow } from '../../shared/api/v1';
 
 const COLORS = [
@@ -57,10 +57,16 @@ function PieTooltip({ active, payload }: any) {
 export default function KimariteAnalyticsPage() {
   useEffect(() => { trackKimariteAnalyticsView(); }, []);
 
-  const recentIds = useMemo(() => recentBashoIds(6), []);
+  const availableQuery = useQuery({
+    queryKey: ['available-basho-ids'],
+    queryFn: () => getAvailableBashoIds(6),
+    staleTime: 10 * 60 * 1000,
+  });
+  const recentIds = useMemo(() => availableQuery.data ?? [], [availableQuery.data]);
 
   const results = useQuery({
     queryKey: ['kimarite-analytics-aggregate', recentIds.join(',')],
+    enabled: recentIds.length > 0,
     queryFn: async () => {
       const responses = await Promise.all(
         recentIds.map((id) => getDivisionStandings(id, 'makuuchi').catch(() => [] as DivisionStandingRow[])),

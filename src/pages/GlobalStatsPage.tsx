@@ -19,8 +19,8 @@ import {
   CartesianGrid,
 } from 'recharts';
 import { getRikishiDirectory } from '@/pages/rikishi/api';
-import { ApiError, getDivisionStandings } from '@/pages/basho/api';
-import { recentBashoIds, bashoTournamentName, bashoDisplayName, parseBashoId, latestBashoId } from '@/utils/basho';
+import { ApiError, getDivisionStandings, getAvailableBashoIds } from '@/pages/basho/api';
+import { bashoTournamentName, bashoDisplayName, parseBashoId, latestBashoId } from '@/utils/basho';
 import DivisionStrengthChart from '@/components/analytics/DivisionStrengthChart';
 import type { Division, DivisionStandingRow } from '../../shared/api/v1';
 
@@ -59,7 +59,12 @@ function ChartTooltip({ active, payload }: any) {
 export default function GlobalStatsPage() {
   useEffect(() => { trackGlobalStatsView(); }, []);
 
-  const recentIds = useMemo(() => recentBashoIds(12), []);
+  const availableQuery = useQuery({
+    queryKey: ['available-basho-ids'],
+    queryFn: () => getAvailableBashoIds(12),
+    staleTime: 10 * 60 * 1000,
+  });
+  const recentIds = useMemo(() => availableQuery.data ?? [], [availableQuery.data]);
 
   const directoryQuery = useQuery({
     queryKey: ['rikishi-directory'],
@@ -69,6 +74,7 @@ export default function GlobalStatsPage() {
 
   const standingsQuery = useQuery({
     queryKey: ['global-stats-standings', recentIds.join(',')],
+    enabled: recentIds.length > 0,
     queryFn: async () => {
       let unavailableFailures = 0;
       const responses = await Promise.all(

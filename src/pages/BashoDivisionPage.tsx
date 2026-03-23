@@ -112,7 +112,7 @@ export default function BashoDivisionPage() {
   const shikonaSearch = searchParams.get('q') ?? '';
   const latestAvailableBashoQuery = useQuery({
     queryKey: ['basho-available-ids', 'division-page-latest'],
-    queryFn: () => getAvailableBashoIds(1, 28),
+    queryFn: () => getAvailableBashoIds(1),
     staleTime: 10 * 60 * 1000,
   });
   const latestTournamentId = latestAvailableBashoQuery.data?.[0] ?? null;

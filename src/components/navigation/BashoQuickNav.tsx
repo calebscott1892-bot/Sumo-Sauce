@@ -27,7 +27,7 @@ export default function BashoQuickNav() {
 
   const availabilityQuery = useQuery({
     queryKey: ['basho-available-ids', 'quick-nav'],
-    queryFn: () => getAvailableBashoIds(8, 28),
+    queryFn: () => getAvailableBashoIds(8),
     staleTime: 10 * 60 * 1000,
   });
 

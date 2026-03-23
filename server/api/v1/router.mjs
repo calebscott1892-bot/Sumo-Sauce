@@ -7,6 +7,7 @@ import {
   getRankProgression,
   getKimariteStats,
   getBashoById,
+  listAvailableBasho,
   getDivisionStandings,
   getBoutsByBashoAndDivision,
   getHeadToHead,
@@ -246,6 +247,11 @@ router.get('/rikishi/:id/kimarite', withApiErrorHandling(async (req, res, next) 
 
   const out = await getKimariteStats(id);
   return sendValidatedJson(res, KimariteStatsSchema, out);
+}));
+
+router.get('/basho', withApiErrorHandling(async (_req, res) => {
+  const ids = await listAvailableBasho();
+  sendJson(res, ids);
 }));
 
 router.get('/basho/:id', withApiErrorHandling(async (req, res, next) => {
