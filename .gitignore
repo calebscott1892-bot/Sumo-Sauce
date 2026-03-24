@@ -40,8 +40,6 @@ test-results/
 *.sw?
 
 .env
-# Generated static data (offline fallback)
-public/data/
 
 # Database backups
 server/*.backup-*
