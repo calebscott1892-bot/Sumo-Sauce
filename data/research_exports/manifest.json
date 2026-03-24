@@ -3,7 +3,7 @@
     "generatedAt": "2026-03-11T18:34:45.385Z",
     "sourceFile": "data/makuuchi_verified_profiles.json",
     "totalProfiles": 100,
-    "description": "Manifest of research-ready export batches for the SumoWatch unresolved profile verification cycle.",
+    "description": "Manifest of research-ready export batches for the Sumo Sauce unresolved profile verification cycle.",
     "mergeWorkflow": "For each completed batch, run: node scripts/merge-research.mjs --file <batch-file> [--apply]",
     "validationCommand": "node scripts/validate-profiles.mjs"
   },

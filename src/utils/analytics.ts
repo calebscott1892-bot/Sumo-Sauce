@@ -19,7 +19,7 @@ const DEBUG_STORAGE_KEY = 'sumosauce:debug-analytics';
 
 declare global {
   interface Window {
-    __SUMOWATCH_ANALYTICS__?: {
+    __SUMOSAUCE_ANALYTICS__?: {
       getEventLog: () => ReadonlyArray<AnalyticsEvent>;
       clearEventLog: () => void;
       enableDebug: () => void;
@@ -45,9 +45,9 @@ export function clearEventLog(): void {
 }
 
 export function initAnalyticsDiagnostics(): void {
-  if (typeof window === 'undefined' || window.__SUMOWATCH_ANALYTICS__) return;
+  if (typeof window === 'undefined' || window.__SUMOSAUCE_ANALYTICS__) return;
 
-  window.__SUMOWATCH_ANALYTICS__ = {
+  window.__SUMOSAUCE_ANALYTICS__ = {
     getEventLog: () => [...eventLog],
     clearEventLog,
     enableDebug: () => {

@@ -1,5 +1,5 @@
 import { lazy, Suspense, useEffect, useMemo, useState } from 'react';
-import { BrowserRouter as Router, Link, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Link, Navigate, Route, Routes, useParams } from 'react-router-dom';
 import { ArrowRight, Calendar, ChevronDown, Database, Layers3, Search, ShieldCheck, Swords, Trophy } from 'lucide-react';
 import Layout from './Layout.jsx';
 import BashoQuickNav from '@/components/navigation/BashoQuickNav';
@@ -34,7 +34,11 @@ const SearchPage = lazy(() => import('./SearchPage'));
 const BashoDayResultsPage = lazy(() => import('./BashoDayResultsPage'));
 const Leaderboard = lazy(() => import('./Leaderboard.jsx'));
 const NotFoundPage = lazy(() => import('./NotFoundPage'));
-const WrestlerProfile = lazy(() => import('./WrestlerProfile.jsx'));
+/** Redirect legacy /wrestler/:rid URLs to the canonical /rikishi/:rid path. */
+function LegacyWrestlerRedirect() {
+  const { rid } = useParams();
+  return <Navigate to={`/rikishi/${rid || ''}`} replace />;
+}
 const AdminImport = lazy(() => import('./AdminImport.jsx'));
 const AdminDataConfidencePage = lazy(() => import('./AdminDataConfidencePage'));
 const WatchlistPage = lazy(() => import('./WatchlistPage'));
@@ -586,7 +590,7 @@ export default function Pages() {
           <Route path="/search" element={<Suspense fallback={<BashoStandingsSkeleton />}><SearchPage /></Suspense>} />
           <Route path="/timeline" element={<Suspense fallback={<BashoStandingsSkeleton />}><BashoTimelinePage /></Suspense>} />
           <Route path="/watchlist" element={<Suspense fallback={<BashoStandingsSkeleton />}><WatchlistPage /></Suspense>} />
-          <Route path="/wrestler/:rid" element={<Suspense fallback={<RikishiProfileSkeleton />}><WrestlerProfile /></Suspense>} />
+          <Route path="/wrestler/:rid" element={<LegacyWrestlerRedirect />} />
           <Route path="/admin/import" element={<Suspense fallback={<BashoStandingsSkeleton />}><AdminImport /></Suspense>} />
           <Route path="/admin/data-confidence" element={<Suspense fallback={<BashoStandingsSkeleton />}><AdminDataConfidencePage /></Suspense>} />
           <Route path="*" element={<Suspense fallback={<BashoStandingsSkeleton />}><NotFoundPage /></Suspense>} />
