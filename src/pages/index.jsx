@@ -39,104 +39,23 @@ const AdminImport = lazy(() => import('./AdminImport.jsx'));
 const AdminDataConfidencePage = lazy(() => import('./AdminDataConfidencePage'));
 const WatchlistPage = lazy(() => import('./WatchlistPage'));
 
-const HERO_TYPED_PHRASES = [
-  'Welcome to Sumo Sauce',
-  'Who leads the yūshō race?',
-  'Track every rikishi\'s rise',
-  'Explore the latest basho standings',
-  'Compare head-to-head rivalries',
-  'Search any wrestler by shikona',
-  'How is the Yokozuna performing?',
-  'Which heya dominates the banzuke?',
-  'Dive into kimarite analytics',
-  'Follow rank progression over time',
-  'See who\'s on a winning streak',
-  'Discover the next Ōzeki candidate',
-  'Ready for the dohyō?',
-  'The grand sumo reference — served fresh',
-];
-
-const HERO_GUIDANCE_PROMPTS = [
-  'Search a rikishi by name',
-  'View the current basho standings',
-  'Compare two wrestlers head-to-head',
-  'Explore the full banzuke',
-  'Check the latest leaderboard',
-  'Browse rivalries and matchups',
-  'See kimarite technique stats',
-  'Find a wrestler\'s stable',
-  'Track promotion and demotion paths',
-  'Discover career milestones',
-];
-
-function HomeHeroTypedTitle() {
-  const [phraseIndex, setPhraseIndex] = useState(0);
-  const [typedText, setTypedText] = useState('');
-  const [isDeleting, setIsDeleting] = useState(false);
-
-  useEffect(() => {
-    const phrase = HERO_TYPED_PHRASES[phraseIndex];
-    const atFullPhrase = typedText.length === phrase.length;
-    const atEmpty = typedText.length === 0;
-
-    let delay = 70;
-    if (!isDeleting && !atFullPhrase) delay = 72;
-    if (isDeleting && !atEmpty) delay = 40;
-    if (!isDeleting && atFullPhrase) delay = 1700;
-    if (isDeleting && atEmpty) delay = 320;
-
-    const timer = window.setTimeout(() => {
-      if (!isDeleting && !atFullPhrase) {
-        setTypedText(phrase.slice(0, typedText.length + 1));
-        return;
-      }
-
-      if (!isDeleting && atFullPhrase) {
-        setIsDeleting(true);
-        return;
-      }
-
-      if (isDeleting && !atEmpty) {
-        setTypedText(phrase.slice(0, typedText.length - 1));
-        return;
-      }
-
-      setIsDeleting(false);
-      setPhraseIndex((prev) => (prev + 1) % HERO_TYPED_PHRASES.length);
-    }, delay);
-
-    return () => window.clearTimeout(timer);
-  }, [isDeleting, phraseIndex, typedText]);
-
+function HomeHeroStaticTitle() {
   return (
-    <h1 className="mt-5 max-w-3xl font-display text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl" aria-live="polite">
-      {typedText}
-      <span className="hero-cursor-underscore" aria-hidden="true">
-        _
-      </span>
+    <h1 className="mt-5 max-w-3xl font-display text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
+      The Grand Sumo Reference
     </h1>
   );
 }
 
 function HomeHeroGuidanceRail() {
-  const [promptIndex, setPromptIndex] = useState(0);
-
-  useEffect(() => {
-    const timer = window.setInterval(() => {
-      setPromptIndex((prev) => (prev + 1) % HERO_GUIDANCE_PROMPTS.length);
-    }, 2800);
-    return () => window.clearInterval(timer);
-  }, []);
-
   return (
-    <aside className="relative overflow-hidden rounded-2xl border border-black/10 bg-white/70 p-4 shadow-[0_16px_40px_rgba(20,20,20,0.14)] backdrop-blur-xl dark:border-white/[0.08] dark:bg-white/[0.05] dark:shadow-[0_20px_44px_rgba(0,0,0,0.28)]">
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.32),transparent_48%)] dark:bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.08),transparent_48%)]" />
+    <aside className="relative overflow-hidden rounded-2xl border border-white/[0.08] bg-white/[0.05] p-4 shadow-[0_20px_44px_rgba(0,0,0,0.28)]">
       <div className="relative">
-        <div className="text-[10px] font-semibold uppercase tracking-[0.2em] text-zinc-500 dark:text-zinc-400">
-          Guidance
+        <div className="text-[10px] font-semibold uppercase tracking-[0.2em] text-zinc-400">
+          Quick start
         </div>
-        <div key={promptIndex} className="mt-2 min-h-[1.7rem] text-sm font-medium text-zinc-800 animate-fade-in-up dark:text-zinc-200">
-          {HERO_GUIDANCE_PROMPTS[promptIndex]}
+        <div className="mt-2 min-h-[1.7rem] text-sm font-medium text-zinc-200">
+          Search a rikishi, open basho standings, or compare wrestlers head-to-head.
         </div>
       </div>
     </aside>
@@ -477,11 +396,11 @@ function HomePage() {
                 <img
                   src="/logo.png"
                   alt="Sumo Sauce mark"
-                  className="h-auto w-[min(21rem,82vw)] max-w-full object-contain object-left drop-shadow-2xl sm:w-[23rem] lg:w-[26rem]"
+                  className="h-auto w-[min(21rem,82vw)] max-w-full object-contain object-left drop-shadow-[0_0_20px_rgba(255,255,255,0.08)] sm:w-[23rem] lg:w-[26rem]"
                 />
               </div>
 
-              <HomeHeroTypedTitle />
+              <HomeHeroStaticTitle />
               <p className="mt-3 max-w-xl text-base leading-relaxed text-zinc-300">
                 Search profiles, open published basho coverage, or follow records and rivalries.
               </p>
