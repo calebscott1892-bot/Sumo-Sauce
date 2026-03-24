@@ -125,7 +125,7 @@ export default function BashoBrowserPage() {
   return (
     <div data-testid="basho-browser-page" className="stagger-children mx-auto max-w-6xl space-y-6 p-6 text-zinc-200">
       <PageMeta
-        title="SumoWatch — Basho Browser"
+        title="Sumo Sauce — Basho Browser"
         description="Browse all historical sumo basho tournaments from 2000 to present. Search and filter by year, tournament name, or month."
       />
 

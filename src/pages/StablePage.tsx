@@ -55,8 +55,8 @@ export default function StablePage() {
   return (
     <div className="mx-auto max-w-6xl space-y-6 p-4 text-zinc-200 sm:space-y-7 sm:p-6">
       <PageMeta
-        title={`SumoWatch — ${stable.name} stable`}
-        description={`Browse ${stable.name} stable on SumoWatch: active roster depth, division mix, and stable-linked rikishi browsing.`}
+        title={`Sumo Sauce — ${stable.name} stable`}
+        description={`Browse ${stable.name} stable on Sumo Sauce: active roster depth, division mix, and stable-linked rikishi browsing.`}
       />
 
       <PremiumPageHeader

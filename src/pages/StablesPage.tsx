@@ -60,8 +60,8 @@ export default function StablesPage() {
   return (
     <div className="mx-auto max-w-6xl space-y-6 p-4 text-zinc-200 sm:space-y-7 sm:p-6">
       <PageMeta
-        title="SumoWatch — Stable Directory"
-        description="Browse heya across the SumoWatch roster layer, compare active roster depth, and open stable pages."
+        title="Sumo Sauce — Stable Directory"
+        description="Browse heya across the Sumo Sauce roster layer, compare active roster depth, and open stable pages."
       />
 
       <PremiumPageHeader

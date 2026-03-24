@@ -184,10 +184,10 @@ export default function ComparePage() {
   const recentSummaryA = useMemo(() => summarizeTimelineRecord(recentFormA), [recentFormA]);
   const recentSummaryB = useMemo(() => summarizeTimelineRecord(recentFormB), [recentFormB]);
 
-  const pageTitle = model ? `SumoWatch — ${shikonaA} vs ${shikonaB}` : 'SumoWatch — Compare';
+  const pageTitle = model ? `Sumo Sauce — ${shikonaA} vs ${shikonaB}` : 'Sumo Sauce — Compare';
   const pageDesc = model
-    ? `Head-to-head comparison of ${shikonaA} vs ${shikonaB} — rivalry snapshot, recent form, and kimarite context on SumoWatch.`
-    : 'Compare two rikishi head to head on SumoWatch.';
+    ? `Head-to-head comparison of ${shikonaA} vs ${shikonaB} — rivalry snapshot, recent form, and kimarite context on Sumo Sauce.`
+    : 'Compare two rikishi head to head on Sumo Sauce.';
 
   useEffect(() => {
     if (!model) return;
@@ -248,7 +248,7 @@ export default function ComparePage() {
         <PremiumPageHeader
           accentLabel="HEAD TO HEAD"
           title={`${shikonaA} vs ${shikonaB}`}
-          subtitle="The compare route is available, but live head-to-head and recent-form services are unavailable on this deployment right now."
+          subtitle="Head-to-head comparison data is not available right now. Published profiles may still be accessible."
           breadcrumbs={[
             { label: 'Home', to: '/' },
             { label: 'Rivalries', to: '/rivalries' },
@@ -257,7 +257,7 @@ export default function ComparePage() {
         />
 
         <PremiumSectionShell
-          title="Live comparison data is unavailable"
+          title="Comparison data did not load"
           subtitle="This is not the same as either wrestler being missing. The pair exists in the published profile layer, but the live comparison API did not load."
         >
           <DataUnavailableState

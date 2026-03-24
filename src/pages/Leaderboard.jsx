@@ -585,7 +585,7 @@ export default function Leaderboard() {
   return (
     <div className="mx-auto max-w-6xl space-y-6 p-4 text-zinc-200 sm:space-y-7 sm:p-6">
       <PageMeta
-        title="SumoWatch — Leaderboard"
+        title="Sumo Sauce — Leaderboard"
         description="Cross-division leaderboard standings with trust-aware wrestler context, safe image handling, and browsable tournament sources."
       />
 

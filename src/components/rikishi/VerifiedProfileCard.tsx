@@ -110,7 +110,7 @@ export default function VerifiedProfileCard({ rikishiId, shikona, heya, rank }: 
               <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-zinc-500">Trust & Sources</p>
               <p className="mt-2 text-sm leading-relaxed text-zinc-400">
                 A structured verified profile is not published for this rikishi yet. Match, career, and basho data on this
-                page still come from the main SumoWatch dataset, but source-linked profile confidence and official-image
+                page still come from the main Sumo Sauce dataset, but source-linked profile confidence and official-image
                 publishing only appear once a canonical trust profile is matched safely.
               </p>
               <div className="mt-3 flex flex-wrap gap-2">

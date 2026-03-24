@@ -88,7 +88,7 @@ export default function BashoDayResultsPage() {
   return (
     <div className="stagger-children mx-auto max-w-6xl space-y-6 p-6 text-zinc-200">
       <PageMeta
-        title={`SumoWatch — ${bashoDisplayName(bashoId)} ${divisionLabel(division)} Day ${day}`}
+        title={`Sumo Sauce — ${bashoDisplayName(bashoId)} ${divisionLabel(division)} Day ${day}`}
         description={`Day ${day} results for ${divisionLabel(division)} division at ${bashoDisplayName(bashoId)}.`}
       />
 

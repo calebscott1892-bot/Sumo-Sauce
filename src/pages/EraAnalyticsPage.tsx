@@ -155,8 +155,8 @@ export default function EraAnalyticsPage() {
   return (
     <div className="stagger-children mx-auto max-w-6xl space-y-6 p-6 text-zinc-200">
       <PageMeta
-        title="SumoWatch — Era Analytics"
-        description="Guided era analytics on SumoWatch — sampled decade trends, participation context, and standout performers."
+        title="Sumo Sauce — Era Analytics"
+        description="Guided era analytics on Sumo Sauce — sampled decade trends, participation context, and standout performers."
       />
 
       <PremiumPageHeader

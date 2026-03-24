@@ -64,7 +64,7 @@ export default function BashoTimelinePage() {
   return (
     <div className="stagger-children mx-auto max-w-6xl space-y-6 p-6 text-zinc-200">
       <PageMeta
-        title="SumoWatch — Basho Timeline"
+        title="Sumo Sauce — Basho Timeline"
         description="Browse the complete history of professional sumo tournaments in chronological order."
       />
 

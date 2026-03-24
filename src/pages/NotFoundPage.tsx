@@ -8,7 +8,7 @@ export default function NotFoundPage() {
   return (
     <div data-testid="not-found" className="flex min-h-[60vh] items-center justify-center bg-[#0a0a0a] p-6">
       <PageMeta
-        title="SumoWatch - Page Not Found"
+        title="Sumo Sauce - Page Not Found"
         description="The page you requested does not exist."
         noIndex
       />

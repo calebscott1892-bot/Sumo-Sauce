@@ -418,8 +418,8 @@ export default function RivalryExplorerPage() {
   return (
     <div className="stagger-children mx-auto max-w-6xl space-y-6 p-4 text-zinc-200 sm:p-6">
       <PageMeta
-        title="SumoWatch — Rivalry Explorer"
-        description="Browse sampled head-to-head rivalries in SumoWatch and jump into deeper rikishi comparisons."
+        title="Sumo Sauce — Rivalry Explorer"
+        description="Browse sampled head-to-head rivalries in Sumo Sauce and jump into deeper rikishi comparisons."
       />
 
       <PremiumPageHeader

@@ -490,7 +490,7 @@ export default function BashoOverviewPage() {
         <PremiumPageHeader
           accentLabel="TOURNAMENT OVERVIEW"
           title={bashoDisplayName(bashoId)}
-          subtitle="The basho route is available, but live cross-division standings are unavailable on this deployment right now."
+          subtitle="Cross-division standings are still loading or were not returned by the data service. Individual division pages may have data."
           badge={label}
           breadcrumbs={[
             { label: 'Home', to: '/' },
@@ -500,7 +500,7 @@ export default function BashoOverviewPage() {
         >
           <div className="flex flex-wrap gap-2 text-xs text-zinc-400">
             <PremiumBadge variant={isLatestBasho ? 'green' : 'zinc'}>{isLatestBasho ? 'Latest basho' : 'Archive basho'}</PremiumBadge>
-            <span>Cross-division standings unavailable</span>
+            <span>Standings pending</span>
           </div>
         </PremiumPageHeader>
 
@@ -508,13 +508,13 @@ export default function BashoOverviewPage() {
         <BashoDivisionBrowseNav bashoId={bashoId} active="overview" counts={countsByDivision} />
 
         <PremiumSectionShell
-          title="Live basho overview is unavailable"
-          subtitle="This is not the same as the tournament being missing. The route exists, but the live standings service did not load."
+          title="Basho standings did not load"
+          subtitle="The tournament route exists. Standings may become available when the data service is reachable, or try individual division pages directly."
         >
           <DataUnavailableState
-            title="Cross-division standings could not be loaded"
+            title="Standings not available right now"
             description={getApiFailureMessage(failedDivisions[0]?.error, 'The live basho API is unavailable for this deployment right now.')}
-            detail="Direct division pages may recover first once the hosted backend is connected again. Until then, treat this page as a navigation shell rather than a tournament snapshot."
+            detail="You can try individual division pages directly, or use the basho browser to find tournaments with published data."
             actions={[
               { label: 'Browse basho archive', to: '/basho' },
               { label: 'Browse rikishi', to: '/rikishi' },
@@ -613,7 +613,7 @@ export default function BashoOverviewPage() {
       </PremiumPageHeader>
 
       <PageMeta
-        title={`SumoWatch — ${bashoDisplayName(bashoId)}`}
+        title={`Sumo Sauce — ${bashoDisplayName(bashoId)}`}
         description={`${tournamentName} ${parsed?.year} basho overview — cross-division leaders, standings access, and top-division tournament analytics.`}
       />
 

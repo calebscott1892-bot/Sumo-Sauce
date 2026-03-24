@@ -166,7 +166,7 @@ export default function BashoComparePage() {
   return (
     <div data-testid="basho-compare-page" className="mx-auto max-w-6xl space-y-6 p-6 text-zinc-200">
       <PageMeta
-        title={`SumoWatch — ${shortA} vs ${shortB}`}
+        title={`Sumo Sauce — ${shortA} vs ${shortB}`}
         description={`Compare ${nameA} and ${nameB} — wrestler counts, bouts, top performers, and kimarite distribution.`}
       />
 

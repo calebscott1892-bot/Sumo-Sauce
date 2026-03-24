@@ -161,8 +161,8 @@ export default function WatchlistPage() {
   return (
     <div className="mx-auto max-w-6xl space-y-5 p-4 text-zinc-200 sm:space-y-6 sm:p-6">
       <PageMeta
-        title="SumoWatch - Watchlist"
-        description="Local-first saved wrestlers, rivalries, stables, and basho surfaces on SumoWatch."
+        title="Sumo Sauce - Watchlist"
+        description="Local-first saved wrestlers, rivalries, stables, and basho surfaces on Sumo Sauce."
         noIndex
       />
 

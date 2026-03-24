@@ -330,7 +330,7 @@ export default function GlobalStatsPage() {
         <PremiumPageHeader
           accentLabel="GLOBAL ANALYTICS"
           title="Global Analytics"
-          subtitle="This page needs live directory and standings data. The analytics route is available, but the backend sample could not be loaded."
+          subtitle="Analytics require tournament standings data. The data service may not be available right now."
           breadcrumbs={[
             { label: 'Home', to: '/' },
             { label: 'Analytics' },
@@ -340,7 +340,7 @@ export default function GlobalStatsPage() {
         </PremiumPageHeader>
 
         <PremiumSectionShell
-          title="Live analytics sample is unavailable"
+          title="Analytics data did not load"
           subtitle="This surface depends on recent Makuuchi standings and the routeable directory, so it should not pretend empty charts mean empty data."
         >
           <DataUnavailableState
@@ -361,8 +361,8 @@ export default function GlobalStatsPage() {
   return (
     <div data-testid="global-stats-page" className="stagger-children mx-auto max-w-6xl space-y-6 p-6 text-zinc-200">
       <PageMeta
-        title="SumoWatch — Global Analytics"
-        description="Guided overview of recent Makuuchi analytics on SumoWatch — sample scope, technique baseline, standout rikishi, and tournament volatility."
+        title="Sumo Sauce — Global Analytics"
+        description="Guided overview of recent Makuuchi analytics on Sumo Sauce — sample scope, technique baseline, standout rikishi, and tournament volatility."
       />
 
       <PremiumPageHeader

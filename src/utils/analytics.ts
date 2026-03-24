@@ -15,7 +15,7 @@ export type AnalyticsEvent = {
 };
 
 const eventLog: AnalyticsEvent[] = [];
-const DEBUG_STORAGE_KEY = 'sumowatch:debug-analytics';
+const DEBUG_STORAGE_KEY = 'sumosauce:debug-analytics';
 
 declare global {
   interface Window {

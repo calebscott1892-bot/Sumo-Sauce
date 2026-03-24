@@ -453,8 +453,8 @@ export default function BashoDivisionPage() {
   return (
     <div data-testid="division-page" className="stagger-children mx-auto max-w-6xl space-y-6 p-4 text-zinc-200 sm:space-y-7 sm:p-6">
       <PageMeta
-        title={`SumoWatch \u2014 ${bashoDisplayName(bashoId)} ${divisionLabel(division)}`}
-        description={`${bashoDisplayName(bashoId)} ${divisionLabel(division)} standings, results, and analytics on SumoWatch.`}
+        title={`Sumo Sauce \u2014 ${bashoDisplayName(bashoId)} ${divisionLabel(division)}`}
+        description={`${bashoDisplayName(bashoId)} ${divisionLabel(division)} standings, results, and analytics on Sumo Sauce.`}
       />
 
       <PremiumPageHeader

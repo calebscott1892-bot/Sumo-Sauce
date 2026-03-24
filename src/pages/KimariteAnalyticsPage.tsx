@@ -124,8 +124,8 @@ export default function KimariteAnalyticsPage() {
   return (
     <div data-testid="kimarite-analytics-page" className="stagger-children mx-auto max-w-6xl space-y-6 p-6 text-zinc-200">
       <PageMeta
-        title="SumoWatch — Kimarite Analytics"
-        description={`Guided kimarite analysis across the last ${recentIds.length} sampled Makuuchi tournaments on SumoWatch.`}
+        title="Sumo Sauce — Kimarite Analytics"
+        description={`Guided kimarite analysis across the last ${recentIds.length} sampled Makuuchi tournaments on Sumo Sauce.`}
       />
 
       <PremiumPageHeader
