@@ -11,9 +11,12 @@ export const BOUT_DIVISIONS = [
 
 export type BoutDivision = (typeof BOUT_DIVISIONS)[number];
 
+export type BoutDay = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15;
+export const BOUT_DAYS: BoutDay[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
+
 export type RequiredSnapshot = {
   source: SnapshotSource;
-  kind: 'banzuke' | 'rikishi' | `bouts.${BoutDivision}`;
+  kind: 'banzuke' | 'rikishi' | `bouts.day${BoutDay}`;
   url: string;
   contentTypeHint: 'text/html' | 'application/json';
 };
@@ -55,10 +58,10 @@ export function requiredSnapshotsForBasho(bashoId: string): RequiredSnapshot[] {
     },
   ];
 
-  const bouts: RequiredSnapshot[] = BOUT_DIVISIONS.map((division) => ({
+  const bouts: RequiredSnapshot[] = BOUT_DAYS.map((day) => ({
     source: 'sumodb',
-    kind: `bouts.${division}`,
-    url: `https://sumodb.sumogames.de/Results.aspx?b=${id}&d=${toSumodbDivisionParam(division)}`,
+    kind: `bouts.day${day}` as const,
+    url: `https://sumodb.sumogames.de/Results.aspx?b=${id}&d=${day}`,
     contentTypeHint: 'text/html',
   }));
 

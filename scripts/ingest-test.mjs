@@ -5,7 +5,7 @@ import path from 'node:path';
 
 import { sha256Hex } from '../pipeline/hash.ts';
 import { ingestSingleBasho } from '../pipeline/ingest/ingestSingleBasho.ts';
-import { BOUT_DIVISIONS, requiredSnapshotsForBasho } from '../pipeline/ingest/sources.ts';
+import { BOUT_DAYS, requiredSnapshotsForBasho } from '../pipeline/ingest/sources.ts';
 
 const ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname), '..');
 const PHASE8_FIXTURES_DIR = path.join(ROOT, 'pipeline', 'fixtures', 'snapshots', 'phase8');
@@ -47,11 +47,12 @@ function containsPlaceholder(value) {
 async function requireFixturesPresent(bashoId) {
   const required = requiredSnapshotsForBasho(bashoId);
   const boutKinds = required
-    .filter((r) => r.kind.startsWith('bouts.'))
-    .map((r) => r.kind.slice('bouts.'.length))
+    .filter((r) => r.kind.startsWith('bouts.day'))
+    .map((r) => r.kind)
     .sort();
 
-  assert.deepEqual(boutKinds, [...BOUT_DIVISIONS].sort(), 'required snapshots must include all six divisions');
+  const expectedDayKinds = BOUT_DAYS.map((d) => `bouts.day${d}`).sort();
+  assert.deepEqual(boutKinds, expectedDayKinds, 'required snapshots must include all 15 days');
 
   for (const item of required) {
     const ext = item.contentTypeHint.includes('html') ? 'html' : 'json';

@@ -14,7 +14,7 @@ import { IngestError } from './ingestErrors.ts';
 import { ingestConfig, type IngestMode } from './ingestConfig.ts';
 import { fetchSnapshot } from './fetcher.ts';
 import { detectJsaBlockedOrInterstitial } from './jsaBlocked.ts';
-import { BOUT_DIVISIONS, requiredSnapshotsForBasho } from './sources.ts';
+import { BOUT_DAYS, requiredSnapshotsForBasho } from './sources.ts';
 import { sortBasho } from '../order.ts';
 import type { SnapshotMeta } from '../snapshots/snapshotTypes.ts';
 import { BashoSchema, DivisionSchema, FixtureBoutSchema, type Basho, type Division, type FixtureBout } from '../types.ts';
@@ -307,12 +307,8 @@ export async function ingestSingleBasho(
           warnings.push(warning);
         }
       }
-      if (item.source === 'sumodb' && item.kind.startsWith('bouts.')) {
-        const divisionKey = item.kind.slice('bouts.'.length);
-        const division = DivisionSchema.parse(divisionKey);
-        if (BOUT_DIVISIONS.includes(division)) {
-          parsedBouts.push(...parseSumodbBouts({ meta: item.meta, bodyBytes: item.bodyBytes }, { division }));
-        }
+      if (item.source === 'sumodb' && item.kind.startsWith('bouts.day')) {
+        parsedBouts.push(...parseSumodbBouts({ meta: item.meta, bodyBytes: item.bodyBytes }, {}));
       }
     } catch (err) {
       throw toIngestError(err, {

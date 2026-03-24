@@ -93,7 +93,7 @@ function normalizedId(value: unknown): string | undefined {
   return digits || undefined;
 }
 
-function parseJsonRows(snapshot: SnapshotInput, input: { division: Division }): ParsedSumodbBoutRow[] {
+function parseJsonRows(snapshot: SnapshotInput, input: { division?: Division }): ParsedSumodbBoutRow[] {
   let parsed: unknown;
   try {
     parsed = JSON.parse(snapshot.bodyBytes.toString('utf8'));
@@ -190,7 +190,7 @@ function parseJsonRows(snapshot: SnapshotInput, input: { division: Division }): 
   );
 }
 
-function parseHtmlRows(snapshot: SnapshotInput, input: { division: Division }): ParsedSumodbBoutRow[] {
+function parseHtmlRows(snapshot: SnapshotInput, input: { division?: Division }): ParsedSumodbBoutRow[] {
   const html = snapshot.bodyBytes.toString('utf8');
   const $ = load(html);
   let day = 1;
@@ -224,7 +224,7 @@ function parseHtmlRows(snapshot: SnapshotInput, input: { division: Division }): 
 
     const eastRank = asText(eastCell.find('font').first().text());
     const division = divisionFromRank(eastRank);
-    if (!division || division !== targetDivision) return;
+    if (!division || (targetDivision && division !== targetDivision)) return;
 
     const eastAnchor = eastCell.find('a[href*="Rikishi.aspx?r="]').first();
     const westAnchor = westCell.find('a[href*="Rikishi.aspx?r="]').first();
@@ -281,7 +281,7 @@ function parseHtmlRows(snapshot: SnapshotInput, input: { division: Division }): 
       source: snapshot.meta.source,
       snapshotSha256: snapshot.meta.contentSha256,
       url: snapshot.meta.url,
-      message: `No parseable ${targetDivision} rows found in Results.aspx snapshot`,
+      message: `No parseable ${targetDivision || 'any-division'} rows found in Results.aspx snapshot`,
     });
   }
 
@@ -295,7 +295,7 @@ function parseHtmlRows(snapshot: SnapshotInput, input: { division: Division }): 
   );
 }
 
-export function parse(snapshot: SnapshotInput, input: { division: Division }): ParsedSumodbBoutRow[] {
+export function parse(snapshot: SnapshotInput, input: { division?: Division }): ParsedSumodbBoutRow[] {
   const ctype = snapshot.meta.contentType.toLowerCase();
   if (ctype.includes('html')) {
     return parseHtmlRows(snapshot, input);
