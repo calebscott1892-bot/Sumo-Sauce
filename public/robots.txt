@@ -1,4 +1,4 @@
-# SumoWatch robots.txt
+# Sumo Sauce robots.txt
 User-agent: *
 Allow: /
 Allow: /rikishi/
@@ -16,4 +16,4 @@ Disallow: /api/
 # Block search with query params from indexing (crawl budget)
 Disallow: /search?
 
-Sitemap: https://sumowatch.app/sitemap.xml
+Sitemap: https://sumo-sauce.vercel.app/sitemap.xml

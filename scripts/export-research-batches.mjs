@@ -291,7 +291,7 @@ const manifest = {
     generatedAt: exportDate,
     sourceFile: CANONICAL,
     totalProfiles: all.length,
-    description: 'Manifest of research-ready export batches for the SumoWatch unresolved profile verification cycle.',
+    description: 'Manifest of research-ready export batches for the Sumo Sauce unresolved profile verification cycle.',
     mergeWorkflow: 'For each completed batch, run: node scripts/merge-research.mjs --file <batch-file> [--apply]',
     validationCommand: 'node scripts/validate-profiles.mjs',
   },

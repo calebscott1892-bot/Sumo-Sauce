@@ -12,8 +12,8 @@ MOVED=0
 
 restore_db() {
   if [[ "$MOVED" -eq 1 ]]; then
-    echo "$ mv /tmp/sumowatch_dev.db.bak server/prisma/dev.db"
-    mv /tmp/sumowatch_dev.db.bak server/prisma/dev.db
+    echo "$ mv /tmp/sumosauce_dev.db.bak server/prisma/dev.db"
+    mv /tmp/sumosauce_dev.db.bak server/prisma/dev.db
     MOVED=0
   fi
 }
@@ -202,8 +202,8 @@ fi
 
 header "Step 1 — BEFORE BOOTSTRAP"
 if [[ -f server/prisma/dev.db ]]; then
-  echo "$ mv server/prisma/dev.db /tmp/sumowatch_dev.db.bak"
-  mv server/prisma/dev.db /tmp/sumowatch_dev.db.bak
+  echo "$ mv server/prisma/dev.db /tmp/sumosauce_dev.db.bak"
+  mv server/prisma/dev.db /tmp/sumosauce_dev.db.bak
   MOVED=1
 fi
 
