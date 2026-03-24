@@ -7,6 +7,7 @@ import {
   divisionLabel,
   parseBashoId,
   bashoDisplayName,
+  recentBashoIds,
 } from '@/utils/basho';
 import { getAvailableBashoIds } from '@/pages/basho/api';
 import { PremiumBadge } from '@/components/ui/premium';
@@ -31,9 +32,14 @@ export default function BashoQuickNav() {
     staleTime: 10 * 60 * 1000,
   });
 
-  const recentIds = useMemo(() => availabilityQuery.data ?? [], [availabilityQuery.data]);
+  // Always have locally-computed basho IDs available for browsing
+  const computedIds = useMemo(() => recentBashoIds(8), []);
+  const liveIds = availabilityQuery.data ?? [];
+  // Prefer live-confirmed IDs, but fall back to computed so the browser always works
+  const recentIds = liveIds.length > 0 ? liveIds : computedIds;
   const latestId = recentIds[0] ?? '';
   const archiveIds = recentIds.slice(1, 7);
+  const isLiveConfirmed = liveIds.length > 0;
 
   const handleJump = () => {
     const id = jumpBasho.trim();
@@ -80,7 +86,7 @@ export default function BashoQuickNav() {
               </p>
             </div>
             <div className="flex w-full flex-wrap gap-2 sm:w-auto">
-              <PremiumBadge variant="green">Current archive entry</PremiumBadge>
+              <PremiumBadge variant={isLiveConfirmed ? "green" : "zinc"}>{isLiveConfirmed ? "Live confirmed" : "Estimated latest"}</PremiumBadge>
               <Link
                 to={`/basho/${latestId}`}
                 className="inline-flex min-h-10 items-center justify-center rounded-full border border-white/[0.08] bg-white/[0.04] px-3 py-1.5 text-xs font-medium text-zinc-200 transition-colors hover:border-red-600/40 hover:text-white"
@@ -114,20 +120,19 @@ export default function BashoQuickNav() {
           </div>
         </div>
       ) : (
-        <div className="mb-5 rounded-xl border border-amber-700/30 bg-amber-950/14 p-4">
+        <div className="mb-5 rounded-xl border border-white/[0.06] bg-white/[0.02] p-4">
           <div className="flex flex-wrap items-start justify-between gap-3">
             <div>
               <div className="flex items-center gap-2">
-                <Compass className="h-4 w-4 text-amber-300" />
-                <p className="text-xs font-medium uppercase tracking-[0.2em] text-amber-200">Domain snapshot unavailable</p>
+                <Compass className="h-4 w-4 text-zinc-400" />
+                <p className="text-xs font-medium uppercase tracking-[0.2em] text-zinc-400">Browse tournaments</p>
               </div>
-              <h3 className="mt-2 font-display text-xl font-bold text-white">Latest basho route is not published yet</h3>
+              <h3 className="mt-2 font-display text-xl font-bold text-white">Open the basho archive</h3>
               <p className="mt-1 text-sm text-zinc-400">
-                This deployment does not currently expose a routable latest tournament snapshot. Use the archive browser and profile/search paths while new basho domain data is pending.
+                Use the full basho browser to find and open any tournament from the historical archive.
               </p>
             </div>
             <div className="flex w-full flex-wrap gap-2 sm:w-auto">
-              <PremiumBadge variant="amber">Honest fallback</PremiumBadge>
               <Link
                 to="/basho"
                 className="inline-flex min-h-10 items-center justify-center rounded-full border border-white/[0.08] bg-white/[0.04] px-3 py-1.5 text-xs font-medium text-zinc-200 transition-colors hover:border-red-600/40 hover:text-white"
@@ -169,7 +174,7 @@ export default function BashoQuickNav() {
             </div>
           ) : (
             <div className="rounded-lg border border-white/[0.06] bg-white/[0.02] px-3 py-3 text-sm text-zinc-500">
-              No archived basho routes are currently confirmed from the live domain API.
+              No recent basho tournaments found. Use the direct jump to navigate to a specific tournament.
             </div>
           )}
         </div>
