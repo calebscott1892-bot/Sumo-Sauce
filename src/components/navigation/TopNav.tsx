@@ -48,7 +48,7 @@ export default function TopNav() {
           <img
             src="/logo-64.png"
             alt="Sumo Sauce"
-            className="h-7 w-7 object-contain drop-shadow-lg"
+            className="h-7 w-7 rounded-md object-contain ring-1 ring-white/[0.1] drop-shadow-[0_0_6px_rgba(255,255,255,0.15)]"
           />
           <span className="font-display text-base font-bold tracking-tight text-white">
             Sumo<span className="text-red-500">Sauce</span>

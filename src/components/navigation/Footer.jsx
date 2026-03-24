@@ -12,7 +12,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-3">
           <div>
             <Link to="/" className="inline-flex items-center gap-3 transition-opacity hover:opacity-80">
-              <img src="/logo-64.png" alt="Sumo Sauce" className="h-10 w-10 object-contain drop-shadow-lg" />
+              <img src="/logo-64.png" alt="Sumo Sauce" className="h-10 w-10 rounded-lg object-contain ring-1 ring-white/[0.1] drop-shadow-[0_0_8px_rgba(255,255,255,0.12)]" />
               <span className="font-display text-xl font-bold uppercase tracking-tight text-white">
                 Sumo Sauce
               </span>
