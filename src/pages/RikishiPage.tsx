@@ -379,7 +379,7 @@ export default function RikishiPage() {
         />
 
         <PremiumSectionShell
-          title="Rikishi domain page unavailable"
+          title="Rikishi page did not load"
           subtitle="The profile is not treated as missing. This route currently cannot resolve in the loaded domain dataset."
         >
           <DataUnavailableState
@@ -465,13 +465,13 @@ export default function RikishiPage() {
         </PremiumPageHeader>
 
         <PremiumSectionShell
-          title="Live career data is unavailable"
+          title="Career data did not load"
           subtitle="This page can still show the published trust/profile layer, but timeline, kimarite, rivalry, and tournament-linked records modules need the hosted backend."
         >
           <DataUnavailableState
             title="Published profile still available"
             description={getApiFailureMessage(firstError, 'Live rikishi services are unavailable right now.')}
-            detail="This is not the same as the wrestler being missing. The published profile exists, but the live rikishi API needed for the deeper career page is unavailable."
+            detail="The published profile is available below. Career details, basho history, and rivalry data require the data service to be reachable."
             actions={[
               { label: 'Browse rikishi', to: '/rikishi' },
               { label: 'Search profiles', to: '/search' },
