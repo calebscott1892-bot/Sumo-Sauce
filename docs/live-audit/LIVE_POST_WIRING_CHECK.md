@@ -701,3 +701,59 @@ are `/basho/202603*` (future basho not in static data) and `/rikishi/3842`
 
 **Redirected (1):**
 `/wrestler/:rid` → `/rikishi/:rid`
+
+---
+
+## Product Cleanup + Greatness Audit
+
+Date: 2026-03-25
+
+### Commits
+
+| SHA | Description |
+|-----|-------------|
+| `de1cdc8` | fix: remove remaining SumoWatch brand references |
+| `8e1ce0d` | fix: replace internal jargon with clear user-facing language |
+
+### SumoWatch / C4 Remnant Removal
+
+- `public/robots.txt` — removed `# SumoWatch` comment and `sumowatch.app` sitemap URL
+- `scripts/ci-proof-pack-local.sh` — renamed temp db file from sumowatch to sumosauce
+- `scripts/export-research-batches.mjs` — fixed manifest description string
+- `src/components/ui/PageMeta.tsx` — defensive sanitizer retained (replaces SumoWatch→Sumo Sauce at runtime)
+
+### Internal Jargon Replaced
+
+The following terms were systematically replaced across 12 files:
+- "profile layer" → "published profiles" / "published dataset"
+- "routeable" → "full" (career pages)
+- "domain build", "entity id", "domain dataset" → plain language
+- "Data not loaded" → "Limited coverage"
+
+Files modified: `DataUnavailableState.tsx`, `Footer.jsx`, `DatasetInfoPanel.tsx`,
+`RikishiPage.tsx`, `index.jsx`, `SearchPage.tsx`, `RikishiDirectoryPage.tsx`,
+`StablesPage.tsx`, `StablePage.tsx`, `ComparePage.tsx`, `GlobalStatsPage.tsx`,
+`Leaderboard.jsx`
+
+### Footer Cleanup
+
+- Removed `v1.0.0` version placeholder
+- Changed `v1.0.0 · 2000-present` → `Coverage era: 2000 – present`
+- Updated tagline to: "Professional sumo browsing and analytics backed by verified rikishi profiles and structured tournament data."
+
+### Playwright Runtime Check (Post-Deploy)
+
+| Route | Page Errors | API 404s | Status |
+|-------|------------|----------|--------|
+| `/` | 0 | 2 | Renders via static fallback |
+| `/rikishi/12451` | 0 | 0 | CLEAN |
+| `/rikishi/3842` | 0 | 3 | Degrades gracefully (profile not in dataset) |
+| `/basho/202603` | 0 | 1 | Renders via static fallback |
+| `/basho/202603/makuuchi` | 0 | 4 | Future basho with partial data |
+| `/leaderboard` | 0 | 0 | CLEAN |
+| `/rivalries` | 0 | 0 | CLEAN |
+| `/analytics` | 0 | 1 | Renders via static fallback |
+| `/stables` | 0 | 0 | CLEAN |
+| `/stables/isegahama` | 0 | 0 | CLEAN |
+
+**Zero page errors across all 10 tested routes.**
