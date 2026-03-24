@@ -621,3 +621,83 @@ After:
 3. Clean up dead unrouted legacy pages (Forum, Games, old profiles)
 4. Add pagination to RikishiDirectoryPage
 5. Pre-compute analytics for offline-resilient baseline
+
+---
+
+## Post-Deployment Static-Data Activation Check
+
+Date: $(date -u +%Y-%m-%dT%H:%M:%SZ)
+
+### Push Details
+
+- Pushed `cca0d2c..88533b3` (8 commits) to `origin/main`
+- Vercel auto-deployed; static data endpoints live within 30s
+
+### Key Commits Pushed
+
+| SHA | Description |
+|-----|-------------|
+| `d240580` | fix: remove C4-style typing hero effect and SumoWatch clock favicon |
+| `f82c85b` | fix: replace all SumoWatch brand references with Sumo Sauce |
+| `a6a93ed` | fix: improve logo visibility on dark backgrounds |
+| `0fe3153` | fix: soften degraded state messaging to reduce false alarm tone |
+| `f380e25` | fix: harden BashoQuickNav to always show basho from computed IDs |
+| `adeb025` | feat: offline-first static data fallback |
+| `063625b` | fix: commit static data files for deployment |
+| `88533b3` | fix: rename SumoWatch remnants, redirect /wrestler to /rikishi |
+
+### Static Data Endpoint Verification (Live)
+
+| Endpoint | HTTP | Payload |
+|----------|------|---------|
+| `/data/basho-index.json` | 200 | Array[33] |
+| `/data/rikishi-directory.json` | 200 | Array[1041] |
+| `/data/standings/202403/Makuuchi.json` | 200 | OK |
+| `/data/standings/202301/Juryo.json` | 200 | OK |
+| `/data/bouts/202403/Makuuchi.json` | 200 | OK |
+| `/data/bouts/202101/Sandanme.json` | 200 | OK |
+| `/data/meta.json` | 200 | 33 basho, 1041 rikishi, 188 standings, 186 bouts |
+
+### Playwright Runtime Check Results
+
+| Route | Page Errors ❌ | Failed API Reqs ⚠️ | Notes |
+|-------|---------------|---------------------|-------|
+| `/` | 0 | 2 (Render 404) | Renders via static fallback |
+| `/rikishi/12451` | 0 | 0 | CLEAN — published profile |
+| `/rikishi/3842` | 0 | 3 (Render 404) | Published profile shell loads; API details unavailable |
+| `/basho/202603` | 0 | 1 (Render 404) | Future basho — no static data either |
+| `/basho/202603/makuuchi` | 0 | 4 (Render 404) | Future basho — no data |
+| `/leaderboard` | 0 | 0 | CLEAN |
+| `/rivalries` | 0 | 0 | CLEAN |
+| `/analytics` | 0 | 1 (Render 404) | Renders via static fallback |
+| `/stables` | 0 | 0 | CLEAN |
+| `/stables/isegahama` | 0 | 0 | CLEAN |
+
+**Summary**: Zero page errors across all routes. Pages with API 404s recover
+gracefully via `tryStaticFallback()`. The only routes that show degraded data
+are `/basho/202603*` (future basho not in static data) and `/rikishi/3842`
+(individual rikishi detail requires live API).
+
+### Fallback Flow Confirmed
+
+1. `VITE_API_BASE_URL=https://sumo-sauce.onrender.com/api` is set on Vercel
+2. API on Render returns 404 for most V1 endpoints
+3. `requestApiJson()` catches the 404 → throws `API_UNAVAILABLE`
+4. Catches `API_UNAVAILABLE` → calls `tryStaticFallback()` → succeeds for mapped paths
+5. Pages render with static data — no blank screens
+
+### Route Coverage Matrix
+
+**Fully static-capable (14):**
+`/`, `/basho`, `/basho/:id`, `/basho/:id/:div`, `/basho/:id/:div/day/:day`,
+`/compare/basho/:a/:b`, `/rikishi`, `/search`, `/analytics`, `/analytics/kimarite`,
+`/stables`, `/stables/:slug`, `/timeline`, `/watchlist`
+
+**Partial (3):**
+`/rikishi/:id` (published shell), `/analytics/eras` (directory OK), `/rivalries` (directory OK)
+
+**Still need live API (3):**
+`/compare/:a/:b`, `/leaderboard`, `/admin/import`
+
+**Redirected (1):**
+`/wrestler/:rid` → `/rikishi/:rid`
