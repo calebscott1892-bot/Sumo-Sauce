@@ -341,7 +341,7 @@ export default function GlobalStatsPage() {
 
         <PremiumSectionShell
           title="Analytics data did not load"
-          subtitle="This surface depends on recent Makuuchi standings and the routeable directory, so it should not pretend empty charts mean empty data."
+          subtitle="This section depends on recent Makuuchi standings and the rikishi directory. Empty charts reflect data coverage, not a bug."
         >
           <DataUnavailableState
             title="Recent analytics could not load"

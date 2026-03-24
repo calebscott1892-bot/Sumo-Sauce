@@ -28,7 +28,7 @@ export default function DatasetInfoPanel() {
           VERIFIED PROFILE COVERAGE
         </div>
         <h2 className="mt-2 font-display text-2xl font-bold tracking-tight text-white">
-          What the published profile layer can show clearly
+          What the published profiles can show
         </h2>
         <p className="mt-2 text-sm leading-relaxed text-zinc-400">
           These figures come from the current verified profile dataset. They describe published coverage, not a promise that every surface has identical depth.
@@ -51,7 +51,7 @@ export default function DatasetInfoPanel() {
       <div className="mt-5 grid gap-3 border-t border-white/[0.06] pt-5 text-sm text-zinc-400 sm:grid-cols-3">
         <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-3.5">
           <div className="text-[11px] font-semibold uppercase tracking-[0.14em] text-zinc-500">Coverage shape</div>
-          <div className="mt-1 text-zinc-200">{divisionCount} active divisions plus historical records are represented in the published profile layer.</div>
+          <div className="mt-1 text-zinc-200">{divisionCount} active divisions plus historical records are represented in the published dataset.</div>
         </div>
         <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-3.5">
           <div className="text-[11px] font-semibold uppercase tracking-[0.14em] text-zinc-500">Freshness model</div>

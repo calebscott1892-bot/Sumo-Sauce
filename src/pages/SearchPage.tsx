@@ -113,7 +113,7 @@ export default function SearchPage() {
       <PremiumPageHeader
         accentLabel="SEARCH"
         title="Search"
-        subtitle="Search the published profile layer or jump into basho by tournament name or YYYYMM id."
+        subtitle="Search published profiles by name, or jump into basho by tournament name or YYYYMM id."
         breadcrumbs={[
           { label: 'Home', to: '/' },
           { label: 'Search' },
@@ -147,7 +147,7 @@ export default function SearchPage() {
           <div>
             <h2 className="font-display text-base font-bold tracking-tight text-white">Published search index</h2>
             <p className="mt-1 max-w-3xl text-sm leading-relaxed text-zinc-400">
-              Rikishi results come from the published profile dataset, so this search can render the same profile layer the homepage counts describe.
+              Rikishi results come from the published profile dataset.
             </p>
           </div>
           <div className="text-left text-xs text-zinc-500 sm:text-right">
@@ -182,7 +182,7 @@ export default function SearchPage() {
       <div className="flex flex-col gap-2 text-xs text-zinc-500 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between">
         <span className="leading-relaxed">
           {tab === 'rikishi'
-            ? 'Routeable results open wrestler pages. Profile-only results stay visible here and in the directory until routeable career data is available.'
+            ? 'Results with full profiles open detailed wrestler pages. Profile-only results stay visible here and in the directory.'
             : 'Browse basho by tournament name, calendar label, or raw YYYYMM id.'}
         </span>
         <span>{isRefreshingResults ? 'Refreshing results...' : `Showing ${resultCounts[tab]} result${resultCounts[tab] === 1 ? '' : 's'}`}</span>

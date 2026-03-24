@@ -258,7 +258,7 @@ export default function ComparePage() {
 
         <PremiumSectionShell
           title="Comparison data did not load"
-          subtitle="This is not the same as either wrestler being missing. The pair exists in the published profile layer, but the live comparison API did not load."
+          subtitle="Both wrestlers exist in the published profiles, but the live comparison data is not available right now."
         >
           <DataUnavailableState
             title="Head-to-head comparison could not load"

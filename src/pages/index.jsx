@@ -292,8 +292,8 @@ function HomePage() {
   );
 
   const heroStats = [
-    { value: metrics.totalProfiles.toLocaleString(), label: 'Published', sub: 'profile layer' },
-    { value: routeableProfileCount.toLocaleString(), label: 'Full pages', sub: 'routeable detail' },
+    { value: metrics.totalProfiles.toLocaleString(), label: 'Published', sub: 'profiles' },
+    { value: routeableProfileCount.toLocaleString(), label: 'Full pages', sub: 'wrestler detail' },
     {
       value: metrics.latestVerifiedBashoLabel ?? 'Varies',
       label: 'Latest verified',
@@ -424,7 +424,7 @@ function HomePage() {
 
             <div className="rounded-[28px] border border-black/10 bg-white/70 p-4 shadow-[0_22px_60px_rgba(20,20,20,0.18)] backdrop-blur-2xl dark:border-white/[0.08] dark:bg-black/20 dark:shadow-[0_22px_60px_rgba(0,0,0,0.22)] sm:p-5">
               <HomeHeroGuidanceRail />
-              <div className="text-[11px] font-semibold uppercase tracking-[0.18em] text-zinc-500">Search the published profile layer</div>
+              <div className="text-[11px] font-semibold uppercase tracking-[0.18em] text-zinc-500">Search published profiles</div>
               <div className="mt-3">
                 <RikishiSearch />
               </div>

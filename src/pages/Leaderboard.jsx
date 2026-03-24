@@ -765,7 +765,7 @@ export default function Leaderboard() {
                   Verified image rule preserved
                 </div>
                 <p className="mt-2 text-sm leading-relaxed text-zinc-400">
-                  Official photos only render when the verified profile layer confirms them. Otherwise the leaderboard falls back to neutral avatars.
+                  Official photos appear only when image verification is complete. Otherwise the leaderboard uses neutral avatars.
                 </p>
               </div>
 

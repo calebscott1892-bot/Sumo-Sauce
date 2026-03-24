@@ -129,13 +129,13 @@ export default function RikishiDirectoryPage() {
     <div data-testid="rikishi-directory-page" className="mx-auto max-w-6xl space-y-5 p-4 text-zinc-200 sm:space-y-6 sm:p-6">
       <PageMeta
         title="Sumo Sauce - Rikishi Directory"
-        description={`Browse ${directory.length.toLocaleString()} published rikishi profiles in Sumo Sauce, including profile-only entries that do not yet have a routeable career page.`}
+        description={`Browse ${directory.length.toLocaleString()} published rikishi profiles in Sumo Sauce, including profile-only entries that do not yet have a full career page.`}
       />
 
       <PremiumPageHeader
         accentLabel="RIKISHI DIRECTORY"
         title="Rikishi Directory"
-        subtitle="Browse the full published profile layer, then open routeable career pages where they exist."
+        subtitle="Browse all published profiles, then open full career pages where available."
         breadcrumbs={[
           { label: 'Home', to: '/' },
           { label: 'Rikishi Directory' },
@@ -151,7 +151,7 @@ export default function RikishiDirectoryPage() {
       >
         <div className="flex flex-col gap-2 text-sm text-zinc-400 sm:flex-row sm:flex-wrap sm:gap-4">
           <span><span className="font-semibold text-white">{directory.length.toLocaleString()}</span> published profiles</span>
-          <span><span className="font-semibold text-white">{routeableCount.toLocaleString()}</span> routeable rikishi pages</span>
+          <span><span className="font-semibold text-white">{routeableCount.toLocaleString()}</span> full rikishi pages</span>
           <span><span className="font-semibold text-white">{activeRosterCount}</span> active roster entries</span>
           <span><span className="font-semibold text-white">{stableSummaries.length}</span> stables tracked</span>
         </div>
@@ -318,7 +318,7 @@ export default function RikishiDirectoryPage() {
 
       <PremiumSectionShell
         title="Roster results"
-        subtitle="Published profiles render here directly, even when a routeable career page is not yet available."
+        subtitle="Published profiles appear here even when a full career page is not yet available."
         trailing={<PremiumBadge variant="zinc">{sorted.length} shown</PremiumBadge>}
       >
         {sorted.length === 0 ? (

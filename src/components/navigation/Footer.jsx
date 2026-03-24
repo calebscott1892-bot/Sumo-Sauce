@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 
-const YEAR_RANGE = '2000-present';
-const VERSION = '1.0.0';
+const COVERAGE_ERA = '2000 – present';
 
 export default function Footer() {
   return (
@@ -18,10 +17,10 @@ export default function Footer() {
               </span>
             </Link>
             <p className="mt-3 text-xs leading-relaxed text-zinc-500">
-              Professional sumo browsing and analytics backed by a structured published profile layer.
+              Professional sumo browsing and analytics backed by verified rikishi profiles and structured tournament data.
             </p>
             <p className="mt-2 text-[10px] font-medium uppercase tracking-wider text-zinc-700">
-              v{VERSION} · {YEAR_RANGE}
+              Coverage era: {COVERAGE_ERA}
             </p>
           </div>
 

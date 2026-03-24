@@ -27,7 +27,7 @@ export default function DataUnavailableState({
         </div>
         <div className="min-w-0 flex-1">
           <div className="text-[11px] font-semibold uppercase tracking-[0.18em] text-amber-300/80">
-            Data not loaded
+            Limited coverage
           </div>
           <h3 className="mt-2 font-display text-xl font-bold tracking-tight text-white">{title}</h3>
           <p className="mt-2 text-sm leading-relaxed text-amber-50/90">{description}</p>

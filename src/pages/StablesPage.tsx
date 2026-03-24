@@ -90,7 +90,7 @@ export default function StablesPage() {
 
       <PremiumSectionShell
         title="Find a stable"
-        subtitle="Stable pages are built from the published profile layer, with active roster depth and trust context where that coverage is available."
+        subtitle="Stable pages are built from the published profile dataset, with roster depth and trust context where available."
       >
         <div className="grid gap-3 md:grid-cols-[minmax(0,1fr)_14rem]">
           <label className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-3 text-sm">

@@ -360,12 +360,12 @@ export default function RikishiPage() {
         <PageMeta title={pageTitle} description={pageDesc} />
 
         <PremiumPageHeader
-          accentLabel="PROFILE FALLBACK"
+          accentLabel="RIKISHI PROFILE"
           title={publishedEntry?.shikona ?? rikishiId}
           subtitle={isNumericId
-            ? 'This numeric wrestler id is not a routable domain rikishi id in the currently loaded backend build.'
-            : 'This rikishi id is not present in the currently loaded domain build.'}
-          badge={publishedEntry?.division ?? (isNumericId ? 'Entity/profile id' : 'Domain id not loaded')}
+            ? 'This wrestler could not be found with the given numeric id.'
+            : 'This rikishi id does not match any profile in the current dataset.'}
+          badge={publishedEntry?.division ?? (isNumericId ? 'Numeric id' : 'Not found')}
           breadcrumbs={[
             { label: 'Home', to: '/' },
             { label: 'Rikishi', to: '/rikishi' },
@@ -379,18 +379,18 @@ export default function RikishiPage() {
         />
 
         <PremiumSectionShell
-          title="Rikishi page did not load"
-          subtitle="The profile is not treated as missing. This route currently cannot resolve in the loaded domain dataset."
+          title="Profile not available"
+          subtitle="This rikishi was not found in the current dataset. Try searching or browsing the directory instead."
         >
           <DataUnavailableState
-            title="Published profile and search paths remain available"
-            description={getApiFailureMessage(firstError, 'This rikishi route could not be resolved in the current domain build.')}
+            title="Search and browse paths are still available"
+            description={getApiFailureMessage(firstError, 'This rikishi could not be found in the current dataset.')}
             detail={isNumericId
-              ? 'Numeric/entity ids are not guaranteed to match domain rikishi ids. Use the profile layer and routeable directory links while domain coverage is incomplete.'
-              : 'This is likely a backend build-coverage gap for this rikishi id. Use profile/search routes until domain data is loaded.'}
+              ? 'Numeric ids may not match the rikishi directory. Try searching by name instead.'
+              : 'This profile may not be published yet. Use the search or directory to find published rikishi.'}
             actions={[
-              ...(isNumericId ? [{ label: 'Open wrestler profile layer', to: `/wrestler/${encodeURIComponent(rikishiId)}` }] : []),
-              ...(suggestedDomainProfile ? [{ label: `Open routeable profile: ${suggestedDomainProfile.shikona}`, to: `/rikishi/${encodeURIComponent(suggestedDomainProfile.rikishiId)}` }] : []),
+              ...(isNumericId ? [{ label: 'Search by name instead', to: `/search` }] : []),
+              ...(suggestedDomainProfile ? [{ label: `Open profile: ${suggestedDomainProfile.shikona}`, to: `/rikishi/${encodeURIComponent(suggestedDomainProfile.rikishiId)}` }] : []),
               { label: 'Browse rikishi', to: '/rikishi' },
               { label: 'Search profiles', to: '/search' },
             ]}
@@ -416,7 +416,7 @@ export default function RikishiPage() {
         <PremiumPageHeader
           accentLabel="PUBLISHED PROFILE"
           title={publishedEntry.shikona}
-          subtitle="The canonical published profile is still available, but live career, basho, and rivalry services are unavailable on this deployment right now."
+          subtitle="Profile information is available below. Full career details, tournament history, and rivalry data require the live data service."
           badge={publishedEntry.division ?? rikishiId}
           breadcrumbs={[
             { label: 'Home', to: '/' },
@@ -458,19 +458,19 @@ export default function RikishiPage() {
             ) : null}
             {!publishedEntry.routeable ? (
               <span className="rounded-full border border-amber-700/30 bg-amber-950/18 px-3 py-1 text-amber-100">
-                Routeable career page not published yet
+                Full career page coming soon
               </span>
             ) : null}
           </div>
         </PremiumPageHeader>
 
         <PremiumSectionShell
-          title="Career data did not load"
-          subtitle="This page can still show the published trust/profile layer, but timeline, kimarite, rivalry, and tournament-linked records modules need the hosted backend."
+          title="Career details"
+          subtitle="Profile summary is shown below. Full career timeline, kimarite breakdown, and rivalry data require the live data service."
         >
           <DataUnavailableState
-            title="Published profile still available"
-            description={getApiFailureMessage(firstError, 'Live rikishi services are unavailable right now.')}
+            title="Profile summary available"
+            description={getApiFailureMessage(firstError, 'Extended career data is not available right now.')}
             detail="The published profile is available below. Career details, basho history, and rivalry data require the data service to be reachable."
             actions={[
               { label: 'Browse rikishi', to: '/rikishi' },
@@ -489,18 +489,18 @@ export default function RikishiPage() {
 
           <PremiumSectionShell
             title="What is still available"
-            subtitle="Use the published profile layer for identity, trust, and safe next clicks while the live data service is offline."
+            subtitle="Profile identity, trust cues, and navigation links are still available while extended career data is offline."
           >
             <div className="grid gap-3 sm:grid-cols-2">
               <div className="rounded-xl border border-white/[0.06] bg-black/20 p-4">
                 <div className="text-[11px] font-semibold uppercase tracking-[0.16em] text-zinc-500">Profile trust</div>
                 <div className="mt-2 text-lg font-semibold text-white">{publishedEntry.profile.profileConfidence}</div>
                 <p className="mt-1 text-sm leading-relaxed text-zinc-500">
-                  Verified image and provenance rules still come from the canonical published profile layer.
+                  Verified image and provenance rules are attached to each published profile.
                 </p>
               </div>
               <div className="rounded-xl border border-white/[0.06] bg-black/20 p-4">
-                <div className="text-[11px] font-semibold uppercase tracking-[0.16em] text-zinc-500">Published roster layer</div>
+                <div className="text-[11px] font-semibold uppercase tracking-[0.16em] text-zinc-500">Division context</div>
                 <div className="mt-2 text-lg font-semibold text-white">{publishedEntry.division ?? 'Unpublished'}</div>
                 <p className="mt-1 text-sm leading-relaxed text-zinc-500">
                   Stable and division context remain browseable from the published roster snapshot.
@@ -513,7 +513,7 @@ export default function RikishiPage() {
         {stableContextEntries.length > 0 ? (
           <PremiumSectionShell
             title="Stable context still available"
-            subtitle="Even without the live career API, the published profile layer can still connect this rikishi to stable browsing."
+            subtitle="Stable and stablemate browsing is still available from the published profile dataset."
           >
             <div className="flex flex-wrap items-center gap-2 text-xs text-zinc-500">
               {stableContextSource ? <PremiumBadge variant="zinc">{stableContextSource}</PremiumBadge> : null}
@@ -642,7 +642,7 @@ export default function RikishiPage() {
             <PremiumSectionShell
               title="Stable roster context"
               subtitle={stableName
-                ? `Move from ${shikona}'s profile into ${stableName} stable depth and routeable stablemates.`
+                ? `Browse ${stableName} stable and see fellow stablemates alongside ${shikona}'s profile.`
                 : 'Stable browsing becomes available when a heya is published for this rikishi.'}
               trailing={stableHref ? (
                 <Link
@@ -666,8 +666,8 @@ export default function RikishiPage() {
               ) : stableContextEntries.length === 0 ? (
                 <div className="rounded-xl border border-white/[0.06] bg-black/20 p-4 text-sm leading-relaxed text-zinc-400">
                   {directoryQuery.error
-                    ? `Live stable roster data is unavailable right now, and no published stablemates are currently visible for ${stableName}.`
-                    : `No additional routeable stablemates are currently published for ${stableName}.`}
+                    ? `Stable roster data is not available right now. No stablemates found for ${stableName}.`
+                    : `No additional stablemates are currently published for ${stableName}.`}
                 </div>
               ) : (
                 <div className="space-y-3">
@@ -676,8 +676,8 @@ export default function RikishiPage() {
                     {stableContextSource ? <PremiumBadge variant="zinc">{stableContextSource}</PremiumBadge> : null}
                     <span>
                       {stableContextSource === 'Published stable snapshot'
-                        ? 'This stable context is coming from the published profile layer because the live routeable roster feed is unavailable.'
-                        : 'Roster depth is derived from the routeable directory and current verified roster context where published.'}
+                        ? 'Stable roster shown from the published profile dataset because extended roster data is not currently available.'
+                        : 'Roster depth is derived from the current verified rikishi directory and published profile data.'}
                     </span>
                   </div>
                   <div className="grid gap-2">

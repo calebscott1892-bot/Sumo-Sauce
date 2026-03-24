@@ -212,7 +212,7 @@ export default function StablePage() {
             className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-4 transition-colors hover:border-red-600/40 hover:bg-white/[0.04]"
           >
             <div className="text-sm font-semibold text-white">All tracked members</div>
-            <p className="mt-2 text-sm leading-relaxed text-zinc-500">Switch back to the full routeable directory for every tracked member tied to this stable.</p>
+            <p className="mt-2 text-sm leading-relaxed text-zinc-500">Open the full rikishi directory to see every tracked member of this stable.</p>
           </Link>
 
           {latestTournamentId && stable.divisions[0] && stable.divisions[0] !== 'Historical' ? (
@@ -243,7 +243,7 @@ export default function StablePage() {
       {otherTrackedMembers.length > 0 && (
         <PremiumSectionShell
           title="Other tracked members"
-          subtitle="These rikishi are tied to the same stable in the published profile layer but do not currently carry active roster context in the active snapshot."
+          subtitle="These rikishi belong to this stable but do not currently have active roster context in the latest snapshot."
         >
           <div className="grid gap-2">
             {otherTrackedMembers.map((entry) => (
