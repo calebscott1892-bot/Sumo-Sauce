@@ -258,10 +258,23 @@ export default function RivalryExplorerPage() {
   }, [candidatePool, candidateQuery]);
 
   const h2hQuery = useQuery({
-    queryKey: ['rivalry-explorer-h2h', candidatePairs.map(([a, b]) => `${a.rikishiId}:${b.rikishiId}`).join(',')],
-    enabled: candidatePairs.length > 0,
+    queryKey: ['rivalry-explorer-h2h', candidateQuery || '__default__'],
+    enabled: true,
     staleTime: 10 * 60 * 1000,
     queryFn: async (): Promise<RivalryEntry[]> => {
+      // ── Try pre-generated rivalries.json first (works offline) ──
+      try {
+        const res = await fetch('/data/rivalries.json');
+        if (res.ok) {
+          const staticRivalries: RivalryEntry[] = await res.json();
+          if (Array.isArray(staticRivalries) && staticRivalries.length > 0) {
+            return staticRivalries;
+          }
+        }
+      } catch { /* fall through to live API */ }
+
+      // ── Fallback: N² H2H API queries (needs server) ──
+      if (!candidatePairs.length) return [];
       const results: RivalryEntry[] = [];
       let unavailableFailures = 0;
       const batchSize = 15;

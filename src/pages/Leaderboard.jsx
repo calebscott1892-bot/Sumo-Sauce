@@ -314,50 +314,144 @@ export default function Leaderboard() {
       setLoadErrorCode('');
 
       try {
-        const wrestlersUrl = resolveApiUrl(`/entities/Wrestler?limit=${WRESTLER_LIMIT}`);
-        const recordsUrl = resolveApiUrl(`/entities/BashoRecord?limit=${BASHO_RECORD_LIMIT}`);
+        // ── Try pipeline standings (static fallback works offline) ──
+        let leaderboardData = null;
+        try {
+          const res = await fetch('/data/leaderboard.json');
+          if (res.ok) leaderboardData = await res.json();
+        } catch { /* ignore */ }
 
-        if (!wrestlersUrl || !recordsUrl) {
-          setWrestlersData([]);
-          setBashoRecordsData([]);
-          setLoadErrorCode('API_UNAVAILABLE');
-          setLoadError(getApiUnavailableMessage());
+        // Fallback: try live API standings for recent basho
+        if (!leaderboardData) {
+          try {
+            const bashoRes = await fetch('/data/basho-index.json');
+            if (bashoRes.ok) {
+              const bashoIds = await bashoRes.json();
+              const recent = bashoIds.slice(0, 6);
+              leaderboardData = [];
+              for (const bid of recent) {
+                const divEntries = {};
+                for (const div of ['Makuuchi', 'Juryo']) {
+                  try {
+                    const sRes = await fetch(`/data/standings/${bid}/${div}.json`);
+                    if (sRes.ok) divEntries[div] = await sRes.json();
+                  } catch { /* skip */ }
+                }
+                if (Object.keys(divEntries).length > 0) {
+                  leaderboardData.push({ bashoId: bid, divisions: divEntries });
+                }
+              }
+            }
+          } catch { /* ignore */ }
+        }
+
+        if (!leaderboardData || !leaderboardData.length) {
+          // Last resort: try legacy entity API
+          const wrestlersUrl = resolveApiUrl(`/entities/Wrestler?limit=${WRESTLER_LIMIT}`);
+          const recordsUrl = resolveApiUrl(`/entities/BashoRecord?limit=${BASHO_RECORD_LIMIT}`);
+
+          if (!wrestlersUrl || !recordsUrl) {
+            setWrestlersData([]);
+            setBashoRecordsData([]);
+            setLoadErrorCode('API_UNAVAILABLE');
+            setLoadError(getApiUnavailableMessage());
+            return;
+          }
+
+          const [wrestlersRes, recordsRes] = await Promise.all([
+            fetch(wrestlersUrl),
+            fetch(recordsUrl),
+          ]);
+
+          if (!wrestlersRes.ok || !recordsRes.ok) {
+            if (
+              wrestlersRes.status === 404 ||
+              recordsRes.status === 404 ||
+              wrestlersRes.status >= 500 ||
+              recordsRes.status >= 500
+            ) {
+              const unavailableError = new Error(getApiUnavailableMessage());
+              unavailableError.code = 'API_UNAVAILABLE';
+              throw unavailableError;
+            }
+            throw new Error(`API request failed (${wrestlersRes.status}/${recordsRes.status})`);
+          }
+
+          const [wrestlersJson, recordsJson] = await Promise.all([
+            wrestlersRes.json(),
+            recordsRes.json(),
+          ]);
+
+          if (!Array.isArray(wrestlersJson) || !Array.isArray(recordsJson)) {
+            throw new Error('Backend returned non-array payload(s)');
+          }
+
+          if (!isMounted) return;
+          setWrestlersData(wrestlersJson);
+          setBashoRecordsData(recordsJson);
+          setLoadError('');
           return;
         }
 
-        const [wrestlersRes, recordsRes] = await Promise.all([
-          fetch(wrestlersUrl),
-          fetch(recordsUrl),
-        ]);
-
-        if (!wrestlersRes.ok || !recordsRes.ok) {
-          if (
-            wrestlersRes.status === 404 ||
-            recordsRes.status === 404 ||
-            wrestlersRes.status >= 500 ||
-            recordsRes.status >= 500
-          ) {
-            const unavailableError = new Error(getApiUnavailableMessage());
-            unavailableError.code = 'API_UNAVAILABLE';
-            throw unavailableError;
-          }
-
-          throw new Error(`API request failed (${wrestlersRes.status}/${recordsRes.status})`);
-        }
-
-        const [wrestlersJson, recordsJson] = await Promise.all([
-          wrestlersRes.json(),
-          recordsRes.json(),
-        ]);
-
-        if (!Array.isArray(wrestlersJson) || !Array.isArray(recordsJson)) {
-          throw new Error('Backend returned non-array payload(s)');
-        }
-
+        // ── Convert pipeline standings to wrestler/bashoRecord shapes ──
         if (!isMounted) return;
 
-        setWrestlersData(wrestlersJson);
-        setBashoRecordsData(recordsJson);
+        const BASHO_LABELS = {
+          '01': 'Hatsu', '03': 'Haru', '05': 'Natsu',
+          '07': 'Nagoya', '09': 'Aki', '11': 'Kyushu',
+        };
+
+        const wrestlerMap = new Map();
+        const records = [];
+
+        for (const { bashoId, divisions } of leaderboardData) {
+          const year = bashoId.slice(0, 4);
+          const month = bashoId.slice(4, 6);
+          const bashoLabel = `${BASHO_LABELS[month] || month} ${year}`;
+
+          for (const [divLabel, standings] of Object.entries(divisions)) {
+            for (const entry of standings) {
+              const total = entry.wins + entry.losses;
+              const winPct = total > 0 ? entry.wins / total : 0;
+
+              // Parse rank into tier + number + side
+              const rankParts = (entry.rank || '').match(/^(\S+)\s+(\d+)\s*(East|West|e|w)?$/i);
+              const tier = rankParts ? rankParts[1] : entry.rank || divLabel;
+              const rankNumber = rankParts ? Number(rankParts[2]) : 999;
+              const side = rankParts && rankParts[3] ? rankParts[3] : '';
+
+              if (!wrestlerMap.has(entry.rikishiId)) {
+                wrestlerMap.set(entry.rikishiId, {
+                  rid: entry.rikishiId,
+                  shikona: entry.shikona,
+                  current_rank: tier,
+                  current_division: divLabel,
+                  current_rank_number: rankNumber,
+                  current_side: side,
+                  status_is_active: true,
+                  official_image_url: '',
+                });
+              }
+
+              records.push({
+                rid: entry.rikishiId,
+                shikona: entry.shikona,
+                basho: bashoLabel,
+                record_id: `${bashoLabel} ${entry.rikishiId}`,
+                division: divLabel,
+                rank: tier,
+                rank_number: rankNumber,
+                side: side,
+                wins: entry.wins,
+                losses: entry.losses,
+                win_pct: winPct,
+              });
+            }
+          }
+        }
+
+        setWrestlersData([...wrestlerMap.values()]);
+        setBashoRecordsData(records);
         setLoadError('');
       } catch (error) {
         if (!isMounted) return;

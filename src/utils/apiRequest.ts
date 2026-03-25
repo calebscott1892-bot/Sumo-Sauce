@@ -51,6 +51,14 @@ function staticFallbackUrl(path: string): string | null {
     return `/data/bouts/${bashoId}/${div}.json`;
   }
 
+  // /v1/head-to-head/:a/:b -> head-to-head/:lo_:hi.json (sorted IDs)
+  const h2hMatch = clean.match(/^v1\/head-to-head\/([^/]+)\/([^/]+)$/);
+  if (h2hMatch) {
+    const [, a, b] = h2hMatch;
+    const [lo, hi] = a < b ? [a, b] : [b, a];
+    return `/data/head-to-head/${lo}_${hi}.json`;
+  }
+
   return null;
 }
 

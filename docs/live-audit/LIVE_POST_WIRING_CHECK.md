@@ -757,3 +757,54 @@ Files modified: `DataUnavailableState.tsx`, `Footer.jsx`, `DatasetInfoPanel.tsx`
 | `/stables/isegahama` | 0 | 0 | CLEAN |
 
 **Zero page errors across all 10 tested routes.**
+
+---
+
+## Pipeline Data Coverage Depth Pass
+
+Date: 2026-03-25
+
+### Root Cause
+
+The previous session's pipeline fix (commits `dea7055`, `f116ec2`) corrected the SumoDB
+URL parameter bug (`d=Makuuchi` → `d=1..15`), increasing bout count from 3,706 to
+358,915 across 144 basho and 15 days. However, several frontend data-depth issues
+remained:
+
+1. **Standings sort wrong** — static generator sorted by `winPercentage DESC`,
+   meaning a 3-0 wrestler ranked above 13-4. The live API sorts by `wins DESC`.
+2. **Leaderboard disconnected** — used legacy EntityRecord table (300 wrestlers),
+   completely separate from the pipeline's 2,861 rikishi. No static fallback.
+3. **Zero rivalry data offline** — no pre-generated H2H data; the RivalryExplorer
+   required N² live API calls to the server (120 pairs × 15 batches).
+4. **Head-to-head had no static fallback** — `staticFallbackUrl()` didn't map
+   `/v1/head-to-head/:a/:b`.
+
+### Fixes Applied
+
+| File | Change |
+|------|--------|
+| `scripts/generate-static-data.mjs` | Fixed standings sort: `wins DESC` (not `winPercentage DESC`). Added rivalry generation (500 pairs, ≥3 bouts from Makuuchi/Juryo). Added H2H file generation (200 pair files). Added leaderboard.json (6 recent basho × Makuuchi+Juryo standings). |
+| `src/utils/apiRequest.ts` | Added static fallback mapping for `/v1/head-to-head/:a/:b` → `/data/head-to-head/:lo_:hi.json`. |
+| `src/pages/Leaderboard.jsx` | Rewired data loading: tries pipeline `leaderboard.json` first (works offline), falls back to per-basho standings files, then legacy entity API as last resort. Converts pipeline standings into the internal wrestler/bashoRecord format. |
+| `src/pages/RivalryExplorerPage.tsx` | Added static rivalry fallback: tries pre-generated `rivalries.json` first (works offline), falls back to N² H2H API. |
+
+### Before / After Evidence
+
+| Metric | Before | After |
+|--------|--------|-------|
+| Standings #1 (202403 Makuuchi) | Shimazuumi 3-0 (win% sort) | Nishikigi 13-4 (wins sort) |
+| Standings sort correct | ❌ winPercentage DESC | ✅ wins DESC |
+| Rivalry pairs available offline | 0 | 500 |
+| Top rivalry | N/A (server required) | Hakuho vs Kotoshogiku (102 bouts) |
+| Leaderboard data source | EntityRecord (300 wrestlers) | Pipeline standings (358 wrestlers, 6 basho) |
+| Leaderboard works offline | ❌ | ✅ |
+| H2H static fallback | ❌ | ✅ (200 pair files) |
+| Static data files | 1,733 | 1,935 |
+
+### Validation
+
+- `tsc --noEmit` — PASS (exit 0)
+- `vite build` — PASS (built in 4.70s)
+- Standings sort verified: wins descending across all 866 division files
+- Rivalry data verified: 500 pairs, all with ≥3 bouts, top = 102 bouts

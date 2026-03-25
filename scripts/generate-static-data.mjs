@@ -178,7 +178,7 @@ async function main() {
               .map(([kimariteId, count]) => ({ kimariteId, count }))
               .sort((a, b) => b.count - a.count),
           };
-        }).sort((a, b) => b.winPercentage - a.winPercentage || b.wins - a.wins);
+        }).sort((a, b) => b.wins - a.wins || a.losses - b.losses);
 
         const displayDiv = DIVISION_DISPLAY[division];
         writeJson(path.join(OUTPUT_DIR, 'standings', bashoId, `${displayDiv}.json`), standings);
@@ -205,19 +205,124 @@ async function main() {
     console.log(`   ✅ standings/ — ${standingsCount} division files`);
     console.log(`   ✅ bouts/ — ${boutsCount} division files`);
 
-    // ── 4. Metadata ───────────────────────────────────────────────────────
+    // ── 4. Top Rivalries (head-to-head for Makuuchi/Juryo wrestlers) ─────
+    console.log('   ⏳ Computing top rivalries...');
+    const topDivisionRikishi = rikishiDirectory.filter(
+      r => r.currentDivision === 'makuuchi' || r.currentDivision === 'juryo'
+    );
+    // Build H2H data from Bout table for all top-division pairs
+    const h2hMap = new Map(); // key = "a::b" (sorted), value = { a, b, aWins, bWins, total, lastBasho }
+    const topIds = new Set(topDivisionRikishi.map(r => r.rikishiId));
+    const shikonaMap = new Map(rikishiDirectory.map(r => [r.rikishiId, r.shikona]));
+    const heyaMap = new Map(rikishiDirectory.map(r => [r.rikishiId, r.heya]));
+
+    // Query all bouts involving top-division rikishi
+    const topBouts = await prisma.bout.findMany({
+      where: {
+        OR: [
+          { eastRikishiId: { in: [...topIds] } },
+          { westRikishiId: { in: [...topIds] } },
+        ],
+      },
+      select: {
+        eastRikishiId: true,
+        westRikishiId: true,
+        winnerRikishiId: true,
+        bashoId: true,
+      },
+    });
+
+    for (const bout of topBouts) {
+      const { eastRikishiId: e, westRikishiId: w, winnerRikishiId: winner, bashoId } = bout;
+      if (!topIds.has(e) || !topIds.has(w)) continue;
+      const [a, b] = e < w ? [e, w] : [w, e];
+      const key = `${a}::${b}`;
+      let rec = h2hMap.get(key);
+      if (!rec) {
+        rec = { a, b, aWins: 0, bWins: 0, total: 0, lastBasho: '' };
+        h2hMap.set(key, rec);
+      }
+      rec.total++;
+      if (winner === a) rec.aWins++;
+      else if (winner === b) rec.bWins++;
+      if (bashoId > rec.lastBasho) rec.lastBasho = bashoId;
+    }
+
+    // Write top rivalries (pairs with >= 3 bouts, sorted by total desc)
+    const rivalries = [...h2hMap.values()]
+      .filter(r => r.total >= 3)
+      .sort((a, b) => b.total - a.total)
+      .slice(0, 500)
+      .map(r => ({
+        rikishiA: r.a,
+        shikonaA: shikonaMap.get(r.a) || r.a,
+        heyaA: heyaMap.get(r.a) || null,
+        rikishiB: r.b,
+        shikonaB: shikonaMap.get(r.b) || r.b,
+        heyaB: heyaMap.get(r.b) || null,
+        totalMatches: r.total,
+        aWins: r.aWins,
+        bWins: r.bWins,
+        closeness: r.total > 0 ? +(1 - Math.abs(r.aWins - r.bWins) / r.total).toFixed(4) : 0,
+        lastBasho: r.lastBasho,
+      }));
+    writeJson(path.join(OUTPUT_DIR, 'rivalries.json'), rivalries);
+    console.log(`   ✅ rivalries.json — ${rivalries.length} rivalry pairs`);
+
+    // Also write individual H2H files for the top pairs
+    let h2hFileCount = 0;
+    for (const r of rivalries.slice(0, 200)) {
+      const [lo, hi] = r.rikishiA < r.rikishiB ? [r.rikishiA, r.rikishiB] : [r.rikishiB, r.rikishiA];
+      writeJson(path.join(OUTPUT_DIR, 'head-to-head', `${lo}_${hi}.json`), {
+        rikishiA: lo,
+        rikishiB: hi,
+        totalMatches: r.totalMatches,
+        rikishiAWins: lo === r.rikishiA ? r.aWins : r.bWins,
+        rikishiBWins: lo === r.rikishiA ? r.bWins : r.aWins,
+        lastMatch: r.lastBasho ? { bashoId: r.lastBasho } : null,
+      });
+      h2hFileCount++;
+    }
+    console.log(`   ✅ head-to-head/ — ${h2hFileCount} pair files`);
+
+    // ── 5. Leaderboard data (per-basho, per-division standings) ──────────
+    // Generate a leaderboard index from the most recent basho standings
+    // This replaces the legacy EntityRecord-based leaderboard
+    const recentBashoIds = bashoIds.slice(0, 6); // last 6 tournaments
+    const leaderboardBasho = [];
+    for (const bid of recentBashoIds) {
+      const divEntries = {};
+      for (const division of ['makuuchi', 'juryo']) {
+        const displayDiv = DIVISION_DISPLAY[division];
+        const standingsPath = path.join(OUTPUT_DIR, 'standings', bid, `${displayDiv}.json`);
+        try {
+          const data = JSON.parse(readFileSync(standingsPath, 'utf8'));
+          divEntries[displayDiv] = data;
+        } catch { /* file may not exist for this basho/division */ }
+      }
+      if (Object.keys(divEntries).length > 0) {
+        leaderboardBasho.push({ bashoId: bid, divisions: divEntries });
+      }
+    }
+    writeJson(path.join(OUTPUT_DIR, 'leaderboard.json'), leaderboardBasho);
+    console.log(`   ✅ leaderboard.json — ${leaderboardBasho.length} basho × Makuuchi+Juryo`);
+
+    // ── 6. Metadata ───────────────────────────────────────────────────────
     writeJson(path.join(OUTPUT_DIR, 'meta.json'), {
       generatedAt: new Date().toISOString(),
       bashoCount: bashoIds.length,
       rikishiCount: rikishiDirectory.length,
       standingsFiles: standingsCount,
       boutsFiles: boutsCount,
+      rivalryCount: rivalries.length,
+      h2hFiles: h2hFileCount,
+      leaderboardBasho: leaderboardBasho.length,
       divisions: DIVISIONS,
       dataSource: 'pipeline-build-canonical',
     });
     console.log(`   ✅ meta.json`);
     console.log(`\n🎉 Static data generation complete!`);
-    console.log(`   Total files: ${2 + standingsCount + boutsCount + 1}`);
+    console.log(`   Total files: ${2 + standingsCount + boutsCount + 1 + 1 + h2hFileCount + 1}`);
 
   } finally {
     await prisma.$disconnect();
